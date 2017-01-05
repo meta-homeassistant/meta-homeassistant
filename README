@@ -1,3 +1,5 @@
+**WARNING**: This is work in progress and requires changes in [`meta-python`](https://github.com/bachp/meta-openembedded/tree/python-packages) that are not yet upstream!!
+
 This README file contains information on the contents of the
 homeassistant layer. It contains recipes to run https://home-assistant.io/
 on a OE target.
