@@ -38,9 +38,9 @@ RDEPENDS_${PN} += " \
 
 # TODO: Currently broken as it crashes with pthread_cancel error
 # homeassistant.components.discovery
-#RDEPENDS_${PN} += " \
-#    python3-netdisco \
-#    "
+RDEPENDS_${PN} += " \
+    python3-netdisco \
+    "
 
 # homeassistant.components.sun
 RDEPENDS_${PN} += " \
