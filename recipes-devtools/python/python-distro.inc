@@ -1,13 +1,11 @@
 DESCRIPTION = "Linux Distribution - a Linux OS platform information API"
 HOMEPAGE = "https://github.com/nir0s/distro"
 LICENSE = "Apache-2.0"
-#TODO: https://github.com/nir0s/distro/issues/139
-#LIC_FILES_CHKSUM = "file://LICENSE;md5=01441d50dc74476db58a41ac10cb9fa2"
-LIC_FILES_CHKSUM = "file://README.rst;md5=22b95bbc874ff52f680aa3a08d5abf0a"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=d2794c0df5b907fdace235a619d80314"
 
 inherit pypi
 
-SRC_URI[md5sum] = "d1726863ed44003b4e52884f888918c4"
-SRC_URI[sha256sum] = "b940995858ec63a29a272ddf7916818bb5cccb9297928fb8230fd37a146b1f26"
+SRC_URI[md5sum] = "259e26a3a5a1c92faead7216cce433a9"
+SRC_URI[sha256sum] = "77ec1f3695eed4dcda4e0e89d04dfcd91a20d3080d34f9294c5da47235382745"
 
 BBCLASSEXTEND = "native nativesdk"
