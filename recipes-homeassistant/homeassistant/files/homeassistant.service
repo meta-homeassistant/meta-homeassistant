@@ -1,0 +1,12 @@
+[Unit]
+Description=Home Assistant
+After=network.target
+
+[Service]
+Type=simple
+User=homeassistant
+#User=root
+ExecStart=/usr/bin/hass --skip-pip -c "/var/lib/homeassistant"
+
+[Install]
+WantedBy=multi-user.target
