@@ -1,0 +1,27 @@
+From 9364a01be0bcdc0d25e4674511e1a3233c59c0a8 Mon Sep 17 00:00:00 2001
+From: Pascal Bach <pascal.bach@nextrem.ch>
+Date: Mon, 16 Jan 2017 21:39:41 +0100
+Subject: [PATCH] Improve make clean compatibility
+
+---
+ Makefile | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 1f98de9..35ea7b9 100644
+--- a/Makefile
++++ b/Makefile
+@@ -69,8 +69,8 @@ clean:
+ 	@rm -rf coverage
+ 	@rm -rf build
+ 	@rm -rf cover
+-	@make -C docs clean
+-	@python setup.py clean
++	@make -C docs clean SPHINXBUILD=false
++	@python3 setup.py clean
+ 	@rm -f aiohttp/_multidict.html
+ 	@rm -f aiohttp/_multidict.c
+ 	@rm -f aiohttp/_multidict.*.so
+-- 
+2.7.4
+

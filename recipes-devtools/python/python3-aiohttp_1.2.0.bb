@@ -5,6 +5,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=d4ae7def6b740abc020a2700493fef4e"
 
 inherit pypi setuptools3
 
+SRC_URI += "file://0001-Improve-make-clean-compatibility.patch"
+
 SRC_URI[md5sum] = "a7b25d51bf887ec4f9b87463a6bff6d4"
 SRC_URI[sha256sum] = "8ce0ab4301bf38db2ae13e4921bdb3841507919c9121373405a43c7bd0a07f78"
 
