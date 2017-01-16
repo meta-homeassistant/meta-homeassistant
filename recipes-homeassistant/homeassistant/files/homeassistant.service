@@ -6,7 +6,7 @@ After=network.target
 Type=simple
 User=homeassistant
 #User=root
-ExecStart=/usr/bin/hass --skip-pip -c "/var/lib/homeassistant"
+ExecStart=/usr/bin/hass --skip-pip -c "@HOMEASSISTANT_CONFIG_DIR@"
 
 [Install]
 WantedBy=multi-user.target

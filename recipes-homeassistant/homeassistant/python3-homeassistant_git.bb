@@ -4,6 +4,9 @@ SECTION = "devel/python"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2aaba14ff23856010e6b6000a4e45fd6"
 
+HOMEASSISTANT_CONFIG_DIR ?= "${localstatedir}/lib/homeassistant"
+HOMEASSISTANT_CONFIG_DIR[doc] = "Configuration directory used by home-assistant."
+
 inherit setuptools3 useradd systemd
 
 SRCREV = "${AUTOREV}"
@@ -13,12 +16,9 @@ S = "${WORKDIR}/git"
 
 SRC_URI += "file://homeassistant.service"
 
-SRC_URI[md5sum] = "8b81c4be91a28bada412095cf3ca1f66"
-SRC_URI[sha256sum] = "e2eb230b6597a17e200e91823f91cf48dcb71da9704b22577334236c31a0558b"
-
 USERADD_PACKAGES = "${PN}"
 GROUPADD_PARAM_${PN} = "homeassistant"
-USERADD_PARAM_${PN} = "--system --home ${localstatedir}/lib/homeassistant \
+USERADD_PARAM_${PN} = "--system --home ${HOMEASSISTANT_CONFIG_DIR} \
                        --no-create-home --shell /bin/false \
                        --groups homeassistant,dialout --gid homeassistant homeassistant"
 
@@ -26,11 +26,12 @@ SYSTEMD_AUTO_ENABLE = "enable"
 SYSTEMD_SERVICE_${PN} = "homeassistant.service"
 
 do_install_append () {
-    install -d -o homeassistant -g homeassistant ${D}${localstatedir}/lib/homeassistant
+    install -d -o homeassistant -g homeassistant ${D}${HOMEASSISTANT_CONFIG_DIR}
 
-    # Install systemd unit files
+    # Install systemd unit files and set correct config directory
     install -d ${D}${systemd_unitdir}/system
     install -m 0644 ${WORKDIR}/homeassistant.service ${D}${systemd_unitdir}/system
+    sed -i -e 's,@HOMEASSISTANT_CONFIG_DIR@,${HOMEASSISTANT_CONFIG_DIR},g' ${D}${systemd_unitdir}/system/homeassistant.service
 }
 
 # Home Assistant core
