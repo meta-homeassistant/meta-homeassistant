@@ -12,20 +12,10 @@ Dependencies
 
 This layer depends on:
 
-  URI: git://git.openembedded.org/bitbake
-  branch: master
-
-  URI: git://git.openembedded.org/openembedded-core
-  layers: meta
-  branch: master
-
-  URI: git://git.openembedded.org/meta-openembedded/
-  layers: meta-oe meta-python
-  branch: master
-
-  URI: https://github.com/bachp/meta-homeassistant
-  layers: homeassistant
-  branch: master
+- [bitbake (master)](https://github.com/openembedded/bitbake)
+- [openembedded-core (master)](https://github.com/openembedded/openembedded-core)
+- [meta-oe (master)](https://github.com/openembedded/meta-openembedded/tree/master/meta-oe)
+- [meta-python (master)](https://github.com/openembedded/meta-openembedded/tree/master/meta-python)
 
 Contributing
 ============
@@ -49,10 +39,13 @@ yocto build tree, you can add it to the build system by adding the
 location of the homeassistant layer to bblayers.conf, along with any
 other layers needed. e.g.:
 
-  BBLAYERS ?= " \
-    /path/to/yocto/meta \
-    /path/to/yocto/meta-poky \
-    /path/to/yocto/meta-yocto-bsp \
-    /path/to/yocto//meta-openembedded/meta-oe \
-    /path/to/yocto/meta-openembedded/meta-python \
-    /path/to/yocto/meta-homeassistant \
+```
+BBLAYERS ?= " \
+  /path/to/yocto/meta \
+  /path/to/yocto/meta-poky \
+  /path/to/yocto/meta-yocto-bsp \
+  /path/to/yocto//meta-openembedded/meta-oe \
+  /path/to/yocto/meta-openembedded/meta-python \
+  /path/to/yocto/meta-homeassistant \
+"
+ ```
