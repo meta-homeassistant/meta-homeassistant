@@ -105,3 +105,8 @@ RDEPENDS_${PN} += " \
 RDEPENDS_${PN} += " \
     python3-google-api-python-client \
     "
+
+# homeassistant.components.light.hue
+RDEPENDS_${PN} += " \
+    python3-phue \
+    "
