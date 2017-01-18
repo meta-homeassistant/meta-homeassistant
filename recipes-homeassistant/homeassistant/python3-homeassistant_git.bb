@@ -9,9 +9,9 @@ HOMEASSISTANT_CONFIG_DIR[doc] = "Configuration directory used by home-assistant.
 
 inherit setuptools3 useradd systemd
 
-SRCREV = "${AUTOREV}"
-PV = "0.36.0+gitr${SRCPV}"
-SRC_URI += "git://github.com/home-assistant/home-assistant.git;protocol=https;branch=dev"
+SRCREV = "2625fee861798ce1e703b21ec1f5ddc576f9281f"
+PV = "0.36.1"
+SRC_URI += "git://github.com/home-assistant/home-assistant.git;protocol=https"
 S = "${WORKDIR}/git"
 
 SRC_URI += "file://homeassistant.service"
