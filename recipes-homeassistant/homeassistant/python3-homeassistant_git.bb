@@ -1,20 +1,23 @@
 SUMMARY = "Open-source home automation platform running on Python 3"
 HOMEPAGE = "https://home-assistant.io/"
 SECTION = "devel/python"
-LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=2aaba14ff23856010e6b6000a4e45fd6"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://LICENSE.md;md5=f4eda51018051de136d3b3742e9a7a40"
 
 HOMEASSISTANT_CONFIG_DIR ?= "${localstatedir}/lib/homeassistant"
 HOMEASSISTANT_CONFIG_DIR[doc] = "Configuration directory used by home-assistant."
 
 inherit setuptools3 useradd systemd
 
-SRCREV = "2625fee861798ce1e703b21ec1f5ddc576f9281f"
-PV = "0.36.1"
+SRCREV = "46aa2e7ce19b9252513db3ee9c9ba0526d2470e8"
+PV = "0.37"
 SRC_URI += "git://github.com/home-assistant/home-assistant.git;protocol=https"
 S = "${WORKDIR}/git"
 
-SRC_URI += "file://homeassistant.service"
+SRC_URI += "\
+    file://homeassistant.service \
+    file://configuration.yaml \
+    "
 
 USERADD_PACKAGES = "${PN}"
 GROUPADD_PARAM_${PN} = "homeassistant"
@@ -109,4 +112,14 @@ RDEPENDS_${PN} += " \
 # homeassistant.components.light.hue
 RDEPENDS_${PN} += " \
     python3-phue \
+    "
+
+# homeassistant.components.hdmi_cec
+RDEPENDS_${PN} += " \
+    python3-pycec \
+    "
+
+# homeassistant.components.knx
+RDEPENDS_${PN} += " \
+    python3-knxip \
     "
