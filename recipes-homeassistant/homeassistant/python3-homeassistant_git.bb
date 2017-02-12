@@ -100,16 +100,15 @@ RDEPENDS_${PN} += " \
 RDEPENDS_${PN} += " \
     python3-gtts-token (=1.1.1) \
     "
-#TODO: Upstream wants (=3.0.0)
+
 # homeassistant.components.google
 RDEPENDS_${PN} += " \
     python3-oauth2client (=4.0.0)\
     "
 
-#TODO: Upstream wants (=1.5.5)
 # homeassistant.components.google
 RDEPENDS_${PN} += " \
-    python3-google-api-python-client (=1.6.1) \
+    python3-google-api-python-client (=1.6.2) \
     "
 
 # homeassistant.components.light.hue
