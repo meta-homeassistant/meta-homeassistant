@@ -7,7 +7,7 @@ PYPI_PACKAGE = "pyCEC"
 PYPI_PACKAGE_EXT = "zip"
 inherit pypi setuptools3
 
-SRC_URI[md5sum] = "e1c9d29f4ff7be2e7d6f45df13dc5d97"
-SRC_URI[sha256sum] = "28725a9ab4adf5513894ec42951c873545edd7d9acdb92282766133fbe957a68"
+SRC_URI[md5sum] = "a107e9bb0cdb3be203c979c54fe9483e"
+SRC_URI[sha256sum] = "aae1d7e32bb875b402ab24e7a7eaa1a98b1e82a9093432c14e6a8d4e2e0db3e1"
 
 RDEPENDS_${PN} = "python3-libcec"
