@@ -44,7 +44,7 @@ BBLAYERS ?= " \
   /path/to/yocto/meta \
   /path/to/yocto/meta-poky \
   /path/to/yocto/meta-yocto-bsp \
-  /path/to/yocto//meta-openembedded/meta-oe \
+  /path/to/yocto/meta-openembedded/meta-oe \
   /path/to/yocto/meta-openembedded/meta-python \
   /path/to/yocto/meta-homeassistant \
 "
