@@ -9,10 +9,9 @@ HOMEASSISTANT_CONFIG_DIR[doc] = "Configuration directory used by home-assistant.
 
 inherit setuptools3 useradd systemd
 
-SRCREV = "b59b42db2c72c28d5ce76a8ba7bac601e7de00ee"
-PV = "0.38.1"
-SRC_URI += "git://github.com/home-assistant/home-assistant.git;protocol=https"
-S = "${WORKDIR}/git"
+inherit pypi
+SRC_URI[md5sum] = "dec425b0e6355ef2450e282e0761510f"
+SRC_URI[sha256sum] = "99004ae91c9ec0837b13c1ff1c029e950a8a33b38841960f8fb3d4cbef7030d3"
 
 SRC_URI += "\
     file://homeassistant.service \
