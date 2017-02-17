@@ -10,13 +10,12 @@ HOMEASSISTANT_CONFIG_DIR[doc] = "Configuration directory used by home-assistant.
 inherit setuptools3 useradd update-rc.d systemd
 
 inherit pypi
-SRC_URI[md5sum] = "dec425b0e6355ef2450e282e0761510f"
-SRC_URI[sha256sum] = "99004ae91c9ec0837b13c1ff1c029e950a8a33b38841960f8fb3d4cbef7030d3"
+SRC_URI[md5sum] = "f335df17d83d8d72c403fcb8fb686684"
+SRC_URI[sha256sum] = "1c5808c5ed0c03e72f512ee51230da03d908ff5db8eecb09ae5291125ac6f97d"
 
 SRC_URI += "\
     file://homeassistant.service \
     file://homeassistant.init \
-    file://configuration.yaml \
     file://0001-remove-typing-it-is-already-included-in-python-3.5.patch \
     "
 
@@ -26,7 +25,7 @@ USERADD_PARAM_${PN} = "--system --home ${HOMEASSISTANT_CONFIG_DIR} \
                        --no-create-home --shell /bin/false \
                        --groups homeassistant,dialout --gid homeassistant homeassistant"
 
-INITSCRIPT_NAME_${PN} = "homeassistant"
+INITSCRIPT_NAME = "homeassistant"
 
 SYSTEMD_AUTO_ENABLE = "enable"
 SYSTEMD_SERVICE_${PN} = "homeassistant.service"
