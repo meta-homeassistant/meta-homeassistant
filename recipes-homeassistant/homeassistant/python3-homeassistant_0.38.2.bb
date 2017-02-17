@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.md;md5=f4eda51018051de136d3b3742e9a7a40"
 HOMEASSISTANT_CONFIG_DIR ?= "${localstatedir}/lib/homeassistant"
 HOMEASSISTANT_CONFIG_DIR[doc] = "Configuration directory used by home-assistant."
 
-inherit setuptools3 useradd systemd
+inherit setuptools3 useradd update-rc.d systemd
 
 inherit pypi
 SRC_URI[md5sum] = "dec425b0e6355ef2450e282e0761510f"
@@ -15,6 +15,7 @@ SRC_URI[sha256sum] = "99004ae91c9ec0837b13c1ff1c029e950a8a33b38841960f8fb3d4cbef
 
 SRC_URI += "\
     file://homeassistant.service \
+    file://homeassistant.init \
     file://configuration.yaml \
     file://0001-remove-typing-it-is-already-included-in-python-3.5.patch \
     "
@@ -25,11 +26,18 @@ USERADD_PARAM_${PN} = "--system --home ${HOMEASSISTANT_CONFIG_DIR} \
                        --no-create-home --shell /bin/false \
                        --groups homeassistant,dialout --gid homeassistant homeassistant"
 
+INITSCRIPT_NAME_${PN} = "homeassistant"
+
 SYSTEMD_AUTO_ENABLE = "enable"
 SYSTEMD_SERVICE_${PN} = "homeassistant.service"
 
 do_install_append () {
     install -d -o homeassistant -g homeassistant ${D}${HOMEASSISTANT_CONFIG_DIR}
+
+    # Install init scripts and set correct config directory
+    install -d ${D}${sysconfdir}/init.d
+    install -m 0644 ${WORKDIR}/homeassistant.init  ${D}${sysconfdir}/init.d/homeassistant
+    sed -i -e 's,@HOMEASSISTANT_CONFIG_DIR@,${HOMEASSISTANT_CONFIG_DIR},g'  ${D}${sysconfdir}/init.d/homeassistant
 
     # Install systemd unit files and set correct config directory
     install -d ${D}${systemd_unitdir}/system

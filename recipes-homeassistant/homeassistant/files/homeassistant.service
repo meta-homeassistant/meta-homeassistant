@@ -5,7 +5,6 @@ After=network.target
 [Service]
 Type=simple
 User=homeassistant
-#User=root
 ExecStart=/usr/bin/hass --skip-pip -c "@HOMEASSISTANT_CONFIG_DIR@"
 
 [Install]
