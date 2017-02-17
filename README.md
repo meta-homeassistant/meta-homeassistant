@@ -16,6 +16,7 @@ This layer depends on:
 - [openembedded-core (master)](https://github.com/openembedded/openembedded-core)
 - [meta-oe (master)](https://github.com/openembedded/meta-openembedded/tree/master/meta-oe)
 - [meta-python (master)](https://github.com/openembedded/meta-openembedded/tree/master/meta-python)
+- [meta-security (master)](http://git.yoctoproject.org/cgit/cgit.cgi/meta-security)
 
 Contributing
 ============
@@ -46,6 +47,7 @@ BBLAYERS ?= " \
   /path/to/yocto/meta-yocto-bsp \
   /path/to/yocto//meta-openembedded/meta-oe \
   /path/to/yocto/meta-openembedded/meta-python \
+  /path/to/yocto/meta-security \
   /path/to/yocto/meta-homeassistant \
 "
  ```
