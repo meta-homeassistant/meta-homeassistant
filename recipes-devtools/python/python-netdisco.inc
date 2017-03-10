@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://setup.cfg;md5=c7944671b56b57941659d2e5928422bb"
 
 inherit pypi
 
-SRC_URI[md5sum] = "88ebaa676c9c4b530beb59ce39e7865c"
-SRC_URI[sha256sum] = "5b5cbb51f279516a5eda55dcaa83fd6e459c5241fdf095f00067c2d7fcb9f9a6"
+SRC_URI[md5sum] = "8b3b261ed6e2aa2d3d076c4e11b9ea1a"
+SRC_URI[sha256sum] = "11e80a8ba67f36d76bedefe346c06211380d45ccad96f54a9789acb4db158d3f"
 
 RDEPENDS_${PN} = "${PYTHON_PN}-netifaces ${PYTHON_PN}-requests ${PYTHON_PN}-threading ${PYTHON_PN}-zeroconf"
