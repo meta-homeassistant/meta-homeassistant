@@ -7,3 +7,5 @@ inherit pypi setuptools3
 
 SRC_URI[md5sum] = "8c3565e165266dd7710a76f50ae44319"
 SRC_URI[sha256sum] = "b88bd1fe001b800ec23c7bf27a81b32819e2a56668e9fba5646a7f3618143081"
+
+DEPENDS = "python3-pytest-runner-native python3"
