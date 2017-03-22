@@ -12,8 +12,8 @@ HOMEASSISTANT_CONFIG_DIR[doc] = "Configuration directory used by home-assistant.
 inherit setuptools3 useradd update-rc.d systemd
 
 inherit pypi
-SRC_URI[md5sum] = "e207cd3f0318c3ffd347a71aba6ecef5"
-SRC_URI[sha256sum] = "3ffb16a9b405f2fd4e24880dc823da4812e0447c857cc1a00d3142694a1bc5b2"
+SRC_URI[md5sum] = "dfe6ecea69c1b576b21552a87d280059"
+SRC_URI[sha256sum] = "75c03b65eab015e6c91ce523e0b3ac24a915b132562f8b04dfeeac8a84db262c"
 
 SRC_URI += "\
     file://homeassistant.service \
@@ -48,93 +48,92 @@ do_install_append () {
 
 # Home Assistant core
 RDEPENDS_${PN} = " \
-    python3-requests (>=2) \
-    python3-pyyaml (>=3.11)  \
-    python3-pytz (>=2016.10) \
-    python3-jinja2 (>=2.9.5) \
-    python3-voluptuous (=0.9.3) \
-    python3-typing (>=3) \
-    python3-aiohttp (=1.3.3)\
-    python3-async-timeout (=1.1.0) \
+    python3-requests (>= 2) \
+    python3-pyyaml (>= 3.11)  \
+    python3-pytz (>= 2016.10) \
+    python3-pip (>= 7.1.0) \
+    python3-jinja2 (>= 2.9.5) \
+    python3-voluptuous (= 0.9.3) \
+    python3-typing (>= 3) \
+    python3-aiohttp (= 1.3.3)\
+    python3-async-timeout (= 1.1.0) \
     \
     python3-asyncio \
     python3-multiprocessing \
     python3-sqlite3 \
     python3-html \
-    \
-    python3-pip (>=7.0.0) \
     "
 
 
 # homeassistant.components.http
 RDEPENDS_${PN} += " \
-    python3-aiohttp-cors (=0.5.0) \
+    python3-aiohttp-cors (= 0.5.0) \
     "
 
 # homeassistant.components.recorder
 # homeassistant.scripts.db_migrator
 RDEPENDS_${PN} += " \
-    python3-sqlalchemy (>=1.1.5) \
+    python3-sqlalchemy (>= 1.1.5) \
     "
 
 # homeassistant.components.discovery
 RDEPENDS_${PN} += " \
-    python3-netdisco (=0.9.2) \
+    python3-netdisco (= 0.9.2) \
     "
 
 # homeassistant.components.sun
 RDEPENDS_${PN} += " \
-    python3-astral (=1.3.4) \
+    python3-astral (= 1.3.4) \
     "
 
 # homeassistant.components.sensor.swiss_hydrological_data
 # homeassistant.components.sensor.ted5000
 # homeassistant.components.sensor.yr
 RDEPENDS_${PN} += " \
-    python3-xmltodict (=0.10.2)\
+    python3-xmltodict (= 0.10.2)\
     "
 
 # homeassistant.components.updater
 RDEPENDS_${PN} += " \
-    python3-distro (=1.0.2) \
+    python3-distro (= 1.0.2) \
     "
 
 # homeassistant.components.conversation
 RDEPENDS_${PN} += " \
-    python3-fuzzywuzzy (=0.15.0) \
+    python3-fuzzywuzzy (= 0.15.0) \
     "
 
 # homeassistant.components.tts.google
 RDEPENDS_${PN} += " \
-    python3-gtts-token (=1.1.1) \
+    python3-gtts-token (= 1.1.1) \
     "
 
 # homeassistant.components.google
 RDEPENDS_${PN} += " \
-    python3-oauth2client (=4.0.0)\
+    python3-oauth2client (= 4.0.0)\
     "
 
 # homeassistant.components.google
 RDEPENDS_${PN} += " \
-    python3-google-api-python-client (=1.6.2) \
+    python3-google-api-python-client (= 1.6.2) \
     "
 
 # homeassistant.components.light.hue
 RDEPENDS_${PN} += " \
-    python3-phue (=0.9) \
+    python3-phue (= 0.9) \
     "
 
 # homeassistant.components.hdmi_cec
 RDEPENDS_${PN} += " \
-    python3-pycec (=0.4.13) \
+    python3-pycec (= 0.4.13) \
     "
 
 # homeassistant.components.knx
 RDEPENDS_${PN} += " \
-    python3-knxip (=0.3.3) \
+    python3-knxip (= 0.3.3) \
     "
 
 # homeassistant.scripts.check_config
 RDEPENDS_${PN} += " \
-    python3-colorlog (>=2.10.0) \
+    python3-colorlog (>= 2.10.0) \
     "
