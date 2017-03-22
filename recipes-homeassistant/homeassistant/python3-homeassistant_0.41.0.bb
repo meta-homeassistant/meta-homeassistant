@@ -126,9 +126,9 @@ RDEPENDS_${PN} += " \
     "
 
 # homeassistant.components.hdmi_cec
-RDEPENDS_${PN} += " \
-    python3-pycec (= 0.4.13) \
-    "
+#RDEPENDS_${PN} += " \
+#    python3-pycec (= 0.4.13) \
+#    "
 
 # homeassistant.components.knx
 RDEPENDS_${PN} += " \
