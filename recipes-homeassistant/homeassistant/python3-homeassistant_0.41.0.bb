@@ -2,9 +2,7 @@ SUMMARY = "Open-source home automation platform running on Python 3"
 HOMEPAGE = "https://home-assistant.io/"
 SECTION = "devel/python"
 LICENSE = "Apache-2.0"
-# TODO: https://github.com/home-assistant/home-assistant/pull/6514
-#LIC_FILES_CHKSUM = "file://LICENSE.md;md5=f4eda51018051de136d3b3742e9a7a40"
-LIC_FILES_CHKSUM = "file://README.rst;md5=1c78d1df746ca803a79ee5b00720230a"
+LIC_FILES_CHKSUM = "file://LICENSE.md;md5=f4eda51018051de136d3b3742e9a7a40"
 
 HOMEASSISTANT_CONFIG_DIR ?= "${localstatedir}/lib/homeassistant"
 HOMEASSISTANT_CONFIG_DIR[doc] = "Configuration directory used by home-assistant."
@@ -14,8 +12,8 @@ HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 inherit setuptools3 useradd update-rc.d systemd
 
 inherit pypi
-SRC_URI[md5sum] = "dfe6ecea69c1b576b21552a87d280059"
-SRC_URI[sha256sum] = "75c03b65eab015e6c91ce523e0b3ac24a915b132562f8b04dfeeac8a84db262c"
+SRC_URI[md5sum] = "861e403c1da3048657e3a351d60e4783"
+SRC_URI[sha256sum] = "51b8e77577dfa55837c66cfc918b030d9f51d3894f6987be4d3506e6c6199dae"
 
 SRC_URI += "\
     file://homeassistant.service \
