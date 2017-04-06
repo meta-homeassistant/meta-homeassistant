@@ -57,8 +57,8 @@ RDEPENDS_${PN} = " \
     python3-jinja2 (>= 2.9.5) \
     python3-voluptuous (= 0.9.3) \
     python3-typing (>= 3) \
-    python3-aiohttp (= 1.3.3)\
-    python3-async-timeout (= 1.1.0) \
+    python3-aiohttp (= 1.3.5)\
+    python3-async-timeout (= 1.2.0) \
     \
     python3-asyncio \
     python3-multiprocessing \
@@ -75,7 +75,7 @@ RDEPENDS_${PN} += " \
 # homeassistant.components.recorder
 # homeassistant.scripts.db_migrator
 RDEPENDS_${PN} += " \
-    python3-sqlalchemy (>= 1.1.5) \
+    python3-sqlalchemy (>= 1.1.6) \
     "
 
 # homeassistant.components.discovery
@@ -85,7 +85,7 @@ RDEPENDS_${PN} += " \
 
 # homeassistant.components.sun
 RDEPENDS_${PN} += " \
-    python3-astral (= 1.3.4) \
+    python3-astral (= 1.4) \
     "
 
 # homeassistant.components.sensor.swiss_hydrological_data
@@ -97,7 +97,7 @@ RDEPENDS_${PN} += " \
 
 # homeassistant.components.updater
 RDEPENDS_${PN} += " \
-    python3-distro (= 1.0.2) \
+    python3-distro (= 1.0.3) \
     "
 
 # homeassistant.components.conversation
