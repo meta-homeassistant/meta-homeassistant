@@ -137,7 +137,22 @@ RDEPENDS_${PN} += " \
     python3-knxip (= 0.3.3) \
     "
 
+# homeassistant.components.netatmo
+RDEPENDS_${PN} += " \
+    python3-lnetatmo (= 0.9.1) \
+    "
+
+# homeassistant.components.mystrom
+RDEPENDS_${PN} += " \
+    python3-mystrom (= 0.3.6) \
+    "
+
 # homeassistant.scripts.check_config
 RDEPENDS_${PN} += " \
     python3-colorlog (>= 2.10.0) \
+    "
+
+# homeassistant.components.lifx
+RDEPENDS_${PN} += " \
+    python3-liffylights (= 0.9.4)  \
     "
