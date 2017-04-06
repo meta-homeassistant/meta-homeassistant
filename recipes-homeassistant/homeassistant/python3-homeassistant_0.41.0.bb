@@ -154,3 +154,12 @@ RDEPENDS_${PN} += " \
 RDEPENDS_${PN} += " \
     python3-liffylights (= 0.9.4)  \
     "
+# homeassistant.components.mqtt
+RDEPENDS_${PN} += " \
+    python3-paho-mqtt (= 1.2) \
+    "
+
+# homeassistant.components.mqtt.server
+RDEPENDS_${PN} += " \
+    python3-hbmqtt (= 0.8) \
+    "
