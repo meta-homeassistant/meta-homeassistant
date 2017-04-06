@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/TangoAlpha/liffylights"
 LICENSE = "MIT"
 # TODO: Use real license once: https://github.com/TangoAlpha/liffylights/issues/4 is fixed
 #LIC_FILES_CHKSUM = "file://LICENSE;md5=d4ae7def6b740abc020a2700493fef4e"
-LIC_FILES_CHKSUM = "file://setup.py;md5=d4ae7def6b740abc020a2700493fef4e"
+LIC_FILES_CHKSUM = "file://setup.py;md5=135909ef7d0e10f6275b91453b25f7a5"
 
 inherit pypi setuptools3
 
