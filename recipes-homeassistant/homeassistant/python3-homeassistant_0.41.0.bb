@@ -50,15 +50,15 @@ do_install_append () {
 
 # Home Assistant core
 RDEPENDS_${PN} = " \
-    python3-requests (>= 2) \
-    python3-pyyaml (>= 3.11)  \
-    python3-pytz (>= 2016.10) \
-    python3-pip (>= 7.1.0) \
-    python3-jinja2 (>= 2.9.5) \
-    python3-voluptuous (= 0.9.3) \
-    python3-typing (>= 3) \
-    python3-aiohttp (= 1.3.5)\
-    python3-async-timeout (= 1.2.0) \
+    python3-requests  \
+    python3-pyyaml   \
+    python3-pytz  \
+    python3-pip \
+    python3-jinja2  \
+    python3-voluptuous  \
+    python3-typing  \
+    python3-aiohttp \
+    python3-async-timeout  \
     \
     python3-asyncio \
     python3-multiprocessing \
@@ -69,99 +69,99 @@ RDEPENDS_${PN} = " \
 
 # homeassistant.components.http
 RDEPENDS_${PN} += " \
-    python3-aiohttp-cors (= 0.5.0) \
+    python3-aiohttp-cors  \
     "
 
 # homeassistant.components.recorder
 # homeassistant.scripts.db_migrator
 RDEPENDS_${PN} += " \
-    python3-sqlalchemy (>= 1.1.6) \
+    python3-sqlalchemy  \
     "
 
 # homeassistant.components.discovery
 RDEPENDS_${PN} += " \
-    python3-netdisco (= 0.9.2) \
+    python3-netdisco  \
     "
 
 # homeassistant.components.sun
 RDEPENDS_${PN} += " \
-    python3-astral (= 1.4) \
+    python3-astral  \
     "
 
 # homeassistant.components.sensor.swiss_hydrological_data
 # homeassistant.components.sensor.ted5000
 # homeassistant.components.sensor.yr
 RDEPENDS_${PN} += " \
-    python3-xmltodict (= 0.10.2)\
+    python3-xmltodict \
     "
 
 # homeassistant.components.updater
 RDEPENDS_${PN} += " \
-    python3-distro (= 1.0.3) \
+    python3-distro  \
     "
 
 # homeassistant.components.conversation
 RDEPENDS_${PN} += " \
-    python3-fuzzywuzzy (= 0.15.0) \
+    python3-fuzzywuzzy  \
     "
 
 # homeassistant.components.tts.google
 RDEPENDS_${PN} += " \
-    python3-gtts-token (= 1.1.1) \
+    python3-gtts-token  \
     "
 
 # homeassistant.components.google
 RDEPENDS_${PN} += " \
-    python3-oauth2client (= 4.0.0)\
+    python3-oauth2client \
     "
 
 # homeassistant.components.google
 RDEPENDS_${PN} += " \
-    python3-google-api-python-client (= 1.6.2) \
+    python3-google-api-python-client  \
     "
 
 # homeassistant.components.light.hue
 RDEPENDS_${PN} += " \
-    python3-phue (= 0.9) \
+    python3-phue  \
     "
 
 # homeassistant.components.hdmi_cec
 #RDEPENDS_${PN} += " \
-#    python3-pycec (= 0.4.13) \
+#    python3-pycec  \
 #    "
 
 # homeassistant.components.knx
 RDEPENDS_${PN} += " \
-    python3-knxip (= 0.3.3) \
+    python3-knxip  \
     "
 
 # homeassistant.components.netatmo
 RDEPENDS_${PN} += " \
-    python3-lnetatmo (= 0.9.1) \
+    python3-lnetatmo \
     "
 
 # homeassistant.components.mystrom
 RDEPENDS_${PN} += " \
-    python3-mystrom (= 0.3.6) \
+    python3-mystrom \
     "
 
 # homeassistant.scripts.check_config
 RDEPENDS_${PN} += " \
-    python3-colorlog (>= 2.10.0) \
+    python3-colorlog  \
     "
 
 # homeassistant.components.lifx
 RDEPENDS_${PN} += " \
-    python3-liffylights (= 0.9.4)  \
+    python3-liffylights \
     "
 # homeassistant.components.mqtt
 RDEPENDS_${PN} += " \
-    python3-paho-mqtt (= 1.2) \
+    python3-paho-mqtt \
     "
 
 # homeassistant.components.mqtt.server
 RDEPENDS_${PN} += " \
-    python3-hbmqtt (= 0.8) \
+    python3-hbmqtt \
     "
 
 # homeassistant.components.media_player.sonos
