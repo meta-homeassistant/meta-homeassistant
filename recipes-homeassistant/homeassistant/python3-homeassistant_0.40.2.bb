@@ -8,6 +8,8 @@ LIC_FILES_CHKSUM = "file://README.rst;md5=1c78d1df746ca803a79ee5b00720230a"
 
 HOMEASSISTANT_CONFIG_DIR ?= "${localstatedir}/lib/homeassistant"
 HOMEASSISTANT_CONFIG_DIR[doc] = "Configuration directory used by home-assistant."
+HOMEASSISTANT_USER ?= "homeassistant"
+HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 
 inherit setuptools3 useradd update-rc.d systemd
 
@@ -25,7 +27,7 @@ USERADD_PACKAGES = "${PN}"
 GROUPADD_PARAM_${PN} = "homeassistant"
 USERADD_PARAM_${PN} = "--system --home ${HOMEASSISTANT_CONFIG_DIR} \
                        --no-create-home --shell /bin/false \
-                       --groups homeassistant,dialout --gid homeassistant homeassistant"
+                       --groups homeassistant,dialout --gid homeassistant ${HOMEASSISTANT_USER}"
 
 INITSCRIPT_NAME = "homeassistant"
 
@@ -37,13 +39,15 @@ do_install_append () {
 
     # Install init scripts and set correct config directory
     install -d ${D}${sysconfdir}/init.d
-    install -m 0644 ${WORKDIR}/homeassistant.init  ${D}${sysconfdir}/init.d/homeassistant
+    install -m 0755 ${WORKDIR}/homeassistant.init  ${D}${sysconfdir}/init.d/homeassistant
     sed -i -e 's,@HOMEASSISTANT_CONFIG_DIR@,${HOMEASSISTANT_CONFIG_DIR},g'  ${D}${sysconfdir}/init.d/homeassistant
+    sed -i -e 's,@HOMEASSISTANT_USER@,${HOMEASSISTANT_USER},g'  ${D}${sysconfdir}/init.d/homeassistant
 
     # Install systemd unit files and set correct config directory
     install -d ${D}${systemd_unitdir}/system
     install -m 0644 ${WORKDIR}/homeassistant.service ${D}${systemd_unitdir}/system
     sed -i -e 's,@HOMEASSISTANT_CONFIG_DIR@,${HOMEASSISTANT_CONFIG_DIR},g' ${D}${systemd_unitdir}/system/homeassistant.service
+    sed -i -e 's,@HOMEASSISTANT_USER@,${HOMEASSISTANT_USER},g' ${D}${systemd_unitdir}/system/homeassistant.service
 }
 
 # Home Assistant core

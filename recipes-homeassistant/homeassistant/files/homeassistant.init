@@ -11,7 +11,7 @@
 # /etc/init.d Service Script for Home Assistant
 # Created with: https://gist.github.com/naholyr/4275302#file-new-service-sh
 PRE_EXEC=""
-RUN_AS="homeassistant"
+RUN_AS="@HOMEASSISTANT_USER@"
 PID_FILE="/var/run/hass.pid"
 CONFIG_DIR="@HOMEASSISTANT_CONFIG_DIR@"
 FLAGS="-v --config $CONFIG_DIR --pid-file $PID_FILE --daemon"
@@ -22,7 +22,7 @@ start() {
     echo 'Service already running' >&2
     return 1
   fi
-  echo 'Starting service…' >&2
+  echo 'Starting service' >&2
   local CMD="$PRE_EXEC hass $FLAGS $REDIRECT;"
   su -c "$CMD" $RUN_AS
   echo 'Service started' >&2
@@ -33,7 +33,7 @@ stop() {
     echo 'Service not running' >&2
     return 1
   fi
-  echo 'Stopping service…' >&2
+  echo 'Stopping service' >&2
   kill $(cat "$PID_FILE")
   while ps -p $(cat "$PID_FILE") > /dev/null 2>&1; do sleep 1;done;
   echo 'Service stopped' >&2
