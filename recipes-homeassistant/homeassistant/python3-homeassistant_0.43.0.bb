@@ -12,8 +12,8 @@ HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 inherit setuptools3 useradd update-rc.d systemd
 
 inherit pypi
-SRC_URI[md5sum] = "861e403c1da3048657e3a351d60e4783"
-SRC_URI[sha256sum] = "51b8e77577dfa55837c66cfc918b030d9f51d3894f6987be4d3506e6c6199dae"
+SRC_URI[md5sum] = "30c4ec00084998da0f202a133a1d6645"
+SRC_URI[sha256sum] = "08afa3e784fedef1d49f520b80b459c1c1c280877a2b5fe1f3cce45957161aa6"
 
 SRC_URI += "\
     file://homeassistant.service \
@@ -52,13 +52,14 @@ do_install_append () {
 RDEPENDS_${PN} = " \
     python3-requests (>= 2) \
     python3-pyyaml (>= 3.11)  \
-    python3-pytz (>= 2016.10) \
+    python3-pytz (>= 2017.02) \
     python3-pip (>= 7.1.0) \
     python3-jinja2 (>= 2.9.5) \
     python3-voluptuous (= 0.9.3) \
     python3-typing (>= 3) \
-    python3-aiohttp (= 1.3.5)\
+    python3-aiohttp (= 2.0.7)\
     python3-async-timeout (= 1.2.0) \
+    python3-chardet (= 3.0.2) \
     \
     python3-asyncio \
     python3-multiprocessing \
@@ -69,13 +70,13 @@ RDEPENDS_${PN} = " \
 
 # homeassistant.components.http
 RDEPENDS_${PN} += " \
-    python3-aiohttp-cors (= 0.5.0) \
+    python3-aiohttp-cors (= 0.5.2) \
     "
 
 # homeassistant.components.recorder
 # homeassistant.scripts.db_migrator
 RDEPENDS_${PN} += " \
-    python3-sqlalchemy (>= 1.1.6) \
+    python3-sqlalchemy (>= 1.1.9) \
     "
 
 # homeassistant.components.discovery
@@ -97,7 +98,7 @@ RDEPENDS_${PN} += " \
 
 # homeassistant.components.updater
 RDEPENDS_${PN} += " \
-    python3-distro (= 1.0.3) \
+    python3-distro (= 1.0.4) \
     "
 
 # homeassistant.components.conversation
@@ -166,5 +167,5 @@ RDEPENDS_${PN} += " \
 
 # homeassistant.components.media_player.sonos
 RDEPENDS_${PN} += " \
-    python3-soco \
+    python3-soco (= 0.12) \
     "
