@@ -33,7 +33,7 @@ SYSTEMD_AUTO_ENABLE = "enable"
 SYSTEMD_SERVICE_${PN} = "homeassistant.service"
 
 do_install_append () {
-    install -d -o homeassistant -g homeassistant ${D}${HOMEASSISTANT_CONFIG_DIR}
+    install -d -o ${HOMEASSISTANT_USER} -g homeassistant ${D}${HOMEASSISTANT_CONFIG_DIR}
 
     # Install init scripts and set correct config directory
     install -d ${D}${sysconfdir}/init.d
