@@ -163,3 +163,8 @@ RDEPENDS_${PN} += " \
 RDEPENDS_${PN} += " \
     python3-hbmqtt (= 0.8) \
     "
+
+# homeassistant.components.media_player.sonos
+RDEPENDS_${PN} += " \
+    python3-soco \
+    "
