@@ -4,31 +4,68 @@ on a OE target.
 
 Please see the corresponding sections below for details.
 
+# Quickstart
 
-Dependencies
-============
+```sh
 
-This layer depends on:
+git clone https://github.com/openembedded/openembedded-core.git
+cd openembedded-core
+git clone https://github.com/openembedded/meta-openembedded.git
+git clone https://github.com/openembedded/bitbake.git
+git clone https://git.yoctoproject.org/git/meta-security
+git clone https://github.com/bachp/meta-homeassistant.git
 
-- [bitbake (master)](https://github.com/openembedded/bitbake)
-- [openembedded-core (master)](https://github.com/openembedded/openembedded-core)
-- [meta-oe (master)](https://github.com/openembedded/meta-openembedded/tree/master/meta-oe)
-- [meta-python (master)](https://github.com/openembedded/meta-openembedded/tree/master/meta-python)
-- [meta-security (master)](http://git.yoctoproject.org/cgit/cgit.cgi/meta-security)
+. ./oe-init-build-env
 
-Contributing
-============
+bitbake-layers add-layer ../meta-openembedded/meta-oe
+bitbake-layers add-layer ../meta-openembedded/meta-python
+bitbake-layers add-layer ../meta-security
+bitbake-layers add-layer ../meta-homeassistant
+
+bitbake core-image-homeassistant
+
+runqemu qemux86 nographic
+
+```
+
+You should now be able to access Home Assistant via web browser usually under the address: http://192.168.7.2:8123
+
+# Dependencies
+
+```
+URI: https://github.com/openembedded/openembedded-core.git
+branch: master
+revision: HEAD
+
+URI: git://github.com/openembedded/meta-openembedded.git
+branch: master
+revision: HEAD
+
+URI: https://github.com/openembedded/bitbake.git
+branch: master
+revision: HEAD
+
+URI: https://git.yoctoproject.org/git/meta-security
+branch: master
+revision: HEAD
+
+```
+
+Why are these needed?
+
+- [meta-oe (master)](https://github.com/openembedded/meta-openembedded/tree/master/meta-oe) : contains meta-python
+- [meta-python (master)](https://github.com/openembedded/meta-openembedded/tree/master/meta-python) : contains many of the required python3 packages
+- [meta-security (master)](http://git.yoctoproject.org/cgit/cgit.cgi/meta-security): required for nmap used for presence detection
+
+# Contributing
 
 Please submit any patches against the homeassistant as Pull Requests on Github.
 
+## Maintainers
 
-Table of Contents
-=================
+* Pascal Bach <pascal.bach@nextrem.ch>
 
-  I. Adding the homeassistant layer to your build
-
-I. Adding the homeassistant layer to your build
-=================================================
+## Adding the homeassistant layer to your build
 
 In order to use this layer, you need to make the build system aware of
 it.
@@ -43,7 +80,7 @@ BBLAYERS ?= " \
   /path/to/yocto/meta \
   /path/to/yocto/meta-poky \
   /path/to/yocto/meta-yocto-bsp \
-  /path/to/yocto//meta-openembedded/meta-oe \
+  /path/to/yocto/meta-openembedded/meta-oe \
   /path/to/yocto/meta-openembedded/meta-python \
   /path/to/yocto/meta-security \
   /path/to/yocto/meta-homeassistant \
