@@ -11,7 +11,6 @@ inherit pypi
 DEPENDS += " \
     ${PYTHON_PN}-setuptools-scm-native"
 
-RDEPENDS_${PN} = "${PYTHON_PN}-py ${PYTHON_PN}-setuptools ${PYTHON_PN}-argparse ${PYTHON_PN}-debugger ${PYTHON_PN}-json \
-                  ${PYTHON_PN}-io"
+RDEPENDS_${PN} = "${PYTHON_PN}"
 
 BBCLASSEXTEND = "native nativesdk"
