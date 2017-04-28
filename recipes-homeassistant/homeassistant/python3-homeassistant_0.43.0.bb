@@ -151,10 +151,16 @@ RDEPENDS_${PN} += " \
     python3-colorlog (>= 2.10.0) \
     "
 
-# homeassistant.components.lifx
+# homeassistant.components.lifx_legacy
 RDEPENDS_${PN} += " \
     python3-liffylights (= 0.9.4)  \
     "
+
+# homeassistant.components.lifx
+RDEPENDS_${PN} += " \
+    python3-aiolifx (= 0.4.5) \
+    "
+
 # homeassistant.components.mqtt
 RDEPENDS_${PN} += " \
     python3-paho-mqtt (= 1.2) \
