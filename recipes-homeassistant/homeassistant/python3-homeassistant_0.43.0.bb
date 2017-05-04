@@ -175,3 +175,13 @@ RDEPENDS_${PN} += " \
 RDEPENDS_${PN} += " \
     python3-soco (= 0.12) \
     "
+
+# homeassistant.components.tradfri
+RDEPENDS_${PN} += " \
+    python3-pytradfri \
+    "
+
+# homeassistant.components.tts
+RDEPENDS_${PN} += " \
+    python3-mutagen \
+    "
