@@ -9,3 +9,5 @@ inherit pypi setuptools3
 
 SRC_URI[md5sum] = "a2102b989e1b4d293250c4efb193d512"
 SRC_URI[sha256sum] = "85012342a2ebb124ba8551809fb1267ecc19f2b17eb4489ad9d291f8cd3af775"
+
+RDEPENDS_${PN} = "${PYTHON_PN}-bitstring"
