@@ -68,120 +68,29 @@ RDEPENDS_${PN} = " \
     "
 
 
-# homeassistant.components.http
+# Component dependencies
 RDEPENDS_${PN} += " \
     python3-aiohttp-cors (= 0.5.2) \
-    "
-
-# homeassistant.components.recorder
-# homeassistant.scripts.db_migrator
-RDEPENDS_${PN} += " \
     python3-sqlalchemy (>= 1.1.9) \
-    "
-
-# homeassistant.components.discovery
-RDEPENDS_${PN} += " \
     python3-netdisco (= 0.9.2) \
-    "
-
-# homeassistant.components.sun
-RDEPENDS_${PN} += " \
     python3-astral (= 1.4) \
-    "
-
-# homeassistant.components.sensor.swiss_hydrological_data
-# homeassistant.components.sensor.ted5000
-# homeassistant.components.sensor.yr
-RDEPENDS_${PN} += " \
     python3-xmltodict (= 0.10.2)\
-    "
-
-# homeassistant.components.updater
-RDEPENDS_${PN} += " \
     python3-distro (= 1.0.4) \
-    "
-
-# homeassistant.components.conversation
-RDEPENDS_${PN} += " \
     python3-fuzzywuzzy (= 0.15.0) \
-    "
-
-# homeassistant.components.tts.google
-RDEPENDS_${PN} += " \
     python3-gtts-token (= 1.1.1) \
-    "
-
-# homeassistant.components.google
-RDEPENDS_${PN} += " \
     python3-oauth2client (= 4.0.0)\
-    "
-
-# homeassistant.components.google
-RDEPENDS_${PN} += " \
     python3-google-api-python-client (= 1.6.2) \
-    "
-
-# homeassistant.components.light.hue
-RDEPENDS_${PN} += " \
     python3-phue (= 0.9) \
-    "
-
-# homeassistant.components.hdmi_cec
-RDEPENDS_${PN} += " \
     python3-pycec (= 0.4.13) \
-    "
-
-# homeassistant.components.knx
-RDEPENDS_${PN} += " \
     python3-knxip (= 0.3.3) \
-    "
-
-# homeassistant.components.netatmo
-RDEPENDS_${PN} += " \
     python3-lnetatmo (= 0.9.1) \
-    "
-
-# homeassistant.components.mystrom
-RDEPENDS_${PN} += " \
     python3-mystrom (= 0.3.6) \
-    "
-
-# homeassistant.scripts.check_config
-RDEPENDS_${PN} += " \
     python3-colorlog (>= 2.10.0) \
-    "
-
-# homeassistant.components.lifx_legacy
-RDEPENDS_${PN} += " \
     python3-liffylights (= 0.9.4)  \
-    "
-
-# homeassistant.components.lifx
-RDEPENDS_${PN} += " \
     python3-aiolifx (= 0.4.5) \
-    "
-
-# homeassistant.components.mqtt
-RDEPENDS_${PN} += " \
     python3-paho-mqtt (= 1.2) \
-    "
-
-# homeassistant.components.mqtt.server
-RDEPENDS_${PN} += " \
     python3-hbmqtt (= 0.8) \
-    "
-
-# homeassistant.components.media_player.sonos
-RDEPENDS_${PN} += " \
     python3-soco (= 0.12) \
-    "
-
-# homeassistant.components.tradfri
-RDEPENDS_${PN} += " \
-    python3-pytradfri \
-    "
-
-# homeassistant.components.tts
-RDEPENDS_${PN} += " \
-    python3-mutagen \
+    python3-pytradfri (= 1.0) \
+    python3-mutagen (= 1.36.2) \
     "
