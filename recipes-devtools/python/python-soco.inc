@@ -11,3 +11,6 @@ SRC_URI[sha256sum] = "17fc9a6ce747b8fc1811e67450533c3393e63dd6ffe38cff703d9bfc27
 RDEPENDS_${PN} = "${PYTHON_PN}-requests"
 
 BBCLASSEXTEND = "native"
+
+# Make clean requires sphinx which we don't have
+CLEANBROKEN = "1"
