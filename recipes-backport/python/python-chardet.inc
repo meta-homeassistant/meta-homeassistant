@@ -6,3 +6,6 @@ inherit pypi
 
 SRC_URI[md5sum] = "96e364abdbde20b5f6dbbe2ad9d54d04"
 SRC_URI[sha256sum] = "4f7832e7c583348a9eddd927ee8514b3bf717c061f57b21dbe7697211454d9bb"
+
+# setup.py of chardet needs this.
+DEPENDS += "${PYTHON_PN}-pytest-runner-native"
