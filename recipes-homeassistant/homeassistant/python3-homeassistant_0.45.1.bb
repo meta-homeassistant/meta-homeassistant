@@ -12,8 +12,8 @@ HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 inherit setuptools3 useradd update-rc.d systemd
 
 inherit pypi
-SRC_URI[md5sum] = "30c4ec00084998da0f202a133a1d6645"
-SRC_URI[sha256sum] = "08afa3e784fedef1d49f520b80b459c1c1c280877a2b5fe1f3cce45957161aa6"
+SRC_URI[md5sum] = "9eff7efc1da062b633e4d0c983da9c38"
+SRC_URI[sha256sum] = "c64b8eb6241a0f7a61383ba6c2f7d0ce7fa47b2321cdc4751fca82f253382f0e"
 
 SRC_URI += "\
     file://homeassistant.service \
@@ -55,11 +55,12 @@ RDEPENDS_${PN} = " \
     python3-pytz (>= 2017.02) \
     python3-pip (>= 7.1.0) \
     python3-jinja2 (>= 2.9.5) \
-    python3-voluptuous (= 0.9.3) \
+    python3-voluptuous (= 0.10.5) \
     python3-typing (>= 3) \
     python3-aiohttp (= 2.0.7)\
-    python3-async-timeout (= 1.2.0) \
+    python3-async-timeout (= 1.2.1) \
     python3-chardet (= 3.0.2) \
+    python3-astral (= 1.4) \
     \
     python3-asyncio \
     python3-multiprocessing \
@@ -70,27 +71,26 @@ RDEPENDS_${PN} = " \
 
 # Component dependencies
 RDEPENDS_${PN} += " \
-    python3-aiohttp-cors (= 0.5.2) \
-    python3-sqlalchemy (>= 1.1.9) \
-    python3-netdisco (= 0.9.2) \
-    python3-astral (= 1.4) \
-    python3-xmltodict (= 0.10.2)\
+    python3-aiohttp-cors (= 0.5.3) \
+    python3-aiolifx (= 0.4.6) \
+    python3-colorlog (>= 2.10.0) \
     python3-distro (= 1.0.4) \
     python3-fuzzywuzzy (= 0.15.0) \
-    python3-gtts-token (= 1.1.1) \
-    python3-oauth2client (= 4.0.0)\
     python3-google-api-python-client (= 1.6.2) \
+    python3-gtts-token (= 1.1.1) \
+    python3-hbmqtt (= 0.8) \
+    python3-knxip (= 0.3.3) \
+    python3-liffylights (= 0.9.4)  \
+    python3-lnetatmo (= 0.9.1) \
+    python3-mutagen (= 1.37) \
+    python3-mystrom (= 0.3.6) \
+    python3-netdisco (= 1.0.0) \
+    python3-oauth2client (= 4.0.0)\
+    python3-paho-mqtt (= 1.2.3) \
     python3-phue (= 0.9) \
     python3-pycec (= 0.4.13) \
-    python3-knxip (= 0.3.3) \
-    python3-lnetatmo (= 0.9.1) \
-    python3-mystrom (= 0.3.6) \
-    python3-colorlog (>= 2.10.0) \
-    python3-liffylights (= 0.9.4)  \
-    python3-aiolifx (= 0.4.5) \
-    python3-paho-mqtt (= 1.2) \
-    python3-hbmqtt (= 0.8) \
+    python3-pytradfri (= 1.1) \
     python3-soco (= 0.12) \
-    python3-pytradfri (= 1.0) \
-    python3-mutagen (= 1.36.2) \
+    python3-sqlalchemy (>= 1.1.9) \
+    python3-xmltodict (= 0.11.0)\
     "
