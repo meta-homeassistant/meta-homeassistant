@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e"
 
 inherit pypi setuptools3
 
-SRC_URI[md5sum] = "b9fc198be2e415e6786da596091abe40"
-SRC_URI[sha256sum] = "0652d108c0156ae5ac94d99f53a6bdd039b0c076346ff8f58c9a1551fac17a19"
+SRC_URI[md5sum] = "e71f9b197498f917864e29af7a5defa0"
+SRC_URI[sha256sum] = "380e9bfd4c009a14931ffe487499b0906b00b3378bb743542cfd9fbb6d8e4657"
 
 DEPENDS = "python3-pytest-runner-native python3"
