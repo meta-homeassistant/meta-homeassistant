@@ -11,7 +11,7 @@ inherit pypi
 SRC_URI = "https://github.com/jabesq/netatmo-api-python/archive/v${PV}.tar.gz"
 S = "${WORKDIR}/netatmo-api-python-${PV}"
 
-SRC_URI[md5sum] = "84469907e3f4d5320033694bebc59362"
-SRC_URI[sha256sum] = "898cb2300f56f79a54a16c41f3cf0f1732b3550f26cb556648878dfd43f98693"
+SRC_URI[md5sum] = "a1632df1a5840bed45bf1850dd434de0"
+SRC_URI[sha256sum] = "0d152b87f6a97ad454c2a431766a33111e066008fdb404bfea71846213918ffd"
 
 BBCLASSEXTEND = "native"
