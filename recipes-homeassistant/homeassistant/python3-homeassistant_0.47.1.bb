@@ -90,9 +90,11 @@ RDEPENDS_${PN} += " \
     python3-paho-mqtt (= 1.2.3) \
     python3-phue (= 0.9) \
     python3-pycec (= 0.4.13) \
+    python3-pyemby (= 1.2) \
     python3-pytradfri (= 1.1) \
     python3-restrictedpython (= 4.0a3) \
     python3-soco (= 0.12) \
+    python3-spotipy (= 2.4.4) \
     python3-sqlalchemy (>= 1.1.10) \
     python3-xmltodict (= 0.11.0)\
     "
