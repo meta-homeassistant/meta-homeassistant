@@ -12,8 +12,8 @@ HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 inherit setuptools3 useradd update-rc.d systemd
 
 inherit pypi
-SRC_URI[md5sum] = "38939f70113ada4aa4a386ff26f9d698"
-SRC_URI[sha256sum] = "088a26ff2fd33e2c0aee553683bb0c61b6e9efca5dd9ea90deb5926ee55ef7ae"
+SRC_URI[md5sum] = "6928adbd4b8d00a1b17583328edd9edd"
+SRC_URI[sha256sum] = "f55aaabd21c2a91caa2a617cde24a274e8740a5b392fc2192b8a66a51cd8f7f3"
 
 SRC_URI += "\
     file://homeassistant.service \
@@ -57,9 +57,9 @@ RDEPENDS_${PN} = " \
     python3-jinja2 (>= 2.9.5) \
     python3-voluptuous (= 0.10.5) \
     python3-typing (>= 3) \
-    python3-aiohttp (= 2.2.0)\
+    python3-aiohttp (= 2.2.3)\
     python3-async-timeout (= 1.2.1) \
-    python3-chardet (= 3.0.2) \
+    python3-chardet (= 3.0.4) \
     python3-astral (= 1.4) \
     \
     python3-asyncio \
@@ -72,8 +72,8 @@ RDEPENDS_${PN} = " \
 # Component dependencies
 RDEPENDS_${PN} += " \
     python3-aiohttp-cors (= 0.5.3) \
-    python3-aiolifx (= 0.5.0) \
-    python3-aiolifx-effects (= 0.1.0) \
+    python3-aiolifx (= 0.5.2) \
+    python3-aiolifx-effects (= 0.1.1) \
     python3-colorlog (>= 2.10.0) \
     python3-distro (= 1.0.4) \
     python3-fuzzywuzzy (= 0.15.0) \
@@ -82,8 +82,8 @@ RDEPENDS_${PN} += " \
     python3-hbmqtt (= 0.8) \
     python3-jsonrpc-async (= 0.6) \
     python3-jsonrpc-websocket (= 0.5) \
-    python3-knxip (= 0.3.3) \
-    python3-libpurecoollink (= 0.1.5) \
+    python3-knxip (= 0.4) \
+    python3-libpurecoollink (= 0.2.0) \
     python3-liffylights (= 0.9.4)  \
     python3-lnetatmo (= 0.9.2) \
     python3-mutagen (= 1.37) \
@@ -91,7 +91,7 @@ RDEPENDS_${PN} += " \
     python3-netdisco (= 1.0.1) \
     python3-oauth2client (= 4.0.0)\
     python3-paho-mqtt (= 1.3.0) \
-    python3-phue (= 0.9) \
+    python3-phue (= 1.0) \
     python3-pycec (= 0.4.13) \
     python3-pyemby (= 1.4) \
     python3-pytradfri (= 1.1) \
