@@ -7,5 +7,5 @@ PYPI_PACKAGE = "aiolifx_effects"
 
 inherit pypi setuptools3
 
-SRC_URI[md5sum] = "064e3bc0e2e33f7bc4948a2803a0e976"
-SRC_URI[sha256sum] = "05207137275722a020666e499cc2d48d6808851770f824470614265ad4a1eb06"
+SRC_URI[md5sum] = "c9ffebc66b4ae3408b97c63fa6ee7dd3"
+SRC_URI[sha256sum] = "a4d9a40964f1617f546c2a324aa0319e9c31f4bed830b0ed46e0958d3bf8de7f"
