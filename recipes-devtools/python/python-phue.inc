@@ -7,5 +7,5 @@ LIC_FILES_CHKSUM = "file://phue.py;md5=e10b96f83386aa6ab24044fc37603921;startlin
 
 inherit pypi
 
-SRC_URI[md5sum] = "0c41a3cf27a5dbd86f63730096433b50"
-SRC_URI[sha256sum] = "58b75475fdd3267b2708549f4185f4eee2658e72728dcc4b239439c7918a2cd7"
+SRC_URI[md5sum] = "74d746ad85d3f5cf12adeec640a20dfd"
+SRC_URI[sha256sum] = "14b8285ece83124a6b0f47b88a62b0a6c4f2901cd1d555e36c5927bfd7417515"
