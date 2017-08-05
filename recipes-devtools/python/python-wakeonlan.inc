@@ -3,7 +3,7 @@ HOMEPAGE = " https://github.com/remcohaszing/pywakeonlan"
 LICENSE = "WTFPL"
 
 #TODO: Use LICENSE once https://github.com/remcohaszing/pywakeonlan/issues/4 is fixed
-LIC_FILES_CHKSUM = "file://setup.py;startline=18;endline=18;md5=3f056150ac7fad21b51033a5e4ad0031"
+LIC_FILES_CHKSUM = "file://setup.py;startline=18;endline=18;md5=206af2fe49060c590284d231f10eb14c"
 
 inherit pypi
 
