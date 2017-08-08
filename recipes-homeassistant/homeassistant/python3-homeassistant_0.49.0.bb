@@ -101,3 +101,8 @@ RDEPENDS_${PN} += " \
     python3-sqlalchemy (>= 1.1.11) \
     python3-xmltodict (= 0.11.0)\
     "
+
+# Component dependencies
+RDEPENDS_${PN} += " \
+    python3-samsungctl (>= 0.6.0) \
+    "
