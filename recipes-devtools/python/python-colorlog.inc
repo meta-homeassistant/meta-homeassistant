@@ -1,10 +1,9 @@
 SUMMARY = "A colored formatter for the python logging module"
 HOMEPAGE = "https://github.com/borntyping/python-colorlog"
 LICENSE = "MIT"
-# TODO: Use real file once https://github.com/borntyping/python-colorlog/pull/46 if fixed
-LIC_FILES_CHKSUM = "file://README.md;md5=e70a9e5286216e339891c9afebad3370"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=1ee3c057f1ec9339bfa32b5999d92bb1"
 
 inherit pypi
 
-SRC_URI[md5sum] = "fffcb1520917874cc520267368bf6fab"
-SRC_URI[sha256sum] = "229cd0794a19d8f33b2b4a4b70e1225b6c010af96c2dc8615279abbc1bb3929a"
+SRC_URI[md5sum] = "7d4c8a59c5df03f31fe939faccc970d1"
+SRC_URI[sha256sum] = "95371613e48e7c23ba9a64da23e836b9b9abfc001cfce48d53175cbce495abc5"
