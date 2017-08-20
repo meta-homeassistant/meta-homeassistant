@@ -94,6 +94,7 @@ RDEPENDS_${PN} += " \
     python3-phue (= 1.0) \
     python3-pycec (= 0.4.13) \
     python3-pyemby (= 1.4) \
+    python3-python-telegram-bot (>= 7.0.1) \
     python3-pytradfri (= 1.1) \
     python3-restrictedpython (= 4.0a3) \
     python3-samsungctl (>= 0.6.0) \
