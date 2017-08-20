@@ -57,6 +57,10 @@ Why are these needed?
 - [meta-python (master)](https://github.com/openembedded/meta-openembedded/tree/master/meta-python) : contains many of the required python3 packages
 - [meta-security (master)](http://git.yoctoproject.org/cgit/cgit.cgi/meta-security): required for nmap used for presence detection
 
+# Community support
+
+If you need help or like to discuss a topic please join the [`#meta-homeassistant:matrix.org`](https://riot.im/app/#/room/#meta-homeassistant:matrix.org) room on [matrix.org](https://matrix.org/).
+
 # Contributing
 
 Please submit any patches against the homeassistant as Pull Requests on Github.
