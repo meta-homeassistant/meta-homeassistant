@@ -105,4 +105,5 @@ RDEPENDS_${PN} += " \
 # Component dependencies
 RDEPENDS_${PN} += " \
     python3-samsungctl (>= 0.6.0) \
+    python3-python-telegram-bot (>= 7.0.1)
     "
