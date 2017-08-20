@@ -105,5 +105,5 @@ RDEPENDS_${PN} += " \
 
 # Component dependencies
 RDEPENDS_${PN} += " \
-    python3-python-telegram-bot (>= 7.0.1)
+    python3-python-telegram-bot (>= 7.0.1) \
     "
