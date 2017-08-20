@@ -2,6 +2,9 @@ This README file contains information on the contents of the
 homeassistant layer. It contains recipes to run https://home-assistant.io/
 on a OE target.
 
+If you need help or like to discuss a topic please join the [`#meta-homeassistant:matrix.org`](https://matrix.to/#/#meta-homeassistant:matrix.org) room on [matrix.org](https://matrix.org/).
+
+
 Please see the corresponding sections below for details.
 
 # Quickstart
@@ -56,10 +59,6 @@ Why are these needed?
 - [meta-oe (master)](https://github.com/openembedded/meta-openembedded/tree/master/meta-oe) : contains meta-python
 - [meta-python (master)](https://github.com/openembedded/meta-openembedded/tree/master/meta-python) : contains many of the required python3 packages
 - [meta-security (master)](http://git.yoctoproject.org/cgit/cgit.cgi/meta-security): required for nmap used for presence detection
-
-# Community support
-
-If you need help or like to discuss a topic please join the [`#meta-homeassistant:matrix.org`](https://riot.im/app/#/room/#meta-homeassistant:matrix.org) room on [matrix.org](https://matrix.org/).
 
 # Contributing
 
