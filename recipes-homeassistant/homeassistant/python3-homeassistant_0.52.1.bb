@@ -12,8 +12,8 @@ HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 inherit setuptools3 useradd update-rc.d systemd
 
 inherit pypi
-SRC_URI[md5sum] = "602c3468a9dd01bfe69663c8c392021d"
-SRC_URI[sha256sum] = "f31b7d78a0a0805a2ba9997b1056578eef71ff5c919a7ef451e971d073f5368f"
+SRC_URI[md5sum] = "4d6ecaad623bdd2c39b76e75f4f8c688"
+SRC_URI[sha256sum] = "2e431bd8c26a5a7dc843ec8709f28a67f51a3f66f5752db7a09c28c45a206bc9"
 
 SRC_URI += "\
     file://homeassistant.service \
