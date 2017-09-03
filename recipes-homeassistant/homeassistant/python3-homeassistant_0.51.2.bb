@@ -50,17 +50,17 @@ do_install_append () {
 
 # Home Assistant core
 RDEPENDS_${PN} = " \
-    python3-requests (>= 2.14.2) \
+    python3-requests (= 2.14.2) \
     python3-pyyaml (>= 3.11)  \
     python3-pytz (>= 2017.02) \
     python3-pip (>= 8.0.3) \
     python3-jinja2 (>= 2.9.5) \
-    python3-voluptuous (>= 0.10.5) \
+    python3-voluptuous (= 0.10.5) \
     python3-typing (>= 3) \
     python3-aiohttp (= 2.2.5)\
-    python3-async-timeout (>= 1.2.1) \
-    python3-chardet (>= 3.0.4) \
-    python3-astral (>= 1.4) \
+    python3-async-timeout (= 1.2.1) \
+    python3-chardet (= 3.0.4) \
+    python3-astral (= 1.4) \
     \
     python3-asyncio \
     python3-multiprocessing \
@@ -71,37 +71,35 @@ RDEPENDS_${PN} = " \
 
 # Component dependencies
 RDEPENDS_${PN} += " \
-    python3-aiohttp-cors (>= 0.5.3) \
-    python3-aiolifx (>= 0.5.4) \
-    python3-aiolifx-effects (>= 0.1.1) \
-    python3-colorlog (>= 3.0.1) \
-    python3-py-cpuinfo (>= 3.3.0) \
-    python3-distro (>= 1.0.4) \
-    python3-fuzzywuzzy (>= 0.15.0) \
-    python3-google-api-python-client (>= 1.6.2) \
-    python3-gtts-token (>= 1.1.1) \
-    python3-hbmqtt (>= 0.8) \
-    python3-jsonrpc-async (>= 0.6) \
-    python3-jsonrpc-websocket (>= 0.5) \
-    python3-knxip (>= 0.5) \
-    python3-libpurecoollink (>= 0.2.0) \
-    python3-liffylights (>= 0.9.4)  \
-    python3-lnetatmo (>= 0.9.2) \
-    python3-mutagen (>= 1.37) \
-    python3-mystrom (>= 0.3.8) \
-    python3-netdisco (>= 1.0.1) \
-    python3-oauth2client (>= 4.0.0)\
-    python3-paho-mqtt (>= 1.3.0) \
-    python3-phue (>= 1.0) \
-    python3-psutil (>= 5.2.0) \
-    python3-pycec (>= 0.4.13) \
-    python3-pyemby (>= 1.4) \
+    python3-aiohttp-cors (= 0.5.3) \
+    python3-aiolifx (= 0.5.4) \
+    python3-aiolifx-effects (= 0.1.1) \
+    python3-colorlog (= 3.0.1) \
+    python3-distro (= 1.0.4) \
+    python3-fuzzywuzzy (= 0.15.0) \
+    python3-google-api-python-client (= 1.6.2) \
+    python3-gtts-token (= 1.1.1) \
+    python3-hbmqtt (= 0.8) \
+    python3-jsonrpc-async (= 0.6) \
+    python3-jsonrpc-websocket (= 0.5) \
+    python3-knxip (= 0.5) \
+    python3-libpurecoollink (= 0.2.0) \
+    python3-liffylights (= 0.9.4)  \
+    python3-lnetatmo (= 0.9.2) \
+    python3-mutagen (= 1.37) \
+    python3-mystrom (= 0.3.8) \
+    python3-netdisco (= 1.0.1) \
+    python3-oauth2client (= 4.0.0)\
+    python3-paho-mqtt (= 1.3.0) \
+    python3-phue (= 1.0) \
+    python3-pycec (= 0.4.13) \
+    python3-pyemby (= 1.4) \
     python3-python-telegram-bot (>= 7.0.1) \
-    python3-pytradfri (>= 1.1) \
-    python3-restrictedpython (>= 4.0a3) \
+    python3-pytradfri (= 1.1) \
+    python3-restrictedpython (= 4.0a3) \
     python3-samsungctl (>= 0.6.0) \
-    python3-soco (>= 0.12) \
-    python3-spotipy (>= 2.4.4) \
+    python3-soco (= 0.12) \
+    python3-spotipy (= 2.4.4) \
     python3-sqlalchemy (>= 1.1.11) \
-    python3-xmltodict (>= 0.11.0)\
+    python3-xmltodict (= 0.11.0)\
     "
