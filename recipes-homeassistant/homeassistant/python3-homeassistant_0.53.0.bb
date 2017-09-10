@@ -12,8 +12,8 @@ HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 inherit setuptools3 useradd update-rc.d systemd
 
 inherit pypi
-SRC_URI[md5sum] = "4d6ecaad623bdd2c39b76e75f4f8c688"
-SRC_URI[sha256sum] = "2e431bd8c26a5a7dc843ec8709f28a67f51a3f66f5752db7a09c28c45a206bc9"
+SRC_URI[md5sum] = "36d7c482ee3b1f1cffedcdcd9dbdb716"
+SRC_URI[sha256sum] = "bf4f08649e2c1fd00af3c882b70fdd1e9f775ea6af15d74b6c13d4d723d3095b"
 
 SRC_URI += "\
     file://homeassistant.service \
@@ -54,11 +54,11 @@ RDEPENDS_${PN} = " \
     python3-pyyaml (>= 3.11)  \
     python3-pytz (>= 2017.02) \
     python3-pip (>= 8.0.3) \
-    python3-jinja2 (>= 2.9.5) \
+    python3-jinja2 (>= 2.9.6) \
     python3-voluptuous (= 0.10.5) \
     python3-typing (>= 3) \
     python3-aiohttp (= 2.2.5)\
-    python3-async-timeout (= 1.2.1) \
+    python3-async-timeout (= 1.3.0) \
     python3-chardet (= 3.0.4) \
     python3-astral (= 1.4) \
     \
@@ -82,7 +82,6 @@ RDEPENDS_${PN} += " \
     python3-hbmqtt (= 0.8) \
     python3-jsonrpc-async (= 0.6) \
     python3-jsonrpc-websocket (= 0.5) \
-    python3-knxip (= 0.5) \
     python3-libpurecoollink (= 0.4.2) \
     python3-liffylights (= 0.9.4) \
     python3-lightify (= 1.0.6) \
@@ -94,17 +93,18 @@ RDEPENDS_${PN} += " \
     python3-oauth2client (= 4.0.0)\
     python3-paho-mqtt (= 1.3.0) \
     python3-phue (= 1.0) \
-    python3-psutil (>= 5.2.2) \
+    python3-psutil (>= 5.3.0) \
     python3-py-cpuinfo (>= 3.3.0) \
     python3-pycec (= 0.4.13) \
     python3-pyemby (= 1.4) \
-    python3-python-telegram-bot (>= 7.0.1) \
-    python3-pytradfri (= 1.1) \
+    python3-python-telegram-bot (= 8.0) \
+    python3-pytradfri (= 2.2) \
     python3-restrictedpython (= 4.0a3) \
     python3-roombapy (= 1.3.1) \
     python3-samsungctl (>= 0.6.0) \
     python3-soco (= 0.12) \
     python3-spotipy (= 2.4.4) \
     python3-sqlalchemy (>= 1.1.13) \
+    python3-xknx (= 0.7.13) \
     python3-xmltodict (= 0.11.0)\
     "
