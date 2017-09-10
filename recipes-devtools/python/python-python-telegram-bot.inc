@@ -1,16 +1,12 @@
-
 SUMMARY = "A python wrapper for telegram bots"
 HOMEPAGE = " https://github.com/python-telegram-bot/python-telegram-bot"
 LICENSE = "LGPLv3"
-SRCNAME = "python-python-telegram-bot"
 
-LIC_FILES_CHKSUM = "file://LICENSE;md5=63f576b3c3e14b4ffb122c8f9014e151"
+LIC_FILES_CHKSUM = "file://LICENSE.lesser;md5=b5e076db5271f01d659c57498ca50fb7"
 
 inherit pypi
 
-SRC_URI[md5sum] = "b6bd4ed1df38ee6b35fe591b05b4dbcd"
-SRC_URI[sha256sum] = "494ffdd76ffcca62ce6276906b0afe6e8e8c4245b78501404f723aec79949bff"
+SRC_URI[md5sum] = "a65924fcdf01f688a7d1556ede1b1708"
+SRC_URI[sha256sum] = "b648845f9d5c3ed569066be25e5efdfa36148a24d87e7b5219b4eb8e64853b4d"
 
-RDEPENDS_${PN} = "\
-	${PYTHON_PN}-future \
-"
+RDEPENDS_${PN} = "${PYTHON_PN}-future ${PYTHON_PN}-certifi ${PYTHON_PN}-ujson ${PYTHON_PN}-pysocks"
