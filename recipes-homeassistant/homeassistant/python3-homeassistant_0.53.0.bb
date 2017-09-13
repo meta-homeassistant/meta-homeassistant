@@ -96,6 +96,7 @@ RDEPENDS_${PN} += " \
     python3-psutil (>= 5.3.0) \
     python3-py-cpuinfo (>= 3.3.0) \
     python3-pycec (= 0.4.13) \
+    python3-pychromecast (= 0.8.2) \
     python3-pyemby (= 1.4) \
     python3-python-telegram-bot (= 8.0) \
     python3-pytradfri (= 2.2) \
@@ -107,4 +108,5 @@ RDEPENDS_${PN} += " \
     python3-sqlalchemy (>= 1.1.13) \
     python3-xknx (= 0.7.13) \
     python3-xmltodict (= 0.11.0)\
+    python3-yeelight (= 0.3.2) \
     "
