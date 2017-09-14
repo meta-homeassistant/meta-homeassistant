@@ -3,6 +3,8 @@ HOMEPAGE = "http://pypi.python.org/pypi/RestrictedPython"
 LICENSE = "ZPL-2.1"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=78ccb3640dc841e1baecb3e27a6966b2"
 
+DEPENDS += "${PYTHON_PN}-pytest-runner-native"
+
 inherit pypi
 
 PYPI_PACKAGE = "RestrictedPython"
