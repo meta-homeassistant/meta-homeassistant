@@ -12,8 +12,8 @@ HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 inherit setuptools3 useradd update-rc.d systemd
 
 inherit pypi
-SRC_URI[md5sum] = "45e9436059408488c51fc6a65421db8b"
-SRC_URI[sha256sum] = "4f68b3026fe751ce725102366ffb9ee1e834749b0095d9bba6be32c2c5a45fed"
+SRC_URI[md5sum] = "02f4d712016db0e85c54d81c6e3c4aba"
+SRC_URI[sha256sum] = "ea4b26910c5ba7087900322cd75c3bf422bf74bb7ec5fc1b515923bdb236bd9a"
 
 SRC_URI += "\
     file://homeassistant.service \
@@ -58,7 +58,7 @@ RDEPENDS_${PN} = " \
     python3-voluptuous (= 0.10.5) \
     python3-typing (>= 3) \
     python3-aiohttp (= 2.2.5)\
-    python3-async-timeout (= 1.3.0) \
+    python3-async-timeout (= 1.4.0) \
     python3-chardet (= 3.0.4) \
     python3-astral (= 1.4) \
     \
@@ -72,8 +72,8 @@ RDEPENDS_${PN} = " \
 # Component dependencies
 RDEPENDS_${PN} += " \
     python3-aiohttp-cors (= 0.5.3) \
-    python3-aiolifx (= 0.5.4) \
-    python3-aiolifx-effects (= 0.1.1) \
+    python3-aiolifx (= 0.6.0) \
+    python3-aiolifx-effects (= 0.1.2) \
     python3-colorlog (= 3.0.1) \
     python3-distro (= 1.0.4) \
     python3-fuzzywuzzy (= 0.15.1) \
@@ -89,12 +89,12 @@ RDEPENDS_${PN} += " \
     python3-matrix-client (= 0.0.6) \
     python3-mutagen (= 1.38) \
     python3-mystrom (= 0.3.8) \
-    python3-netdisco (= 1.1.0) \
+    python3-netdisco (= 1.2.0) \
     python3-oauth2client (= 4.0.0)\
     python3-paho-mqtt (= 1.3.0) \
     python3-phue (= 1.0) \
-    python3-psutil (>= 5.3.0) \
-    python3-py-cpuinfo (>= 3.3.0) \
+    python3-psutil (= 5.3.1) \
+    python3-py-cpuinfo (= 3.3.0) \
     python3-pycec (= 0.4.13) \
     python3-pychromecast (= 0.8.2) \
     python3-pyemby (= 1.4) \
@@ -102,11 +102,11 @@ RDEPENDS_${PN} += " \
     python3-pytradfri (= 2.2) \
     python3-restrictedpython (= 4.0a3) \
     python3-roombapy (= 1.3.1) \
-    python3-samsungctl (>= 0.6.0) \
+    python3-samsungctl (= 0.6.0) \
     python3-soco (= 0.12) \
     python3-spotipy (= 2.4.4) \
-    python3-sqlalchemy (>= 1.1.13) \
-    python3-xknx (= 0.7.13) \
+    python3-sqlalchemy (>= 1.1.14) \
+    python3-xknx (= 0.7.14) \
     python3-xmltodict (= 0.11.0)\
     python3-yeelight (= 0.3.2) \
     "
