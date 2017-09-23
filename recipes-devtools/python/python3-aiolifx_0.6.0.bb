@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=2347c1e7634502e3dd20d50b94f353d3"
 
 inherit pypi setuptools3
 
-SRC_URI[md5sum] = "5444b92521a85d0c05cca791004ffc3e"
-SRC_URI[sha256sum] = "981247b5bf19ed9850e5e8ad7abf7a68a48166622d37068697ac7e4d74d4f9a6"
+SRC_URI[md5sum] = "044994bf3c3c6eeb03d010f78f3ff342"
+SRC_URI[sha256sum] = "5b099232e8952e17c6dd7d14dc3f1c167c890fa9548dd9f7b5319dbbcfd5ce7b"
 
 RDEPENDS_${PN} = "${PYTHON_PN}-bitstring"
