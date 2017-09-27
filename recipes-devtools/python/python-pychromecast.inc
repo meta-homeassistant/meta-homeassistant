@@ -15,4 +15,7 @@ S = "${WORKDIR}/PyChromecast-${PV}"
 
 RDEPENDS_${PN} = "\
                ${PYTHON_PN}-requests \
+               ${PYTHON_PN}-protobuf \
+               ${PYTHON_PN}-zeroconf \
+               ${PYTHON_PN}-six \
 "
