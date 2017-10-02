@@ -5,7 +5,5 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=dd6fe435c697ec9f28d4bbb38b955e64"
 
 inherit pypi setuptools3
 
-SRC_URI += "file://explicit-uft8.patch"
-
-SRC_URI[md5sum] = "a01f53b7b8bfe339f9cceb2c86c01bd0"
-SRC_URI[sha256sum] = "305ab7fdd86afd08c2723461c949e153f7b01233f95a108619a15e41b7a74c93"
+SRC_URI[md5sum] = "c1842c03d14169082e065a109fe1cb2c"
+SRC_URI[sha256sum] = "b536827d433a79e85108becdac0b0909e7ce02c3613df53da6d96aee950b50b5"
