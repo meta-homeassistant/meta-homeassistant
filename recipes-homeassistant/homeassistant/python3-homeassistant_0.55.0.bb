@@ -12,8 +12,8 @@ HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 inherit setuptools3 useradd update-rc.d systemd
 
 inherit pypi
-SRC_URI[md5sum] = "02f4d712016db0e85c54d81c6e3c4aba"
-SRC_URI[sha256sum] = "ea4b26910c5ba7087900322cd75c3bf422bf74bb7ec5fc1b515923bdb236bd9a"
+SRC_URI[md5sum] = "72b8c6d977ed9d729be3e194c3bdb4ec"
+SRC_URI[sha256sum] = "d70757e42dba06b5441694e44ceb5d084c728db1f430f049dc002eb6cc263572"
 
 SRC_URI += "\
     file://homeassistant.service \
@@ -78,7 +78,7 @@ RDEPENDS_${PN} += " \
     python3-distro (= 1.0.4) \
     python3-fritzconnection (= 0.6.3) \
     python3-fuzzywuzzy (= 0.15.1) \
-    python3-google-api-python-client (= 1.6.2) \
+    python3-google-api-python-client (= 1.6.4) \
     python3-gtts-token (= 1.1.1) \
     python3-hbmqtt (= 0.8) \
     python3-jsonrpc-async (= 0.6) \
@@ -90,7 +90,7 @@ RDEPENDS_${PN} += " \
     python3-matrix-client (= 0.0.6) \
     python3-mutagen (= 1.38) \
     python3-mystrom (= 0.3.8) \
-    python3-netdisco (= 1.2.0) \
+    python3-netdisco (= 1.2.2) \
     python3-oauth2client (= 4.0.0)\
     python3-paho-mqtt (= 1.3.0) \
     python3-phue (= 1.0) \
@@ -104,7 +104,7 @@ RDEPENDS_${PN} += " \
     python3-pymata (= 2.14) \
     python3-pyotp (= 2.2.6) \
     python3-python-telegram-bot (= 8.0) \
-    python3-pytradfri (= 2.2) \
+    python3-pytradfri (= 2.2.2) \
     python3-pyunifi (= 2.13) \
     python3-restrictedpython (= 4.0a3) \
     python3-roombapy (= 1.3.1) \
@@ -116,6 +116,6 @@ RDEPENDS_${PN} += " \
     python3-websockets (= 3.2) \
     python3-xknx (= 0.7.14) \
     python3-xmltodict (= 0.11.0)\
-    python3-yeelight (= 0.3.2) \
+    python3-yeelight (= 0.3.3) \
     python3-zeroconf (= 0.19.1) \
     "
