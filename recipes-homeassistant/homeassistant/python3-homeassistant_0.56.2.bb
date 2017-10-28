@@ -78,6 +78,7 @@ RDEPENDS_${PN} += " \
     python3-aiolifx-effects (= 0.1.2) \
     python3-colorlog (= 3.0.1) \
     python3-distro (= 1.0.4) \
+    python3-forecastio (= 1.3.5) \
     python3-fritzconnection (= 0.6.5) \
     python3-fuzzywuzzy (= 0.15.1) \
     python3-google-api-python-client (= 1.6.4) \
@@ -119,6 +120,7 @@ RDEPENDS_${PN} += " \
     python3-websockets (= 3.2) \
     python3-xknx (= 0.7.16) \
     python3-xmltodict (= 0.11.0)\
+    python3-yahooweather (= 0.8) \
     python3-yeelight (= 0.3.3) \
     python3-zeroconf (= 0.19.1) \
     "
