@@ -12,8 +12,9 @@ HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 inherit setuptools3 useradd update-rc.d systemd
 
 inherit pypi
-SRC_URI[md5sum] = "72b8c6d977ed9d729be3e194c3bdb4ec"
-SRC_URI[sha256sum] = "d70757e42dba06b5441694e44ceb5d084c728db1f430f049dc002eb6cc263572"
+
+SRC_URI[md5sum] = "edc6374132c9fd9d3e3fde7eb0c40af2"
+SRC_URI[sha256sum] = "960957e07c1db58f17076775688137a72411e1c0cf931adda1e5e53b47c6efe3"
 
 SRC_URI += "\
     file://homeassistant.service \
@@ -58,9 +59,10 @@ RDEPENDS_${PN} = " \
     python3-voluptuous (= 0.10.5) \
     python3-typing (>= 3) \
     python3-aiohttp (= 2.2.5)\
-    python3-async-timeout (= 1.4.0) \
+    python3-async-timeout (= 2.0.0) \
     python3-chardet (= 3.0.4) \
     python3-astral (= 1.4) \
+    python3-certifi (>= 2017.4.17) \
     \
     python3-asyncio \
     python3-multiprocessing \
@@ -76,7 +78,7 @@ RDEPENDS_${PN} += " \
     python3-aiolifx-effects (= 0.1.2) \
     python3-colorlog (= 3.0.1) \
     python3-distro (= 1.0.4) \
-    python3-fritzconnection (= 0.6.3) \
+    python3-fritzconnection (= 0.6.5) \
     python3-fuzzywuzzy (= 0.15.1) \
     python3-google-api-python-client (= 1.6.4) \
     python3-gtts-token (= 1.1.1) \
@@ -92,10 +94,11 @@ RDEPENDS_${PN} += " \
     python3-mystrom (= 0.3.8) \
     python3-netdisco (= 1.2.2) \
     python3-oauth2client (= 4.0.0)\
-    python3-paho-mqtt (= 1.3.0) \
+    python3-paho-mqtt (= 1.3.1) \
     python3-phue (= 1.0) \
-    python3-psutil (= 5.3.1) \
+    python3-psutil (= 5.4.0) \
     python3-py-cpuinfo (= 3.3.0) \
+    python3-pyasn1 (= 0.3.7) \
     python3-pycec (= 0.4.13) \
     python3-pychromecast (= 0.8.2) \
     python3-pydroid-ipcam (= 0.8) \
@@ -103,8 +106,8 @@ RDEPENDS_${PN} += " \
     python3-pylgtv (= 0.1.7) \
     python3-pymata (= 2.14) \
     python3-pyotp (= 2.2.6) \
-    python3-python-telegram-bot (= 8.0) \
-    python3-pytradfri (= 2.2.2) \
+    python3-python-telegram-bot (= 8.1.1) \
+    python3-pytradfri (= 3.0) \
     python3-pyunifi (= 2.13) \
     python3-restrictedpython (= 4.0a3) \
     python3-roombapy (= 1.3.1) \
@@ -114,7 +117,7 @@ RDEPENDS_${PN} += " \
     python3-sqlalchemy (>= 1.1.14) \
     python3-wakeonlan (= 0.2.2) \
     python3-websockets (= 3.2) \
-    python3-xknx (= 0.7.14) \
+    python3-xknx (= 0.7.16) \
     python3-xmltodict (= 0.11.0)\
     python3-yeelight (= 0.3.3) \
     python3-zeroconf (= 0.19.1) \
