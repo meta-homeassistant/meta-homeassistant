@@ -22,6 +22,8 @@ git clone https://github.com/bachp/meta-homeassistant.git
 
 bitbake-layers add-layer ../meta-openembedded/meta-oe
 bitbake-layers add-layer ../meta-openembedded/meta-python
+bitbake-layers add-layer ../meta-openembedded/meta-networking
+bitbake-layers add-layer ../meta-openembedded/meta-perl
 bitbake-layers add-layer ../meta-security
 bitbake-layers add-layer ../meta-homeassistant
 
