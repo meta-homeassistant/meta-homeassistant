@@ -9,5 +9,5 @@ PYPI_PACKAGE = "DTLSSocket"
 
 DEPENDS += "${PYTHON_PN}-cython-native"
 
-SRC_URI[md5sum] = "3f38a270ca4ade57f18e3030b209a7de"
-SRC_URI[sha256sum] = "67ecaf76a5a816a3dbf9be167cfedaa9f8c9c2b8df30421410f088b4ce12d9f0"
+SRC_URI[md5sum] = "bcef26a5320348905e3df61d65e983c3"
+SRC_URI[sha256sum] = "7a256f47e68bd0289030c459fdce2f3decd0fc1a8efd147add87d36775e350ab"
