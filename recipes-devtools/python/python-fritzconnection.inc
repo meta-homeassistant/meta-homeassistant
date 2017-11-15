@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://setup.cfg;md5=d86758afb08a60bc589dc67bfea670b2"
 
 inherit pypi
 
-SRC_URI[md5sum] = "61e2afcbcab5a9535687fef8a955f21c"
-SRC_URI[sha256sum] = "02e6e8a392c69dd3e173cec03800332a3ee377cd6c49066739806b51eba2ed41"
+SRC_URI[md5sum] = "d8eee6d7519b8c02f4301b6fb5cad76a"
+SRC_URI[sha256sum] = "ba0dc50cb5fca5a913a65c875b9814d262b9c27a320f37dfeab4189c6fd7e391"
 
 RDEPENDS_${PN} = "${PYTHON_PN}-lxml ${PYTHON_PN}-requests"

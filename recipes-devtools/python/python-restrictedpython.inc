@@ -9,5 +9,5 @@ inherit pypi
 
 PYPI_PACKAGE = "RestrictedPython"
 
-SRC_URI[md5sum] = "f7a747a02fcb6eb72bd3227c0710abc3"
-SRC_URI[sha256sum] = "9df16603db24c9d40de285da9e57d43d934f656cf90fd034fd58ff1f8a79c027"
+SRC_URI[md5sum] = "3587ed56f55015526c502e71cbc3c39a"
+SRC_URI[sha256sum] = "8aa8923f68e26c2a1dc42d6ad34284d92b34c8e96faed55efdd8c01195031393"
