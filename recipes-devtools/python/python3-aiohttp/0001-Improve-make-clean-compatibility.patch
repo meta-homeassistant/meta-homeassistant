@@ -1,6 +1,6 @@
-From 9364a01be0bcdc0d25e4674511e1a3233c59c0a8 Mon Sep 17 00:00:00 2001
-From: Pascal Bach <pascal.bach@nextrem.ch>
-Date: Mon, 16 Jan 2017 21:39:41 +0100
+From 4580bfa59741d7e84052544f6af39919cad8ffe7 Mon Sep 17 00:00:00 2001
+From: Stefano Pagnottelli <stefano.pagnottelli@siralab.com>
+Date: Thu, 28 Dec 2017 10:24:55 +0100
 Subject: [PATCH] Improve make clean compatibility
 
 ---
@@ -8,10 +8,10 @@ Subject: [PATCH] Improve make clean compatibility
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/Makefile b/Makefile
-index 1f98de9..35ea7b9 100644
+index 3f8ca0f..5f944ad 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -69,8 +69,8 @@ clean:
+@@ -78,8 +78,8 @@ clean:
  	@rm -rf coverage
  	@rm -rf build
  	@rm -rf cover
@@ -19,9 +19,9 @@ index 1f98de9..35ea7b9 100644
 -	@python setup.py clean
 +	@make -C docs clean SPHINXBUILD=false
 +	@python3 setup.py clean
- 	@rm -f aiohttp/_multidict.html
- 	@rm -f aiohttp/_multidict.c
- 	@rm -f aiohttp/_multidict.*.so
+ 	@rm -f aiohttp/_frozenlist.html
+ 	@rm -f aiohttp/_frozenlist.c
+ 	@rm -f aiohttp/_frozenlist.*.so
 -- 
 2.7.4
 
