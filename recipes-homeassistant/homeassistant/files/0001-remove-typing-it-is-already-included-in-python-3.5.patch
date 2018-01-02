@@ -1,6 +1,6 @@
-From 346d61baaaea4c3261642c00bc19d227bd1527ac Mon Sep 17 00:00:00 2001
-From: Pascal Bach <pascal.bach@nextrem.ch>
-Date: Sun, 12 Feb 2017 12:53:50 +0100
+From d53f2528d34b8c427bdba862c4de56e03a96bf4c Mon Sep 17 00:00:00 2001
+From: Stefano Pagnottelli <stefano.pagnottelli@siralab.com>
+Date: Thu, 28 Dec 2017 10:08:47 +0100
 Subject: [PATCH] remove typing, it is already included in python 3.5
 
 ---
@@ -8,16 +8,17 @@ Subject: [PATCH] remove typing, it is already included in python 3.5
  1 file changed, 1 deletion(-)
 
 diff --git a/setup.py b/setup.py
-index 0f2c6e6..a4de5d3 100755
+index fe60a15..2ce9c10 100755
 --- a/setup.py
 +++ b/setup.py
-@@ -21,7 +21,6 @@ REQUIRES = [
+@@ -52,7 +52,6 @@ REQUIRES = [
      'pip>=8.0.3',
-     'jinja2>=2.9.5',
+     'jinja2>=2.9.6',
      'voluptuous==0.10.5',
 -    'typing>=3,<4',
-     'aiohttp==2.2.5',
-     'async_timeout==1.2.1',
- ]
---
-2.1.4
+     'aiohttp==2.3.6',   # If updated, check if yarl also needs an update!
+     'yarl==0.16.0',
+     'async_timeout==2.0.0',
+-- 
+2.7.4
+

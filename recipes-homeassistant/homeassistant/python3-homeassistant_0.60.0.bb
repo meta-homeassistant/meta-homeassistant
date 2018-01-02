@@ -13,8 +13,8 @@ inherit setuptools3 useradd update-rc.d systemd
 
 inherit pypi
 
-SRC_URI[md5sum] = "e17d6fbeeb9eb13de62a288a721793cb"
-SRC_URI[sha256sum] = "0ac20ef8fc197008335eff8e434f2d1dbf3c2c54af024eeabf32dadc888f2609"
+SRC_URI[md5sum] = "5151dc6e9f6561e27dc78cccf829d650"
+SRC_URI[sha256sum] = "56d6c2f9f28ac4857189570128b47c6b1b7c3e60ff4ddc62e7bf340cbf16d24d"
 
 SRC_URI += "\
     file://homeassistant.service \
@@ -58,35 +58,36 @@ RDEPENDS_${PN} = " \
     python3-jinja2 (>= 2.9.6) \
     python3-voluptuous (= 0.10.5) \
     python3-typing (>= 3) \
-    python3-aiohttp (= 2.2.5)\
+    python3-aiohttp (= 2.3.6)\
     python3-async-timeout (= 2.0.0) \
     python3-chardet (= 3.0.4) \
     python3-astral (= 1.4) \
     python3-certifi (>= 2017.4.17) \
+    python3-yarl (= 0.16.0) \
     \
     python3-asyncio \
     python3-multiprocessing \
     python3-sqlite3 \
     python3-html \
     \
-    python3-home-assistant-frontend (= 20171105.0) \
+    python3-home-assistant-frontend (= 20171216.0) \
     "
 
 
 # Component dependencies
 RDEPENDS_${PN} += " \
-    python3-aiohttp-cors (= 0.5.3) \
-    python3-aiolifx (= 0.6.0) \
+    python3-aiohttp-cors (= 0.6.0) \
+    python3-aiolifx (= 0.6.1) \
     python3-aiolifx-effects (= 0.1.2) \
     python3-colorlog (= 3.0.1) \
-    python3-distro (= 1.0.4) \
+    python3-distro (= 1.1.0) \
     python3-dtlssocket (= 0.1.4) \
     python3-forecastio (= 1.3.5) \
     python3-fritzconnection (= 0.6.5) \
     python3-fuzzywuzzy (= 0.15.1) \
     python3-google-api-python-client (= 1.6.4) \
     python3-gtts-token (= 1.1.1) \
-    python3-hbmqtt (= 0.8) \
+    python3-hbmqtt (= 0.9.1) \
     python3-jsonrpc-async (= 0.6) \
     python3-jsonrpc-websocket (= 0.5) \
     python3-libpurecoollink (= 0.4.2) \
@@ -94,13 +95,13 @@ RDEPENDS_${PN} += " \
     python3-lightify (= 1.0.6) \
     python3-lnetatmo (= 0.9.2) \
     python3-matrix-client (= 0.0.6) \
-    python3-mutagen (= 1.38) \
+    python3-mutagen (= 1.39) \
     python3-mystrom (= 0.3.8) \
     python3-netdisco (= 1.2.3) \
     python3-oauth2client (= 4.0.0)\
     python3-paho-mqtt (= 1.3.1) \
     python3-phue (= 1.0) \
-    python3-psutil (= 5.4.0) \
+    python3-psutil (= 5.4.2) \
     python3-py-cpuinfo (= 3.3.0) \
     python3-pyasn1 (= 0.3.7) \
     python3-pycec (= 0.4.13) \
@@ -118,12 +119,13 @@ RDEPENDS_${PN} += " \
     python3-samsungctl (= 0.6.0) \
     python3-soco (= 0.12) \
     python3-spotipy (= 2.4.4) \
-    python3-sqlalchemy (>= 1.1.14) \
+    python3-sqlalchemy (>= 1.1.15) \
+    python3-user-agents \
     python3-wakeonlan (= 0.2.2) \
     python3-websockets (= 3.2) \
-    python3-xknx (= 0.7.16) \
+    python3-xknx (= 0.7.18) \
     python3-xmltodict (= 0.11.0)\
-    python3-yahooweather (= 0.8) \
+    python3-yahooweather (= 0.9) \
     python3-yeelight (= 0.3.3) \
     python3-zeroconf (= 0.19.1) \
     "
