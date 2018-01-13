@@ -88,6 +88,7 @@ RDEPENDS_${PN} += " \
     python3-google-api-python-client (= 1.6.4) \
     python3-gtts-token (= 1.1.1) \
     python3-hbmqtt (= 0.9.1) \
+    python3-influxdb (= 4.1.1) \
     python3-jsonrpc-async (= 0.6) \
     python3-jsonrpc-websocket (= 0.5) \
     python3-libpurecoollink (= 0.4.2) \

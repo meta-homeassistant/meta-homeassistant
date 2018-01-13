@@ -1,0 +1,25 @@
+From 696419dadcb0f6b8438844d4ba4781883c861083 Mon Sep 17 00:00:00 2001
+From: Stefano Pagnottelli <stefano.pagnottelli@siralab.com>
+Date: Tue, 2 Jan 2018 12:56:24 +0100
+Subject: [PATCH] downgrade multidict to 2.9.6
+
+---
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index 2e57870..a18c292 100644
+--- a/setup.py
++++ b/setup.py
+@@ -62,7 +62,7 @@ with codecs.open(os.path.join(os.path.abspath(os.path.dirname(
+         raise RuntimeError('Unable to determine version.')
+ 
+ 
+-install_requires = ['chardet', 'multidict>=3.0.0',
++install_requires = ['chardet', 'multidict>=2.9.6',
+                     'async_timeout>=1.2.0', 'yarl>=0.11']
+ 
+ 
+-- 
+2.7.4
+
