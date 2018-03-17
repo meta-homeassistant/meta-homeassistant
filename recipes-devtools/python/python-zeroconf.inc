@@ -13,7 +13,6 @@ SRC_URI[sha256sum] = "434eab8da9525ae725d6842aae7e59d9ec6580bdc5ae84f3c225240bc6
 RDEPENDS_${PN} = " \
     ${PYTHON_PN}-logging \
     ${PYTHON_PN}-netifaces \
-    ${PYTHON_PN}-re \
     ${PYTHON_PN}-six \
     ${PYTHON_PN}-threading \
     "
