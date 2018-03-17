@@ -5,7 +5,10 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=37ea2250f00b424609d55b35f829c514"
 
 inherit pypi setuptools3
 
-SRC_URI[md5sum] = "afe5fbf29fb0c87bd5963dec3b2cd907"
-SRC_URI[sha256sum] = "3f4e51f5738ee7e76cc083c0a0cbb9e97f6f0da65ebfd9864d315c68be9aea9b"
+SRC_URI[md5sum] = "fb3bf46123290e700679f3a86b6e4fde"
+SRC_URI[sha256sum] = "29b81104c33be3fb499e3f5102bc5839342d08874eac2e0bbadb428ae771083f"
 
-RDEPENDS_${PN} = "${PYTHON_PN}-aiocoap ${PYTHON_PN}-dtlssocket"
+RDEPENDS_${PN} = "\
+    ${PYTHON_PN}-aiocoap \
+    ${PYTHON_PN}-dtlssocket \
+    "
