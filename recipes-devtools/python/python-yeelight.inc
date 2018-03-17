@@ -1,14 +1,10 @@
 SUMMARY = "A Python library for controlling YeeLight RGB bulbs"
 HOMEPAGE = "https://gitlab.com/stavros/python-yeelight/"
 LICENSE = "BSD"
-SRCNAME = "yeelight"
 
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d42d2a79677231c7cf556f39656b4046"
 
 inherit pypi
 
-SRC_URI[md5sum] = "f72bc1a5afb635c8ece5cb063a69e894"
-SRC_URI[sha256sum] = "44458ea326daedd4602be06331773c307872e87cb253e22a3158eddf97b02546"
-
-RDEPENDS_${PN} = "\
-"
+SRC_URI[md5sum] = "59e222b206b982c9ba28b3380eba8f11"
+SRC_URI[sha256sum] = "cedc9bef2d6dcef31992664d7ab05c76314da5bb8379c142b9838b82c9a7af6c"
