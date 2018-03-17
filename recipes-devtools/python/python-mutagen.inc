@@ -7,5 +7,5 @@ DEPENDS += "${PYTHON_PN}-cython-native"
 
 inherit pypi
 
-SRC_URI[md5sum] = "c54443dfb8d4ac088eb2a0c4fd569772"
-SRC_URI[sha256sum] = "23990f70ae678c7b8df3fd59e2adbefa5fe392c36da8c71d2254b21c6cd78766"
+SRC_URI[md5sum] = "930111584992af3239ac5c1d979c4edb"
+SRC_URI[sha256sum] = "b2a2c2ce87863af12ed7896f341419cd051a3c72c3c6733db9e83060dcadee5e"
