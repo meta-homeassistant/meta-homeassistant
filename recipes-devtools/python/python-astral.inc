@@ -1,13 +1,13 @@
 SUMMARY = "Calculations for the position of the sun and moon"
 HOMEPAGE = "https://github.com/sffjunkie/astral"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=3504d672db73bec8465bdb67542a50b5"
+#TODO: https://github.com/sffjunkie/astral/pull/17
+LIC_FILES_CHKSUM = "file://setup.py;md5=48ee914e7a41d510df6b8dce45fb1261"
 
-PYPI_PACKAGE_EXT = "zip"
 inherit pypi
 
-SRC_URI[md5sum] = "140499d213a234cb216e6b7fe36ee3c7"
-SRC_URI[sha256sum] = "e7f2c825ac101c0953812e0f4c617ca48bd9dd5f4ebf450f7ce9086ed8f5a1fe"
+SRC_URI[md5sum] = "b752fc63b97bdff8e763ce1eb3aa6bd7"
+SRC_URI[sha256sum] = "527628fbfe90c1596c3950ff84ebd07ecc10c8fb1044c903a0519b5057700cb6"
 
 # setup.py of astral requires it
 DEPENDS += "${PYTHON_PN}-pytz-native"
