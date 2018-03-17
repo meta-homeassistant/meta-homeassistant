@@ -6,4 +6,7 @@ IMAGE_LINGUAS = " "
 
 LICENSE = "MIT"
 
+# 100 MiB of additional storage for config and runtime data
+IMAGE_ROOTFS_EXTRA_SPACE = "102400"
+
 inherit core-image
