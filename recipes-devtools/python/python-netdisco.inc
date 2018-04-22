@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.md;md5=f4eda51018051de136d3b3742e9a7a40"
 
 inherit pypi
 
-SRC_URI[md5sum] = "c3aa561ee51b66fd7a401215320cb0af"
-SRC_URI[sha256sum] = "749aecca5787f7f9e3f18de339099284b6ed821f29325009b807b3949f184900"
+SRC_URI[md5sum] = "1733dfd305533ea3c4ff7189b8cddc48"
+SRC_URI[sha256sum] = "0c99880a5dd858628a43f853b09a3bf6ed9ef286bd0e9eed6e7ec5bfaaf58e59"
 
 RDEPENDS_${PN} = "\
     ${PYTHON_PN}-netifaces \
