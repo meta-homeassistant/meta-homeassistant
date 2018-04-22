@@ -13,8 +13,8 @@ inherit setuptools3 useradd update-rc.d systemd
 
 inherit pypi
 
-SRC_URI[md5sum] = "10ec02589001358ce9815f14a7b1c1eb"
-SRC_URI[sha256sum] = "2feaa0148bf7f6d97097e5c62d9184d7d12db4455de8dfb53d002ff7fa7dac84"
+SRC_URI[md5sum] = "25f041406397965281791d11ee2ced2c"
+SRC_URI[sha256sum] = "46961114c4ced84a7febeb88fd2093f098e04784801fd1a6250846f8fa934af2"
 
 SRC_URI += "\
     file://0001-remove-typing-it-is-already-included-in-python-3.5.patch \
@@ -59,10 +59,10 @@ RDEPENDS_${PN} = " \
     python3-jinja2 (>= 2.10) \
     python3-voluptuous (>= 0.11.1) \
     python3-typing (>= 3) \
-    python3-aiohttp (>= 3.0.6)\
-    python3-async-timeout (>= 2.0.0) \
+    python3-aiohttp (>= 3.1.1) \
+    python3-async-timeout (>= 2.0.1) \
     python3-chardet (>= 3.0.4) \
-    python3-astral (>= 1.5) \
+    python3-astral (>= 1.6) \
     python3-certifi (>= 2017.4.17) \
     python3-attrs (>= 17.4.0) \
     \
@@ -72,7 +72,7 @@ RDEPENDS_${PN} = " \
     python3-sqlite3 \
     python3-html \
     \
-    python3-home-assistant-frontend (>= 20180310.0) \
+    python3-home-assistant-frontend (>= 20180404.0) \
     "
 
 #    python3-coinbase (>=2.0.6)
@@ -81,12 +81,12 @@ RDEPENDS_${PN} = " \
 
 # Component dependencies
 RDEPENDS_${PN} += " \
-    python3-aiohttp-cors (>= 0.6.0) \
+    python3-aiohttp-cors (>= 0.7.0) \
     python3-aiolifx (>= 0.6.1) \
     python3-aiolifx-effects (>= 0.1.2) \
     python3-colorlog (>= 3.1.2) \
     python3-distro (>= 1.2.0) \
-    python3-forecastio (>= 1.3.5) \
+    python3-forecastio (>= 1.4.0) \
     python3-fritzconnection (>= 0.6.5) \
     python3-fuzzywuzzy (>= 0.16.0) \
     python3-google-api-python-client (>= 1.6.4) \
@@ -100,18 +100,19 @@ RDEPENDS_${PN} += " \
     python3-lnetatmo (>= 0.9.2.1) \
     python3-matrix-client (>= 0.0.6) \
     python3-mutagen (>= 1.40.0) \
-    python3-mystrom (>= 0.3.8) \
-    python3-netdisco (>= 1.2.4) \
-    python3-numpy (>= 1.14.0) \
+    python3-mystrom (>= 0.4.2) \
+    python3-netdisco (>= 1.3.0) \
+    python3-numpy (>= 1.14.2) \
     python3-oauth2client (>= 4.0.0)\
     python3-paho-mqtt (>= 1.3.1) \
     python3-pexpect (>=4.0.1) \
     python3-phue (>= 1.0) \
     python3-psutil (>= 5.4.3) \
-    python3-py-cpuinfo (>= 3.3.0) \
+    python3-py-cpuinfo (>= 4.0.0) \
     python3-pyasn1 (>= 0.3.7) \
     python3-pycec (>= 0.4.13) \
-    python3-pychromecast (>= 2.0.0) \
+    python3-pychromecast (>= 2.1.0) \
+    python3-pydeconz (>= 36) \
     python3-pydroid-ipcam (>= 0.8) \
     python3-pyemby (>= 1.5) \
     python3-pylgtv (>= 0.1.7) \
@@ -125,12 +126,12 @@ RDEPENDS_${PN} += " \
     python3-samsungctl (>= 0.7.1) \
     python3-soco (>= 0.14) \
     python3-spotipy (>= 2.4.4) \
-    python3-sqlalchemy (>= 1.2.2) \
+    python3-sqlalchemy (>= 1.2.5) \
     python3-wakeonlan (>= 1.0.0) \
     python3-websockets (>= 3.2) \
     python3-xknx (>= 0.8.5) \
     python3-xmltodict (>= 0.11.0)\
     python3-yahooweather (>= 0.10) \
     python3-yeelight (>= 0.4.0) \
-    python3-zeroconf (>= 0.19.1) \
+    python3-zeroconf (>= 0.20.0) \
     "
