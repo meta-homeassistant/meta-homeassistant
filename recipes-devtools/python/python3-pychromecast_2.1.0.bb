@@ -8,8 +8,8 @@ inherit pypi setuptools3
 
 PYPI_PACKAGE = "PyChromecast"
 
-SRC_URI[md5sum] = "7917ad35945b387b05a71ff090fe2078"
-SRC_URI[sha256sum] = "ccf010cc26d95984f361af61c2f8fcaeb4769638ce6a4bced7647eb49cd6e1b2"
+SRC_URI[md5sum] = "59d2c6d258b653941d4dc978bed22847"
+SRC_URI[sha256sum] = "a18fee9bf32f62fcb539783c3888e811015c1f6377bcdb383b13d6537691f336"
 
 RDEPENDS_${PN} = "\
     ${PYTHON_PN}-requests \
