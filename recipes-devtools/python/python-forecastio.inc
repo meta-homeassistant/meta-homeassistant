@@ -7,5 +7,5 @@ inherit pypi
 
 PYPI_PACKAGE = "python-forecastio"
 
-SRC_URI[md5sum] = "551e369d65244617c8d1ca9b84e2951e"
-SRC_URI[sha256sum] = "15cfcaea91b6eda0a67041e874c9a0c346e593f7dc5be8a513a5f581c63a1ed7"
+SRC_URI[md5sum] = "7024fb3a242a07423d6a0c66402305cd"
+SRC_URI[sha256sum] = "144419d65e3b46961f38853f959a91f6e6cfa9e6d5b6f47aa9dc5e431471d454"
