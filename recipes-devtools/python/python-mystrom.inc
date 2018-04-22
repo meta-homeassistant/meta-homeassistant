@@ -1,14 +1,14 @@
 SUMMARY = "Python API for controlling myStrom switches"
 HOMEPAGE = "https://github.com/fabaff/python-mystrom"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=ed8f2e90fdcc8cce3efb5a58f9e6b07a"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=49e8fdaa77e7ae68f6d97c5b18de09a9"
 
 PYPI_PACKAGE = "python-mystrom"
 
 inherit pypi
 
-SRC_URI[md5sum] = "6f410ce01874bce31c9a3a319c4f0350"
-SRC_URI[sha256sum] = "db2aa526a7eed2c3a7e9d14b98e0f0bdc2f4c020efb489e36bac2ec2009c9281"
+SRC_URI[md5sum] = "316c2cfea3bd5c58ca2f8f90bba147bc"
+SRC_URI[sha256sum] = "b0092dc013d6bef9fb1711268d2928254305453007590dba1eba454e854b21a1"
 
 RDEPENDS_${PN} = "${PYTHON_PN}-requests"
 
