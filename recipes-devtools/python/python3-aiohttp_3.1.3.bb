@@ -7,8 +7,8 @@ inherit pypi setuptools3
 
 SRC_URI += "file://0001-Improve-make-clean-compatibility.patch"
 
-SRC_URI[md5sum] = "cd85befc78bb54594974fb932dc3949c"
-SRC_URI[sha256sum] = "5b588d21b454aaeaf2debf3c4a37f0752fb91a5c15b621deca7e8c49316154fe"
+SRC_URI[md5sum] = "973b1b845a5f91e90403e1978c898068"
+SRC_URI[sha256sum] = "9fcef0489e3335b200d31a9c1fb6ba80fdafe14cd82b971168c2f9fa1e4508ad"
 
 RDEPENDS_${PN} = "\
     ${PYTHON_PN}-async-timeout \
