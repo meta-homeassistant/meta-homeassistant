@@ -8,3 +8,5 @@ inherit pypi setuptools3
 
 SRC_URI[md5sum] = "d07b2eae4ef43fcf7b2011fbcee22bca"
 SRC_URI[sha256sum] = "0aafb05a67b621eb4d69f6c1c3972f2d9443982bcd9132a8b665d90cd48a1add"
+
+DEPENDS += "python3-pyyaml-native"
