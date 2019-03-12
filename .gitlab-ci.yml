@@ -1,0 +1,7 @@
+image: kasproject/kas:latest
+
+core-image-homeassistant:
+  stage: build
+  script:
+    - kas build kas.yml
+

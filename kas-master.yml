@@ -1,0 +1,29 @@
+header:
+  version: 8
+
+machine: qemuarm64
+distro: poky
+target: core-image-homeassistant
+
+repos:
+  meta-homeassistant:
+
+  poky:
+    url: https://git.yoctoproject.org/git/poky
+    refspec: master
+    layers:
+      meta:
+      meta-poky:
+
+  meta-openembedded:
+    url: http://git.openembedded.org/meta-openembedded
+    refspec: master
+    layers:
+      meta-oe:
+      meta-python:
+      meta-networking:
+      meta-perl:
+
+local_conf_header:
+  reduce_diskspace: |
+    INHERIT += "rm_work_and_downloads"

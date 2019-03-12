@@ -1,0 +1,12 @@
+header:
+  version: 8
+  includes:
+    - kas-master.yml
+
+repos:
+  poky:
+    refspec: warrior
+
+  meta-openembedded:
+    refspec: warrior
+
