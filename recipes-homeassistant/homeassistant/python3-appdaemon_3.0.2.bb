@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.md;md5=f4eda51018051de136d3b3742e9a7a40"
 
 inherit pypi
 
-SRC_URI[md5sum] = "f608135ce0ce9dec95d67978aa156bb5"
-SRC_URI[sha256sum] = "a5bdc2d68952b5df340c002a2182091caf2884630f1d1702c377b3b5a5860f34"
+SRC_URI[md5sum] = "383d59070a3c684ae572c2739861f4e4"
+SRC_URI[sha256sum] = "c32d9139566cc8147c39196a18c317accd1f0b2ef8e6c0ff31bddd4bc0f80bd3"
 
 RDEPENDS_${PN} = "\
                ${PYTHON_PN}-aiohttp \

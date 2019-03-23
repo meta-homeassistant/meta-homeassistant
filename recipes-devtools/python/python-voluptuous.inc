@@ -5,8 +5,8 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=9855ba150f2edb00d8e7a41554896ffb"
 
 inherit pypi
 
-SRC_URI[md5sum] = "6acb0a6f8413a5cc1e194adb0c62420b"
-SRC_URI[sha256sum] = "af7315c9fa99e0bfd195a21106c82c81619b42f0bd9b6e287b797c6b6b6a9918"
+SRC_URI[md5sum] = "052b52db417a4670c5f0f7387e45ae90"
+SRC_URI[sha256sum] = "567a56286ef82a9d7ae0628c5842f65f516abcb496e74f3f59f1d7b28df314ef"
 
 do_install_append () {
     # Files in the tarball are not world readable

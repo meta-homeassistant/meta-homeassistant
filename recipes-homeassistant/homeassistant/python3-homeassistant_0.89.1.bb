@@ -2,7 +2,7 @@ SUMMARY = "Open-source home automation platform running on Python 3"
 HOMEPAGE = "https://home-assistant.io/"
 SECTION = "devel/python"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://LICENSE.md;md5=f4eda51018051de136d3b3742e9a7a40"
+LIC_FILES_CHKSUM = "file://LICENSE.md;md5=86d3f3a95c324c9479bd8986968f4327"
 
 HOMEASSISTANT_CONFIG_DIR ?= "${localstatedir}/lib/homeassistant"
 HOMEASSISTANT_CONFIG_DIR[doc] = "Configuration directory used by home-assistant."
@@ -13,11 +13,10 @@ inherit setuptools3 useradd update-rc.d systemd
 
 inherit pypi
 
-SRC_URI[md5sum] = "10ec02589001358ce9815f14a7b1c1eb"
-SRC_URI[sha256sum] = "2feaa0148bf7f6d97097e5c62d9184d7d12db4455de8dfb53d002ff7fa7dac84"
+SRC_URI[md5sum] = "7861a70a62638f8b16e28f47d7393833"
+SRC_URI[sha256sum] = "d71ce5a54ce852cb0637dc1f172d30a9310c004bb4f0a69dbba7c4a32fbde6a0"
 
 SRC_URI += "\
-    file://0001-remove-typing-it-is-already-included-in-python-3.5.patch \
     file://homeassistant.service \
     file://homeassistant.init \
     "
@@ -51,20 +50,26 @@ do_install_append () {
 
 # Home Assistant core
 RDEPENDS_${PN} = " \
-    python3-requests (>= 2.18.4) \
+    python3-requests (>= 2.21.0) \
     python3-yarl (>=0.18.0) \
-    python3-pyyaml (>= 3.11)  \
-    python3-pytz (>= 2017.02) \
+    python3-pyyaml (<4,>=3.13)  \
+    python3-pytz (>= 2018.07) \
     python3-pip (>= 8.0.3) \
     python3-jinja2 (>= 2.10) \
-    python3-voluptuous (>= 0.11.1) \
+    python3-voluptuous (>= 0.11.5) \
     python3-typing (>= 3) \
-    python3-aiohttp (>= 3.0.6)\
-    python3-async-timeout (>= 2.0.0) \
+    python3-aiohttp (>= 3.5.4)\
+    python3-async-timeout (>= 3.0.1) \
     python3-chardet (>= 3.0.4) \
-    python3-astral (>= 1.5) \
-    python3-certifi (>= 2017.4.17) \
-    python3-attrs (>= 17.4.0) \
+    python3-astral (>= 1.9.2) \
+    python3-certifi (>= 2018.04.16) \
+    python3-attrs (>= 18.2.0) \
+    python3-ruamel-yaml (>= 0.15.88) \
+    python3-pyjwt (>= 1.6.4) \
+    python3-bcrypt (>= 3.1.5) \
+    python3-cryptography (>= 2.5) \
+    python3-python-slugify (>= 1.2.6) \
+    python3-voluptuous-serialize (>= 2.0.0) \
     \
     python3-asyncio \
     python3-image \
@@ -72,7 +77,7 @@ RDEPENDS_${PN} = " \
     python3-sqlite3 \
     python3-html \
     \
-    python3-home-assistant-frontend (>= 20180310.0) \
+    python3-home-assistant-frontend (>= 20190305.1) \
     "
 
 #    python3-coinbase (>=2.0.6)
