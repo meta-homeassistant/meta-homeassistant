@@ -1,0 +1,34 @@
+--- a/setup.py	2019-10-03 21:58:14.396339754 +0300
++++ b/setup.py	2019-10-03 22:20:20.714214822 +0300
+@@ -1,10 +1,6 @@
+ import os
+ 
+ from setuptools import setup, find_packages
+-from pip.req import parse_requirements
+-
+-install_reqs = parse_requirements('requirements.txt', session=False)
+-test_reqs = parse_requirements('requirements_test.txt', session=False)
+ 
+ version = '0.6.1'
+ 
+@@ -28,9 +24,18 @@
+     packages=find_packages(),
+     url='https://github.com/capless/warrant',
+     license='Apache License 2.0',
+-    install_requires=[str(ir.req) for ir in install_reqs],
++    install_requires=[
++        'boto3>="1.4.3"',
++        'envs>="0.3.0"',
++        'python-jose-cryptodome>="1.3.2"',
++        'requests>="2.13.0"'
++    ],
+     extras_require={
+-        'test': [str(ir.req) for ir in test_reqs]
++        'test': [
++            'mock>="2.0.0"',
++            'nose',
++            'coverage'
++        ]
+     },
+     include_package_data=True,
+     zip_safe=True,

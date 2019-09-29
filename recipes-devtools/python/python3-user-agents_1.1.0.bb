@@ -10,4 +10,4 @@ SRC_URI[sha256sum] = "643d16772280052b546d956971d719989ef6dc9b17d9ff0386aa21391a
 
 RDEPENDS_${PN} = "\
     ${PYTHON_PN}-ua-parser \
-    "
+"

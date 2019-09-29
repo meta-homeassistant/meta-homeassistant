@@ -11,3 +11,8 @@ SRC_URI[sha256sum] = "d2a67243c4503131c856cafb1b1276de52a86e5b8a1d507b7e08bee51c
 
 # setup.py of astral requires it
 DEPENDS += "${PYTHON_PN}-pytz-native"
+
+RDEPENDS_${PN} +="\
+    ${PYTHON_PN}-pytz \
+    ${PYTHON_PN}-requests \
+"

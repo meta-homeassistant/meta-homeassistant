@@ -7,6 +7,13 @@ PYPI_PACKAGE = "python-slugify"
 
 inherit pypi
 
-SRC_URI[md5sum] = "d365bc45a0f14ee77dd7f27dc67d1179"
-SRC_URI[sha256sum] = "f5c5a43e76ea6820c892c30aba6c8bc1f848fbb8e1cba65ed1c8da7bb2b4c522"
+SRC_URI[md5sum] = "338fce77bd0dc033c0042a3417ea27a0"
+SRC_URI[sha256sum] = "a9f468227cb11e20e251670d78e1b5f6b0b15dd37bbd5c9814a25a904e44ff66"
 
+RDEPENDS_${PN} = "\
+    ${PYTHON_PN}-pycryptodome (>=3.3.1) \
+    ${PYTHON_PN}-six (<2.0) \
+    ${PYTHON_PN}-ecdsa (<1.0) \
+    ${PYTHON_PN}-future (<1.0) \
+    ${PYTHON_PN}-text-unidecode (>=1.2) \
+"
