@@ -4,6 +4,7 @@ core-image-homeassistant-master:
   stage: build
   script:
     - kas build kas-${YOCTO_VERSION}.yml
+    - kas build -c testimage kas-${YOCTO_VERSION}.yml
   variables:
     YOCTO_VERSION: "master"
 

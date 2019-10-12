@@ -23,3 +23,5 @@ jobs:
         sudo pip3 install kas
     - name: Run kas on ${{ matrix.yocto-version }}
       run: kas build kas-${{ matrix.yocto-version }}.yml
+    - name: Run kas testimage on ${{ matrix.yocto-version }}
+      run: kas build -c testimage kas-${{ matrix.yocto-version }}.yml

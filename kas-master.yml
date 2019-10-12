@@ -27,3 +27,6 @@ repos:
 local_conf_header:
   reduce_diskspace: |
     INHERIT += "rm_work_and_downloads"
+    IMAGE_CLASSES += " testimage"
+    EXTRA_IMAGE_FEATURES = "debug-tweaks"
+    TEST_SUITES_append = " hass"
