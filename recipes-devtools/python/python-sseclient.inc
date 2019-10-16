@@ -3,11 +3,9 @@ HOMEPAGE = "https://github.com/btubbs/sseclient"
 LICENSE = "MIT"
 
 #TODO: https://github.com/btubbs/sseclient/pull/11
-LIC_FILES_CHKSUM = "file://README.rst;md5=17055b849ff906df0ec96960ab2476df"
+LIC_FILES_CHKSUM = "file://README.rst;md5=261df4ee81a6697c410e22fb829395f0"
 
 inherit pypi
 
-SRC_URI[md5sum] = "72be0fad43ccf4d761475677e8950e30"
-SRC_URI[sha256sum] = "1760af17b8c35d815a908040e6f9258f7c531c7522ce08f6112ffe99711e2ed9"
-
-
+SRC_URI[md5sum] = "adbaeafe639aa81eb0d9aed3dc5b8c36"
+SRC_URI[sha256sum] = "1b4c5119b9381cb6ddaf3236f3f7e1437a14e488d1ed61336873a839788481b0"

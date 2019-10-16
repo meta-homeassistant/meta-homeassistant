@@ -3,8 +3,10 @@ HOMEPAGE = "http://python-requests.org"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a8d5a1d1c2d53025e2282c511033f6f7"
 
-SRC_URI[md5sum] = "1bcd0e0977c3f8db1848ba0e2b7ab904"
-SRC_URI[sha256sum] = "502a824f31acdacb3a35b6690b5fbf0bc41d63a24a45c4004352b0242707598e"
+FILESEXTRAPATHS_prepend := "${THISDIR}/python-requests:"
+
+SRC_URI[md5sum] = "ee28bee2de76e9198fc41e48f3a7dd47"
+SRC_URI[sha256sum] = "11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4"
 
 inherit pypi
 
@@ -20,5 +22,7 @@ RDEPENDS_${PN} += " \
     ${PYTHON_PN}-chardet \
     ${PYTHON_PN}-idna \
 "
+
+CVE_PRODUCT = "requests"
 
 BBCLASSEXTEND = "native nativesdk"
