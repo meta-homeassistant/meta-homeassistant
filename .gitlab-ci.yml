@@ -1,0 +1,13 @@
+image: kasproject/kas:latest
+
+core-image-homeassistant-master:
+  stage: build
+  script:
+    - kas build kas-${YOCTO_VERSION}.yml
+  variables:
+    YOCTO_VERSION: "master"
+
+core-image-homeassistant-warrior:
+  extends: core-image-homeassistant-master
+  variables:
+    YOCTO_VERSION: "warrior"
