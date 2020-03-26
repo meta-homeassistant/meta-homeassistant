@@ -55,26 +55,35 @@ RDEPENDS_${PN} = " \
     ${PYTHON_PN}-aiohttp-cors (>=0.7.0) \
     ${PYTHON_PN}-astral (>=1.10.1) \
     ${PYTHON_PN}-async-timeout (>=3.0.1) \
+    ${PYTHON_PN}-async-upnp-client (>=0.14.12) \
     ${PYTHON_PN}-attrs (>=19.3.0) \
     ${PYTHON_PN}-bcrypt (>=3.1.7) \
     ${PYTHON_PN}-certifi (>=2019.11.28) \
     ${PYTHON_PN}-ciso8601 (>=2.1.3) \
     ${PYTHON_PN}-cryptography (>=2.8) \
+    ${PYTHON_PN}-defusedxml (>=0.6.0) \
     ${PYTHON_PN}-distro (>=1.4.0) \
     ${PYTHON_PN}-importlib-metadata (>=1.5.0) \
     ${PYTHON_PN}-jinja2 (>=2.10.3) \
+    ${PYTHON_PN}-mutagen (>=1.44.0) \
     ${PYTHON_PN}-netdisco (>=2.6.0) \
     ${PYTHON_PN}-pip (>=8.0.3) \
+    ${PYTHON_PN}-pymetno (>=0.5.0) \
     ${PYTHON_PN}-pynacl (>=1.3.0) \
     ${PYTHON_PN}-python-slugify (>=3.0.3) \
     ${PYTHON_PN}-pytz (>=2019.02) \
     ${PYTHON_PN}-pyyaml (>=5.3) \
     ${PYTHON_PN}-requests (>=2.23.0) \
     ${PYTHON_PN}-ruamel-yaml (>=0.15.100) \
+    ${PYTHON_PN}-samsungctl (>=0.7.1) \
+    ${PYTHON_PN}-samsungtvws (>=1.4.0) \
+    ${PYTHON_PN}-samsungtv (>=1.0.0) \
     ${PYTHON_PN}-sqlalchemy (>=1.3.15) \
+    ${PYTHON_PN}-ssdp (>=1.0.1) \
     ${PYTHON_PN}-text-unidecode (>=1.3) \
     ${PYTHON_PN}-voluptuous-serialize (>=2.3.0) \
     ${PYTHON_PN}-voluptuous (>=0.11.7) \
+    ${PYTHON_PN}-xmltodict (>=0.12.0) \
     ${PYTHON_PN}-zeroconf (>=0.24.5) \
     ${PYTHON_PN}-pycryptodome (>=3.6.6) \
     ${PYTHON_PN}-hass-nabucasa (>=0.32.2) \
@@ -84,4 +93,8 @@ RDEPENDS_${PN} = " \
     ${PYTHON_PN}-pycparser (>= 2.7) \
     ${PYTHON_PN}-modules \
     ${PYTHON_PN}-paho-mqtt \
+    ${PYTHON_PN}-coronavirus \
+    ${PYTHON_PN}-gtts-token \
+    ${PYTHON_PN}-pycognito \
+    ${PYTHON_PN}-spotipy \
 "
