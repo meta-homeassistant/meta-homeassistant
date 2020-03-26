@@ -11,6 +11,7 @@ software =
 						filename = "@@HAIMAGE@@-@@MACHINE@@@@SWUPDATE_IMAGES_FSTYPES[@@HAIMAGE@@]@@";
 						type = "raw";
 						compressed = true;
+						installed-directly = true;
 						device = "/dev/mmcblk0p2";
 					}
 				);
@@ -28,6 +29,7 @@ software =
 						filename = "@@HAIMAGE@@-@@MACHINE@@@@SWUPDATE_IMAGES_FSTYPES[@@HAIMAGE@@]@@";
 						type = "raw";
 						compressed = true;
+						installed-directly = true;
 						device = "/dev/mmcblk0p3";
 					}
 				);
