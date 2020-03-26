@@ -1,12 +1,12 @@
 SUMMARY = "Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)"
 HOMEPAGE = "https://github.com/jstasiak/python-zeroconf"
 LICENSE = "LGPL-2.1"
-LIC_FILES_CHKSUM = "file://setup.cfg;md5=ff6c93e702a31eff8923f98b5bb92ec2"
+LIC_FILES_CHKSUM = "file://setup.cfg;md5=465c797d889058539f81d56da72b42a4"
 
 inherit pypi
 
-SRC_URI[md5sum] = "1094639f8688f2c5b1938029877eb4f2"
-SRC_URI[sha256sum] = "e0c333b967c48f8b2e5cc94a1d4d28893023fb06dfd797ee384a94cdd1d0eef5"
+SRC_URI[md5sum] = "1eae70b5291cdd0dc4292781ec051cc3"
+SRC_URI[sha256sum] = "893a841445663e0c4c20d1111ce41484bd62d58f59d653d0485187343368ef4a"
 
 RDEPENDS_${PN} = " \
     ${PYTHON_PN}-ifaddr \
