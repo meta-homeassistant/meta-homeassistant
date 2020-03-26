@@ -13,8 +13,8 @@ inherit setuptools3 useradd update-rc.d systemd
 
 inherit pypi
 
-SRC_URI[md5sum] = "ab7cd14ea8657b03221d6550a6a54478"
-SRC_URI[sha256sum] = "401df78a2e59697eb3ad35bd2008fa8d4b600a33743e2c0d246a17dd6b0110be"
+SRC_URI[md5sum] = "1e02917c660203e94417da7fd43322bb"
+SRC_URI[sha256sum] = "cd3390cafc89f016c83fb6f5239c07a16fc447ce4f58c74783ff5dfbcfaa58ea"
 
 SRC_URI += "\
     file://homeassistant.service \
@@ -51,32 +51,35 @@ do_install_append () {
 # Home Assistant core
 RDEPENDS_${PN} = " \
     ${PYTHON_PN}-pyjwt (>=1.7.1) \
-    ${PYTHON_PN}-aiohttp (>=3.5.4) \
+    ${PYTHON_PN}-aiohttp (>=3.6.1) \
     ${PYTHON_PN}-aiohttp-cors (>=0.7.0) \
     ${PYTHON_PN}-astral (>=1.10.1) \
     ${PYTHON_PN}-async-timeout (>=3.0.1) \
-    ${PYTHON_PN}-attrs (>=19.1.0) \
+    ${PYTHON_PN}-attrs (>=19.3.0) \
     ${PYTHON_PN}-bcrypt (>=3.1.7) \
-    ${PYTHON_PN}-certifi (>=2019.6.16) \
-    ${PYTHON_PN}-cryptography (>=2.7) \
+    ${PYTHON_PN}-certifi (>=2019.11.28) \
+    ${PYTHON_PN}-ciso8601 (>=2.1.3) \
+    ${PYTHON_PN}-cryptography (>=2.8) \
     ${PYTHON_PN}-distro (>=1.4.0) \
-    ${PYTHON_PN}-importlib-metadata (>=0.19) \
-    ${PYTHON_PN}-jinja2 (>=2.10.1) \
+    ${PYTHON_PN}-importlib-metadata (>=1.5.0) \
+    ${PYTHON_PN}-jinja2 (>=2.10.3) \
     ${PYTHON_PN}-netdisco (>=2.6.0) \
     ${PYTHON_PN}-pip (>=8.0.3) \
+    ${PYTHON_PN}-pynacl (>=1.3.0) \
     ${PYTHON_PN}-python-slugify (>=3.0.3) \
     ${PYTHON_PN}-pytz (>=2019.02) \
-    ${PYTHON_PN}-pyyaml (>=5.1.2) \
-    ${PYTHON_PN}-requests (>=2.22.0) \
+    ${PYTHON_PN}-pyyaml (>=5.3) \
+    ${PYTHON_PN}-requests (>=2.23.0) \
     ${PYTHON_PN}-ruamel-yaml (>=0.15.100) \
-    ${PYTHON_PN}-sqlalchemy (>=1.3.7) \
-    ${PYTHON_PN}-voluptuous-serialize (>=2.2.0) \
+    ${PYTHON_PN}-sqlalchemy (>=1.3.15) \
+    ${PYTHON_PN}-text-unidecode (>=1.3) \
+    ${PYTHON_PN}-voluptuous-serialize (>=2.3.0) \
     ${PYTHON_PN}-voluptuous (>=0.11.7) \
-    ${PYTHON_PN}-zeroconf (>=0.23.0) \
+    ${PYTHON_PN}-zeroconf (>=0.24.5) \
     ${PYTHON_PN}-pycryptodome (>=3.6.6) \
-    ${PYTHON_PN}-hass-nabucasa (>=0.17) \
+    ${PYTHON_PN}-hass-nabucasa (>=0.32.2) \
     \
-    ${PYTHON_PN}-home-assistant-frontend (>=20190828.1) \
+    ${PYTHON_PN}-home-assistant-frontend (>=20200318.1) \
     \
     ${PYTHON_PN}-pycparser (>= 2.7) \
     ${PYTHON_PN}-modules \

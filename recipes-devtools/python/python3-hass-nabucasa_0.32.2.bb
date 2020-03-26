@@ -4,8 +4,8 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/GPL-3.0;md5=c7
 
 inherit pypi setuptools3
 
-SRC_URI[md5sum] = "86da0daa5c4f28e987d2fa19a2d3fa49"
-SRC_URI[sha256sum] = "cfbc2787ebdc828f09d3a370c78b45a32f89706dad55412336bc9e9f69fef3e1"
+SRC_URI[md5sum] = "7c5dea602de4ea888c8fbe63adfc25cb"
+SRC_URI[sha256sum] = "c9093ef803fc98737b95aee9a0bf74eedbecd74b9579567759faaddd165bdd92"
 
 RDEPENDS_${PN} = "\
     ${PYTHON_PN}-warrant (>=0.6.1) \
