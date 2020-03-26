@@ -1,0 +1,45 @@
+software =
+{
+	version = "0.1.0";
+
+	raspberrypi3 = {
+		hardware-compatibility: [ "1.0"];
+		stable : {
+			copy1 : {
+				images: (
+					{
+						filename = "@@HAIMAGE@@-@@MACHINE@@@@SWUPDATE_IMAGES_FSTYPES[@@HAIMAGE@@]@@";
+						type = "raw";
+						compressed = true;
+						installed-directly = true;
+						device = "/dev/mmcblk0p2";
+					}
+				);
+                                uboot: (
+                                        {
+                                        	name = "rpipart";
+                                  		value = "2";
+                                        }
+				);
+
+			};
+			copy2 : {
+				images: (
+					{
+						filename = "@@HAIMAGE@@-@@MACHINE@@@@SWUPDATE_IMAGES_FSTYPES[@@HAIMAGE@@]@@";
+						type = "raw";
+						compressed = true;
+						installed-directly = true;
+						device = "/dev/mmcblk0p3";
+					}
+				);
+                                uboot: (
+                                        {
+                                        	name = "rpipart";
+                                  		value = "3";
+                                        }
+				);
+			};
+		};
+	}
+}
