@@ -1,43 +1,17 @@
 header:
   version: 8
+  includes:
+    - kas-master.yml
 
 machine: raspberrypi3
-distro: poky
-target: core-image-homeassistant
 
 repos:
-  meta-homeassistant:
-
-  poky:
-    url: https://git.yoctoproject.org/git/poky
-    refspec: master
-    layers:
-      meta:
-      meta-poky:
-
-  meta-openembedded:
-    url: http://git.openembedded.org/meta-openembedded
-    refspec: master
-    layers:
-      meta-oe:
-      meta-python:
-      meta-networking:
-      meta-perl:
-
   meta-raspberrypi:
     url : "git://git.yoctoproject.org/meta-raspberrypi"
     refspec : master
 
-  meta-swupdate:
-    url : "https://github.com/sbabic/meta-swupdate.git"
-    refspec : master
-  meta-swupdate-boards:
-    url : "https://github.com/sbabic/meta-swupdate-boards.git"
-    refspec : master
-
 local_conf_header:
-  reduce_diskspace: |
-    INHERIT += "rm_work_and_downloads"
+  raspi: |
     PATCHRESOLVE = "noop"
     CONF_VERSION = "1"
     DL_DIR ?= "/work/yocto_downloads"

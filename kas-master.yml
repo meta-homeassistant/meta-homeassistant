@@ -24,6 +24,14 @@ repos:
       meta-networking:
       meta-perl:
 
+  meta-swupdate:
+    url : "https://github.com/sbabic/meta-swupdate.git"
+    refspec : master
+
+  meta-swupdate-boards:
+    url : "https://github.com/sbabic/meta-swupdate-boards.git"
+    refspec : master
+
 local_conf_header:
   reduce_diskspace: |
     INHERIT += "rm_work_and_downloads"
