@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        yocto-version: [master, warrior]
+        yocto-version: [qemu,raspberrypi3]
 
     steps:
     - name: Install dependencies

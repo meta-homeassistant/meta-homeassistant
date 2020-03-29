@@ -1,0 +1,52 @@
+header:
+  version: 8
+
+  includes:
+    - kas-hass.yml
+
+machine: raspberrypi3
+distro: poky
+target: core-image-homeassistant
+
+repos:
+  meta-raspberrypi:
+    url : "git://git.yoctoproject.org/meta-raspberrypi"
+    refspec : master
+
+  meta-swupdate:
+    url : "https://github.com/sbabic/meta-swupdate.git"
+    refspec : master
+
+  meta-swupdate-boards:
+    url : "https://github.com/sbabic/meta-swupdate-boards.git"
+    refspec : master
+
+local_conf_header:
+  raspberry: |
+    RPI_USE_U_BOOT = "1"
+    ENABLE_UART = "1"
+    LICENSE_FLAGS_WHITELIST = "commercial"
+    IMAGE_INSTALL_append = " kernel-image kernel-modules"
+
+  standard: |  
+    PATCHRESOLVE = "noop"
+    CONF_VERSION = "1"
+    PACKAGE_CLASSES ?= "package_ipk"
+    EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
+    USER_CLASSES ?= "buildstats image-mklibs image-prelink"
+    PACKAGECONFIG_append_pn-qemu-native = " sdl"
+    PACKAGECONFIG_append_pn-nativesdk-qemu = " sdl"
+    INHERIT += "image-buildinfo"
+    IMAGE_ROOTFS_EXTRA_SPACE = "327680"
+
+  systemd: |
+    DISTRO_FEATURES_append = " systemd"
+    DISTRO_FEATURES_BACKFILL_CONSIDERED += "sysvinit"
+    VIRTUAL-RUNTIME_init_manager = "systemd"
+    VIRTUAL-RUNTIME_initscripts = "systemd-compat-units"
+
+  swu-specific: |
+    PREFERRED_VERSION_swupdate = "2019.11+git%"
+    PREFERRED_PROVIDER_u-boot-fw-utils = "libubootenv"
+    IMAGE_FSTYPES += " ext4 ext4.gz ext4.zst wic"
+    WKS_FILES_raspberrypi3 = "ts-raspberrypi.wks"
