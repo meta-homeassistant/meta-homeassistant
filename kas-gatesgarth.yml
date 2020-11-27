@@ -3,7 +3,7 @@ header:
 
 repos:
   poky:
-    refspec: master
+    refspec: gatesgarth
 
   meta-openembedded:
-    refspec: master
+    refspec: gatesgarth

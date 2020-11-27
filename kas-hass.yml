@@ -1,5 +1,5 @@
 header:
-  version: 8
+  version: 10
 
 distro: poky
 target: core-image-homeassistant
