@@ -11,15 +11,15 @@ target: core-image-homeassistant
 repos:
   meta-raspberrypi:
     url : "git://git.yoctoproject.org/meta-raspberrypi"
-    refspec : master
+    refspec : zeus
 
   meta-swupdate:
     url : "https://github.com/sbabic/meta-swupdate.git"
-    refspec : master
+    refspec : zeus
 
   meta-swupdate-boards:
     url : "https://github.com/sbabic/meta-swupdate-boards.git"
-    refspec : master
+    refspec : zeus
 
 local_conf_header:
   raspberry: |
@@ -28,7 +28,7 @@ local_conf_header:
     LICENSE_FLAGS_WHITELIST = "commercial"
     IMAGE_INSTALL_append = " kernel-image kernel-modules"
 
-  standard: |  
+  standard: |
     PATCHRESOLVE = "noop"
     CONF_VERSION = "1"
     PACKAGE_CLASSES ?= "package_ipk"
