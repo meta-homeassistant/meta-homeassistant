@@ -46,7 +46,5 @@ local_conf_header:
     VIRTUAL-RUNTIME_initscripts = "systemd-compat-units"
 
   swu-specific: |
-    PREFERRED_VERSION_swupdate = "2019.11+git%"
-    PREFERRED_PROVIDER_u-boot-fw-utils = "libubootenv"
     IMAGE_FSTYPES += " ext4 ext4.gz ext4.zst wic"
     WKS_FILES_raspberrypi3 = "ts-raspberrypi.wks"

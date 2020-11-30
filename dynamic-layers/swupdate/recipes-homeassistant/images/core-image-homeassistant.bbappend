@@ -1,5 +1,4 @@
 IMAGE_INSTALL += "\ 
-	libubootenv-bin \
 	mosquitto \
 	swupdate \
 	swupdate-progress \
