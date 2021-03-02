@@ -16,7 +16,7 @@ cd openembedded-core
 git clone https://github.com/openembedded/meta-openembedded.git
 git clone https://github.com/openembedded/bitbake.git
 git clone https://git.yoctoproject.org/git/meta-security
-git clone https://github.com/bachp/meta-homeassistant.git
+git clone https://github.com/meta-homeassistant/meta-homeassistant.git
 
 . ./oe-init-build-env
 
