@@ -53,6 +53,7 @@ RDEPENDS_${PN} = " \
     ${PYTHON_PN}-pyjwt (>=1.7.1) \
     ${PYTHON_PN}-aiohttp (>=3.6.1) \
     ${PYTHON_PN}-aiohttp-cors (>=0.7.0) \
+    ${PYTHON_PN}-aiohue \
     ${PYTHON_PN}-astral (>=1.10.1) \
     ${PYTHON_PN}-async-timeout (>=3.0.1) \
     ${PYTHON_PN}-async-upnp-client (>=0.14.12) \
@@ -70,6 +71,7 @@ RDEPENDS_${PN} = " \
     ${PYTHON_PN}-pip (>=8.0.3) \
     ${PYTHON_PN}-pymetno (>=0.5.0) \
     ${PYTHON_PN}-pynacl (>=1.3.0) \
+    ${PYTHON_PN}-pysonos \
     ${PYTHON_PN}-python-slugify (>=3.0.3) \
     ${PYTHON_PN}-pytz (>=2019.02) \
     ${PYTHON_PN}-pyyaml (= 5.3) \
