@@ -69,6 +69,10 @@ Why are these needed?
 - [meta-python-dunfellplus (dunfell)](https://git.ostc-eu.org/OSTC/OHOS/meta-python-dunfellplus/-/tree/dunfell) : contains meta-python backported recipe versions for dunfell
 - [meta-security (dunfell)](http://git.yoctoproject.org/cgit/cgit.cgi/meta-security/log/?h=dunfell): required for nmap used for presence detection
 
+# Build configuration
+
+Home Assistant requires specific versions of some of its python dependencies. The recipe makes sure those dependencies are satisfied at root filesystem generation time but that doesn't give any gurantees that `bitbake` will pick a version that satisfies the version restriction in `RDEPENDS`. In order for the build to select the right versions, your distro file should include the version selection in `conf/distro/include/ha-versions.inc` when you are building `python3-homeassistant`. A sample distro (that can also be used as such, is provided - see `homeassistant.conf`).
+
 # Contributing
 
 Please submit any patches against the homeassistant as Pull Requests on Github.
