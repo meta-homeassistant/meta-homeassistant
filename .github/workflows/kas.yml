@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         yocto-version: [dunfell]
-        machine: [qemu]
+        machine: [container]
     steps:
     - name: Install dependencies
       run: |
