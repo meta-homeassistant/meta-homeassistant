@@ -19,6 +19,7 @@ SRC_URI[sha256sum] = "cd3390cafc89f016c83fb6f5239c07a16fc447ce4f58c74783ff5dfbcf
 SRC_URI += "\
     file://homeassistant.service \
     file://homeassistant.init \
+    file://0001-Add-support-for-systemd-notify.patch \
     "
 
 USERADD_PACKAGES = "${PN}"
@@ -99,4 +100,5 @@ RDEPENDS_${PN} = " \
     ${PYTHON_PN}-gtts-token \
     ${PYTHON_PN}-pycognito \
     ${PYTHON_PN}-spotipy \
+    ${PYTHON_PN}-systemd \
 "

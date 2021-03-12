@@ -1,0 +1,109 @@
+From 9b251a12a87e26abea271804f229acd9ef377248 Mon Sep 17 00:00:00 2001
+From: Andrei Gherzan <andrei.gherzan@huawei.com>
+Date: Fri, 12 Mar 2021 16:30:06 +0000
+Subject: [PATCH] Add support for systemd notify
+
+Upstream-status: Pending
+Signed-off-by: Andrei Gherzan <andrei.gherzan@huawei.com>
+---
+ homeassistant/__main__.py                       |   8 ++++++++
+ homeassistant/bootstrap.py                      |   5 +++++
+ homeassistant/core.py                           |   8 ++++++++
+ 3 files changed, 21 insertions(+)
+
+diff --git a/homeassistant/__main__.py b/homeassistant/__main__.py
+index d1d5948..0824a2e 100644
+--- a/homeassistant/__main__.py
++++ b/homeassistant/__main__.py
+@@ -7,6 +7,7 @@ import subprocess
+ import sys
+ import threading
+ from typing import List
++from systemd import daemon
+ 
+ from homeassistant.const import REQUIRED_PYTHON_VER, RESTART_EXIT_CODE, __version__
+ 
+@@ -140,6 +141,9 @@ def get_arguments() -> argparse.Namespace:
+         parser.add_argument(
+             "--daemon", action="store_true", help="Run Home Assistant as daemon"
+         )
++    parser.add_argument(
++        "--systemd-notify", action="store_true", help="Notify systemd when server is ready"
++    )
+ 
+     arguments = parser.parse_args()
+     if os.name != "posix" or arguments.debug or arguments.runner:
+@@ -247,6 +251,7 @@ async def setup_and_run_hass(config_dir: str, args: argparse.Namespace) -> int:
+         log_no_color=args.log_no_color,
+         skip_pip=args.skip_pip,
+         safe_mode=args.safe_mode,
++        systemd_notify=args.systemd_notify,
+     )
+ 
+     if hass is None:
+@@ -339,6 +344,9 @@ def main() -> int:
+     if args.pid_file:
+         write_pid(args.pid_file)
+ 
++    if args.systemd_notify and daemon.booted():
++        daemon.notify("MAINPID={}".format(os.getpid()))
++
+     exit_code = asyncio.run(setup_and_run_hass(config_dir, args))
+     if exit_code == RESTART_EXIT_CODE and not args.runner:
+         try_to_restart()
+diff --git a/homeassistant/bootstrap.py b/homeassistant/bootstrap.py
+index 7d41552..6bca16b 100644
+--- a/homeassistant/bootstrap.py
++++ b/homeassistant/bootstrap.py
+@@ -54,6 +54,7 @@ async def async_setup_hass(
+     log_no_color: bool,
+     skip_pip: bool,
+     safe_mode: bool,
++    systemd_notify: bool,
+ ) -> Optional[core.HomeAssistant]:
+     """Set up Home Assistant."""
+     hass = core.HomeAssistant()
+@@ -129,6 +130,10 @@ async def async_setup_hass(
+             {"safe_mode": {}, "http": http_conf}, hass,
+         )
+ 
++    if systemd_notify:
++        _LOGGER.info("Systemd will be notified when Home Assistant is up")
++        hass.config.systemd_notify = True
++
+     return hass
+ 
+ 
+diff --git a/homeassistant/core.py b/homeassistant/core.py
+index a1d9a83..359fffb 100644
+--- a/homeassistant/core.py
++++ b/homeassistant/core.py
+@@ -30,6 +30,7 @@ from typing import (
+     TypeVar,
+ )
+ import uuid
++from systemd import daemon
+ 
+ from async_timeout import timeout
+ import attr
+@@ -270,6 +271,10 @@ class HomeAssistant:
+             return
+ 
+         self.state = CoreState.running
++
++        if self.config.systemd_notify and daemon.booted():
++            daemon.notify("READY=1")
++
+         _async_create_timer(self)
+ 
+     def add_job(self, target: Callable[..., Any], *args: Any) -> None:
+@@ -1295,6 +1300,9 @@ class Config:
+         # If Home Assistant is running in safe mode
+         self.safe_mode: bool = False
+ 
++        # If Home Assistnt will notify systemd when it's running
++        self.systemd_notify: bool = False
++
+     def distance(self, lat: float, lon: float) -> Optional[float]:
+         """Calculate distance from Home Assistant.
+ 
