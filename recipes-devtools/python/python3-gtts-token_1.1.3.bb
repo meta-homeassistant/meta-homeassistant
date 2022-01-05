@@ -10,6 +10,6 @@ S = "${WORKDIR}/gTTS-token-${PV}"
 SRC_URI[md5sum] = "2d21ca76976f9e803d3ec7fd6ca4f303"
 SRC_URI[sha256sum] = "9d6819a85b813f235397ef931ad4b680f03d843c9b2a9e74dd95175a4bc012c5"
 
-RDEPENDS_${PN} = "\
+RDEPENDS:${PN} = "\
 	${PYTHON_PN}-requests (>=2.22.0) \
 "

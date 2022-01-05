@@ -26,7 +26,7 @@ local_conf_header:
     RPI_USE_U_BOOT = "1"
     ENABLE_UART = "1"
     LICENSE_FLAGS_WHITELIST = "commercial"
-    IMAGE_INSTALL_append = " kernel-image kernel-modules"
+    IMAGE_INSTALL:append = " kernel-image kernel-modules"
 
   standard: |  
     PATCHRESOLVE = "noop"
@@ -34,13 +34,13 @@ local_conf_header:
     PACKAGE_CLASSES ?= "package_ipk"
     EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
     USER_CLASSES ?= "buildstats image-mklibs image-prelink"
-    PACKAGECONFIG_append_pn-qemu-native = " sdl"
-    PACKAGECONFIG_append_pn-nativesdk-qemu = " sdl"
+    PACKAGECONFIG:append:pn-qemu-native = " sdl"
+    PACKAGECONFIG:append:pn-nativesdk-qemu = " sdl"
     INHERIT += "image-buildinfo"
     IMAGE_ROOTFS_EXTRA_SPACE = "327680"
 
   systemd: |
-    DISTRO_FEATURES_append = " systemd"
+    DISTRO_FEATURES:append = " systemd"
     DISTRO_FEATURES_BACKFILL_CONSIDERED += "sysvinit"
     VIRTUAL-RUNTIME_init_manager = "systemd"
     VIRTUAL-RUNTIME_initscripts = "systemd-compat-units"

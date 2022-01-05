@@ -12,7 +12,7 @@ inherit pypi
 SRC_URI[md5sum] = "a1c6470f913dc18b5b4ba38531c09c8d"
 SRC_URI[sha256sum] = "cca4e32ebb8da7fdf35ab2fa2b3edd441211364819c5592fc253acdb7561ea5b"
 
-RDEPENDS_${PN} = "\
+RDEPENDS:${PN} = "\
     ${PYTHON_PN}-future \
     ${PYTHON_PN}-certifi \
     ${PYTHON_PN}-ujson \

@@ -10,7 +10,7 @@ inherit pypi
 SRC_URI[md5sum] = "cfceac58b705dba5b828e83010b2a1d1"
 SRC_URI[sha256sum] = "623897ce08dc2efe24d04380df36e4b7fb35c0e4007e882857d4047f0b60349d"
 
-RDEPENDS_${PN} = "\
+RDEPENDS:${PN} = "\
     ${PYTHON_PN}-aiohttp \
     ${PYTHON_PN}-aiohttp-jinja2 \
     ${PYTHON_PN}-async \

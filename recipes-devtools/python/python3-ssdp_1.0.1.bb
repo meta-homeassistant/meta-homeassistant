@@ -8,6 +8,6 @@ SRC_URI[sha256sum] = "7325a2e850339c97bde23e923f7908be5f3453745d9ce8905a956f2f93
 
 SRC_URI += "file://0001-fix-build.patch"
 
-RDEPENDS_${PN} = "\
+RDEPENDS:${PN} = "\
     ${PYTHON_PN}-pbr (>=5.4.0) \
     "

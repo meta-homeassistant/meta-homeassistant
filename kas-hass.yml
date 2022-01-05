@@ -28,9 +28,9 @@ local_conf_header:
     INHERIT += "rm_work_and_downloads"
 
   Strip down unneeded features: |
-    POKY_DEFAULT_DISTRO_FEATURES_remove = "ptest"
-    POKY_DEFAULT_DISTRO_FEATURES_remove = "wayland"
-    DISTRO_FEATURES_DEFAULT_remove = "x11"
+    POKY_DEFAULT_DISTRO_FEATURES:remove = "ptest"
+    POKY_DEFAULT_DISTRO_FEATURES:remove = "wayland"
+    DISTRO_FEATURES_DEFAULT:remove = "x11"
 
   diskmon: |
     BB_DISKMON_DIRS = "\
