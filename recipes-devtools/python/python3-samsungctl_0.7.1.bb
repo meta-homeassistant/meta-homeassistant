@@ -1,5 +1,5 @@
-LICENSE = "GPLv3"
-LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/GPL-3.0;md5=c79ff39f19dfec6d293b95dea7b07891"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=d15899171de611ea06093a47d5fb4419"
 
 inherit pypi setuptools3
 
