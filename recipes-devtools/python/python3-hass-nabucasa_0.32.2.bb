@@ -1,6 +1,6 @@
 HOMEPAGE = "https://www.nabucasa.com/"
-LICENSE = "GPLv3"
-LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/GPL-3.0;md5=c79ff39f19dfec6d293b95dea7b07891"
+LICENSE = "GPL-3.0-only"
+LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=8;endline=8;md5=8ce93f51d70fd2b9add4f5b93af43d4a"
 
 inherit pypi setuptools3
 
