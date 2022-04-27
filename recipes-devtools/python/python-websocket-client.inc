@@ -13,6 +13,6 @@ SRC_URI[sha256sum] = "1fd5520878b68b84b5748bb30e592b10d0a91529d5383f74f4964e72b2
 PYPI_PACKAGE = "websocket_client"
 inherit pypi
 
-RDEPENDS_${PN} = "\
+RDEPENDS:${PN} = "\
     ${PYTHON_PN}-six \
 "

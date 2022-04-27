@@ -9,7 +9,7 @@ SRC_URI[sha256sum] = "0b0069c752ec14172c5f78208f1863d7ad6755a6fae6fe76ec2c80d13b
 
 inherit pypi
 
-RDEPENDS_${PN}_class-target += "\
+RDEPENDS:${PN}:class-target += "\
     ${PYTHON_PN}-cffi \
     ${PYTHON_PN}-ctypes \
     ${PYTHON_PN}-shell \

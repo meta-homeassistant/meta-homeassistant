@@ -13,7 +13,7 @@ DEPENDS += " \
     ${PYTHON_PN}-pbr \
 "
 
-# RDEPENDS_default:
-RDEPENDS_${PN} += " \
+# RDEPENDS:default:
+RDEPENDS:${PN} += " \
     ${PYTHON_PN}-pbr \
 "
