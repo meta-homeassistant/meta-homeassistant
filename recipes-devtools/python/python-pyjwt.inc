@@ -12,7 +12,7 @@ SRC_URI[sha256sum] = "8d59a976fb773f3e6a39c85636357c4f0e242707394cadadd9814f5cba
 PYPI_PACKAGE = "PyJWT"
 inherit setuptools3 pypi
 
-RDEPENDS_${PN} = "\
+RDEPENDS:${PN} = "\
     ${PYTHON_PN}-cryptography (>= 1.4) \
 "
 

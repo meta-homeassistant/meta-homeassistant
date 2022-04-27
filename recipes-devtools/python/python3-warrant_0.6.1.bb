@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/capless/warrant"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://setup.py;md5=d781fd54312fe4e227a093bdcaa7b4fd"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
 inherit pypi setuptools3
 
@@ -14,7 +14,7 @@ SRC_URI += "\
     file://0001-Remove-pip-requires.patch \
 "
 
-RDEPENDS_${PN} = "\
+RDEPENDS:${PN} = "\
     ${PYTHON_PN}-boto3 (>=1.4.3) \
     ${PYTHON_PN}-envs (>=0.3.0) \
     ${PYTHON_PN}-python-jose-cryptodome (>=1.3.2) \

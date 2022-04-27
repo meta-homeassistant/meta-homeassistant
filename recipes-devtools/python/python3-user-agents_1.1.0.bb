@@ -8,6 +8,6 @@ inherit pypi setuptools3
 SRC_URI[md5sum] = "0f18f7edf132605d1d43cc56d4850c31"
 SRC_URI[sha256sum] = "643d16772280052b546d956971d719989ef6dc9b17d9ff0386aa21391a038039"
 
-RDEPENDS_${PN} = "\
+RDEPENDS:${PN} = "\
     ${PYTHON_PN}-ua-parser \
 "
