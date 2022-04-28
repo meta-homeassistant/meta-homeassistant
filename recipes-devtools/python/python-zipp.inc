@@ -7,4 +7,4 @@ SRC_URI[md5sum] = "d4451a749d8a7c3c392a9edd1864a937"
 SRC_URI[sha256sum] = "3718b1cbcd963c7d4c5511a8240812904164b7f381b647143a89d3b98f9bcd8e"
 
 DEPENDS += "${PYTHON_PN}-setuptools-scm-native"
-RDEPENDS_${PN} += "${PYTHON_PN}-more-itertools"
+RDEPENDS:${PN} += "${PYTHON_PN}-more-itertools"

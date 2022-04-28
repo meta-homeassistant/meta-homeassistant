@@ -8,7 +8,7 @@ inherit pypi setuptools3
 SRC_URI[md5sum] = "fb7f29738c1535e21b3f1067bc5c77c2"
 SRC_URI[sha256sum] = "c74f4ff82f8e106859652d0f7207e0533137742ab300693198909b37c097c27b"
 
-RDEPENDS_${PN} = "\
+RDEPENDS:${PN} = "\
     ${PYTHON_PN}-attrs (>=18.2.0) \
     ${PYTHON_PN}-async-timeout (>=3.0.1) \
     ${PYTHON_PN}-cryptography (>=2.5) \

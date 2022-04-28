@@ -23,17 +23,17 @@ SRC_URI += "\
     "
 
 USERADD_PACKAGES = "${PN}"
-GROUPADD_PARAM_${PN} = "homeassistant"
-USERADD_PARAM_${PN} = "--system --home ${HOMEASSISTANT_CONFIG_DIR} \
+GROUPADD_PARAM:${PN} = "homeassistant"
+USERADD_PARAM:${PN} = "--system --home ${HOMEASSISTANT_CONFIG_DIR} \
                        --no-create-home --shell /bin/false \
                        --groups homeassistant,dialout --gid homeassistant ${HOMEASSISTANT_USER}"
 
 INITSCRIPT_NAME = "homeassistant"
 
 SYSTEMD_AUTO_ENABLE = "enable"
-SYSTEMD_SERVICE_${PN} = "homeassistant.service"
+SYSTEMD_SERVICE:${PN} = "homeassistant.service"
 
-do_install_append () {
+do_install:append () {
     install -d -o ${HOMEASSISTANT_USER} -g homeassistant ${D}${HOMEASSISTANT_CONFIG_DIR}
 
     # Install init scripts and set correct config directory
@@ -50,7 +50,7 @@ do_install_append () {
 }
 
 # Home Assistant core
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
     ${PYTHON_PN}-pyjwt (>=1.7.1) \
     ${PYTHON_PN}-aiohttp (>=3.6.1) \
     ${PYTHON_PN}-aiohttp-cors (>=0.7.0) \

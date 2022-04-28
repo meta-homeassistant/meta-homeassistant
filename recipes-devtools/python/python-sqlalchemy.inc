@@ -10,7 +10,7 @@ inherit pypi
 SRC_URI[md5sum] = "c869817feddc7b0d3ae9ed23cf86997d"
 SRC_URI[sha256sum] = "c4cca4aed606297afbe90d4306b49ad3a4cd36feb3f87e4bfd655c57fd9ef445"
 
-RDEPENDS_${PN} += " \
+RDEPENDS:${PN} += " \
     ${PYTHON_PN}-json \
     ${PYTHON_PN}-pickle \
     ${PYTHON_PN}-logging \
