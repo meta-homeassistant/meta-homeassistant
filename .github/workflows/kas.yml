@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        yocto-version: [gatesgarth]
+        yocto-version: [kirkstone]
         machine: [qemu]
     steps:
     - name: Install dependencies
