@@ -3,7 +3,7 @@ header:
 
 repos:
   poky:
-    refspec: gatesgarth
+    refspec: kirkstone
 
   meta-openembedded:
-    refspec: gatesgarth
+    refspec: kirkstone
