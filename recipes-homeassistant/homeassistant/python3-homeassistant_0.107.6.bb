@@ -75,7 +75,7 @@ RDEPENDS:${PN} = " \
     ${PYTHON_PN}-pysonos \
     ${PYTHON_PN}-python-slugify (>=3.0.3) \
     ${PYTHON_PN}-pytz (>=2019.02) \
-    ${PYTHON_PN}-pyyaml (= 5.3) \
+    ${PYTHON_PN}-pyyaml (>= 5.3) \
     ${PYTHON_PN}-requests (>=2.23.0) \
     ${PYTHON_PN}-ruamel-yaml (>=0.15.100) \
     ${PYTHON_PN}-samsungctl (>=0.7.1) \

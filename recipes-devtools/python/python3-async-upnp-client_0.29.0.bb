@@ -3,12 +3,11 @@ LIC_FILES_CHKSUM = "file://LICENSE.md;md5=f4eda51018051de136d3b3742e9a7a40"
 
 inherit pypi setuptools3
 
-SRC_URI = "https://files.pythonhosted.org/packages/source/a/async-upnp-client/async_upnp_client-0.14.12.tar.gz"
+PYPI_ARCHIVE_NAME = "async_upnp_client-${PV}.${PYPI_PACKAGE_EXT}"
 
 S = "${WORKDIR}/async_upnp_client-${PV}"
 
-SRC_URI[md5sum] = "5d1bae23edb2269992ad42040438616c"
-SRC_URI[sha256sum] = "99f4f371d20c418940c21f79290fabd4e5b6eb37460b7eee12aaa502bd3ee1b9"
+SRC_URI[sha256sum] = "54ac8a7ce4b15eb3ae3c3f4c5b42a964c58414a187f280c19f67b4cc01771908"
 
 RDEPENDS:${PN} = "\
 	${PYTHON_PN}-async-timeout (>=3.0.0) \
