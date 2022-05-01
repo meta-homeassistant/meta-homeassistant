@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         yocto-version: [kirkstone]
-        machine: [container]
+        machine: [qemu]
     steps:
     - name: Install dependencies
       run: |
