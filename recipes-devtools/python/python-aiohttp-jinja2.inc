@@ -8,7 +8,7 @@ inherit pypi
 SRC_URI[md5sum] = "d8e0f9e824ab62f3bd17abb604f5884e"
 SRC_URI[sha256sum] = "4569ba360dbef2f6e2edfcb1eb34452e85498b7e17740baa5a4adc296ac3973c"
 
-RDEPENDS_${PN} = "\
+RDEPENDS:${PN} = "\
     ${PYTHON_PN}-jinja2 (>=2.7) \
     ${PYTHON_PN}-aiohttp (>=0.20) \
 "

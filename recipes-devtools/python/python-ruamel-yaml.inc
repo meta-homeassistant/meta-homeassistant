@@ -10,6 +10,6 @@ inherit pypi
 SRC_URI[md5sum] = "dd811a8f09dc0e622ad19a42508da7c1"
 SRC_URI[sha256sum] = "8e42f3067a59e819935a2926e247170ed93c8f0b2ab64526f888e026854db2e4"
 
-do_install_prepend() {
+do_install:prepend() {
     export RUAMEL_NO_PIP_INSTALL_CHECK=1
 }
