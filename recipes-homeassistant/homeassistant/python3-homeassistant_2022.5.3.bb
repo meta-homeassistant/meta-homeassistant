@@ -9,13 +9,12 @@ HOMEASSISTANT_CONFIG_DIR[doc] = "Configuration directory used by home-assistant.
 HOMEASSISTANT_USER ?= "homeassistant"
 HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 
-inherit python_setuptools_build_meta pypi useradd update-rc.d systemd
+inherit python_setuptools_build_meta pypi useradd systemd
 
 SRC_URI[sha256sum] = "d759f9acf87d2f6b0b8598c48700b5c5a6a72ad40cd8248f431266fe9d92e6f2"
 
 SRC_URI += "\
     file://homeassistant.service \
-    file://homeassistant.init \
     "
 
 USERADD_PACKAGES = "${PN}"
@@ -24,19 +23,11 @@ USERADD_PARAM:${PN} = "--system --home ${HOMEASSISTANT_CONFIG_DIR} \
                        --no-create-home --shell /bin/false \
                        --groups homeassistant,dialout --gid homeassistant ${HOMEASSISTANT_USER}"
 
-INITSCRIPT_NAME = "homeassistant"
-
 SYSTEMD_AUTO_ENABLE = "enable"
 SYSTEMD_SERVICE:${PN} = "homeassistant.service"
 
 do_install:append () {
     install -d -o ${HOMEASSISTANT_USER} -g homeassistant ${D}${HOMEASSISTANT_CONFIG_DIR}
-
-    # Install init scripts and set correct config directory
-    install -d ${D}${sysconfdir}/init.d
-    install -m 0755 ${WORKDIR}/homeassistant.init  ${D}${sysconfdir}/init.d/homeassistant
-    sed -i -e 's,@HOMEASSISTANT_CONFIG_DIR@,${HOMEASSISTANT_CONFIG_DIR},g'  ${D}${sysconfdir}/init.d/homeassistant
-    sed -i -e 's,@HOMEASSISTANT_USER@,${HOMEASSISTANT_USER},g'  ${D}${sysconfdir}/init.d/homeassistant
 
     # Install systemd unit files and set correct config directory
     install -d ${D}${systemd_unitdir}/system
