@@ -4,8 +4,8 @@ LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=8;endline=8;md5=8ce93f51d70fd2b9ad
 
 inherit pypi setuptools3
 
-SRC_URI[md5sum] = "7c5dea602de4ea888c8fbe63adfc25cb"
-SRC_URI[sha256sum] = "c9093ef803fc98737b95aee9a0bf74eedbecd74b9579567759faaddd165bdd92"
+SRC_URI[md5sum] = "680bbfff1ecd316ac0d6e79ac6ecc04b"
+SRC_URI[sha256sum] = "f9e4ee695dc440bf1d8cec9a4ca35fc7054539e68e8fb1571c6f52e64e01f8f5"
 
 RDEPENDS:${PN} = "\
     ${PYTHON_PN}-warrant (>=0.6.1) \
