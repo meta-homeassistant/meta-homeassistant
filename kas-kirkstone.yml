@@ -9,14 +9,12 @@ repos:
     refspec: kirkstone
 
 local_conf_header:
-  reduce_diskspace: |
-    INHERIT += "rm_work_and_downloads"
 
   Yocto Sstate cache: |
-     BB_SIGNATURE_HANDLER = "OEEquivHash"
-     BB_HASHSERVE = "auto"
-     BB_HASHSERVE_UPSTREAM = "typhoon.yocto.io:8687"
-     SSTATE_MIRRORS ?= "file://.* https://sstate.yoctoproject.org/4.0/PATH;downloadfilename=PATH"
+    BB_SIGNATURE_HANDLER = "OEEquivHash"
+    BB_HASHSERVE = "auto"
+    BB_HASHSERVE_UPSTREAM = "hashserv.yocto.io:8687"
+    SSTATE_MIRRORS ?= "file://.* https://sstate.yoctoproject.org/all/PATH;downloadfilename=PATH"
 
   Yocto Source mirror: |
     MIRRORS:append = "\
