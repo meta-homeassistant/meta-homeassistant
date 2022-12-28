@@ -3,7 +3,7 @@ Description=Home Assistant
 After=network.target
 
 [Service]
-Type=notify
+Type=simple
 User=@HOMEASSISTANT_USER@
 ExecStart=/usr/bin/hass --skip-pip -c "@HOMEASSISTANT_CONFIG_DIR@"
 Restart=on-failure
