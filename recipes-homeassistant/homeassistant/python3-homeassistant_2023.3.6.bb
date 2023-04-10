@@ -87,3 +87,4 @@ require components/ha-component-ssdp.inc
 require components/ha-component-tts.inc
 require components/ha-component-usb.inc
 require components/ha-component-zeroconf.inc
+require components/ha-component-conversation.inc
