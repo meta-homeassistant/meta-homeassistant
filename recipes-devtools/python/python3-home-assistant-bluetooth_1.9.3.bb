@@ -1,7 +1,7 @@
 SUMMARY = "Basic bluetooth models used by Home Assistant."
 HOMEPAGE = "https://pypi.org/project/home-assistant-bluetooth/"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=c624803bdf6fc1c4ce39f5ae11d7bd05"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=732518afbb3ba92dbf606e49f9045cc9"
 
 PYPI_PACKAGE = "home_assistant_bluetooth"
 
