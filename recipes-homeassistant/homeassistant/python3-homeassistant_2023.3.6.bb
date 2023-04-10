@@ -45,11 +45,13 @@ do_install:append () {
 # python3-ifaddr upstream version = 0.2.0
 # python3-sqlalchemy upstream version = 2.0.7
 # python3-zerconf upstream version = 0.47.4
+# python3-pyudev upstream version = 0.24.0
 RDEPENDS:${PN} = "\
     ${PYTHON_PN}-aiohttp (=3.8.4) \
     ${PYTHON_PN}-aiohttp-cors (=0.7.0) \
     ${PYTHON_PN}-astral (=2.2) \
     ${PYTHON_PN}-async-timeout (=4.0.2) \
+    ${PYTHON_PN}-async-upnp-client (==0.33.1) \
     ${PYTHON_PN}-atomicwrites-homeassistant (=1.4.1) \
     ${PYTHON_PN}-attrs (=22.2.0) \
     ${PYTHON_PN}-awesomeversion (=22.9.0) \
@@ -58,19 +60,28 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-ciso8601 (=2.3.0) \
     ${PYTHON_PN}-cryptography (>=39.0.1) \
     ${PYTHON_PN}-fnvhash (=0.1.0) \
+    ${PYTHON_PN}-gtts (=2.2.4) \
     ${PYTHON_PN}-home-assistant-bluetooth (=1.9.3) \
     ${PYTHON_PN}-httpx (=0.23.3) \
     ${PYTHON_PN}-ifaddr (=0.2.0) \
+    ${PYTHON_PN}-janus (=1.0.0) \
     ${PYTHON_PN}-jinja2 (=3.1.2) \
     ${PYTHON_PN}-lru-dict (=1.1.8) \
+    ${PYTHON_PN}-mutagen (=1.46.0) \
     ${PYTHON_PN}-orjson (=3.8.7) \
+    ${PYTHON_PN}-pillow (=9.4.0) \
     ${PYTHON_PN}-pip (>=21.0) \
     ${PYTHON_PN}-pyjwt (>=2.5.0) \
+    ${PYTHON_PN}-pynacl (=1.5.0) \
     ${PYTHON_PN}-pyopenssl (=23.0.0) \
+    ${PYTHON_PN}-pyserial (=3.5) \
     ${PYTHON_PN}-python-slugify (=4.0.1) \
+    ${PYTHON_PN}-pyudev (>=0.23.2) \
     ${PYTHON_PN}-pyyaml (= 6.0) \
     ${PYTHON_PN}-requests (=2.28.2) \
+    ${PYTHON_PN}-scapy (=2.5.0) \
     ${PYTHON_PN}-sqlalchemy (>=2.0.6) \
+    ${PYTHON_PN}-sqlite3 \
     ${PYTHON_PN}-statistics \
     ${PYTHON_PN}-typing-extensions (=4.5.0) \
     ${PYTHON_PN}-voluptuous (=0.13.1) \
@@ -80,60 +91,50 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-zoneinfo \
 "
 
-# ${PYTHON_PN}-aiodiscover (=1.4.13)
-#     ${PYTHON_PN}-pynacl (>=1.5.0) 
-#     ${PYTHON_PN}-async-upnp-client (>=0.29.0) 
-#     ${PYTHON_PN}-hass-nabucasa (>=0.54.0) 
-#     ${PYTHON_PN}-home-assistant-frontend (>=20220504.1) 
-#     ${PYTHON_PN}-paho-mqtt (>=1.6.1) 
-#     ${PYTHON_PN}-pillow (>=9.0.1) 
-#     ${PYTHON_PN}-pyserial (>=3.5)
-#     ${PYTHON_PN}-pyudev (>=0.22.0) 
-#     ${PYTHON_PN}-scapy (>=2.4.5) 
-
-#     ${PYTHON_PN}-pycryptodome (>=3.6.6) 
-#     ${PYTHON_PN}-urllib3 (>=1.26.9) 
-#     ${PYTHON_PN}-httplib2 (>=0.19.0) 
-#     ${PYTHON_PN}-grpcio (>=1.45.0) 
-    
-#     ${PYTHON_PN}-regex (>=2021.8.28) 
-#     ${PYTHON_PN}-anyio (>=3.5.0) 
-#     ${PYTHON_PN}-h11 (>=0.12) 
-#     ${PYTHON_PN}-httpcore (>=0.14.7) 
-#     ${PYTHON_PN}-hyperframe (>=5.2.0) 
-#     ${PYTHON_PN}-engineio (>=3.13.1) 
-#     ${PYTHON_PN}-socketio (>=4.6.0) 
-#     ${PYTHON_PN}-multidict (>=6.0.2) 
-#     
-    
-#     ${PYTHON_PN}-frozenlist (>=1.1.1) 
-#     ${PYTHON_PN}-aiosignal (>=1.1.2) 
-#     ${PYTHON_PN}-charset-normalizer (>=2.0) 
-#     ${PYTHON_PN}-pytz 
-#     ${PYTHON_PN}-six (>=1.4.1) 
-#     ${PYTHON_PN}-cffi (>=1.1) 
-#     ${PYTHON_PN}-markupsafe (>=2.0) 
-#     ${PYTHON_PN}-text-unidecode (>=1.3) 
-#     ${PYTHON_PN}-idna (>=2.5) 
-#     ${PYTHON_PN}-pycparser (>= 2.7) 
-    
 #     ${PYTHON_PN}-aiohue 
+#     ${PYTHON_PN}-aiosignal (>=1.1.2) 
+#     ${PYTHON_PN}-anyio (>=3.5.0) 
+#     
+#     ${PYTHON_PN}-cffi (>=1.1) 
+#     ${PYTHON_PN}-charset-normalizer (>=2.0) 
+#     ${PYTHON_PN}-coronavirus 
 #     ${PYTHON_PN}-defusedxml (>=0.6.0) 
 #     ${PYTHON_PN}-distro (>=1.4.0) 
+#     ${PYTHON_PN}-engineio (>=3.13.1) 
+#     ${PYTHON_PN}-frozenlist (>=1.1.1) 
+#     ${PYTHON_PN}-grpcio (>=1.45.0) 
+#     ${PYTHON_PN}-gtts-token 
+#     ${PYTHON_PN}-h11 (>=0.12) 
+#     ${PYTHON_PN}-hass-nabucasa (>=0.54.0) 
+#     ${PYTHON_PN}-home-assistant-frontend (>=20220504.1) 
+#     ${PYTHON_PN}-httpcore (>=0.14.7) 
+#     ${PYTHON_PN}-httplib2 (>=0.19.0) 
+#     ${PYTHON_PN}-hyperframe (>=5.2.0) 
+#     ${PYTHON_PN}-idna (>=2.5) 
 #     ${PYTHON_PN}-importlib-metadata (>=1.5.0) 
-#     ${PYTHON_PN}-mutagen (>=1.44.0) 
+#     ${PYTHON_PN}-markupsafe (>=2.0) 
+#     ${PYTHON_PN}-modules 
+#     ${PYTHON_PN}-multidict (>=6.0.2) 
 #     ${PYTHON_PN}-netdisco (>=2.6.0) 
+#     ${PYTHON_PN}-paho-mqtt (>=1.6.1) 
+#     ${PYTHON_PN}-pycognito 
+#     ${PYTHON_PN}-pycparser (>= 2.7) 
+#     ${PYTHON_PN}-pycryptodome (>=3.6.6) 
 #     ${PYTHON_PN}-pymetno (>=0.5.0) 
 #     ${PYTHON_PN}-pysonos 
+#     ${PYTHON_PN}-pytz 
+#     ${PYTHON_PN}-regex (>=2021.8.28) 
 #     ${PYTHON_PN}-ruamel-yaml (>=0.15.100) 
 #     ${PYTHON_PN}-samsungctl (>=0.7.1) 
-#     ${PYTHON_PN}-samsungtvws (>=1.4.0) 
 #     ${PYTHON_PN}-samsungtv (>=1.0.0) 
-#     ${PYTHON_PN}-ssdp (>=1.0.1) 
-#     ${PYTHON_PN}-xmltodict (>=0.12.0) 
-#     ${PYTHON_PN}-modules 
-#     ${PYTHON_PN}-coronavirus 
-#     ${PYTHON_PN}-gtts-token 
-#     ${PYTHON_PN}-pycognito 
+#     ${PYTHON_PN}-samsungtvws (>=1.4.0) 
+#     ${PYTHON_PN}-scapy (>=2.4.5) 
+#     ${PYTHON_PN}-six (>=1.4.1) 
+#     ${PYTHON_PN}-socketio (>=4.6.0) 
 #     ${PYTHON_PN}-spotipy 
+#     ${PYTHON_PN}-ssdp (>=1.0.1) 
 #     ${PYTHON_PN}-systemd 
+#     ${PYTHON_PN}-text-unidecode (>=1.3) 
+#     ${PYTHON_PN}-urllib3 (>=1.26.9) 
+#     ${PYTHON_PN}-xmltodict (>=0.12.0) 
+# ${PYTHON_PN}-aiodiscover (=1.4.13)
