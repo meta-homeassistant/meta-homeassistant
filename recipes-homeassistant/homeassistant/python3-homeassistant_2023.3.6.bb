@@ -47,11 +47,12 @@ do_install:append () {
 # python3-zerconf upstream version = 0.47.4
 # python3-pyudev upstream version = 0.24.0
 RDEPENDS:${PN} = "\
+    ${PYTHON_PN}-aiodiscover (=1.4.13) \
     ${PYTHON_PN}-aiohttp (=3.8.4) \
     ${PYTHON_PN}-aiohttp-cors (=0.7.0) \
     ${PYTHON_PN}-astral (=2.2) \
     ${PYTHON_PN}-async-timeout (=4.0.2) \
-    ${PYTHON_PN}-async-upnp-client (==0.33.1) \
+    ${PYTHON_PN}-async-upnp-client (=0.33.1) \
     ${PYTHON_PN}-atomicwrites-homeassistant (=1.4.1) \
     ${PYTHON_PN}-attrs (=22.2.0) \
     ${PYTHON_PN}-awesomeversion (=22.9.0) \
@@ -74,6 +75,7 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-pyjwt (>=2.5.0) \
     ${PYTHON_PN}-pynacl (=1.5.0) \
     ${PYTHON_PN}-pyopenssl (=23.0.0) \
+    ${PYTHON_PN}-pyroute2 (=0.7.5) \
     ${PYTHON_PN}-pyserial (=3.5) \
     ${PYTHON_PN}-python-slugify (=4.0.1) \
     ${PYTHON_PN}-pyudev (>=0.23.2) \
@@ -91,10 +93,11 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-zoneinfo \
 "
 
+#     ${PYTHON_PN}-bleak (=0.19.5)
+#     ${PYTHON_PN}-bleak-retry-connector (=2.13.0) 
 #     ${PYTHON_PN}-aiohue 
 #     ${PYTHON_PN}-aiosignal (>=1.1.2) 
 #     ${PYTHON_PN}-anyio (>=3.5.0) 
-#     
 #     ${PYTHON_PN}-cffi (>=1.1) 
 #     ${PYTHON_PN}-charset-normalizer (>=2.0) 
 #     ${PYTHON_PN}-coronavirus 
@@ -137,4 +140,3 @@ RDEPENDS:${PN} = "\
 #     ${PYTHON_PN}-text-unidecode (>=1.3) 
 #     ${PYTHON_PN}-urllib3 (>=1.26.9) 
 #     ${PYTHON_PN}-xmltodict (>=0.12.0) 
-# ${PYTHON_PN}-aiodiscover (=1.4.13)
