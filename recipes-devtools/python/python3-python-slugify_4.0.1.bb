@@ -5,10 +5,10 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=7946d011d653bfcfbb24480377867128"
 
 PYPI_PACKAGE = "python-slugify"
 
-inherit pypi
+inherit setuptools3 pypi
 
-SRC_URI[md5sum] = "d2f490f854f66cc723a004f5328a25b4"
-SRC_URI[sha256sum] = "a8fc3433821140e8f409a9831d13ae5deccd0b033d4744d94b31fea141bdd84c"
+SRC_URI[md5sum] = "9725b833e9d537066890063a8a8e604b"
+SRC_URI[sha256sum] = "69a517766e00c1268e5bbfc0d010a0a8508de0b18d30ad5a1ff357f8ae724270ru"
 
 RDEPENDS:${PN} = "\
     ${PYTHON_PN}-pycryptodome (>=3.3.1) \
