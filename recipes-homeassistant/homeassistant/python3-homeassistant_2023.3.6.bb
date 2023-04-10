@@ -63,16 +63,22 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-cryptography (>=39.0.1) \
     ${PYTHON_PN}-fnvhash (=0.1.0) \
     ${PYTHON_PN}-gtts (=2.2.4) \
+    ${PYTHON_PN}-hass-nabucasa (=0.61.0) \
+    ${PYTHON_PN}-hassil (=1.0.6) \
     ${PYTHON_PN}-home-assistant-bluetooth (=1.9.3) \
+    ${PYTHON_PN}-home-assistant-intents (=2023.2.28) \
     ${PYTHON_PN}-httpx (=0.23.3) \
     ${PYTHON_PN}-ifaddr (=0.2.0) \
     ${PYTHON_PN}-janus (=1.0.0) \
     ${PYTHON_PN}-jinja2 (=3.1.2) \
     ${PYTHON_PN}-lru-dict (=1.1.8) \
     ${PYTHON_PN}-mutagen (=1.46.0) \
+    ${PYTHON_PN}-numpy (>=1.23.2) \
     ${PYTHON_PN}-orjson (=3.8.7) \
     ${PYTHON_PN}-pillow (=9.4.0) \
     ${PYTHON_PN}-pip (>=21.0) \
+    ${PYTHON_PN}-psutil (=5.9.4) \
+    ${PYTHON_PN}-psutil-home-assistant (=0.0.1) \
     ${PYTHON_PN}-pyjwt (>=2.5.0) \
     ${PYTHON_PN}-pynacl (=1.5.0) \
     ${PYTHON_PN}-pyopenssl (=23.0.0) \
@@ -92,10 +98,6 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-yarl (>=1.8.1) \
     ${PYTHON_PN}-zeroconf (>=0.47.3) \
     ${PYTHON_PN}-zoneinfo \
-    ${PYTHON_PN}-psutil (=5.9.4) \
-    ${PYTHON_PN}-psutil-home-assistant (=0.0.1) \
-    ${PYTHON_PN}-hass-nabucasa (=0.61.0) \
-    ${PYTHON_PN}-numpy (>=1.23.2) \
 "
 
 #     ${PYTHON_PN}-bleak (=0.19.5)
