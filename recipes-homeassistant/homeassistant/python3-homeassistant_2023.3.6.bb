@@ -46,6 +46,7 @@ do_install:append () {
 # python3-sqlalchemy upstream version = 2.0.7
 # python3-zerconf upstream version = 0.47.4
 # python3-pyudev upstream version = 0.24.0
+# python3-numpy upstream version = 1.24.2
 RDEPENDS:${PN} = "\
     ${PYTHON_PN}-aiodiscover (=1.4.13) \
     ${PYTHON_PN}-aiohttp (=3.8.4) \
@@ -93,6 +94,8 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-zoneinfo \
     ${PYTHON_PN}-psutil (=5.9.4) \
     ${PYTHON_PN}-psutil-home-assistant (=0.0.1) \
+    ${PYTHON_PN}-hass-nabucasa (=0.61.0) \
+    ${PYTHON_PN}-numpy (>=1.23.2) \
 "
 
 #     ${PYTHON_PN}-bleak (=0.19.5)
@@ -110,7 +113,6 @@ RDEPENDS:${PN} = "\
 #     ${PYTHON_PN}-grpcio (>=1.45.0) 
 #     ${PYTHON_PN}-gtts-token 
 #     ${PYTHON_PN}-h11 (>=0.12) 
-#     ${PYTHON_PN}-hass-nabucasa (>=0.54.0) 
 #     ${PYTHON_PN}-home-assistant-frontend (>=20220504.1) 
 #     ${PYTHON_PN}-httpcore (>=0.14.7) 
 #     ${PYTHON_PN}-httplib2 (>=0.19.0) 
