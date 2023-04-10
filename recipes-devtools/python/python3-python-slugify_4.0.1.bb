@@ -8,7 +8,7 @@ PYPI_PACKAGE = "python-slugify"
 inherit setuptools3 pypi
 
 SRC_URI[md5sum] = "9725b833e9d537066890063a8a8e604b"
-SRC_URI[sha256sum] = "69a517766e00c1268e5bbfc0d010a0a8508de0b18d30ad5a1ff357f8ae724270ru"
+SRC_URI[sha256sum] = "69a517766e00c1268e5bbfc0d010a0a8508de0b18d30ad5a1ff357f8ae724270"
 
 RDEPENDS:${PN} = "\
     ${PYTHON_PN}-pycryptodome (>=3.3.1) \
