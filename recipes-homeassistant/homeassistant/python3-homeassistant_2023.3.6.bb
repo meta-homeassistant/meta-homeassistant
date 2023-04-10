@@ -9,19 +9,21 @@ HOMEASSISTANT_CONFIG_DIR[doc] = "Configuration directory used by home-assistant.
 HOMEASSISTANT_USER ?= "homeassistant"
 HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 
-inherit python_setuptools_build_meta pypi useradd systemd
-
 SRC_URI[sha256sum] = "e0f4baa33caa25d745e89a7d70a4688d4b474d335ddf1a36a130dba28c100029"
 
-SRC_URI += "\
+SRC_URI:append = " \
     file://homeassistant.service \
-    "
+"
+
+inherit python_setuptools_build_meta pypi useradd systemd
 
 USERADD_PACKAGES = "${PN}"
 GROUPADD_PARAM:${PN} = "homeassistant"
-USERADD_PARAM:${PN} = "--system --home ${HOMEASSISTANT_CONFIG_DIR} \
-                       --no-create-home --shell /bin/false \
-                       --groups homeassistant,dialout --gid homeassistant ${HOMEASSISTANT_USER}"
+USERADD_PARAM:${PN} = "\
+    --system --home ${HOMEASSISTANT_CONFIG_DIR} \
+    --no-create-home --shell /bin/false \
+    --groups homeassistant,dialout --gid homeassistant ${HOMEASSISTANT_USER} \
+"
 
 SYSTEMD_AUTO_ENABLE = "enable"
 SYSTEMD_SERVICE:${PN} = "homeassistant.service"
@@ -36,16 +38,11 @@ do_install:append () {
     sed -i -e 's,@HOMEASSISTANT_USER@,${HOMEASSISTANT_USER},g' ${D}${systemd_unitdir}/system/homeassistant.service
 }
 
-DEPENDS += "\
-    python3-wheel-native \
-"
-
 # Home Assistant core
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-aiohttp (=3.8.4) \
 "
 # RDEPENDS:${PN} = " 
-#     
+#         ${PYTHON_PN}-aiohttp (=3.8.4) \
 #     ${PYTHON_PN}-astral (>=2.2) 
 #     ${PYTHON_PN}-async-timeout (>=4.0.2) 
 #     ${PYTHON_PN}-attrs (>=21.2.0) 
