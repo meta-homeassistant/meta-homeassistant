@@ -77,14 +77,17 @@ RDEPENDS:${PN} = "\
 "
 
 require components/ha-component-cloud.inc
+require components/ha-component-conversation.inc
 require components/ha-component-dhcp.inc
 require components/ha-component-file_upload.inc
+require components/ha-component-frontend.inc
 require components/ha-component-hardware.inc
 require components/ha-component-http.inc
 require components/ha-component-image_upload.inc
+require components/ha-component-ipp.inc
+require components/ha-component-mobile_app.inc
 require components/ha-component-recorder.inc
 require components/ha-component-ssdp.inc
 require components/ha-component-tts.inc
 require components/ha-component-usb.inc
 require components/ha-component-zeroconf.inc
-require components/ha-component-conversation.inc
