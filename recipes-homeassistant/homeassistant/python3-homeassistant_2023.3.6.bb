@@ -91,6 +91,8 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-yarl (>=1.8.1) \
     ${PYTHON_PN}-zeroconf (>=0.47.3) \
     ${PYTHON_PN}-zoneinfo \
+    ${PYTHON_PN}-psutil (=5.9.4) \
+    ${PYTHON_PN}-psutil-home-assistant (=0.0.1) \
 "
 
 #     ${PYTHON_PN}-bleak (=0.19.5)
