@@ -9,11 +9,11 @@ HOMEASSISTANT_CONFIG_DIR[doc] = "Configuration directory used by home-assistant.
 HOMEASSISTANT_USER ?= "homeassistant"
 HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 
-SRC_URI[sha256sum] = "e0f4baa33caa25d745e89a7d70a4688d4b474d335ddf1a36a130dba28c100029"
-
-SRC_URI:append = " \
+SRC_URI += "\
     file://homeassistant.service \
+    file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
+SRC_URI[sha256sum] = "e0f4baa33caa25d745e89a7d70a4688d4b474d335ddf1a36a130dba28c100029"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -91,6 +91,7 @@ require components/ha-component-ssdp.inc
 require components/ha-component-tts.inc
 require components/ha-component-usb.inc
 require components/ha-component-zeroconf.inc
+require components/ha-component-bluetooth.inc
 
 # Optional components comment if you don't need these
 require components/ha-component-ipp.inc
