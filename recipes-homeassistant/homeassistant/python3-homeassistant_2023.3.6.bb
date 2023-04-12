@@ -70,6 +70,7 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-sqlite3 \
     ${PYTHON_PN}-statistics \
     ${PYTHON_PN}-typing-extensions (=4.5.0) \
+    ${PYTHON_PN}-tzdata \
     ${PYTHON_PN}-voluptuous (=0.13.1) \
     ${PYTHON_PN}-voluptuous-serialize (=2.6.0) \
     ${PYTHON_PN}-yarl (>=1.8.1) \
@@ -92,6 +93,7 @@ require components/ha-component-tts.inc
 require components/ha-component-usb.inc
 require components/ha-component-zeroconf.inc
 require components/ha-component-bluetooth.inc
+require components/ha-component-backup.inc
 
 # Optional components comment if you don't need these
 require components/ha-component-ipp.inc
