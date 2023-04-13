@@ -97,3 +97,4 @@ require components/ha-component-backup.inc
 
 # Optional components comment if you don't need these
 require components/ha-component-ipp.inc
+require components/ha-component-cast.inc
