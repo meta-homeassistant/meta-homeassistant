@@ -95,6 +95,10 @@ require components/ha-component-zeroconf.inc
 require components/ha-component-bluetooth.inc
 require components/ha-component-backup.inc
 
-# Optional components comment if you don't need these
+# Optional components comment out the lines if you don't need these
 require components/ha-component-ipp.inc
 require components/ha-component-cast.inc
+require components/ha-component-upnp.inc
+require components/ha-component-octoprint.inc
+require components/ha-component-fritz.inc
+require components/ha-component-fritzbox.inc
