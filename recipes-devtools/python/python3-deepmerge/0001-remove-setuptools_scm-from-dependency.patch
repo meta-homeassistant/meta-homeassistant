@@ -1,0 +1,23 @@
+From 6ce37ebb6dc8c6fed187b49bd2209f103921c00f Mon Sep 17 00:00:00 2001
+From: Tom Geelen <tom.geelen@demcon.com>
+Date: Tue, 11 Apr 2023 00:43:14 +0200
+Subject: [PATCH] remove setuptools_scm from dependency
+
+Signed-off-by: Tom Geelen <tom.geelen@demcon.com>
+---
+ pyproject.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index 52553c3..1d3bf4a 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,7 +1,7 @@
+ [build-system]
+ # setuptools and setuptools_scm version are explicitly set
+ # to allow support for python2
+-requires = ["setuptools>=44", "wheel", "setuptools_scm>=5"]
++requires = ["setuptools>=44", "wheel"]
+ build-backend = "setuptools.build_meta"
+ 
+ [tool.setuptools_scm]
