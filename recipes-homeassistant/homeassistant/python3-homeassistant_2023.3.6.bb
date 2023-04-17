@@ -66,6 +66,7 @@ PACKAGECONFIG ??= "\
     fritzbox \
     ipp \
     octoprint \
+    shelly \
     upnp \
 "
 
@@ -170,6 +171,10 @@ PACKAGECONFIG[fritz] = ",,, \
 
 PACKAGECONFIG[fritzbox] = ",,, \
     ${PYTHON_PN}-pyfritzhome (=0.6.7) \
+"
+
+PACKAGECONFIG[shelly] = ",,, \
+    ${PYTHON_PN}-aioshelly (=5.3.1) \
 "
 
 # python3-pyjwt upstream version = 2.6.0
