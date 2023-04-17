@@ -39,11 +39,143 @@ do_install:append () {
 }
 
 # Home Assistant core
+
+# Components which can be selected and used.
+# Everything before the empty line is a necessary component for Home Assistant to be able to boot correctly
+# Everything after the empty line is an optional component for Home Assistant to be used.
+PACKAGECONFIG ??= "\
+    backup \
+    bluetooth \
+    cloud \
+    conversation \
+    dhcp \
+    file-upload \
+    frontend \
+    hardware \
+    http \
+    image-upload \
+    mobile-app \
+    recorder \
+    ssdp \
+    tts \
+    usb \
+    zeroconf \
+    \
+    cast \
+    fritz \
+    fritzbox \
+    ipp \
+    octoprint \
+    upnp \
+"
+
+PACKAGECONFIG[cloud] = ",,, \
+    ${PYTHON_PN}-hass-nabucasa (=0.61.0) \
+    ${PYTHON_PN}-numpy (>=1.23.2) \
+"
+
+PACKAGECONFIG[conversation] = ",,, \
+    ${PYTHON_PN}-hassil (=1.0.6) \
+    ${PYTHON_PN}-home-assistant-intents (=2023.2.28) \
+"
+
+PACKAGECONFIG[dhcp] = ",,, \
+    ${PYTHON_PN}-aiodiscover (=1.4.13) \
+    ${PYTHON_PN}-scapy (=2.5.0) \
+"
+
+PACKAGECONFIG[file-upload] = ",,, \
+    ${PYTHON_PN}-janus (=1.0.0) \
+"
+
+PACKAGECONFIG[frontend] = ",,, \
+    ${PYTHON_PN}-home-assistant-frontend (=20230309.1) \
+"
+
+PACKAGECONFIG[hardware] = ",,, \
+    ${PYTHON_PN}-psutil-home-assistant (=0.0.1) \
+"
+
+PACKAGECONFIG[http] = ",,, \
+    ${PYTHON_PN}-aiohttp-cors (=0.7.0) \
+"
+
+PACKAGECONFIG[image-upload] = ",,, \
+    ${PYTHON_PN}-pillow (=9.4.0) \
+"
+
+PACKAGECONFIG[mobile-app] = ",,, \
+    ${PYTHON_PN}-pynacl (=1.5.0) \
+"
+
+# python3-sqlalchemy upstream version = 2.0.7
+PACKAGECONFIG[recorder] = ",,, \
+    ${PYTHON_PN}-sqlalchemy (>=2.0.6) \
+    ${PYTHON_PN}-fnvhash (=0.1.0) \
+"
+
+PACKAGECONFIG[ssdp] = ",,, \
+    ${PYTHON_PN}-async-upnp-client (=0.33.1) \
+"
+
+PACKAGECONFIG[tts] = ",,, \
+    ${PYTHON_PN}-mutagen (=1.46.0) \
+    ${PYTHON_PN}-gtts (=2.2.4) \
+"
+
+PACKAGECONFIG[usb] = ",,, \
+    ${PYTHON_PN}-pyudev (>=0.23.2) \
+    ${PYTHON_PN}-pyserial (=3.5) \
+"
+
+# python3-zerconf upstream version = 0.47.4
+PACKAGECONFIG[zeroconf] = ",,, \
+    ${PYTHON_PN}-zeroconf (>=0.47.3) \
+"
+
+PACKAGECONFIG[bluetooth] = ",,, \
+    ${PYTHON_PN}-bleak (=0.19.5) \
+    ${PYTHON_PN}-bleak-retry-connector (=2.13.0) \
+    ${PYTHON_PN}-bluetooth-adapters (=0.15.2) \
+    ${PYTHON_PN}-bluetooth-auto-recovery (=1.0.3) \
+    ${PYTHON_PN}-bluetooth-data-tools (=0.3.1) \
+    ${PYTHON_PN}-dbus-fast (=1.84.1) \
+"
+
+PACKAGECONFIG[backup] = ",,, \
+    ${PYTHON_PN}-securetar (=2022.2.0) \
+"
+
+PACKAGECONFIG[ipp] = ",,, \
+    ${PYTHON_PN}-pyipp (=0.12.1) \
+"
+
+PACKAGECONFIG[cast] = ",,, \
+    ${PYTHON_PN}-pychromecast (=13.0.4) \
+"
+
+PACKAGECONFIG[upnp] = ",,, \
+    ${PYTHON_PN}-async-upnp-client (=0.33.1) \
+    ${PYTHON_PN}-getmac (=0.8.2) \
+"
+
+PACKAGECONFIG[octoprint] = ",,, \
+    ${PYTHON_PN}-pyoctoprintapi (=0.1.11) \
+"
+
+PACKAGECONFIG[fritz] = ",,, \
+    ${PYTHON_PN}-fritzconnection (=1.11.0) \
+    ${PYTHON_PN}-xmltodict (=0.13.0) \
+"
+
+PACKAGECONFIG[fritzbox] = ",,, \
+    ${PYTHON_PN}-pyfritzhome (=0.6.7) \
+"
+
 # python3-pyjwt upstream version = 2.6.0
 # python3-cryptography upstream version = 39.0.2
 # python3-ifaddr upstream version = 0.2.0
 # python3-yarl upstream version = 1.8.2
-
 RDEPENDS:${PN} = "\
     ${PYTHON_PN}-aiohttp (=3.8.4) \
     ${PYTHON_PN}-astral (=2.2) \
@@ -76,29 +208,3 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-yarl (>=1.8.1) \
     ${PYTHON_PN}-zoneinfo \
 "
-
-# Minimal components needed for HA to boot and load dependencies without errors
-require components/ha-component-cloud.inc
-require components/ha-component-conversation.inc
-require components/ha-component-dhcp.inc
-require components/ha-component-file_upload.inc
-require components/ha-component-frontend.inc
-require components/ha-component-hardware.inc
-require components/ha-component-http.inc
-require components/ha-component-image_upload.inc
-require components/ha-component-mobile_app.inc
-require components/ha-component-recorder.inc
-require components/ha-component-ssdp.inc
-require components/ha-component-tts.inc
-require components/ha-component-usb.inc
-require components/ha-component-zeroconf.inc
-require components/ha-component-bluetooth.inc
-require components/ha-component-backup.inc
-
-# Optional components comment out the lines if you don't need these
-require components/ha-component-ipp.inc
-require components/ha-component-cast.inc
-require components/ha-component-upnp.inc
-require components/ha-component-octoprint.inc
-require components/ha-component-fritz.inc
-require components/ha-component-fritzbox.inc
