@@ -73,3 +73,4 @@ SRC_URI[target-lexicon-0.12.6.sha256sum] = "8ae9980cab1db3fceee2f6c6f643d5d8de29
 SRC_URI[version_check-0.9.4.sha256sum] = "49874b5167b65d7193b8aba1567f5c7d93d001cafc34600cee003eda787e483f"
 
 inherit pypi python_pyo3 python_setuptools_build_meta cargo 
+# inherit pypi cargo python_setuptools_build_meta python_pyo3

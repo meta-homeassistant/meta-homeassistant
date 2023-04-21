@@ -41,33 +41,33 @@ do_install:append () {
 # Home Assistant core
 
 # Components which can be selected and used.
-# Everything before the empty line is a necessary component for Home Assistant to be able to boot correctly
-# Everything after the empty line is an optional component for Home Assistant to be used.
 PACKAGECONFIG ??= "\
+    axis \
     backup \
     bluetooth \
+    cast \
     cloud \
     conversation \
     dhcp \
     file-upload \
+    fritz \
+    fritzbox \
     frontend \
     hardware \
     http \
     image-upload \
+    ipp \
+    met \
     mobile-app \
+    octoprint \
+    radio-browser \
     recorder \
+    shelly \
     ssdp \
     tts \
+    upnp \
     usb \
     zeroconf \
-    \
-    cast \
-    fritz \
-    fritzbox \
-    ipp \
-    octoprint \
-    shelly \
-    upnp \
 "
 
 PACKAGECONFIG[cloud] = ",,, \
@@ -175,6 +175,18 @@ PACKAGECONFIG[fritzbox] = ",,, \
 
 PACKAGECONFIG[shelly] = ",,, \
     ${PYTHON_PN}-aioshelly (=5.3.1) \
+"
+
+PACKAGECONFIG[met] = ",,, \
+    ${PYTHON_PN}-pymetno (=0.9.0) \
+"
+
+PACKAGECONFIG[radio-browser] = ",,, \
+    ${PYTHON_PN}-radios (=0.1.1) \
+"
+
+PACKAGECONFIG[axis] = ",,, \
+    ${PYTHON_PN}-axis (=47) \
 "
 
 # python3-pyjwt upstream version = 2.6.0
