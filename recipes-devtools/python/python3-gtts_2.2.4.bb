@@ -10,3 +10,9 @@ inherit pypi python_setuptools_build_meta
 
 PYPI_PACKAGE = "gTTS"
 PYPI_SRC_URI = "https://github.com/pndurette/gTTS/archive/refs/tags/v2.2.4.tar.gz"
+
+RDEPENDS:${PN} = "\
+    ${PYTHON_PN}-click \
+    ${PYTHON_PN}-requests \
+    ${PYTHON_PN}-six \
+"

@@ -11,5 +11,5 @@ SRC_URI[sha256sum] = "f31e10348909dd4dbe0e75ecd695a78c13dc4b49712cf90048a9e0ae80
 RDEPENDS:${PN} = "\
     ${PYTHON_PN}-botocore (>=1.15.29) \
     ${PYTHON_PN}-jmespath (>=0.7.1) \
-    ${PYTHON_PN}-s3transfer (>=0.2.0) \
+    ${PYTHON_PN}-s3transfer (>=0.3.0) \
 "

@@ -187,6 +187,7 @@ PACKAGECONFIG[radio-browser] = ",,, \
 
 PACKAGECONFIG[axis] = ",,, \
     ${PYTHON_PN}-axis (=47) \
+    ${PYTHON_PN}-rfc3986 (=1.5.0) \
 "
 
 # python3-pyjwt upstream version = 2.6.0
@@ -219,9 +220,7 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-sqlite3 \
     ${PYTHON_PN}-statistics \
     ${PYTHON_PN}-typing-extensions (=4.5.0) \
-    ${PYTHON_PN}-tzdata \
     ${PYTHON_PN}-voluptuous (=0.13.1) \
     ${PYTHON_PN}-voluptuous-serialize (=2.6.0) \
     ${PYTHON_PN}-yarl (>=1.8.1) \
-    ${PYTHON_PN}-zoneinfo \
 "

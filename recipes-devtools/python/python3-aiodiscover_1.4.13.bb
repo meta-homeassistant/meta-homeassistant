@@ -16,6 +16,6 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-async-timeout (>=4.0.1) \
     ${PYTHON_PN}-netifaces (>=0.11.0) \
     ${PYTHON_PN}-dnspython (>=2.1.0) \
-    ${PYTHON_PN}-ifaddr (>=0.2.0) \
+    ${PYTHON_PN}-ifaddr \
     ${PYTHON_PN}-pyroute2 (>=0.7.3) \
 "
