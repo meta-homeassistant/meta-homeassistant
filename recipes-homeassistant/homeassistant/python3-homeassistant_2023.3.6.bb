@@ -41,100 +41,48 @@ do_install:append () {
 # Home Assistant core
 
 # Components which can be selected and used.
-PACKAGECONFIG ??= "\
-    axis \
-    backup \
-    bluetooth \
-    cast \
-    cloud \
-    conversation \
-    dhcp \
-    file-upload \
-    fritz \
-    fritzbox \
-    frontend \
-    hardware \
-    http \
-    image-upload \
-    ipp \
-    met \
-    mobile-app \
-    octoprint \
-    radio-browser \
-    recorder \
-    shelly \
-    ssdp \
-    tts \
-    upnp \
-    usb \
-    zeroconf \
+PACKAGES += "\
+    ${PN}-axis \
+    ${PN}-backup \
+    ${PN}-bluetooth \
+    ${PN}-cast \
+    ${PN}-cloud \
+    ${PN}-conversation \
+    ${PN}-dhcp \
+    ${PN}-file-upload \
+    ${PN}-fritz \
+    ${PN}-fritzbox \
+    ${PN}-frontend \
+    ${PN}-hardware \
+    ${PN}-http \
+    ${PN}-image-upload \
+    ${PN}-ipp \
+    ${PN}-met \
+    ${PN}-mobile-app \
+    ${PN}-octoprint \
+    ${PN}-radio-browser \
+    ${PN}-recorder \
+    ${PN}-shelly \
+    ${PN}-ssdp \
+    ${PN}-tts \
+    ${PN}-upnp \
+    ${PN}-usb \
+    ${PN}-zeroconf \
 "
 
-PACKAGECONFIG[cloud] = ",,, \
-    ${PYTHON_PN}-hass-nabucasa (=0.61.0) \
-    ${PYTHON_PN}-numpy (>=1.23.2) \
+ALLOW_EMPTY:${PN}-axis = "1"
+RDEPENDS:${PN}-axis = "\
+    ${PYTHON_PN}-axis (=47) \
+    ${PYTHON_PN}-rfc3986 (=1.5.0) \
 "
 
-PACKAGECONFIG[conversation] = ",,, \
-    ${PYTHON_PN}-hassil (=1.0.6) \
-    ${PYTHON_PN}-home-assistant-intents (=2023.2.28) \
+ALLOW_EMPTY:${PN}-backup = "1"
+RDEPENDS:${PN}-backup = "\
+    ${PYTHON_PN}-securetar (=2022.2.0) \
 "
 
-PACKAGECONFIG[dhcp] = ",,, \
-    ${PYTHON_PN}-aiodiscover (=1.4.13) \
-    ${PYTHON_PN}-scapy (=2.5.0) \
-"
-
-PACKAGECONFIG[file-upload] = ",,, \
-    ${PYTHON_PN}-janus (=1.0.0) \
-"
-
-PACKAGECONFIG[frontend] = ",,, \
-    ${PYTHON_PN}-home-assistant-frontend (=20230309.1) \
-"
-
-PACKAGECONFIG[hardware] = ",,, \
-    ${PYTHON_PN}-psutil-home-assistant (=0.0.1) \
-"
-
-PACKAGECONFIG[http] = ",,, \
-    ${PYTHON_PN}-aiohttp-cors (=0.7.0) \
-"
-
-PACKAGECONFIG[image-upload] = ",,, \
-    ${PYTHON_PN}-pillow (=9.4.0) \
-"
-
-PACKAGECONFIG[mobile-app] = ",,, \
-    ${PYTHON_PN}-pynacl (=1.5.0) \
-"
-
-# python3-sqlalchemy upstream version = 2.0.7
-PACKAGECONFIG[recorder] = ",,, \
-    ${PYTHON_PN}-sqlalchemy (>=2.0.6) \
-    ${PYTHON_PN}-fnvhash (=0.1.0) \
-"
-
-PACKAGECONFIG[ssdp] = ",,, \
-    ${PYTHON_PN}-async-upnp-client (=0.33.1) \
-"
-
-PACKAGECONFIG[tts] = ",,, \
-    ${PYTHON_PN}-mutagen (=1.46.0) \
-    ${PYTHON_PN}-gtts (=2.2.4) \
-"
-
-PACKAGECONFIG[usb] = ",,, \
-    ${PYTHON_PN}-pyudev (>=0.23.2) \
-    ${PYTHON_PN}-pyserial (=3.5) \
-"
-
-# python3-zerconf upstream version = 0.47.4
-PACKAGECONFIG[zeroconf] = ",,, \
-    ${PYTHON_PN}-zeroconf (>=0.47.3) \
-"
-
-PACKAGECONFIG[bluetooth] = ",,, \
+ALLOW_EMPTY:${PN}-bluetooth = "1"
+RDEPENDS:${PN}-bluetooth = "\
     ${PYTHON_PN}-bleak (=0.19.5) \
     ${PYTHON_PN}-bleak-retry-connector (=2.13.0) \
     ${PYTHON_PN}-bluetooth-adapters (=0.15.2) \
@@ -143,51 +91,129 @@ PACKAGECONFIG[bluetooth] = ",,, \
     ${PYTHON_PN}-dbus-fast (=1.84.1) \
 "
 
-PACKAGECONFIG[backup] = ",,, \
-    ${PYTHON_PN}-securetar (=2022.2.0) \
+ALLOW_EMPTY:${PN}-cloud = "1"
+RDEPENDS:${PN}-cloud = "\
+    ${PYTHON_PN}-hass-nabucasa (=0.61.0) \
+    ${PYTHON_PN}-numpy (>=1.23.2) \
 "
 
-PACKAGECONFIG[ipp] = ",,, \
+ALLOW_EMPTY:${PN}-conversation = "1"
+RDEPENDS:${PN}-conversation = "\
+    ${PYTHON_PN}-hassil (=1.0.6) \
+    ${PYTHON_PN}-home-assistant-intents (=2023.2.28) \
+"
+
+ALLOW_EMPTY:${PN}-dhcp = "1"
+RDEPENDS:${PN}-dhcp = "\
+    ${PYTHON_PN}-aiodiscover (=1.4.13) \
+    ${PYTHON_PN}-scapy (=2.5.0) \
+"
+
+ALLOW_EMPTY:${PN}-file-upload = "1"
+RDEPENDS:${PN}-file-upload = "\
+    ${PYTHON_PN}-janus (=1.0.0) \
+"
+
+ALLOW_EMPTY:${PN}-frontend = "1"
+RDEPENDS:${PN}-frontend = "\
+    ${PYTHON_PN}-home-assistant-frontend (=20230309.1) \
+"
+
+ALLOW_EMPTY:${PN}-hardware = "1"
+RDEPENDS:${PN}-hardware = "\
+    ${PYTHON_PN}-psutil-home-assistant (=0.0.1) \
+"
+
+ALLOW_EMPTY:${PN}-http = "1"
+RDEPENDS:${PN}-http = "\
+    ${PYTHON_PN}-aiohttp-cors (=0.7.0) \
+"
+
+ALLOW_EMPTY:${PN}-image-upload = "1"
+RDEPENDS:${PN}-image-upload = "\
+    ${PYTHON_PN}-pillow (=9.4.0) \
+"
+
+ALLOW_EMPTY:${PN}-mobile-app = "1"
+RDEPENDS:${PN}-mobile-app = "\
+    ${PYTHON_PN}-pynacl (=1.5.0) \
+"
+
+# python3-sqlalchemy upstream version = 2.0.7
+ALLOW_EMPTY:${PN}-recorder = "1"
+RDEPENDS:${PN}-recorder = "\
+    ${PYTHON_PN}-fnvhash (=0.1.0) \
+    ${PYTHON_PN}-sqlalchemy (>=2.0.6) \
+"
+
+ALLOW_EMPTY:${PN}-ssdp = "1"
+RDEPENDS:${PN}-ssdp = "\
+    ${PYTHON_PN}-async-upnp-client (=0.33.1) \
+"
+
+ALLOW_EMPTY:${PN}-tts = "1"
+RDEPENDS:${PN}-tts = "\
+    ${PYTHON_PN}-gtts (=2.2.4) \
+    ${PYTHON_PN}-mutagen (=1.46.0) \
+"
+
+ALLOW_EMPTY:${PN}-usb = "1"
+RDEPENDS:${PN}-usb = "\
+    ${PYTHON_PN}-pyserial (=3.5) \
+    ${PYTHON_PN}-pyudev (>=0.23.2) \
+"
+
+# python3-zerconf upstream version = 0.47.4
+ALLOW_EMPTY:${PN}-zeroconf = "1"
+RDEPENDS:${PN}-zeroconf = "\
+    ${PYTHON_PN}-zeroconf (>=0.47.3) \
+"
+
+ALLOW_EMPTY:${PN}-ipp = "1"
+RDEPENDS:${PN}-ipp = "\
     ${PYTHON_PN}-pyipp (=0.12.1) \
 "
 
-PACKAGECONFIG[cast] = ",,, \
+ALLOW_EMPTY:${PN}-cast = "1"
+RDEPENDS:${PN}-cast = "\
     ${PYTHON_PN}-pychromecast (=13.0.4) \
 "
 
-PACKAGECONFIG[upnp] = ",,, \
+ALLOW_EMPTY:${PN}-upnp = "1"
+RDEPENDS:${PN}-upnp = "\
     ${PYTHON_PN}-async-upnp-client (=0.33.1) \
     ${PYTHON_PN}-getmac (=0.8.2) \
 "
 
-PACKAGECONFIG[octoprint] = ",,, \
+ALLOW_EMPTY:${PN}-octoprint = "1"
+RDEPENDS:${PN}-octoprint = "\
     ${PYTHON_PN}-pyoctoprintapi (=0.1.11) \
 "
 
-PACKAGECONFIG[fritz] = ",,, \
+ALLOW_EMPTY:${PN}-fritz = "1"
+RDEPENDS:${PN}-fritz = "\
     ${PYTHON_PN}-fritzconnection (=1.11.0) \
     ${PYTHON_PN}-xmltodict (=0.13.0) \
 "
 
-PACKAGECONFIG[fritzbox] = ",,, \
+ALLOW_EMPTY:${PN}-fritzbox = "1"
+RDEPENDS:${PN}-fritzbox = "\
     ${PYTHON_PN}-pyfritzhome (=0.6.7) \
 "
 
-PACKAGECONFIG[shelly] = ",,, \
+ALLOW_EMPTY:${PN}-shelly = "1"
+RDEPENDS:${PN}-shelly = "\
     ${PYTHON_PN}-aioshelly (=5.3.1) \
 "
 
-PACKAGECONFIG[met] = ",,, \
+ALLOW_EMPTY:${PN}-met = "1"
+RDEPENDS:${PN}-met = "\
     ${PYTHON_PN}-pymetno (=0.9.0) \
 "
 
-PACKAGECONFIG[radio-browser] = ",,, \
+ALLOW_EMPTY:${PN}-radio-browser = "1"
+RDEPENDS:${PN}-radio-browser = "\
     ${PYTHON_PN}-radios (=0.1.1) \
-"
-
-PACKAGECONFIG[axis] = ",,, \
-    ${PYTHON_PN}-axis (=47) \
-    ${PYTHON_PN}-rfc3986 (=1.5.0) \
 "
 
 # python3-pyjwt upstream version = 2.6.0
@@ -223,4 +249,34 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-voluptuous (=0.13.1) \
     ${PYTHON_PN}-voluptuous-serialize (=2.6.0) \
     ${PYTHON_PN}-yarl (>=1.8.1) \
+    \
+    ${PN}-bluetooth \
+    ${PN}-cloud \
+    ${PN}-conversation \
+    ${PN}-dhcp \
+    ${PN}-file-upload \
+    ${PN}-frontend \
+    ${PN}-hardware \
+    ${PN}-http \
+    ${PN}-image-upload \
+    ${PN}-mobile-app \
+    ${PN}-recorder \
+    ${PN}-ssdp \
+    ${PN}-usb \
+    ${PN}-zeroconf \
+"
+
+RRECOMMENDS:${PN} = "\
+    ${PN}-axis \
+    ${PN}-backup \
+    ${PN}-cast \
+    ${PN}-fritz \
+    ${PN}-fritzbox \
+    ${PN}-ipp \
+    ${PN}-met \
+    ${PN}-octoprint \
+    ${PN}-radio-browser \
+    ${PN}-shelly \
+    ${PN}-tts \
+    ${PN}-upnp \
 "
