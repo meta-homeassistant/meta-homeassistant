@@ -1,0 +1,32 @@
+From bc7c5aa9666ed5f988bcfb1f6a0ff2bf9cd557d4 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <tom.geelen@demcon.com>
+Date: Fri, 21 Apr 2023 20:25:27 +0200
+Subject: [PATCH] Patch to be able to compile
+
+Signed-off-by: Tom Geelen <tom.geelen@demcon.com>
+---
+ pyproject.toml | 1 -
+ setup.py       | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index 48fa093..26214a8 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -2,7 +2,6 @@
+ requires = [
+     "setuptools >= 42",
+     "wheel >= 0.29.0",
+-    "setuptools_scm[toml] >= 3.4"
+ ]
+ build-backend = "setuptools.build_meta"
+ 
+diff --git a/setup.py b/setup.py
+index c4413f6..6068493 100644
+--- a/setup.py
++++ b/setup.py
+@@ -1,3 +1,3 @@
+ from setuptools import setup
+ 
+-setup(use_scm_version=True, setup_requires=["setuptools_scm"])
++setup()

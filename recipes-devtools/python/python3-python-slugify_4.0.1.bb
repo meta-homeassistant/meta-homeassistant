@@ -15,5 +15,5 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-six (<2.0) \
     ${PYTHON_PN}-ecdsa (<1.0) \
     ${PYTHON_PN}-future (<1.0) \
-    ${PYTHON_PN}-text-unidecode (>=1.2) \
+    ${PYTHON_PN}-text-unidecode (>=1.3) \
 "

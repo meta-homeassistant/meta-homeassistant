@@ -1,4 +1,5 @@
 SUMMARY = "A pure Python netlink and Linux network configuration library"
+HOMEPAGE = "https://github.com/svinota/pyroute2"
 LICENSE = "GPL-2.0-only & Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE.GPL-2.0-or-later;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
                     file://LICENSE.Apache-2.0;md5=34281e312165f843a2b7d1f114fe65ce"

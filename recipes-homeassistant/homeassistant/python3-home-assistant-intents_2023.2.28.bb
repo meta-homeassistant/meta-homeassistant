@@ -13,6 +13,6 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-hassil (=1.0.6) \
     ${PYTHON_PN}-pyyaml (=6.0) \
     ${PYTHON_PN}-voluptuous (=0.13.1) \
-    ${PYTHON_PN}-regex (=2022.10.31) \
+    ${PYTHON_PN}-regex (>=2022.10.31) \
     ${PYTHON_PN}-jinja2 (=3.1.2) \
 "
