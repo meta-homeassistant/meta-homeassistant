@@ -1,9 +1,0 @@
-header:
-  version: 10
-
-repos:
-  poky:
-    refspec: kirkstone
-
-  meta-openembedded:
-    refspec: kirkstone

@@ -3,10 +3,10 @@ header:
 
 repos:
   poky:
-    refspec: kirkstone
+    refspec: mickledore
 
   meta-openembedded:
-    refspec: kirkstone
+    refspec: mickledore
 
 local_conf_header:
 
