@@ -1,6 +1,6 @@
 SUMMARY = "A minimal HTTP client"
 HOMEPAGE = "https://github.com/encode/httpcore"
-LICENSE = "BSD-3"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=1c1f23b073da202e1f4f9e426490210c"
 
 SRC_URI[md5sum] = "881211271c5fea2aba9e97dc0e7747e8"
