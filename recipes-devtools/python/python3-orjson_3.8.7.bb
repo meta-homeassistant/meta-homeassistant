@@ -72,5 +72,9 @@ SRC_URI[smallvec-1.10.0.sha256sum] = "a507befe795404456341dfab10cef66ead4c041f62
 SRC_URI[target-lexicon-0.12.6.sha256sum] = "8ae9980cab1db3fceee2f6c6f643d5d8de2997c58ee8d25fb0cc8a9e9e7348e5"
 SRC_URI[version_check-0.9.4.sha256sum] = "49874b5167b65d7193b8aba1567f5c7d93d001cafc34600cee003eda787e483f"
 
-inherit pypi python_pyo3 python_setuptools_build_meta cargo 
-# inherit pypi cargo python_setuptools_build_meta python_pyo3
+# TODO: something is going wrong here in the combination of do_configure and do_compile: 
+# As a workaround build twice, first with the first inherit, then again with the second
+# see https://github.com/meta-homeassistant/meta-homeassistant/issues/73
+
+# inherit cargo pypi python_setuptools3_rust python_pyo3
+inherit cargo pypi python_setuptools_build_meta python_pyo3
