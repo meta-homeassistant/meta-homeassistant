@@ -17,7 +17,7 @@ def getRepo(haPath):
     print("Found the following latest tag: " + latest_tag.name)
     # Now that we have it, check out this branch
     repo.git.checkout(latest_tag.name)
-    return repo
+    return repo, latest_tag.name
 
 
 def parseManifests(haPath):
@@ -98,7 +98,9 @@ def compareWithLayers(requirements, haPath, layers, csvWriter):
 
 def main() -> None:
     haPath = os.path.join(os.path.dirname(__file__), "HA")
-    with open("result.csv", "w") as outputFile:
+    # First get the repository for scanning, read the manifest and distill the requirements
+    repo, name = getRepo(haPath)
+    with open(name + ".csv", "w") as outputFile:
         csvWriter = csv.writer(outputFile)
         csvWriter.writerow(
             [
@@ -108,8 +110,7 @@ def main() -> None:
                 "Layer Located",
             ]
         )
-        # First get the repository for scanning, read the manifest and distill the requirements
-        repo = getRepo(haPath)
+        
         manifestInfo = parseManifests(haPath)
         requirements = getUniquePythonRequirements(manifestInfo)
 
@@ -148,6 +149,8 @@ def main() -> None:
             "../../../../sources/meta-openembedded/meta-python/recipes-extended/send2trash",
             "../../../../sources/meta-openembedded/meta-networking/recipes-devtools/python",
             "../../recipes-devtools/python",
+            "../../recipes-components/python",
+            "../../recipes-homeassistant/homeassistant",
         ]
         compareWithLayers(requirements, haPath, layers, csvWriter)
 
