@@ -149,8 +149,9 @@ def main() -> None:
             "../../../../sources/meta-openembedded/meta-python/recipes-extended/send2trash",
             "../../../../sources/meta-openembedded/meta-networking/recipes-devtools/python",
             "../../recipes-devtools/python",
-            "../../recipes-components/python",
             "../../recipes-homeassistant/homeassistant",
+            "../../recipes-homeassistant/homeassistant-core-deps",
+            "../../recipes-homeassistant/homeassistant-component-deps",
         ]
         compareWithLayers(requirements, haPath, layers, csvWriter)
 
