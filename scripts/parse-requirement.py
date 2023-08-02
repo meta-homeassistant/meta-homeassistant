@@ -3,9 +3,21 @@ import os as os
 import json as json
 import csv
 import shutil
+import argparse
 
 
-def getRepo(haPath):
+def parseArguments():
+    # Create argument parser
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument("-v", "--version", help="HA Version", type=str, default="")
+    # Parse arguments
+    args = parser.parse_args()
+
+    return args
+
+
+def getRepo(haPath, version):
     # Clone the HomeAssistant repository, or if it is already there initialize it
     try:
         repo = Repo.clone_from("https://github.com/home-assistant/core.git", haPath)
@@ -13,11 +25,15 @@ def getRepo(haPath):
         repo = Repo(haPath)
     # Get the tags and sort them
     tags = sorted(repo.tags, key=lambda t: t.commit.committed_datetime)
-    latest_tag = tags[-1]
-    print("Found the following latest tag: " + latest_tag.name)
+    if version == "":
+        latest_tag = tags[-1]
+        version = latest_tag.name
+        print("Found the following latest tag: " + version)
+    else:
+        print("Using tag: " + version)
     # Now that we have it, check out this branch
-    repo.git.checkout(latest_tag.name)
-    return repo, latest_tag.name
+    repo.git.checkout(version)
+    return repo, version
 
 
 def parseManifests(haPath):
@@ -64,7 +80,7 @@ def compareWithLayers(requirements, haPath, layers, csvWriter):
         for requirement in requirements:
             # Split requirement in name and version of package
             package = requirement.split("==")
-            package[0] = "python3-" + package[0]
+            package[0] = "python3-" + package[0].lower().replace("_","-")
             # Now for each requirement loop over the list of discovered recipes
             for recipe in listOfRecipes:
                 recipe = recipe.split("_")
@@ -97,9 +113,11 @@ def compareWithLayers(requirements, haPath, layers, csvWriter):
 
 
 def main() -> None:
+    args = parseArguments()
+
     haPath = os.path.join(os.path.dirname(__file__), "HA")
     # First get the repository for scanning, read the manifest and distill the requirements
-    repo, name = getRepo(haPath)
+    repo, name = getRepo(haPath, args.version)
     with open(name + ".csv", "w") as outputFile:
         csvWriter = csv.writer(outputFile)
         csvWriter.writerow(
@@ -110,7 +128,7 @@ def main() -> None:
                 "Layer Located",
             ]
         )
-        
+
         manifestInfo = parseManifests(haPath)
         requirements = getUniquePythonRequirements(manifestInfo)
 
