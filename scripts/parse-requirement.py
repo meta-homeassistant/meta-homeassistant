@@ -44,22 +44,23 @@ def parseManifests(haPath):
         f = open(component + "/manifest.json")
         manifest = json.load(f)
         # Initialize manifest info as an empty dictionary
-        manifestInfo[manifest["name"]] = {}
+        manifestInfo[manifest["domain"]] = {}
         # Check if manifest specifies dependencies
         if "dependencies" in manifest:
-            manifestInfo[manifest["name"]]["dependencies"] = manifest["dependencies"]
+            manifestInfo[manifest["domain"]]["dependencies"] = manifest["dependencies"]
         # Check if it specifies any requirements
         if "requirements" in manifest:
-            manifestInfo[manifest["name"]]["requirements"] = manifest["requirements"]
+            manifestInfo[manifest["domain"]]["requirements"] = manifest["requirements"]
         f.close()
     return manifestInfo
 
 
-def getUniquePythonRequirements(manifestInfo):
+def getUniquePythonRequirements(manifestInfo, csvWriter):
     # Parse manifestInfo to create unique list of requirements
     requirements = []
     for component in manifestInfo:
         if "requirements" in manifestInfo[component]:
+            csvWriter.writerow([component.lower().replace(" ", "-"), manifestInfo[component]["requirements"]])
             requirements = requirements + (manifestInfo[component]["requirements"])
     requirements = list(set(requirements))
     return requirements
@@ -80,7 +81,7 @@ def compareWithLayers(requirements, haPath, layers, csvWriter):
         for requirement in requirements:
             # Split requirement in name and version of package
             package = requirement.split("==")
-            package[0] = "python3-" + package[0].lower().replace("_","-")
+            package[0] = "python3-" + package[0].lower().replace("_", "-")
             # Now for each requirement loop over the list of discovered recipes
             for recipe in listOfRecipes:
                 recipe = recipe.split("_")
@@ -130,7 +131,15 @@ def main() -> None:
         )
 
         manifestInfo = parseManifests(haPath)
-        requirements = getUniquePythonRequirements(manifestInfo)
+        with open(name + "-components.csv", "w") as componentFile:
+            csvWriter2 = csv.writer(componentFile)
+            csvWriter2.writerow(
+                [
+                    "Component Name",
+                    "Required Package",
+                ]
+            )
+            requirements = getUniquePythonRequirements(manifestInfo, csvWriter2)
 
         # Now there are multiple places where the python recipes can be found, we need to combine them
         # 1: the meta-homeassistant layer
