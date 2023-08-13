@@ -91,6 +91,11 @@ RDEPENDS:${PN}-bluetooth = "\
     ${PYTHON_PN}-dbus-fast (=1.84.1) \
 "
 
+ALLOW_EMPTY:${PN}-cast = "1"
+RDEPENDS:${PN}-cast = "\
+    ${PYTHON_PN}-pychromecast (=13.0.4) \
+"
+
 ALLOW_EMPTY:${PN}-cloud = "1"
 RDEPENDS:${PN}-cloud = "\
     ${PYTHON_PN}-hass-nabucasa (=0.61.0) \
@@ -114,6 +119,17 @@ RDEPENDS:${PN}-file-upload = "\
     ${PYTHON_PN}-janus (=1.0.0) \
 "
 
+ALLOW_EMPTY:${PN}-fritz = "1"
+RDEPENDS:${PN}-fritz = "\
+    ${PYTHON_PN}-fritzconnection (=1.11.0) \
+    ${PYTHON_PN}-xmltodict (=0.13.0) \
+"
+
+ALLOW_EMPTY:${PN}-fritzbox = "1"
+RDEPENDS:${PN}-fritzbox = "\
+    ${PYTHON_PN}-pyfritzhome (=0.6.7) \
+"
+
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
     ${PYTHON_PN}-home-assistant-frontend (=20230309.1) \
@@ -134,6 +150,16 @@ RDEPENDS:${PN}-image-upload = "\
     ${PYTHON_PN}-pillow (=9.4.0) \
 "
 
+ALLOW_EMPTY:${PN}-ipp = "1"
+RDEPENDS:${PN}-ipp = "\
+    ${PYTHON_PN}-pyipp (=0.12.1) \
+"
+
+ALLOW_EMPTY:${PN}-met = "1"
+RDEPENDS:${PN}-met = "\
+    ${PYTHON_PN}-pymetno (=0.9.0) \
+"
+
 ALLOW_EMPTY:${PN}-mobile-app = "1"
 RDEPENDS:${PN}-mobile-app = "\
     ${PYTHON_PN}-pynacl (=1.5.0) \
@@ -146,6 +172,21 @@ RDEPENDS:${PN}-recorder = "\
     ${PYTHON_PN}-sqlalchemy (>=2.0.6) \
 "
 
+ALLOW_EMPTY:${PN}-octoprint = "1"
+RDEPENDS:${PN}-octoprint = "\
+    ${PYTHON_PN}-pyoctoprintapi (=0.1.11) \
+"
+
+ALLOW_EMPTY:${PN}-radio-browser = "1"
+RDEPENDS:${PN}-radio-browser = "\
+    ${PYTHON_PN}-radios (=0.1.1) \
+"
+
+ALLOW_EMPTY:${PN}-shelly = "1"
+RDEPENDS:${PN}-shelly = "\
+    ${PYTHON_PN}-aioshelly (=5.3.1) \
+"
+
 ALLOW_EMPTY:${PN}-ssdp = "1"
 RDEPENDS:${PN}-ssdp = "\
     ${PYTHON_PN}-async-upnp-client (=0.33.1) \
@@ -155,6 +196,12 @@ ALLOW_EMPTY:${PN}-tts = "1"
 RDEPENDS:${PN}-tts = "\
     ${PYTHON_PN}-gtts (=2.2.4) \
     ${PYTHON_PN}-mutagen (=1.46.0) \
+"
+
+ALLOW_EMPTY:${PN}-upnp = "1"
+RDEPENDS:${PN}-upnp = "\
+    ${PYTHON_PN}-async-upnp-client (=0.33.1) \
+    ${PYTHON_PN}-getmac (=0.8.2) \
 "
 
 ALLOW_EMPTY:${PN}-usb = "1"
@@ -169,57 +216,6 @@ RDEPENDS:${PN}-zeroconf = "\
     ${PYTHON_PN}-zeroconf (>=0.47.3) \
 "
 
-ALLOW_EMPTY:${PN}-ipp = "1"
-RDEPENDS:${PN}-ipp = "\
-    ${PYTHON_PN}-pyipp (=0.12.1) \
-"
-
-ALLOW_EMPTY:${PN}-cast = "1"
-RDEPENDS:${PN}-cast = "\
-    ${PYTHON_PN}-pychromecast (=13.0.4) \
-"
-
-ALLOW_EMPTY:${PN}-upnp = "1"
-RDEPENDS:${PN}-upnp = "\
-    ${PYTHON_PN}-async-upnp-client (=0.33.1) \
-    ${PYTHON_PN}-getmac (=0.8.2) \
-"
-
-ALLOW_EMPTY:${PN}-octoprint = "1"
-RDEPENDS:${PN}-octoprint = "\
-    ${PYTHON_PN}-pyoctoprintapi (=0.1.11) \
-"
-
-ALLOW_EMPTY:${PN}-fritz = "1"
-RDEPENDS:${PN}-fritz = "\
-    ${PYTHON_PN}-fritzconnection (=1.11.0) \
-    ${PYTHON_PN}-xmltodict (=0.13.0) \
-"
-
-ALLOW_EMPTY:${PN}-fritzbox = "1"
-RDEPENDS:${PN}-fritzbox = "\
-    ${PYTHON_PN}-pyfritzhome (=0.6.7) \
-"
-
-ALLOW_EMPTY:${PN}-shelly = "1"
-RDEPENDS:${PN}-shelly = "\
-    ${PYTHON_PN}-aioshelly (=5.3.1) \
-"
-
-ALLOW_EMPTY:${PN}-met = "1"
-RDEPENDS:${PN}-met = "\
-    ${PYTHON_PN}-pymetno (=0.9.0) \
-"
-
-ALLOW_EMPTY:${PN}-radio-browser = "1"
-RDEPENDS:${PN}-radio-browser = "\
-    ${PYTHON_PN}-radios (=0.1.1) \
-"
-
-# python3-pyjwt upstream version = 2.6.0
-# python3-cryptography upstream version = 39.0.2
-# python3-ifaddr upstream version = 0.2.0
-# python3-yarl upstream version = 1.8.2
 RDEPENDS:${PN} = "\
     ${PYTHON_PN}-aiohttp (=3.8.4) \
     ${PYTHON_PN}-astral (=2.2) \
@@ -243,12 +239,13 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-python-slugify (=4.0.1) \
     ${PYTHON_PN}-pyyaml (= 6.0) \
     ${PYTHON_PN}-requests (=2.28.2) \
-    ${PYTHON_PN}-sqlite3 \
-    ${PYTHON_PN}-statistics \
     ${PYTHON_PN}-typing-extensions (=4.5.0) \
     ${PYTHON_PN}-voluptuous (=0.13.1) \
     ${PYTHON_PN}-voluptuous-serialize (=2.6.0) \
     ${PYTHON_PN}-yarl (>=1.8.1) \
+    \
+    ${PYTHON_PN}-statistics \
+    ${PYTHON_PN}-sqlite3 \
     \
     ${PN}-bluetooth \
     ${PN}-cloud \

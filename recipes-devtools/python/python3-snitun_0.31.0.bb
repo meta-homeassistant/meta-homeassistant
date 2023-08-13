@@ -1,6 +1,6 @@
 DESCRIPTION = "End-to-End encryption with SNI proxy on top of a TCP multiplexer."
 HOMEPAGE = "https://github.com/NabuCasa/snitun"
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://setup.py;md5=96b7c7e0fb5503d60706b7b4c9fefa1d"
 
 inherit pypi setuptools3

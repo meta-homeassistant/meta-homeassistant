@@ -679,5 +679,4 @@ SRC_URI:append = " \
     crate://crates.io/zvariant_derive/2.10.0 \
 "
 
-inherit pypi cargo python_setuptools_build_meta python_setuptools3_rust native
-
+inherit cargo pypi python_setuptools3_rust native
