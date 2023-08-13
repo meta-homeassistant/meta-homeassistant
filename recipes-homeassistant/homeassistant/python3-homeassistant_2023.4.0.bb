@@ -53,6 +53,7 @@ PACKAGES += "\
     ${PN}-fritz \
     ${PN}-fritzbox \
     ${PN}-frontend \
+    ${PN}-google-translate \
     ${PN}-hardware \
     ${PN}-http \
     ${PN}-image-upload \
@@ -132,6 +133,11 @@ RDEPENDS:${PN}-fritzbox = "\
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
     ${PYTHON_PN}-home-assistant-frontend (=20230405.0) \
+"
+
+ALLOW_EMPTY:${PN}-google-translate = "1"
+RDEPENDS:${PN}-google-translate = "\
+    ${PYTHON_PN}-gtts (=2.2.4) \
 "
 
 ALLOW_EMPTY:${PN}-hardware = "1"
@@ -258,6 +264,7 @@ RDEPENDS:${PN} = "\
     ${PN}-file-upload \
     ${PN}-frontend \
     ${PN}-hardware \
+    ${PN}-google-translate \
     ${PN}-http \
     ${PN}-image-upload \
     ${PN}-mobile-app \
