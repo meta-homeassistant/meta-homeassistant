@@ -3,8 +3,7 @@ HOMEPAGE = "https://github.com/home-assistant-libs/pychromecast"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b1dbd4e85f47b389bdadee9c694669f5"
 
-SRC_URI[md5sum] = "e9c33fd1bbc60c2a34bbd55ea972c2d5"
-SRC_URI[sha256sum] = "792fba3f31e4968a5e99c19c771774083a2aa7e897ebf6f5e218e308e33a461f"
+SRC_URI[sha256sum] = "0de98e9e5be43269dd41efb16126ab0d5ba941ca4acae024329712851c0c0324"
 
 PYPI_PACKAGE = "PyChromecast"
 
