@@ -192,10 +192,10 @@ RDEPENDS:${PN}-ssdp = "\
 
 ALLOW_EMPTY:${PN}-stream = "1"
 RDEPENDS:${PN}-stream = "\
+    ${PYTHON_PN}-pyturbojpeg (=1.6.7) \
+    ${PYTHON_PN}-ha-av (=10.0.0) \
     ${PYTHON_PN}-numpy (>=1.23.2) \
 "
-# ${PYTHON_PN}-pyturbojpeg (=1.6.7)
-# ${PYTHON_PN}-ha-av (=10.0.0)
 
 ALLOW_EMPTY:${PN}-tts = "1"
 RDEPENDS:${PN}-tts = "\
