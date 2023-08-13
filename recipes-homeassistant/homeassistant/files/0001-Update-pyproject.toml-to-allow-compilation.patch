@@ -1,15 +1,16 @@
-From 994c8a826e68aef7f80b7b03a5d2d7775e3525fe Mon Sep 17 00:00:00 2001
+From bbfc9eea00e036b7181229c84da7befb00b8c2a3 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <tom.geelen@demcon.com>
 Date: Wed, 12 Apr 2023 01:12:53 +0200
 Subject: [PATCH] Update pyproject.toml to allow compilation
 
 Signed-off-by: Tom Geelen <tom.geelen@demcon.com>
+
 ---
  pyproject.toml | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index 6702915a..70954f3d 100644
+index fecbea62..ceede209 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@
@@ -27,4 +28,4 @@ index 6702915a..70954f3d 100644
 +    "ifaddr>=0.1.7",
      "jinja2==3.1.2",
      "lru-dict==1.1.8",
-     "PyJWT==2.5.0",
+     "PyJWT==2.6.0",
