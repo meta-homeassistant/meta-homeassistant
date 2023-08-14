@@ -3,8 +3,7 @@ HOMEPAGE = "https://github.com/hbldh/bleak"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=bcbc2069a86cba1b5e47253679f66ed7"
 
-SRC_URI[md5sum] = "d038483ec145c3d32c1ef03e04c42621"
-SRC_URI[sha256sum] = "87845a96453c58c19031c735444a7b3156800534bcd3f23ba74e119e9ae3cd88"
+SRC_URI[sha256sum] = "db599f5f100e252e9cdd4020c8657daca0371a3c697e87432abc702f3774cb4c"
 
 inherit pypi python_setuptools_build_meta python_poetry_core
 
@@ -12,5 +11,5 @@ inherit pypi python_setuptools_build_meta python_poetry_core
 RDEPENDS:${PN} = "\
     ${PYTHON_PN}-async-timeout (>=3.0.0) \
     ${PYTHON_PN}-typing-extensions (>=4.2.0) \
-    ${PYTHON_PN}-dbus-fast (>=1.22.0) \
+    ${PYTHON_PN}-dbus-fast (>=1.83.0) \
 "

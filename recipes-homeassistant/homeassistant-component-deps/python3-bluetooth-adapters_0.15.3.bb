@@ -3,8 +3,7 @@ HOMEPAGE = "https://github.com/bluetooth-devices/bluetooth-adapters"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=732518afbb3ba92dbf606e49f9045cc9"
 
-SRC_URI[md5sum] = "477149f1fd3c6c51155dd6bd16cd640a"
-SRC_URI[sha256sum] = "472c3818fe1e3abd13080a1ee0ac8e92a9b8e5bd7bf4e4bb0204cdefe9cb7149"
+SRC_URI[sha256sum] = "955c8cf4b597a84668fe41993d8f21d1359f24d88c5bbe05b895981feeb19a8b"
 
 PYPI_PACKAGE = "bluetooth_adapters"
 

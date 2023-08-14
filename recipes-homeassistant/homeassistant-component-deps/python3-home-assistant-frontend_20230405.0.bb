@@ -10,5 +10,4 @@ PYPI_SRC_URI = "https://github.com/home-assistant/frontend/releases/download/${P
 inherit pypi python_setuptools_build_meta
 
 SRC_URI += "file://0001-Change-tool-version-to-allow-newer-version.patch"
-SRC_URI[md5sum] = "752de038e447e2996b1f5397ab05fd3a"
-SRC_URI[sha256sum] = "a4d450548f6545e7a1eab479a222c13f8edbfdb0fa1004ff43a51750c715f3c6"
+SRC_URI[sha256sum] = "966ba07447745d07ab20bdc840ec2688dca856d1c94267470c0926a4e3211bd7"
