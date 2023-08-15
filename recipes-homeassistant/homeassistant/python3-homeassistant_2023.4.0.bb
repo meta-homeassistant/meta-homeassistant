@@ -121,7 +121,7 @@ RDEPENDS:${PN}-file-upload = "\
 
 ALLOW_EMPTY:${PN}-fritz = "1"
 RDEPENDS:${PN}-fritz = "\
-    ${PYTHON_PN}-fritzconnection (=1.11.0) \
+    ${PYTHON_PN}-fritzconnection (=1.12.0) \
     ${PYTHON_PN}-xmltodict (=0.13.0) \
 "
 
