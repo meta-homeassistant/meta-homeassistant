@@ -9,12 +9,12 @@ DEPENDS += "\
     python3-pytest-runner-native \
 "
 
-SRC_URI[sha256sum] = "293a4653fbb0f52f114c51bdefc8c27f6ac6087f6b4bc0a7c5f3757b9abef2cf"
+SRC_URI[sha256sum] = "245b9b6292217a38613220e4075a47397874a70052acd2da0801c51642648869"
 
 RDEPENDS:${PN} = "\
     ${PYTHON_PN}-async-timeout (>=4.0.1) \
     ${PYTHON_PN}-netifaces (>=0.11.0) \
-    ${PYTHON_PN}-dnspython (>=2.1.0) \
+    ${PYTHON_PN}-dnspython (>=2.3.0) \
     ${PYTHON_PN}-ifaddr \
     ${PYTHON_PN}-pyroute2 (>=0.7.3) \
 "

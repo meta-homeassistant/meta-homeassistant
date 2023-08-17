@@ -110,7 +110,7 @@ RDEPENDS:${PN}-conversation = "\
 
 ALLOW_EMPTY:${PN}-dhcp = "1"
 RDEPENDS:${PN}-dhcp = "\
-    ${PYTHON_PN}-aiodiscover (=1.4.15) \
+    ${PYTHON_PN}-aiodiscover (=1.4.16) \
     ${PYTHON_PN}-scapy (=2.5.0) \
 "
 
