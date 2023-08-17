@@ -132,7 +132,7 @@ RDEPENDS:${PN}-fritzbox = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    ${PYTHON_PN}-home-assistant-frontend (=20230405.0) \
+    ${PYTHON_PN}-home-assistant-frontend (=20230406.1) \
 "
 
 ALLOW_EMPTY:${PN}-google-translate = "1"
