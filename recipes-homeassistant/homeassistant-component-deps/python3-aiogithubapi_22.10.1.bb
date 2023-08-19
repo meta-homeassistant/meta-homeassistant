@@ -11,7 +11,7 @@ inherit pypi python_setuptools_build_meta python_poetry_core
 RDEPENDS:${PN} = "\
     ${PYTHON_PN}-aiosignal (>=1.1.2) \
     ${PYTHON_PN}-async-timeout (>=4.0.0a3) \
-    ${PYTHON_PN}-attr (>=17.3.0) \
+    ${PYTHON_PN}-attrs (>=17.3.0) \
     ${PYTHON_PN}-charset-normalizer (>=2.0) \
     ${PYTHON_PN}-frozenlist (>=1.1.1) \
     ${PYTHON_PN}-multidict (>=4.5) \
