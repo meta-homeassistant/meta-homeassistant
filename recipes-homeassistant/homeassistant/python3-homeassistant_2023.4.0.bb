@@ -55,6 +55,7 @@ PACKAGES += "\
     ${PN}-frontend \
     ${PN}-google-translate \
     ${PN}-hardware \
+    ${PN}-hacs \
     ${PN}-http \
     ${PN}-image-upload \
     ${PN}-ipp \
@@ -143,6 +144,11 @@ RDEPENDS:${PN}-google-translate = "\
 ALLOW_EMPTY:${PN}-hardware = "1"
 RDEPENDS:${PN}-hardware = "\
     ${PYTHON_PN}-psutil-home-assistant (=0.0.1) \
+"
+
+ALLOW_EMPTY:${PN}-hacs = "1"
+RDEPENDS:${PN}-hacs = "\
+    ${PYTHON_PN}-aiogithubapi (=22.10.1) \
 "
 
 ALLOW_EMPTY:${PN}-http = "1"
@@ -274,7 +280,7 @@ RDEPENDS:${PN} = "\
     ${PN}-zeroconf \
 "
 
-# ${PN}-ssdp 
+# 
 
 RRECOMMENDS:${PN} = "\
     ${PN}-axis \
@@ -289,4 +295,6 @@ RRECOMMENDS:${PN} = "\
     ${PN}-shelly \
     ${PN}-tts \
     ${PN}-upnp \
+    ${PN}-ssdp \
+    ${PN}-hacs \
 "
