@@ -13,7 +13,7 @@ SRC_URI += "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "a7d751f2af5e5b10c6a3e7015ced3377d305741ee915e01f2dfb9d1ec63170af"
+SRC_URI[sha256sum] = "165f02c472bc1a0e307fe932a6dca22d9c7c306fde239913afea522c497bdbd2"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -168,7 +168,7 @@ RDEPENDS:${PN}-ipp = "\
 
 ALLOW_EMPTY:${PN}-met = "1"
 RDEPENDS:${PN}-met = "\
-    ${PYTHON_PN}-pymetno (=0.9.0) \
+    ${PYTHON_PN}-pymetno (>=0.9.0) \
 "
 
 ALLOW_EMPTY:${PN}-mobile-app = "1"
@@ -228,7 +228,7 @@ RDEPENDS:${PN}-usb = "\
 
 ALLOW_EMPTY:${PN}-zeroconf = "1"
 RDEPENDS:${PN}-zeroconf = "\
-    ${PYTHON_PN}-zeroconf (=0.54.0) \
+    ${PYTHON_PN}-zeroconf (=0.56.0) \
 "
 
 RDEPENDS:${PN} = "\
