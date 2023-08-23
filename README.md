@@ -40,34 +40,20 @@ You should now be able to access Home Assistant via web browser usually under th
 # Dependencies
 
 ```
-URI: https://github.com/openembedded/openembedded-core.git
-branch: dunfell
+URI: https://git.yoctoproject.org/git/poky
+branch: mickledore
 revision: HEAD
 
-URI: git://github.com/openembedded/meta-openembedded.git
-branch: dunfell
+URI: https://github.com/openembedded/meta-openembedded.git
+branch: mickledore
 revision: HEAD
-
-URI: https://booting.oniroproject.org/distro/meta-python-mixin.git
-branch: dunfell
-revision: HEAD
-
-URI: https://github.com/openembedded/bitbake.git
-branch: 1.46
-revision: HEAD
-
-URI: https://git.yoctoproject.org/git/meta-security
-branch: dunfell
-revision: HEAD
-
 ```
 
 Why are these needed?
 
-- [meta-oe (dunfell)](https://github.com/openembedded/meta-openembedded/tree/dunfell/meta-oe) : contains meta-python
-- [meta-python (dunfell)](https://github.com/openembedded/meta-openembedded/tree/dunfell/meta-python) : contains many of the required python3 packages
-- [meta-python-mixin (dunfell)](https://booting.oniroproject.org/distro/meta-python-mixin/-/tree/dunfell) : contains meta-python backported recipe versions for dunfell
-- [meta-security (dunfell)](http://git.yoctoproject.org/cgit/cgit.cgi/meta-security/log/?h=dunfell): required for nmap used for presence detection
+- [meta-oe](https://github.com/openembedded/meta-openembedded/tree/mickledore/meta-oe) : contains meta-python
+- [meta-python (dunfell)](https://github.com/openembedded/meta-openembedded/tree/mickledore/meta-python) : contains many of the required python3 packages
+- [meta-networking](https://github.com/openembedded/meta-openembedded/tree/mickledore/meta-networking) : contains several networking oriented python3 packages
 
 # Build configuration
 
@@ -80,3 +66,4 @@ Please submit any patches against the homeassistant as Pull Requests on Github.
 ## Maintainers
 
 * Pascal Bach <pascal.bach@nextrem.ch>
+* Tom Geelen <t.f.g.geelen@gmail.com>

@@ -9,19 +9,18 @@ repos:
 
   poky:
     url: https://git.yoctoproject.org/git/poky
-    refspec: master
+    branch: mickledore
     layers:
       meta:
       meta-poky:
 
   meta-openembedded:
     url: http://git.openembedded.org/meta-openembedded
-    refspec: master
+    branch: mickledore
     layers:
       meta-oe:
       meta-python:
       meta-networking:
-      meta-perl:
 
 local_conf_header:
   reduce_diskspace: |
