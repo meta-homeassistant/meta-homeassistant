@@ -11,6 +11,7 @@ def parseArguments():
     parser = argparse.ArgumentParser()
 
     parser.add_argument("-v", "--version", help="HA Version", type=str, default="")
+    parser.add_argument("-u", "--upgrade", help="Only print packages which need upgrading", type=str, default='n', choices=['y','n'])
     # Parse arguments
     args = parser.parse_args()
 
@@ -66,7 +67,7 @@ def getUniquePythonRequirements(manifestInfo, csvWriter):
     return requirements
 
 
-def compareWithLayers(requirements, haPath, layers, csvWriter):
+def compareWithLayers(requirements, haPath, layers, csvWriter, upgrade_only):
     listOfRecipes = []
     missingRecipesList = {}
     foundRecipesList = {}
@@ -92,7 +93,8 @@ def compareWithLayers(requirements, haPath, layers, csvWriter):
                     except:
                         pass
                     foundRecipesList[package[0]] = package[1]
-                    csvWriter.writerow([package[0], package[1], package[1], layer])
+                    if upgrade_only != 'y':
+                        csvWriter.writerow([package[0], package[1], package[1], layer])
                     break
                 # Case 2: check if recipe is available but has the wrong version
                 if package[0] == recipe[0]:
@@ -109,8 +111,9 @@ def compareWithLayers(requirements, haPath, layers, csvWriter):
                 if package[0] not in foundRecipesList:
                     missingRecipesList[package[0]] = package[1]
     # Now add all missing items to csv as well
-    for item in missingRecipesList:
-        csvWriter.writerow([item, missingRecipesList[item], "-", "-"])
+    if upgrade_only != 'y':
+        for item in missingRecipesList:
+            csvWriter.writerow([item, missingRecipesList[item], "-", "-"])
 
 
 def main() -> None:
@@ -180,7 +183,7 @@ def main() -> None:
             "../../recipes-homeassistant/homeassistant-core-deps",
             "../../recipes-homeassistant/homeassistant-component-deps",
         ]
-        compareWithLayers(requirements, haPath, layers, csvWriter)
+        compareWithLayers(requirements, haPath, layers, csvWriter, args.upgrade)
 
         # Clean everything
         shutil.rmtree(haPath)

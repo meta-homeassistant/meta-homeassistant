@@ -13,7 +13,7 @@ SRC_URI += "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "e74cc349715df5598f96de43aca2f6e3402e845f3bad75fb89e3096e62288ffe"
+SRC_URI[sha256sum] = "a7d751f2af5e5b10c6a3e7015ced3377d305741ee915e01f2dfb9d1ec63170af"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -55,6 +55,7 @@ PACKAGES += "\
     ${PN}-frontend \
     ${PN}-google-translate \
     ${PN}-hardware \
+    ${PN}-hacs \
     ${PN}-http \
     ${PN}-image-upload \
     ${PN}-ipp \
@@ -110,7 +111,7 @@ RDEPENDS:${PN}-conversation = "\
 
 ALLOW_EMPTY:${PN}-dhcp = "1"
 RDEPENDS:${PN}-dhcp = "\
-    ${PYTHON_PN}-aiodiscover (=1.4.15) \
+    ${PYTHON_PN}-aiodiscover (=1.4.16) \
     ${PYTHON_PN}-scapy (=2.5.0) \
 "
 
@@ -121,7 +122,7 @@ RDEPENDS:${PN}-file-upload = "\
 
 ALLOW_EMPTY:${PN}-fritz = "1"
 RDEPENDS:${PN}-fritz = "\
-    ${PYTHON_PN}-fritzconnection (=1.11.0) \
+    ${PYTHON_PN}-fritzconnection (=1.12.0) \
     ${PYTHON_PN}-xmltodict (=0.13.0) \
 "
 
@@ -132,7 +133,7 @@ RDEPENDS:${PN}-fritzbox = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    ${PYTHON_PN}-home-assistant-frontend (=20230405.0) \
+    ${PYTHON_PN}-home-assistant-frontend (=20230406.1) \
 "
 
 ALLOW_EMPTY:${PN}-google-translate = "1"
@@ -143,6 +144,11 @@ RDEPENDS:${PN}-google-translate = "\
 ALLOW_EMPTY:${PN}-hardware = "1"
 RDEPENDS:${PN}-hardware = "\
     ${PYTHON_PN}-psutil-home-assistant (=0.0.1) \
+"
+
+ALLOW_EMPTY:${PN}-hacs = "1"
+RDEPENDS:${PN}-hacs = "\
+    ${PYTHON_PN}-aiogithubapi (=22.10.1) \
 "
 
 ALLOW_EMPTY:${PN}-http = "1"
@@ -274,7 +280,7 @@ RDEPENDS:${PN} = "\
     ${PN}-zeroconf \
 "
 
-# ${PN}-ssdp 
+# 
 
 RRECOMMENDS:${PN} = "\
     ${PN}-axis \
@@ -289,4 +295,6 @@ RRECOMMENDS:${PN} = "\
     ${PN}-shelly \
     ${PN}-tts \
     ${PN}-upnp \
+    ${PN}-ssdp \
+    ${PN}-hacs \
 "
