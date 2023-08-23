@@ -11,12 +11,9 @@ Please see the corresponding sections below for details.
 
 ```sh
 
-git clone https://github.com/openembedded/openembedded-core.git
-cd openembedded-core
+git clone https://git.yoctoproject.org/git/poky
+cd poky
 git clone https://github.com/openembedded/meta-openembedded.git
-git clone https://booting.oniroproject.org/distro/meta-python-mixin.git
-git clone https://github.com/openembedded/bitbake.git
-git clone https://git.yoctoproject.org/git/meta-security
 git clone https://github.com/meta-homeassistant/meta-homeassistant.git
 
 . ./oe-init-build-env
@@ -24,9 +21,6 @@ git clone https://github.com/meta-homeassistant/meta-homeassistant.git
 bitbake-layers add-layer ../meta-openembedded/meta-oe
 bitbake-layers add-layer ../meta-openembedded/meta-python
 bitbake-layers add-layer ../meta-openembedded/meta-networking
-bitbake-layers add-layer ../meta-openembedded/meta-perl
-bitbake-layers add-layer ../meta-python-mixin
-bitbake-layers add-layer ../meta-security
 bitbake-layers add-layer ../meta-homeassistant
 
 bitbake core-image-homeassistant
