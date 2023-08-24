@@ -13,7 +13,7 @@ SRC_URI += "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "9d0e35b472309804553861386e2db6cda838b8dfbaacf5c9e9a0ebfb4d7c7c8c"
+SRC_URI[sha256sum] = "d39e0c3a12d4eec2260f94a5e6f52e8a4ea6b7b182ba931e048da976da56ba5b"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -194,7 +194,7 @@ RDEPENDS:${PN}-recorder = "\
 
 ALLOW_EMPTY:${PN}-shelly = "1"
 RDEPENDS:${PN}-shelly = "\
-    ${PYTHON_PN}-aioshelly (=5.3.1) \
+    ${PYTHON_PN}-aioshelly (=5.3.2) \
 "
 
 ALLOW_EMPTY:${PN}-ssdp = "1"
