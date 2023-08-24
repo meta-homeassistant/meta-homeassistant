@@ -13,7 +13,7 @@ SRC_URI += "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "2fdf5fc061e3487684e1b6bdcc0e702f465dee44d9b192de7e32ccaef3a0ca6c"
+SRC_URI[sha256sum] = "f7a1637fc14e5f1a5db7eed00b9e10d54cf2864445666d75c6c35752483f0fe5"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -133,7 +133,7 @@ RDEPENDS:${PN}-fritzbox = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    ${PYTHON_PN}-home-assistant-frontend (=20230411.0) \
+    ${PYTHON_PN}-home-assistant-frontend (=20230411.1) \
 "
 
 ALLOW_EMPTY:${PN}-google-translate = "1"
