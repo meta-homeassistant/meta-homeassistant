@@ -3,10 +3,10 @@ header:
 
 repos:
   poky:
-    refspec: mickledore
+    branch: mickledore
 
   meta-openembedded:
-    refspec: mickledore
+    branch: mickledore
 
 local_conf_header:
 
