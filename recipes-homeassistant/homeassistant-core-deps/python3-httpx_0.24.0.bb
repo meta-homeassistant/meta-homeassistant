@@ -7,8 +7,7 @@ DEPENDS += "\
     python3-hatch-fancy-pypi-readme-native \
 "
 
-SRC_URI[md5sum] = "921ced753cbfeff7d0a8ba80ca455985"
-SRC_URI[sha256sum] = "9818458eb565bb54898ccb9b8b251a28785dd4a55afbc23d0eb410754fe7d0f9"
+SRC_URI[sha256sum] = "507d676fc3e26110d41df7d35ebd8b3b8585052450f4097401c9be59d928c63e"
 
 inherit pypi python_hatchling
 
