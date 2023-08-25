@@ -6,5 +6,5 @@ inherit setuptools3 pypi
 
 PYPI_PACKAGE = "ulid_transform"
 
-SRC_URI[sha256sum] = "2d1442c1f7b0f1ca7c0d6218315c45e709bcc029a49aae65d38391b9338c5f39"
+SRC_URI[sha256sum] = "5f78a9f9e7f71bb775cb74c2b4b2f085ddcf556c925d7d56d2d2e401bea6af5b"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d8b5b84f8af09011094cd7c29a9f972c"
