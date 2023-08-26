@@ -42,6 +42,7 @@ do_install:append () {
 
 # Components which can be selected and used.
 PACKAGES += "\
+    ${PN}-assist-pipeline \
     ${PN}-axis \
     ${PN}-backup \
     ${PN}-bluetooth \
@@ -71,6 +72,11 @@ PACKAGES += "\
     ${PN}-upnp \
     ${PN}-usb \
     ${PN}-zeroconf \
+"
+
+ALLOW_EMPTY:${PN}-assist-pipeline = "1"
+RDEPENDS:${PN}-assist-pipeline = "\
+    ${PYTHON_PN}-webrtcvad (=2.0.10) \
 "
 
 ALLOW_EMPTY:${PN}-axis = "1"
@@ -263,6 +269,7 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-statistics \
     ${PYTHON_PN}-sqlite3 \
     \
+    ${PN}-assist-pipeline \
     ${PN}-bluetooth \
     ${PN}-cloud \
     ${PN}-conversation \
