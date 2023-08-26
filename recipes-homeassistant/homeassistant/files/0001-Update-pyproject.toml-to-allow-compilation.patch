@@ -1,4 +1,4 @@
-From bbfc9eea00e036b7181229c84da7befb00b8c2a3 Mon Sep 17 00:00:00 2001
+From ead7e8fda0842d1153a9891824c5ec1dfa1836c8 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <tom.geelen@demcon.com>
 Date: Wed, 12 Apr 2023 01:12:53 +0200
 Subject: [PATCH] Update pyproject.toml to allow compilation
@@ -10,7 +10,7 @@ Signed-off-by: Tom Geelen <tom.geelen@demcon.com>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index fecbea62..ceede209 100644
+index ae07e6d7..4db9bf1c 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@
@@ -22,8 +22,8 @@ index fecbea62..ceede209 100644
  [project]
 @@ -36,7 +36,7 @@ dependencies    = [
      # httpcore, anyio, and h11 in gen_requirements_all
-     "httpx==0.23.3",
-     "home-assistant-bluetooth==1.9.3",
+     "httpx==0.24.0",
+     "home-assistant-bluetooth==1.10.0",
 -    "ifaddr==0.1.7",
 +    "ifaddr>=0.1.7",
      "jinja2==3.1.2",
