@@ -188,7 +188,7 @@ RDEPENDS:${PN}-radio-browser = "\
 
 ALLOW_EMPTY:${PN}-recorder = "1"
 RDEPENDS:${PN}-recorder = "\
-    ${PYTHON_PN}-fnvhash (=0.1.0) \
+    ${PYTHON_PN}-fnv-hash-fast (=0.3.1) \
     ${PYTHON_PN}-sqlalchemy (>=2.0.12) \
 "
 
