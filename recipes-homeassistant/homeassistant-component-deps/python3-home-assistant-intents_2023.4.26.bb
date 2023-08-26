@@ -1,12 +1,12 @@
 DESCRIPTION = "Intent parsing for Home Assistant"
-HOMEPAGE = "https://github.com/home-assistant/hassil/tree/v1.0.6"
+HOMEPAGE = "https://github.com/home-assistant/intents"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=2ab724713fdaf49e4523c4503bfd068d"
 
 inherit pypi python_setuptools_build_meta
 
 SRC_URI += "file://0001-Patch-pyproject.toml-to-use-upstream-version-of-setu.patch"
-SRC_URI[sha256sum] = "ad37a5088d2fccc12a638f66723ad40932cac7ed9ff9731137244b35a010b1b4"
+SRC_URI[sha256sum] = "03ae28c10f6d3beac6dbda5413b8109311c04744b17938cfeaab208dd794932e"
 
 RDEPENDS:${PN} = "\
     ${PYTHON_PN}-hassil (=1.0.6) \
