@@ -13,7 +13,7 @@ SRC_URI += "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "8afb17654e3c4710c95a781e7c0920e8c58e0f99891e02b1b81e87e04b95b61b"
+SRC_URI[sha256sum] = "99189128c69f4648003ac847ff98baca3dfbf451336605e191d90ae79eec31a4"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -205,7 +205,7 @@ RDEPENDS:${PN}-shelly = "\
 
 ALLOW_EMPTY:${PN}-ssdp = "1"
 RDEPENDS:${PN}-ssdp = "\
-    ${PYTHON_PN}-async-upnp-client (=0.33.1) \
+    ${PYTHON_PN}-async-upnp-client (=0.33.2) \
 "
 
 ALLOW_EMPTY:${PN}-stream = "1"
@@ -222,7 +222,7 @@ RDEPENDS:${PN}-tts = "\
 
 ALLOW_EMPTY:${PN}-upnp = "1"
 RDEPENDS:${PN}-upnp = "\
-    ${PYTHON_PN}-async-upnp-client (=0.33.1) \
+    ${PYTHON_PN}-async-upnp-client (=0.33.2) \
     ${PYTHON_PN}-getmac (=0.8.2) \
 "
 
@@ -247,7 +247,7 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-bcrypt (=4.0.1) \   
     ${PYTHON_PN}-certifi (>=2021.5.30) \
     ${PYTHON_PN}-ciso8601 (=2.3.0) \
-    ${PYTHON_PN}-httpx (=0.24.0) \
+    ${PYTHON_PN}-httpx (=0.24.1) \
     ${PYTHON_PN}-home-assistant-bluetooth (=1.10.0) \
     ${PYTHON_PN}-ifaddr (>=0.1.7) \
     ${PYTHON_PN}-jinja2 (=3.1.2) \
