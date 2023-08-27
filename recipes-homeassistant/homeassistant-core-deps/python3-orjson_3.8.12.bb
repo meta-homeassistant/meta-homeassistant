@@ -7,7 +7,7 @@ DEPENDS += "python3-maturin-native"
 
 PYPI_PACKAGE = "orjson"
 
-SRC_URI[sha256sum] = "dcf6adb4471b69875034afab51a14b64f1026bc968175a2bb02c5f6b358bd413"
+SRC_URI[sha256sum] = "9f0f042cf002a474a6aea006dd9f8d7a5497e35e5fb190ec78eb4d232ec19955"
 SRC_URI += "crate://crates.io/ahash/0.8.3 \
            crate://crates.io/arrayvec/0.7.2 \
            crate://crates.io/associative-cache/1.0.1 \
@@ -22,22 +22,22 @@ SRC_URI += "crate://crates.io/ahash/0.8.3 \
            crate://crates.io/encoding_rs/0.8.32 \
            crate://crates.io/itoa/1.0.6 \
            crate://crates.io/itoap/1.0.1 \
-           crate://crates.io/libc/0.2.141 \
+           crate://crates.io/libc/0.2.143 \
            crate://crates.io/libm/0.1.4 \
            crate://crates.io/num-integer/0.1.45 \
            crate://crates.io/num-traits/0.2.15 \
            crate://crates.io/once_cell/1.17.1 \
            crate://crates.io/packed_simd_2/0.3.8 \
-           crate://crates.io/pyo3-build-config/0.18.2 \
-           crate://crates.io/pyo3-ffi/0.18.1 \
+           crate://crates.io/pyo3-build-config/0.18.3 \
+           crate://crates.io/pyo3-ffi/0.18.3 \
            crate://crates.io/rustversion/1.0.12 \
            crate://crates.io/ryu/1.0.13 \
-           crate://crates.io/serde/1.0.159 \
-           crate://crates.io/serde_json/1.0.95 \
+           crate://crates.io/serde/1.0.162 \
+           crate://crates.io/serde_json/1.0.96 \
            crate://crates.io/simdutf8/0.1.4 \
            crate://crates.io/smallvec/1.10.0 \
            crate://crates.io/static_assertions/1.1.0 \
-           crate://crates.io/target-lexicon/0.12.6 \
+           crate://crates.io/target-lexicon/0.12.7 \
            crate://crates.io/version_check/0.9.4 \
            file://0001-Fix-compilation-error-for-orjson.patch \
            "
@@ -56,22 +56,22 @@ SRC_URI[compact_str-0.7.0.sha256sum] = "bff0805f79ecb1b35163f3957a6934ea8d04fcd3
 SRC_URI[encoding_rs-0.8.32.sha256sum] = "071a31f4ee85403370b58aca746f01041ede6f0da2730960ad001edc2b71b394"
 SRC_URI[itoa-1.0.6.sha256sum] = "453ad9f582a441959e5f0d088b02ce04cfe8d51a8eaf077f12ac6d3e94164ca6"
 SRC_URI[itoap-1.0.1.sha256sum] = "9028f49264629065d057f340a86acb84867925865f73bbf8d47b4d149a7e88b8"
-SRC_URI[libc-0.2.141.sha256sum] = "3304a64d199bb964be99741b7a14d26972741915b3649639149b2479bb46f4b5"
+SRC_URI[libc-0.2.143.sha256sum] = "edc207893e85c5d6be840e969b496b53d94cec8be2d501b214f50daa97fa8024"
 SRC_URI[libm-0.1.4.sha256sum] = "7fc7aa29613bd6a620df431842069224d8bc9011086b1db4c0e0cd47fa03ec9a"
 SRC_URI[num-integer-0.1.45.sha256sum] = "225d3389fb3509a24c93f5c29eb6bde2586b98d9f016636dff58d7c6f7569cd9"
 SRC_URI[num-traits-0.2.15.sha256sum] = "578ede34cf02f8924ab9447f50c28075b4d3e5b269972345e7e0372b38c6cdcd"
 SRC_URI[once_cell-1.17.1.sha256sum] = "b7e5500299e16ebb147ae15a00a942af264cf3688f47923b8fc2cd5858f23ad3"
 SRC_URI[packed_simd_2-0.3.8.sha256sum] = "a1914cd452d8fccd6f9db48147b29fd4ae05bea9dc5d9ad578509f72415de282"
-SRC_URI[pyo3-build-config-0.18.2.sha256sum] = "98a42e7f42e917ce6664c832d5eee481ad514c98250c49e0b03b20593e2c7ed0"
-SRC_URI[pyo3-ffi-0.18.1.sha256sum] = "839526a5c07a17ff44823679b68add4a58004de00512a95b6c1c98a6dcac0ee5"
+SRC_URI[pyo3-build-config-0.18.3.sha256sum] = "9cb946f5ac61bb61a5014924910d936ebd2b23b705f7a4a3c40b05c720b079a3"
+SRC_URI[pyo3-ffi-0.18.3.sha256sum] = "fd4d7c5337821916ea2a1d21d1092e8443cf34879e53a0ac653fbb98f44ff65c"
 SRC_URI[rustversion-1.0.12.sha256sum] = "4f3208ce4d8448b3f3e7d168a73f5e0c43a61e32930de3bceeccedb388b6bf06"
 SRC_URI[ryu-1.0.13.sha256sum] = "f91339c0467de62360649f8d3e185ca8de4224ff281f66000de5eb2a77a79041"
-SRC_URI[serde-1.0.159.sha256sum] = "3c04e8343c3daeec41f58990b9d77068df31209f2af111e059e9fe9646693065"
-SRC_URI[serde_json-1.0.95.sha256sum] = "d721eca97ac802aa7777b701877c8004d950fc142651367300d21c1cc0194744"
+SRC_URI[serde-1.0.162.sha256sum] = "71b2f6e1ab5c2b98c05f0f35b236b22e8df7ead6ffbf51d7808da7f8817e7ab6"
+SRC_URI[serde_json-1.0.96.sha256sum] = "057d394a50403bcac12672b2b18fb387ab6d289d957dab67dd201875391e52f1"
 SRC_URI[simdutf8-0.1.4.sha256sum] = "f27f6278552951f1f2b8cf9da965d10969b2efdea95a6ec47987ab46edfe263a"
 SRC_URI[smallvec-1.10.0.sha256sum] = "a507befe795404456341dfab10cef66ead4c041f62b8b11bbb92bffe5d0953e0"
 SRC_URI[static_assertions-1.1.0.sha256sum] = "a2eb9349b6444b326872e140eb1cf5e7c522154d69e7a0ffb0fb81c06b37543f"
-SRC_URI[target-lexicon-0.12.6.sha256sum] = "8ae9980cab1db3fceee2f6c6f643d5d8de2997c58ee8d25fb0cc8a9e9e7348e5"
+SRC_URI[target-lexicon-0.12.7.sha256sum] = "fd1ba337640d60c3e96bc6f0638a939b9c9a7f2c316a1598c279828b3d1dc8c5"
 SRC_URI[version_check-0.9.4.sha256sum] = "49874b5167b65d7193b8aba1567f5c7d93d001cafc34600cee003eda787e483f"
 
 DEPENDS += "python3-setuptools-rust-native"
