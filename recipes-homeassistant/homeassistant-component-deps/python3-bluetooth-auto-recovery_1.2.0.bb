@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/bluetooth-devices/bluetooth-auto-recovery"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d8b5b84f8af09011094cd7c29a9f972c"
 
-SRC_URI[sha256sum] = "2729d00573c4db3361854e50170678a1619262e3c8b3f67133ba8808a1caa723"
+SRC_URI[sha256sum] = "271cd48b9a37a9b3e985d293533f70a8a2cda1850e3d215e86d0f02f9a717b3b"
 
 PYPI_PACKAGE = "bluetooth_auto_recovery"
 
