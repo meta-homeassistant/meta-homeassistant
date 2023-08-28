@@ -1,4 +1,4 @@
-From 6cc614ed2eba79c716a0475b75b35983a72a7721 Mon Sep 17 00:00:00 2001
+From d3cbab4a3a6a5aee648993b06f2c0ffc08ab7e3e Mon Sep 17 00:00:00 2001
 From: Tom Geelen <tom.geelen@demcon.com>
 Date: Mon, 10 Apr 2023 23:55:59 +0200
 Subject: [PATCH] Change tool version to allow newer version
@@ -10,7 +10,7 @@ Signed-off-by: Tom Geelen <tom.geelen@demcon.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index 8e8a23b..16a9ae3 100644
+index 099766e..e720810 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@
