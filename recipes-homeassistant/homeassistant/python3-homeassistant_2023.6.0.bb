@@ -13,7 +13,7 @@ SRC_URI += "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "99189128c69f4648003ac847ff98baca3dfbf451336605e191d90ae79eec31a4"
+SRC_URI[sha256sum] = "744b3303de4423018c47666da5eecff307a1e056ea189064b28ee70af4e43c37"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -81,7 +81,7 @@ RDEPENDS:${PN}-assist-pipeline = "\
 
 ALLOW_EMPTY:${PN}-axis = "1"
 RDEPENDS:${PN}-axis = "\
-    ${PYTHON_PN}-axis (=47) \
+    ${PYTHON_PN}-axis (=48) \
 "
 
 ALLOW_EMPTY:${PN}-backup = "1"
@@ -96,7 +96,7 @@ RDEPENDS:${PN}-bluetooth = "\
     ${PYTHON_PN}-bluetooth-adapters (=0.15.3) \
     ${PYTHON_PN}-bluetooth-auto-recovery (=1.2.0) \
     ${PYTHON_PN}-bluetooth-data-tools (=0.4.0) \
-    ${PYTHON_PN}-dbus-fast (=1.85.0) \
+    ${PYTHON_PN}-dbus-fast (=1.86.0) \
 "
 
 ALLOW_EMPTY:${PN}-cast = "1"
@@ -106,13 +106,13 @@ RDEPENDS:${PN}-cast = "\
 
 ALLOW_EMPTY:${PN}-cloud = "1"
 RDEPENDS:${PN}-cloud = "\
-    ${PYTHON_PN}-hass-nabucasa (=0.66.2) \
+    ${PYTHON_PN}-hass-nabucasa (=0.67.1) \
 "
 
 ALLOW_EMPTY:${PN}-conversation = "1"
 RDEPENDS:${PN}-conversation = "\
     ${PYTHON_PN}-hassil (=1.0.6) \
-    ${PYTHON_PN}-home-assistant-intents (=2023.4.26) \
+    ${PYTHON_PN}-home-assistant-intents (=2023.6.5) \
 "
 
 ALLOW_EMPTY:${PN}-dhcp = "1"
@@ -139,7 +139,7 @@ RDEPENDS:${PN}-fritzbox = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    ${PYTHON_PN}-home-assistant-frontend (=20230503.3) \
+    ${PYTHON_PN}-home-assistant-frontend (=20230607.0) \
 "
 
 ALLOW_EMPTY:${PN}-google-translate = "1"
@@ -169,7 +169,7 @@ RDEPENDS:${PN}-image-upload = "\
 
 ALLOW_EMPTY:${PN}-ipp = "1"
 RDEPENDS:${PN}-ipp = "\
-    ${PYTHON_PN}-pyipp (=0.12.1) \
+    ${PYTHON_PN}-pyipp (=0.13.0) \
 "
 
 ALLOW_EMPTY:${PN}-met = "1"
@@ -195,7 +195,7 @@ RDEPENDS:${PN}-radio-browser = "\
 ALLOW_EMPTY:${PN}-recorder = "1"
 RDEPENDS:${PN}-recorder = "\
     ${PYTHON_PN}-fnv-hash-fast (=0.3.1) \
-    ${PYTHON_PN}-sqlalchemy (>=2.0.12) \
+    ${PYTHON_PN}-sqlalchemy (>=2.0.15) \
 "
 
 ALLOW_EMPTY:${PN}-shelly = "1"
@@ -211,7 +211,7 @@ RDEPENDS:${PN}-ssdp = "\
 ALLOW_EMPTY:${PN}-stream = "1"
 RDEPENDS:${PN}-stream = "\
     ${PYTHON_PN}-pyturbojpeg (=1.6.7) \
-    ${PYTHON_PN}-ha-av (=10.0.0) \
+    ${PYTHON_PN}-ha-av (=10.1.0) \
     ${PYTHON_PN}-numpy (>=1.23.2) \
 "
 
@@ -241,7 +241,7 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-aiohttp (=3.8.4) \
     ${PYTHON_PN}-astral (=2.2) \
     ${PYTHON_PN}-async-timeout (=4.0.2) \
-    ${PYTHON_PN}-attrs (=22.2.0) \
+    ${PYTHON_PN}-attrs (>=22.2.0) \
     ${PYTHON_PN}-atomicwrites-homeassistant (=1.4.1) \
     ${PYTHON_PN}-awesomeversion (=22.9.0) \
     ${PYTHON_PN}-bcrypt (=4.0.1) \   
@@ -249,17 +249,17 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-ciso8601 (=2.3.0) \
     ${PYTHON_PN}-httpx (=0.24.1) \
     ${PYTHON_PN}-home-assistant-bluetooth (=1.10.0) \
-    ${PYTHON_PN}-ifaddr (>=0.1.7) \
+    ${PYTHON_PN}-ifaddr (>=0.2.0) \
     ${PYTHON_PN}-jinja2 (=3.1.2) \
     ${PYTHON_PN}-lru-dict (=1.1.8) \
-    ${PYTHON_PN}-pyjwt (>=2.6.0) \
+    ${PYTHON_PN}-pyjwt (>=2.7.0) \
     ${PYTHON_PN}-cryptography (>=40.0.2) \
-    ${PYTHON_PN}-pyopenssl (>=23.1.1) \
-    ${PYTHON_PN}-orjson (=3.8.10) \
+    ${PYTHON_PN}-pyopenssl (>=23.1.0) \
+    ${PYTHON_PN}-orjson (=3.8.12) \
     ${PYTHON_PN}-pip (>=21.0) \
     ${PYTHON_PN}-python-slugify (=4.0.1) \
     ${PYTHON_PN}-pyyaml (= 6.0) \
-    ${PYTHON_PN}-requests (=2.28.2) \
+    ${PYTHON_PN}-requests (=2.31.0) \
     ${PYTHON_PN}-typing-extensions (=4.5.0) \
     ${PYTHON_PN}-ulid-transform (=0.7.2) \
     ${PYTHON_PN}-voluptuous (=0.13.1) \
