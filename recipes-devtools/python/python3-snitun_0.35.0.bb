@@ -1,12 +1,11 @@
 DESCRIPTION = "End-to-End encryption with SNI proxy on top of a TCP multiplexer."
 HOMEPAGE = "https://github.com/NabuCasa/snitun"
 LICENSE = "GPL-3.0-or-later"
-LIC_FILES_CHKSUM = "file://setup.py;md5=96b7c7e0fb5503d60706b7b4c9fefa1d"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 inherit pypi setuptools3
 
-SRC_URI[md5sum] = "c2887e48167789be1a165cdb3e3c0ef7"
-SRC_URI[sha256sum] = "d3ba49bcc69307ea38e9c5645d77df15f644795e6e2f3c2833087a4e9d0576e9"
+SRC_URI[sha256sum] = "cb32bacc55c73c68d2285e9d1f43b096238901fd0ff72c03f26e1c01e1fbd84f"
 
 RDEPENDS:${PN} = "\
     ${PYTHON_PN}-attrs (>=18.2.0) \
