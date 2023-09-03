@@ -1,4 +1,4 @@
-From 398c94cf677211553acd80d6773c0c33105b28e5 Mon Sep 17 00:00:00 2001
+From a9d00dd2c9fbddb2658d010c04eba5898fe51be9 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <tom.geelen@demcon.com>
 Date: Thu, 6 Apr 2023 22:01:19 +0200
 Subject: [PATCH] Patch pyproject.toml to use upstream version of setuptools
@@ -11,7 +11,7 @@ Signed-off-by: Tom Geelen <tom.geelen@demcon.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index d1870cf..187fe2b 100644
+index 5acc91b..8b29e0d 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@

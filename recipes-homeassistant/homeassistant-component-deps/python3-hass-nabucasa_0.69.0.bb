@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=8;endline=8;md5=2e929b76b78cb8819e
 
 inherit pypi setuptools3
 
-SRC_URI[sha256sum] = "05d9698a02cad3ac80a7edd0245a619d4c50995217c493473e3f0941b9b44fb5"
+SRC_URI[sha256sum] = "100fd773613311ecaef69fcbff4db0b0a337819fce6164198c143791b7dbf54d"
 
 RDEPENDS:${PN} = "\
     ${PYTHON_PN}-pycognito (=2022.12.0) \
