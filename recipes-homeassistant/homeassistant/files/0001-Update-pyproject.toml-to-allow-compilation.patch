@@ -1,4 +1,4 @@
-From 3d73f0002ec3808473c8ad2e8f5195ed716521bf Mon Sep 17 00:00:00 2001
+From 18b68e1d618cada32bc5c21c353dfa8cf8ad7a47 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <tom.geelen@demcon.com>
 Date: Wed, 12 Apr 2023 01:12:53 +0200
 Subject: [PATCH] Update pyproject.toml to allow compilation
@@ -10,7 +10,7 @@ Signed-off-by: Tom Geelen <tom.geelen@demcon.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index cd0e6eb4..1d276cf1 100644
+index 2de9c9de..7b968118 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@
