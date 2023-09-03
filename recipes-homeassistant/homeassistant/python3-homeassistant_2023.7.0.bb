@@ -13,7 +13,7 @@ SRC_URI += "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "8655362cd1bff54cbb5df493fd9c1539009aaf4205bc5520a4c4a8482be24eb7"
+SRC_URI[sha256sum] = "d9ba3f4c93dcd82047fb2eb3ec797823b4de69c0c7eb52fe8cc2115b3380833d"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -95,7 +95,7 @@ RDEPENDS:${PN}-bluetooth = "\
     ${PYTHON_PN}-bleak-retry-connector (=3.0.2) \
     ${PYTHON_PN}-bluetooth-adapters (=0.15.3) \
     ${PYTHON_PN}-bluetooth-auto-recovery (=1.2.0) \
-    ${PYTHON_PN}-bluetooth-data-tools (=0.4.0) \
+    ${PYTHON_PN}-bluetooth-data-tools (=1.3.0) \
     ${PYTHON_PN}-dbus-fast (=1.86.0) \
 "
 
@@ -106,13 +106,13 @@ RDEPENDS:${PN}-cast = "\
 
 ALLOW_EMPTY:${PN}-cloud = "1"
 RDEPENDS:${PN}-cloud = "\
-    ${PYTHON_PN}-hass-nabucasa (=0.67.1) \
+    ${PYTHON_PN}-hass-nabucasa (=0.69.0) \
 "
 
 ALLOW_EMPTY:${PN}-conversation = "1"
 RDEPENDS:${PN}-conversation = "\
     ${PYTHON_PN}-hassil (=1.0.6) \
-    ${PYTHON_PN}-home-assistant-intents (=2023.6.5) \
+    ${PYTHON_PN}-home-assistant-intents (=2023.6.28) \
 "
 
 ALLOW_EMPTY:${PN}-dhcp = "1"
@@ -139,7 +139,7 @@ RDEPENDS:${PN}-fritzbox = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    ${PYTHON_PN}-home-assistant-frontend (=20230608.0) \
+    ${PYTHON_PN}-home-assistant-frontend (=20230705.0) \
 "
 
 ALLOW_EMPTY:${PN}-google-translate = "1"
@@ -169,7 +169,7 @@ RDEPENDS:${PN}-image-upload = "\
 
 ALLOW_EMPTY:${PN}-ipp = "1"
 RDEPENDS:${PN}-ipp = "\
-    ${PYTHON_PN}-pyipp (=0.13.0) \
+    ${PYTHON_PN}-pyipp (=0.14.0) \
 "
 
 ALLOW_EMPTY:${PN}-met = "1"
@@ -200,7 +200,7 @@ RDEPENDS:${PN}-recorder = "\
 
 ALLOW_EMPTY:${PN}-shelly = "1"
 RDEPENDS:${PN}-shelly = "\
-    ${PYTHON_PN}-aioshelly (=5.3.2) \
+    ${PYTHON_PN}-aioshelly (=5.4.0) \
 "
 
 ALLOW_EMPTY:${PN}-ssdp = "1"
@@ -251,12 +251,12 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-home-assistant-bluetooth (=1.10.0) \
     ${PYTHON_PN}-ifaddr (>=0.2.0) \
     ${PYTHON_PN}-jinja2 (=3.1.2) \
-    ${PYTHON_PN}-lru-dict (=1.1.8) \
+    ${PYTHON_PN}-lru-dict (=1.2.0) \
     ${PYTHON_PN}-pyjwt (>=2.7.0) \
-    ${PYTHON_PN}-cryptography (>=40.0.2) \
-    ${PYTHON_PN}-pyopenssl (>=23.1.0) \
-    ${PYTHON_PN}-orjson (=3.8.12) \
-    ${PYTHON_PN}-pip (>=21.0) \
+    ${PYTHON_PN}-cryptography (>=40.0.1) \
+    ${PYTHON_PN}-pyopenssl (>=23.2.0) \
+    ${PYTHON_PN}-orjson (=3.9.1) \
+    ${PYTHON_PN}-pip (>=21.3.1) \
     ${PYTHON_PN}-python-slugify (=4.0.1) \
     ${PYTHON_PN}-pyyaml (= 6.0) \
     ${PYTHON_PN}-requests (=2.31.0) \
