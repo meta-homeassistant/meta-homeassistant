@@ -13,7 +13,7 @@ SRC_URI += "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "618b885440162ce216d718941b3aba4de15f0928f9af19fa1fc5bb5e1800845f"
+SRC_URI[sha256sum] = "7c44b3a4e38418538927495d23f55a54dd241ffcdb082ab6e6cf2f367094385b"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -42,6 +42,7 @@ do_install:append () {
 
 # Components which can be selected and used.
 PACKAGES += "\
+    ${PN}-amazon-polly \
     ${PN}-assist-pipeline \
     ${PN}-axis \
     ${PN}-backup \
@@ -60,18 +61,29 @@ PACKAGES += "\
     ${PN}-http \
     ${PN}-image-upload \
     ${PN}-ipp \
+    ${PN}-keyboard-remote \
     ${PN}-met \
     ${PN}-mobile-app \
+    ${PN}-modbus \
     ${PN}-octoprint \
+    ${PN}-pulseaudio-loopback \
     ${PN}-radio-browser \
     ${PN}-recorder \
+    ${PN}-route53 \
+    ${PN}-sentry \
     ${PN}-shelly \
     ${PN}-ssdp \
     ${PN}-stream \
+    ${PN}-systemmonitor \
     ${PN}-tts \
     ${PN}-upnp \
     ${PN}-usb \
     ${PN}-zeroconf \
+"
+
+ALLOW_EMPTY:${PN}-amazon-polly = "1"
+RDEPENDS:${PN}-amazon-polly = "\
+    ${PYTHON_PN}-boto3 (>=1.20.24) \
 "
 
 ALLOW_EMPTY:${PN}-assist-pipeline = "1"
@@ -172,6 +184,12 @@ RDEPENDS:${PN}-ipp = "\
     ${PYTHON_PN}-pyipp (=0.14.0) \
 "
 
+ALLOW_EMPTY:${PN}-keyboard-remote = "1"
+RDEPENDS:${PN}-keyboard-remote = "\
+    ${PYTHON_PN}-evdev (>=1.6.1) \
+    ${PYTHON_PN}-asyncinotify (>=4.0.2) \
+"
+
 ALLOW_EMPTY:${PN}-met = "1"
 RDEPENDS:${PN}-met = "\
     ${PYTHON_PN}-pymetno (>=0.9.0) \
@@ -182,9 +200,19 @@ RDEPENDS:${PN}-mobile-app = "\
     ${PYTHON_PN}-pynacl (=1.5.0) \
 "
 
+ALLOW_EMPTY:${PN}-modbus = "1"
+RDEPENDS:${PN}-modbus = "\
+    ${PYTHON_PN}-pymodbus (>=3.3.1) \
+"
+
 ALLOW_EMPTY:${PN}-octoprint = "1"
 RDEPENDS:${PN}-octoprint = "\
     ${PYTHON_PN}-pyoctoprintapi (=0.1.11) \
+"
+
+ALLOW_EMPTY:${PN}-pulseaudio-loopback = "1"
+RDEPENDS:${PN}-pulseaudio-loopback = "\
+    ${PYTHON_PN}-pulsectl (>=23.5.2) \
 "
 
 ALLOW_EMPTY:${PN}-radio-browser = "1"
@@ -196,6 +224,16 @@ ALLOW_EMPTY:${PN}-recorder = "1"
 RDEPENDS:${PN}-recorder = "\
     ${PYTHON_PN}-fnv-hash-fast (=0.3.1) \
     ${PYTHON_PN}-sqlalchemy (>=2.0.15) \
+"
+
+ALLOW_EMPTY:${PN}-route53 = "1"
+RDEPENDS:${PN}-route53 = "\
+    ${PYTHON_PN}-boto3 (>=1.20.24) \
+"
+
+ALLOW_EMPTY:${PN}-sentry = "1"
+RDEPENDS:${PN}-sentry = "\
+    ${PYTHON_PN}-sentry-sdk (>=1.25.1) \
 "
 
 ALLOW_EMPTY:${PN}-shelly = "1"
@@ -213,6 +251,11 @@ RDEPENDS:${PN}-stream = "\
     ${PYTHON_PN}-pyturbojpeg (=1.6.7) \
     ${PYTHON_PN}-ha-av (=10.1.0) \
     ${PYTHON_PN}-numpy (>=1.23.2) \
+"
+
+ALLOW_EMPTY:${PN}-systemmonitor = "1"
+RDEPENDS:${PN}-systemmonitor = "\
+    ${PYTHON_PN}-psutil (>=5.9.5) \
 "
 
 ALLOW_EMPTY:${PN}-tts = "1"
@@ -288,16 +331,23 @@ RDEPENDS:${PN} = "\
 "
 
 RRECOMMENDS:${PN} = "\
+    ${PN}-amazon-polly \
     ${PN}-axis \
     ${PN}-backup \
     ${PN}-cast \
     ${PN}-fritz \
     ${PN}-fritzbox \
     ${PN}-ipp \
+    ${PN}-keyboard-remote \
     ${PN}-met \
+    ${PN}-modbus \
     ${PN}-octoprint \
+    ${PN}-pulseaudio-loopback \
     ${PN}-radio-browser \
+    ${PN}-route53 \
+    ${PN}-sentry \
     ${PN}-shelly \
+    ${PN}-systemmonitor \
     ${PN}-tts \
     ${PN}-upnp \
     ${PN}-ssdp \
