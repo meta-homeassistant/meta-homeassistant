@@ -1,8 +1,5 @@
 header:
-  version: 10
-
-  includes:
-    - kas-hass.yml
+  version: 14
 
 machine: qemuarm64
 distro: homeassistant

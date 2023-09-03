@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        yocto-version: [mickledore]
+        yocto-version: [main]
         machine: [qemu]
     steps:
     - name: Install dependencies
@@ -21,4 +21,4 @@ jobs:
       run: |
         sudo pip3 install kas
     - name: Run kas on ${{ matrix.machine }} on ${{ matrix.yocto-version }}
-      run: kas build kas-${{ matrix.machine }}.yml:kas-${{ matrix.yocto-version }}.yml
+      run: kas build kas/homeassistant-${{ matrix.yocto-version }}.yml:kas/machine-${{ matrix.machine }}.yml:kas/ci.yml
