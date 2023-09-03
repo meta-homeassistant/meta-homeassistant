@@ -13,7 +13,7 @@ SRC_URI += "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "7c44b3a4e38418538927495d23f55a54dd241ffcdb082ab6e6cf2f367094385b"
+SRC_URI[sha256sum] = "c184bb1b7003d46ed4cd77eb271ac71a941304b2456bb4259f5554d2975c36ba"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -281,7 +281,7 @@ RDEPENDS:${PN}-zeroconf = "\
 "
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-aiohttp (=3.8.4) \
+    ${PYTHON_PN}-aiohttp (=3.8.5) \
     ${PYTHON_PN}-astral (=2.2) \
     ${PYTHON_PN}-async-timeout (=4.0.2) \
     ${PYTHON_PN}-attrs (>=22.2.0) \
@@ -301,7 +301,7 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-orjson (=3.9.1) \
     ${PYTHON_PN}-pip (>=21.3.1) \
     ${PYTHON_PN}-python-slugify (=4.0.1) \
-    ${PYTHON_PN}-pyyaml (= 6.0) \
+    ${PYTHON_PN}-pyyaml (= 6.0.1) \
     ${PYTHON_PN}-requests (=2.31.0) \
     ${PYTHON_PN}-typing-extensions (>=4.6.3) \
     ${PYTHON_PN}-ulid-transform (=0.7.2) \
