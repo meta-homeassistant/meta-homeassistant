@@ -4,8 +4,7 @@ AUTHOR = "Amazon Web Services"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=2ee41112a44fe7014dce33e26468ba93"
 
-SRC_URI[md5sum] = "8924069ba44ec6f2363168f842e102c2"
-SRC_URI[sha256sum] = "d49caf1dae7dd903c2af443dbafd76dcf3902d87236a83f8b64e77aa556d1c6b"
+SRC_URI[sha256sum] = "43006b4f52d7bb655319d3da0f615cdbee7762853acc1ebcb1d49f962e6b4806"
 
 inherit pypi setuptools3
 
