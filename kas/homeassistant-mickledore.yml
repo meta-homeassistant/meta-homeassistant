@@ -1,5 +1,8 @@
 header:
-  version: 10
+  version: 14
+
+  includes:
+    - homeassistant-master.yml
 
 repos:
   poky:
