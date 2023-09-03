@@ -10,7 +10,7 @@ SRC_URI[sha256sum] = "e3dd22b7dcfa6a7c1dc66c313b26c3eb6cb887a07a5691021666daf830
 
 RDEPENDS:${PN} = "\
     ${PYTHON_PN}-hassil (=1.0.6) \
-    ${PYTHON_PN}-pyyaml (=6.0) \
+    ${PYTHON_PN}-pyyaml (>=6.0) \
     ${PYTHON_PN}-voluptuous (=0.13.1) \
     ${PYTHON_PN}-regex (>=2023.3.23) \
     ${PYTHON_PN}-jinja2 (=3.1.2) \
