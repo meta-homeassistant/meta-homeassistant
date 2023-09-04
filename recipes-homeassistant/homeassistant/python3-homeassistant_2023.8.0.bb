@@ -265,7 +265,7 @@ RDEPENDS:${PN}-tts = "\
 
 ALLOW_EMPTY:${PN}-upnp = "1"
 RDEPENDS:${PN}-upnp = "\
-    ${PYTHON_PN}-async-upnp-client (=0.33.2) \
+    ${PYTHON_PN}-async-upnp-client (=0.34.1) \
     ${PYTHON_PN}-getmac (=0.8.2) \
 "
 
