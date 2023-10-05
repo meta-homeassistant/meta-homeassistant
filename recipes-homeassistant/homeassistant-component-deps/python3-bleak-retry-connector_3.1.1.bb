@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/bluetooth-devices/bleak-retry-connector"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d8b5b84f8af09011094cd7c29a9f972c"
 
-SRC_URI[sha256sum] = "91bffd9798c5c95100bec68708cbc95d05f5d0930433c27428dec1ee8f107412"
+SRC_URI[sha256sum] = "276796ec9ca287fa2a1634a4f4bfdfa9712b2e2efa1494bd6d911cb2d23f7566"
 
 PYPI_PACKAGE = "bleak_retry_connector"
 

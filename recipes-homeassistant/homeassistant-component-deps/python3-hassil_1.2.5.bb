@@ -5,8 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.md;md5=86d3f3a95c324c9479bd8986968f4327"
 
 inherit pypi python_setuptools_build_meta
 
-SRC_URI[md5sum] = "47099439d11c513658db773914b9017e"
-SRC_URI[sha256sum] = "ac24952852247cf836698170b9854b33130ef12d75755f1fe1e724a456cd0779"
+SRC_URI[sha256sum] = "b9d3a46482e86dadbe791f284854e1b01f38e8239a2176b0c116219f6eb59820"
 
 RDEPENDS:${PN} = "\
     ${PYTHON_PN}-pyyaml (>=6.0) \

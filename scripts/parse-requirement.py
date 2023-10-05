@@ -4,6 +4,7 @@ import json as json
 import csv
 import shutil
 import argparse
+from packaging import version
 
 
 def parseArguments():
@@ -96,14 +97,17 @@ def compareWithLayers(requirements, haPath, layers, csvWriter, upgrade_only):
                     if upgrade_only != 'y':
                         csvWriter.writerow([package[0], package[1], package[1], layer])
                     break
-                # Case 2: check if recipe is available but has the wrong version
-                if package[0] == recipe[0]:
+                # Case 2: if not, check if recipe is available but has a lower version
+                elif package[0] == recipe[0]:
                     try:
                         del missingRecipesList[package[0]]
                     except:
                         pass
+                    # Now if the needed package version is higher than the found one, and no other package has been found in a
+                    # layer which is higher in the bblayers order, then add it to the list
+                    if (version.parse(package[1]) > version.parse(recipe[1])) and (package[0] not in foundRecipesList):
+                        csvWriter.writerow([package[0], package[1], recipe[1], layer])
                     foundRecipesList[package[0]] = package[1]
-                    csvWriter.writerow([package[0], package[1], recipe[1], layer])
                     break
                 # Case 3: There is no recipe at all
             else:
@@ -149,7 +153,10 @@ def main() -> None:
         # 2: poky
         # 3: the openembedded layer
         layers = [
-            "../../../../sources/poky/meta/recipes-devtools/python",
+            "../../recipes-devtools/python",
+            "../../recipes-homeassistant/homeassistant",
+            "../../recipes-homeassistant/homeassistant-core-deps",
+            "../../recipes-homeassistant/homeassistant-component-deps",
             "../../../../sources/meta-openembedded/meta-python/recipes-connectivity/python-gsocketpool",
             "../../../../sources/meta-openembedded/meta-python/recipes-connectivity/python-h2",
             "../../../../sources/meta-openembedded/meta-python/recipes-connectivity/python-hpack",
@@ -178,10 +185,7 @@ def main() -> None:
             "../../../../sources/meta-openembedded/meta-python/recipes-extended/pywbemtools",
             "../../../../sources/meta-openembedded/meta-python/recipes-extended/send2trash",
             "../../../../sources/meta-openembedded/meta-networking/recipes-devtools/python",
-            "../../recipes-devtools/python",
-            "../../recipes-homeassistant/homeassistant",
-            "../../recipes-homeassistant/homeassistant-core-deps",
-            "../../recipes-homeassistant/homeassistant-component-deps",
+            "../../../../sources/poky/meta/recipes-devtools/python",
         ]
         compareWithLayers(requirements, haPath, layers, csvWriter, args.upgrade)
 
