@@ -13,7 +13,7 @@ SRC_URI += "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "36f879da8568bdc9a272a62e5c9710bde4d38d377f6478eb293321dabb5029d5"
+SRC_URI[sha256sum] = "bb6d2111d568c69d8cccba3a3a89d0667928c6a2be9b2b782f0a81fa6cf78a91"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -108,7 +108,7 @@ RDEPENDS:${PN}-bluetooth = "\
     ${PYTHON_PN}-bluetooth-adapters (=0.16.0) \
     ${PYTHON_PN}-bluetooth-auto-recovery (=1.2.1) \
     ${PYTHON_PN}-bluetooth-data-tools (=1.6.1) \
-    ${PYTHON_PN}-dbus-fast (=1.87.5) \
+    ${PYTHON_PN}-dbus-fast (=1.90.1) \
 "
 
 ALLOW_EMPTY:${PN}-cast = "1"
@@ -124,7 +124,7 @@ RDEPENDS:${PN}-cloud = "\
 ALLOW_EMPTY:${PN}-conversation = "1"
 RDEPENDS:${PN}-conversation = "\
     ${PYTHON_PN}-hassil (=1.2.5) \
-    ${PYTHON_PN}-home-assistant-intents (=2023.7.25) \
+    ${PYTHON_PN}-home-assistant-intents (=2023.8.2) \
 "
 
 ALLOW_EMPTY:${PN}-dhcp = "1"
@@ -296,7 +296,7 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-jinja2 (=3.1.2) \
     ${PYTHON_PN}-lru-dict (=1.2.0) \
     ${PYTHON_PN}-pyjwt (>=2.8.0) \
-    ${PYTHON_PN}-cryptography (>=41.0.2) \
+    ${PYTHON_PN}-cryptography (>=41.0.3) \
     ${PYTHON_PN}-pyopenssl (>=23.2.0) \
     ${PYTHON_PN}-orjson (=3.9.2) \
     ${PYTHON_PN}-pip (>=21.3.1) \
