@@ -7,7 +7,7 @@ inherit pypi setuptools3
 
 PYPI_PACKAGE = "fnv_hash_fast"
 
-SRC_URI[sha256sum] = "34ddc8ceb87b2f707f515e8e6f4466fceb780e1f1c3d28754d8d6611ae064a5a"
+SRC_URI[sha256sum] = "fb513e4b43d5b48cf358422688e950dec22b681cffb6c7a80c062199667f0fa6"
 
 RDEPENDS:${PN} = "\
     ${PYTHON_PN}-fnvhash (>=0.1.0) \
