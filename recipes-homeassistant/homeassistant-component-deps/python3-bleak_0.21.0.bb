@@ -7,7 +7,7 @@ SRC_URI:append = " \
     file://0001-fix-poetry-version-compatibility.patch \
 "
 
-SRC_URI[sha256sum] = "6c92a47abe34e6dea8ffc5cea9457cbff6e1be966854839dbc25cddb36b79ee4"
+SRC_URI[sha256sum] = "227a88b78831e6e2322a9be209dce6628177382885e3065fbe9c25445a9bae79"
 
 PYPI_PACKAGE = "bleak"
 
@@ -16,5 +16,5 @@ inherit pypi python_poetry_core
 RDEPENDS:${PN} += " \
     python3-core (>=3.7) \
     python3-async-timeout \
-    python3-dbus-fast \
+    python3-dbus-fast (>=1.83.0) \
 "
