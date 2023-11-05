@@ -1,4 +1,4 @@
-From d0f3f4a45e7fe152b39e2ef84561b77dab8fa934 Mon Sep 17 00:00:00 2001
+From 9fa7c32c6f973b7ea8819901efa702d97e4f02f1 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <tom.geelen@demcon.com>
 Date: Wed, 12 Apr 2023 01:12:53 +0200
 Subject: [PATCH] Update pyproject.toml to allow compilation
@@ -10,12 +10,12 @@ Signed-off-by: Tom Geelen <tom.geelen@demcon.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index 0710b813..6d4b39c8 100644
+index d3e2f065..fb785be3 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@
  [build-system]
--requires = ["setuptools~=68.0", "wheel~=0.40.0"]
+-requires = ["setuptools==68.0.0", "wheel~=0.40.0"]
 +requires = ["setuptools>=67.6", "wheel~=0.40.0"]
  build-backend = "setuptools.build_meta"
  
