@@ -13,7 +13,7 @@ SRC_URI += "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "7dbb8d0cfeb4e06ed820beb5fbb2c02cf743d1b940e27dbf99e1b43e72a73505"
+SRC_URI[sha256sum] = "32edc3c82b45fdb4eb4ef44a3cb54419265f599ac5ed0432fd9bc18b92081f7b"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -207,7 +207,7 @@ RDEPENDS:${PN}-modbus = "\
 
 ALLOW_EMPTY:${PN}-octoprint = "1"
 RDEPENDS:${PN}-octoprint = "\
-    ${PYTHON_PN}-pyoctoprintapi (=0.1.11) \
+    ${PYTHON_PN}-pyoctoprintapi (=0.1.12) \
 "
 
 ALLOW_EMPTY:${PN}-pulseaudio-loopback = "1"
