@@ -13,7 +13,7 @@ SRC_URI += "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "36f879da8568bdc9a272a62e5c9710bde4d38d377f6478eb293321dabb5029d5"
+SRC_URI[sha256sum] = "5dd65856feb464290ad1f2a6b769264e147186ffa17c932d1f0801bb789a5bdc"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -83,7 +83,7 @@ PACKAGES += "\
 
 ALLOW_EMPTY:${PN}-amazon-polly = "1"
 RDEPENDS:${PN}-amazon-polly = "\
-    ${PYTHON_PN}-boto3 (>=1.20.24) \
+    ${PYTHON_PN}-boto3 (>=1.28.17) \
 "
 
 ALLOW_EMPTY:${PN}-assist-pipeline = "1"
@@ -103,12 +103,12 @@ RDEPENDS:${PN}-backup = "\
 
 ALLOW_EMPTY:${PN}-bluetooth = "1"
 RDEPENDS:${PN}-bluetooth = "\
-    ${PYTHON_PN}-bleak (=0.20.2) \
-    ${PYTHON_PN}-bleak-retry-connector (=3.1.1) \
+    ${PYTHON_PN}-bleak (=0.21.0) \
+    ${PYTHON_PN}-bleak-retry-connector (=3.1.2) \
     ${PYTHON_PN}-bluetooth-adapters (=0.16.0) \
     ${PYTHON_PN}-bluetooth-auto-recovery (=1.2.1) \
-    ${PYTHON_PN}-bluetooth-data-tools (=1.6.1) \
-    ${PYTHON_PN}-dbus-fast (=1.87.5) \
+    ${PYTHON_PN}-bluetooth-data-tools (=1.11.0) \
+    ${PYTHON_PN}-dbus-fast (=1.94.1) \
 "
 
 ALLOW_EMPTY:${PN}-cast = "1"
@@ -118,13 +118,13 @@ RDEPENDS:${PN}-cast = "\
 
 ALLOW_EMPTY:${PN}-cloud = "1"
 RDEPENDS:${PN}-cloud = "\
-    ${PYTHON_PN}-hass-nabucasa (=0.69.0) \
+    ${PYTHON_PN}-hass-nabucasa (=0.70.0) \
 "
 
 ALLOW_EMPTY:${PN}-conversation = "1"
 RDEPENDS:${PN}-conversation = "\
     ${PYTHON_PN}-hassil (=1.2.5) \
-    ${PYTHON_PN}-home-assistant-intents (=2023.7.25) \
+    ${PYTHON_PN}-home-assistant-intents (=2023.8.2) \
 "
 
 ALLOW_EMPTY:${PN}-dhcp = "1"
@@ -146,12 +146,12 @@ RDEPENDS:${PN}-fritz = "\
 
 ALLOW_EMPTY:${PN}-fritzbox = "1"
 RDEPENDS:${PN}-fritzbox = "\
-    ${PYTHON_PN}-pyfritzhome (=0.6.8) \
+    ${PYTHON_PN}-pyfritzhome (=0.6.9) \
 "
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    ${PYTHON_PN}-home-assistant-frontend (=20230802.0) \
+    ${PYTHON_PN}-home-assistant-frontend (=20230906.1) \
 "
 
 ALLOW_EMPTY:${PN}-google-translate = "1"
@@ -181,7 +181,7 @@ RDEPENDS:${PN}-image-upload = "\
 
 ALLOW_EMPTY:${PN}-ipp = "1"
 RDEPENDS:${PN}-ipp = "\
-    ${PYTHON_PN}-pyipp (=0.14.2) \
+    ${PYTHON_PN}-pyipp (=0.14.4) \
 "
 
 ALLOW_EMPTY:${PN}-keyboard-remote = "1"
@@ -192,7 +192,7 @@ RDEPENDS:${PN}-keyboard-remote = "\
 
 ALLOW_EMPTY:${PN}-met = "1"
 RDEPENDS:${PN}-met = "\
-    ${PYTHON_PN}-pymetno (>=0.9.0) \
+    ${PYTHON_PN}-pymetno (=0.11.0) \
 "
 
 ALLOW_EMPTY:${PN}-mobile-app = "1"
@@ -207,7 +207,7 @@ RDEPENDS:${PN}-modbus = "\
 
 ALLOW_EMPTY:${PN}-octoprint = "1"
 RDEPENDS:${PN}-octoprint = "\
-    ${PYTHON_PN}-pyoctoprintapi (=0.1.11) \
+    ${PYTHON_PN}-pyoctoprintapi (=0.1.12) \
 "
 
 ALLOW_EMPTY:${PN}-pulseaudio-loopback = "1"
@@ -222,13 +222,13 @@ RDEPENDS:${PN}-radio-browser = "\
 
 ALLOW_EMPTY:${PN}-recorder = "1"
 RDEPENDS:${PN}-recorder = "\
-    ${PYTHON_PN}-fnv-hash-fast (=0.4.0) \
+    ${PYTHON_PN}-fnv-hash-fast (=0.4.1) \
     ${PYTHON_PN}-sqlalchemy (>=2.0.15) \
 "
 
 ALLOW_EMPTY:${PN}-route53 = "1"
 RDEPENDS:${PN}-route53 = "\
-    ${PYTHON_PN}-boto3 (>=1.20.24) \
+    ${PYTHON_PN}-boto3 (>=1.28.17) \
 "
 
 ALLOW_EMPTY:${PN}-sentry = "1"
@@ -238,12 +238,12 @@ RDEPENDS:${PN}-sentry = "\
 
 ALLOW_EMPTY:${PN}-shelly = "1"
 RDEPENDS:${PN}-shelly = "\
-    ${PYTHON_PN}-aioshelly (=5.4.0) \
+    ${PYTHON_PN}-aioshelly (=6.0.0) \
 "
 
 ALLOW_EMPTY:${PN}-ssdp = "1"
 RDEPENDS:${PN}-ssdp = "\
-    ${PYTHON_PN}-async-upnp-client (=0.34.1) \
+    ${PYTHON_PN}-async-upnp-client (=0.35.0) \
 "
 
 ALLOW_EMPTY:${PN}-stream = "1"
@@ -265,7 +265,7 @@ RDEPENDS:${PN}-tts = "\
 
 ALLOW_EMPTY:${PN}-upnp = "1"
 RDEPENDS:${PN}-upnp = "\
-    ${PYTHON_PN}-async-upnp-client (=0.34.1) \
+    ${PYTHON_PN}-async-upnp-client (=0.35.0) \
     ${PYTHON_PN}-getmac (=0.8.2) \
 "
 
@@ -277,34 +277,34 @@ RDEPENDS:${PN}-usb = "\
 
 ALLOW_EMPTY:${PN}-zeroconf = "1"
 RDEPENDS:${PN}-zeroconf = "\
-    ${PYTHON_PN}-zeroconf (>=0.58.2) \
+    ${PYTHON_PN}-zeroconf (>=0.91.1) \
 "
 
 RDEPENDS:${PN} = "\
     ${PYTHON_PN}-aiohttp (=3.8.5) \
     ${PYTHON_PN}-astral (=2.2) \
-    ${PYTHON_PN}-async-timeout (=4.0.2) \
-    ${PYTHON_PN}-attrs (>=22.2.0) \
+    ${PYTHON_PN}-async-timeout (=4.0.3) \
+    ${PYTHON_PN}-attrs (=23.1.0) \
     ${PYTHON_PN}-atomicwrites-homeassistant (=1.4.1) \
     ${PYTHON_PN}-awesomeversion (=22.9.0) \
     ${PYTHON_PN}-bcrypt (=4.0.1) \   
     ${PYTHON_PN}-certifi (>=2021.5.30) \
     ${PYTHON_PN}-ciso8601 (=2.3.0) \
     ${PYTHON_PN}-httpx (=0.24.1) \
-    ${PYTHON_PN}-home-assistant-bluetooth (=1.10.2) \
-    ${PYTHON_PN}-ifaddr (>=0.2.0) \
+    ${PYTHON_PN}-home-assistant-bluetooth (=1.10.3) \
+    ${PYTHON_PN}-ifaddr (=0.2.0) \
     ${PYTHON_PN}-jinja2 (=3.1.2) \
     ${PYTHON_PN}-lru-dict (=1.2.0) \
-    ${PYTHON_PN}-pyjwt (>=2.8.0) \
-    ${PYTHON_PN}-cryptography (>=41.0.2) \
-    ${PYTHON_PN}-pyopenssl (>=23.2.0) \
+    ${PYTHON_PN}-pyjwt (=2.8.0) \
+    ${PYTHON_PN}-cryptography (=41.0.3) \
+    ${PYTHON_PN}-pyopenssl (=23.2.0) \
     ${PYTHON_PN}-orjson (=3.9.2) \
     ${PYTHON_PN}-pip (>=21.3.1) \
     ${PYTHON_PN}-python-slugify (=4.0.1) \
     ${PYTHON_PN}-pyyaml (= 6.0.1) \
     ${PYTHON_PN}-requests (=2.31.0) \
     ${PYTHON_PN}-typing-extensions (>=4.7.0) \
-    ${PYTHON_PN}-ulid-transform (=0.8.0) \
+    ${PYTHON_PN}-ulid-transform (=0.8.1) \
     ${PYTHON_PN}-voluptuous (=0.13.1) \
     ${PYTHON_PN}-voluptuous-serialize (=2.6.0) \
     ${PYTHON_PN}-yarl (=1.9.2) \

@@ -1,11 +1,11 @@
 DESCRIPTION = "Issues related to the cloud integration in Nabu Casa"
-HOMEPAGE = "https://github.com/NabuCasa/hass-nabucasa/tree/0.63.0"
+HOMEPAGE = "https://github.com/NabuCasa/hass-nabucasa"
 LICENSE = "GPL-3.0-only"
-LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=8;endline=8;md5=2e929b76b78cb8819ec868015bed9d96"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 inherit pypi setuptools3
 
-SRC_URI[sha256sum] = "100fd773613311ecaef69fcbff4db0b0a337819fce6164198c143791b7dbf54d"
+SRC_URI[sha256sum] = "a2d2ffed938e53b772e83bfcdda4505ae8fc597b58e275a092e961a777ba2311"
 
 RDEPENDS:${PN} = "\
     ${PYTHON_PN}-pycognito (=2022.12.0) \

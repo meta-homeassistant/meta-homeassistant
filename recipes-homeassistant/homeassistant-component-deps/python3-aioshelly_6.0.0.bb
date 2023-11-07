@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/home-assistant-libs/aioshelly"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=dab31a1d28183826937f4b152143a33f"
 
-SRC_URI[sha256sum] = "5bb1451a0e7be46a3ad96a40638b51046628c99213e9d8df6e7acd2962b859ac"
+SRC_URI[sha256sum] = "d31b07023fc37e365c3a66fafa8d1929232c893482b791aee12f2e9b4b6b32ec"
 
 inherit pypi python_setuptools_build_meta
 

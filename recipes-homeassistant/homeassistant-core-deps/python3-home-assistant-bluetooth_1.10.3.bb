@@ -7,5 +7,5 @@ PYPI_PACKAGE = "home_assistant_bluetooth"
 
 inherit pypi setuptools3
 
-SRC_URI[sha256sum] = "1553009313a079abea43b6640893234dc11623243adcb3b8e6861cd4457f360f"
+SRC_URI[sha256sum] = "46f4403959911a2eed071bcbf7a076babcf677d140e731dbb01d3f23588fc98d"
 
