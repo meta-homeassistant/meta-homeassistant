@@ -13,7 +13,7 @@ SRC_URI += "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "5dd65856feb464290ad1f2a6b769264e147186ffa17c932d1f0801bb789a5bdc"
+SRC_URI[sha256sum] = "b8e142698a70fd45567642778b1bbc70cc7db1b0f2d969c73f1bcfbd63759a41"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -104,11 +104,11 @@ RDEPENDS:${PN}-backup = "\
 ALLOW_EMPTY:${PN}-bluetooth = "1"
 RDEPENDS:${PN}-bluetooth = "\
     ${PYTHON_PN}-bleak (=0.21.0) \
-    ${PYTHON_PN}-bleak-retry-connector (=3.1.2) \
-    ${PYTHON_PN}-bluetooth-adapters (=0.16.0) \
-    ${PYTHON_PN}-bluetooth-auto-recovery (=1.2.1) \
+    ${PYTHON_PN}-bleak-retry-connector (=3.1.3) \
+    ${PYTHON_PN}-bluetooth-adapters (=0.16.1) \
+    ${PYTHON_PN}-bluetooth-auto-recovery (=1.2.2) \
     ${PYTHON_PN}-bluetooth-data-tools (=1.11.0) \
-    ${PYTHON_PN}-dbus-fast (=1.94.1) \
+    ${PYTHON_PN}-dbus-fast (=1.95.2) \
 "
 
 ALLOW_EMPTY:${PN}-cast = "1"
@@ -151,7 +151,7 @@ RDEPENDS:${PN}-fritzbox = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    ${PYTHON_PN}-home-assistant-frontend (=20230906.1) \
+    ${PYTHON_PN}-home-assistant-frontend (=20230908.0) \
 "
 
 ALLOW_EMPTY:${PN}-google-translate = "1"
@@ -202,7 +202,7 @@ RDEPENDS:${PN}-mobile-app = "\
 
 ALLOW_EMPTY:${PN}-modbus = "1"
 RDEPENDS:${PN}-modbus = "\
-    ${PYTHON_PN}-pymodbus (>=3.3.1) \
+    ${PYTHON_PN}-pymodbus (>=3.5.1) \
 "
 
 ALLOW_EMPTY:${PN}-octoprint = "1"
@@ -299,6 +299,7 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-cryptography (=41.0.3) \
     ${PYTHON_PN}-pyopenssl (=23.2.0) \
     ${PYTHON_PN}-orjson (=3.9.2) \
+    ${PYTHON_PN}-packaging (=23.1) \
     ${PYTHON_PN}-pip (>=21.3.1) \
     ${PYTHON_PN}-python-slugify (=4.0.1) \
     ${PYTHON_PN}-pyyaml (= 6.0.1) \
