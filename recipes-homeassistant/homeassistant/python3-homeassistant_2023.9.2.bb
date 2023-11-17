@@ -13,7 +13,7 @@ SRC_URI += "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "b8e142698a70fd45567642778b1bbc70cc7db1b0f2d969c73f1bcfbd63759a41"
+SRC_URI[sha256sum] = "a555bd3506047f6a66182a77e36942cc48967c0c850a259e44c55b84f77cc314"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -70,6 +70,7 @@ PACKAGES += "\
     ${PN}-radio-browser \
     ${PN}-recorder \
     ${PN}-route53 \
+    ${PN}-scrape \
     ${PN}-sentry \
     ${PN}-shelly \
     ${PN}-ssdp \
@@ -103,10 +104,10 @@ RDEPENDS:${PN}-backup = "\
 
 ALLOW_EMPTY:${PN}-bluetooth = "1"
 RDEPENDS:${PN}-bluetooth = "\
-    ${PYTHON_PN}-bleak (=0.21.0) \
+    ${PYTHON_PN}-bleak (=0.21.1) \
     ${PYTHON_PN}-bleak-retry-connector (=3.1.3) \
     ${PYTHON_PN}-bluetooth-adapters (=0.16.1) \
-    ${PYTHON_PN}-bluetooth-auto-recovery (=1.2.2) \
+    ${PYTHON_PN}-bluetooth-auto-recovery (=1.2.3) \
     ${PYTHON_PN}-bluetooth-data-tools (=1.11.0) \
     ${PYTHON_PN}-dbus-fast (=1.95.2) \
 "
@@ -118,7 +119,7 @@ RDEPENDS:${PN}-cast = "\
 
 ALLOW_EMPTY:${PN}-cloud = "1"
 RDEPENDS:${PN}-cloud = "\
-    ${PYTHON_PN}-hass-nabucasa (=0.70.0) \
+    ${PYTHON_PN}-hass-nabucasa (=0.71.0) \
 "
 
 ALLOW_EMPTY:${PN}-conversation = "1"
@@ -151,7 +152,7 @@ RDEPENDS:${PN}-fritzbox = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    ${PYTHON_PN}-home-assistant-frontend (=20230908.0) \
+    ${PYTHON_PN}-home-assistant-frontend (=20230911.0) \
 "
 
 ALLOW_EMPTY:${PN}-google-translate = "1"
@@ -229,6 +230,12 @@ RDEPENDS:${PN}-recorder = "\
 ALLOW_EMPTY:${PN}-route53 = "1"
 RDEPENDS:${PN}-route53 = "\
     ${PYTHON_PN}-boto3 (>=1.28.17) \
+"
+
+ALLOW_EMPTY:${PN}-scrape = "1"
+RDEPENDS:${PN}-scrape = "\
+    ${PYTHON_PN}-beautifulsoup4 (>=4.12.2) \
+    ${PYTHON_PN}-lxml (>=4.9.3) \
 "
 
 ALLOW_EMPTY:${PN}-sentry = "1"
@@ -346,6 +353,7 @@ RRECOMMENDS:${PN} = "\
     ${PN}-pulseaudio-loopback \
     ${PN}-radio-browser \
     ${PN}-route53 \
+    ${PN}-scrape \
     ${PN}-sentry \
     ${PN}-shelly \
     ${PN}-systemmonitor \
