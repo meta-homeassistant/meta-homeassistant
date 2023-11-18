@@ -9,7 +9,7 @@ DEPENDS += "\
     python3-pytest-runner-native \
 "
 
-SRC_URI[sha256sum] = "245b9b6292217a38613220e4075a47397874a70052acd2da0801c51642648869"
+SRC_URI[sha256sum] = "1aa795293fe6dcb06fd3d1cc035a8a6b37b40c671ba442feffd5ade20ff995f6"
 
 RDEPENDS:${PN} = "\
     ${PYTHON_PN}-async-timeout (>=4.0.1) \
