@@ -13,7 +13,7 @@ SRC_URI += "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "b5c206609fabdbed239dfdf15319c57709cb88e2bd3f463ab30d0ca5dfd8213d"
+SRC_URI[sha256sum] = "5268084094504433338d43bd9495692ac22fac51c1ce85dce4a8a0ebd647b6d5"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -59,6 +59,7 @@ PACKAGES += "\
     ${PN}-hardware \
     ${PN}-hacs \
     ${PN}-http \
+    ${PN}-hue \
     ${PN}-image-upload \
     ${PN}-ipp \
     ${PN}-keyboard-remote \
@@ -105,11 +106,11 @@ RDEPENDS:${PN}-backup = "\
 ALLOW_EMPTY:${PN}-bluetooth = "1"
 RDEPENDS:${PN}-bluetooth = "\
     ${PYTHON_PN}-bleak (=0.21.1) \
-    ${PYTHON_PN}-bleak-retry-connector (=3.1.3) \
+    ${PYTHON_PN}-bleak-retry-connector (=3.2.1) \
     ${PYTHON_PN}-bluetooth-adapters (=0.16.1) \
     ${PYTHON_PN}-bluetooth-auto-recovery (=1.2.3) \
-    ${PYTHON_PN}-bluetooth-data-tools (=1.11.0) \
-    ${PYTHON_PN}-dbus-fast (=1.95.2) \
+    ${PYTHON_PN}-bluetooth-data-tools (=1.12.0) \
+    ${PYTHON_PN}-dbus-fast (=2.11.0) \
 "
 
 ALLOW_EMPTY:${PN}-cast = "1"
@@ -125,12 +126,12 @@ RDEPENDS:${PN}-cloud = "\
 ALLOW_EMPTY:${PN}-conversation = "1"
 RDEPENDS:${PN}-conversation = "\
     ${PYTHON_PN}-hassil (>=1.2.5) \
-    ${PYTHON_PN}-home-assistant-intents (=2023.9.22) \
+    ${PYTHON_PN}-home-assistant-intents (>=2023.10.2) \
 "
 
 ALLOW_EMPTY:${PN}-dhcp = "1"
 RDEPENDS:${PN}-dhcp = "\
-    ${PYTHON_PN}-aiodiscover (=1.4.16) \
+    ${PYTHON_PN}-aiodiscover (=1.5.1) \
     ${PYTHON_PN}-scapy (=2.5.0) \
 "
 
@@ -152,7 +153,7 @@ RDEPENDS:${PN}-fritzbox = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    ${PYTHON_PN}-home-assistant-frontend (=20230911.0) \
+    ${PYTHON_PN}-home-assistant-frontend (=20231002.0) \
 "
 
 ALLOW_EMPTY:${PN}-google-translate = "1"
@@ -175,9 +176,14 @@ RDEPENDS:${PN}-http = "\
     ${PYTHON_PN}-aiohttp-cors (=0.7.0) \
 "
 
+ALLOW_EMPTY:${PN}-hue = "1"
+RDEPENDS:${PN}-hue = "\
+    ${PYTHON_PN}-aiohue (=4.7.0) \
+"
+
 ALLOW_EMPTY:${PN}-image-upload = "1"
 RDEPENDS:${PN}-image-upload = "\
-    ${PYTHON_PN}-pillow (>=9.5.0) \
+    ${PYTHON_PN}-pillow (>=10.0.1) \
 "
 
 ALLOW_EMPTY:${PN}-ipp = "1"
@@ -224,7 +230,7 @@ RDEPENDS:${PN}-radio-browser = "\
 ALLOW_EMPTY:${PN}-recorder = "1"
 RDEPENDS:${PN}-recorder = "\
     ${PYTHON_PN}-fnv-hash-fast (=0.4.1) \
-    ${PYTHON_PN}-sqlalchemy (>=2.0.15) \
+    ${PYTHON_PN}-sqlalchemy (>=2.0.21) \
 "
 
 ALLOW_EMPTY:${PN}-route53 = "1"
@@ -240,7 +246,7 @@ RDEPENDS:${PN}-scrape = "\
 
 ALLOW_EMPTY:${PN}-sentry = "1"
 RDEPENDS:${PN}-sentry = "\
-    ${PYTHON_PN}-sentry-sdk (>=1.28.1) \
+    ${PYTHON_PN}-sentry-sdk (>=1.31.0) \
 "
 
 ALLOW_EMPTY:${PN}-shelly = "1"
@@ -250,14 +256,14 @@ RDEPENDS:${PN}-shelly = "\
 
 ALLOW_EMPTY:${PN}-ssdp = "1"
 RDEPENDS:${PN}-ssdp = "\
-    ${PYTHON_PN}-async-upnp-client (=0.35.0) \
+    ${PYTHON_PN}-async-upnp-client (=0.36.1) \
 "
 
 ALLOW_EMPTY:${PN}-stream = "1"
 RDEPENDS:${PN}-stream = "\
     ${PYTHON_PN}-pyturbojpeg (=1.7.1) \
     ${PYTHON_PN}-ha-av (=10.1.1) \
-    ${PYTHON_PN}-numpy (>=1.23.2) \
+    ${PYTHON_PN}-numpy (>=1.26.0) \
 "
 
 ALLOW_EMPTY:${PN}-systemmonitor = "1"
@@ -267,12 +273,12 @@ RDEPENDS:${PN}-systemmonitor = "\
 
 ALLOW_EMPTY:${PN}-tts = "1"
 RDEPENDS:${PN}-tts = "\
-    ${PYTHON_PN}-mutagen (=1.46.0) \
+    ${PYTHON_PN}-mutagen (=1.47.0) \
 "
 
 ALLOW_EMPTY:${PN}-upnp = "1"
 RDEPENDS:${PN}-upnp = "\
-    ${PYTHON_PN}-async-upnp-client (=0.35.0) \
+    ${PYTHON_PN}-async-upnp-client (=0.36.1) \
     ${PYTHON_PN}-getmac (=0.8.2) \
 "
 
@@ -290,10 +296,9 @@ RDEPENDS:${PN}-zeroconf = "\
 RDEPENDS:${PN} = "\
     ${PYTHON_PN}-aiohttp (=3.8.5) \
     ${PYTHON_PN}-astral (=2.2) \
-    ${PYTHON_PN}-async-timeout (=4.0.3) \
     ${PYTHON_PN}-attrs (=23.1.0) \
     ${PYTHON_PN}-atomicwrites-homeassistant (=1.4.1) \
-    ${PYTHON_PN}-awesomeversion (=22.9.0) \
+    ${PYTHON_PN}-awesomeversion (=23.8.0) \
     ${PYTHON_PN}-bcrypt (=4.0.1) \   
     ${PYTHON_PN}-certifi (>=2021.5.30) \
     ${PYTHON_PN}-ciso8601 (=2.3.0) \
@@ -303,15 +308,15 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-jinja2 (=3.1.2) \
     ${PYTHON_PN}-lru-dict (=1.2.0) \
     ${PYTHON_PN}-pyjwt (=2.8.0) \
-    ${PYTHON_PN}-cryptography (=41.0.3) \
+    ${PYTHON_PN}-cryptography (=41.0.4) \
     ${PYTHON_PN}-pyopenssl (=23.2.0) \
-    ${PYTHON_PN}-orjson (=3.9.2) \
+    ${PYTHON_PN}-orjson (=3.9.7) \
     ${PYTHON_PN}-packaging (=23.1) \
     ${PYTHON_PN}-pip (>=21.3.1) \
     ${PYTHON_PN}-python-slugify (=4.0.1) \
     ${PYTHON_PN}-pyyaml (= 6.0.1) \
     ${PYTHON_PN}-requests (=2.31.0) \
-    ${PYTHON_PN}-typing-extensions (>=4.7.0) \
+    ${PYTHON_PN}-typing-extensions (>=4.8.0) \
     ${PYTHON_PN}-ulid-transform (=0.8.1) \
     ${PYTHON_PN}-voluptuous (=0.13.1) \
     ${PYTHON_PN}-voluptuous-serialize (=2.6.0) \
@@ -345,6 +350,7 @@ RRECOMMENDS:${PN} = "\
     ${PN}-cast \
     ${PN}-fritz \
     ${PN}-fritzbox \
+    ${PN}-hue \
     ${PN}-ipp \
     ${PN}-keyboard-remote \
     ${PN}-met \
