@@ -13,7 +13,7 @@ SRC_URI += "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "a555bd3506047f6a66182a77e36942cc48967c0c850a259e44c55b84f77cc314"
+SRC_URI[sha256sum] = "b5c206609fabdbed239dfdf15319c57709cb88e2bd3f463ab30d0ca5dfd8213d"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -124,8 +124,8 @@ RDEPENDS:${PN}-cloud = "\
 
 ALLOW_EMPTY:${PN}-conversation = "1"
 RDEPENDS:${PN}-conversation = "\
-    ${PYTHON_PN}-hassil (=1.2.5) \
-    ${PYTHON_PN}-home-assistant-intents (=2023.8.2) \
+    ${PYTHON_PN}-hassil (>=1.2.5) \
+    ${PYTHON_PN}-home-assistant-intents (=2023.9.22) \
 "
 
 ALLOW_EMPTY:${PN}-dhcp = "1"
