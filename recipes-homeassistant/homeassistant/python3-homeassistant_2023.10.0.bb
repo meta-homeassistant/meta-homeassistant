@@ -90,7 +90,7 @@ RDEPENDS:${PN}-amazon-polly = "\
 
 ALLOW_EMPTY:${PN}-assist-pipeline = "1"
 RDEPENDS:${PN}-assist-pipeline = "\
-    ${PYTHON_PN}-webrtcvad (=2.0.10) \
+    ${PYTHON_PN}-webrtc-noise-gain (=1.2.3) \
 "
 
 ALLOW_EMPTY:${PN}-axis = "1"

@@ -1,0 +1,23 @@
+From 2879adc2fc5366eaf39adc99434e9d61233b38b2 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Sun, 26 Nov 2023 22:17:18 +0000
+Subject: [PATCH] Fix machine when crosscompiling
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+---
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index 031cf5d..71d03b8 100644
+--- a/setup.py
++++ b/setup.py
+@@ -350,7 +350,7 @@ absl_sources = []
+ 
+ libraries = []
+ system = platform.system().lower()
+-machine = platform.machine().lower()
++machine = "armv8"
+ system_cflags = []
+ 
+ # Architecture detection was removed from rtc_base/system/arch.h
