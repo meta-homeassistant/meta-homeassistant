@@ -13,7 +13,7 @@ SRC_URI += "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "5268084094504433338d43bd9495692ac22fac51c1ce85dce4a8a0ebd647b6d5"
+SRC_URI[sha256sum] = "dd5915e438ab3b32cef506e8e2ce687f90227bb26f48037b8601c14c0f24a001"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -110,7 +110,7 @@ RDEPENDS:${PN}-bluetooth = "\
     ${PYTHON_PN}-bluetooth-adapters (=0.16.1) \
     ${PYTHON_PN}-bluetooth-auto-recovery (=1.2.3) \
     ${PYTHON_PN}-bluetooth-data-tools (=1.12.0) \
-    ${PYTHON_PN}-dbus-fast (=2.11.0) \
+    ${PYTHON_PN}-dbus-fast (=2.11.1) \
 "
 
 ALLOW_EMPTY:${PN}-cast = "1"
@@ -153,7 +153,7 @@ RDEPENDS:${PN}-fritzbox = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    ${PYTHON_PN}-home-assistant-frontend (=20231002.0) \
+    ${PYTHON_PN}-home-assistant-frontend (=20231005.0) \
 "
 
 ALLOW_EMPTY:${PN}-google-translate = "1"
