@@ -13,7 +13,7 @@ SRC_URI += "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "dd5915e438ab3b32cef506e8e2ce687f90227bb26f48037b8601c14c0f24a001"
+SRC_URI[sha256sum] = "36ddc0dcb05c400bb9f5a4b6d9bd668f0ba95e935279a4475702faa04cc95cb5"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -294,7 +294,7 @@ RDEPENDS:${PN}-zeroconf = "\
 "
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-aiohttp (=3.8.5) \
+    ${PYTHON_PN}-aiohttp (=3.8.6) \
     ${PYTHON_PN}-astral (=2.2) \
     ${PYTHON_PN}-attrs (=23.1.0) \
     ${PYTHON_PN}-atomicwrites-homeassistant (=1.4.1) \
@@ -311,10 +311,10 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-cryptography (=41.0.4) \
     ${PYTHON_PN}-pyopenssl (=23.2.0) \
     ${PYTHON_PN}-orjson (=3.9.7) \
-    ${PYTHON_PN}-packaging (=23.1) \
+    ${PYTHON_PN}-packaging (>=23.1) \
     ${PYTHON_PN}-pip (>=21.3.1) \
     ${PYTHON_PN}-python-slugify (=4.0.1) \
-    ${PYTHON_PN}-pyyaml (= 6.0.1) \
+    ${PYTHON_PN}-pyyaml (=6.0.1) \
     ${PYTHON_PN}-requests (=2.31.0) \
     ${PYTHON_PN}-typing-extensions (>=4.8.0) \
     ${PYTHON_PN}-ulid-transform (=0.8.1) \
@@ -324,6 +324,7 @@ RDEPENDS:${PN} = "\
     \
     ${PYTHON_PN}-statistics \
     ${PYTHON_PN}-sqlite3 \
+    ${PYTHON_PN}-core (>=3.11.0) \
     \
     ${PN}-assist-pipeline \
     ${PN}-bluetooth \
