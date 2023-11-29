@@ -13,7 +13,7 @@ SRC_URI += "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "36ddc0dcb05c400bb9f5a4b6d9bd668f0ba95e935279a4475702faa04cc95cb5"
+SRC_URI[sha256sum] = "ec483a224f1e88f3d44d7c9179d40b8b16829c70e0f439a292685cab9e7ee39f"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -294,7 +294,7 @@ RDEPENDS:${PN}-zeroconf = "\
 "
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-aiohttp (=3.8.6) \
+    ${PYTHON_PN}-aiohttp (=3.8.5) \
     ${PYTHON_PN}-astral (=2.2) \
     ${PYTHON_PN}-attrs (=23.1.0) \
     ${PYTHON_PN}-atomicwrites-homeassistant (=1.4.1) \
