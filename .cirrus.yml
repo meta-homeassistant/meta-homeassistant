@@ -1,0 +1,4 @@
+container:
+  image: ghcr.io/siemens/kas/kas:latest
+build_task:
+  build_script: kas build kas/homeassistant-master.yml:kas/ci.yml
