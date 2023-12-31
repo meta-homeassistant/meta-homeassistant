@@ -3,10 +3,13 @@ HOMEPAGE = "https://github.com/encode/httpcore"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=1c1f23b073da202e1f4f9e426490210c"
 
-SRC_URI[md5sum] = "881211271c5fea2aba9e97dc0e7747e8"
-SRC_URI[sha256sum] = "cc045a3241afbf60ce056202301b4d8b6af08845e3294055eb26b09913ef903c"
+DEPENDS += "\
+    python3-hatch-fancy-pypi-readme-native \
+"
 
-inherit pypi setuptools3
+SRC_URI[sha256sum] = "13b5e5cd1dca1a6636a6aaea212b19f4f85cd88c366a2b82304181b769aab3c9"
+
+inherit pypi python_hatchling
 
 RDEPENDS:${PN} = "\
     ${PYTHON_PN}-anyio (>=3.0) \
