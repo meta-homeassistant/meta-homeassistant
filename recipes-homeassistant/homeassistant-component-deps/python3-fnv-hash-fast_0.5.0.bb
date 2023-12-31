@@ -3,11 +3,15 @@ HOMEPAGE = "https://github.com/bdraco/fnv-hash-fast"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fb4df16459d09819e161c1b17625a532"
 
-inherit pypi setuptools3
+inherit pypi python_poetry_core
 
 PYPI_PACKAGE = "fnv_hash_fast"
 
-SRC_URI[sha256sum] = "fb513e4b43d5b48cf358422688e950dec22b681cffb6c7a80c062199667f0fa6"
+DEPENDS += "\
+    ${PYTHON_PN}-cython-native \
+"
+
+SRC_URI[sha256sum] = "a84d658952776a186418f4158fc8e55ff3c576ac32cc9ef7f8077efdf2d0b89f"
 
 RDEPENDS:${PN} = "\
     ${PYTHON_PN}-fnvhash (>=0.1.0) \
