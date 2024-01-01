@@ -13,7 +13,7 @@ SRC_URI += "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "5268084094504433338d43bd9495692ac22fac51c1ce85dce4a8a0ebd647b6d5"
+SRC_URI[sha256sum] = "a8bb34f7c93f314be63a5ebfb41e120d4e7957b293674f93dd15282c7e004364"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -80,6 +80,7 @@ PACKAGES += "\
     ${PN}-tts \
     ${PN}-upnp \
     ${PN}-usb \
+    ${PN}-vlc \
     ${PN}-zeroconf \
 "
 
@@ -106,11 +107,11 @@ RDEPENDS:${PN}-backup = "\
 ALLOW_EMPTY:${PN}-bluetooth = "1"
 RDEPENDS:${PN}-bluetooth = "\
     ${PYTHON_PN}-bleak (=0.21.1) \
-    ${PYTHON_PN}-bleak-retry-connector (=3.2.1) \
+    ${PYTHON_PN}-bleak-retry-connector (=3.3.0) \
     ${PYTHON_PN}-bluetooth-adapters (=0.16.1) \
     ${PYTHON_PN}-bluetooth-auto-recovery (=1.2.3) \
-    ${PYTHON_PN}-bluetooth-data-tools (=1.12.0) \
-    ${PYTHON_PN}-dbus-fast (=2.11.0) \
+    ${PYTHON_PN}-bluetooth-data-tools (=1.13.0) \
+    ${PYTHON_PN}-dbus-fast (=2.12.0) \
 "
 
 ALLOW_EMPTY:${PN}-cast = "1"
@@ -120,7 +121,7 @@ RDEPENDS:${PN}-cast = "\
 
 ALLOW_EMPTY:${PN}-cloud = "1"
 RDEPENDS:${PN}-cloud = "\
-    ${PYTHON_PN}-hass-nabucasa (=0.71.0) \
+    ${PYTHON_PN}-hass-nabucasa (=0.74.0) \
 "
 
 ALLOW_EMPTY:${PN}-conversation = "1"
@@ -153,7 +154,7 @@ RDEPENDS:${PN}-fritzbox = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    ${PYTHON_PN}-home-assistant-frontend (=20231002.0) \
+    ${PYTHON_PN}-home-assistant-frontend (=20231030.1) \
 "
 
 ALLOW_EMPTY:${PN}-google-translate = "1"
@@ -183,7 +184,7 @@ RDEPENDS:${PN}-hue = "\
 
 ALLOW_EMPTY:${PN}-image-upload = "1"
 RDEPENDS:${PN}-image-upload = "\
-    ${PYTHON_PN}-pillow (>=10.0.1) \
+    ${PYTHON_PN}-pillow (>=10.1.0) \
 "
 
 ALLOW_EMPTY:${PN}-ipp = "1"
@@ -209,7 +210,7 @@ RDEPENDS:${PN}-mobile-app = "\
 
 ALLOW_EMPTY:${PN}-modbus = "1"
 RDEPENDS:${PN}-modbus = "\
-    ${PYTHON_PN}-pymodbus (>=3.5.1) \
+    ${PYTHON_PN}-pymodbus (>=3.5.4) \
 "
 
 ALLOW_EMPTY:${PN}-octoprint = "1"
@@ -229,8 +230,8 @@ RDEPENDS:${PN}-radio-browser = "\
 
 ALLOW_EMPTY:${PN}-recorder = "1"
 RDEPENDS:${PN}-recorder = "\
-    ${PYTHON_PN}-fnv-hash-fast (=0.4.1) \
-    ${PYTHON_PN}-sqlalchemy (>=2.0.21) \
+    ${PYTHON_PN}-fnv-hash-fast (=0.5.0) \
+    ${PYTHON_PN}-sqlalchemy (>=2.0.22) \
 "
 
 ALLOW_EMPTY:${PN}-route53 = "1"
@@ -256,7 +257,7 @@ RDEPENDS:${PN}-shelly = "\
 
 ALLOW_EMPTY:${PN}-ssdp = "1"
 RDEPENDS:${PN}-ssdp = "\
-    ${PYTHON_PN}-async-upnp-client (=0.36.1) \
+    ${PYTHON_PN}-async-upnp-client (=0.36.2) \
 "
 
 ALLOW_EMPTY:${PN}-stream = "1"
@@ -268,7 +269,7 @@ RDEPENDS:${PN}-stream = "\
 
 ALLOW_EMPTY:${PN}-systemmonitor = "1"
 RDEPENDS:${PN}-systemmonitor = "\
-    ${PYTHON_PN}-psutil (>=5.9.5) \
+    ${PYTHON_PN}-psutil (>=5.9.6) \
 "
 
 ALLOW_EMPTY:${PN}-tts = "1"
@@ -278,7 +279,7 @@ RDEPENDS:${PN}-tts = "\
 
 ALLOW_EMPTY:${PN}-upnp = "1"
 RDEPENDS:${PN}-upnp = "\
-    ${PYTHON_PN}-async-upnp-client (=0.36.1) \
+    ${PYTHON_PN}-async-upnp-client (=0.36.2) \
     ${PYTHON_PN}-getmac (=0.8.2) \
 "
 
@@ -286,6 +287,11 @@ ALLOW_EMPTY:${PN}-usb = "1"
 RDEPENDS:${PN}-usb = "\
     ${PYTHON_PN}-pyserial (=3.5) \
     ${PYTHON_PN}-pyudev (>=0.23.2) \
+"
+
+ALLOW_EMPTY:${PN}-vlc = "1"
+RDEPENDS:${PN}-vlc = "\
+    ${PYTHON_PN}-python-vlc (=3.0.18122) \
 "
 
 ALLOW_EMPTY:${PN}-zeroconf = "1"
@@ -302,28 +308,29 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-bcrypt (=4.0.1) \   
     ${PYTHON_PN}-certifi (>=2021.5.30) \
     ${PYTHON_PN}-ciso8601 (=2.3.0) \
-    ${PYTHON_PN}-httpx (=0.24.1) \
-    ${PYTHON_PN}-home-assistant-bluetooth (=1.10.3) \
+    ${PYTHON_PN}-httpx (=0.25.0) \
+    ${PYTHON_PN}-home-assistant-bluetooth (=1.10.4) \
     ${PYTHON_PN}-ifaddr (=0.2.0) \
     ${PYTHON_PN}-jinja2 (=3.1.2) \
     ${PYTHON_PN}-lru-dict (=1.2.0) \
     ${PYTHON_PN}-pyjwt (=2.8.0) \
     ${PYTHON_PN}-cryptography (=41.0.4) \
     ${PYTHON_PN}-pyopenssl (=23.2.0) \
-    ${PYTHON_PN}-orjson (=3.9.7) \
-    ${PYTHON_PN}-packaging (=23.1) \
+    ${PYTHON_PN}-orjson (=3.9.9) \
+    ${PYTHON_PN}-packaging (>=23.1) \
     ${PYTHON_PN}-pip (>=21.3.1) \
     ${PYTHON_PN}-python-slugify (=4.0.1) \
-    ${PYTHON_PN}-pyyaml (= 6.0.1) \
+    ${PYTHON_PN}-pyyaml (=6.0.1) \
     ${PYTHON_PN}-requests (=2.31.0) \
     ${PYTHON_PN}-typing-extensions (>=4.8.0) \
-    ${PYTHON_PN}-ulid-transform (=0.8.1) \
+    ${PYTHON_PN}-ulid-transform (=0.9.0) \
     ${PYTHON_PN}-voluptuous (=0.13.1) \
     ${PYTHON_PN}-voluptuous-serialize (=2.6.0) \
     ${PYTHON_PN}-yarl (=1.9.2) \
     \
     ${PYTHON_PN}-statistics \
     ${PYTHON_PN}-sqlite3 \
+    ${PYTHON_PN}-core (>=3.11.0) \
     \
     ${PN}-assist-pipeline \
     ${PN}-bluetooth \
@@ -367,4 +374,5 @@ RRECOMMENDS:${PN} = "\
     ${PN}-upnp \
     ${PN}-ssdp \
     ${PN}-hacs \
+    ${PN}-vlc \
 "

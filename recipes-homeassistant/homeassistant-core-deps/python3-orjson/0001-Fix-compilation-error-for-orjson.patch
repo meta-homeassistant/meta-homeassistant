@@ -1,4 +1,4 @@
-From 809398d00354f8a371338cf2a55e99b2b67498f1 Mon Sep 17 00:00:00 2001
+From ee05eb00f09f064d66ffe2041b9f800c4a631856 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <tom.geelen@demcon.com>
 Date: Tue, 4 Apr 2023 00:37:57 +0200
 Subject: [PATCH] Fix compilation error for orjson
@@ -10,7 +10,7 @@ Signed-off-by: Tom Geelen <tom.geelen@demcon.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Cargo.toml b/Cargo.toml
-index 8ca77f7..0a560fa 100644
+index 8dfc628..3eda1fa 100644
 --- a/Cargo.toml
 +++ b/Cargo.toml
 @@ -86,7 +86,7 @@ debug = false

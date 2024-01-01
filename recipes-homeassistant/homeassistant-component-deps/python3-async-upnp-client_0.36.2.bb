@@ -9,7 +9,7 @@ PYPI_ARCHIVE_NAME = "async_upnp_client-${PV}.${PYPI_PACKAGE_EXT}"
 
 S = "${WORKDIR}/async_upnp_client-${PV}"
 
-SRC_URI[sha256sum] = "9033f9620a1d19121d85f0e90e8df6abb642fa01a56f26bc86bdcd24583c1a7d"
+SRC_URI[sha256sum] = "0ba5d0b2560ed81b9cbb2960ecef20a9b560d65d75b36f9ccfe4ac0090c10323"
 
 RDEPENDS:${PN} = "\
 	${PYTHON_PN}-core (>=3.8) \
