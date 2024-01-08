@@ -111,12 +111,12 @@ RDEPENDS:${PN}-bluetooth = "\
     ${PYTHON_PN}-bluetooth-adapters (=0.16.1) \
     ${PYTHON_PN}-bluetooth-auto-recovery (=1.2.3) \
     ${PYTHON_PN}-bluetooth-data-tools (=1.13.0) \
-    ${PYTHON_PN}-dbus-fast (=2.12.0) \
+    ${PYTHON_PN}-dbus-fast (>=2.12.0) \
 "
 
 ALLOW_EMPTY:${PN}-cast = "1"
 RDEPENDS:${PN}-cast = "\
-    ${PYTHON_PN}-pychromecast (=13.0.7) \
+    ${PYTHON_PN}-pychromecast (>=13.0.7) \
 "
 
 ALLOW_EMPTY:${PN}-cloud = "1"
@@ -200,7 +200,7 @@ RDEPENDS:${PN}-keyboard-remote = "\
 
 ALLOW_EMPTY:${PN}-met = "1"
 RDEPENDS:${PN}-met = "\
-    ${PYTHON_PN}-pymetno (=0.11.0) \
+    ${PYTHON_PN}-pymetno (>=0.11.0) \
 "
 
 ALLOW_EMPTY:${PN}-mobile-app = "1"
@@ -291,7 +291,7 @@ RDEPENDS:${PN}-usb = "\
 
 ALLOW_EMPTY:${PN}-vlc = "1"
 RDEPENDS:${PN}-vlc = "\
-    ${PYTHON_PN}-python-vlc (=3.0.18122) \
+    ${PYTHON_PN}-python-vlc (>=3.0.18122) \
 "
 
 ALLOW_EMPTY:${PN}-zeroconf = "1"
@@ -300,11 +300,11 @@ RDEPENDS:${PN}-zeroconf = "\
 "
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-aiohttp (=3.8.5) \
+    ${PYTHON_PN}-aiohttp (>=3.8.5) \
     ${PYTHON_PN}-astral (=2.2) \
     ${PYTHON_PN}-attrs (=23.1.0) \
     ${PYTHON_PN}-atomicwrites-homeassistant (=1.4.1) \
-    ${PYTHON_PN}-awesomeversion (=23.8.0) \
+    ${PYTHON_PN}-awesomeversion (>=23.8.0) \
     ${PYTHON_PN}-bcrypt (>=4.0.1) \   
     ${PYTHON_PN}-certifi (>=2021.5.30) \
     ${PYTHON_PN}-ciso8601 (=2.3.0) \
@@ -312,10 +312,10 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-home-assistant-bluetooth (=1.10.4) \
     ${PYTHON_PN}-ifaddr (=0.2.0) \
     ${PYTHON_PN}-jinja2 (=3.1.2) \
-    ${PYTHON_PN}-lru-dict (=1.2.0) \
+    ${PYTHON_PN}-lru-dict (>=1.2.0) \
     ${PYTHON_PN}-pyjwt (=2.8.0) \
-    ${PYTHON_PN}-cryptography (=41.0.4) \
-    ${PYTHON_PN}-pyopenssl (=23.2.0) \
+    ${PYTHON_PN}-cryptography (>=41.0.4) \
+    ${PYTHON_PN}-pyopenssl (>=23.2.0) \
     ${PYTHON_PN}-orjson (=3.9.9) \
     ${PYTHON_PN}-packaging (>=23.1) \
     ${PYTHON_PN}-pip (>=21.3.1) \
@@ -326,7 +326,7 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-ulid-transform (=0.9.0) \
     ${PYTHON_PN}-voluptuous (=0.13.1) \
     ${PYTHON_PN}-voluptuous-serialize (=2.6.0) \
-    ${PYTHON_PN}-yarl (=1.9.2) \
+    ${PYTHON_PN}-yarl (>=1.9.2) \
     \
     ${PYTHON_PN}-statistics \
     ${PYTHON_PN}-sqlite3 \
