@@ -9,7 +9,7 @@ inherit pypi setuptools3
 
 RDEPENDS:${PN} = "\
     ${PYTHON_PN}-async-timeout (>=4.0.2) \
-    ${PYTHON_PN}-attrs (=23.1.0) \
+    ${PYTHON_PN}-attrs (>=23.1.0) \
     ${PYTHON_PN}-httpx (>=0.24.0) \
     ${PYTHON_PN}-orjson (>=3.8.10) \
     ${PYTHON_PN}-packaging (>=23.1) \
