@@ -1,15 +1,13 @@
 DESCRIPTION = "Rule-based number formatting using Unicode CLDR data"
 HOMEPAGE = "https://github.com/rhasspy/unicode-rbnf"
 LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://LICENSE.md;md5=2aa2bed6f8750823223a2c11d7bc90c5"
 
-inherit python3-whl
+inherit pypi python_setuptools_build_meta
 
-# We need to reimplement these since there is a - versus _ problem in the package name
-WHL_BPN="unicode_rbnf"
-WHL_BP="unicode_rbnf-1.0.0"
-WHL_PN="unicode_rbnf"
+PYPI_PACKAGE = "unicode_rbnf"
+PYPI_SRC_URI = "git://github.com/rhasspy/unicode-rbnf;protocol=https;branch=master"
 
-LIC_FILES_CHKSUM = "file://${WHL_BP}.dist-info/LICENSE.md;md5=2aa2bed6f8750823223a2c11d7bc90c5"
+SRCREV = "027a1db59920a17b774742a229113cf50b9a03cd"
 
-SRC_URI = "https://files.pythonhosted.org/packages/36/8c/b7cabfc1083f683770d38aa206b3c06eae807f6e1101c7fbfb68e90c8da9/${WHL_BP}-py3-none-any.whl;downloadfilename=${BP}.zip;subdir=${BP}"
-SRC_URI[sha256sum] = "81e4fb66f50c8aa590b555505834405dc61d6230052f6d44a59e820392dd3758"
+S = "${WORKDIR}/git"
