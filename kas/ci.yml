@@ -13,6 +13,19 @@ local_conf_header:
     VIRTUAL-RUNTIME_init_manager = "systemd"
     DISTRO_FEATURES_BACKFILL_CONSIDERED = "sysvinit"
 
+  Yocto Sstate cache: |
+    BB_SIGNATURE_HANDLER = "OEEquivHash"
+    BB_HASHSERVE = "auto"
+    BB_HASHSERVE_UPSTREAM = "hashserv.yocto.io:8687"
+    SSTATE_MIRRORS ?= "file://.* https://sstate.yoctoproject.org/all/PATH;downloadfilename=PATH"
+
+  Yocto Source mirror: |
+    MIRRORS:append = "\
+      git://.*/.* https://downloads.yoctoproject.org/mirror/sources/ \
+      ftp://.*/.* https://downloads.yoctoproject.org/mirror/sources/ \
+      http://.*/.* https://downloads.yoctoproject.org/mirror/sources/ \
+      https://.*/.* https://downloads.yoctoproject.org/mirror/sources/"
+
   diskmon: |
     BB_DISKMON_DIRS = "\
         STOPTASKS,${TMPDIR},1G,100K \
