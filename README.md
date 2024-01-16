@@ -35,11 +35,11 @@ You should now be able to access Home Assistant via web browser usually under th
 
 ```
 URI: https://git.yoctoproject.org/git/poky
-branch: mickledore
+branch: master
 revision: HEAD
 
 URI: https://github.com/openembedded/meta-openembedded.git
-branch: mickledore
+branch: master
 revision: HEAD
 ```
 
