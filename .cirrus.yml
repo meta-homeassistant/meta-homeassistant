@@ -1,4 +1,5 @@
 container:
   image: ghcr.io/siemens/kas/kas:latest
 build_task:
+  timeout_in: 120m
   build_script: kas build kas/homeassistant-master.yml:kas/ci.yml
