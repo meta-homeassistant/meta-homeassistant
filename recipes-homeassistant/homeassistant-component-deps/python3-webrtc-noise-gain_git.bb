@@ -9,7 +9,11 @@ DEPENDS += "\
 
 inherit pypi python_setuptools_build_meta
 
-SRC_URI:aarch64 += "file://0001-Fix-machine-when-crosscompiling.patch"
-SRC_URI[sha256sum] = "4282f79066774ebc30242d7174f0c53cdcfa984b68c88f586cd52cb2356c5e75"
+PYPI_SRC_URI = "git://github.com/rhasspy/webrtc-noise-gain.git;protocol=https;branch=master"
 
-PYPI_PACKAGE = "webrtc_noise_gain"
+SRC_URI:aarch64 += "file://0001-Fix-machine-when-crosscompiling.patch"
+SRCREV = "32a122569ca3ac55177570c30626d27f6dd1fc1a"
+
+PV = "1.2.3+git0.32a122569ca3"
+
+S = "${WORKDIR}/git"
