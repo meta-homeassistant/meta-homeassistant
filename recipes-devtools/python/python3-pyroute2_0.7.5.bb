@@ -10,7 +10,6 @@ inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} += " \
     ${PYTHON_PN}-ctypes \
-    ${PYTHON_PN}-distutils \
     ${PYTHON_PN}-io \
     ${PYTHON_PN}-json \
     ${PYTHON_PN}-logging \
