@@ -318,6 +318,7 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-pyopenssl (=23.2.0) \
     ${PYTHON_PN}-orjson (=3.9.9) \
     ${PYTHON_PN}-packaging (>=23.1) \
+    ${PYTHON_PN}-paho-mqtt (>=1.6.1) \
     ${PYTHON_PN}-pip (>=21.3.1) \
     ${PYTHON_PN}-python-slugify (=4.0.1) \
     ${PYTHON_PN}-pyyaml (=6.0.1) \
