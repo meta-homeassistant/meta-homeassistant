@@ -1,0 +1,12 @@
+header:
+  version: 14
+
+  includes:
+    - homeassistant-master.yml
+
+repos:
+  poky:
+    branch: mickledore
+
+  meta-openembedded:
+    branch: mickledore

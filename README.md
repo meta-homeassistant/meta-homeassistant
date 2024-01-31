@@ -31,6 +31,22 @@ runqemu qemux86 nographic
 
 You should now be able to access Home Assistant via web browser usually under the address: http://192.168.7.2:8123
 
+# Using [kas](https://github.com/siemens/kas)
+
+The project provides files to quickly get started using [kas](https://github.com/siemens/kas).
+
+The two main entry points are `kas/homeassistant-master.yml` and `kas/homeassistant-mickledore.yml`.
+
+To build against latest Yocto master use:
+```
+kas build kas/homeassistant-master.yml
+```
+
+To build against latest Yocto mickledore use:
+```
+kas build kas/homeassistant-michledore.yml
+```
+
 # Dependencies
 
 ```

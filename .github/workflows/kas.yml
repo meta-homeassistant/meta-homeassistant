@@ -5,10 +5,11 @@ on: [push]
 jobs:
   build:
 
+    timeout-minutes: 360
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        yocto-version: [mickledore]
+        yocto-version: [main]
         machine: [qemu]
     steps:
     - name: Install dependencies
@@ -20,5 +21,30 @@ jobs:
     - name: Install Kas
       run: |
         sudo pip3 install kas
+
+    - name: Restore sstate cache
+      id: cache-sstate-restore
+      uses: actions/cache/restore@v4
+      with:
+        path: |
+          sstate
+        key: ${{ matrix.machine }}-${{ matrix.yocto-version }}-sstate
+    - name: Move sstate
+      run: |
+        mkdir -p sstate
+        mv sstate sstate-cache
+
     - name: Run kas on ${{ matrix.machine }} on ${{ matrix.yocto-version }}
-      run: kas build kas-${{ matrix.machine }}.yml:kas-${{ matrix.yocto-version }}.yml
+      run: |
+        export SSTATE_DIR="${PWD}/sstate"
+        export SSTATE_MIRRORS="file://.* file://${PWD}/sstate-cache/PATH;downloadfilename=PATH"
+        kas build kas/homeassistant-${{ matrix.yocto-version }}.yml:kas/machine-${{ matrix.machine }}.yml:kas/ci.yml
+
+    - name: Save sstate cache
+      id: cache-sstate-save
+      uses: actions/cache/save@v4
+      if: always()
+      with:
+        path: |
+          sstate
+        key: ${{ steps.cache-sstate-restore.outputs.cache-primary-key }}

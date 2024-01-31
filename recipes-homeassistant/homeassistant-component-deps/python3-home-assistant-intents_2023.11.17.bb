@@ -13,6 +13,6 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-pyyaml (>=6.0.1) \
     ${PYTHON_PN}-voluptuous (=0.13.1) \
     ${PYTHON_PN}-regex (>=2023.10.3) \
-    ${PYTHON_PN}-jinja2 (=3.1.2) \
+    ${PYTHON_PN}-jinja2 (>=3.1.2) \
     ${PYTHON_PN}-core (>=3.9.0) \
 "
