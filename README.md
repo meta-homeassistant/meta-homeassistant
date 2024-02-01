@@ -93,3 +93,4 @@ Please submit any patches against the homeassistant as Pull Requests on Github.
 
 * Pascal Bach <pascal.bach@nextrem.ch>
 * Tom Geelen <t.f.g.geelen@gmail.com>
+* Tim "moto-timo" Orling <ticotimo@gmail.com>
