@@ -1,82 +1,100 @@
-from git import Repo
-import os as os
-import json as json
+"""Module providing a way of creating a CSV with all the dependencies of HomeAssistant"""
+import os
+import json
 import csv
 import shutil
 import argparse
+from git import Repo
 from packaging import version
 
 
-def parseArguments():
-    # Create argument parser
+def parse_arguments():
+    """Parse the user input"""
     parser = argparse.ArgumentParser()
 
     parser.add_argument("-v", "--version", help="HA Version", type=str, default="")
-    parser.add_argument("-u", "--upgrade", help="Only print packages which need upgrading", type=str, default='n', choices=['y','n'])
-    # Parse arguments
+    parser.add_argument(
+        "-u",
+        "--upgrade",
+        help="Only print packages which need upgrading",
+        type=str,
+        default="n",
+        choices=["y", "n"],
+    )
     args = parser.parse_args()
 
     return args
 
 
-def getRepo(haPath, version):
-    # Clone the HomeAssistant repository, or if it is already there initialize it
+def get_repo(ha_path, ha_version):
+    """Clone or initialize the Home Assistant repository."""
     try:
-        repo = Repo.clone_from("https://github.com/home-assistant/core.git", haPath)
+        repo = Repo.clone_from("https://github.com/home-assistant/core.git", ha_path)
     except:
-        repo = Repo(haPath)
+        repo = Repo(ha_path)
     # Get the tags and sort them
     tags = sorted(repo.tags, key=lambda t: t.commit.committed_datetime)
-    if version == "":
+    if ha_version == "":
         latest_tag = tags[-1]
-        version = latest_tag.name
-        print("Found the following latest tag: " + version)
+        ha_version = latest_tag.name
+        print("Found the following latest tag: " + ha_version)
     else:
-        print("Using tag: " + version)
+        print("Using tag: " + ha_version)
     # Now that we have it, check out this branch
-    repo.git.checkout(version)
-    return repo, version
+    repo.git.checkout(ha_version)
+    return repo, ha_version
 
 
-def parseManifests(haPath):
-    componentsPath = os.path.join(haPath, "homeassistant/components")
-    listOfComponents = [f.path for f in os.scandir(componentsPath) if f.is_dir()]
-    manifestInfo = {}
-    for component in listOfComponents:
-        f = open(component + "/manifest.json")
-        manifest = json.load(f)
-        # Initialize manifest info as an empty dictionary
-        manifestInfo[manifest["domain"]] = {}
-        # Check if manifest specifies dependencies
-        if "dependencies" in manifest:
-            manifestInfo[manifest["domain"]]["dependencies"] = manifest["dependencies"]
-        # Check if it specifies any requirements
-        if "requirements" in manifest:
-            manifestInfo[manifest["domain"]]["requirements"] = manifest["requirements"]
-        f.close()
-    return manifestInfo
+def parse_manifests(ha_path):
+    """Parse the HomeAssistant manifest for the components, dependencies and reqs"""
+    components_path = os.path.join(ha_path, "homeassistant/components")
+    list_of_components = [f.path for f in os.scandir(components_path) if f.is_dir()]
+    manifest_info = {}
+    for component in list_of_components:
+        with open(component + "/manifest.json", encoding="utf8") as f:
+            manifest = json.load(f)
+            # Initialize manifest info as an empty dictionary
+            manifest_info[manifest["domain"]] = {}
+            # Check if manifest specifies dependencies
+            if "dependencies" in manifest:
+                manifest_info[manifest["domain"]]["dependencies"] = manifest[
+                    "dependencies"
+                ]
+            # Check if it specifies any requirements
+            if "requirements" in manifest:
+                manifest_info[manifest["domain"]]["requirements"] = manifest[
+                    "requirements"
+                ]
+            f.close()
+    return manifest_info
 
 
-def getUniquePythonRequirements(manifestInfo, csvWriter):
-    # Parse manifestInfo to create unique list of requirements
+def get_unique_python_requirements(manifest_info, csv_writer):
+    """Parse manifest_info to create unique list of requirements"""
     requirements = []
-    for component in manifestInfo:
-        if "requirements" in manifestInfo[component]:
-            csvWriter.writerow([component.lower().replace(" ", "-"), manifestInfo[component]["requirements"]])
-            requirements = requirements + (manifestInfo[component]["requirements"])
+    for component in manifest_info:
+        if "requirements" in manifest_info[component]:
+            csv_writer.writerow(
+                [
+                    component.lower().replace(" ", "-"),
+                    manifest_info[component]["requirements"],
+                ]
+            )
+            requirements = requirements + (manifest_info[component]["requirements"])
     requirements = list(set(requirements))
     return requirements
 
 
-def compareWithLayers(requirements, haPath, layers, csvWriter, upgrade_only):
-    listOfRecipes = []
-    missingRecipesList = {}
-    foundRecipesList = {}
+def compare_with_layers(requirements, ha_path, layers, csv_writer, upgrade_only):
+    """Compare Home Assistant manifest with available Yocto recipes"""
+    list_of_recipes = []
+    missing_recipes_list = {}
+    found_recipes_list = {}
     for layer in layers:
-        searchPath = os.path.join(haPath, layer)
-        listOfRecipes = [
+        search_path = os.path.join(ha_path, layer)
+        list_of_recipes = [
             f.name.strip(".bb")
-            for f in os.scandir(searchPath)
+            for f in os.scandir(search_path)
             if (f.is_file() and f.name.endswith(".bb"))
         ]
 
@@ -85,50 +103,53 @@ def compareWithLayers(requirements, haPath, layers, csvWriter, upgrade_only):
             package = requirement.split("==")
             package[0] = "python3-" + package[0].lower().replace("_", "-")
             # Now for each requirement loop over the list of discovered recipes
-            for recipe in listOfRecipes:
+            for recipe in list_of_recipes:
                 recipe = recipe.split("_")
                 # Case 1: check if recipe is available and is an exact match
                 if package[0] + "_" + package[1] == recipe[0] + "_" + recipe[1]:
                     try:
-                        del missingRecipesList[package[0]]
+                        del missing_recipes_list[package[0]]
                     except:
                         pass
-                    foundRecipesList[package[0]] = package[1]
-                    if upgrade_only != 'y':
-                        csvWriter.writerow([package[0], package[1], package[1], layer])
+                    found_recipes_list[package[0]] = package[1]
+                    if upgrade_only != "y":
+                        csv_writer.writerow([package[0], package[1], package[1], layer])
                     break
                 # Case 2: if not, check if recipe is available but has a lower version
                 elif package[0] == recipe[0]:
                     try:
-                        del missingRecipesList[package[0]]
+                        del missing_recipes_list[package[0]]
                     except:
                         pass
                     # Now if the needed package version is higher than the found one, and no other package has been found in a
                     # layer which is higher in the bblayers order, then add it to the list
-                    if (version.parse(package[1]) > version.parse(recipe[1])) and (package[0] not in foundRecipesList):
-                        csvWriter.writerow([package[0], package[1], recipe[1], layer])
-                    foundRecipesList[package[0]] = package[1]
+                    if (version.parse(package[1]) > version.parse(recipe[1])) and (
+                        package[0] not in found_recipes_list
+                    ):
+                        csv_writer.writerow([package[0], package[1], recipe[1], layer])
+                    found_recipes_list[package[0]] = package[1]
                     break
                 # Case 3: There is no recipe at all
-            else:
-                # Didn't find it in this layer so save it until we scanned all layers
-                if package[0] not in foundRecipesList:
-                    missingRecipesList[package[0]] = package[1]
+                else:
+                    # Didn't find it in this layer so save it until we scanned all layers
+                    if package[0] not in found_recipes_list:
+                        missing_recipes_list[package[0]] = package[1]
     # Now add all missing items to csv as well
-    if upgrade_only != 'y':
-        for item in missingRecipesList:
-            csvWriter.writerow([item, missingRecipesList[item], "-", "-"])
+    if upgrade_only != "y":
+        for recipe, recipe_version in missing_recipes_list.items():
+            csv_writer.writerow([recipe, recipe_version, "-", "-"])
 
 
 def main() -> None:
-    args = parseArguments()
+    """Main"""
+    args = parse_arguments()
 
-    haPath = os.path.join(os.path.dirname(__file__), "HA")
+    ha_path = os.path.join(os.path.dirname(__file__), "HA")
     # First get the repository for scanning, read the manifest and distill the requirements
-    repo, name = getRepo(haPath, args.version)
-    with open(name + ".csv", "w") as outputFile:
-        csvWriter = csv.writer(outputFile)
-        csvWriter.writerow(
+    repo, name = get_repo(ha_path, args.version)
+    with open(name + ".csv", "w", encoding="utf8") as outputFile:
+        csv_writer = csv.writer(outputFile)
+        csv_writer.writerow(
             [
                 "Package Name",
                 "Required Package Version",
@@ -137,16 +158,16 @@ def main() -> None:
             ]
         )
 
-        manifestInfo = parseManifests(haPath)
-        with open(name + "-components.csv", "w") as componentFile:
-            csvWriter2 = csv.writer(componentFile)
-            csvWriter2.writerow(
+        manifest_info = parse_manifests(ha_path)
+        with open(name + "-components.csv", "w", encoding="utf8") as component_file:
+            csv_writer2 = csv.writer(component_file)
+            csv_writer2.writerow(
                 [
                     "Component Name",
                     "Required Package",
                 ]
             )
-            requirements = getUniquePythonRequirements(manifestInfo, csvWriter2)
+            requirements = get_unique_python_requirements(manifest_info, csv_writer2)
 
         # Now there are multiple places where the python recipes can be found, we need to combine them
         # 1: the meta-homeassistant layer
@@ -187,10 +208,10 @@ def main() -> None:
             "../../../../sources/meta-openembedded/meta-networking/recipes-devtools/python",
             "../../../../sources/poky/meta/recipes-devtools/python",
         ]
-        compareWithLayers(requirements, haPath, layers, csvWriter, args.upgrade)
+        compare_with_layers(requirements, ha_path, layers, csv_writer, args.upgrade)
 
         # Clean everything
-        shutil.rmtree(haPath)
+        shutil.rmtree(ha_path)
         print("Finished")
 
 
