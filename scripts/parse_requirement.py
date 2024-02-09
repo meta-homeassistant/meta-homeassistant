@@ -1,4 +1,5 @@
 """Module providing a way of creating a CSV with all the dependencies of HomeAssistant"""
+
 import os
 import json
 import csv
@@ -21,6 +22,14 @@ def parse_arguments():
         default="n",
         choices=["y", "n"],
     )
+    parser.add_argument(
+        "-c",
+        "--clean",
+        help="Clean HA Core Repository after parsing",
+        type=str,
+        default="y",
+        choices=["y", "n"],
+    )
     args = parser.parse_args()
 
     return args
@@ -28,10 +37,11 @@ def parse_arguments():
 
 def get_repo(ha_path, ha_version):
     """Clone or initialize the Home Assistant repository."""
-    try:
-        repo = Repo.clone_from("https://github.com/home-assistant/core.git", ha_path)
-    except:
+    if os.path.isdir(ha_path):
         repo = Repo(ha_path)
+    else:
+        repo = Repo.clone_from("https://github.com/home-assistant/core.git", ha_path)
+
     # Get the tags and sort them
     tags = sorted(repo.tags, key=lambda t: t.commit.committed_datetime)
     if ha_version == "":
@@ -42,7 +52,7 @@ def get_repo(ha_path, ha_version):
         print("Using tag: " + ha_version)
     # Now that we have it, check out this branch
     repo.git.checkout(ha_version)
-    return repo, ha_version
+    return ha_version
 
 
 def parse_manifests(ha_path):
@@ -146,7 +156,7 @@ def main() -> None:
 
     ha_path = os.path.join(os.path.dirname(__file__), "HA")
     # First get the repository for scanning, read the manifest and distill the requirements
-    repo, name = get_repo(ha_path, args.version)
+    name = get_repo(ha_path, args.version)
     with open(name + ".csv", "w", encoding="utf8") as outputFile:
         csv_writer = csv.writer(outputFile)
         csv_writer.writerow(
@@ -211,7 +221,9 @@ def main() -> None:
         compare_with_layers(requirements, ha_path, layers, csv_writer, args.upgrade)
 
         # Clean everything
-        shutil.rmtree(ha_path)
+        if args.clean == "y":
+            shutil.rmtree(ha_path)
+            print("Removed checked out HA repository")
         print("Finished")
 
 
