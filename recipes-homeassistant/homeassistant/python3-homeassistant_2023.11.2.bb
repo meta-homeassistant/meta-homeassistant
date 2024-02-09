@@ -13,7 +13,7 @@ SRC_URI += "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "e0e22f63a6e5ba7fbeec90d8f81d028ebaf8c8d8278d377c1b9e525a4852dc2b"
+SRC_URI[sha256sum] = "7279de46ad21232be02a8d1dbbfe76cded0856cf138133cd40cdd3d64cb2d37b"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -110,7 +110,7 @@ RDEPENDS:${PN}-bluetooth = "\
     ${PYTHON_PN}-bleak-retry-connector (=3.3.0) \
     ${PYTHON_PN}-bluetooth-adapters (=0.16.1) \
     ${PYTHON_PN}-bluetooth-auto-recovery (=1.2.3) \
-    ${PYTHON_PN}-bluetooth-data-tools (=1.13.0) \
+    ${PYTHON_PN}-bluetooth-data-tools (=1.14.0) \
     ${PYTHON_PN}-dbus-fast (>=2.12.0) \
 "
 
@@ -154,7 +154,7 @@ RDEPENDS:${PN}-fritzbox = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    ${PYTHON_PN}-home-assistant-frontend (=20231030.1) \
+    ${PYTHON_PN}-home-assistant-frontend (=20231030.2) \
 "
 
 ALLOW_EMPTY:${PN}-google-translate = "1"
@@ -300,7 +300,7 @@ RDEPENDS:${PN}-zeroconf = "\
 "
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-aiohttp (>=3.8.5) \
+    ${PYTHON_PN}-aiohttp (>=3.9.0b0) \
     ${PYTHON_PN}-astral (=2.2) \
     ${PYTHON_PN}-attrs (>=23.1.0) \
     ${PYTHON_PN}-atomicwrites-homeassistant (=1.4.1) \
