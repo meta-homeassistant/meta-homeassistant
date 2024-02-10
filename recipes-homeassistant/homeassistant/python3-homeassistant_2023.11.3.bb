@@ -13,7 +13,7 @@ SRC_URI += "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "e0e22f63a6e5ba7fbeec90d8f81d028ebaf8c8d8278d377c1b9e525a4852dc2b"
+SRC_URI[sha256sum] = "96518723a2d5a53a3d9b644cb5c0d2916db05ab6a37b63a4545c793fb973677d"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -110,13 +110,13 @@ RDEPENDS:${PN}-bluetooth = "\
     ${PYTHON_PN}-bleak-retry-connector (=3.3.0) \
     ${PYTHON_PN}-bluetooth-adapters (=0.16.1) \
     ${PYTHON_PN}-bluetooth-auto-recovery (=1.2.3) \
-    ${PYTHON_PN}-bluetooth-data-tools (=1.13.0) \
+    ${PYTHON_PN}-bluetooth-data-tools (=1.14.0) \
     ${PYTHON_PN}-dbus-fast (>=2.12.0) \
 "
 
 ALLOW_EMPTY:${PN}-cast = "1"
 RDEPENDS:${PN}-cast = "\
-    ${PYTHON_PN}-pychromecast (>=13.0.7) \
+    ${PYTHON_PN}-pychromecast (>=13.0.8) \
 "
 
 ALLOW_EMPTY:${PN}-cloud = "1"
@@ -127,7 +127,7 @@ RDEPENDS:${PN}-cloud = "\
 ALLOW_EMPTY:${PN}-conversation = "1"
 RDEPENDS:${PN}-conversation = "\
     ${PYTHON_PN}-hassil (>=1.2.5) \
-    ${PYTHON_PN}-home-assistant-intents (>=2023.10.2) \
+    ${PYTHON_PN}-home-assistant-intents (>=2023.10.16) \
 "
 
 ALLOW_EMPTY:${PN}-dhcp = "1"
@@ -143,7 +143,7 @@ RDEPENDS:${PN}-file-upload = "\
 
 ALLOW_EMPTY:${PN}-fritz = "1"
 RDEPENDS:${PN}-fritz = "\
-    ${PYTHON_PN}-fritzconnection (=1.12.0) \
+    ${PYTHON_PN}-fritzconnection (=1.13.2) \
     ${PYTHON_PN}-xmltodict (=0.13.0) \
 "
 
@@ -154,7 +154,7 @@ RDEPENDS:${PN}-fritzbox = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    ${PYTHON_PN}-home-assistant-frontend (=20231030.1) \
+    ${PYTHON_PN}-home-assistant-frontend (=20231030.2) \
 "
 
 ALLOW_EMPTY:${PN}-google-translate = "1"
@@ -232,6 +232,7 @@ ALLOW_EMPTY:${PN}-recorder = "1"
 RDEPENDS:${PN}-recorder = "\
     ${PYTHON_PN}-fnv-hash-fast (=0.5.0) \
     ${PYTHON_PN}-sqlalchemy (>=2.0.22) \
+    ${PYTHON_PN}-psutil-home-assistant (=0.0.1) \
 "
 
 ALLOW_EMPTY:${PN}-route53 = "1"
@@ -296,11 +297,11 @@ RDEPENDS:${PN}-vlc = "\
 
 ALLOW_EMPTY:${PN}-zeroconf = "1"
 RDEPENDS:${PN}-zeroconf = "\
-    ${PYTHON_PN}-zeroconf (>=0.91.1) \
+    ${PYTHON_PN}-zeroconf (>=0.119.0) \
 "
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-aiohttp (>=3.8.5) \
+    ${PYTHON_PN}-aiohttp (>=3.9.0b0) \
     ${PYTHON_PN}-astral (=2.2) \
     ${PYTHON_PN}-attrs (>=23.1.0) \
     ${PYTHON_PN}-atomicwrites-homeassistant (=1.4.1) \
