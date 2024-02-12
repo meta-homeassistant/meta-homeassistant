@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         yocto-version: [main]
-        machine: [qemu]
+        machine: [qemu, container]
     steps:
     - name: Reclaim the bytes
       uses: data-intuitive/reclaim-the-bytes@v2
