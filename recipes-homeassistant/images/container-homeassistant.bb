@@ -8,3 +8,5 @@ LICENSE = "MIT"
 
 inherit image
 inherit image-container
+
+IMAGE_FSTYPES = " container"
