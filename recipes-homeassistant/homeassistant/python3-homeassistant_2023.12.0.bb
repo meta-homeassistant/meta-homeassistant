@@ -13,7 +13,7 @@ SRC_URI += "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "96518723a2d5a53a3d9b644cb5c0d2916db05ab6a37b63a4545c793fb973677d"
+SRC_URI[sha256sum] = "4eca63a97f7c69d8ba7187bfada575141e57cb9f45e23589ba4c35a64b8ff92c"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -51,6 +51,7 @@ PACKAGES += "\
     ${PN}-cloud \
     ${PN}-conversation \
     ${PN}-dhcp \
+    ${PN}-ffmpeg \
     ${PN}-file-upload \
     ${PN}-fritz \
     ${PN}-fritzbox \
@@ -63,6 +64,7 @@ PACKAGES += "\
     ${PN}-image-upload \
     ${PN}-ipp \
     ${PN}-keyboard-remote \
+    ${PN}-matter \
     ${PN}-met \
     ${PN}-mobile-app \
     ${PN}-modbus \
@@ -110,7 +112,7 @@ RDEPENDS:${PN}-bluetooth = "\
     ${PYTHON_PN}-bleak-retry-connector (=3.3.0) \
     ${PYTHON_PN}-bluetooth-adapters (=0.16.1) \
     ${PYTHON_PN}-bluetooth-auto-recovery (=1.2.3) \
-    ${PYTHON_PN}-bluetooth-data-tools (=1.14.0) \
+    ${PYTHON_PN}-bluetooth-data-tools (=1.15.0) \
     ${PYTHON_PN}-dbus-fast (>=2.12.0) \
 "
 
@@ -127,13 +129,18 @@ RDEPENDS:${PN}-cloud = "\
 ALLOW_EMPTY:${PN}-conversation = "1"
 RDEPENDS:${PN}-conversation = "\
     ${PYTHON_PN}-hassil (>=1.2.5) \
-    ${PYTHON_PN}-home-assistant-intents (>=2023.10.16) \
+    ${PYTHON_PN}-home-assistant-intents (>=2023.12.5) \
 "
 
 ALLOW_EMPTY:${PN}-dhcp = "1"
 RDEPENDS:${PN}-dhcp = "\
     ${PYTHON_PN}-aiodiscover (=1.5.1) \
     ${PYTHON_PN}-scapy (=2.5.0) \
+"
+
+ALLOW_EMPTY:${PN}-ffmpeg = "1"
+RDEPENDS:${PN}-ffmpeg = "\
+    ${PYTHON_PN}-ha-ffmpeg (=3.1.0) \
 "
 
 ALLOW_EMPTY:${PN}-file-upload = "1"
@@ -154,7 +161,7 @@ RDEPENDS:${PN}-fritzbox = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    ${PYTHON_PN}-home-assistant-frontend (=20231030.2) \
+    ${PYTHON_PN}-home-assistant-frontend (=20231206.0) \
 "
 
 ALLOW_EMPTY:${PN}-google-translate = "1"
@@ -198,6 +205,11 @@ RDEPENDS:${PN}-keyboard-remote = "\
     ${PYTHON_PN}-asyncinotify (>=4.0.2) \
 "
 
+ALLOW_EMPTY:${PN}-matter = "1"
+RDEPENDS:${PN}-matter = "\
+    ${PYTHON_PN}-matter-server (=5.0.0) \
+"
+
 ALLOW_EMPTY:${PN}-met = "1"
 RDEPENDS:${PN}-met = "\
     ${PYTHON_PN}-pymetno (>=0.11.0) \
@@ -225,7 +237,7 @@ RDEPENDS:${PN}-pulseaudio-loopback = "\
 
 ALLOW_EMPTY:${PN}-radio-browser = "1"
 RDEPENDS:${PN}-radio-browser = "\
-    ${PYTHON_PN}-radios (=0.1.1) \
+    ${PYTHON_PN}-radios (=0.2.0) \
 "
 
 ALLOW_EMPTY:${PN}-recorder = "1"
@@ -253,7 +265,7 @@ RDEPENDS:${PN}-sentry = "\
 
 ALLOW_EMPTY:${PN}-shelly = "1"
 RDEPENDS:${PN}-shelly = "\
-    ${PYTHON_PN}-aioshelly (=6.0.0) \
+    ${PYTHON_PN}-aioshelly (=6.1.0) \
 "
 
 ALLOW_EMPTY:${PN}-ssdp = "1"
@@ -301,11 +313,14 @@ RDEPENDS:${PN}-zeroconf = "\
 "
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-aiohttp (>=3.9.0b0) \
+    ${PYTHON_PN}-aiohttp (>=3.9.1) \
+    ${PYTHON_PN}-aiohttp-cors (=0.7.0) \
+    ${PYTHON_PN}-aiohttp-fast-url-dispatcher (=0.3.0) \
+    ${PYTHON_PN}-aiohttp-zlib-ng (=0.1.1) \
     ${PYTHON_PN}-astral (=2.2) \
     ${PYTHON_PN}-attrs (>=23.1.0) \
     ${PYTHON_PN}-atomicwrites-homeassistant (=1.4.1) \
-    ${PYTHON_PN}-awesomeversion (>=23.8.0) \
+    ${PYTHON_PN}-awesomeversion (>=23.11.0) \
     ${PYTHON_PN}-bcrypt (>=4.0.1) \   
     ${PYTHON_PN}-certifi (>=2021.5.30) \
     ${PYTHON_PN}-ciso8601 (=2.3.0) \
@@ -315,7 +330,7 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-jinja2 (>=3.1.2) \
     ${PYTHON_PN}-lru-dict (>=1.2.0) \
     ${PYTHON_PN}-pyjwt (=2.8.0) \
-    ${PYTHON_PN}-cryptography (>=41.0.4) \
+    ${PYTHON_PN}-cryptography (>=41.0.7) \
     ${PYTHON_PN}-pyopenssl (>=23.2.0) \
     ${PYTHON_PN}-orjson (=3.9.9) \
     ${PYTHON_PN}-packaging (>=23.1) \
@@ -338,6 +353,7 @@ RDEPENDS:${PN} = "\
     ${PN}-cloud \
     ${PN}-conversation \
     ${PN}-dhcp \
+    ${PN}-ffmpeg \
     ${PN}-file-upload \
     ${PN}-frontend \
     ${PN}-hardware \
@@ -345,10 +361,12 @@ RDEPENDS:${PN} = "\
     ${PN}-http \
     ${PN}-image-upload \
     ${PN}-mobile-app \
+    ${PN}-radio-browser \
     ${PN}-recorder \
     ${PN}-stream \
     ${PN}-usb \
     ${PN}-zeroconf \
+    ${PN}-matter \
 "
 
 RRECOMMENDS:${PN} = "\
@@ -365,7 +383,6 @@ RRECOMMENDS:${PN} = "\
     ${PN}-modbus \
     ${PN}-octoprint \
     ${PN}-pulseaudio-loopback \
-    ${PN}-radio-browser \
     ${PN}-route53 \
     ${PN}-scrape \
     ${PN}-sentry \

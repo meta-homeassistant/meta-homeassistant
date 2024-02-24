@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.md;md5=2ab724713fdaf49e4523c4503bfd068d"
 inherit pypi python_setuptools_build_meta
 
 SRC_URI += "file://0001-Patch-pyproject.toml-to-use-upstream-version-of-setu.patch"
-SRC_URI[sha256sum] = "c12bf66b2fcc9717caabc7a3125a112366f64a16e55e34f7191d10aa71017f42"
+SRC_URI[sha256sum] = "d6d440af78cf1cfb8dff49168f9cd7970abe0e4b23f17631f7427a414b3b6867"
 
 RDEPENDS:${PN} = "\
     ${PYTHON_PN}-hassil (>=1.5.1) \

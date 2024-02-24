@@ -1,0 +1,21 @@
+From 9f9934f514ca8abaad4aaaa779d0ecaa255c8cac Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Thu, 15 Feb 2024 21:45:47 +0000
+Subject: [PATCH] update flit dependency
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+---
+ pyproject.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index 1c8961e..a683b53 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = ["flit_core >=2,<3"]
++requires = ["flit_core >=2"]
+ build-backend = "flit_core.buildapi"
+ 
+ [tool.flit.metadata]
