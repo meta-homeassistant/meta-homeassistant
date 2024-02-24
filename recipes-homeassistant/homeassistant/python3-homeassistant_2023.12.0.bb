@@ -97,8 +97,6 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-voluptuous-serialize (=2.6.0) \
     ${PYTHON_PN}-yarl (>=1.9.2) \
     \
+    ${PYTHON_PN}-statistics \
     ${PYTHON_PN}-core (>=3.11.0) \
-"
-
-#    ${PYTHON_PN}-statistics
-#    ${PYTHON_PN}-sqlite3
+" 
