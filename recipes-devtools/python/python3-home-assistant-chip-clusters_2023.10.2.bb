@@ -32,8 +32,8 @@ do_install() {
 }
 
 RDEPENDS:${PN} += "\
-    ${PYTHON_PN}-aenum \
-    ${PYTHON_PN}-dacite \
+    python3-aenum \
+    python3-dacite \
 "
 
 FILES:${PN} += "\

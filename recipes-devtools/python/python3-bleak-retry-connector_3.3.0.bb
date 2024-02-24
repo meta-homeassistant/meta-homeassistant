@@ -10,9 +10,9 @@ PYPI_PACKAGE = "bleak_retry_connector"
 inherit pypi python_setuptools_build_meta python_poetry_core
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-core (>=3.10) \
-    ${PYTHON_PN}-async-timeout (>=4.0.1) \
-    ${PYTHON_PN}-bleak (>=0.21.0) \
-    ${PYTHON_PN}-bluetooth-adapters (>=0.15.2) \
-    ${PYTHON_PN}-dbus-fast (>=1.14.0) \
+    python3-core (>=3.10) \
+    python3-async-timeout (>=4.0.1) \
+    python3-bleak (>=0.21.0) \
+    python3-bluetooth-adapters (>=0.15.2) \
+    python3-dbus-fast (>=1.14.0) \
 "

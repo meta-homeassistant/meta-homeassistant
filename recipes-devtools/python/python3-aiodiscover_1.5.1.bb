@@ -12,9 +12,9 @@ DEPENDS += "\
 SRC_URI[sha256sum] = "1aa795293fe6dcb06fd3d1cc035a8a6b37b40c671ba442feffd5ade20ff995f6"
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-async-timeout (>=4.0.1) \
-    ${PYTHON_PN}-netifaces (>=0.11.0) \
-    ${PYTHON_PN}-dnspython (>=2.3.0) \
-    ${PYTHON_PN}-ifaddr \
-    ${PYTHON_PN}-pyroute2 (>=0.7.3) \
+    python3-async-timeout (>=4.0.1) \
+    python3-netifaces (>=0.11.0) \
+    python3-dnspython (>=2.3.0) \
+    python3-ifaddr \
+    python3-pyroute2 (>=0.7.3) \
 "

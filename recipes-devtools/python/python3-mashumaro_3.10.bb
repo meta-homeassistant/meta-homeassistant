@@ -14,7 +14,7 @@ PACKAGECONFIG[tomlpython-version-smaller-3-dot-11] = ",,,python3-tomli"
 PACKAGECONFIG[yaml] = ",,,python3-pyyaml"
 
 RDEPENDS:${PN} += "\
-    ${PYTHON_PN}-typing-extensions (>=4.1.0) \
+    python3-typing-extensions (>=4.1.0) \
 "
 
 PYPI_PACKAGE = "mashumaro"

@@ -7,12 +7,12 @@ PACKAGES += "\
 
 ALLOW_EMPTY:${PN}-amazon-polly = "1"
 RDEPENDS:${PN}-amazon-polly = "\
-    ${PYTHON_PN}-boto3 (>=1.28.17) \
+    python3-boto3 (>=1.28.17) \
 "
 
 ALLOW_EMPTY:${PN}-google-translate = "1"
 RDEPENDS:${PN}-google-translate = "\
-    ${PYTHON_PN}-gtts (=2.2.4) \
+    python3-gtts (=2.2.4) \
 "
 
 RDEPENDS:${PN} += "\

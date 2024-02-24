@@ -8,10 +8,10 @@ SRC_URI[sha256sum] = "512ddfdf0e010b7cf45a25b9a3a9be458d3f2ad3dc73e4c8f407ea4f85
 inherit pypi setuptools3
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-async-timeout (>=4.0.2) \
-    ${PYTHON_PN}-attrs (>=23.1.0) \
-    ${PYTHON_PN}-httpx (>=0.24.0) \
-    ${PYTHON_PN}-orjson (>=3.8.10) \
-    ${PYTHON_PN}-packaging (>=23.1) \
-    ${PYTHON_PN}-xmltodict (=0.13.0) \
+    python3-async-timeout (>=4.0.2) \
+    python3-attrs (>=23.1.0) \
+    python3-httpx (>=0.24.0) \
+    python3-orjson (>=3.8.10) \
+    python3-packaging (>=23.1) \
+    python3-xmltodict (=0.13.0) \
 "

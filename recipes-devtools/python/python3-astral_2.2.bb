@@ -9,7 +9,7 @@ SRC_URI[sha256sum] = "e41d9967d5c48be421346552f0f4dedad43ff39a83574f5ff2ad32b662
 inherit setuptools3 pypi
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-pytz \
-    ${PYTHON_PN}-tzdata \
-    ${PYTHON_PN}-zoneinfo \
+    python3-pytz \
+    python3-tzdata \
+    python3-zoneinfo \
 "

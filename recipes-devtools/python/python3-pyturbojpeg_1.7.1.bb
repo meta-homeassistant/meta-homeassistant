@@ -10,5 +10,5 @@ inherit pypi setuptools3
 PYPI_PACKAGE = "PyTurboJPEG"
 
 RDEPENDS:${PN} += "\
-    ${PYTHON_PN}-numpy \
+    python3-numpy \
 "

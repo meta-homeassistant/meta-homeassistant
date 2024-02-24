@@ -10,7 +10,7 @@ inherit pypi python_poetry_core
 PYPI_PACKAGE = "aiohttp_zlib_ng"
 
 RDEPENDS:${PN} = "\
-	${PYTHON_PN}-core (>= 3.8) \
-	${PYTHON_PN}-aiohttp (>= 3.8.5) \
-	${PYTHON_PN}-zlib-ng (>= 0.3.0) \
+	python3-core (>= 3.8) \
+	python3-aiohttp (>= 3.8.5) \
+	python3-zlib-ng (>= 0.3.0) \
 "

@@ -6,7 +6,7 @@ PACKAGES += "\
 
 ALLOW_EMPTY:${PN}-pulseaudio-loopback = "1"
 RDEPENDS:${PN}-pulseaudio-loopback = "\
-    ${PYTHON_PN}-pulsectl (>=23.5.2) \
+    python3-pulsectl (>=23.5.2) \
 "
 
 RDEPENDS:${PN} += "\

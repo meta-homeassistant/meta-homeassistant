@@ -10,12 +10,12 @@ inherit pypi python_setuptools_build_meta
 PYPI_PACKAGE = "python-matter-server"
 
 RDEPENDS:${PN} += "\
-	${PYTHON_PN}-aiohttp \
-	${PYTHON_PN}-aiorun \
-	${PYTHON_PN}-async-timeout \
-	${PYTHON_PN}-core (>= 3.10) \
-	${PYTHON_PN}-coloredlogs \
-	${PYTHON_PN}-dacite \
-	${PYTHON_PN}-orjson \
-	${PYTHON_PN}-home-assistant-chip-clusters (=2023.10.2) \
+	python3-aiohttp \
+	python3-aiorun \
+	python3-async-timeout \
+	python3-core (>= 3.10) \
+	python3-coloredlogs \
+	python3-dacite \
+	python3-orjson \
+	python3-home-assistant-chip-clusters (=2023.10.2) \
 "

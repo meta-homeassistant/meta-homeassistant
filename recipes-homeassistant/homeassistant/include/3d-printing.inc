@@ -6,7 +6,7 @@ PACKAGES += "\
 
 ALLOW_EMPTY:${PN}-octoprint = "1"
 RDEPENDS:${PN}-octoprint = "\
-    ${PYTHON_PN}-pyoctoprintapi (=0.1.12) \
+    python3-pyoctoprintapi (=0.1.12) \
 "
 
 RDEPENDS:${PN} += "\

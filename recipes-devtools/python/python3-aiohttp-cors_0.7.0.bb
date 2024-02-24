@@ -9,5 +9,5 @@ SRC_URI[md5sum] = "de3940a901b269be82c8bd9f28d53ff0"
 SRC_URI[sha256sum] = "4d39c6d7100fd9764ed1caf8cebf0eb01bf5e3f24e2e073fda6234bc48b19f5d"
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-aiohttp (>=1.1) \
+    python3-aiohttp (>=1.1) \
 "
