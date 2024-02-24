@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=da57f3e0372e39698a274746eb9d65d6"
 
 SRC_URI[sha256sum] = "8f3a9a9b4e8bfa9c3cfa7fb619b1268d6e986a66e452de067a81017717bb6962"
 
-inherit pypi python_setuptools_build_meta python_poetry_core
+inherit pypi python_poetry_core
 
 PYPI_PACKAGE = "aiohttp_zlib_ng"
 
