@@ -39,278 +39,31 @@ do_install:append () {
 }
 
 # Home Assistant core
+# Home Assistant contains thousands of integrations. These are subdivided in their own include file bases on the same division as HA itself uses
+# at https://www.home-assistant.io/integrations/
 
-# Components which can be selected and used.
-PACKAGES += "\
-    ${PN}-amazon-polly \
-    ${PN}-assist-pipeline \
-    ${PN}-axis \
-    ${PN}-backup \
-    ${PN}-bluetooth \
-    ${PN}-cast \
-    ${PN}-cloud \
-    ${PN}-conversation \
-    ${PN}-dhcp \
-    ${PN}-ffmpeg \
-    ${PN}-file-upload \
-    ${PN}-fritz \
-    ${PN}-fritzbox \
-    ${PN}-frontend \
-    ${PN}-google-translate \
-    ${PN}-hardware \
-    ${PN}-hacs \
-    ${PN}-http \
-    ${PN}-hue \
-    ${PN}-image-upload \
-    ${PN}-ipp \
-    ${PN}-keyboard-remote \
-    ${PN}-matter \
-    ${PN}-met \
-    ${PN}-mobile-app \
-    ${PN}-modbus \
-    ${PN}-octoprint \
-    ${PN}-pulseaudio-loopback \
-    ${PN}-radio-browser \
-    ${PN}-recorder \
-    ${PN}-route53 \
-    ${PN}-scrape \
-    ${PN}-sentry \
-    ${PN}-shelly \
-    ${PN}-ssdp \
-    ${PN}-stream \
-    ${PN}-systemmonitor \
-    ${PN}-tts \
-    ${PN}-upnp \
-    ${PN}-usb \
-    ${PN}-vlc \
-    ${PN}-zeroconf \
-"
+require recipes-homeassistant/homeassistant/include/3d-printing.inc
+require recipes-homeassistant/homeassistant/include/hacs.inc
+require recipes-homeassistant/homeassistant/include/history.inc
+require recipes-homeassistant/homeassistant/include/hub.inc
+require recipes-homeassistant/homeassistant/include/image-processing.inc
+require recipes-homeassistant/homeassistant/include/media-player.inc
+require recipes-homeassistant/homeassistant/include/network.inc
+require recipes-homeassistant/homeassistant/include/other.inc
+require recipes-homeassistant/homeassistant/include/sensor.inc
+require recipes-homeassistant/homeassistant/include/switch.inc
+require recipes-homeassistant/homeassistant/include/system-monitor.inc
+require recipes-homeassistant/homeassistant/include/text-to-speech.inc
+require recipes-homeassistant/homeassistant/include/utility.inc
+require recipes-homeassistant/homeassistant/include/voice.inc
+require recipes-homeassistant/homeassistant/include/weather.inc
 
-ALLOW_EMPTY:${PN}-amazon-polly = "1"
-RDEPENDS:${PN}-amazon-polly = "\
-    ${PYTHON_PN}-boto3 (>=1.28.17) \
-"
+# There are two exceptions:
+# - any integration which has multiple categories are grouped in multiple.inc
+# - any integration which has no category assigned to it is in none.inc
 
-ALLOW_EMPTY:${PN}-assist-pipeline = "1"
-RDEPENDS:${PN}-assist-pipeline = "\
-    ${PYTHON_PN}-webrtc-noise-gain (>=1.2.3) \
-"
-
-ALLOW_EMPTY:${PN}-axis = "1"
-RDEPENDS:${PN}-axis = "\
-    ${PYTHON_PN}-axis (=48) \
-"
-
-ALLOW_EMPTY:${PN}-backup = "1"
-RDEPENDS:${PN}-backup = "\
-    ${PYTHON_PN}-securetar (=2023.3.0) \
-"
-
-ALLOW_EMPTY:${PN}-bluetooth = "1"
-RDEPENDS:${PN}-bluetooth = "\
-    ${PYTHON_PN}-bleak (=0.21.1) \
-    ${PYTHON_PN}-bleak-retry-connector (=3.3.0) \
-    ${PYTHON_PN}-bluetooth-adapters (=0.16.1) \
-    ${PYTHON_PN}-bluetooth-auto-recovery (=1.2.3) \
-    ${PYTHON_PN}-bluetooth-data-tools (=1.15.0) \
-    ${PYTHON_PN}-dbus-fast (>=2.12.0) \
-"
-
-ALLOW_EMPTY:${PN}-cast = "1"
-RDEPENDS:${PN}-cast = "\
-    ${PYTHON_PN}-pychromecast (>=13.0.8) \
-"
-
-ALLOW_EMPTY:${PN}-cloud = "1"
-RDEPENDS:${PN}-cloud = "\
-    ${PYTHON_PN}-hass-nabucasa (=0.74.0) \
-"
-
-ALLOW_EMPTY:${PN}-conversation = "1"
-RDEPENDS:${PN}-conversation = "\
-    ${PYTHON_PN}-hassil (>=1.2.5) \
-    ${PYTHON_PN}-home-assistant-intents (>=2023.12.5) \
-"
-
-ALLOW_EMPTY:${PN}-dhcp = "1"
-RDEPENDS:${PN}-dhcp = "\
-    ${PYTHON_PN}-aiodiscover (=1.5.1) \
-    ${PYTHON_PN}-scapy (=2.5.0) \
-"
-
-ALLOW_EMPTY:${PN}-ffmpeg = "1"
-RDEPENDS:${PN}-ffmpeg = "\
-    ${PYTHON_PN}-ha-ffmpeg (=3.1.0) \
-"
-
-ALLOW_EMPTY:${PN}-file-upload = "1"
-RDEPENDS:${PN}-file-upload = "\
-    ${PYTHON_PN}-janus (=1.0.0) \
-"
-
-ALLOW_EMPTY:${PN}-fritz = "1"
-RDEPENDS:${PN}-fritz = "\
-    ${PYTHON_PN}-fritzconnection (=1.13.2) \
-    ${PYTHON_PN}-xmltodict (=0.13.0) \
-"
-
-ALLOW_EMPTY:${PN}-fritzbox = "1"
-RDEPENDS:${PN}-fritzbox = "\
-    ${PYTHON_PN}-pyfritzhome (=0.6.9) \
-"
-
-ALLOW_EMPTY:${PN}-frontend = "1"
-RDEPENDS:${PN}-frontend = "\
-    ${PYTHON_PN}-home-assistant-frontend (=20231206.0) \
-"
-
-ALLOW_EMPTY:${PN}-google-translate = "1"
-RDEPENDS:${PN}-google-translate = "\
-    ${PYTHON_PN}-gtts (=2.2.4) \
-"
-
-ALLOW_EMPTY:${PN}-hardware = "1"
-RDEPENDS:${PN}-hardware = "\
-    ${PYTHON_PN}-psutil-home-assistant (=0.0.1) \
-"
-
-ALLOW_EMPTY:${PN}-hacs = "1"
-RDEPENDS:${PN}-hacs = "\
-    ${PYTHON_PN}-aiogithubapi (=22.10.1) \
-"
-
-ALLOW_EMPTY:${PN}-http = "1"
-RDEPENDS:${PN}-http = "\
-    ${PYTHON_PN}-aiohttp-cors (=0.7.0) \
-"
-
-ALLOW_EMPTY:${PN}-hue = "1"
-RDEPENDS:${PN}-hue = "\
-    ${PYTHON_PN}-aiohue (=4.7.0) \
-"
-
-ALLOW_EMPTY:${PN}-image-upload = "1"
-RDEPENDS:${PN}-image-upload = "\
-    ${PYTHON_PN}-pillow (>=10.1.0) \
-"
-
-ALLOW_EMPTY:${PN}-ipp = "1"
-RDEPENDS:${PN}-ipp = "\
-    ${PYTHON_PN}-pyipp (=0.14.4) \
-"
-
-ALLOW_EMPTY:${PN}-keyboard-remote = "1"
-RDEPENDS:${PN}-keyboard-remote = "\
-    ${PYTHON_PN}-evdev (>=1.6.1) \
-    ${PYTHON_PN}-asyncinotify (>=4.0.2) \
-"
-
-ALLOW_EMPTY:${PN}-matter = "1"
-RDEPENDS:${PN}-matter = "\
-    ${PYTHON_PN}-matter-server (=5.0.0) \
-"
-
-ALLOW_EMPTY:${PN}-met = "1"
-RDEPENDS:${PN}-met = "\
-    ${PYTHON_PN}-pymetno (>=0.11.0) \
-"
-
-ALLOW_EMPTY:${PN}-mobile-app = "1"
-RDEPENDS:${PN}-mobile-app = "\
-    ${PYTHON_PN}-pynacl (=1.5.0) \
-"
-
-ALLOW_EMPTY:${PN}-modbus = "1"
-RDEPENDS:${PN}-modbus = "\
-    ${PYTHON_PN}-pymodbus (>=3.5.4) \
-"
-
-ALLOW_EMPTY:${PN}-octoprint = "1"
-RDEPENDS:${PN}-octoprint = "\
-    ${PYTHON_PN}-pyoctoprintapi (=0.1.12) \
-"
-
-ALLOW_EMPTY:${PN}-pulseaudio-loopback = "1"
-RDEPENDS:${PN}-pulseaudio-loopback = "\
-    ${PYTHON_PN}-pulsectl (>=23.5.2) \
-"
-
-ALLOW_EMPTY:${PN}-radio-browser = "1"
-RDEPENDS:${PN}-radio-browser = "\
-    ${PYTHON_PN}-radios (=0.2.0) \
-"
-
-ALLOW_EMPTY:${PN}-recorder = "1"
-RDEPENDS:${PN}-recorder = "\
-    ${PYTHON_PN}-fnv-hash-fast (=0.5.0) \
-    ${PYTHON_PN}-sqlalchemy (>=2.0.22) \
-    ${PYTHON_PN}-psutil-home-assistant (=0.0.1) \
-"
-
-ALLOW_EMPTY:${PN}-route53 = "1"
-RDEPENDS:${PN}-route53 = "\
-    ${PYTHON_PN}-boto3 (>=1.28.17) \
-"
-
-ALLOW_EMPTY:${PN}-scrape = "1"
-RDEPENDS:${PN}-scrape = "\
-    ${PYTHON_PN}-beautifulsoup4 (>=4.12.2) \
-    ${PYTHON_PN}-lxml (>=4.9.3) \
-"
-
-ALLOW_EMPTY:${PN}-sentry = "1"
-RDEPENDS:${PN}-sentry = "\
-    ${PYTHON_PN}-sentry-sdk (>=1.31.0) \
-"
-
-ALLOW_EMPTY:${PN}-shelly = "1"
-RDEPENDS:${PN}-shelly = "\
-    ${PYTHON_PN}-aioshelly (=6.1.0) \
-"
-
-ALLOW_EMPTY:${PN}-ssdp = "1"
-RDEPENDS:${PN}-ssdp = "\
-    ${PYTHON_PN}-async-upnp-client (=0.36.2) \
-"
-
-ALLOW_EMPTY:${PN}-stream = "1"
-RDEPENDS:${PN}-stream = "\
-    ${PYTHON_PN}-pyturbojpeg (=1.7.1) \
-    ${PYTHON_PN}-ha-av (=10.1.1) \
-    ${PYTHON_PN}-numpy (>=1.26.0) \
-"
-
-ALLOW_EMPTY:${PN}-systemmonitor = "1"
-RDEPENDS:${PN}-systemmonitor = "\
-    ${PYTHON_PN}-psutil (>=5.9.6) \
-"
-
-ALLOW_EMPTY:${PN}-tts = "1"
-RDEPENDS:${PN}-tts = "\
-    ${PYTHON_PN}-mutagen (=1.47.0) \
-"
-
-ALLOW_EMPTY:${PN}-upnp = "1"
-RDEPENDS:${PN}-upnp = "\
-    ${PYTHON_PN}-async-upnp-client (=0.36.2) \
-    ${PYTHON_PN}-getmac (=0.8.2) \
-"
-
-ALLOW_EMPTY:${PN}-usb = "1"
-RDEPENDS:${PN}-usb = "\
-    ${PYTHON_PN}-pyserial (=3.5) \
-    ${PYTHON_PN}-pyudev (>=0.23.2) \
-"
-
-ALLOW_EMPTY:${PN}-vlc = "1"
-RDEPENDS:${PN}-vlc = "\
-    ${PYTHON_PN}-python-vlc (>=3.0.18122) \
-"
-
-ALLOW_EMPTY:${PN}-zeroconf = "1"
-RDEPENDS:${PN}-zeroconf = "\
-    ${PYTHON_PN}-zeroconf (>=0.119.0) \
-"
+require recipes-homeassistant/homeassistant/include/multiple.inc
+require recipes-homeassistant/homeassistant/include/none.inc
 
 RDEPENDS:${PN} = "\
     ${PYTHON_PN}-aiohttp (>=3.9.1) \
@@ -344,53 +97,8 @@ RDEPENDS:${PN} = "\
     ${PYTHON_PN}-voluptuous-serialize (=2.6.0) \
     ${PYTHON_PN}-yarl (>=1.9.2) \
     \
-    ${PYTHON_PN}-statistics \
-    ${PYTHON_PN}-sqlite3 \
     ${PYTHON_PN}-core (>=3.11.0) \
-    \
-    ${PN}-assist-pipeline \
-    ${PN}-bluetooth \
-    ${PN}-cloud \
-    ${PN}-conversation \
-    ${PN}-dhcp \
-    ${PN}-ffmpeg \
-    ${PN}-file-upload \
-    ${PN}-frontend \
-    ${PN}-hardware \
-    ${PN}-google-translate \
-    ${PN}-http \
-    ${PN}-image-upload \
-    ${PN}-mobile-app \
-    ${PN}-radio-browser \
-    ${PN}-recorder \
-    ${PN}-stream \
-    ${PN}-usb \
-    ${PN}-zeroconf \
-    ${PN}-matter \
 "
 
-RRECOMMENDS:${PN} = "\
-    ${PN}-amazon-polly \
-    ${PN}-axis \
-    ${PN}-backup \
-    ${PN}-cast \
-    ${PN}-fritz \
-    ${PN}-fritzbox \
-    ${PN}-hue \
-    ${PN}-ipp \
-    ${PN}-keyboard-remote \
-    ${PN}-met \
-    ${PN}-modbus \
-    ${PN}-octoprint \
-    ${PN}-pulseaudio-loopback \
-    ${PN}-route53 \
-    ${PN}-scrape \
-    ${PN}-sentry \
-    ${PN}-shelly \
-    ${PN}-systemmonitor \
-    ${PN}-tts \
-    ${PN}-upnp \
-    ${PN}-ssdp \
-    ${PN}-hacs \
-    ${PN}-vlc \
-"
+#    ${PYTHON_PN}-statistics
+#    ${PYTHON_PN}-sqlite3
