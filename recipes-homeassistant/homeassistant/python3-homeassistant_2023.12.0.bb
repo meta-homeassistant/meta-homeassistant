@@ -65,7 +65,7 @@ require recipes-homeassistant/homeassistant/include/weather.inc
 require recipes-homeassistant/homeassistant/include/multiple.inc
 require recipes-homeassistant/homeassistant/include/none.inc
 
-RDEPENDS:${PN} = "\
+RDEPENDS:${PN} += "\
     ${PYTHON_PN}-aiohttp (>=3.9.1) \
     ${PYTHON_PN}-aiohttp-cors (=0.7.0) \
     ${PYTHON_PN}-aiohttp-fast-url-dispatcher (=0.3.0) \
