@@ -36,7 +36,7 @@ RDEPENDS:${PN}-fritzbox = "\
 
 ALLOW_EMPTY:${PN}-hue = "1"
 RDEPENDS:${PN}-hue = "\
-    python3-aiohue (=4.7.0) \
+    python3-aiohue (>=4.7.0) \
 "
 
 ALLOW_EMPTY:${PN}-matter = "1"
