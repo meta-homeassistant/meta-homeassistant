@@ -137,6 +137,10 @@ def compare_with_layers(requirements, ha_path, layers, csv_writer, upgrade_only)
                         package[0] not in found_recipes_list
                     ):
                         csv_writer.writerow([package[0], package[1], recipe[1], layer])
+                    if (version.parse(package[1]) < version.parse(recipe[1])) and (
+                        package[0] not in found_recipes_list
+                    ):
+                        csv_writer.writerow([package[0], package[1], recipe[1], layer])
                     found_recipes_list[package[0]] = package[1]
                     break
                 # Case 3: There is no recipe at all

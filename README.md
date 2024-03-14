@@ -73,17 +73,19 @@ Also to note is that packages in HomeAssistant update very rapidly. This means t
 All missing recipes are backported into this layer to ensure functionality from meta-openembedded and poky.
 
 # Configuring HA
-Note that `python3-homeassistant-xxx.bb` only the critical components are directly installed via `RDEPENDS`. Any optional component is installed via `RRECOMMENDS`. 
-So if you are missing something, ensure it is build so it will be installed.
+Note that with `python3-homeassistant.bb` only the critical components are directly installed via `RDEPENDS`. 
+Any optional component is installed via `RRECOMMENDS`. 
+So if you are missing something you can enforce it by specifically adding it to an `IMAGE_INSTALL`.
 
 # Layer structure
 The layer is structured in the following way:
 
-- recipes-homeassistant/homeassistant: contains the core recipe needed to run homeassistant via Yocto
-- recipes-homeassistant/homeassistant-core-deps: contains recipes of components which are critical for a minimal homeassistant build. Without these HomeAssistant will not run
-- recipes-homeassistant/homeassistant-deps: contains optional components for HomeAssistant
+- recipes-homeassistant/homeassistant: contains the core recipe needed to run homeassistant via Yocto. Moreover it contains other recipe for components which are hosted here: https://github.com/home-assistant.
+- recipes-homeassistant/home-assistant-libs: contains recipes for components which are hosted by HA themselves at: https://github.com/home-assistant-libs
+- recipes-homeassistant/nabucasa: contains recipes for the HA cloud integration and which are hosted by HA at: https://github.com/NabuCasa/
+- recipes-homeassistant/images: contains sample images to build
 
-The recipes-devtools folder then contains all Yocto python recipes which do not fit the above categories. Most often these are tertiary dependencies.
+The recipes-devtools folder then contains all Yocto python recipes which do not fit the above categories. Most often these are other python dependencies.
 
 # Contributing
 

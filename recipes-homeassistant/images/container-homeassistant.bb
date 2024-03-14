@@ -1,4 +1,4 @@
-SUMMARY = "A small containr just capable of running Home Assistant"
+SUMMARY = "A small container just capable of running Home Assistant"
 
 IMAGE_INSTALL = "python3-homeassistant"
 

@@ -1,7 +1,8 @@
-From 89dace8bec277e0e82f3e02a43c82f97e7eb7dad Mon Sep 17 00:00:00 2001
+From 8b40b1fb8433426bf20b86f3b5675be9f8dd2fa0 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <tom.geelen@demcon.com>
-Date: Wed, 12 Apr 2023 01:12:53 +0200
-Subject: [PATCH] Update pyproject.toml to allow compilation
+Date: Thu, 6 Apr 2023 22:01:19 +0200
+Subject: [PATCH] Patch pyproject.toml to use upstream version of setuptools
+ and wheel
 
 Signed-off-by: Tom Geelen <tom.geelen@demcon.com>
 
@@ -10,13 +11,13 @@ Signed-off-by: Tom Geelen <tom.geelen@demcon.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index eb2ca031..3480fc59 100644
+index ac11d1f..a7e28aa 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@
  [build-system]
--requires = ["setuptools==68.0.0", "wheel~=0.40.0"]
-+requires = ["setuptools>=68.0.0", "wheel>=0.40.0"]
+-requires = ["setuptools~=62.3", "wheel~=0.37.1"]
++requires = ["setuptools>=62.3", "wheel>=0.37.1"]
  build-backend = "setuptools.build_meta"
  
  [project]
