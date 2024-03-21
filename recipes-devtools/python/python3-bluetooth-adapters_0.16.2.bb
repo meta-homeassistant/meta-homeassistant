@@ -11,6 +11,7 @@ inherit pypi python_poetry_core
 
 RDEPENDS:${PN} = "\
     python3-core (>3.9) \
+    python3-mac-vendor-lookup (>=0.1.12) \
 "
 
 RDEPENDS:${PN}-dev = "\
@@ -18,6 +19,5 @@ RDEPENDS:${PN}-dev = "\
     python3-async-timeout (>=4.0.2) \
     python3-bleak (>=0.15.1)) \
     python3-dbus-fast (>=1.21.0) \
-    python3-mac-vendor-lookup (>=0.1.12) \
     python3-usb-devices (>=0.4.5) \
 "
