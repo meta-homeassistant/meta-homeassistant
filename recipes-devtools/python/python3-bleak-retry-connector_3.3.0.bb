@@ -7,7 +7,7 @@ SRC_URI[sha256sum] = "56a53fd49a0d4cd1a467d07677f4f7741b1fe03ce9c781585b595e2c1b
 
 PYPI_PACKAGE = "bleak_retry_connector"
 
-inherit pypi python_setuptools_build_meta python_poetry_core
+inherit pypi python_poetry_core
 
 RDEPENDS:${PN} = "\
     python3-core (>=3.10) \

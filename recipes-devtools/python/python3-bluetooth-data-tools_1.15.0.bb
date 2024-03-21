@@ -15,4 +15,4 @@ RDEPENDS:${PN} = "\
     python3-core (>=3.10) \
 "
 
-inherit pypi python_setuptools_build_meta python_poetry_core
+inherit pypi python_poetry_core
