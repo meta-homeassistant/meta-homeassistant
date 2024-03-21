@@ -190,8 +190,8 @@ def main() -> None:
         layers = [
             "../../recipes-devtools/python",
             "../../recipes-homeassistant/homeassistant",
-            "../../recipes-homeassistant/homeassistant-core-deps",
-            "../../recipes-homeassistant/homeassistant-component-deps",
+            "../../recipes-homeassistant/home-assistant-libs",
+            "../../recipes-homeassistant/nabucasa",
             "../../../../sources/meta-openembedded/meta-python/recipes-connectivity/python-gsocketpool",
             "../../../../sources/meta-openembedded/meta-python/recipes-connectivity/python-h2",
             "../../../../sources/meta-openembedded/meta-python/recipes-connectivity/python-hpack",
