@@ -20,7 +20,7 @@ RDEPENDS:${PN}-axis = "\
 
 ALLOW_EMPTY:${PN}-cloud = "1"
 RDEPENDS:${PN}-cloud = "\
-    python3-hass-nabucasa (=0.74.0) \
+    python3-hass-nabucasa (=0.75.1) \
 "
 
 ALLOW_EMPTY:${PN}-fritz = "1"
@@ -41,7 +41,7 @@ RDEPENDS:${PN}-hue = "\
 
 ALLOW_EMPTY:${PN}-matter = "1"
 RDEPENDS:${PN}-matter = "\
-    python3-matter-server (=5.0.0) \
+    python3-matter-server (=5.1.1) \
 "
 
 ALLOW_EMPTY:${PN}-radio-browser = "1"
@@ -51,7 +51,7 @@ RDEPENDS:${PN}-radio-browser = "\
 
 ALLOW_EMPTY:${PN}-shelly = "1"
 RDEPENDS:${PN}-shelly = "\
-    python3-aioshelly (=6.1.0) \
+    python3-aioshelly (=7.0.0) \
 "
 
 ALLOW_EMPTY:${PN}-tts = "1"
@@ -61,8 +61,8 @@ RDEPENDS:${PN}-tts = "\
 
 ALLOW_EMPTY:${PN}-upnp = "1"
 RDEPENDS:${PN}-upnp = "\
-    python3-async-upnp-client (=0.36.2) \
-    python3-getmac (=0.8.2) \
+    python3-async-upnp-client (=0.38.0) \
+    python3-getmac (=0.9.4) \
 "
 
 RDEPENDS:${PN} += "\

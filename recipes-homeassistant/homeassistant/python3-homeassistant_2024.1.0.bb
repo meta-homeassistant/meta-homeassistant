@@ -13,7 +13,7 @@ SRC_URI += "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "75e6b43da702cc25a1321da0c3f915247c180a84fbcc9e76a9341b1e6a9cc14f"
+SRC_URI[sha256sum] = "b3396f49f91c3c6e831861d9e6236dcf41016bc0d561aa066564a573b0041b52"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -69,7 +69,7 @@ RDEPENDS:${PN} += "\
     python3-aiohttp (>=3.9.1) \
     python3-aiohttp-cors (=0.7.0) \
     python3-aiohttp-fast-url-dispatcher (=0.3.0) \
-    python3-aiohttp-zlib-ng (=0.1.1) \
+    python3-aiohttp-zlib-ng (=0.1.3) \
     python3-astral (=2.2) \
     python3-attrs (>=23.1.0) \
     python3-atomicwrites-homeassistant (=1.4.1) \
@@ -77,11 +77,11 @@ RDEPENDS:${PN} += "\
     python3-bcrypt (>=4.0.1) \   
     python3-certifi (>=2021.5.30) \
     python3-ciso8601 (=2.3.0) \
-    python3-httpx (=0.25.0) \
-    python3-home-assistant-bluetooth (=1.10.4) \
+    python3-httpx (=0.26.0) \
+    python3-home-assistant-bluetooth (=1.11.0) \
     python3-ifaddr (=0.2.0) \
     python3-jinja2 (>=3.1.2) \
-    python3-lru-dict (>=1.2.0) \
+    python3-lru-dict (>=1.3.0) \
     python3-pyjwt (=2.8.0) \
     python3-cryptography (>=41.0.7) \
     python3-pyopenssl (>=23.2.0) \
@@ -91,11 +91,12 @@ RDEPENDS:${PN} += "\
     python3-python-slugify (=4.0.1) \
     python3-pyyaml (=6.0.1) \
     python3-requests (=2.31.0) \
-    python3-typing-extensions (>=4.8.0) \
+    python3-typing-extensions (>=4.9.0) \
     python3-ulid-transform (=0.9.0) \
+    python3-urllib3 (>=1.26.5) \
     python3-voluptuous (=0.13.1) \
     python3-voluptuous-serialize (=2.6.0) \
-    python3-yarl (>=1.9.2) \
+    python3-yarl (>=1.9.4) \
     \
     python3-statistics \
     python3-core (>=3.11.0) \

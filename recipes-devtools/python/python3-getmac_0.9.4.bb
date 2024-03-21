@@ -3,7 +3,6 @@ HOMEPAGE = "https://github.com/GhostofGoes/getmac"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=49206937513d48371c7b19babc4ec77f"
 
-SRC_URI[md5sum] = "cf1af0d5c0e5d1fe7f62401bcb726a26"
-SRC_URI[sha256sum] = "d501d20b71856248cfa07a8758192e86a01077910afb8b659a89946c4d52d368"
+SRC_URI[sha256sum] = "8477755b69ff93a3b514b54e1fbb8ebb57d8f4e5c37e7c18bcef3a0f1f149232"
 
 inherit pypi setuptools3

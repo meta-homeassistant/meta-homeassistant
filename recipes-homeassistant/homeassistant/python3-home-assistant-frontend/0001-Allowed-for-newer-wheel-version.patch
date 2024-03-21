@@ -1,4 +1,4 @@
-From 8e86e31984b8fc0bb5793e53c2e44118ae3750b2 Mon Sep 17 00:00:00 2001
+From ed29b9b7b1ecf1d6cc9a216b35894ad40eba5649 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Tue, 2 Jan 2024 23:32:08 +0000
 Subject: [PATCH] Allowed for newer wheel version
@@ -9,7 +9,7 @@ Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index afea7e4..0d0d445 100644
+index b1f2ee8..24f65c1 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@

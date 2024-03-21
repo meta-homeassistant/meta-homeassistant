@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/Bluetooth-Devices/bluetooth-data-tools"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=732518afbb3ba92dbf606e49f9045cc9"
 
-SRC_URI[sha256sum] = "713b6377f89e83bcbce8e12b940ba10c7496b21dc608e9433489ccc5ea57dd4e"
+SRC_URI[sha256sum] = "5b58349126efbb38d61222267cf85bf1766f832cc5744a59e70a1a2653e477d9"
 
 PYPI_PACKAGE = "bluetooth_data_tools"
 

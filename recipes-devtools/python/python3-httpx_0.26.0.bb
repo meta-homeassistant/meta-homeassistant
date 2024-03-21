@@ -7,13 +7,14 @@ DEPENDS += "\
     python3-hatch-fancy-pypi-readme-native \
 "
 
-SRC_URI[sha256sum] = "47ecda285389cb32bb2691cc6e069e3ab0205956f681c5b2ad2325719751d875"
+SRC_URI[sha256sum] = "451b55c30d5185ea6b23c2c793abf9bb237d2a7dfb901ced6ff69ad37ec1dfaf"
 
 inherit pypi python_hatchling
 
 RDEPENDS:${PN} = "\
+    python3-core (>=3.8) \
     python3-certifi \
-    python3-httpcore (>=0.18.0) \
+    python3-httpcore (>=1.0.0) \
     python3-idna \
     python3-sniffio \
 "

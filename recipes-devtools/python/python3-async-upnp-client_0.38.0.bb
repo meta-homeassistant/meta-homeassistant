@@ -9,13 +9,13 @@ PYPI_ARCHIVE_NAME = "async_upnp_client-${PV}.${PYPI_PACKAGE_EXT}"
 
 S = "${WORKDIR}/async_upnp_client-${PV}"
 
-SRC_URI[sha256sum] = "0ba5d0b2560ed81b9cbb2960ecef20a9b560d65d75b36f9ccfe4ac0090c10323"
+SRC_URI[sha256sum] = "a7b6b45f4fb39ce988a6e0420ee5ed3ef1d34fb18254d96a239557ea3c1f7487"
 
 RDEPENDS:${PN} = "\
 	python3-core (>=3.8) \
 	python3-async-timeout (>=3.0.0) \
-	python3-aiohttp (>=3.8.1) \
-	python3-python-didl-lite (=1.3.2) \
+	python3-aiohttp (>=3.9.1) \
+	python3-python-didl-lite (=1.4.0) \
 	python3-defusedxml (>=0.6.0) \
 	python3-voluptuous (>=0.12.1) \
 "
