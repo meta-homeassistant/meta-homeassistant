@@ -4,8 +4,9 @@ import os
 import json
 import csv
 import shutil
+import sys
 import argparse
-from git import Repo
+from git import Repo, GitCommandError
 from packaging import version
 
 
@@ -51,7 +52,11 @@ def get_repo(ha_path, ha_version):
     else:
         print("Using tag: " + ha_version)
     # Now that we have it, check out this branch
-    repo.git.checkout(ha_version)
+    try:
+        repo.git.checkout(ha_version)
+    except GitCommandError:
+        print("Cannot find the required version. Does the tag exist?")
+        sys.exit()
     return ha_version
 
 
@@ -119,7 +124,8 @@ def compare_with_layers(requirements, ha_path, layers, csv_writer, upgrade_only)
                 if package[0] + "_" + package[1] == recipe[0] + "_" + recipe[1]:
                     try:
                         del missing_recipes_list[package[0]]
-                    except:
+                    # pylint: disable=W0718
+                    except Exception:
                         pass
                     found_recipes_list[package[0]] = package[1]
                     if upgrade_only != "y":
@@ -129,9 +135,11 @@ def compare_with_layers(requirements, ha_path, layers, csv_writer, upgrade_only)
                 elif package[0] == recipe[0]:
                     try:
                         del missing_recipes_list[package[0]]
-                    except:
+                    # pylint: disable=W0718
+                    except Exception:
                         pass
-                    # Now if the needed package version is higher than the found one, and no other package has been found in a
+                    # Now if the needed package version is higher than the found one,
+                    # and no other package has been found in a
                     # layer which is higher in the bblayers order, then add it to the list
                     if (version.parse(package[1]) > version.parse(recipe[1])) and (
                         package[0] not in found_recipes_list
@@ -161,8 +169,8 @@ def main() -> None:
     ha_path = os.path.join(os.path.dirname(__file__), "HA")
     # First get the repository for scanning, read the manifest and distill the requirements
     name = get_repo(ha_path, args.version)
-    with open(name + ".csv", "w", encoding="utf8") as outputFile:
-        csv_writer = csv.writer(outputFile)
+    with open(name + ".csv", "w", encoding="utf8") as output_file:
+        csv_writer = csv.writer(output_file)
         csv_writer.writerow(
             [
                 "Package Name",
@@ -183,10 +191,11 @@ def main() -> None:
             )
             requirements = get_unique_python_requirements(manifest_info, csv_writer2)
 
-        # Now there are multiple places where the python recipes can be found, we need to combine them
+        # Now there are multiple places where the python recipes can be found
         # 1: the meta-homeassistant layer
         # 2: poky
         # 3: the openembedded layer
+        # pylint: disable=C0301
         layers = [
             "../../recipes-devtools/python",
             "../../recipes-homeassistant/homeassistant",
