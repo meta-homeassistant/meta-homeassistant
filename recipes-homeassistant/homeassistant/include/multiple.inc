@@ -51,7 +51,7 @@ RDEPENDS:${PN}-radio-browser = "\
 
 ALLOW_EMPTY:${PN}-shelly = "1"
 RDEPENDS:${PN}-shelly = "\
-    python3-aioshelly (=7.0.0) \
+    python3-aioshelly (=7.1.0) \
 "
 
 ALLOW_EMPTY:${PN}-tts = "1"

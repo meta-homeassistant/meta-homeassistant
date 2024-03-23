@@ -10,10 +10,10 @@ RDEPENDS:${PN}-bluetooth = "\
     python3-bleak (=0.21.1) \
     python3-bleak-retry-connector (=3.4.0) \
     python3-bluetooth-adapters (=0.16.2) \
-    python3-bluetooth-auto-recovery (=1.2.3) \
+    python3-bluetooth-auto-recovery (=1.3.0) \
     python3-bluetooth-data-tools (=1.19.0) \
     python3-dbus-fast (>=2.21.0) \
-    python3-habluetooth (=2.0.2) \
+    python3-habluetooth (=2.1.0) \
 "
 
 ALLOW_EMPTY:${PN}-usb = "1"

@@ -9,11 +9,11 @@ HOMEASSISTANT_CONFIG_DIR[doc] = "Configuration directory used by home-assistant.
 HOMEASSISTANT_USER ?= "homeassistant"
 HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 
-SRC_URI += "\
+SRC_URI:append = "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "8a3b3d44dc75ec92349d21c2041df2b20acce0e74eb5c1fff7a3bd0dcad3b454"
+SRC_URI[sha256sum] = "323d3469392e9a6b0fa54b50e62506f71389e2b6ba49fbbcba4970ae8317a32d"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -74,11 +74,11 @@ RDEPENDS:${PN} += "\
     python3-attrs (>=23.1.0) \
     python3-atomicwrites-homeassistant (=1.4.1) \
     python3-awesomeversion (>=23.11.0) \
-    python3-bcrypt (>=4.0.1) \   
+    python3-bcrypt (>=4.0.1) \
     python3-certifi (>=2021.5.30) \
     python3-ciso8601 (=2.3.0) \
     python3-httpx (=0.26.0) \
-    python3-home-assistant-bluetooth (=1.11.0) \
+    python3-home-assistant-bluetooth (=1.12.0) \
     python3-ifaddr (=0.2.0) \
     python3-jinja2 (>=3.1.2) \
     python3-lru-dict (>=1.3.0) \
@@ -100,4 +100,4 @@ RDEPENDS:${PN} += "\
     \
     python3-statistics \
     python3-core (>=3.11.0) \
-" 
+"

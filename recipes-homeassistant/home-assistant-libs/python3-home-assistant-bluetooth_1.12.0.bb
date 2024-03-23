@@ -7,7 +7,7 @@ PYPI_PACKAGE = "home_assistant_bluetooth"
 
 inherit pypi python_poetry_core
 
-SRC_URI[sha256sum] = "75cc805917be2f7cad56bf19b7b2947d58c3919650634154e068f15b320f303d"
+SRC_URI[sha256sum] = "9cac369fea11f67c1165df527f918a8c56630cbccb3c5cbe24b72f06aeb9f59b"
 
 RDEPENDS:${PN} = "\
     python3-core (>=3.10) \
