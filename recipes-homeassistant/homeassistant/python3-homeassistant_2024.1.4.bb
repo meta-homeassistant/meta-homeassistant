@@ -13,7 +13,7 @@ SRC_URI:append = "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "323d3469392e9a6b0fa54b50e62506f71389e2b6ba49fbbcba4970ae8317a32d"
+SRC_URI[sha256sum] = "c701226de8e68e69ae47f3ff0a5028724d8d32c99fb7bb51096977ac50970b91"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -80,7 +80,7 @@ RDEPENDS:${PN} += "\
     python3-httpx (=0.26.0) \
     python3-home-assistant-bluetooth (=1.12.0) \
     python3-ifaddr (=0.2.0) \
-    python3-jinja2 (>=3.1.2) \
+    python3-jinja2 (>=3.1.3) \
     python3-lru-dict (>=1.3.0) \
     python3-pyjwt (=2.8.0) \
     python3-cryptography (>=41.0.7) \
