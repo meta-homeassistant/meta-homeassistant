@@ -13,7 +13,7 @@ SRC_URI:append = "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "c701226de8e68e69ae47f3ff0a5028724d8d32c99fb7bb51096977ac50970b91"
+SRC_URI[sha256sum] = "729b4de8d801ff5aa7bf3fbf12a0c14221f6bd242c39e4a58d25456411574796"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 

@@ -21,7 +21,7 @@ RDEPENDS:${PN}-route53 = "\
 
 ALLOW_EMPTY:${PN}-ssdp = "1"
 RDEPENDS:${PN}-ssdp = "\
-    python3-async-upnp-client (=0.38.0) \
+    python3-async-upnp-client (=0.38.1) \
 "
 
 ALLOW_EMPTY:${PN}-zeroconf = "1"
