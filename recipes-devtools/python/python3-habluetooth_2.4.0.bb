@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/bluetooth-devices/habluetooth"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=da57f3e0372e39698a274746eb9d65d6"
 
-SRC_URI[sha256sum] = "42edf66b6bc76de8213b4ad2a4163c7a64a8dd2a59b6a7792f98c2da64e00e69"
+SRC_URI[sha256sum] = "93b70fedda825a56e8812d7a5f43f8dc6b94bb1ea770c6cb57c87f8ac5068bf4"
 
 inherit pypi python_poetry_core
 

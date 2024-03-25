@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.md;md5=f4eda51018051de136d3b3742e9a7a40"
 
 inherit pypi setuptools3
 
-PYPI_ARCHIVE_NAME = "async_upnp_client-${PV}.${PYPI_PACKAGE_EXT}"
+PYPI_PACKAGE = "async_upnp_client"
 
 S = "${WORKDIR}/async_upnp_client-${PV}"
 

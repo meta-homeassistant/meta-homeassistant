@@ -13,7 +13,7 @@ SRC_URI:append = "\
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "8a9030fafa9e3dae4a03f1aa865dd6b106f39b33178e6571d0dbdbaccf3848a8"
+SRC_URI[sha256sum] = "7a813e8a75cfb12a3db0a710db1562c36bccb4c5050cc6d0cbaee8908b71d02d"
 
 inherit python_setuptools_build_meta pypi useradd systemd
 
@@ -66,29 +66,29 @@ require recipes-homeassistant/homeassistant/include/multiple.inc
 require recipes-homeassistant/homeassistant/include/none.inc
 
 RDEPENDS:${PN} += "\
-    python3-aiohttp (>=3.9.1) \
+    python3-aiohttp (>=3.9.3) \
     python3-aiohttp-cors (=0.7.0) \
     python3-aiohttp-fast-url-dispatcher (=0.3.0) \
-    python3-aiohttp-zlib-ng (=0.1.3) \
+    python3-aiohttp-zlib-ng (=0.3.1) \
     python3-astral (=2.2) \
-    python3-attrs (>=23.1.0) \
+    python3-attrs (>=23.2.0) \
     python3-atomicwrites-homeassistant (=1.4.1) \
-    python3-awesomeversion (>=23.11.0) \
+    python3-awesomeversion (>=24.2.0) \
     python3-bcrypt (>=4.0.1) \
     python3-certifi (>=2021.5.30) \
     python3-ciso8601 (=2.3.0) \
-    python3-httpx (=0.26.0) \
+    python3-httpx (>=0.26.0) \
     python3-home-assistant-bluetooth (=1.12.0) \
     python3-ifaddr (=0.2.0) \
     python3-jinja2 (>=3.1.3) \
     python3-lru-dict (>=1.3.0) \
     python3-pyjwt (=2.8.0) \
-    python3-cryptography (>=41.0.7) \
-    python3-pyopenssl (>=23.2.0) \
-    python3-orjson (=3.9.9) \
+    python3-cryptography (>=42.0.2) \
+    python3-pyopenssl (>=24.0.0) \
+    python3-orjson (=3.9.13) \
     python3-packaging (>=23.1) \
     python3-pip (>=21.3.1) \
-    python3-python-slugify (=4.0.1) \
+    python3-python-slugify (=8.0.1) \
     python3-pyyaml (=6.0.1) \
     python3-requests (=2.31.0) \
     python3-typing-extensions (>=4.9.0) \

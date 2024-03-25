@@ -16,7 +16,7 @@ RDEPENDS:${PN}-dhcp = "\
 
 ALLOW_EMPTY:${PN}-route53 = "1"
 RDEPENDS:${PN}-route53 = "\
-    python3-boto3 (>=1.28.17) \
+    python3-boto3 (>=1.33.13) \
 "
 
 ALLOW_EMPTY:${PN}-ssdp = "1"

@@ -12,8 +12,8 @@ RDEPENDS:${PN}-assist-pipeline = "\
 
 ALLOW_EMPTY:${PN}-conversation = "1"
 RDEPENDS:${PN}-conversation = "\
-    python3-hassil (>=1.5.1) \
-    python3-home-assistant-intents (>=2024.1.2) \
+    python3-hassil (>=1.6.1) \
+    python3-home-assistant-intents (>=2024.2.2) \
 "
 
 RDEPENDS:${PN} += "\

@@ -10,7 +10,7 @@ PYPI_SRC_URI = "https://github.com/home-assistant/frontend/releases/download/${P
 inherit pypi python_setuptools_build_meta
 
 SRC_URI += "file://0001-Allowed-for-newer-wheel-version.patch"
-SRC_URI[sha256sum] = "0e26ac2e142dc671b22849f3791d3247114632d7a234a74fd6775d6ce62e39eb"
+SRC_URI[sha256sum] = "f043d861b811e52f40aae0d89c0217539c0ecc9562b046585e1987a8049da43b"
 
 RDEPENDS:${PN} += " \
     python3-core (>=3.10) \
