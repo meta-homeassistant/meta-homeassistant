@@ -6,7 +6,7 @@ PACKAGES += "\
 
 ALLOW_EMPTY:${PN}-file-upload = "1"
 RDEPENDS:${PN}-file-upload = "\
-    ${PYTHON_PN}-janus (=1.0.0) \
+    python3-janus (=1.0.0) \
 "
 
 RDEPENDS:${PN} += "\

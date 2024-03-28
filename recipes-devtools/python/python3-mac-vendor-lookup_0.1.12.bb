@@ -15,8 +15,8 @@ S = "${WORKDIR}/git"
 inherit python_setuptools_build_meta
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-aiofiles \
-    ${PYTHON_PN}-aiohttp \
+    python3-aiofiles \
+    python3-aiohttp \
 "
 
 FILES:${PN} += "\

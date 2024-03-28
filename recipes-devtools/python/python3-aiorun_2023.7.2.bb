@@ -11,5 +11,5 @@ inherit pypi python_flit_core
 PYPI_PACKAGE = "aiorun"
 
 RDEPENDS:${PN} += "\
-	${PYTHON_PN}-core (>= 3.7) \
+	python3-core (>= 3.7) \
 "

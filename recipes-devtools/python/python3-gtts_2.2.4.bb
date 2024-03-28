@@ -13,7 +13,7 @@ SRCREV = "d57db26b60286e7f684d32e305757d5587005eee"
 S = "${WORKDIR}/git"
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-click \
-    ${PYTHON_PN}-requests \
-    ${PYTHON_PN}-six \
+    python3-click \
+    python3-requests \
+    python3-six \
 "

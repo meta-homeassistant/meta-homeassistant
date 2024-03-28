@@ -9,5 +9,5 @@ SRC_URI[sha256sum] = "df976f2cdcfb034b147a2d51edfc34ff6bfb12d4e2643d3ad0e10de058
 inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-typing-extensions (>=3.7.4.3) \
+    python3-typing-extensions (>=3.7.4.3) \
 "

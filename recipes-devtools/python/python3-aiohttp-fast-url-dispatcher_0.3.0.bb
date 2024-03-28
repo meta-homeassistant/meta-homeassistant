@@ -10,6 +10,6 @@ inherit pypi python_setuptools_build_meta python_poetry_core
 PYPI_PACKAGE = "aiohttp_fast_url_dispatcher"
 
 RDEPENDS:${PN} = "\
-	${PYTHON_PN}-core (>=3.8) \
-	${PYTHON_PN}-aiohttp (>= 3.8.5) \
+	python3-core (>=3.8) \
+	python3-aiohttp (>= 3.8.5) \
 "

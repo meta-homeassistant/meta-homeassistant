@@ -8,8 +8,8 @@ inherit pypi setuptools3
 SRC_URI[sha256sum] = "3843cfff56969f7c4b0b2fd499877941d0bf33e39c4541dc896c2b83bef5db24"
 
 RDEPENDS:${PN} = "\
-	${PYTHON_PN}-boto3 (>=1.10.49) \
-	${PYTHON_PN}-requests (>=2.22.0) \
-	${PYTHON_PN}-envs (>=1.3) \
-	${PYTHON_PN}-python-jose-cryptography (>=3.2.0) \
+	python3-boto3 (>=1.10.49) \
+	python3-requests (>=2.22.0) \
+	python3-envs (>=1.3) \
+	python3-python-jose-cryptography (>=3.2.0) \
 "

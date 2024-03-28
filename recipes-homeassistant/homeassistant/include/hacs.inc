@@ -6,7 +6,7 @@ PACKAGES += "\
 
 ALLOW_EMPTY:${PN}-hacs = "1"
 RDEPENDS:${PN}-hacs = "\
-    ${PYTHON_PN}-aiogithubapi (=22.10.1) \
+    python3-aiogithubapi (=22.10.1) \
 "
 
 RDEPENDS:${PN} += "\

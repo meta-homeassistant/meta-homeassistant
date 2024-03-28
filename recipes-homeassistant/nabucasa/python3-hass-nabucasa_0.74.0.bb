@@ -8,13 +8,13 @@ inherit pypi setuptools3
 SRC_URI[sha256sum] = "2962d1666ccedfe6621c51f91b08b141ff391a588574aaadf67f2f0e5e2eba8c"
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-core (>=3.10) \
-    ${PYTHON_PN}-pycognito (=2023.5.0) \
-    ${PYTHON_PN}-snitun (>=0.36.2) \
-    ${PYTHON_PN}-ciso8601 (>=2.3.0) \
-    ${PYTHON_PN}-acme (=2.7.1) \
-    ${PYTHON_PN}-cryptography (>=2.8) \
-    ${PYTHON_PN}-attrs (>=19.3) \
-    ${PYTHON_PN}-aiohttp (>=3.6.1) \
-    ${PYTHON_PN}-atomicwrites-homeassistant (=1.4.1) \ 
+    python3-core (>=3.10) \
+    python3-pycognito (=2023.5.0) \
+    python3-snitun (>=0.36.2) \
+    python3-ciso8601 (>=2.3.0) \
+    python3-acme (=2.7.1) \
+    python3-cryptography (>=2.8) \
+    python3-attrs (>=19.3) \
+    python3-aiohttp (>=3.6.1) \
+    python3-atomicwrites-homeassistant (=1.4.1) \ 
 "

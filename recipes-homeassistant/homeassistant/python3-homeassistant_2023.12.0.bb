@@ -66,37 +66,37 @@ require recipes-homeassistant/homeassistant/include/multiple.inc
 require recipes-homeassistant/homeassistant/include/none.inc
 
 RDEPENDS:${PN} += "\
-    ${PYTHON_PN}-aiohttp (>=3.9.1) \
-    ${PYTHON_PN}-aiohttp-cors (=0.7.0) \
-    ${PYTHON_PN}-aiohttp-fast-url-dispatcher (=0.3.0) \
-    ${PYTHON_PN}-aiohttp-zlib-ng (=0.1.1) \
-    ${PYTHON_PN}-astral (=2.2) \
-    ${PYTHON_PN}-attrs (>=23.1.0) \
-    ${PYTHON_PN}-atomicwrites-homeassistant (=1.4.1) \
-    ${PYTHON_PN}-awesomeversion (>=23.11.0) \
-    ${PYTHON_PN}-bcrypt (>=4.0.1) \   
-    ${PYTHON_PN}-certifi (>=2021.5.30) \
-    ${PYTHON_PN}-ciso8601 (=2.3.0) \
-    ${PYTHON_PN}-httpx (=0.25.0) \
-    ${PYTHON_PN}-home-assistant-bluetooth (=1.10.4) \
-    ${PYTHON_PN}-ifaddr (=0.2.0) \
-    ${PYTHON_PN}-jinja2 (>=3.1.2) \
-    ${PYTHON_PN}-lru-dict (>=1.2.0) \
-    ${PYTHON_PN}-pyjwt (=2.8.0) \
-    ${PYTHON_PN}-cryptography (>=41.0.7) \
-    ${PYTHON_PN}-pyopenssl (>=23.2.0) \
-    ${PYTHON_PN}-orjson (=3.9.9) \
-    ${PYTHON_PN}-packaging (>=23.1) \
-    ${PYTHON_PN}-pip (>=21.3.1) \
-    ${PYTHON_PN}-python-slugify (=4.0.1) \
-    ${PYTHON_PN}-pyyaml (=6.0.1) \
-    ${PYTHON_PN}-requests (=2.31.0) \
-    ${PYTHON_PN}-typing-extensions (>=4.8.0) \
-    ${PYTHON_PN}-ulid-transform (=0.9.0) \
-    ${PYTHON_PN}-voluptuous (=0.13.1) \
-    ${PYTHON_PN}-voluptuous-serialize (=2.6.0) \
-    ${PYTHON_PN}-yarl (>=1.9.2) \
+    python3-aiohttp (>=3.9.1) \
+    python3-aiohttp-cors (=0.7.0) \
+    python3-aiohttp-fast-url-dispatcher (=0.3.0) \
+    python3-aiohttp-zlib-ng (=0.1.1) \
+    python3-astral (=2.2) \
+    python3-attrs (>=23.1.0) \
+    python3-atomicwrites-homeassistant (=1.4.1) \
+    python3-awesomeversion (>=23.11.0) \
+    python3-bcrypt (>=4.0.1) \   
+    python3-certifi (>=2021.5.30) \
+    python3-ciso8601 (=2.3.0) \
+    python3-httpx (=0.25.0) \
+    python3-home-assistant-bluetooth (=1.10.4) \
+    python3-ifaddr (=0.2.0) \
+    python3-jinja2 (>=3.1.2) \
+    python3-lru-dict (>=1.2.0) \
+    python3-pyjwt (=2.8.0) \
+    python3-cryptography (>=41.0.7) \
+    python3-pyopenssl (>=23.2.0) \
+    python3-orjson (=3.9.9) \
+    python3-packaging (>=23.1) \
+    python3-pip (>=21.3.1) \
+    python3-python-slugify (=4.0.1) \
+    python3-pyyaml (=6.0.1) \
+    python3-requests (=2.31.0) \
+    python3-typing-extensions (>=4.8.0) \
+    python3-ulid-transform (=0.9.0) \
+    python3-voluptuous (=0.13.1) \
+    python3-voluptuous-serialize (=2.6.0) \
+    python3-yarl (>=1.9.2) \
     \
-    ${PYTHON_PN}-statistics \
-    ${PYTHON_PN}-core (>=3.11.0) \
+    python3-statistics \
+    python3-core (>=3.11.0) \
 " 

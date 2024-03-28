@@ -4,7 +4,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=2aa2bed6f8750823223a2c11d7bc90c5"
 
 DEPENDS += "\
-    ${PYTHON_PN}-pybind11-native \
+    python3-pybind11-native \
 "
 
 inherit pypi python_setuptools_build_meta

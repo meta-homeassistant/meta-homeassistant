@@ -10,11 +10,11 @@ PYPI_PACKAGE = "bluetooth_adapters"
 inherit pypi python_setuptools_build_meta python_poetry_core
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-core (>3.9) \
-    ${PYTHON_PN}-aiohttp (>=3.8.1) \
-    ${PYTHON_PN}-async-timeout (>=4.0.2) \
-    ${PYTHON_PN}-bleak (>=0.15.1)) \
-    ${PYTHON_PN}-dbus-fast (>=1.21.0) \
-    ${PYTHON_PN}-mac-vendor-lookup (>=0.1.12) \
-    ${PYTHON_PN}-usb-devices (>=0.4.1) \
+    python3-core (>3.9) \
+    python3-aiohttp (>=3.8.1) \
+    python3-async-timeout (>=4.0.2) \
+    python3-bleak (>=0.15.1)) \
+    python3-dbus-fast (>=1.21.0) \
+    python3-mac-vendor-lookup (>=0.1.12) \
+    python3-usb-devices (>=0.4.1) \
 "

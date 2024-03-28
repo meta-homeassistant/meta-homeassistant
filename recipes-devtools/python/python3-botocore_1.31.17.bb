@@ -9,14 +9,14 @@ SRC_URI[sha256sum] = "396459065dba4339eb4da4ec8b4e6599728eb89b7caaceea199e26f7d8
 inherit pypi setuptools3
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-jmespath \
-    ${PYTHON_PN}-dateutil \
-    ${PYTHON_PN}-docutils \
-    ${PYTHON_PN}-shell \
-    ${PYTHON_PN}-netserver \
-    ${PYTHON_PN}-email \
-    ${PYTHON_PN}-json \
-    ${PYTHON_PN}-numbers \
-    ${PYTHON_PN}-html \
-    ${PYTHON_PN}-urllib3 \
+    python3-jmespath \
+    python3-dateutil \
+    python3-docutils \
+    python3-shell \
+    python3-netserver \
+    python3-email \
+    python3-json \
+    python3-numbers \
+    python3-html \
+    python3-urllib3 \
 " 

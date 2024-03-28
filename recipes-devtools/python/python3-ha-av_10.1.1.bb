@@ -9,11 +9,11 @@ SRC_URI[sha256sum] = "41a30556f8258a9374906d7e65034a93b593c9d4b220f9f6a9adf652db
 inherit pypi python_setuptools_build_meta pkgconfig
 
 DEPENDS += "\
-    ${PYTHON_PN}-cython-native \
+    python3-cython-native \
     ffmpeg \
 "
 
 RDEPENDS:${PN} += "\
-    ${PYTHON_PN}-numpy \
-    ${PYTHON_PN}-pillow \
+    python3-numpy \
+    python3-pillow \
 "

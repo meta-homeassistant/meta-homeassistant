@@ -6,7 +6,7 @@ PACKAGES += "\
 
 ALLOW_EMPTY:${PN}-modbus = "1"
 RDEPENDS:${PN}-modbus = "\
-    ${PYTHON_PN}-pymodbus (>=3.5.4) \
+    python3-pymodbus (>=3.5.4) \
 "
 
 RDEPENDS:${PN} += "\

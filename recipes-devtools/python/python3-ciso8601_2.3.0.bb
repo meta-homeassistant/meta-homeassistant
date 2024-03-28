@@ -8,5 +8,5 @@ inherit pypi setuptools3
 SRC_URI[sha256sum] = "19e3fbd786d8bec3358eac94d8774d365b694b604fd1789244b87083f66c8900"
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-pytz \
+    python3-pytz \
 "

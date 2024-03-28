@@ -11,6 +11,6 @@ SRC_URI += "file://0001-Patch-to-be-able-to-compile.patch"
 inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-idna (>=2.8) \
-    ${PYTHON_PN}-sniffio (>=1.1) \
+    python3-idna (>=2.8) \
+    python3-sniffio (>=1.1) \
 "

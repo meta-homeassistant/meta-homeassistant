@@ -8,11 +8,11 @@ inherit pypi python_poetry_core
 PYPI_PACKAGE = "fnv_hash_fast"
 
 DEPENDS += "\
-    ${PYTHON_PN}-cython-native \
+    python3-cython-native \
 "
 
 SRC_URI[sha256sum] = "a84d658952776a186418f4158fc8e55ff3c576ac32cc9ef7f8077efdf2d0b89f"
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-fnvhash (>=0.1.0) \
+    python3-fnvhash (>=0.1.0) \
 "

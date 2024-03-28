@@ -12,8 +12,8 @@ SRC_URI[sha256sum] = "47ecda285389cb32bb2691cc6e069e3ab0205956f681c5b2ad23257197
 inherit pypi python_hatchling
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-certifi \
-    ${PYTHON_PN}-httpcore (>=0.18.0) \
-    ${PYTHON_PN}-idna \
-    ${PYTHON_PN}-sniffio \
+    python3-certifi \
+    python3-httpcore (>=0.18.0) \
+    python3-idna \
+    python3-sniffio \
 "

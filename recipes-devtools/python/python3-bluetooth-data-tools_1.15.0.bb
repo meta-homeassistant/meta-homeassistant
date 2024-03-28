@@ -8,11 +8,11 @@ SRC_URI[sha256sum] = "713b6377f89e83bcbce8e12b940ba10c7496b21dc608e9433489ccc5ea
 PYPI_PACKAGE = "bluetooth_data_tools"
 
 DEPENDS += "\
-    ${PYTHON_PN}-cython-native \
+    python3-cython-native \
 "
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-core (>=3.10) \
+    python3-core (>=3.10) \
 "
 
 inherit pypi python_setuptools_build_meta python_poetry_core

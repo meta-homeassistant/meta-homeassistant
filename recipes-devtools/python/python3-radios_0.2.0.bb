@@ -8,13 +8,13 @@ SRC_URI[sha256sum] = "617c8f3dfb5824fd268cfb9662967e76e4b7467285f4e22de90973296c
 inherit pypi python_setuptools_build_meta python_poetry_core
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-aiodns (>=3.0) \
-    ${PYTHON_PN}-aiohttp (>=3.0.0) \
-    ${PYTHON_PN}-awesomeversion (>=21.10.1) \
-    ${PYTHON_PN}-backoff (>=1.9.0) \
-    ${PYTHON_PN}-cachetools (>=4.0.0) \
-    ${PYTHON_PN}-mashumaro (>= 3.10) \
-    ${PYTHON_PN}-pycountry (>=22.1.10) \
-    ${PYTHON_PN}-core (>=3.11) \
-    ${PYTHON_PN}-yarl (>=1.6.0) \
+    python3-aiodns (>=3.0) \
+    python3-aiohttp (>=3.0.0) \
+    python3-awesomeversion (>=21.10.1) \
+    python3-backoff (>=1.9.0) \
+    python3-cachetools (>=4.0.0) \
+    python3-mashumaro (>= 3.10) \
+    python3-pycountry (>=22.1.10) \
+    python3-core (>=3.11) \
+    python3-yarl (>=1.6.0) \
 "

@@ -8,7 +8,7 @@ inherit pypi setuptools3
 SRC_URI[sha256sum] = "90f7cfb5e1821af95b1fc084bc50e6c47fa3edc99f32de1a2591faa0c546bea7"
 
 RDEPENDS:${PN} = "\
-    ${PYTHON_PN}-botocore (>=1.31.17) \
-    ${PYTHON_PN}-jmespath (>=0.7.1) \
-    ${PYTHON_PN}-s3transfer (>=0.6.0) \
+    python3-botocore (>=1.31.17) \
+    python3-jmespath (>=0.7.1) \
+    python3-s3transfer (>=0.6.0) \
 "
