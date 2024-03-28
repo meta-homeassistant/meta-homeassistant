@@ -9,8 +9,9 @@ PACKAGES += "\
 
 ALLOW_EMPTY:${PN}-dhcp = "1"
 RDEPENDS:${PN}-dhcp = "\
-    python3-aiodiscover (=1.5.1) \
+    python3-aiodiscover (=1.6.0) \
     python3-scapy (=2.5.0) \
+    python3-cached-ipaddress (=0.3.0) \
 "
 
 ALLOW_EMPTY:${PN}-route53 = "1"
@@ -20,12 +21,12 @@ RDEPENDS:${PN}-route53 = "\
 
 ALLOW_EMPTY:${PN}-ssdp = "1"
 RDEPENDS:${PN}-ssdp = "\
-    python3-async-upnp-client (=0.36.2) \
+    python3-async-upnp-client (=0.38.0) \
 "
 
 ALLOW_EMPTY:${PN}-zeroconf = "1"
 RDEPENDS:${PN}-zeroconf = "\
-    python3-zeroconf (>=0.119.0) \
+    python3-zeroconf (>=0.131.0) \
 "
 
 RDEPENDS:${PN} += "\

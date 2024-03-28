@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/bdraco/aiohttp-zlib-ng"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=da57f3e0372e39698a274746eb9d65d6"
 
-SRC_URI[sha256sum] = "8f3a9a9b4e8bfa9c3cfa7fb619b1268d6e986a66e452de067a81017717bb6962"
+SRC_URI[sha256sum] = "2aafeb911de5075b1374736c7830b5d203988937d25b015e89c22390f4a6856a"
 
 inherit pypi python_poetry_core
 

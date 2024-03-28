@@ -7,7 +7,7 @@ SRC_URI[sha256sum] = "1040aa81e31398dba971028c8663ba2555b28e4396efe56dee2f199977
 
 PYPI_PACKAGE = "bluetooth_auto_recovery"
 
-inherit pypi python_setuptools_build_meta python_poetry_core
+inherit pypi python_poetry_core
 
 RDEPENDS:${PN} = "\
     python3-core (>3.9) \

@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.md;md5=d12eb6585c37cdb43a60b053ee6ba32d"
 
 SRC_URI[sha256sum] = "617c8f3dfb5824fd268cfb9662967e76e4b7467285f4e22de90973296ca5bd10"
 
-inherit pypi python_setuptools_build_meta python_poetry_core
+inherit pypi python_poetry_core
 
 RDEPENDS:${PN} = "\
     python3-aiodns (>=3.0) \
