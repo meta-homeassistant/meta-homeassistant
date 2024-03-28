@@ -16,12 +16,12 @@ RDEPENDS:${PN}-dhcp = "\
 
 ALLOW_EMPTY:${PN}-route53 = "1"
 RDEPENDS:${PN}-route53 = "\
-    python3-boto3 (>=1.28.17) \
+    python3-boto3 (>=1.33.13) \
 "
 
 ALLOW_EMPTY:${PN}-ssdp = "1"
 RDEPENDS:${PN}-ssdp = "\
-    python3-async-upnp-client (=0.38.0) \
+    python3-async-upnp-client (=0.38.1) \
 "
 
 ALLOW_EMPTY:${PN}-zeroconf = "1"

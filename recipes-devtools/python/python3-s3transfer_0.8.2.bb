@@ -4,10 +4,10 @@ AUTHOR = "Amazon Web Services"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
-SRC_URI[sha256sum] = "2ed07d3866f523cc561bf4a00fc5535827981b117dd7876f036b0c1aca42c947"
+SRC_URI[sha256sum] = "368ac6876a9e9ed91f6bc86581e319be08188dc60d50e0d56308ed5765446283"
 
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "\
-    python3-botocore (>=1.12.36) \
+    python3-botocore (>=1.33.2) \
 "

@@ -18,7 +18,7 @@ RDEPENDS:${PN}-backup = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    python3-home-assistant-frontend (=20240103.3) \
+    python3-home-assistant-frontend (=20240207.0) \
 "
 
 ALLOW_EMPTY:${PN}-hardware = "1"
@@ -30,9 +30,10 @@ ALLOW_EMPTY:${PN}-http = "1"
 RDEPENDS:${PN}-http = "\
     python3-aiohttp-cors (=0.7.0) \
     python3-aiohttp-fast-url-dispatcher (=0.3.0) \
-    python3-aiohttp-zlib-ng (=0.1.3) \
+    python3-aiohttp-zlib-ng (=0.3.1) \
 "
 
+#TODO This should be 10.2.0
 ALLOW_EMPTY:${PN}-image-upload = "1"
 RDEPENDS:${PN}-image-upload = "\
     python3-pillow (>=10.1.0) \

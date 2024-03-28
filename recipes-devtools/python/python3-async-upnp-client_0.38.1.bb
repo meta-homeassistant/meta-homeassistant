@@ -5,11 +5,11 @@ LIC_FILES_CHKSUM = "file://LICENSE.md;md5=f4eda51018051de136d3b3742e9a7a40"
 
 inherit pypi setuptools3
 
-PYPI_ARCHIVE_NAME = "async_upnp_client-${PV}.${PYPI_PACKAGE_EXT}"
+PYPI_PACKAGE = "async_upnp_client"
 
 S = "${WORKDIR}/async_upnp_client-${PV}"
 
-SRC_URI[sha256sum] = "a7b6b45f4fb39ce988a6e0420ee5ed3ef1d34fb18254d96a239557ea3c1f7487"
+SRC_URI[sha256sum] = "adb873e50c93cd4539b8812c94db6f806a5ce72fb3e31946567ac537f666ada4"
 
 RDEPENDS:${PN} = "\
 	python3-core (>=3.8) \
