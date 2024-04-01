@@ -7,7 +7,7 @@ PACKAGES += "\
 
 ALLOW_EMPTY:${PN}-cast = "1"
 RDEPENDS:${PN}-cast = "\
-    python3-pychromecast (>=13.0.8) \
+    python3-pychromecast (>=13.1.0) \
 "
 
 ALLOW_EMPTY:${PN}-vlc = "1"

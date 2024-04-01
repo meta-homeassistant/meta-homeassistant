@@ -13,12 +13,12 @@ RDEPENDS:${PN}-ipp = "\
 
 ALLOW_EMPTY:${PN}-sentry = "1"
 RDEPENDS:${PN}-sentry = "\
-    python3-sentry-sdk (>=1.37.1) \
+    python3-sentry-sdk (>=1.39.2) \
 "
 
 ALLOW_EMPTY:${PN}-systemmonitor = "1"
 RDEPENDS:${PN}-systemmonitor = "\
-    python3-psutil (>=5.9.7) \
+    python3-psutil (>=5.9.8) \
 "
 
 RDEPENDS:${PN} += "\

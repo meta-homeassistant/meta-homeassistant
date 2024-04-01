@@ -41,7 +41,7 @@ RDEPENDS:${PN}-hue = "\
 
 ALLOW_EMPTY:${PN}-matter = "1"
 RDEPENDS:${PN}-matter = "\
-    python3-matter-server (=5.1.1) \
+    python3-matter-server (=5.5.0) \
 "
 
 ALLOW_EMPTY:${PN}-radio-browser = "1"
