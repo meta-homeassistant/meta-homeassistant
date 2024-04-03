@@ -61,7 +61,7 @@ RDEPENDS:${PN}-tts = "\
 
 ALLOW_EMPTY:${PN}-upnp = "1"
 RDEPENDS:${PN}-upnp = "\
-    python3-async-upnp-client (=0.38.1) \
+    python3-async-upnp-client (=0.38.2) \
     python3-getmac (=0.9.4) \
 "
 

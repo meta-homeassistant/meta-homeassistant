@@ -13,7 +13,7 @@ DEPENDS += "\
 
 require ${BPN}-crates.inc
 
-SRC_URI[sha256sum] = "fc6bc65b0cf524ee042e0bc2912b9206ef242edfba7426cf95763e4af01f527a"
+SRC_URI[sha256sum] = "06fb40f8e49088ecaa02f1162581d39e2cf3fd9dbbfe411eb2284147c99bad79"
 SRC_URI:append = " \
     file://0001-Fix-compilation-error-for-orjson.patch \
 "
