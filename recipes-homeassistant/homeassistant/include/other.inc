@@ -13,12 +13,12 @@ PACKAGES += "\
 
 ALLOW_EMPTY:${PN}-backup = "1"
 RDEPENDS:${PN}-backup = "\
-    python3-securetar (=2023.3.0) \
+    python3-securetar (=2024.2.1) \
 "
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    python3-home-assistant-frontend (=20240207.1) \
+    python3-home-assistant-frontend (=20240306.0) \
 "
 
 ALLOW_EMPTY:${PN}-hardware = "1"

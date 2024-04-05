@@ -8,7 +8,7 @@ ALLOW_EMPTY:${PN}-recorder = "1"
 RDEPENDS:${PN}-recorder = "\
     python3-sqlite3 \
     python3-fnv-hash-fast (=0.5.0) \
-    python3-sqlalchemy (>=2.0.25) \
+    python3-sqlalchemy (>=2.0.27) \
     python3-psutil-home-assistant (=0.0.1) \
 "
 

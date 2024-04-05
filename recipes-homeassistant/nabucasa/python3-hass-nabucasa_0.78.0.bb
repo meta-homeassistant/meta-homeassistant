@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 inherit pypi setuptools3
 
-SRC_URI[sha256sum] = "f352d9c80bbf553e1a8dfc8bfad0be183932c7d3e0c945f1bfb98eed103dec4e"
+SRC_URI[sha256sum] = "f2bb020398bfa2e9f4cf5a3e88016037f5edc16c1b4b6360f3c4d37aee0fcecd"
 
 RDEPENDS:${PN} = "\
     python3-acme (=2.8.0) \

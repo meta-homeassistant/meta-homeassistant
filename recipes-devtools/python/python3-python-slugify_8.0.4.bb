@@ -7,7 +7,7 @@ PYPI_PACKAGE = "python-slugify"
 
 inherit setuptools3 pypi
 
-SRC_URI[sha256sum] = "ce0d46ddb668b3be82f4ed5e503dbc33dd815d83e2eb6824211310d3fb172a27"
+SRC_URI[sha256sum] = "59202371d1d05b54a9e7720c5e038f928f45daaffe41dd10822f3907b937c856"
 
 RDEPENDS:${PN} = "\
     python3-text-unidecode (>=1.3) \

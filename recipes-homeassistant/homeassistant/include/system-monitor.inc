@@ -8,17 +8,18 @@ PACKAGES += "\
 
 ALLOW_EMPTY:${PN}-ipp = "1"
 RDEPENDS:${PN}-ipp = "\
-    python3-pyipp (=0.14.4) \
+    python3-pyipp (=0.14.5) \
 "
 
 ALLOW_EMPTY:${PN}-sentry = "1"
 RDEPENDS:${PN}-sentry = "\
-    python3-sentry-sdk (>=1.39.2) \
+    python3-sentry-sdk (>=1.40.3) \
 "
 
 ALLOW_EMPTY:${PN}-systemmonitor = "1"
 RDEPENDS:${PN}-systemmonitor = "\
     python3-psutil (>=5.9.8) \
+    python3-psutil-home-assistant (=0.0.1) \
 "
 
 RDEPENDS:${PN} += "\
