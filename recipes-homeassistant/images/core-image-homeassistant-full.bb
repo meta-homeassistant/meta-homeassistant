@@ -40,6 +40,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-sentry \
     python3-homeassistant-shelly \
     python3-homeassistant-ssdp \
+    python3-homeassistant-stream \
     python3-homeassistant-systemmonitor \
     python3-homeassistant-tts \
     python3-homeassistant-upnp \
