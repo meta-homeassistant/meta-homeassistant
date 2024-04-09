@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.md;md5=2ab724713fdaf49e4523c4503bfd068d"
 inherit pypi python_setuptools_build_meta
 
 SRC_URI += "file://0001-Patch-pyproject.toml-to-use-upstream-version-of-setu.patch"
-SRC_URI[sha256sum] = "1269da61cf8bd4f1cebfa33ba1d60397e5016642c946d3fceb13e8a9d6ee3aa5"
+SRC_URI[sha256sum] = "f68327e6880772ea290275e0013bbdc6504104c79627d453e42fffc49e453812"
 
 RDEPENDS:${PN} = "\
     python3-core (>=3.9.0) \

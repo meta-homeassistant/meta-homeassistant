@@ -9,8 +9,8 @@ PACKAGES += "\
 
 ALLOW_EMPTY:${PN}-dhcp = "1"
 RDEPENDS:${PN}-dhcp = "\
+    python3-aiodhcpwatcher (=0.8.1) \
     python3-aiodiscover (=1.6.1) \
-    python3-aiodhcpwatcher (=0.8.0) \
     python3-cached-ipaddress (=0.3.0) \
 "
 

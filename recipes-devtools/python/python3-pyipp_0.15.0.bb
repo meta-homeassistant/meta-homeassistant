@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/ctalkington/python-ipp"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=4a8a03ceb18c4f191643ef270d79452c"
 
-SRC_URI[sha256sum] = "764d14ab0adde2a40cc30439bcbda13d728001f9004467670d830c6d39f4aa9d"
+SRC_URI[sha256sum] = "2240779c43e29205e84cbc317f082a43b505082a52a491c1e6b6c5319df1c905"
 
 inherit pypi python_poetry_core
 

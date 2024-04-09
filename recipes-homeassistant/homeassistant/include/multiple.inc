@@ -15,7 +15,7 @@ PACKAGES += "\
 
 ALLOW_EMPTY:${PN}-axis = "1"
 RDEPENDS:${PN}-axis = "\
-    python3-axis (=50) \
+    python3-axis (=54) \
 "
 
 ALLOW_EMPTY:${PN}-cloud = "1"
