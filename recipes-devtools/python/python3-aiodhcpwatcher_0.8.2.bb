@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/bdraco/aiodhcpwatcher"
 LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=9162e57b23bfbab5d0cd9e24c0bfb450"
 
-SRC_URI[sha256sum] = "9b5f8bd0361455714e400dbc8ecfe2a9cdf7d3e26292f4fa2433aa3111c9fa43"
+SRC_URI[sha256sum] = "a887f89ca7b802ba8cecdb3b2643f3a4794d05d9ba2a567582ab770184d0a5ad"
 
 inherit pypi python_poetry_core
 

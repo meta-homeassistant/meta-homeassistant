@@ -192,7 +192,7 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
                     if integrations_only == "y":
                         if manifest["domain"] in integrations:
                             if upgrade_only == "y":
-                                if package[0] in list_of_recipes and version.parse(package[1]) > version.parse(list_of_versions[list_of_recipes.index(package[0])]):
+                                if package[0] in list_of_recipes and version.parse(package[1]) != version.parse(list_of_versions[list_of_recipes.index(package[0])]):
                                     df.append(
                                         {
                                             "Component": manifest["domain"],

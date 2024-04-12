@@ -1,4 +1,4 @@
-From c2029a4b025cdf990d34be941f7396f8a1e1965d Mon Sep 17 00:00:00 2001
+From 3d0cd2cd73c1e5189ec307e11cb1dbe345a46ea2 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Thu, 4 Apr 2024 21:51:46 +0000
 Subject: [PATCH] Adjust min version of wheel and setuptools
@@ -9,7 +9,7 @@ Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index af1635e..b4d961c 100644
+index e7eb8a6..43392d6 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@
