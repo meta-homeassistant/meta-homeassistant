@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=d2c2a5517cd7fd190a1aa6dfa23abb7a"
 
 inherit pypi setuptools3
 
-SRC_URI[sha256sum] = "f1f700ce60d84512fcd19a887f03557fd58e861b3fa061861f90cb90fdbbf208"
+SRC_URI[sha256sum] = "f7fb2aa4f7ccd132f4ece307d9de6d30b94b2a08c302531f4f43f85ed18673ea"
 
 RDEPENDS:${PN} = "\
     python3-cryptography (>=3.2.1) \

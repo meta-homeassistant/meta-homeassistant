@@ -6,7 +6,7 @@ PACKAGES += "\
 
 ALLOW_EMPTY:${PN}-met = "1"
 RDEPENDS:${PN}-met = "\
-    python3-pymetno (>=0.11.0) \
+    python3-pymetno (>=0.12.0) \
 "
 
 RDEPENDS:${PN} += "\

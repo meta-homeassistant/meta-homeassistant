@@ -18,7 +18,7 @@ RDEPENDS:${PN}-backup = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    python3-home-assistant-frontend (=20240307.0) \
+    python3-home-assistant-frontend (=20240403.1) \
 "
 
 ALLOW_EMPTY:${PN}-hardware = "1"
