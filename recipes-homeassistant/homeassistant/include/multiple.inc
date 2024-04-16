@@ -15,12 +15,12 @@ PACKAGES += "\
 
 ALLOW_EMPTY:${PN}-axis = "1"
 RDEPENDS:${PN}-axis = "\
-    python3-axis (=48) \
+    python3-axis (=50) \
 "
 
 ALLOW_EMPTY:${PN}-cloud = "1"
 RDEPENDS:${PN}-cloud = "\
-    python3-hass-nabucasa (=0.76.0) \
+    python3-hass-nabucasa (=0.78.0) \
 "
 
 ALLOW_EMPTY:${PN}-fritz = "1"
@@ -41,7 +41,7 @@ RDEPENDS:${PN}-hue = "\
 
 ALLOW_EMPTY:${PN}-matter = "1"
 RDEPENDS:${PN}-matter = "\
-    python3-matter-server (=5.1.1) \
+    python3-python-matter-server (=5.7.0) \
 "
 
 ALLOW_EMPTY:${PN}-radio-browser = "1"
@@ -51,7 +51,7 @@ RDEPENDS:${PN}-radio-browser = "\
 
 ALLOW_EMPTY:${PN}-shelly = "1"
 RDEPENDS:${PN}-shelly = "\
-    python3-aioshelly (=8.0.1) \
+    python3-aioshelly (=8.1.1) \
 "
 
 ALLOW_EMPTY:${PN}-tts = "1"
@@ -61,7 +61,7 @@ RDEPENDS:${PN}-tts = "\
 
 ALLOW_EMPTY:${PN}-upnp = "1"
 RDEPENDS:${PN}-upnp = "\
-    python3-async-upnp-client (=0.38.1) \
+    python3-async-upnp-client (=0.38.2) \
     python3-getmac (=0.9.4) \
 "
 

@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=650b6b7ede4fbd14ab012aceb71d69d7"
 
 inherit pypi setuptools3
 
-SRC_URI[sha256sum] = "19e3fbd786d8bec3358eac94d8774d365b694b604fd1789244b87083f66c8900"
+SRC_URI[sha256sum] = "3212c7ffe5d8080270548b5f2692ffd2039683b6628a8d2ad456122cc5793c4c"
 
 RDEPENDS:${PN} = "\
     python3-pytz \
