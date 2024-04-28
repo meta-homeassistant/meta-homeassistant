@@ -8,7 +8,7 @@ PACKAGES += "\
 
 ALLOW_EMPTY:${PN}-ipp = "1"
 RDEPENDS:${PN}-ipp = "\
-    python3-pyipp (=0.14.5) \
+    python3-pyipp (=0.15.0) \
 "
 
 ALLOW_EMPTY:${PN}-sentry = "1"

@@ -31,6 +31,14 @@ def parse_arguments():
         default="y",
         choices=["y", "n"],
     )
+    parser.add_argument(
+        "-i",
+        "--integrate",
+        help="Show only available configuration",
+        type=str,
+        default="n",
+        choices=["y", "n"],
+    )
     args = parser.parse_args()
 
     return args
@@ -111,7 +119,7 @@ def get_recipes(ha_path):
         ]
     return [i.split("_")[0] for i in list_of_recipes], [i.split("_")[1] for i in list_of_recipes]
 
-def parse_manifests(ha_path, upgrade_only):
+def parse_manifests(ha_path, upgrade_only, integrations_only):
     """Parse the HomeAssistant manifest for the components, dependencies and reqs"""
     components_path = os.path.join(ha_path, "homeassistant/components")
     list_of_components = [f.path for f in os.scandir(components_path) if f.is_dir()]
@@ -128,6 +136,51 @@ def parse_manifests(ha_path, upgrade_only):
 
             [list_of_recipes, list_of_versions] = get_recipes(ha_path)
 
+            integrations = [
+                "amazon_polly",
+                "assist_pipeline",
+                "axis",
+                "backup",
+                "bluetooth",
+                "cast",
+                "cloud",
+                "conversation",
+                "dhcp",
+                "ffmpeg",
+                "file_upload",
+                "fritz",
+                "fritzbox",
+                "frontend",
+                "google_translate",
+                "hardware",
+                "hacs",
+                "http",
+                "hue",
+                "image_upload",
+                "ipp",
+                "keyboard_remote",
+                "matter",
+                "met",
+                "mobile_app",
+                "modbus",
+                "octoprint",
+                "pulseaudio_loopback",
+                "radio_browser",
+                "recorder",
+                "route53",
+                "scrape",
+                "sentry",
+                "shelly",
+                "ssdp",
+                "stream",
+                "systemmonitor",
+                "tts",
+                "upnp",
+                "usb",
+                "vlc",
+                "zeroconf"
+            ]
+
             # Check if the component specifies any requirements
             if "requirements" in manifest:
                 requirements = manifest["requirements"]
@@ -136,38 +189,74 @@ def parse_manifests(ha_path, upgrade_only):
                     package = requirement.split("==")
                     package[0] = "python3-" + package[0].lower().replace("_", "-")
 
-                    if upgrade_only == "y":
-                        if package[0] in list_of_recipes and version.parse(package[1]) > version.parse(list_of_versions[list_of_recipes.index(package[0])]):
-                            df.append(
-                                {
-                                    "Component": manifest["domain"],
-                                    "Dependencies": dependencies,
-                                    "Requirements": package[0],
-                                    "Required HA Version": package[1],
-                                    "Availabe Yocto/OE Version": list_of_versions[list_of_recipes.index(package[0])],
-                                }
-                            )
+                    if integrations_only == "y":
+                        if manifest["domain"] in integrations:
+                            if upgrade_only == "y":
+                                if package[0] in list_of_recipes and version.parse(package[1]) != version.parse(list_of_versions[list_of_recipes.index(package[0])]):
+                                    df.append(
+                                        {
+                                            "Component": manifest["domain"],
+                                            "Dependencies": dependencies,
+                                            "Requirements": package[0],
+                                            "Required HA Version": package[1],
+                                            "Availabe Yocto/OE Version": list_of_versions[list_of_recipes.index(package[0])],
+                                        }
+                                    )
+                            else:
+                                if package[0] in list_of_recipes:
+                                    df.append(
+                                        {
+                                            "Component": manifest["domain"],
+                                            "Dependencies": dependencies,
+                                            "Requirements": package[0],
+                                            "Required HA Version": package[1],
+                                            "Availabe Yocto/OE Version": list_of_versions[list_of_recipes.index(package[0])],
+                                        }
+                                    )
+                                else:
+                                    df.append(
+                                        {
+                                            "Component": manifest["domain"],
+                                            "Dependencies": dependencies,
+                                            "Requirements": package[0],
+                                            "Required HA Version": package[1],
+                                            "Availabe Yocto/OE Version": [''],
+                                        }
+                                    )
                     else:
-                        if package[0] in list_of_recipes:
-                            df.append(
-                                {
-                                    "Component": manifest["domain"],
-                                    "Dependencies": dependencies,
-                                    "Requirements": package[0],
-                                    "Required HA Version": package[1],
-                                    "Availabe Yocto/OE Version": list_of_versions[list_of_recipes.index(package[0])],
-                                }
-                            )
+                        if upgrade_only == "y":
+                            if package[0] in list_of_recipes and version.parse(package[1]) > version.parse(list_of_versions[list_of_recipes.index(package[0])]):
+                                df.append(
+                                    {
+                                        "Component": manifest["domain"],
+                                        "Dependencies": dependencies,
+                                        "Requirements": package[0],
+                                        "Required HA Version": package[1],
+                                        "Availabe Yocto/OE Version": list_of_versions[list_of_recipes.index(package[0])],
+                                    }
+                                )
                         else:
-                            df.append(
-                                {
-                                    "Component": manifest["domain"],
-                                    "Dependencies": dependencies,
-                                    "Requirements": package[0],
-                                    "Required HA Version": package[1],
-                                    "Availabe Yocto/OE Version": [''],
-                                }
-                            )
+                            if package[0] in list_of_recipes:
+                                df.append(
+                                    {
+                                        "Component": manifest["domain"],
+                                        "Dependencies": dependencies,
+                                        "Requirements": package[0],
+                                        "Required HA Version": package[1],
+                                        "Availabe Yocto/OE Version": list_of_versions[list_of_recipes.index(package[0])],
+                                    }
+                                )
+                            else:
+                                df.append(
+                                    {
+                                        "Component": manifest["domain"],
+                                        "Dependencies": dependencies,
+                                        "Requirements": package[0],
+                                        "Required HA Version": package[1],
+                                        "Availabe Yocto/OE Version": [''],
+                                    }
+                                )
+
             # Uncomment below if you want also to see all components which have no requirements at all (and are auto included)
             # else: # Add dummy fields to the CSV
             #     package = ['', '']            
@@ -189,7 +278,7 @@ def main() -> None:
     ha_path = os.path.join(os.path.dirname(__file__), "HA")
     # First get the repository for scanning, read the manifest and distill the requirements
     get_repo(ha_path, args.version)
-    manifest_info = parse_manifests(ha_path, args.upgrade)
+    manifest_info = parse_manifests(ha_path, args.upgrade, args.integrate)
     manifest_info.to_csv(args.version + '.csv', index=False)
 
     # Clean everything
