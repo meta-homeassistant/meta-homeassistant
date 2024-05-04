@@ -4,7 +4,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=78a6a0bb7d76993abedec7510368fb0e"
 
 SRC_URI += "file://0001-Adjust-min-version-of-wheel-and-setuptools.patch"
-SRC_URI[sha256sum] = "3283e433c9f0c42b69ff6119a5462b1940dc5bb56a9eca807d27fc4c84feaacd"
+SRC_URI[sha256sum] = "538a3cf3e973ed99f8f7fb8d13205eadfceed363e8eaa942418246039ac231d4"
 
 inherit pypi python_setuptools_build_meta
 

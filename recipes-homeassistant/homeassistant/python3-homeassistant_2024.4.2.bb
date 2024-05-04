@@ -9,13 +9,17 @@ HOMEASSISTANT_CONFIG_DIR[doc] = "Configuration directory used by home-assistant.
 HOMEASSISTANT_USER ?= "homeassistant"
 HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 
-SRC_URI:append = "\
+PYPI_SRC_URI = "git://github.com/home-assistant/core.git;protocol=https;branch=master;tag=${PV}"
+
+SRC_URI:append = " \
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
-SRC_URI[sha256sum] = "9cccc1d2a42b611c49035a782f83995b6e56450050da1abfc99b397f701c7405"
+SRC_URI[sha256sum] = "66d4e52d10d25ca533f9903e51cb452fe777c1d2ab70f75e44e214852df9a965"
 
 inherit python_setuptools_build_meta pypi useradd systemd
+
+S = "${WORKDIR}/git"
 
 USERADD_PACKAGES = "${PN}"
 GROUPADD_PARAM:${PN} = "homeassistant"
@@ -79,7 +83,7 @@ RDEPENDS:${PN} += "\
     python3-certifi (>=2021.5.30) \
     python3-ciso8601 (=2.3.1) \
     python3-fnv-hash-fast (=0.5.0) \
-    python3-hass-nabucasa (=0.79.0) \
+    python3-hass-nabucasa (=0.78.0) \
     python3-httpx (>=0.27.0) \
     python3-home-assistant-bluetooth (=1.12.0) \
     python3-ifaddr (=0.2.0) \

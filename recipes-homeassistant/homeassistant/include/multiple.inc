@@ -15,12 +15,12 @@ PACKAGES += "\
 
 ALLOW_EMPTY:${PN}-axis = "1"
 RDEPENDS:${PN}-axis = "\
-    python3-axis (=60) \
+    python3-axis (=61) \
 "
 
 ALLOW_EMPTY:${PN}-cloud = "1"
 RDEPENDS:${PN}-cloud = "\
-    python3-hass-nabucasa (=0.79.0) \
+    python3-hass-nabucasa (=0.78.0) \
 "
 
 ALLOW_EMPTY:${PN}-fritz = "1"
