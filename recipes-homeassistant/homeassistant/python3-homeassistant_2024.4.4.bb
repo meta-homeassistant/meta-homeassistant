@@ -17,7 +17,7 @@ SRC_URI = "\
 
 SRC_URI[sha256sum] = "66d4e52d10d25ca533f9903e51cb452fe777c1d2ab70f75e44e214852df9a965"
 
-SRCREV = "efe91815fbf2f57bf8f5b830c675cd6a579ff9b3"
+SRCREV = "60be2af8ac15a98fb01b5f297b30898c21dea61c"
 
 inherit python_setuptools_build_meta useradd systemd
 
@@ -72,7 +72,7 @@ require recipes-homeassistant/homeassistant/include/multiple.inc
 require recipes-homeassistant/homeassistant/include/none.inc
 
 RDEPENDS:${PN} += "\
-    python3-aiohttp (>=3.9.3) \
+    python3-aiohttp (>=3.9.5) \
     python3-aiohttp-cors (=0.7.0) \
     python3-aiohttp-fast-url-dispatcher (=0.3.0) \
     python3-aiohttp-zlib-ng (=0.3.1) \
@@ -93,7 +93,7 @@ RDEPENDS:${PN} += "\
     python3-lru-dict (>=1.3.0) \
     python3-pyjwt (=2.8.0) \
     python3-cryptography (>=42.0.5) \
-    python3-pillow (>=10.2.0) \
+    python3-pillow (>=10.3.0) \
     python3-pyopenssl (>=24.1.0) \
     python3-orjson (>=3.9.15) \
     python3-packaging (>=23.1) \

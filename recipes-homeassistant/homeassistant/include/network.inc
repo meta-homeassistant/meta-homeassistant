@@ -26,7 +26,7 @@ RDEPENDS:${PN}-ssdp = "\
 
 ALLOW_EMPTY:${PN}-zeroconf = "1"
 RDEPENDS:${PN}-zeroconf = "\
-    python3-zeroconf (>=0.132.0) \
+    python3-zeroconf (>=0.132.2) \
 "
 
 RDEPENDS:${PN} += "\
