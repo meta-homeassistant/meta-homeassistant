@@ -9,15 +9,17 @@ HOMEASSISTANT_CONFIG_DIR[doc] = "Configuration directory used by home-assistant.
 HOMEASSISTANT_USER ?= "homeassistant"
 HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 
-PYPI_SRC_URI = "git://github.com/home-assistant/core.git;protocol=https;branch=master;tag=${PV}"
-
-SRC_URI:append = " \
+SRC_URI = "\
+    git://github.com/home-assistant/core.git;protocol=https;branch=master \
     file://homeassistant.service \
     file://0001-Update-pyproject.toml-to-allow-compilation.patch \
 "
+
 SRC_URI[sha256sum] = "66d4e52d10d25ca533f9903e51cb452fe777c1d2ab70f75e44e214852df9a965"
 
-inherit python_setuptools_build_meta pypi useradd systemd
+SRCREV = "efe91815fbf2f57bf8f5b830c675cd6a579ff9b3"
+
+inherit python_setuptools_build_meta useradd systemd
 
 S = "${WORKDIR}/git"
 

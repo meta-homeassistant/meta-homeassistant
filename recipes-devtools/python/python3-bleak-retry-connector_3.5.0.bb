@@ -3,11 +3,16 @@ HOMEPAGE = "https://github.com/bluetooth-devices/bleak-retry-connector"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d8b5b84f8af09011094cd7c29a9f972c"
 
+SRC_URI = "\
+    git://github.com/Bluetooth-Devices/bleak-retry-connector.git;protocol=https;branch=main \
+    file://run-ptest \
+"
 SRC_URI[sha256sum] = "71f30928180b74f0381e0752f681d18d8de888faa9c81c78cd17123718909ea0"
+SRCREV = "bbc6d6b3f6a4dba5c6fc39ac10c27dd613ca90ac"
 
-PYPI_PACKAGE = "bleak_retry_connector"
+inherit python_poetry_core ptest
 
-inherit pypi python_poetry_core
+S = "${WORKDIR}/git"
 
 RDEPENDS:${PN} = "\
     python3-core (>=3.10) \
@@ -19,3 +24,14 @@ RDEPENDS:${PN}-dev += "\
     python3-bluetooth-adapters (>=0.15.2) \
     python3-dbus-fast (>=1.14.0) \
 "
+
+RDEPENDS:${PN}-ptest = "\
+    python3-pytest \
+    python3-pytest-asyncio \
+    python3-unittest-automake-output \
+"
+
+do_install_ptest() {
+    install -d ${D}${PTEST_PATH}/tests
+    cp -rf ${S}/tests/* ${D}${PTEST_PATH}/tests/
+}
