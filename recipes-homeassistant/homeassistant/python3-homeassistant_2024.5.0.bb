@@ -9,19 +9,12 @@ HOMEASSISTANT_CONFIG_DIR[doc] = "Configuration directory used by home-assistant.
 HOMEASSISTANT_USER ?= "homeassistant"
 HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 
-SRC_URI = "\
-    git://github.com/home-assistant/core.git;protocol=https;branch=master \
-    file://homeassistant.service \
-    file://0001-Update-pyproject.toml-to-allow-compilation.patch \
-"
+SRC_URI += "file://homeassistant.service \
+           file://0001-Allow-newer-version-of-setuptools.patch \
+           "
+SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
 
-SRC_URI[sha256sum] = "66d4e52d10d25ca533f9903e51cb452fe777c1d2ab70f75e44e214852df9a965"
-
-SRCREV = "60be2af8ac15a98fb01b5f297b30898c21dea61c"
-
-inherit python_setuptools_build_meta useradd systemd
-
-S = "${WORKDIR}/git"
+inherit pypi python_setuptools_build_meta useradd systemd
 
 USERADD_PACKAGES = "${PN}"
 GROUPADD_PARAM:${PN} = "homeassistant"
@@ -72,10 +65,12 @@ require recipes-homeassistant/homeassistant/include/multiple.inc
 require recipes-homeassistant/homeassistant/include/none.inc
 
 RDEPENDS:${PN} += "\
+    python3-aiodns (>=3.2.0) \
     python3-aiohttp (>=3.9.5) \
     python3-aiohttp-cors (=0.7.0) \
+    python3-aiohttp-session (=2.12.0) \
     python3-aiohttp-fast-url-dispatcher (=0.3.0) \
-    python3-aiohttp-zlib-ng (=0.3.1) \
+    python3-aiohttp-isal (=0.2.0) \
     python3-astral (=2.2) \
     python3-async-interrupt (=1.1.1) \
     python3-attrs (>=23.2.0) \
@@ -103,7 +98,7 @@ RDEPENDS:${PN} += "\
     python3-pyyaml (=6.0.1) \
     python3-requests (=2.31.0) \
     python3-sqlalchemy (=2.0.29) \
-    python3-typing-extensions (>=4.10.0) \
+    python3-typing-extensions (>=4.11.0) \
     python3-ulid-transform (=0.9.0) \
     python3-urllib3 (>=1.26.5) \
     python3-voluptuous (=0.13.1) \

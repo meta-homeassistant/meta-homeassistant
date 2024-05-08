@@ -4,7 +4,6 @@ PACKAGES += "\
     ${PN}-backup \
     ${PN}-frontend \
     ${PN}-hardware \
-    ${PN}-http \
     ${PN}-image-upload \
     ${PN}-keyboard-remote \
     ${PN}-mobile-app \
@@ -18,19 +17,12 @@ RDEPENDS:${PN}-backup = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    python3-home-assistant-frontend (=20240404.2) \
+    python3-home-assistant-frontend (=20240501.0) \
 "
 
 ALLOW_EMPTY:${PN}-hardware = "1"
 RDEPENDS:${PN}-hardware = "\
     python3-psutil-home-assistant (=0.0.1) \
-"
-
-ALLOW_EMPTY:${PN}-http = "1"
-RDEPENDS:${PN}-http = "\
-    python3-aiohttp-cors (=0.7.0) \
-    python3-aiohttp-fast-url-dispatcher (=0.3.0) \
-    python3-aiohttp-zlib-ng (=0.3.1) \
 "
 
 ALLOW_EMPTY:${PN}-image-upload = "1"
@@ -59,7 +51,6 @@ RDEPENDS:${PN}-stream = "\
 RDEPENDS:${PN} += "\
     ${PN}-frontend \
     ${PN}-hardware \
-    ${PN}-http \
     ${PN}-image-upload \
     ${PN}-mobile-app \
     ${PN}-stream \

@@ -1,7 +1,7 @@
-From a5889fd9acd20ea9966f13ca935f46406a88cb38 Mon Sep 17 00:00:00 2001
+From bed4adededa4291b8c8c33da4285210c282bc8d0 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
-Date: Tue, 2 Jan 2024 23:32:08 +0000
-Subject: [PATCH] Allowed for newer wheel version
+Date: Sun, 5 May 2024 15:24:46 +0000
+Subject: [PATCH] Allow newer version of setuptools
 
 Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
 ---
@@ -9,13 +9,13 @@ Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index 3015916..6aa8a19 100644
+index 4dd5653f..eba8ccc7 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@
  [build-system]
--requires = ["setuptools~=68.0", "wheel~=0.40.0"]
-+requires = ["setuptools>=68.0", "wheel>=0.40.0"]
+-requires = ["setuptools==69.2.0", "wheel~=0.43.0"]
++requires = ["setuptools>=69.2.0", "wheel~=0.43.0"]
  build-backend = "setuptools.build_meta"
  
  [project]
