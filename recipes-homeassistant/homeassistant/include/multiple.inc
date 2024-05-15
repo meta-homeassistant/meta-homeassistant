@@ -15,12 +15,12 @@ PACKAGES += "\
 
 ALLOW_EMPTY:${PN}-axis = "1"
 RDEPENDS:${PN}-axis = "\
-    python3-axis (=60) \
+    python3-axis (=61) \
 "
 
 ALLOW_EMPTY:${PN}-cloud = "1"
 RDEPENDS:${PN}-cloud = "\
-    python3-hass-nabucasa (=0.79.0) \
+    python3-hass-nabucasa (=0.78.0) \
 "
 
 ALLOW_EMPTY:${PN}-fritz = "1"
@@ -31,7 +31,7 @@ RDEPENDS:${PN}-fritz = "\
 
 ALLOW_EMPTY:${PN}-fritzbox = "1"
 RDEPENDS:${PN}-fritzbox = "\
-    python3-pyfritzhome (=0.6.10) \
+    python3-pyfritzhome (=0.6.11) \
 "
 
 ALLOW_EMPTY:${PN}-hue = "1"
@@ -41,7 +41,7 @@ RDEPENDS:${PN}-hue = "\
 
 ALLOW_EMPTY:${PN}-matter = "1"
 RDEPENDS:${PN}-matter = "\
-    python3-python-matter-server (=5.7.0) \
+    python3-python-matter-server (=5.10.0) \
 "
 
 ALLOW_EMPTY:${PN}-radio-browser = "1"
@@ -51,7 +51,7 @@ RDEPENDS:${PN}-radio-browser = "\
 
 ALLOW_EMPTY:${PN}-shelly = "1"
 RDEPENDS:${PN}-shelly = "\
-    python3-aioshelly (=8.2.0) \
+    python3-aioshelly (=9.0.0) \
 "
 
 ALLOW_EMPTY:${PN}-tts = "1"

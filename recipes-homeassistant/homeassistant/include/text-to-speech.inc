@@ -7,7 +7,7 @@ PACKAGES += "\
 
 ALLOW_EMPTY:${PN}-amazon-polly = "1"
 RDEPENDS:${PN}-amazon-polly = "\
-    python3-boto3 (>=1.33.13) \
+    python3-boto3 (>=1.34.51) \
 "
 
 ALLOW_EMPTY:${PN}-google-translate = "1"

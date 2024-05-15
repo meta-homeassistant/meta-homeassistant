@@ -12,4 +12,5 @@ RDEPENDS:${PN} = "\
 	python3-requests (>=2.22.0) \
 	python3-envs (>=1.3) \
 	python3-pyjwt (>=2.8.0) \
+	python3-python-jose-cryptography (>=3.2.0) \
 "

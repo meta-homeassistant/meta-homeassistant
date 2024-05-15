@@ -9,13 +9,12 @@ HOMEASSISTANT_CONFIG_DIR[doc] = "Configuration directory used by home-assistant.
 HOMEASSISTANT_USER ?= "homeassistant"
 HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 
-SRC_URI:append = "\
-    file://homeassistant.service \
-    file://0001-Update-pyproject.toml-to-allow-compilation.patch \
-"
-SRC_URI[sha256sum] = "4865ea0e3b76c330bfad3006955f03485c5ab94bc8ac6dd180ec4f094b00250d"
+SRC_URI += "file://homeassistant.service \
+           file://0001-Allow-newer-version-of-setuptools.patch \
+           "
+SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
 
-inherit python_setuptools_build_meta pypi useradd systemd
+inherit pypi python_setuptools_build_meta useradd systemd
 
 USERADD_PACKAGES = "${PN}"
 GROUPADD_PARAM:${PN} = "homeassistant"
@@ -66,20 +65,22 @@ require recipes-homeassistant/homeassistant/include/multiple.inc
 require recipes-homeassistant/homeassistant/include/none.inc
 
 RDEPENDS:${PN} += "\
-    python3-aiohttp (>=3.9.3) \
+    python3-aiodns (>=3.2.0) \
+    python3-aiohttp (>=3.9.5) \
     python3-aiohttp-cors (=0.7.0) \
+    python3-aiohttp-session (=2.12.0) \
     python3-aiohttp-fast-url-dispatcher (=0.3.0) \
-    python3-aiohttp-zlib-ng (=0.3.1) \
+    python3-aiohttp-isal (=0.2.0) \
     python3-astral (=2.2) \
     python3-async-interrupt (=1.1.1) \
     python3-attrs (>=23.2.0) \
-    python3-atomicwrites-homeassistant (=1.4.1) \
+    ${@bb.utils.contains("DISTRO_FEATURES", "ptest", "python3-atomicwrites", "python3-atomicwrites-homeassistant (=1.4.1)",d)} \
     python3-awesomeversion (>=24.2.0) \
     python3-bcrypt (>=4.1.2) \
     python3-certifi (>=2021.5.30) \
     python3-ciso8601 (=2.3.1) \
     python3-fnv-hash-fast (=0.5.0) \
-    python3-hass-nabucasa (=0.79.0) \
+    python3-hass-nabucasa (=0.78.0) \
     python3-httpx (>=0.27.0) \
     python3-home-assistant-bluetooth (=1.12.0) \
     python3-ifaddr (=0.2.0) \
@@ -87,6 +88,7 @@ RDEPENDS:${PN} += "\
     python3-lru-dict (>=1.3.0) \
     python3-pyjwt (=2.8.0) \
     python3-cryptography (>=42.0.5) \
+    python3-pillow (>=10.3.0) \
     python3-pyopenssl (>=24.1.0) \
     python3-orjson (>=3.9.15) \
     python3-packaging (>=23.1) \
@@ -96,7 +98,7 @@ RDEPENDS:${PN} += "\
     python3-pyyaml (=6.0.1) \
     python3-requests (=2.31.0) \
     python3-sqlalchemy (=2.0.29) \
-    python3-typing-extensions (>=4.10.0) \
+    python3-typing-extensions (>=4.11.0) \
     python3-ulid-transform (=0.9.0) \
     python3-urllib3 (>=1.26.5) \
     python3-voluptuous (=0.13.1) \
