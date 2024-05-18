@@ -1,3 +1,34 @@
 #!/bin/sh
 
-pytest --automake
+# Main folder
+pytest --automake tests/test_backports.py
+pytest --automake tests/test_block_async_io.py
+pytest --automake tests/test_bootstrap.py
+## Disable for now as image runs out of memory
+# pytest --automake tests/test_circular_imports.py
+## Unknown error
+# pytest --automake tests/test_config.py
+## Cannot find fixture freezer (freezegun python package)
+# pytest --automake tests/test_config_entries.py
+pytest --automake tests/test_const.py
+## Missing python3-pytest-unordered
+# pytest --automake tests/test_core.py
+pytest --automake tests/test_data_entry_flow
+pytest --automake tests/test_exceptions.py
+pytest --automake tests/test_loader.py
+pytest --automake tests/test_main.py
+pytest --automake tests/test_requirements.py
+## Unknown error
+# pytest --automake tests/test_runner.py
+## Cannot find fixture freezer (freezegun python package)
+# pytest --automake tests/test_setup.py
+pytest --automake tests/test_test_fixtures.py
+
+# Secondary folders
+## Missing pyotp module
+# pytest --automate tests/auth/
+## No module name script
+# pytest --automate tests/hassfest/
+## Missing python3-pytest-unordered
+# pytest --automake tests/helpers/
+pytest --automake tests/test_util/

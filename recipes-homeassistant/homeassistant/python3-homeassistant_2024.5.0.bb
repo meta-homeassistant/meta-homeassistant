@@ -120,11 +120,15 @@ RDEPENDS:${PN}-ptest = "\
     python3-pytest \
     python3-pytest-asyncio \
     python3-pytest-cov \
+    python3-pytest-socket \
     python3-pytest-timeout \
+    python3-requests-mock \
+    python3-syrupy \
     python3-unittest-automake-output \
 "
 
 do_install_ptest() {
     install -d ${D}${PTEST_PATH}/tests
+    install ${S}/pyproject.toml ${D}${PTEST_PATH}/tests/
     cp -rf ${S}/tests/* ${D}${PTEST_PATH}/tests/
 }
