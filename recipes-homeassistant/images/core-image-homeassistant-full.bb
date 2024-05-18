@@ -13,6 +13,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-cast \
     python3-homeassistant-cloud \
     python3-homeassistant-conversation \
+    python3-homeassistant-debugpy \
     python3-homeassistant-dhcp \
     python3-homeassistant-ffmpeg \
     python3-homeassistant-file-upload \
@@ -31,6 +32,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-mobile-app \
     python3-homeassistant-modbus \
     python3-homeassistant-octoprint \
+    python3-homeassistant-otp \
     python3-homeassistant-pulseaudio-loopback \
     python3-homeassistant-radio-browser \
     python3-homeassistant-recorder \
