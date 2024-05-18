@@ -9,12 +9,18 @@ HOMEASSISTANT_CONFIG_DIR[doc] = "Configuration directory used by home-assistant.
 HOMEASSISTANT_USER ?= "homeassistant"
 HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 
-SRC_URI += "file://homeassistant.service \
-           file://0001-Allow-newer-version-of-setuptools.patch \
-           "
+SRC_URI = "\
+    git://github.com/home-assistant/core.git;protocol=https;branch=master \
+    file://homeassistant.service \
+    file://0001-Allow-newer-version-of-setuptools.patch \
+    file://run-ptest \
+"
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
+SRCREV = "2f476684224fffdbf216b469d60f6803c84e8e0a"
 
-inherit pypi python_setuptools_build_meta useradd systemd
+inherit python_setuptools_build_meta useradd systemd ptest
+
+S = "${WORKDIR}/git"
 
 USERADD_PACKAGES = "${PN}"
 GROUPADD_PARAM:${PN} = "homeassistant"
@@ -108,3 +114,17 @@ RDEPENDS:${PN} += "\
     python3-statistics \
     python3-core (>=3.12.0) \
 "
+
+RDEPENDS:${PN}-ptest = "\
+    python3-freezegun \
+    python3-pytest \
+    python3-pytest-asyncio \
+    python3-pytest-cov \
+    python3-pytest-timeout \
+    python3-unittest-automake-output \
+"
+
+do_install_ptest() {
+    install -d ${D}${PTEST_PATH}/tests
+    cp -rf ${S}/tests/* ${D}${PTEST_PATH}/tests/
+}
