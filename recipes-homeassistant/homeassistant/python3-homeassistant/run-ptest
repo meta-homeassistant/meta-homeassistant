@@ -1,18 +1,25 @@
 #!/bin/sh
 
+# isolate these ones to ensure the tests run properly
+
+pytest --automake tests/test_bootstrap.py
+
+pytest --automake tests/test_loader.py
+
+# test_get_system_info_supervisor_not_loaded is skipped due to the fact that this is an unsupported way of running HA.
+
 pytest --automake \
-  --ignore=tests/auth/ \
   --ignore=tests/components/ \
-  --ignore=tests/hassfest/ \
-  --ignore=tests/helpers/ \
-  --ignore=tests/non_packaged_scripts/ \
-  --ignore=tests/pylint/ \
-  --ignore=tests/resources/ \
-  --ignore=tests/script/ \
+  --ignore=tests/helpers/test_script.py \
+  --ignore=tests/helpers/test_template.py \
+  --ignore=tests/helpers/test_translation.py \
+  -k "not test_get_system_info_supervisor_not_loaded" \
   --ignore=tests/scripts/ \
   --ignore=tests/snapshots/ \
+  --ignore=tests/util/ \
   --ignore=tests/test_util/ \
   --ignore=tests/testing_config/ \
+  --ignore=tests/test_bootstrap.py \
   --ignore=tests/test_config.py \
-  --ignore=tests/util/ \
-  --ignore=tests/test_core.py 
+  --ignore=tests/test_core.py \
+  --ignore=tests/test_loader.py

@@ -81,7 +81,7 @@ RDEPENDS:${PN} += "\
     python3-python-slugify (=8.0.4) \
     python3-pyyaml (=6.0.1) \
     python3-requests (=2.31.0) \
-    python3-sqlalchemy (=2.0.29) \
+    python3-sqlalchemy (>=2.0.29) \
     python3-typing-extensions (>=4.11.0) \
     python3-ulid-transform (=0.9.0) \
     python3-urllib3 (>=1.26.5) \
@@ -94,7 +94,9 @@ RDEPENDS:${PN} += "\
 "
 
 RDEPENDS:${PN}-ptest = "\
+    bash \
     python3-freezegun \
+    python3-pylint \
     python3-pytest \
     python3-pytest-asyncio \
     python3-pytest-cov \
@@ -104,11 +106,17 @@ RDEPENDS:${PN}-ptest = "\
     python3-pytest-unordered \
     python3-requests-mock \
     python3-syrupy \
+    python3-tqdm \
     python3-unittest-automake-output \
+    tzdata \
 "
 
 do_install_ptest() {
     install -d ${D}${PTEST_PATH}/tests
+    install -d ${D}${PTEST_PATH}/script
+    install -d ${D}${PTEST_PATH}/pylint
     install ${S}/pyproject.toml ${D}${PTEST_PATH}/
+    cp -rf ${S}/script/* ${D}${PTEST_PATH}/script/
+    cp -rf ${S}/pylint/* ${D}${PTEST_PATH}/pylint/
     cp -rf ${S}/tests/* ${D}${PTEST_PATH}/tests/
 }
