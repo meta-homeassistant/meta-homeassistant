@@ -13,7 +13,7 @@ SRC_URI = "\
     git://github.com/home-assistant/core.git;protocol=https;branch=master \
     file://homeassistant.service \
     file://0001-Allow-newer-version-of-setuptools.patch \
-    file://run-ptest \
+    file://run-ptest-sample \
 "
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
 SRCREV = "2f476684224fffdbf216b469d60f6803c84e8e0a"
@@ -47,6 +47,7 @@ do_install:append () {
 # Home Assistant contains thousands of integrations.
 # at https://www.home-assistant.io/integrations/
 require recipes-homeassistant/homeassistant/python3-homeassistant/integrations.inc
+require recipes-homeassistant/homeassistant/python3-homeassistant/integrations-tests.inc
 
 RDEPENDS:${PN} += "\
     python3-aiodns (>=3.2.0) \

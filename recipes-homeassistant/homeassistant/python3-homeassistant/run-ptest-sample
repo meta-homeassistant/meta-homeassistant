@@ -48,4 +48,4 @@ pytest --automake \
   --ignore=tests/test_config.py \
   --ignore=tests/test_core.py \
   --ignore=tests/test_loader.py \
-  --ignore=tests/util/ \
+  --ignore=tests/util/
