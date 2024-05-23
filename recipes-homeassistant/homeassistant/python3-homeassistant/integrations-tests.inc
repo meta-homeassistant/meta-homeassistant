@@ -48,8 +48,8 @@ python do_addptest () {
     import os
     import shutil
 
-    source_file = os.path.join(d.getVar('WORKDIR'), 'run-ptest-sample')
-    target_file = os.path.join(d.getVar('WORKDIR'), 'run-ptest')
+    source_file = os.path.join(d.getVar('UNPACKDIR'), 'run-ptest-sample')
+    target_file = os.path.join(d.getVar('UNPACKDIR'), 'run-ptest')
     shutil.copy(source_file, target_file)
     
     # Get the list of packages
@@ -58,7 +58,7 @@ python do_addptest () {
     # Iterate over each package and append the line to the file
     for package in packages_list:
         # Define the line to be appended
-        line_to_append = "pytest --automake tests/components/" + package.removeprefix(d.getVar('PN')+'-') + "/"
+        line_to_append = "pytest --automake tests/components/" + package.removeprefix(d.getVar('PN')+'-').replace('-', '_') + "/"
         package_line = f"\n{line_to_append}\n"
         with open(target_file, 'a') as file:
             file.write(package_line)

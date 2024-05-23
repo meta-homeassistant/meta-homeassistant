@@ -38,7 +38,7 @@ do_install:append () {
 
     # Install systemd unit files and set correct config directory
     install -d ${D}${systemd_unitdir}/system
-    install -m 0644 ${WORKDIR}/homeassistant.service ${D}${systemd_unitdir}/system
+    install -m 0644 ${UNPACKDIR}/homeassistant.service ${D}${systemd_unitdir}/system
     sed -i -e 's,@HOMEASSISTANT_CONFIG_DIR@,${HOMEASSISTANT_CONFIG_DIR},g' ${D}${systemd_unitdir}/system/homeassistant.service
     sed -i -e 's,@HOMEASSISTANT_USER@,${HOMEASSISTANT_USER},g' ${D}${systemd_unitdir}/system/homeassistant.service
 }
@@ -81,7 +81,7 @@ RDEPENDS:${PN} += "\
     python3-psutil-home-assistant (=0.0.1) \
     python3-python-slugify (=8.0.4) \
     python3-pyyaml (=6.0.1) \
-    python3-requests (=2.31.0) \
+    python3-requests (>=2.31.0) \
     python3-sqlalchemy (>=2.0.29) \
     python3-typing-extensions (>=4.11.0) \
     python3-ulid-transform (=0.9.0) \
@@ -105,6 +105,7 @@ RDEPENDS:${PN}-ptest = "\
     python3-pytest-socket \
     python3-pytest-timeout \
     python3-pytest-unordered \
+    python3-pytest-xdist \
     python3-requests-mock \
     python3-syrupy \
     python3-tqdm \
