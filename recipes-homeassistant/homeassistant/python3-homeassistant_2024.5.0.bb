@@ -9,12 +9,18 @@ HOMEASSISTANT_CONFIG_DIR[doc] = "Configuration directory used by home-assistant.
 HOMEASSISTANT_USER ?= "homeassistant"
 HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 
-SRC_URI += "file://homeassistant.service \
-           file://0001-Allow-newer-version-of-setuptools.patch \
-           "
+SRC_URI = "\
+    git://github.com/home-assistant/core.git;protocol=https;branch=master \
+    file://homeassistant.service \
+    file://0001-Allow-newer-version-of-setuptools.patch \
+    file://run-ptest-sample \
+"
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
+SRCREV = "2f476684224fffdbf216b469d60f6803c84e8e0a"
 
-inherit pypi python_setuptools_build_meta useradd systemd
+inherit python_setuptools_build_meta useradd systemd ptest
+
+S = "${WORKDIR}/git"
 
 USERADD_PACKAGES = "${PN}"
 GROUPADD_PARAM:${PN} = "homeassistant"
@@ -32,37 +38,16 @@ do_install:append () {
 
     # Install systemd unit files and set correct config directory
     install -d ${D}${systemd_unitdir}/system
-    install -m 0644 ${WORKDIR}/homeassistant.service ${D}${systemd_unitdir}/system
+    install -m 0644 ${UNPACKDIR}/homeassistant.service ${D}${systemd_unitdir}/system
     sed -i -e 's,@HOMEASSISTANT_CONFIG_DIR@,${HOMEASSISTANT_CONFIG_DIR},g' ${D}${systemd_unitdir}/system/homeassistant.service
     sed -i -e 's,@HOMEASSISTANT_USER@,${HOMEASSISTANT_USER},g' ${D}${systemd_unitdir}/system/homeassistant.service
 }
 
 # Home Assistant core
-# Home Assistant contains thousands of integrations. These are subdivided in their own include file bases on the same division as HA itself uses
+# Home Assistant contains thousands of integrations.
 # at https://www.home-assistant.io/integrations/
-
-require recipes-homeassistant/homeassistant/include/3d-printing.inc
-require recipes-homeassistant/homeassistant/include/hacs.inc
-require recipes-homeassistant/homeassistant/include/history.inc
-require recipes-homeassistant/homeassistant/include/hub.inc
-require recipes-homeassistant/homeassistant/include/image-processing.inc
-require recipes-homeassistant/homeassistant/include/media-player.inc
-require recipes-homeassistant/homeassistant/include/network.inc
-require recipes-homeassistant/homeassistant/include/other.inc
-require recipes-homeassistant/homeassistant/include/sensor.inc
-require recipes-homeassistant/homeassistant/include/switch.inc
-require recipes-homeassistant/homeassistant/include/system-monitor.inc
-require recipes-homeassistant/homeassistant/include/text-to-speech.inc
-require recipes-homeassistant/homeassistant/include/utility.inc
-require recipes-homeassistant/homeassistant/include/voice.inc
-require recipes-homeassistant/homeassistant/include/weather.inc
-
-# There are two exceptions:
-# - any integration which has multiple categories are grouped in multiple.inc
-# - any integration which has no category assigned to it is in none.inc
-
-require recipes-homeassistant/homeassistant/include/multiple.inc
-require recipes-homeassistant/homeassistant/include/none.inc
+require recipes-homeassistant/homeassistant/python3-homeassistant/integrations.inc
+require recipes-homeassistant/homeassistant/python3-homeassistant/integrations-tests.inc
 
 RDEPENDS:${PN} += "\
     python3-aiodns (>=3.2.0) \
@@ -96,8 +81,8 @@ RDEPENDS:${PN} += "\
     python3-psutil-home-assistant (=0.0.1) \
     python3-python-slugify (=8.0.4) \
     python3-pyyaml (=6.0.1) \
-    python3-requests (=2.31.0) \
-    python3-sqlalchemy (=2.0.29) \
+    python3-requests (>=2.31.0) \
+    python3-sqlalchemy (>=2.0.29) \
     python3-typing-extensions (>=4.11.0) \
     python3-ulid-transform (=0.9.0) \
     python3-urllib3 (>=1.26.5) \
@@ -108,3 +93,32 @@ RDEPENDS:${PN} += "\
     python3-statistics \
     python3-core (>=3.12.0) \
 "
+
+RDEPENDS:${PN}-ptest = "\
+    bash \
+    python3-freezegun \
+    python3-pylint \
+    python3-pytest \
+    python3-pytest-asyncio \
+    python3-pytest-cov \
+    python3-pytest-freezer \
+    python3-pytest-socket \
+    python3-pytest-timeout \
+    python3-pytest-unordered \
+    python3-pytest-xdist \
+    python3-requests-mock \
+    python3-syrupy \
+    python3-tqdm \
+    python3-unittest-automake-output \
+    tzdata \
+"
+
+do_install_ptest() {
+    install -d ${D}${PTEST_PATH}/tests
+    install -d ${D}${PTEST_PATH}/script
+    install -d ${D}${PTEST_PATH}/pylint
+    install ${S}/pyproject.toml ${D}${PTEST_PATH}/
+    cp -rf ${S}/script/* ${D}${PTEST_PATH}/script/
+    cp -rf ${S}/pylint/* ${D}${PTEST_PATH}/pylint/
+    cp -rf ${S}/tests/* ${D}${PTEST_PATH}/tests/
+}

@@ -19,4 +19,5 @@ RDEPENDS:${PN} = "\
     python3-pycognito (=2024.2.0) \
     python3-pyjwt (>=2.8.0) \
     python3-snitun (>=0.36.2) \
+    python3-pyasn1 \
 "

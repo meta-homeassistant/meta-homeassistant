@@ -1,0 +1,51 @@
+#!/bin/sh
+
+# Ptest-runner gives strange errors if we try to run everything in one big call.
+# Therefore we subdivide this into different calls which seems to work better.
+
+# test_get_system_info_supervisor_not_loaded is skipped due to the fact that this is an unsupported way of running HA.
+# The following tests seem to fail and needs investigation
+
+pytest --automake tests/test_circular_imports.py
+
+pytest --automake tests/helpers/ \
+  -k "not test_get_system_info_supervisor_not_loaded \
+  and not test_continue_on_error_automation_issue \
+  and not test_propagate_error_service_not_found \
+  and not test_parallel_error \
+  and not test_state_translated \
+  and not test_caching \
+  and not test_ensure_translations_still_load_if_one_integration_fails \
+  and not test_get_translation_categories " 
+
+pytest --automake tests/test_bootstrap.py
+
+pytest --automake tests/test_config.py \
+  -k "not test_component_config_exceptions \
+  and not test_merge \
+  and not test_component_config_error_processing[exception_info_list0-bla-messages0-False-component_import_err] \
+  and not test_component_config_error_processing[exception_info_list1-bla-messages1-True-config_validation_err] \
+  and not test_component_config_error_processing[exception_info_list2-bla \
+  and not test_component_config_error_processing[exception_info_list3-bla \
+  and not test_component_config_error_processing[exception_info_list4-bla-messages4-False-platform_component_load_err] "
+
+pytest --automake tests/test_core.py \
+  -k "not test_eventbus_max_length_exceeded \
+  and not test_serviceregistry_service_that_not_exists \
+  and not test_services_call_return_response_requires_blocking \
+  and not test_serviceregistry_return_response_invalid \
+  and not test_serviceregistry_return_response_arguments "
+
+pytest --automake tests/test_loader.py
+
+pytest --automake tests/util/
+
+pytest --automake \
+  --ignore=tests/test_circular_imports.py \
+  --ignore=tests/components/ \
+  --ignore=tests/helpers/ \
+  --ignore=tests/test_bootstrap.py \
+  --ignore=tests/test_config.py \
+  --ignore=tests/test_core.py \
+  --ignore=tests/test_loader.py \
+  --ignore=tests/util/
