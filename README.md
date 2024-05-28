@@ -1,3 +1,4 @@
+
 This README file contains information on the contents of the
 homeassistant layer. It contains recipes to run https://home-assistant.io/
 on a OE target.
