@@ -72,7 +72,7 @@ RDEPENDS:${PN}-bluetooth = "\
     python3-bluetooth-auto-recovery (=1.4.2) \
     python3-bluetooth-data-tools (=1.19.0) \
     python3-dbus-fast (>=2.21.1) \
-    python3-habluetooth (=2.8.0) \
+    python3-habluetooth (=2.8.1) \
 "
 
 ALLOW_EMPTY:${PN}-cast = "1"
