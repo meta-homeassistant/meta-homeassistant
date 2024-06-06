@@ -68,7 +68,7 @@ ALLOW_EMPTY:${PN}-bluetooth = "1"
 RDEPENDS:${PN}-bluetooth = "\
     python3-bleak (=0.21.1) \
     python3-bleak-retry-connector (=3.5.0) \
-    python3-bluetooth-adapters (=0.19.1) \
+    python3-bluetooth-adapters (=0.19.2) \
     python3-bluetooth-auto-recovery (=1.4.2) \
     python3-bluetooth-data-tools (=1.19.0) \
     python3-dbus-fast (>=2.21.1) \
@@ -126,7 +126,7 @@ RDEPENDS:${PN}-fritzbox = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    python3-home-assistant-frontend (=20240501.0) \
+    python3-home-assistant-frontend (=20240501.1) \
 "
 
 ALLOW_EMPTY:${PN}-google-translate = "1"

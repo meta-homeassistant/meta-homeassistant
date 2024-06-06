@@ -8,14 +8,14 @@ SRC_URI = "\
     file://run-ptest \
 "
 SRC_URI[sha256sum] = "5fa3ab3ebaff80ba3d39cafecf5916e9c8a1117178d2085ad1d0123d13d8bf71"
-SRCREV = "96edc7e71b74cef2130e73d347db787d4049699d"
+SRCREV = "cb9f09872578a8cfb022e1c8e622fab904940231"
 
 inherit python_poetry_core ptest
 
 S = "${WORKDIR}/git"
 
 RDEPENDS:${PN} = "\
-    python3-aiohttp \
+    python3-aiohttp (>=3.9.0) \
     python3-isal \
 "
 

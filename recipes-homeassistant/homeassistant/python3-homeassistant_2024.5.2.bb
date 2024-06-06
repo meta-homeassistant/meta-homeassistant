@@ -16,7 +16,7 @@ SRC_URI = "\
     file://run-ptest-sample \
 "
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
-SRCREV = "ab8a811c9fbff684e05943ca3034f10ee492d5be"
+SRCREV = "a8f3b699b36be9056ae1353827aa2ef220ec49b7"
 
 inherit python_setuptools_build_meta useradd systemd ptest
 
@@ -55,7 +55,7 @@ RDEPENDS:${PN} += "\
     python3-aiohttp-cors (=0.7.0) \
     python3-aiohttp-session (=2.12.0) \
     python3-aiohttp-fast-url-dispatcher (=0.3.0) \
-    python3-aiohttp-isal (=0.2.0) \
+    python3-aiohttp-isal (=0.3.1) \
     python3-astral (=2.2) \
     python3-async-interrupt (=1.1.1) \
     python3-attrs (>=23.2.0) \
