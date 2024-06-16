@@ -4,6 +4,7 @@ Date: Sun, 26 Nov 2023 22:17:18 +0000
 Subject: [PATCH] Fix machine when crosscompiling
 
 Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
 ---
  setup.py | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)

@@ -4,6 +4,7 @@ Date: Tue, 4 Apr 2023 00:37:57 +0200
 Subject: [PATCH] Fix compilation error for orjson
 
 Signed-off-by: Tom Geelen <tom.geelen@demcon.com>
+Upstream-Status: Pending
 ---
  Cargo.toml | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)

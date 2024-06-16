@@ -4,6 +4,7 @@ Date: Sun, 5 May 2024 15:24:46 +0000
 Subject: [PATCH] Allow newer version of setuptools
 
 Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
 ---
  pyproject.toml | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)

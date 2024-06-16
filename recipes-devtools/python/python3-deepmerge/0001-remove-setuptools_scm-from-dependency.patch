@@ -4,6 +4,7 @@ Date: Tue, 11 Apr 2023 00:43:14 +0200
 Subject: [PATCH] remove setuptools_scm from dependency
 
 Signed-off-by: Tom Geelen <tom.geelen@demcon.com>
+Upstream-Status: Pending
 ---
  pyproject.toml | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
