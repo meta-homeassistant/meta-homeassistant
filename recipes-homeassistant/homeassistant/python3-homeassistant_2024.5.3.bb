@@ -16,7 +16,7 @@ SRC_URI = "\
     file://run-ptest-sample \
 "
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
-SRCREV = "a8f3b699b36be9056ae1353827aa2ef220ec49b7"
+SRCREV = "9b6500582a18a38e8efcef02ce6cfd7b659ab598"
 
 inherit python_setuptools_build_meta useradd systemd ptest
 
@@ -69,7 +69,7 @@ RDEPENDS:${PN} += "\
     python3-httpx (>=0.27.0) \
     python3-home-assistant-bluetooth (=1.12.0) \
     python3-ifaddr (=0.2.0) \
-    python3-jinja2 (>=3.1.3) \
+    python3-jinja2 (>=3.1.4) \
     python3-lru-dict (>=1.3.0) \
     python3-pyjwt (=2.8.0) \
     python3-cryptography (>=42.0.5) \
