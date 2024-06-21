@@ -16,7 +16,7 @@ SRC_URI = "\
     file://run-ptest-sample \
 "
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
-SRCREV = "3dc3de95fa9d309efb9f7783ef0f8e80213ee75d"
+SRCREV = "c34731185164aaf44419977c4086e9a7dd6c0a7f"
 
 inherit python_setuptools_build_meta useradd systemd ptest
 
