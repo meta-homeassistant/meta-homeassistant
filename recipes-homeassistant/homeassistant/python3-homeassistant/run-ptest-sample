@@ -18,8 +18,7 @@ pytest --automake tests/helpers/ \
   and not test_ensure_translations_still_load_if_one_integration_fails \
   and not test_get_translation_categories " 
 
-pytest --automake tests/test_bootstrap.py \
-  -k "not test_warning_logged_on_wrap_up_timeout[False] "
+pytest --automake tests/test_bootstrap.py
 
 pytest --automake tests/test_config.py \
   -k "not test_component_config_exceptions \
