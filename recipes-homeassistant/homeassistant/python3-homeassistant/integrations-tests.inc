@@ -57,6 +57,7 @@ COMPONENT_TEST_PACKAGES = "\
 # ${PN}-private-ble-device
 # ${PN}-speedtestdotnet
 # ${PN}-stream
+# ${PN}-switchbot
 # ${PN}-systemmonitor
 # ${PN}-upnp
 

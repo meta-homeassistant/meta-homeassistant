@@ -15,3 +15,7 @@ RDEPENDS:${PN} = "\
     python3-orjson (>=3.8.1) \
     python3-yarl \
 "
+
+RDEPENDS:${PN}-ptest = "\
+    python3-python-switchbot \
+"

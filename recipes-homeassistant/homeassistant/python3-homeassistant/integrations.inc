@@ -64,6 +64,7 @@ PACKAGES += "\
     ${PN}-ssdp \
     ${PN}-startca \
     ${PN}-stream \
+    ${PN}-switchbot \
     ${PN}-systemmonitor \
     ${PN}-ted5000 \
     ${PN}-trend \
@@ -422,6 +423,11 @@ RDEPENDS:${PN}-stream = "\
     python3-numpy (>=1.26.0) \
 "
 
+ALLOW_EMPTY:${PN}-switchbot = "1"
+RDEPENDS:${PN}-switchbot = "\
+    python3-pyswitchbot (=0.46.1) \
+"
+
 ALLOW_EMPTY:${PN}-systemmonitor = "1"
 RDEPENDS:${PN}-systemmonitor = "\
     python3-psutil (>=5.9.8) \
@@ -546,6 +552,7 @@ RRECOMMENDS:${PN} += "\
     ${PN}-sql \
     ${PN}-startca \
     ${PN}-ssdp \
+    ${PN}-switchbot \
     ${PN}-systemmonitor \
     ${PN}-ted5000 \
     ${PN}-trend \
