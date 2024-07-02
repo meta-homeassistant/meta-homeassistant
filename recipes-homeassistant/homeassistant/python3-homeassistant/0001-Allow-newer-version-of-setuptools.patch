@@ -1,15 +1,16 @@
-From 1be34ec38dffb3407b527bdbe22f2b1b85315552 Mon Sep 17 00:00:00 2001
+From 0e69449f808cffb063eb94c6aa7baa785503a6b4 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Sun, 5 May 2024 15:24:46 +0000
 Subject: [PATCH] Allow newer version of setuptools
 
 Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
 ---
  pyproject.toml | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index 4dd5653f8c..eba8ccc792 100644
+index 516a2e5bf7..fccab4cf46 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@

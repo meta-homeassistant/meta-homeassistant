@@ -19,8 +19,8 @@ DEPENDS += "python3"
 WHL_BPN = "chip"
 WHL_BP = "home_assistant_chip_clusters-${PV}"
 WHL_PN = "home_assistant_chip_clusters"
-SRC_URI = "https://files.pythonhosted.org/packages/b9/6d/9d87153fd06efc7efb8c1ea19a0191ecc3aa143c71c4a62ab522d6a08d4f/${WHL_BP}-py3-none-any.whl;downloadfilename=${BP}.zip;subdir=${BP}"
-SRC_URI[sha256sum] = "226769ab2ee6f35a317e4ce3fbcd9a7d25fd8ee2bf48e08120ca1a3e32bc1be6"
+SRC_URI = "https://files.pythonhosted.org/packages/d7/2b/21ac68ccce4b369f865545b6493b6df833a75af758be74837cc53833aecd/${WHL_BP}-py3-none-any.whl;downloadfilename=${BP}.zip;subdir=${BP}"
+SRC_URI[sha256sum] = "2cffc8c347609bc4d4c2cfd23547e0edbfce3c86e808607b251884c1735dfb80"
 
 do_install() {
     install -d ${D}${libdir}/${PYTHON_DIR}/site-packages/${WHL_BPN}

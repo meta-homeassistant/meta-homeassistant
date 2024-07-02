@@ -4,6 +4,7 @@ Date: Thu, 15 Feb 2024 21:45:47 +0000
 Subject: [PATCH] update flit dependency
 
 Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
 ---
  pyproject.toml | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)

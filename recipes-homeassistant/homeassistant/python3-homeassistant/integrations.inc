@@ -1,52 +1,95 @@
 PACKAGES += "\
+    ${PN}-acer-projector \
     ${PN}-amazon-polly \
+    ${PN}-aruba \
     ${PN}-assist-pipeline \
     ${PN}-axis \
     ${PN}-backup \
+    ${PN}-bluesound \
     ${PN}-bluetooth \
+    ${PN}-camera \
     ${PN}-cast \
+    ${PN}-cisco-ios \
     ${PN}-cloud \
+    ${PN}-compensation \
     ${PN}-conversation \
+    ${PN}-cpuspeed \
     ${PN}-debugpy \
     ${PN}-dhcp \
+    ${PN}-dlna-dmr \
+    ${PN}-dlna-dms \
     ${PN}-ffmpeg \
-    ${PN}-file-upload \
+    ${PN}-folder-watcher \
     ${PN}-fritz \
     ${PN}-fritzbox \
+    ${PN}-fritzbox-callmonitor \
     ${PN}-frontend \
+    ${PN}-generic \
+    ${PN}-github \
+    ${PN}-google-mail \
+    ${PN}-google-tasks \
     ${PN}-google-translate \
     ${PN}-hacs \
     ${PN}-hardware \
     ${PN}-hue \
     ${PN}-image-upload \
     ${PN}-ipp \
+    ${PN}-isal \
     ${PN}-keyboard-remote \
     ${PN}-matter \
     ${PN}-met \
     ${PN}-mobile-app \
     ${PN}-modbus \
+    ${PN}-mqtt \
+    ${PN}-namecheapdns \
+    ${PN}-network \
+    ${PN}-norway-air \
     ${PN}-octoprint \
+    ${PN}-ohmconnect \
     ${PN}-otp \
+    ${PN}-owntracks \
+    ${PN}-pandora \
+    ${PN}-private-ble-device \
+    ${PN}-proxy \
     ${PN}-pulseaudio-loopback \
     ${PN}-radio-browser \
     ${PN}-recorder \
     ${PN}-route53 \
     ${PN}-scrape \
     ${PN}-sentry \
+    ${PN}-seven-segments \
     ${PN}-shelly \
+    ${PN}-speedtestdotnet \
+    ${PN}-sql \
     ${PN}-ssdp \
+    ${PN}-startca \
     ${PN}-stream \
+    ${PN}-switchbot \
     ${PN}-systemmonitor \
+    ${PN}-ted5000 \
+    ${PN}-trend \
     ${PN}-tts \
     ${PN}-upnp \
     ${PN}-usb \
+    ${PN}-utility-meter \
     ${PN}-vlc \
     ${PN}-zeroconf \
+    ${PN}-zestimate \
+"
+
+ALLOW_EMPTY:${PN}-acer-projector = "1"
+RDEPENDS:${PN}-acer-projector = "\
+    python3-pyserial (=3.5) \
 "
 
 ALLOW_EMPTY:${PN}-amazon-polly = "1"
 RDEPENDS:${PN}-amazon-polly = "\
     python3-boto3 (>=1.34.51) \
+"
+
+ALLOW_EMPTY:${PN}-aruba = "1"
+RDEPENDS:${PN}-aruba = "\
+    python3-pexpect (>=4.6.0) \
 "
 
 ALLOW_EMPTY:${PN}-assist-pipeline = "1"
@@ -64,15 +107,25 @@ RDEPENDS:${PN}-backup = "\
     python3-securetar (=2024.2.1) \
 "
 
+ALLOW_EMPTY:${PN}-bluesound = "1"
+RDEPENDS:${PN}-bluesound = "\
+    python3-xmltodict (=0.13.0) \
+"
+
 ALLOW_EMPTY:${PN}-bluetooth = "1"
 RDEPENDS:${PN}-bluetooth = "\
-    python3-bleak (=0.21.1) \
+    python3-bleak (>=0.22.1) \
     python3-bleak-retry-connector (=3.5.0) \
-    python3-bluetooth-adapters (=0.19.1) \
+    python3-bluetooth-adapters (=0.19.2) \
     python3-bluetooth-auto-recovery (=1.4.2) \
     python3-bluetooth-data-tools (=1.19.0) \
     python3-dbus-fast (>=2.21.1) \
-    python3-habluetooth (=2.8.0) \
+    python3-habluetooth (=3.1.1) \
+"
+
+ALLOW_EMPTY:${PN}-camera = "1"
+RDEPENDS:${PN}-camera = "\
+    python3-pyturbojpeg (=1.7.1) \
 "
 
 ALLOW_EMPTY:${PN}-cast = "1"
@@ -80,15 +133,30 @@ RDEPENDS:${PN}-cast = "\
     python3-pychromecast (>=14.0.1) \
 "
 
+ALLOW_EMPTY:${PN}-cisco-ios = "1"
+RDEPENDS:${PN}-cisco-ios = "\
+    python3-pexpect (>=4.6.0) \
+"
+
 ALLOW_EMPTY:${PN}-cloud = "1"
 RDEPENDS:${PN}-cloud = "\
-    python3-hass-nabucasa (=0.78.0) \
+    python3-hass-nabucasa (=0.81.1) \
 "
 
 ALLOW_EMPTY:${PN}-conversation = "1"
 RDEPENDS:${PN}-conversation = "\
-    python3-hassil (>=1.6.1) \
-    python3-home-assistant-intents (>=2024.4.24) \
+    python3-hassil (>=1.7.1) \
+    python3-home-assistant-intents (>=2024.6.5) \
+"
+
+ALLOW_EMPTY:${PN}-compensation = "1"
+RDEPENDS:${PN}-compensation = "\
+    python3-numpy (>=1.26.0) \
+"
+
+ALLOW_EMPTY:${PN}-cpuspeed = "1"
+RDEPENDS:${PN}-cpuspeed = "\
+    python3-py-cpuinfo (=9.0.0) \
 "
 
 ALLOW_EMPTY:${PN}-debugpy = "1"
@@ -103,14 +171,25 @@ RDEPENDS:${PN}-dhcp = "\
     python3-cached-ipaddress (=0.3.0) \
 "
 
+ALLOW_EMPTY:${PN}-dlna-dmr = "1"
+RDEPENDS:${PN}-dlna-dmr = "\
+    python3-async-upnp-client (=0.38.3) \
+    python3-getmac (=0.9.4) \
+"
+
+ALLOW_EMPTY:${PN}-dlna-dms = "1"
+RDEPENDS:${PN}-dlna-dms = "\
+    python3-async-upnp-client (=0.38.3) \
+"
+
 ALLOW_EMPTY:${PN}-ffmpeg = "1"
 RDEPENDS:${PN}-ffmpeg = "\
     python3-ha-ffmpeg (=3.2.0) \
 "
 
-ALLOW_EMPTY:${PN}-file-upload = "1"
-RDEPENDS:${PN}-file-upload = "\
-    python3-janus (=1.0.0) \
+ALLOW_EMPTY:${PN}-folder-watcher = "1"
+RDEPENDS:${PN}-folder-watcher = "\
+    python3-watchdog (>=4.0.1) \
 "
 
 ALLOW_EMPTY:${PN}-fritz = "1"
@@ -124,9 +203,35 @@ RDEPENDS:${PN}-fritzbox = "\
     python3-pyfritzhome (=0.6.11) \
 "
 
+ALLOW_EMPTY:${PN}-fritzbox-callmonitor = "1"
+RDEPENDS:${PN}-fritzbox-callmonitor = "\
+    python3-fritzconnection (=1.13.2) \
+"
+
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    python3-home-assistant-frontend (=20240501.0) \
+    python3-home-assistant-frontend (=20240605.0) \
+"
+
+ALLOW_EMPTY:${PN}-generic = "1"
+RDEPENDS:${PN}-generic = "\
+    python3-ha-av (=10.1.1) \
+    python3-pillow (=10.3.0) \
+"
+
+ALLOW_EMPTY:${PN}-github = "1"
+RDEPENDS:${PN}-github = "\
+    python3-aiogithubapi (=23.11.0) \
+"
+
+ALLOW_EMPTY:${PN}-google-mail = "1"
+RDEPENDS:${PN}-google-mail = "\
+    python3-google-api-python-client (>=2.71.0) \
+"
+
+ALLOW_EMPTY:${PN}-google-tasks = "1"
+RDEPENDS:${PN}-google-tasks = "\
+    python3-google-api-python-client (>=2.71.0) \
 "
 
 ALLOW_EMPTY:${PN}-google-translate = "1"
@@ -136,7 +241,7 @@ RDEPENDS:${PN}-google-translate = "\
 
 ALLOW_EMPTY:${PN}-hacs = "1"
 RDEPENDS:${PN}-hacs = "\
-    python3-aiogithubapi (=22.10.1) \
+    python3-aiogithubapi (=23.11.0) \
 "
 
 ALLOW_EMPTY:${PN}-hardware = "1"
@@ -156,8 +261,14 @@ RDEPENDS:${PN}-image-upload = "\
 
 ALLOW_EMPTY:${PN}-ipp = "1"
 RDEPENDS:${PN}-ipp = "\
-    python3-pyipp (=0.15.0) \
+    python3-pyipp (=0.16.0) \
 "
+
+ALLOW_EMPTY:${PN}-isal = "1"
+RDEPENDS:${PN}-isal = "\
+    python3-isal (=1.6.1) \
+"
+
 
 ALLOW_EMPTY:${PN}-keyboard-remote = "1"
 RDEPENDS:${PN}-keyboard-remote = "\
@@ -167,7 +278,7 @@ RDEPENDS:${PN}-keyboard-remote = "\
 
 ALLOW_EMPTY:${PN}-matter = "1"
 RDEPENDS:${PN}-matter = "\
-    python3-python-matter-server (=5.10.0) \
+    python3-python-matter-server (=6.1.0) \
 "
 
 ALLOW_EMPTY:${PN}-met = "1"
@@ -185,14 +296,59 @@ RDEPENDS:${PN}-modbus = "\
     python3-pymodbus (>=3.6.6) \
 "
 
+ALLOW_EMPTY:${PN}-mqtt = "1"
+RDEPENDS:${PN}-mqtt = "\
+    python3-paho-mqtt (>=1.6.1) \
+"
+
+ALLOW_EMPTY:${PN}-namecheapdns = "1"
+RDEPENDS:${PN}-namecheapdns = "\
+    python3-defusedxml (=0.7.1) \
+"
+
+ALLOW_EMPTY:${PN}-network = "1"
+RDEPENDS:${PN}-network = "\
+    python3-ifaddr (=0.2.0) \
+"
+
+ALLOW_EMPTY:${PN}-norway-air = "1"
+RDEPENDS:${PN}-norway-air = "\
+    python3-pymetno (>=0.12.0) \
+"
+
 ALLOW_EMPTY:${PN}-octoprint = "1"
 RDEPENDS:${PN}-octoprint = "\
     python3-pyoctoprintapi (=0.1.12) \
 "
 
+ALLOW_EMPTY:${PN}-ohmconnect = "1"
+RDEPENDS:${PN}-ohmconnect = "\
+    python3-defusedxml (=0.7.1) \
+"
+
 ALLOW_EMPTY:${PN}-otp = "1"
 RDEPENDS:${PN}-otp = "\
     python3-pyotp (=2.8.0) \
+"
+
+ALLOW_EMPTY:${PN}-owntracks = "1"
+RDEPENDS:${PN}-owntracks = "\
+    python3-pynacl (=1.5.0) \
+"
+
+ALLOW_EMPTY:${PN}-pandora = "1"
+RDEPENDS:${PN}-pandora = "\
+    python3-pexpect (>=4.6.0) \
+"
+
+ALLOW_EMPTY:${PN}-private-ble-device = "1"
+RDEPENDS:${PN}-private-ble-device = "\
+    python3-bluetooth-data-tools (=1.19.0) \
+"
+
+ALLOW_EMPTY:${PN}-proxy = "1"
+RDEPENDS:${PN}-proxy = "\
+    python3-pillow (=10.3.0) \
 "
 
 ALLOW_EMPTY:${PN}-pulseaudio-loopback = "1"
@@ -229,14 +385,35 @@ RDEPENDS:${PN}-sentry = "\
     python3-sentry-sdk (>=1.40.3) \
 "
 
+ALLOW_EMPTY:${PN}-seven-segments = "1"
+RDEPENDS:${PN}-seven-segments = "\
+    python3-pillow (=10.3.0) \
+"
+
 ALLOW_EMPTY:${PN}-shelly = "1"
 RDEPENDS:${PN}-shelly = "\
-    python3-aioshelly (=9.0.0) \
+    python3-aioshelly (=10.0.0) \
+"
+
+ALLOW_EMPTY:${PN}-speedtestdotnet = "1"
+RDEPENDS:${PN}-speedtestdotnet = "\
+    python3-speedtest-cli (=2.1.3) \
+"
+
+ALLOW_EMPTY:${PN}-sql = "1"
+RDEPENDS:${PN}-sql = "\
+    python3-sqlparse (=0.5.0) \
+    python3-sqlalchemy (>=2.0.30) \
 "
 
 ALLOW_EMPTY:${PN}-ssdp = "1"
 RDEPENDS:${PN}-ssdp = "\
     python3-async-upnp-client (=0.38.3) \
+"
+
+ALLOW_EMPTY:${PN}-startca = "1"
+RDEPENDS:${PN}-startca = "\
+    python3-xmltodict (=0.13.0) \
 "
 
 ALLOW_EMPTY:${PN}-stream = "1"
@@ -246,10 +423,25 @@ RDEPENDS:${PN}-stream = "\
     python3-numpy (>=1.26.0) \
 "
 
+ALLOW_EMPTY:${PN}-switchbot = "1"
+RDEPENDS:${PN}-switchbot = "\
+    python3-pyswitchbot (=0.46.1) \
+"
+
 ALLOW_EMPTY:${PN}-systemmonitor = "1"
 RDEPENDS:${PN}-systemmonitor = "\
     python3-psutil (>=5.9.8) \
     python3-psutil-home-assistant (=0.0.1) \
+"
+
+ALLOW_EMPTY:${PN}-ted5000 = "1"
+RDEPENDS:${PN}-ted5000 = "\
+    python3-xmltodict (=0.13.0) \
+"
+
+ALLOW_EMPTY:${PN}-trend = "1"
+RDEPENDS:${PN}-trend = "\
+    python3-numpy (>=1.26.0) \
 "
 
 ALLOW_EMPTY:${PN}-tts = "1"
@@ -269,6 +461,11 @@ RDEPENDS:${PN}-usb = "\
     python3-pyudev (>=0.23.2) \
 "
 
+ALLOW_EMPTY:${PN}-utility-meter = "1"
+RDEPENDS:${PN}-utility-meter = "\
+    python3-croniter (>=2.0.2) \
+"
+
 ALLOW_EMPTY:${PN}-vlc = "1"
 RDEPENDS:${PN}-vlc = "\
     python3-python-vlc (>=3.0.18122) \
@@ -279,6 +476,11 @@ RDEPENDS:${PN}-zeroconf = "\
     python3-zeroconf (>=0.132.2) \
 "
 
+ALLOW_EMPTY:${PN}-zestimate = "1"
+RDEPENDS:${PN}-zestimate = "\
+    python3-xmltodict (=0.13.0) \
+"
+
 RDEPENDS:${PN} += "\
     ${PN}-assist-pipeline \
     ${PN}-bluetooth \
@@ -286,7 +488,6 @@ RDEPENDS:${PN} += "\
     ${PN}-conversation \
     ${PN}-dhcp \
     ${PN}-ffmpeg \
-    ${PN}-file-upload \
     ${PN}-frontend \
     ${PN}-google-translate \
     ${PN}-hardware \
@@ -301,29 +502,63 @@ RDEPENDS:${PN} += "\
 "
 
 RRECOMMENDS:${PN} += "\
+    ${PN}-acer-projector \
+    ${PN}-aruba \
     ${PN}-amazon-polly \
     ${PN}-axis \
     ${PN}-backup \
+    ${PN}-bluesound \
+    ${PN}-camera \
     ${PN}-cast \
+    ${PN}-cisco-ios \
+    ${PN}-compensation \
+    ${PN}-cpuspeed \
     ${PN}-debugpy \
+    ${PN}-dlna-dmr \
+    ${PN}-dlna-dms \
+    ${PN}-folder-watcher \
     ${PN}-fritz \
     ${PN}-fritzbox \
+    ${PN}-fritzbox-callmonitor \
+    ${PN}-generic \
+    ${PN}-github \
+    ${PN}-google-mail \
+    ${PN}-google-tasks \
     ${PN}-hacs \
     ${PN}-hue \
     ${PN}-ipp \
+    ${PN}-isal \
     ${PN}-keyboard-remote \
     ${PN}-met \
     ${PN}-modbus \
+    ${PN}-mqtt \
+    ${PN}-namecheapdns \
+    ${PN}-network \
+    ${PN}-norway-air \
     ${PN}-octoprint \
+    ${PN}-ohmconnect \
     ${PN}-otp \
+    ${PN}-owntracks \
+    ${PN}-pandora \
+    ${PN}-private-ble-device \
+    ${PN}-proxy \
     ${PN}-pulseaudio-loopback \
     ${PN}-route53 \
     ${PN}-scrape \
     ${PN}-sentry \
+    ${PN}-seven-segments \
     ${PN}-shelly \
+    ${PN}-speedtestdotnet \
+    ${PN}-sql \
+    ${PN}-startca \
     ${PN}-ssdp \
+    ${PN}-switchbot \
     ${PN}-systemmonitor \
+    ${PN}-ted5000 \
+    ${PN}-trend \
     ${PN}-tts \
     ${PN}-upnp \
+    ${PN}-utility-meter \
     ${PN}-vlc \
+    ${PN}-zestimate \
 "

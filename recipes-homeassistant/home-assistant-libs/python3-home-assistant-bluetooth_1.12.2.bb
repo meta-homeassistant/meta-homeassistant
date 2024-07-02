@@ -15,8 +15,8 @@ SRC_URI[sha256sum] = "9cac369fea11f67c1165df527f918a8c56630cbccb3c5cbe24b72f06ae
 S = "${WORKDIR}/git"
 
 RDEPENDS:${PN} = "\
-    python3-core (>=3.10) \
-    python3-habluetooth (>=0.11.0) \
+    python3-core (>=3.11) \
+    python3-habluetooth (>=3.0) \
 "
 
 RDEPENDS:${PN}-ptest = "\

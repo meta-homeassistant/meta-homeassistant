@@ -8,6 +8,6 @@ inherit pypi python_setuptools_build_meta
 PYPI_PACKAGE = "unicode_rbnf"
 PYPI_SRC_URI = "git://github.com/rhasspy/unicode-rbnf;protocol=https;branch=master"
 
-SRCREV = "027a1db59920a17b774742a229113cf50b9a03cd"
+SRCREV = "f0010272f1076cfc5abc179e21c418ed689857d5"
 
 S = "${WORKDIR}/git"

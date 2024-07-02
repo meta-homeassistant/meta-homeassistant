@@ -1,0 +1,23 @@
+From 582eeee0cd6a808df7dbae04e8503c231ac6f62c Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Thu, 27 Jun 2024 20:03:10 +0000
+Subject: [PATCH] Allow newer version of hatchling
+
+Upstream-Status: Pending
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+---
+ pyproject.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index cd09779..91466b8 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,6 +1,6 @@
+ [build-system]
+ # hatchling pinned for reproducibility: version should be kept up-to-date
+-requires = ["hatchling==1.11.1"]
++requires = ["hatchling>=1.11.1"]
+ build-backend = "hatchling.build"
+ 
+ [project]

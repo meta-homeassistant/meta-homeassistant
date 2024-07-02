@@ -1,41 +1,63 @@
 COMPONENT_TEST_PACKAGES = "\
     ${PN}-assist-pipeline \
-    ${PN}-axis \
     ${PN}-backup \
     ${PN}-bluetooth \
+    ${PN}-camera \
     ${PN}-cast \
     ${PN}-cloud \
+    ${PN}-compensation \
     ${PN}-conversation \
+    ${PN}-cpuspeed \
     ${PN}-debugpy \
     ${PN}-dhcp \
+    ${PN}-dlna-dmr \
+    ${PN}-dlna-dms \
     ${PN}-ffmpeg \
-    ${PN}-file-upload \
+    ${PN}-folder-watcher \
+    ${PN}-fritzbox-callmonitor \
     ${PN}-frontend \
     ${PN}-google-translate \
     ${PN}-hardware \
     ${PN}-image-upload \
+    ${PN}-isal \
     ${PN}-met \
     ${PN}-mobile-app \
     ${PN}-modbus \
+    ${PN}-namecheapdns \
+    ${PN}-network \
     ${PN}-octoprint \
     ${PN}-radio-browser \
     ${PN}-recorder \
     ${PN}-scrape \
     ${PN}-sentry \
     ${PN}-shelly \
+    ${PN}-sql \
     ${PN}-ssdp \
+    ${PN}-startca \
+    ${PN}-trend \
     ${PN}-tts \
     ${PN}-usb \
+    ${PN}-utility-meter \
     ${PN}-zeroconf \
 "
 
 # Temporarily disabled as the tests are failing. Investigation is pending.
+# ${PN}-axis
+# ${PN}-generic
+# ${PN}-github
+# ${PN}-mqtt
+# ${PN}-owntracks
 # ${PN}-fritz
 # ${PN}-fritzbox
+# ${PN}-google-mail
+# ${PN}-google-tasks
 # ${PN}-hue
 # ${PN}-ipp
 # ${PN}-matter
+# ${PN}-private-ble-device
+# ${PN}-speedtestdotnet
 # ${PN}-stream
+# ${PN}-switchbot
 # ${PN}-systemmonitor
 # ${PN}-upnp
 
