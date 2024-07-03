@@ -4,6 +4,7 @@ Date: Fri, 21 Apr 2023 20:25:27 +0200
 Subject: [PATCH] Patch to be able to compile
 
 Signed-off-by: Tom Geelen <tom.geelen@demcon.com>
+Upstream-Status: Pending
 ---
  pyproject.toml | 1 -
  setup.py       | 2 +-

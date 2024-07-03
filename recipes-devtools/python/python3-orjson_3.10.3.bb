@@ -13,12 +13,12 @@ DEPENDS += "\
 
 require ${BPN}-crates.inc
 
-SRC_URI[sha256sum] = "ba4d8cac5f2e2cff36bea6b6481cdb92b38c202bcec603d6f5ff91960595a1ed"
+SRC_URI[sha256sum] = "2b166507acae7ba2f7c315dcf185a9111ad5e992ac81f2d507aac39193c2c818"
 SRC_URI:append = " \
     file://0001-Fix-compilation-error-for-orjson.patch \
 "
 
-inherit cargo-update-recipe-crates pypi python_pyo3 python_setuptools_build_meta
+inherit pypi python_pyo3 python_setuptools_build_meta
 
 do_configure() {
     python_pyo3_do_configure

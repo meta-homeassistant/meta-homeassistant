@@ -5,6 +5,7 @@ Subject: [PATCH] Patch pyproject.toml to use upstream version of setuptools
  and wheel
 
 Signed-off-by: Tom Geelen <tom.geelen@demcon.com>
+Upstream-Status: Pending
 ---
  pyproject.toml | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
