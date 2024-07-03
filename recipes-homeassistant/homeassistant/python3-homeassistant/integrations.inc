@@ -119,7 +119,7 @@ RDEPENDS:${PN}-bluetooth = "\
     python3-bluetooth-adapters (=0.19.2) \
     python3-bluetooth-auto-recovery (=1.4.2) \
     python3-bluetooth-data-tools (=1.19.0) \
-    python3-dbus-fast (>=2.21.1) \
+    python3-dbus-fast (>=2.21.3) \
     python3-habluetooth (=3.1.1) \
 "
 
@@ -293,7 +293,7 @@ RDEPENDS:${PN}-mobile-app = "\
 
 ALLOW_EMPTY:${PN}-modbus = "1"
 RDEPENDS:${PN}-modbus = "\
-    python3-pymodbus (>=3.6.6) \
+    python3-pymodbus (>=3.6.8) \
 "
 
 ALLOW_EMPTY:${PN}-mqtt = "1"
@@ -365,7 +365,7 @@ ALLOW_EMPTY:${PN}-recorder = "1"
 RDEPENDS:${PN}-recorder = "\
     python3-sqlite3 \
     python3-fnv-hash-fast (=0.5.0) \
-    python3-sqlalchemy (>=2.0.29) \
+    python3-sqlalchemy (>=2.0.30) \
     python3-psutil-home-assistant (=0.0.1) \
 "
 
@@ -458,7 +458,7 @@ RDEPENDS:${PN}-upnp = "\
 ALLOW_EMPTY:${PN}-usb = "1"
 RDEPENDS:${PN}-usb = "\
     python3-pyserial (=3.5) \
-    python3-pyudev (>=0.23.2) \
+    python3-pyudev (>=0.24.1) \
 "
 
 ALLOW_EMPTY:${PN}-utility-meter = "1"

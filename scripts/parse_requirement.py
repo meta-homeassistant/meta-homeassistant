@@ -138,7 +138,7 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
 
             integrations = [
                 "acer_projector",
-                "amazon-polly",
+                "amazon_polly",
                 "aruba",
                 "assist_pipeline",
                 "axis",

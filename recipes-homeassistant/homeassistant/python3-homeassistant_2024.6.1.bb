@@ -16,7 +16,7 @@ SRC_URI = "\
     file://run-ptest-sample \
 "
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
-SRCREV = "460909a7f6cb3a24152b2e1bdacf31387d89b33a"
+SRCREV = "b28cdcfc497dcaabc2d88ac8d3dc4c555edfcbd7"
 
 inherit python_setuptools_build_meta useradd systemd ptest
 
@@ -75,7 +75,7 @@ RDEPENDS:${PN} += "\
     python3-cryptography (>=42.0.5) \
     python3-pillow (>=10.3.0) \
     python3-pyopenssl (>=24.1.0) \
-    python3-orjson (>=3.10.3) \
+    python3-orjson (>=3.9.15) \
     python3-packaging (>=23.1) \
     python3-pip (>=21.3.1) \
     python3-psutil-home-assistant (=0.0.1) \
