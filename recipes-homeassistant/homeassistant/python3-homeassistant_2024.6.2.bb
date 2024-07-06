@@ -16,7 +16,7 @@ SRC_URI = "\
     file://run-ptest-sample \
 "
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
-SRCREV = "b28cdcfc497dcaabc2d88ac8d3dc4c555edfcbd7"
+SRCREV = "090d29613562cd2dd4b7a07070d511525afddd6b"
 
 inherit python_setuptools_build_meta useradd systemd ptest
 
@@ -81,7 +81,7 @@ RDEPENDS:${PN} += "\
     python3-psutil-home-assistant (=0.0.1) \
     python3-python-slugify (=8.0.4) \
     python3-pyyaml (=6.0.1) \
-    python3-requests (>=2.31.0) \
+    python3-requests (>=2.32.3) \
     python3-sqlalchemy (>=2.0.30) \
     python3-typing-extensions (>=4.12.0) \
     python3-ulid-transform (=0.9.0) \

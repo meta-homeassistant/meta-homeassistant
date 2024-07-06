@@ -143,15 +143,15 @@ RDEPENDS:${PN}-cloud = "\
     python3-hass-nabucasa (=0.81.1) \
 "
 
+ALLOW_EMPTY:${PN}-compensation = "1"
+RDEPENDS:${PN}-compensation = "\
+    python3-numpy (>=1.26.0) \
+"
+
 ALLOW_EMPTY:${PN}-conversation = "1"
 RDEPENDS:${PN}-conversation = "\
     python3-hassil (>=1.7.1) \
     python3-home-assistant-intents (>=2024.6.5) \
-"
-
-ALLOW_EMPTY:${PN}-compensation = "1"
-RDEPENDS:${PN}-compensation = "\
-    python3-numpy (>=1.26.0) \
 "
 
 ALLOW_EMPTY:${PN}-cpuspeed = "1"
@@ -189,7 +189,7 @@ RDEPENDS:${PN}-ffmpeg = "\
 
 ALLOW_EMPTY:${PN}-folder-watcher = "1"
 RDEPENDS:${PN}-folder-watcher = "\
-    python3-watchdog (>=4.0.1) \
+    python3-watchdog (>=2.3.1) \
 "
 
 ALLOW_EMPTY:${PN}-fritz = "1"
@@ -210,7 +210,7 @@ RDEPENDS:${PN}-fritzbox-callmonitor = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    python3-home-assistant-frontend (=20240605.0) \
+    python3-home-assistant-frontend (=20240610.0) \
 "
 
 ALLOW_EMPTY:${PN}-generic = "1"
@@ -256,7 +256,7 @@ RDEPENDS:${PN}-hue = "\
 
 ALLOW_EMPTY:${PN}-image-upload = "1"
 RDEPENDS:${PN}-image-upload = "\
-    python3-pillow (>=10.2.0) \
+    python3-pillow (>=10.3.0) \
 "
 
 ALLOW_EMPTY:${PN}-ipp = "1"
@@ -392,7 +392,7 @@ RDEPENDS:${PN}-seven-segments = "\
 
 ALLOW_EMPTY:${PN}-shelly = "1"
 RDEPENDS:${PN}-shelly = "\
-    python3-aioshelly (=10.0.0) \
+    python3-aioshelly (=10.0.1) \
 "
 
 ALLOW_EMPTY:${PN}-speedtestdotnet = "1"
@@ -402,8 +402,8 @@ RDEPENDS:${PN}-speedtestdotnet = "\
 
 ALLOW_EMPTY:${PN}-sql = "1"
 RDEPENDS:${PN}-sql = "\
-    python3-sqlparse (=0.5.0) \
     python3-sqlalchemy (>=2.0.30) \
+    python3-sqlparse (=0.5.0) \
 "
 
 ALLOW_EMPTY:${PN}-ssdp = "1"
