@@ -210,7 +210,7 @@ RDEPENDS:${PN}-fritzbox-callmonitor = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    python3-home-assistant-frontend (=20240610.0) \
+    python3-home-assistant-frontend (=20240610.1) \
 "
 
 ALLOW_EMPTY:${PN}-generic = "1"

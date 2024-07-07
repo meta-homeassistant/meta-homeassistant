@@ -16,7 +16,7 @@ SRC_URI = "\
     file://run-ptest-sample \
 "
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
-SRCREV = "090d29613562cd2dd4b7a07070d511525afddd6b"
+SRCREV = "394dafd98094cbd93a4dd5b88779f14626d322d3"
 
 inherit python_setuptools_build_meta useradd systemd ptest
 
@@ -32,6 +32,12 @@ USERADD_PARAM:${PN} = "\
 
 SYSTEMD_AUTO_ENABLE = "enable"
 SYSTEMD_SERVICE:${PN} = "homeassistant.service"
+
+do_configure:append() {
+    # On startup the first boot will always fail and an error is thrown that translations are not found.
+    # This is apparently the answer: https://community.home-assistant.io/t/new-install-onboarding-failedkeyerror-component-onboarding-area-living-room/689712/6
+    nativepython3 -m script.translations develop --all
+}
 
 do_install:append () {
     install -d -o ${HOMEASSISTANT_USER} -g homeassistant ${D}${HOMEASSISTANT_CONFIG_DIR}
