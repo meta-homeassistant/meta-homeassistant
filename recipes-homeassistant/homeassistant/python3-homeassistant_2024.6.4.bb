@@ -16,7 +16,7 @@ SRC_URI = "\
     file://run-ptest-sample \
 "
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
-SRCREV = "394dafd98094cbd93a4dd5b88779f14626d322d3"
+SRCREV = "b315b566e554fd8c233664217afe0d1116730fdd"
 
 inherit python_setuptools_build_meta useradd systemd ptest
 
@@ -37,6 +37,9 @@ do_configure:append() {
     # On startup the first boot will always fail and an error is thrown that translations are not found.
     # This is apparently the answer: https://community.home-assistant.io/t/new-install-onboarding-failedkeyerror-component-onboarding-area-living-room/689712/6
     nativepython3 -m script.translations develop --all
+    # Due to running this several build files are created and they should be cleaned to avoid polluting the image with unnecessary files
+    rm -rf ${S}/script/__pycache__
+    rm -rf ${S}/script/translations/__pycache__
 }
 
 do_install:append () {
@@ -61,7 +64,7 @@ RDEPENDS:${PN} += "\
     python3-aiohttp-cors (=0.7.0) \
     python3-aiohttp-fast-url-dispatcher (=0.3.0) \
     python3-aiohttp-fast-zlib (=0.1.0) \
-    python3-aiozoneinfo (=0.1.0) \
+    python3-aiozoneinfo (=0.2.0) \
     python3-astral (=2.2) \
     python3-async-interrupt (=1.1.1) \
     python3-attrs (>=23.2.0) \

@@ -151,7 +151,7 @@ RDEPENDS:${PN}-compensation = "\
 ALLOW_EMPTY:${PN}-conversation = "1"
 RDEPENDS:${PN}-conversation = "\
     python3-hassil (>=1.7.1) \
-    python3-home-assistant-intents (>=2024.6.5) \
+    python3-home-assistant-intents (>=2024.6.21) \
 "
 
 ALLOW_EMPTY:${PN}-cpuspeed = "1"
