@@ -1,4 +1,4 @@
-From 4197ed714297324fe5f793449de3cbe6f67dcf77 Mon Sep 17 00:00:00 2001
+From 43f7475c367762a83796f81a5e27ecb839e29481 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Thu, 4 Apr 2024 21:51:46 +0000
 Subject: [PATCH] Adjust min version of wheel and setuptools
@@ -10,7 +10,7 @@ Upstream-Status: Pending
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index 4bddf71..7fca1d2 100644
+index 38be44c..fab834e 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@

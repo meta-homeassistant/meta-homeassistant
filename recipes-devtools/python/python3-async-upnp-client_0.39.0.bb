@@ -9,7 +9,7 @@ PYPI_PACKAGE = "async_upnp_client"
 
 S = "${WORKDIR}/async_upnp_client-${PV}"
 
-SRC_URI[sha256sum] = "67c19c152d380a889169cdbe07418edfad8c304a3045c818ed98b61b3a222837"
+SRC_URI[sha256sum] = "d8a2975963fa67bc87c038ddef2624adcd619c4714f550b57e3adcb3bafc15f8"
 
 RDEPENDS:${PN} = "\
 	python3-core (>=3.8) \

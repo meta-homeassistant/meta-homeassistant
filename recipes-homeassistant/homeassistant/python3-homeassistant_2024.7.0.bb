@@ -16,7 +16,7 @@ SRC_URI = "\
     file://run-ptest-sample \
 "
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
-SRCREV = "b315b566e554fd8c233664217afe0d1116730fdd"
+SRCREV = "2b64f6f2abe1521e18a01d7187254e4914d7307b"
 
 inherit python_setuptools_build_meta useradd systemd ptest
 
@@ -63,10 +63,10 @@ RDEPENDS:${PN} += "\
     python3-aiohttp (>=3.9.5) \
     python3-aiohttp-cors (=0.7.0) \
     python3-aiohttp-fast-url-dispatcher (=0.3.0) \
-    python3-aiohttp-fast-zlib (=0.1.0) \
-    python3-aiozoneinfo (=0.2.0) \
+    python3-aiohttp-fast-zlib (=0.1.1) \
+    python3-aiozoneinfo (=0.2.1) \
     python3-astral (=2.2) \
-    python3-async-interrupt (=1.1.1) \
+    python3-async-interrupt (=1.1.2) \
     python3-attrs (>=23.2.0) \
     ${@bb.utils.contains("DISTRO_FEATURES", "ptest", "python3-atomicwrites", "python3-atomicwrites-homeassistant (=1.4.1)",d)} \
     python3-awesomeversion (>=24.2.0) \
@@ -76,12 +76,12 @@ RDEPENDS:${PN} += "\
     python3-fnv-hash-fast (=0.5.0) \
     python3-hass-nabucasa (=0.81.1) \
     python3-httpx (>=0.27.0) \
-    python3-home-assistant-bluetooth (>=1.12.0) \
+    python3-home-assistant-bluetooth (>=1.12.2) \
     python3-ifaddr (=0.2.0) \
     python3-jinja2 (>=3.1.4) \
     python3-lru-dict (>=1.3.0) \
     python3-pyjwt (=2.8.0) \
-    python3-cryptography (>=42.0.5) \
+    python3-cryptography (>=42.0.8) \
     python3-pillow (>=10.3.0) \
     python3-pyopenssl (>=24.1.0) \
     python3-orjson (>=3.9.15) \
@@ -91,12 +91,13 @@ RDEPENDS:${PN} += "\
     python3-python-slugify (=8.0.4) \
     python3-pyyaml (=6.0.1) \
     python3-requests (>=2.32.3) \
-    python3-sqlalchemy (>=2.0.30) \
-    python3-typing-extensions (>=4.12.0) \
+    python3-sqlalchemy (>=2.0.31) \
+    python3-typing-extensions (>=4.12.2) \
     python3-ulid-transform (=0.9.0) \
     python3-urllib3 (>=1.26.5) \
     python3-voluptuous (=0.13.1) \
     python3-voluptuous-serialize (=2.6.0) \
+    python3-voluptuous-openapi (=0.0.4) \
     python3-yarl (>=1.9.4) \
     \
     python3-statistics \
