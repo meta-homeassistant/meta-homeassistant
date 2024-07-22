@@ -99,7 +99,7 @@ RDEPENDS:${PN}-assist-pipeline = "\
 
 ALLOW_EMPTY:${PN}-axis = "1"
 RDEPENDS:${PN}-axis = "\
-    python3-axis (=61) \
+    python3-axis (=62) \
 "
 
 ALLOW_EMPTY:${PN}-backup = "1"
@@ -116,11 +116,11 @@ ALLOW_EMPTY:${PN}-bluetooth = "1"
 RDEPENDS:${PN}-bluetooth = "\
     python3-bleak (>=0.22.1) \
     python3-bleak-retry-connector (=3.5.0) \
-    python3-bluetooth-adapters (=0.19.2) \
+    python3-bluetooth-adapters (=0.19.3) \
     python3-bluetooth-auto-recovery (=1.4.2) \
-    python3-bluetooth-data-tools (=1.19.0) \
-    python3-dbus-fast (>=2.21.1) \
-    python3-habluetooth (=3.1.1) \
+    python3-bluetooth-data-tools (=1.19.3) \
+    python3-dbus-fast (>=2.21.3) \
+    python3-habluetooth (=3.1.3) \
 "
 
 ALLOW_EMPTY:${PN}-camera = "1"
@@ -143,15 +143,15 @@ RDEPENDS:${PN}-cloud = "\
     python3-hass-nabucasa (=0.81.1) \
 "
 
-ALLOW_EMPTY:${PN}-conversation = "1"
-RDEPENDS:${PN}-conversation = "\
-    python3-hassil (>=1.7.1) \
-    python3-home-assistant-intents (>=2024.6.5) \
-"
-
 ALLOW_EMPTY:${PN}-compensation = "1"
 RDEPENDS:${PN}-compensation = "\
     python3-numpy (>=1.26.0) \
+"
+
+ALLOW_EMPTY:${PN}-conversation = "1"
+RDEPENDS:${PN}-conversation = "\
+    python3-hassil (>=1.7.1) \
+    python3-home-assistant-intents (>=2024.7.3) \
 "
 
 ALLOW_EMPTY:${PN}-cpuspeed = "1"
@@ -166,20 +166,20 @@ RDEPENDS:${PN}-debugpy = "\
 
 ALLOW_EMPTY:${PN}-dhcp = "1"
 RDEPENDS:${PN}-dhcp = "\
-    python3-aiodhcpwatcher (=1.0.0) \
+    python3-aiodhcpwatcher (=1.0.2) \
     python3-aiodiscover (=2.1.0) \
     python3-cached-ipaddress (=0.3.0) \
 "
 
 ALLOW_EMPTY:${PN}-dlna-dmr = "1"
 RDEPENDS:${PN}-dlna-dmr = "\
-    python3-async-upnp-client (=0.38.3) \
+    python3-async-upnp-client (=0.39.0) \
     python3-getmac (=0.9.4) \
 "
 
 ALLOW_EMPTY:${PN}-dlna-dms = "1"
 RDEPENDS:${PN}-dlna-dms = "\
-    python3-async-upnp-client (=0.38.3) \
+    python3-async-upnp-client (=0.39.0) \
 "
 
 ALLOW_EMPTY:${PN}-ffmpeg = "1"
@@ -189,7 +189,7 @@ RDEPENDS:${PN}-ffmpeg = "\
 
 ALLOW_EMPTY:${PN}-folder-watcher = "1"
 RDEPENDS:${PN}-folder-watcher = "\
-    python3-watchdog (>=4.0.1) \
+    python3-watchdog (>=2.3.1) \
 "
 
 ALLOW_EMPTY:${PN}-fritz = "1"
@@ -200,7 +200,7 @@ RDEPENDS:${PN}-fritz = "\
 
 ALLOW_EMPTY:${PN}-fritzbox = "1"
 RDEPENDS:${PN}-fritzbox = "\
-    python3-pyfritzhome (=0.6.11) \
+    python3-pyfritzhome (=0.6.12) \
 "
 
 ALLOW_EMPTY:${PN}-fritzbox-callmonitor = "1"
@@ -210,7 +210,7 @@ RDEPENDS:${PN}-fritzbox-callmonitor = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    python3-home-assistant-frontend (=20240605.0) \
+    python3-home-assistant-frontend (=20240703.0) \
 "
 
 ALLOW_EMPTY:${PN}-generic = "1"
@@ -256,7 +256,7 @@ RDEPENDS:${PN}-hue = "\
 
 ALLOW_EMPTY:${PN}-image-upload = "1"
 RDEPENDS:${PN}-image-upload = "\
-    python3-pillow (>=10.2.0) \
+    python3-pillow (>=10.3.0) \
 "
 
 ALLOW_EMPTY:${PN}-ipp = "1"
@@ -278,7 +278,7 @@ RDEPENDS:${PN}-keyboard-remote = "\
 
 ALLOW_EMPTY:${PN}-matter = "1"
 RDEPENDS:${PN}-matter = "\
-    python3-python-matter-server (=6.1.0) \
+    python3-matter-server (=6.2.2) \
 "
 
 ALLOW_EMPTY:${PN}-met = "1"
@@ -293,7 +293,7 @@ RDEPENDS:${PN}-mobile-app = "\
 
 ALLOW_EMPTY:${PN}-modbus = "1"
 RDEPENDS:${PN}-modbus = "\
-    python3-pymodbus (>=3.6.6) \
+    python3-pymodbus (>=3.6.8) \
 "
 
 ALLOW_EMPTY:${PN}-mqtt = "1"
@@ -343,7 +343,7 @@ RDEPENDS:${PN}-pandora = "\
 
 ALLOW_EMPTY:${PN}-private-ble-device = "1"
 RDEPENDS:${PN}-private-ble-device = "\
-    python3-bluetooth-data-tools (=1.19.0) \
+    python3-bluetooth-data-tools (=1.19.3) \
 "
 
 ALLOW_EMPTY:${PN}-proxy = "1"
@@ -365,7 +365,7 @@ ALLOW_EMPTY:${PN}-recorder = "1"
 RDEPENDS:${PN}-recorder = "\
     python3-sqlite3 \
     python3-fnv-hash-fast (=0.5.0) \
-    python3-sqlalchemy (>=2.0.29) \
+    python3-sqlalchemy (>=2.0.30) \
     python3-psutil-home-assistant (=0.0.1) \
 "
 
@@ -392,7 +392,7 @@ RDEPENDS:${PN}-seven-segments = "\
 
 ALLOW_EMPTY:${PN}-shelly = "1"
 RDEPENDS:${PN}-shelly = "\
-    python3-aioshelly (=10.0.0) \
+    python3-aioshelly (=11.0.0) \
 "
 
 ALLOW_EMPTY:${PN}-speedtestdotnet = "1"
@@ -402,13 +402,13 @@ RDEPENDS:${PN}-speedtestdotnet = "\
 
 ALLOW_EMPTY:${PN}-sql = "1"
 RDEPENDS:${PN}-sql = "\
-    python3-sqlparse (=0.5.0) \
     python3-sqlalchemy (>=2.0.30) \
+    python3-sqlparse (=0.5.0) \
 "
 
 ALLOW_EMPTY:${PN}-ssdp = "1"
 RDEPENDS:${PN}-ssdp = "\
-    python3-async-upnp-client (=0.38.3) \
+    python3-async-upnp-client (=0.39.0) \
 "
 
 ALLOW_EMPTY:${PN}-startca = "1"
@@ -425,7 +425,7 @@ RDEPENDS:${PN}-stream = "\
 
 ALLOW_EMPTY:${PN}-switchbot = "1"
 RDEPENDS:${PN}-switchbot = "\
-    python3-pyswitchbot (=0.46.1) \
+    python3-pyswitchbot (=0.48.0) \
 "
 
 ALLOW_EMPTY:${PN}-systemmonitor = "1"
@@ -451,14 +451,14 @@ RDEPENDS:${PN}-tts = "\
 
 ALLOW_EMPTY:${PN}-upnp = "1"
 RDEPENDS:${PN}-upnp = "\
-    python3-async-upnp-client (=0.38.3) \
+    python3-async-upnp-client (=0.39.0) \
     python3-getmac (=0.9.4) \
 "
 
 ALLOW_EMPTY:${PN}-usb = "1"
 RDEPENDS:${PN}-usb = "\
     python3-pyserial (=3.5) \
-    python3-pyudev (>=0.23.2) \
+    python3-pyudev (>=0.24.1) \
 "
 
 ALLOW_EMPTY:${PN}-utility-meter = "1"

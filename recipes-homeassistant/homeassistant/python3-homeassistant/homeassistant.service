@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=simple
 User=@HOMEASSISTANT_USER@
-ExecStart=/usr/bin/hass --skip-pip -c "@HOMEASSISTANT_CONFIG_DIR@" -v
+ExecStart=/usr/bin/hass --skip-pip -c "@HOMEASSISTANT_CONFIG_DIR@"
 Restart=on-failure
 
 [Install]

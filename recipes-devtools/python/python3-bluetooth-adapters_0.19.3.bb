@@ -8,7 +8,7 @@ SRC_URI = "\
     file://run-ptest \
 "
 SRC_URI[sha256sum] = "d2ff76ca3ee7aa27df18e0c233e36e16251bd92225d0c1d5712f07360f607176"
-SRCREV = "c246e6f5d21f62580335c22f810a19b3ece90b06"
+SRCREV = "4031079216754eaf236ebbef2ef0965d6bb615c6"
 
 inherit python_poetry_core ptest
 
