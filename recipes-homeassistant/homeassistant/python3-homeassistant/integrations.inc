@@ -216,7 +216,7 @@ RDEPENDS:${PN}-frontend = "\
 ALLOW_EMPTY:${PN}-generic = "1"
 RDEPENDS:${PN}-generic = "\
     python3-ha-av (=10.1.1) \
-    python3-pillow (=10.3.0) \
+    python3-pillow (>=10.3.0) \
 "
 
 ALLOW_EMPTY:${PN}-github = "1"
@@ -348,7 +348,7 @@ RDEPENDS:${PN}-private-ble-device = "\
 
 ALLOW_EMPTY:${PN}-proxy = "1"
 RDEPENDS:${PN}-proxy = "\
-    python3-pillow (=10.3.0) \
+    python3-pillow (>=10.3.0) \
 "
 
 ALLOW_EMPTY:${PN}-pulseaudio-loopback = "1"
@@ -387,7 +387,7 @@ RDEPENDS:${PN}-sentry = "\
 
 ALLOW_EMPTY:${PN}-seven-segments = "1"
 RDEPENDS:${PN}-seven-segments = "\
-    python3-pillow (=10.3.0) \
+    python3-pillow (>=10.3.0) \
 "
 
 ALLOW_EMPTY:${PN}-shelly = "1"
