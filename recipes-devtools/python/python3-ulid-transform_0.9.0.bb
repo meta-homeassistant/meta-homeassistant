@@ -2,7 +2,11 @@ SUMMARY = "Convert Voluptuous schemas to dictionaries so they can be serialized.
 HOMEPAGE = "https://github.com/bdraco/ulid-transform"
 LICENSE = "MIT"
 
-inherit setuptools3 pypi
+inherit python_poetry_core pypi
+
+DEPENDS += "\
+    python3-cython-native \
+"
 
 PYPI_PACKAGE = "ulid_transform"
 
