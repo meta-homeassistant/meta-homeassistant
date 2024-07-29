@@ -425,7 +425,7 @@ RDEPENDS:${PN}-stream = "\
 
 ALLOW_EMPTY:${PN}-switchbot = "1"
 RDEPENDS:${PN}-switchbot = "\
-    python3-pyswitchbot (=0.48.0) \
+    python3-pyswitchbot (=0.48.1) \
 "
 
 ALLOW_EMPTY:${PN}-systemmonitor = "1"
