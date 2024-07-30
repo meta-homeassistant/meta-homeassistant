@@ -251,7 +251,7 @@ RDEPENDS:${PN}-hardware = "\
 
 ALLOW_EMPTY:${PN}-hue = "1"
 RDEPENDS:${PN}-hue = "\
-    python3-aiohue (>=4.7.1) \
+    python3-aiohue (>=4.7.2) \
 "
 
 ALLOW_EMPTY:${PN}-image-upload = "1"
