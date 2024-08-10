@@ -1,4 +1,4 @@
-From 0f07ab51d312f87892b37a0038e8e1b5b9d73bce Mon Sep 17 00:00:00 2001
+From b03a6dfd5d9043a04f0c4f2ae3b72e07da60e2c5 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Tue, 2 Jan 2024 23:32:08 +0000
 Subject: [PATCH] Allowed for newer wheel version
@@ -10,7 +10,7 @@ Upstream-Status: Pending
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index 91ae771..3c944d2 100644
+index 75594e4..6f43bd9 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@
