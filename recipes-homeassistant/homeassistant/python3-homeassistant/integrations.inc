@@ -403,7 +403,7 @@ RDEPENDS:${PN}-speedtestdotnet = "\
 ALLOW_EMPTY:${PN}-sql = "1"
 RDEPENDS:${PN}-sql = "\
     python3-sqlalchemy (>=2.0.30) \
-    python3-sqlparse (=0.5.0) \
+    python3-sqlparse (>=0.5.0) \
 "
 
 ALLOW_EMPTY:${PN}-ssdp = "1"
