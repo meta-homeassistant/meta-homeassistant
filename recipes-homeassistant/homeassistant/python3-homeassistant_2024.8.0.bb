@@ -59,6 +59,7 @@ require recipes-homeassistant/homeassistant/python3-homeassistant/integrations.i
 require recipes-homeassistant/homeassistant/python3-homeassistant/integrations-tests.inc
 
 # python3-cryptography (>=43.0.0)
+# python3-pyopenssl (>=24.2.1)
 RDEPENDS:${PN} += "\
     python3-aiodns (>=3.2.0) \
     python3-aiohttp (>=3.10.1) \
@@ -83,7 +84,7 @@ RDEPENDS:${PN} += "\
     python3-pyjwt (=2.8.0) \
     python3-cryptography (>=42.0.8) \
     python3-pillow (>=10.4.0) \
-    python3-pyopenssl (>=24.2.1) \
+    python3-pyopenssl (>=24.1.0) \
     python3-orjson (>=3.10.6) \
     python3-packaging (>=23.1) \
     python3-pip (>=21.3.1) \
