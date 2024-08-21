@@ -106,7 +106,8 @@ RDEPENDS:${PN} += "\
 "
 
 RDEPENDS:${PN}-ptest = "\
-    bash \
+    python3-astroid \
+    python3-coverage \
     python3-freezegun \
     python3-pylint \
     python3-pytest \
@@ -118,8 +119,11 @@ RDEPENDS:${PN}-ptest = "\
     python3-pytest-unordered \
     python3-pytest-xdist \
     python3-requests-mock \
+    python3-respx \
     python3-syrupy \
     python3-tqdm \
+    \
+    bash \
     python3-unittest-automake-output \
     tzdata \
 "

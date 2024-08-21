@@ -94,7 +94,7 @@ RDEPENDS:${PN}-aruba = "\
 
 ALLOW_EMPTY:${PN}-assist-pipeline = "1"
 RDEPENDS:${PN}-assist-pipeline = "\
-    python3-webrtc-noise-gain (>=1.2.3) \
+    python3-pymicro-vad (=1.0.1) \
 "
 
 ALLOW_EMPTY:${PN}-axis = "1"
@@ -109,7 +109,7 @@ RDEPENDS:${PN}-backup = "\
 
 ALLOW_EMPTY:${PN}-bluesound = "1"
 RDEPENDS:${PN}-bluesound = "\
-    python3-xmltodict (=0.13.0) \
+    python3-pyblu (=0.4.0) \
 "
 
 ALLOW_EMPTY:${PN}-bluetooth = "1"
@@ -268,7 +268,6 @@ ALLOW_EMPTY:${PN}-isal = "1"
 RDEPENDS:${PN}-isal = "\
     python3-isal (=1.6.1) \
 "
-
 
 ALLOW_EMPTY:${PN}-keyboard-remote = "1"
 RDEPENDS:${PN}-keyboard-remote = "\

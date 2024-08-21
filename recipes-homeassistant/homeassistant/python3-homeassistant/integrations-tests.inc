@@ -14,11 +14,14 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-dlna-dms \
     ${PN}-ffmpeg \
     ${PN}-folder-watcher \
+    ${PN}-fritzbox \
     ${PN}-fritzbox-callmonitor \
     ${PN}-frontend \
     ${PN}-google-translate \
     ${PN}-hardware \
+    ${PN}-hue \
     ${PN}-image-upload \
+    ${PN}-ipp \
     ${PN}-isal \
     ${PN}-met \
     ${PN}-mobile-app \
@@ -31,11 +34,15 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-scrape \
     ${PN}-sentry \
     ${PN}-shelly \
+    ${PN}-speedtestdotnet \
     ${PN}-sql \
     ${PN}-ssdp \
     ${PN}-startca \
+    ${PN}-switchbot \
+    ${PN}-systemmonitor \
     ${PN}-trend \
     ${PN}-tts \
+    ${PN}-upnp \
     ${PN}-usb \
     ${PN}-utility-meter \
     ${PN}-zeroconf \
@@ -48,18 +55,11 @@ COMPONENT_TEST_PACKAGES = "\
 # ${PN}-mqtt
 # ${PN}-owntracks
 # ${PN}-fritz
-# ${PN}-fritzbox
 # ${PN}-google-mail
 # ${PN}-google-tasks
-# ${PN}-hue
-# ${PN}-ipp
 # ${PN}-matter
 # ${PN}-private-ble-device
-# ${PN}-speedtestdotnet
 # ${PN}-stream
-# ${PN}-switchbot
-# ${PN}-systemmonitor
-# ${PN}-upnp
 
 python __anonymous() {
     if 'ptest' not in d.getVar('DISTRO_FEATURES'):
