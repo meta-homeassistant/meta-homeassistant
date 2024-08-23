@@ -8,14 +8,14 @@ SRC_URI = "\
     file://run-ptest \
 "
 SRC_URI[sha256sum] = "0e966b8a475ecb06cc0846304454b8da2473d4c8198a45dfb2c5304871986883"
-SRCREV = "97c442ad6c4e9037e1262cc2b6868b1878eb0d23"
+SRCREV = "fd8bccadc77b2ea53d786afcf77148955acf15aa"
 
 inherit setuptools3 ptest
 
 S = "${WORKDIR}/git"
 
 RDEPENDS:${PN} = "\
-    python3-botocore (>=1.34.51) \
+    python3-botocore (>=1.34.131) \
     python3-jmespath (>=0.7.1) \
     python3-s3transfer (>=0.10.0) \
 "

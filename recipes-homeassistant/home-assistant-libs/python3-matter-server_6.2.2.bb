@@ -10,7 +10,7 @@ inherit pypi python_setuptools_build_meta
 PYPI_PACKAGE = "python_matter_server"
 
 RDEPENDS:${PN} += "\
-    python3-aiohttp (=3.9.5) \
+    python3-aiohttp (>=3.9.5) \
     python3-aiorun (=2024.5.1) \
     python3-async-timeout (=4.0.3) \
     python3-coloredlogs (=15.0.1) \

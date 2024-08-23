@@ -84,7 +84,7 @@ RDEPENDS:${PN}-acer-projector = "\
 
 ALLOW_EMPTY:${PN}-amazon-polly = "1"
 RDEPENDS:${PN}-amazon-polly = "\
-    python3-boto3 (>=1.34.51) \
+    python3-boto3 (>=1.34.131) \
 "
 
 ALLOW_EMPTY:${PN}-aruba = "1"
@@ -94,7 +94,7 @@ RDEPENDS:${PN}-aruba = "\
 
 ALLOW_EMPTY:${PN}-assist-pipeline = "1"
 RDEPENDS:${PN}-assist-pipeline = "\
-    python3-webrtc-noise-gain (>=1.2.3) \
+    python3-pymicro-vad (=1.0.1) \
 "
 
 ALLOW_EMPTY:${PN}-axis = "1"
@@ -109,7 +109,7 @@ RDEPENDS:${PN}-backup = "\
 
 ALLOW_EMPTY:${PN}-bluesound = "1"
 RDEPENDS:${PN}-bluesound = "\
-    python3-xmltodict (=0.13.0) \
+    python3-pyblu (=0.4.0) \
 "
 
 ALLOW_EMPTY:${PN}-bluetooth = "1"
@@ -118,7 +118,7 @@ RDEPENDS:${PN}-bluetooth = "\
     python3-bleak-retry-connector (=3.5.0) \
     python3-bluetooth-adapters (=0.19.3) \
     python3-bluetooth-auto-recovery (=1.4.2) \
-    python3-bluetooth-data-tools (=1.19.3) \
+    python3-bluetooth-data-tools (=1.19.4) \
     python3-dbus-fast (>=2.21.3) \
     python3-habluetooth (=3.1.3) \
 "
@@ -150,8 +150,8 @@ RDEPENDS:${PN}-compensation = "\
 
 ALLOW_EMPTY:${PN}-conversation = "1"
 RDEPENDS:${PN}-conversation = "\
-    python3-hassil (>=1.7.1) \
-    python3-home-assistant-intents (>=2024.7.3) \
+    python3-hassil (>=1.7.4) \
+    python3-home-assistant-intents (>=2024.8.7) \
 "
 
 ALLOW_EMPTY:${PN}-cpuspeed = "1"
@@ -173,13 +173,13 @@ RDEPENDS:${PN}-dhcp = "\
 
 ALLOW_EMPTY:${PN}-dlna-dmr = "1"
 RDEPENDS:${PN}-dlna-dmr = "\
-    python3-async-upnp-client (=0.39.0) \
+    python3-async-upnp-client (=0.40.0) \
     python3-getmac (=0.9.4) \
 "
 
 ALLOW_EMPTY:${PN}-dlna-dms = "1"
 RDEPENDS:${PN}-dlna-dms = "\
-    python3-async-upnp-client (=0.39.0) \
+    python3-async-upnp-client (=0.40.0) \
 "
 
 ALLOW_EMPTY:${PN}-ffmpeg = "1"
@@ -210,13 +210,13 @@ RDEPENDS:${PN}-fritzbox-callmonitor = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    python3-home-assistant-frontend (=20240703.0) \
+    python3-home-assistant-frontend (=20240806.1) \
 "
 
 ALLOW_EMPTY:${PN}-generic = "1"
 RDEPENDS:${PN}-generic = "\
     python3-ha-av (=10.1.1) \
-    python3-pillow (=10.3.0) \
+    python3-pillow (>=10.3.0) \
 "
 
 ALLOW_EMPTY:${PN}-github = "1"
@@ -251,7 +251,7 @@ RDEPENDS:${PN}-hardware = "\
 
 ALLOW_EMPTY:${PN}-hue = "1"
 RDEPENDS:${PN}-hue = "\
-    python3-aiohue (>=4.7.1) \
+    python3-aiohue (>=4.7.2) \
 "
 
 ALLOW_EMPTY:${PN}-image-upload = "1"
@@ -268,7 +268,6 @@ ALLOW_EMPTY:${PN}-isal = "1"
 RDEPENDS:${PN}-isal = "\
     python3-isal (=1.6.1) \
 "
-
 
 ALLOW_EMPTY:${PN}-keyboard-remote = "1"
 RDEPENDS:${PN}-keyboard-remote = "\
@@ -343,12 +342,12 @@ RDEPENDS:${PN}-pandora = "\
 
 ALLOW_EMPTY:${PN}-private-ble-device = "1"
 RDEPENDS:${PN}-private-ble-device = "\
-    python3-bluetooth-data-tools (=1.19.3) \
+    python3-bluetooth-data-tools (=1.19.4) \
 "
 
 ALLOW_EMPTY:${PN}-proxy = "1"
 RDEPENDS:${PN}-proxy = "\
-    python3-pillow (=10.3.0) \
+    python3-pillow (>=10.3.0) \
 "
 
 ALLOW_EMPTY:${PN}-pulseaudio-loopback = "1"
@@ -371,7 +370,7 @@ RDEPENDS:${PN}-recorder = "\
 
 ALLOW_EMPTY:${PN}-route53 = "1"
 RDEPENDS:${PN}-route53 = "\
-    python3-boto3 (>=1.34.51) \
+    python3-boto3 (>=1.34.131) \
 "
 
 ALLOW_EMPTY:${PN}-scrape = "1"
@@ -387,12 +386,12 @@ RDEPENDS:${PN}-sentry = "\
 
 ALLOW_EMPTY:${PN}-seven-segments = "1"
 RDEPENDS:${PN}-seven-segments = "\
-    python3-pillow (=10.3.0) \
+    python3-pillow (>=10.3.0) \
 "
 
 ALLOW_EMPTY:${PN}-shelly = "1"
 RDEPENDS:${PN}-shelly = "\
-    python3-aioshelly (=11.0.0) \
+    python3-aioshelly (=11.1.0) \
 "
 
 ALLOW_EMPTY:${PN}-speedtestdotnet = "1"
@@ -403,12 +402,12 @@ RDEPENDS:${PN}-speedtestdotnet = "\
 ALLOW_EMPTY:${PN}-sql = "1"
 RDEPENDS:${PN}-sql = "\
     python3-sqlalchemy (>=2.0.30) \
-    python3-sqlparse (=0.5.0) \
+    python3-sqlparse (>=0.5.0) \
 "
 
 ALLOW_EMPTY:${PN}-ssdp = "1"
 RDEPENDS:${PN}-ssdp = "\
-    python3-async-upnp-client (=0.39.0) \
+    python3-async-upnp-client (=0.40.0) \
 "
 
 ALLOW_EMPTY:${PN}-startca = "1"
@@ -425,7 +424,7 @@ RDEPENDS:${PN}-stream = "\
 
 ALLOW_EMPTY:${PN}-switchbot = "1"
 RDEPENDS:${PN}-switchbot = "\
-    python3-pyswitchbot (=0.48.0) \
+    python3-pyswitchbot (=0.48.1) \
 "
 
 ALLOW_EMPTY:${PN}-systemmonitor = "1"
@@ -451,7 +450,7 @@ RDEPENDS:${PN}-tts = "\
 
 ALLOW_EMPTY:${PN}-upnp = "1"
 RDEPENDS:${PN}-upnp = "\
-    python3-async-upnp-client (=0.39.0) \
+    python3-async-upnp-client (=0.40.0) \
     python3-getmac (=0.9.4) \
 "
 
