@@ -14,7 +14,3 @@ RDEPENDS:${PN} = "\
     python3-habluetooth (>=2.1.0) \
     python3-orjson (>=3.8.1) \
 "
-
-RDEPENDS:${PN}-ptest = "\
-    python3-python-switchbot \
-"

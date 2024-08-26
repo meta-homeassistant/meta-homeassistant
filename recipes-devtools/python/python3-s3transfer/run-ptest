@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Currently the ignored tests reqiured an active AWS account for interaction.
+# This is out of scope for the ptest for now
+pytest --automake \
+    --ignore=tests/integration/test_upload.py \
+    --ignore=tests/integration/test_s3transfer.py \
+    --ignore=tests/integration/test_copy.py \
+    --ignore=tests/integration/test_processpool.py \
+    --ignore=tests/integration/test_download.py \
+    --ignore=tests/integration/test_delete.py
