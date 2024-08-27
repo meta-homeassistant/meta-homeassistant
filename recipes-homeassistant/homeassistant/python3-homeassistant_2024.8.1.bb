@@ -16,7 +16,7 @@ SRC_URI = "\
     file://run-ptest-sample \
 "
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
-SRCREV = "86722ba05ebb3c0b217f9218aed8b4c1b7d4b8e8"
+SRCREV = "ae4fc9504ab10def335e0d65e43402de67c36ea1"
 
 inherit python_setuptools_build_meta useradd systemd ptest
 
@@ -62,7 +62,7 @@ require recipes-homeassistant/homeassistant/python3-homeassistant/integrations-t
 # python3-pyopenssl (>=24.2.1)
 RDEPENDS:${PN} += "\
     python3-aiodns (>=3.2.0) \
-    python3-aiohttp (>=3.10.1) \
+    python3-aiohttp (>=3.10.2) \
     python3-aiohttp-cors (=0.7.0) \
     python3-aiohttp-fast-zlib (=0.1.1) \
     python3-aiozoneinfo (=0.2.1) \

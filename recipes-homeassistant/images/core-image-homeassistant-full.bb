@@ -7,6 +7,7 @@ IMAGE_INSTALL = "\
     \
     python3-homeassistant-acer-projector \
     python3-homeassistant-amazon-polly \
+    python3-homeassistant-airthings-ble \
     python3-homeassistant-aruba \
     python3-homeassistant-assist-pipeline \
     python3-homeassistant-axis \
@@ -24,6 +25,8 @@ IMAGE_INSTALL = "\
     python3-homeassistant-dhcp \
     python3-homeassistant-dlna-dmr \
     python3-homeassistant-dlna-dms \
+    python3-homeassistant-dunehd \
+    python3-homeassistant-evohome \
     python3-homeassistant-ffmpeg \
     python3-homeassistant-fritz \
     python3-homeassistant-fritzbox \

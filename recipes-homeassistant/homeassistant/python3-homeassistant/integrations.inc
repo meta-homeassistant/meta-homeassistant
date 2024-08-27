@@ -1,5 +1,6 @@
 PACKAGES += "\
     ${PN}-acer-projector \
+    ${PN}-airthings-ble \
     ${PN}-amazon-polly \
     ${PN}-aruba \
     ${PN}-assist-pipeline \
@@ -18,6 +19,8 @@ PACKAGES += "\
     ${PN}-dhcp \
     ${PN}-dlna-dmr \
     ${PN}-dlna-dms \
+    ${PN}-dune-hd \
+    ${PN}-evohome \
     ${PN}-ffmpeg \
     ${PN}-folder-watcher \
     ${PN}-fritz \
@@ -80,6 +83,11 @@ PACKAGES += "\
 ALLOW_EMPTY:${PN}-acer-projector = "1"
 RDEPENDS:${PN}-acer-projector = "\
     python3-pyserial (=3.5) \
+"
+
+ALLOW_EMPTY:${PN}-airthings-ble = "1"
+RDEPENDS:${PN}-airthings-ble = "\
+    python3-airthings-ble (=0.9.0) \
 "
 
 ALLOW_EMPTY:${PN}-amazon-polly = "1"
@@ -182,6 +190,16 @@ RDEPENDS:${PN}-dlna-dms = "\
     python3-async-upnp-client (=0.40.0) \
 "
 
+ALLOW_EMPTY:${PN}-dunehd = "1"
+RDEPENDS:${PN}-dunehd = "\
+    python3-pdunehd (=1.3.2) \
+"
+
+ALLOW_EMPTY:${PN}-evohome = "1"
+RDEPENDS:${PN}-evohome = "\
+    python3-evohome-async (=0.4.20) \
+"
+
 ALLOW_EMPTY:${PN}-ffmpeg = "1"
 RDEPENDS:${PN}-ffmpeg = "\
     python3-ha-ffmpeg (=3.2.0) \
@@ -210,7 +228,7 @@ RDEPENDS:${PN}-fritzbox-callmonitor = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    python3-home-assistant-frontend (=20240806.1) \
+    python3-home-assistant-frontend (=20240809.0) \
 "
 
 ALLOW_EMPTY:${PN}-generic = "1"
@@ -502,6 +520,7 @@ RDEPENDS:${PN} += "\
 
 RRECOMMENDS:${PN} += "\
     ${PN}-acer-projector \
+    ${PN}-airthings-ble \
     ${PN}-aruba \
     ${PN}-amazon-polly \
     ${PN}-axis \
@@ -515,6 +534,8 @@ RRECOMMENDS:${PN} += "\
     ${PN}-debugpy \
     ${PN}-dlna-dmr \
     ${PN}-dlna-dms \
+    ${PN}-dunehd \
+    ${PN}-evohome \
     ${PN}-folder-watcher \
     ${PN}-fritz \
     ${PN}-fritzbox \

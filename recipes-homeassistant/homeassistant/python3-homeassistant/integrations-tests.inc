@@ -1,4 +1,5 @@
 COMPONENT_TEST_PACKAGES = "\
+    ${PN}-airthings-ble \
     ${PN}-assist-pipeline \
     ${PN}-backup \
     ${PN}-bluetooth \
@@ -12,6 +13,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-dhcp \
     ${PN}-dlna-dmr \
     ${PN}-dlna-dms \
+    ${PN}-dune-hd \
     ${PN}-ffmpeg \
     ${PN}-folder-watcher \
     ${PN}-fritzbox \

@@ -139,6 +139,7 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
 
                 integrations = [
                     "acer_projector",
+                    "airthings_ble",
                     "amazon_polly",
                     "aruba",
                     "assist_pipeline",
@@ -157,6 +158,8 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
                     "dhcp",
                     "dlna_dmr",
                     "dlna_dms",
+                    "dunehd",
+                    "evohome",
                     "ffmpeg",
                     "folder_watcher",
                     "fritz",
