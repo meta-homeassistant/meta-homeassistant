@@ -19,7 +19,7 @@ PACKAGES += "\
     ${PN}-dhcp \
     ${PN}-dlna-dmr \
     ${PN}-dlna-dms \
-    ${PN}-dune-hd \
+    ${PN}-dunehd \
     ${PN}-evohome \
     ${PN}-ffmpeg \
     ${PN}-folder-watcher \
@@ -519,6 +519,7 @@ RDEPENDS:${PN} += "\
 "
 
 RRECOMMENDS:${PN} += "\
+    ${PN}-abode \
     ${PN}-acer-projector \
     ${PN}-airthings-ble \
     ${PN}-aruba \
