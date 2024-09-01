@@ -1,4 +1,5 @@
 COMPONENT_TEST_PACKAGES = "\
+    ${PN}-accuweather \
     ${PN}-airthings-ble \
     ${PN}-assist-pipeline \
     ${PN}-backup \

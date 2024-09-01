@@ -1,5 +1,6 @@
 PACKAGES += "\
     ${PN}-acer-projector \
+    ${PN}-accuweather \
     ${PN}-airthings-ble \
     ${PN}-amazon-polly \
     ${PN}-aruba \
@@ -84,6 +85,11 @@ PACKAGES += "\
 ALLOW_EMPTY:${PN}-acer-projector = "1"
 RDEPENDS:${PN}-acer-projector = "\
     python3-pyserial (=3.5) \
+"
+
+ALLOW_EMPTY:${PN}-accuweather = "1"
+RDEPENDS:${PN}-accuweather = "\
+    python3-accuweather (=3.0.0) \
 "
 
 ALLOW_EMPTY:${PN}-airthings-ble = "1"
@@ -526,6 +532,7 @@ RDEPENDS:${PN} += "\
 
 RRECOMMENDS:${PN} += "\
     ${PN}-acer-projector \
+    ${PN}-accuweather \
     ${PN}-airthings-ble \
     ${PN}-aruba \
     ${PN}-amazon-polly \

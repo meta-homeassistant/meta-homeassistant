@@ -6,6 +6,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant \
     \
     python3-homeassistant-acer-projector \
+    python3-homeassistant-accuweather \
     python3-homeassistant-amazon-polly \
     python3-homeassistant-airthings-ble \
     python3-homeassistant-aruba \
