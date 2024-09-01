@@ -60,6 +60,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-private-ble-device \
     python3-homeassistant-proxy \
     python3-homeassistant-pulseaudio-loopback \
+    python3-homeassistant-qwikswitch \
     python3-homeassistant-radio-browser \
     python3-homeassistant-recorder \
     python3-homeassistant-route53 \

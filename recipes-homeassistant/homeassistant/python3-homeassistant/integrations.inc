@@ -55,6 +55,7 @@ PACKAGES += "\
     ${PN}-private-ble-device \
     ${PN}-proxy \
     ${PN}-pulseaudio-loopback \
+    ${PN}-qwikswitch \
     ${PN}-radio-browser \
     ${PN}-recorder \
     ${PN}-route53 \
@@ -373,6 +374,11 @@ RDEPENDS:${PN}-pulseaudio-loopback = "\
     python3-pulsectl (>=23.5.2) \
 "
 
+ALLOW_EMPTY:${PN}-qwikswitch = "1"
+RDEPENDS:${PN}-qwikswitch = "\
+    python3-pyqwikswitch (>=0.93) \
+"
+
 ALLOW_EMPTY:${PN}-radio-browser = "1"
 RDEPENDS:${PN}-radio-browser = "\
     python3-radios (=0.3.1) \
@@ -519,7 +525,6 @@ RDEPENDS:${PN} += "\
 "
 
 RRECOMMENDS:${PN} += "\
-    ${PN}-abode \
     ${PN}-acer-projector \
     ${PN}-airthings-ble \
     ${PN}-aruba \
@@ -564,6 +569,7 @@ RRECOMMENDS:${PN} += "\
     ${PN}-private-ble-device \
     ${PN}-proxy \
     ${PN}-pulseaudio-loopback \
+    ${PN}-qwikswitch \
     ${PN}-route53 \
     ${PN}-scrape \
     ${PN}-sentry \

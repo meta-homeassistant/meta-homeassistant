@@ -194,6 +194,7 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
                     "private_ble_device",
                     "proxy",
                     "pulseaudio_loopback",
+                    "qwikswitch",
                     "radio_browser",
                     "recorder",
                     "route53",

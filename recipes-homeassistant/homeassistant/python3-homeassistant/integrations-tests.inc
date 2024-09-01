@@ -31,6 +31,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-namecheapdns \
     ${PN}-network \
     ${PN}-octoprint \
+    ${PN}-qwikswitch \
     ${PN}-radio-browser \
     ${PN}-recorder \
     ${PN}-scrape \
