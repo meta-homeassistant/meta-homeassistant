@@ -80,6 +80,7 @@ PACKAGES += "\
     ${PN}-vlc \
     ${PN}-zeroconf \
     ${PN}-zestimate \
+    ${PN}-zwave-me \
 "
 
 ALLOW_EMPTY:${PN}-acer-projector = "1"
@@ -302,7 +303,7 @@ RDEPENDS:${PN}-keyboard-remote = "\
 
 ALLOW_EMPTY:${PN}-matter = "1"
 RDEPENDS:${PN}-matter = "\
-    python3-matter-server (=6.2.2) \
+    python3-matter-server (=6.3.0) \
 "
 
 ALLOW_EMPTY:${PN}-met = "1"
@@ -510,6 +511,12 @@ RDEPENDS:${PN}-zestimate = "\
     python3-xmltodict (=0.13.0) \
 "
 
+ALLOW_EMPTY:${PN}-zwave-me = "1"
+RDEPENDS:${PN}-zwave-me = "\
+    python3-url-normalize (=1.4.3) \
+    python3-zwave-me-ws (=0.4.3) \
+"
+
 RDEPENDS:${PN} += "\
     ${PN}-assist-pipeline \
     ${PN}-bluetooth \
@@ -595,4 +602,5 @@ RRECOMMENDS:${PN} += "\
     ${PN}-utility-meter \
     ${PN}-vlc \
     ${PN}-zestimate \
+    ${PN}-zwave-me \
 "

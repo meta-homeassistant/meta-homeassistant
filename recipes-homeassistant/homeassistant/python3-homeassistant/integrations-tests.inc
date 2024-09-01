@@ -48,6 +48,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-usb \
     ${PN}-utility-meter \
     ${PN}-zeroconf \
+    ${PN}-zwave-me \
 "
 
 # Temporarily disabled as the tests are failing. Investigation is pending.
