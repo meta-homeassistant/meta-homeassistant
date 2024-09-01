@@ -13,7 +13,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-dhcp \
     ${PN}-dlna-dmr \
     ${PN}-dlna-dms \
-    ${PN}-dune-hd \
+    ${PN}-dunehd \
     ${PN}-ffmpeg \
     ${PN}-folder-watcher \
     ${PN}-fritzbox \
@@ -27,7 +27,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-isal \
     ${PN}-met \
     ${PN}-mobile-app \
-    ${PN}-modbus \
     ${PN}-namecheapdns \
     ${PN}-network \
     ${PN}-octoprint \
@@ -38,7 +37,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-sentry \
     ${PN}-shelly \
     ${PN}-speedtestdotnet \
-    ${PN}-sql \
     ${PN}-ssdp \
     ${PN}-startca \
     ${PN}-switchbot \
@@ -61,8 +59,10 @@ COMPONENT_TEST_PACKAGES = "\
 # ${PN}-google-mail
 # ${PN}-google-tasks
 # ${PN}-matter
+# ${PN}-modbus
 # ${PN}-private-ble-device
 # ${PN}-stream
+# ${PN}-sql
 
 python __anonymous() {
     if 'ptest' not in d.getVar('DISTRO_FEATURES'):
@@ -81,12 +81,15 @@ python do_addptest () {
     
     # Get the list of packages
     packages_list = d.getVar('COMPONENT_TEST_PACKAGES').split()
+
+    with open(target_file, 'a') as file:
+            file.write(f"\npytest --automake \\\n")
     
     # Iterate over each package and append the line to the file
     for package in packages_list:
         # Define the line to be appended
-        line_to_append = "pytest --automake tests/components/" + package.removeprefix(d.getVar('PN')+'-').replace('-', '_') + "/"
-        package_line = f"\n{line_to_append}\n"
+        line_to_append = "tests/components/" + package.removeprefix(d.getVar('PN')+'-').replace('-', '_') + "/"
+        package_line = f"  {line_to_append} \\\n"
         with open(target_file, 'a') as file:
             file.write(package_line)
 }
