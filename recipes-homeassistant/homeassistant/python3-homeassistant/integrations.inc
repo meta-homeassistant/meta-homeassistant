@@ -131,7 +131,7 @@ ALLOW_EMPTY:${PN}-bluetooth = "1"
 RDEPENDS:${PN}-bluetooth = "\
     python3-bleak (>=0.22.1) \
     python3-bleak-retry-connector (=3.5.0) \
-    python3-bluetooth-adapters (=0.19.3) \
+    python3-bluetooth-adapters (=0.19.4) \
     python3-bluetooth-auto-recovery (=1.4.2) \
     python3-bluetooth-data-tools (=1.19.4) \
     python3-dbus-fast (>=2.21.3) \
@@ -421,7 +421,7 @@ RDEPENDS:${PN}-seven-segments = "\
 
 ALLOW_EMPTY:${PN}-shelly = "1"
 RDEPENDS:${PN}-shelly = "\
-    python3-aioshelly (=11.1.0) \
+    python3-aioshelly (=11.2.4) \
 "
 
 ALLOW_EMPTY:${PN}-speedtestdotnet = "1"

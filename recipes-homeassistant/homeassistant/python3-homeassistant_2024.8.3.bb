@@ -16,7 +16,7 @@ SRC_URI = "\
     file://run-ptest-sample \
 "
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
-SRCREV = "ae4fc9504ab10def335e0d65e43402de67c36ea1"
+SRCREV = "516f3295bf68cdb1af09ea9fc43171216f3910cf"
 
 inherit python_setuptools_build_meta useradd systemd ptest
 
@@ -59,10 +59,9 @@ require recipes-homeassistant/homeassistant/python3-homeassistant/integrations.i
 require recipes-homeassistant/homeassistant/python3-homeassistant/integrations-tests.inc
 
 # python3-cryptography (>=43.0.0)
-# python3-pyopenssl (>=24.2.1)
 RDEPENDS:${PN} += "\
     python3-aiodns (>=3.2.0) \
-    python3-aiohttp (>=3.10.2) \
+    python3-aiohttp (>=3.10.5) \
     python3-aiohttp-cors (=0.7.0) \
     python3-aiohttp-fast-zlib (=0.1.1) \
     python3-aiozoneinfo (=0.2.1) \
@@ -84,7 +83,7 @@ RDEPENDS:${PN} += "\
     python3-pyjwt (=2.8.0) \
     python3-cryptography (>=42.0.8) \
     python3-pillow (>=10.4.0) \
-    python3-pyopenssl (>=24.1.0) \
+    python3-pyopenssl (>=24.2.1) \
     python3-orjson (>=3.10.6) \
     python3-packaging (>=23.1) \
     python3-pip (>=21.3.1) \
