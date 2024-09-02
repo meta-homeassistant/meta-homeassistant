@@ -85,6 +85,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-vlc \
     python3-homeassistant-zeroconf \
     python3-homeassistant-zestimate \
+    python3-homeassistant-zwave-js \
     python3-homeassistant-zwave-me \
     "
 

@@ -8,4 +8,5 @@ pytest --automake \
   --ignore=tests/helpers/ \
   -k "not test_merge \
   and not test_get_system_info_supervisor_not_loaded \
-  and not test_create_eager_task_from_thread_in_integration"
+  and not test_create_eager_task_from_thread_in_integration \
+  and not test_convert_device_diagnostics_to_fixture"

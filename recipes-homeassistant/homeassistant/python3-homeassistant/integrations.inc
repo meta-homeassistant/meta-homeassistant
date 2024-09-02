@@ -80,6 +80,7 @@ PACKAGES += "\
     ${PN}-vlc \
     ${PN}-zeroconf \
     ${PN}-zestimate \
+    ${PN}-zwave-js \
     ${PN}-zwave-me \
 "
 
@@ -511,6 +512,12 @@ RDEPENDS:${PN}-zestimate = "\
     python3-xmltodict (=0.13.0) \
 "
 
+ALLOW_EMPTY:${PN}-zwave-js = "1"
+RDEPENDS:${PN}-zwave-js = "\
+    python3-pyserial (=3.5) \
+    python3-zwave-js-server-python (=0.57.0) \
+"
+
 ALLOW_EMPTY:${PN}-zwave-me = "1"
 RDEPENDS:${PN}-zwave-me = "\
     python3-url-normalize (=1.4.3) \
@@ -602,5 +609,6 @@ RRECOMMENDS:${PN} += "\
     ${PN}-utility-meter \
     ${PN}-vlc \
     ${PN}-zestimate \
+    ${PN}-zwave-js \
     ${PN}-zwave-me \
 "
