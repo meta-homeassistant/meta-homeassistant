@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.md;md5=2ab724713fdaf49e4523c4503bfd068d"
 
 inherit pypi python_setuptools_build_meta
 
-SRC_URI[sha256sum] = "c8a011a33f8c5f5d183583a9d6ce8c0eba26bf9d5841245a733f20832f917601"
+SRC_URI[sha256sum] = "490cb2a1f578999618fa900eb7893676657542df51269364c9bf7cd5df6bc5e6"
 
 PYPI_PACKAGE = "home_assistant_intents"
 
