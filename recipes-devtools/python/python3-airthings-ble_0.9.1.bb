@@ -3,14 +3,13 @@ HOMEPAGE = "https://github.com/Airthings/airthings-ble"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5d503272f52c35147ec960cb56a03bf4"
 
-inherit pypi python_poetry_core ptest
-
-PYPI_SRC_URI = "git://github.com/Airthings/airthings-ble;protocol=https;branch=main"
+inherit python_poetry_core ptest
 
 SRC_URI = "\
+    git://github.com/Airthings/airthings-ble;protocol=https;branch=main; \
     file://run-ptest \
 "
-SRCREV = "ab31fcc09f65b6bc806ba7eadb9c1abd9e6a95ad"
+SRCREV = "42521c65418ae7243c0429ceee7dc254f265ae1d"
 
 S = "${WORKDIR}/git"
 

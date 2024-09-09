@@ -96,7 +96,7 @@ RDEPENDS:${PN}-accuweather = "\
 
 ALLOW_EMPTY:${PN}-airthings-ble = "1"
 RDEPENDS:${PN}-airthings-ble = "\
-    python3-airthings-ble (=0.9.0) \
+    python3-airthings-ble (=0.9.1) \
 "
 
 ALLOW_EMPTY:${PN}-amazon-polly = "1"
@@ -135,14 +135,14 @@ RDEPENDS:${PN}-bluetooth = "\
     python3-bleak-retry-connector (=3.5.0) \
     python3-bluetooth-adapters (=0.19.4) \
     python3-bluetooth-auto-recovery (=1.4.2) \
-    python3-bluetooth-data-tools (=1.19.4) \
+    python3-bluetooth-data-tools (=1.20.0) \
     python3-dbus-fast (>=2.21.3) \
-    python3-habluetooth (=3.1.3) \
+    python3-habluetooth (=3.4.0) \
 "
 
 ALLOW_EMPTY:${PN}-camera = "1"
 RDEPENDS:${PN}-camera = "\
-    python3-pyturbojpeg (=1.7.1) \
+    python3-pyturbojpeg (=1.7.5) \
 "
 
 ALLOW_EMPTY:${PN}-cast = "1"
@@ -168,7 +168,7 @@ RDEPENDS:${PN}-compensation = "\
 ALLOW_EMPTY:${PN}-conversation = "1"
 RDEPENDS:${PN}-conversation = "\
     python3-hassil (>=1.7.4) \
-    python3-home-assistant-intents (>=2024.8.7) \
+    python3-home-assistant-intents (>=2024.9.4) \
 "
 
 ALLOW_EMPTY:${PN}-cpuspeed = "1"
@@ -185,7 +185,7 @@ ALLOW_EMPTY:${PN}-dhcp = "1"
 RDEPENDS:${PN}-dhcp = "\
     python3-aiodhcpwatcher (=1.0.2) \
     python3-aiodiscover (=2.1.0) \
-    python3-cached-ipaddress (=0.3.0) \
+    python3-cached-ipaddress (=0.5.0) \
 "
 
 ALLOW_EMPTY:${PN}-dlna-dmr = "1"
@@ -237,7 +237,7 @@ RDEPENDS:${PN}-fritzbox-callmonitor = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    python3-home-assistant-frontend (=20240809.0) \
+    python3-home-assistant-frontend (=20240904.0) \
 "
 
 ALLOW_EMPTY:${PN}-generic = "1"
@@ -369,7 +369,7 @@ RDEPENDS:${PN}-pandora = "\
 
 ALLOW_EMPTY:${PN}-private-ble-device = "1"
 RDEPENDS:${PN}-private-ble-device = "\
-    python3-bluetooth-data-tools (=1.19.4) \
+    python3-bluetooth-data-tools (=1.20.0) \
 "
 
 ALLOW_EMPTY:${PN}-proxy = "1"
@@ -395,7 +395,7 @@ RDEPENDS:${PN}-radio-browser = "\
 ALLOW_EMPTY:${PN}-recorder = "1"
 RDEPENDS:${PN}-recorder = "\
     python3-sqlite3 \
-    python3-fnv-hash-fast (=0.5.0) \
+    python3-fnv-hash-fast (=1.0.2) \
     python3-sqlalchemy (>=2.0.30) \
     python3-psutil-home-assistant (=0.0.1) \
 "
@@ -423,7 +423,7 @@ RDEPENDS:${PN}-seven-segments = "\
 
 ALLOW_EMPTY:${PN}-shelly = "1"
 RDEPENDS:${PN}-shelly = "\
-    python3-aioshelly (=11.2.4) \
+    python3-aioshelly (=11.4.2) \
 "
 
 ALLOW_EMPTY:${PN}-speedtestdotnet = "1"
@@ -449,14 +449,14 @@ RDEPENDS:${PN}-startca = "\
 
 ALLOW_EMPTY:${PN}-stream = "1"
 RDEPENDS:${PN}-stream = "\
-    python3-pyturbojpeg (=1.7.1) \
+    python3-pyturbojpeg (=1.7.5) \
     python3-ha-av (=10.1.1) \
     python3-numpy (>=1.26.0) \
 "
 
 ALLOW_EMPTY:${PN}-switchbot = "1"
 RDEPENDS:${PN}-switchbot = "\
-    python3-pyswitchbot (=0.48.1) \
+    python3-pyswitchbot (=0.48.2) \
 "
 
 ALLOW_EMPTY:${PN}-systemmonitor = "1"
@@ -504,7 +504,7 @@ RDEPENDS:${PN}-vlc = "\
 
 ALLOW_EMPTY:${PN}-zeroconf = "1"
 RDEPENDS:${PN}-zeroconf = "\
-    python3-zeroconf (>=0.132.2) \
+    python3-zeroconf (>=0.133.0) \
 "
 
 ALLOW_EMPTY:${PN}-zestimate = "1"
