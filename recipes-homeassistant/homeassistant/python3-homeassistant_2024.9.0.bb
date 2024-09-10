@@ -58,7 +58,7 @@ do_install:append () {
 require recipes-homeassistant/homeassistant/python3-homeassistant/integrations.inc
 require recipes-homeassistant/homeassistant/python3-homeassistant/integrations-tests.inc
 
-# python3-cryptography (>=43.0.0)
+# TODO python3-cryptography (>=43.0.0)
 RDEPENDS:${PN} += "\
     python3-aiodns (>=3.2.0) \
     python3-aiohttp (>=3.10.5) \
@@ -81,7 +81,7 @@ RDEPENDS:${PN} += "\
     python3-jinja2 (>=3.1.4) \
     python3-lru-dict (>=1.3.0) \
     python3-pyjwt (=2.9.0) \
-    python3-cryptography (>=43.0.0) \
+    python3-cryptography (>=42.0.8) \
     python3-pillow (>=10.4.0) \
     python3-pyopenssl (>=24.2.1) \
     python3-orjson (>=3.10.7) \
