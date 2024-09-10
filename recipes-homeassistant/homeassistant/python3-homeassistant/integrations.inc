@@ -502,10 +502,9 @@ RDEPENDS:${PN}-vlc = "\
     python3-python-vlc (>=3.0.18122) \
 "
 
-#TODO: python3-zeroconf (>=0.133.0)
 ALLOW_EMPTY:${PN}-zeroconf = "1"
 RDEPENDS:${PN}-zeroconf = "\
-    python3-zeroconf (>=0.132.2) \
+    python3-zeroconf (>=0.133.0) \
 "
 
 ALLOW_EMPTY:${PN}-zestimate = "1"

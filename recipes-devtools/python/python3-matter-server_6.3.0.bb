@@ -18,5 +18,5 @@ RDEPENDS:${PN} += "\
     python3-cryptography (>=42.0.8) \
     python3-home-assistant-chip-clusters (=2024.7.0) \
     python3-orjson (>=3.10.6) \
-    python3-zeroconf (=0.132.2) \
+    python3-zeroconf (>=0.132.2) \
 "
