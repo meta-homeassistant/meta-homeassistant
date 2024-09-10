@@ -3,13 +3,16 @@ HOMEPAGE = "https://github.com/home-assistant-libs/aioshelly"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=dab31a1d28183826937f4b152143a33f"
 
-SRC_URI[sha256sum] = "fa242998c371bf361efdc66dc875196e618506848d0eece298167a6081458d8e"
+inherit python_setuptools_build_meta ptest
 
-inherit pypi python_setuptools_build_meta ptest
-
-SRC_URI:append = " \
+SRC_URI = "\
+    git://github.com/home-assistant-libs/aioshelly;branch=main;protocol=https \
     file://run-ptest \
 "
+SRCREV = "baf6d534a58b2f66f15a775cf7b11c57ae713f68"
+SRC_URI[sha256sum] = "fa242998c371bf361efdc66dc875196e618506848d0eece298167a6081458d8e"
+
+S = "${WORKDIR}/git"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp \
