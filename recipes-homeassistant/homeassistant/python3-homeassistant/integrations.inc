@@ -112,6 +112,7 @@ RDEPENDS:${PN}-aruba = "\
 ALLOW_EMPTY:${PN}-assist-pipeline = "1"
 RDEPENDS:${PN}-assist-pipeline = "\
     python3-pymicro-vad (=1.0.1) \
+    python3-pyspeex-noise (=1.0.2) \
 "
 
 ALLOW_EMPTY:${PN}-axis = "1"
@@ -216,8 +217,9 @@ RDEPENDS:${PN}-ffmpeg = "\
 
 ALLOW_EMPTY:${PN}-folder-watcher = "1"
 RDEPENDS:${PN}-folder-watcher = "\
-    python3-watchdog (>=2.3.1) \
+    python3-watchdog (=2.3.1) \
 "
+# PREFERRED_VERSION_python3_watchdog
 
 ALLOW_EMPTY:${PN}-fritz = "1"
 RDEPENDS:${PN}-fritz = "\
