@@ -96,5 +96,7 @@ python do_addptest () {
             file.write(package_line)
     # TODO: python3-zwave-js: disable failing test
     with open(target_file, 'a') as file:
-        file.write("    -k \"not test_fixture_functions\\\n"")
+        line_to_append = "-k \"not test_fixture_functions"
+        package_line = f"  {line_to_append} \\\n"
+        file.write(package_line)
 }
