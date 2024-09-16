@@ -11,4 +11,4 @@ DEPENDS += "\
 
 PYPI_PACKAGE = "ulid_transform"
 
-SRC_URI[sha256sum] = "48dbd3daf814cedea340734ac85c30e78fd26a1b29ce18a310d3ba4426b98b6a"
+SRC_URI[sha256sum] = "9b710f6adb93a7620910bce385c7e977a234ab321443ec3bc1e48ae931f1e5d4"

@@ -6,7 +6,9 @@ IMAGE_INSTALL = "\
     python3-homeassistant \
     \
     python3-homeassistant-acer-projector \
+    python3-homeassistant-accuweather \
     python3-homeassistant-amazon-polly \
+    python3-homeassistant-airthings-ble \
     python3-homeassistant-aruba \
     python3-homeassistant-assist-pipeline \
     python3-homeassistant-axis \
@@ -24,6 +26,8 @@ IMAGE_INSTALL = "\
     python3-homeassistant-dhcp \
     python3-homeassistant-dlna-dmr \
     python3-homeassistant-dlna-dms \
+    python3-homeassistant-dunehd \
+    python3-homeassistant-evohome \
     python3-homeassistant-ffmpeg \
     python3-homeassistant-fritz \
     python3-homeassistant-fritzbox \
@@ -57,6 +61,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-private-ble-device \
     python3-homeassistant-proxy \
     python3-homeassistant-pulseaudio-loopback \
+    python3-homeassistant-qwikswitch \
     python3-homeassistant-radio-browser \
     python3-homeassistant-recorder \
     python3-homeassistant-route53 \
@@ -80,6 +85,8 @@ IMAGE_INSTALL = "\
     python3-homeassistant-vlc \
     python3-homeassistant-zeroconf \
     python3-homeassistant-zestimate \
+    python3-homeassistant-zwave-js \
+    python3-homeassistant-zwave-me \
     "
 
 IMAGE_LINGUAS = ""

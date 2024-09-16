@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/bdraco/async_interrupt"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=da57f3e0372e39698a274746eb9d65d6"
 
-SRC_URI[sha256sum] = "7a67c229d3d337e8db852cfe3c7e3012930a39eb4a4b30c036452a6f278d08f1"
+SRC_URI[sha256sum] = "d147559e2478501ad45ea43f52df23b246456715a7cb96e1aebdb4b71aed43d5"
 
 inherit pypi python_poetry_core
 

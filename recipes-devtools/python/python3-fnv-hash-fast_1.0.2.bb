@@ -11,8 +11,9 @@ DEPENDS += "\
     python3-cython-native \
 "
 
-SRC_URI[sha256sum] = "a84d658952776a186418f4158fc8e55ff3c576ac32cc9ef7f8077efdf2d0b89f"
+SRC_URI[sha256sum] = "d4c528bfb0daa751afb17419a244b913b094b9f0634f9bd19aeffcdc60192589"
 
 RDEPENDS:${PN} = "\
+    python3-core (>=3.10) \
     python3-fnvhash (>=0.1.0) \
 "

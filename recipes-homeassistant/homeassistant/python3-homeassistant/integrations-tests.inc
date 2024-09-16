@@ -1,4 +1,6 @@
 COMPONENT_TEST_PACKAGES = "\
+    ${PN}-accuweather \
+    ${PN}-airthings-ble \
     ${PN}-assist-pipeline \
     ${PN}-backup \
     ${PN}-bluetooth \
@@ -12,6 +14,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-dhcp \
     ${PN}-dlna-dmr \
     ${PN}-dlna-dms \
+    ${PN}-dunehd \
     ${PN}-ffmpeg \
     ${PN}-folder-watcher \
     ${PN}-fritzbox \
@@ -25,17 +28,16 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-isal \
     ${PN}-met \
     ${PN}-mobile-app \
-    ${PN}-modbus \
     ${PN}-namecheapdns \
     ${PN}-network \
     ${PN}-octoprint \
+    ${PN}-qwikswitch \
     ${PN}-radio-browser \
     ${PN}-recorder \
     ${PN}-scrape \
     ${PN}-sentry \
     ${PN}-shelly \
     ${PN}-speedtestdotnet \
-    ${PN}-sql \
     ${PN}-ssdp \
     ${PN}-startca \
     ${PN}-switchbot \
@@ -46,6 +48,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-usb \
     ${PN}-utility-meter \
     ${PN}-zeroconf \
+    ${PN}-zwave-me \
 "
 
 # Temporarily disabled as the tests are failing. Investigation is pending.
@@ -58,8 +61,10 @@ COMPONENT_TEST_PACKAGES = "\
 # ${PN}-google-mail
 # ${PN}-google-tasks
 # ${PN}-matter
+# ${PN}-modbus
 # ${PN}-private-ble-device
 # ${PN}-stream
+# ${PN}-sql
 
 python __anonymous() {
     if 'ptest' not in d.getVar('DISTRO_FEATURES'):
@@ -78,12 +83,20 @@ python do_addptest () {
     
     # Get the list of packages
     packages_list = d.getVar('COMPONENT_TEST_PACKAGES').split()
+
+    with open(target_file, 'a') as file:
+            file.write(f"\npytest --automake \\\n")
     
     # Iterate over each package and append the line to the file
     for package in packages_list:
         # Define the line to be appended
-        line_to_append = "pytest --automake tests/components/" + package.removeprefix(d.getVar('PN')+'-').replace('-', '_') + "/"
-        package_line = f"\n{line_to_append}\n"
+        line_to_append = "tests/components/" + package.removeprefix(d.getVar('PN')+'-').replace('-', '_') + "/"
+        package_line = f"  {line_to_append} \\\n"
         with open(target_file, 'a') as file:
             file.write(package_line)
+    # TODO: python3-zwave-js: disable failing test
+    with open(target_file, 'a') as file:
+        line_to_append = "-k \"not test_fixture_functions\""
+        package_line = f"  {line_to_append} \\\n"
+        file.write(package_line)
 }

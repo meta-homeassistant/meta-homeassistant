@@ -78,8 +78,6 @@ def get_recipes(ha_path):
     layers = [
         "../../recipes-devtools/python",
         "../../recipes-homeassistant/homeassistant",
-        "../../recipes-homeassistant/home-assistant-libs",
-        "../../recipes-homeassistant/nabucasa",
         "../../../../sources/meta-openembedded/meta-python/recipes-connectivity/python-gsocketpool",
         "../../../../sources/meta-openembedded/meta-python/recipes-connectivity/python-h2",
         "../../../../sources/meta-openembedded/meta-python/recipes-connectivity/python-hpack",
@@ -92,7 +90,10 @@ def get_recipes(ha_path):
         "../../../../sources/meta-openembedded/meta-python/recipes-connectivity/python3-pytun",
         "../../../../sources/meta-openembedded/meta-python/recipes-devtools/python",
         "../../../../sources/meta-openembedded/meta-python/recipes-devtools/python-jsonref",
+        "../../../../sources/meta-openembedded/meta-python/recipes-devtools/python3_oauth2client",
         "../../../../sources/meta-openembedded/meta-python/recipes-devtools/python3-attrdict3",
+        "../../../../sources/meta-openembedded/meta-python/recipes-devtools/python3-gspread",
+        "../../../../sources/meta-openembedded/meta-python/recipes-devtools/python3-piccata",
         "../../../../sources/meta-openembedded/meta-python/recipes-devtools/python3-reedsolo",
         "../../../../sources/meta-openembedded/meta-python/recipes-devtools/python3-wxgtk4",
         "../../../../sources/meta-openembedded/meta-python/recipes-extended/python-blivet",
@@ -107,7 +108,9 @@ def get_recipes(ha_path):
         "../../../../sources/meta-openembedded/meta-python/recipes-extended/pywbem",
         "../../../../sources/meta-openembedded/meta-python/recipes-extended/pywbemtools",
         "../../../../sources/meta-openembedded/meta-python/recipes-extended/send2trash",
+        "../../../../sources/meta-openembedded/meta-python/recipes-networking/python",
         "../../../../sources/meta-openembedded/meta-networking/recipes-devtools/python",
+        "../../../../sources/meta-openembedded/meta-oe/recipes-devtools/python",
         "../../../../sources/poky/meta/recipes-devtools/python",
     ]
     for layer in layers:
@@ -139,6 +142,8 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
 
                 integrations = [
                     "acer_projector",
+                    "accuweather",
+                    "airthings_ble",
                     "amazon_polly",
                     "aruba",
                     "assist_pipeline",
@@ -157,6 +162,8 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
                     "dhcp",
                     "dlna_dmr",
                     "dlna_dms",
+                    "dunehd",
+                    "evohome",
                     "ffmpeg",
                     "folder_watcher",
                     "fritz",
@@ -191,6 +198,7 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
                     "private_ble_device",
                     "proxy",
                     "pulseaudio_loopback",
+                    "qwikswitch",
                     "radio_browser",
                     "recorder",
                     "route53",
@@ -213,7 +221,9 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
                     "utility_meter",
                     "vlc",
                     "zeroconf",
-                    "zestimate"
+                    "zestimate",
+                    "zwave_js",
+                    "zwave_me"
                 ]
 
                 # Check if the component specifies any requirements
