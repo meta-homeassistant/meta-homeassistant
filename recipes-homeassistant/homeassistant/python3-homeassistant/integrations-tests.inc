@@ -1,5 +1,6 @@
 COMPONENT_TEST_PACKAGES = "\
     ${PN}-accuweather \
+    ${PN}-acmeda \
     ${PN}-airthings-ble \
     ${PN}-assist-pipeline \
     ${PN}-backup \
@@ -48,6 +49,9 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-usb \
     ${PN}-utility-meter \
     ${PN}-zeroconf \
+    ${PN}-zodiac \
+    ${PN}-zone \
+    ${PN}-zwave-js \
     ${PN}-zwave-me \
 "
 

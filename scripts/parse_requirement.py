@@ -143,6 +143,7 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
                 integrations = [
                     "acer_projector",
                     "accuweather",
+                    "acmeda",
                     "airthings_ble",
                     "amazon_polly",
                     "aruba",
@@ -222,6 +223,7 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
                     "vlc",
                     "zeroconf",
                     "zestimate",
+                    "zoneminder",
                     "zwave_js",
                     "zwave_me"
                 ]

@@ -1,6 +1,7 @@
 PACKAGES += "\
     ${PN}-acer-projector \
     ${PN}-accuweather \
+    ${PN}-acmeda \
     ${PN}-airthings-ble \
     ${PN}-amazon-polly \
     ${PN}-aruba \
@@ -80,6 +81,7 @@ PACKAGES += "\
     ${PN}-vlc \
     ${PN}-zeroconf \
     ${PN}-zestimate \
+    ${PN}-zoneminder \
     ${PN}-zwave-js \
     ${PN}-zwave-me \
 "
@@ -92,6 +94,11 @@ RDEPENDS:${PN}-acer-projector = "\
 ALLOW_EMPTY:${PN}-accuweather = "1"
 RDEPENDS:${PN}-accuweather = "\
     python3-accuweather (=3.0.0) \
+"
+
+ALLOW_EMPTY:${PN}-acmeda = "1"
+RDEPENDS:${PN}-acmeda = "\
+    python3-aiopulse (=0.4.6) \
 "
 
 ALLOW_EMPTY:${PN}-airthings-ble = "1"
@@ -514,6 +521,11 @@ RDEPENDS:${PN}-zestimate = "\
     python3-xmltodict (=0.13.0) \
 "
 
+ALLOW_EMPTY:${PN}-zoneminder = "1"
+RDEPENDS:${PN}-zoneminder = "\
+    python3-zm-py (=0.5.4) \
+"
+
 ALLOW_EMPTY:${PN}-zwave-js = "1"
 RDEPENDS:${PN}-zwave-js = "\
     python3-pyserial (=3.5) \
@@ -549,6 +561,7 @@ RDEPENDS:${PN} += "\
 RRECOMMENDS:${PN} += "\
     ${PN}-acer-projector \
     ${PN}-accuweather \
+    ${PN}-acmeda \
     ${PN}-airthings-ble \
     ${PN}-aruba \
     ${PN}-amazon-polly \
@@ -611,6 +624,7 @@ RRECOMMENDS:${PN} += "\
     ${PN}-utility-meter \
     ${PN}-vlc \
     ${PN}-zestimate \
+    ${PN}-zoneminder \
     ${PN}-zwave-js \
     ${PN}-zwave-me \
 "
