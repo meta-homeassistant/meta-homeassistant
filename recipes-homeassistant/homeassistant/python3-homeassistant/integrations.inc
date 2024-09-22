@@ -3,6 +3,7 @@ PACKAGES += "\
     ${PN}-accuweather \
     ${PN}-acmeda \
     ${PN}-adax \
+    ${PN}-adguard \
     ${PN}-airthings-ble \
     ${PN}-amazon-polly \
     ${PN}-aruba \
@@ -106,6 +107,11 @@ ALLOW_EMPTY:${PN}-adax = "1"
 RDEPENDS:${PN}-adax = "\
     python3-adax (=0.4.0) \
     python3-adax-local (=0.1.5) \
+"
+
+ALLOW_EMPTY:${PN}-adguard = "1"
+RDEPENDS:${PN}-adguard = "\
+    python3-adguardhome (=0.7.0) \
 "
 
 ALLOW_EMPTY:${PN}-airthings-ble = "1"
@@ -570,6 +576,7 @@ RRECOMMENDS:${PN} += "\
     ${PN}-accuweather \
     ${PN}-acmeda \
     ${PN}-adax \
+    ${PN}-adguard \
     ${PN}-airthings-ble \
     ${PN}-aruba \
     ${PN}-amazon-polly \
