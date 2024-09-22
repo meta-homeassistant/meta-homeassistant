@@ -75,6 +75,10 @@ PACKAGES += "\
     ${PN}-switchbot \
     ${PN}-systemmonitor \
     ${PN}-ted5000 \
+    ${PN}-trafikverket-camera \
+    ${PN}-trafikverket-ferry \
+    ${PN}-trafikverket-train \
+    ${PN}-trafikverket-weatherstation \
     ${PN}-trend \
     ${PN}-tts \
     ${PN}-upnp \
@@ -492,6 +496,26 @@ RDEPENDS:${PN}-ted5000 = "\
     python3-xmltodict (=0.13.0) \
 "
 
+ALLOW_EMPTY:${PN}-trafikverket-camera = "1"
+RDEPENDS:${PN}-trafikverket-camera = "\
+    python3-pytrafikverket (=1.0.0) \
+"
+
+ALLOW_EMPTY:${PN}-trafikverket-ferry = "1"
+RDEPENDS:${PN}-trafikverket-ferry = "\
+    python3-pytrafikverket (=1.0.0) \
+"
+
+ALLOW_EMPTY:${PN}-trafikverket-train = "1"
+RDEPENDS:${PN}-trafikverket-train = "\
+    python3-pytrafikverket (=1.0.0) \
+"
+
+ALLOW_EMPTY:${PN}-trafikverket-weatherstation = "1"
+RDEPENDS:${PN}-trafikverket-weatherstation = "\
+    python3-pytrafikverket (=1.0.0) \
+"
+
 ALLOW_EMPTY:${PN}-trend = "1"
 RDEPENDS:${PN}-trend = "\
     python3-numpy (>=1.26.0) \
@@ -633,6 +657,10 @@ RRECOMMENDS:${PN} += "\
     ${PN}-switchbot \
     ${PN}-systemmonitor \
     ${PN}-ted5000 \
+    ${PN}-trafikverket-camera \
+    ${PN}-trafikverket-ferry \
+    ${PN}-trafikverket-train \
+    ${PN}-trafikverket-weatherstation \
     ${PN}-trend \
     ${PN}-tts \
     ${PN}-upnp \

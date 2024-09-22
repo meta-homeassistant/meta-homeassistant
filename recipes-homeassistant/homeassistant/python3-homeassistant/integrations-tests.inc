@@ -45,6 +45,10 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-startca \
     ${PN}-switchbot \
     ${PN}-systemmonitor \
+    ${PN}-trafikverket-camera \
+    ${PN}-trafikverket-ferry \
+    ${PN}-trafikverket-train \
+    ${PN}-trafikverket-weatherstation \
     ${PN}-trend \
     ${PN}-tts \
     ${PN}-upnp \

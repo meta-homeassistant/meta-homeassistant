@@ -80,6 +80,10 @@ IMAGE_INSTALL = "\
     python3-homeassistant-switchbot \
     python3-homeassistant-systemmonitor \
     python3-homeassistant-ted5000 \
+    python3-homeassistant-trafikverket-camera \
+    python3-homeassistant-trafikverket-ferry \
+    python3-homeassistant-trafikverket-train \
+    python3-homeassistant-trafikverket-weatherstation \
     python3-homeassistant-trend \
     python3-homeassistant-tts \
     python3-homeassistant-upnp \
