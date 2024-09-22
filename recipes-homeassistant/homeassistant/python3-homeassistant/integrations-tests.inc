@@ -1,6 +1,7 @@
 COMPONENT_TEST_PACKAGES = "\
     ${PN}-accuweather \
     ${PN}-acmeda \
+    ${PN}-adax \
     ${PN}-airthings-ble \
     ${PN}-assist-pipeline \
     ${PN}-backup \

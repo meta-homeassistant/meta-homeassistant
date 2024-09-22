@@ -2,6 +2,7 @@ PACKAGES += "\
     ${PN}-acer-projector \
     ${PN}-accuweather \
     ${PN}-acmeda \
+    ${PN}-adax \
     ${PN}-airthings-ble \
     ${PN}-amazon-polly \
     ${PN}-aruba \
@@ -99,6 +100,12 @@ RDEPENDS:${PN}-accuweather = "\
 ALLOW_EMPTY:${PN}-acmeda = "1"
 RDEPENDS:${PN}-acmeda = "\
     python3-aiopulse (=0.4.6) \
+"
+
+ALLOW_EMPTY:${PN}-adax = "1"
+RDEPENDS:${PN}-adax = "\
+    python3-adax (=0.4.0) \
+    python3-adax-local (=0.1.5) \
 "
 
 ALLOW_EMPTY:${PN}-airthings-ble = "1"
@@ -562,6 +569,7 @@ RRECOMMENDS:${PN} += "\
     ${PN}-acer-projector \
     ${PN}-accuweather \
     ${PN}-acmeda \
+    ${PN}-adax \
     ${PN}-airthings-ble \
     ${PN}-aruba \
     ${PN}-amazon-polly \

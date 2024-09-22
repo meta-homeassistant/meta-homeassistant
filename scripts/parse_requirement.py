@@ -144,6 +144,7 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
                     "acer_projector",
                     "accuweather",
                     "acmeda",
+                    "adax",
                     "airthings_ble",
                     "amazon_polly",
                     "aruba",
