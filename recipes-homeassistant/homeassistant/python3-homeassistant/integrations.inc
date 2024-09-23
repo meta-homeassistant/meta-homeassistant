@@ -249,7 +249,6 @@ ALLOW_EMPTY:${PN}-folder-watcher = "1"
 RDEPENDS:${PN}-folder-watcher = "\
     python3-watchdog (=2.3.1) \
 "
-# PREFERRED_VERSION_python3_watchdog
 
 ALLOW_EMPTY:${PN}-fritz = "1"
 RDEPENDS:${PN}-fritz = "\
