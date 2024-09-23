@@ -146,6 +146,7 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
                     "acmeda",
                     "adax",
                     "adguard",
+                    "advantage_air",
                     "airthings_ble",
                     "amazon_polly",
                     "aruba",

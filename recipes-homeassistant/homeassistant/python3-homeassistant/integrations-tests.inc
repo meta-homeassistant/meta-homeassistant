@@ -3,6 +3,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-acmeda \
     ${PN}-adax \
     ${PN}-adguard \
+    ${PN}-advantage-air \
     ${PN}-airthings-ble \
     ${PN}-assist-pipeline \
     ${PN}-backup \

@@ -10,6 +10,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-acmeda \
     python3-homeassistant-adax \
     python3-homeassistant-adguard \
+    python3-homeassistant-advantage-air \
     python3-homeassistant-airthings-ble \
     python3-homeassistant-amazon-polly \
     python3-homeassistant-aruba \

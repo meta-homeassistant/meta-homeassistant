@@ -4,6 +4,7 @@ PACKAGES += "\
     ${PN}-acmeda \
     ${PN}-adax \
     ${PN}-adguard \
+    ${PN}-advantage-air \
     ${PN}-airthings-ble \
     ${PN}-amazon-polly \
     ${PN}-aruba \
@@ -116,6 +117,11 @@ RDEPENDS:${PN}-adax = "\
 ALLOW_EMPTY:${PN}-adguard = "1"
 RDEPENDS:${PN}-adguard = "\
     python3-adguardhome (=0.7.0) \
+"
+
+ALLOW_EMPTY:${PN}-advantage-air = "1"
+RDEPENDS:${PN}-advantage-air = "\
+    python3-advantage-air (=0.4.4) \
 "
 
 ALLOW_EMPTY:${PN}-airthings-ble = "1"
@@ -601,6 +607,7 @@ RRECOMMENDS:${PN} += "\
     ${PN}-acmeda \
     ${PN}-adax \
     ${PN}-adguard \
+    ${PN}-advantage-air \
     ${PN}-airthings-ble \
     ${PN}-aruba \
     ${PN}-amazon-polly \
