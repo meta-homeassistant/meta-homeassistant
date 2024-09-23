@@ -228,6 +228,7 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
                     "usb",
                     "utility_meter",
                     "vlc",
+                    "zabbix",
                     "zeroconf",
                     "zestimate",
                     "zoneminder",

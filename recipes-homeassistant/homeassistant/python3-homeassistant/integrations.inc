@@ -86,6 +86,7 @@ PACKAGES += "\
     ${PN}-usb \
     ${PN}-utility-meter \
     ${PN}-vlc \
+    ${PN}-zabbix \
     ${PN}-zeroconf \
     ${PN}-zestimate \
     ${PN}-zoneminder \
@@ -553,6 +554,11 @@ RDEPENDS:${PN}-vlc = "\
     python3-python-vlc (>=3.0.18122) \
 "
 
+ALLOW_EMPTY:${PN}-zabbix = "1"
+RDEPENDS:${PN}-zabbix = "\
+    python3-py-zabbix (=1.1.7) \
+"
+
 ALLOW_EMPTY:${PN}-zeroconf = "1"
 RDEPENDS:${PN}-zeroconf = "\
     python3-zeroconf (>=0.133.0) \
@@ -672,6 +678,7 @@ RRECOMMENDS:${PN} += "\
     ${PN}-upnp \
     ${PN}-utility-meter \
     ${PN}-vlc \
+    ${PN}-zabbix \
     ${PN}-zestimate \
     ${PN}-zoneminder \
     ${PN}-zwave-js \
