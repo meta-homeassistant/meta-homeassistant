@@ -42,7 +42,6 @@ IMAGE_INSTALL = "\
     python3-homeassistant-google-mail \
     python3-homeassistant-google-tasks \
     python3-homeassistant-google-translate \
-    python3-homeassistant-hacs \
     python3-homeassistant-hardware \
     python3-homeassistant-hue \
     python3-homeassistant-image-upload \

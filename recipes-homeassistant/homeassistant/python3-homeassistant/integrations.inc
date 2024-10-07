@@ -37,7 +37,6 @@ PACKAGES += "\
     ${PN}-google-mail \
     ${PN}-google-tasks \
     ${PN}-google-translate \
-    ${PN}-hacs \
     ${PN}-hardware \
     ${PN}-hue \
     ${PN}-image-upload \
@@ -158,7 +157,7 @@ RDEPENDS:${PN}-backup = "\
 
 ALLOW_EMPTY:${PN}-bluesound = "1"
 RDEPENDS:${PN}-bluesound = "\
-    python3-pyblu (=0.4.0) \
+    python3-pyblu (=1.0.2) \
 "
 
 ALLOW_EMPTY:${PN}-bluetooth = "1"
@@ -179,7 +178,7 @@ RDEPENDS:${PN}-camera = "\
 
 ALLOW_EMPTY:${PN}-cast = "1"
 RDEPENDS:${PN}-cast = "\
-    python3-pychromecast (>=14.0.1) \
+    python3-pychromecast (>=14.0.2) \
 "
 
 ALLOW_EMPTY:${PN}-cisco-ios = "1"
@@ -200,7 +199,7 @@ RDEPENDS:${PN}-compensation = "\
 ALLOW_EMPTY:${PN}-conversation = "1"
 RDEPENDS:${PN}-conversation = "\
     python3-hassil (>=1.7.4) \
-    python3-home-assistant-intents (>=2024.9.4) \
+    python3-home-assistant-intents (>=2024.10.2) \
 "
 
 ALLOW_EMPTY:${PN}-cpuspeed = "1"
@@ -217,7 +216,7 @@ ALLOW_EMPTY:${PN}-dhcp = "1"
 RDEPENDS:${PN}-dhcp = "\
     python3-aiodhcpwatcher (=1.0.2) \
     python3-aiodiscover (=2.1.0) \
-    python3-cached-ipaddress (=0.5.0) \
+    python3-cached-ipaddress (=0.6.0) \
 "
 
 ALLOW_EMPTY:${PN}-dlna-dmr = "1"
@@ -280,7 +279,7 @@ RDEPENDS:${PN}-generic = "\
 
 ALLOW_EMPTY:${PN}-github = "1"
 RDEPENDS:${PN}-github = "\
-    python3-aiogithubapi (=23.11.0) \
+    python3-aiogithubapi (=24.6.0) \
 "
 
 ALLOW_EMPTY:${PN}-google-mail = "1"
@@ -296,11 +295,6 @@ RDEPENDS:${PN}-google-tasks = "\
 ALLOW_EMPTY:${PN}-google-translate = "1"
 RDEPENDS:${PN}-google-translate = "\
     python3-gtts (=2.2.4) \
-"
-
-ALLOW_EMPTY:${PN}-hacs = "1"
-RDEPENDS:${PN}-hacs = "\
-    python3-aiogithubapi (=23.11.0) \
 "
 
 ALLOW_EMPTY:${PN}-hardware = "1"
@@ -325,7 +319,7 @@ RDEPENDS:${PN}-ipp = "\
 
 ALLOW_EMPTY:${PN}-isal = "1"
 RDEPENDS:${PN}-isal = "\
-    python3-isal (=1.6.1) \
+    python3-isal (=1.7.1) \
 "
 
 ALLOW_EMPTY:${PN}-keyboard-remote = "1"
@@ -336,7 +330,7 @@ RDEPENDS:${PN}-keyboard-remote = "\
 
 ALLOW_EMPTY:${PN}-matter = "1"
 RDEPENDS:${PN}-matter = "\
-    python3-matter-server (=6.3.0) \
+    python3-python-matter-server (=6.5.2) \
 "
 
 ALLOW_EMPTY:${PN}-met = "1"
@@ -577,7 +571,7 @@ RDEPENDS:${PN}-zoneminder = "\
 ALLOW_EMPTY:${PN}-zwave-js = "1"
 RDEPENDS:${PN}-zwave-js = "\
     python3-pyserial (=3.5) \
-    python3-zwave-js-server-python (=0.57.0) \
+    python3-zwave-js-server-python (=0.58.1) \
 "
 
 ALLOW_EMPTY:${PN}-zwave-me = "1"
@@ -637,7 +631,6 @@ RRECOMMENDS:${PN} += "\
     ${PN}-github \
     ${PN}-google-mail \
     ${PN}-google-tasks \
-    ${PN}-hacs \
     ${PN}-hue \
     ${PN}-ipp \
     ${PN}-isal \

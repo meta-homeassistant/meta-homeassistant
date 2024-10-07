@@ -21,14 +21,13 @@ WHL_BP = "isal-${PV}"
 WHL_PN = "isal"
 
 SRC_URI:x86-64 = "\
-    https://files.pythonhosted.org/packages/b1/94/36622a5b97ed9b0648e8853bcaade872abc040050c3ca5d775608baf85a5/${WHL_BP}-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl;downloadfilename=${BP}.zip;subdir=${BP};name=x86-64 \
+    https://files.pythonhosted.org/packages/7f/46/0c0a1dafc2c5ee4f1bb6f87a09841bf37e4148dbda4f088ac6a3fc0e57c8/${WHL_BP}-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl;downloadfilename=${BP}.zip;subdir=${BP};name=x86-64 \
 "
 
 SRC_URI:aarch64 = "\
-    https://files.pythonhosted.org/packages/ec/25/cf5a18c06a668ee63c33d21e3a902592c6a4418b383938f0973b93761c31/${WHL_BP}-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl;downloadfilename=${BP}.zip;subdir=${BP};name=aarch64 \
+    https://files.pythonhosted.org/packages/ee/6f/2064c978ea6912dbc10e5ceb2ae535563222f8758ee5b8d74a70ecad4424/${WHL_BP}-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl;downloadfilename=${BP}.zip;subdir=${BP};name=aarch64 \
 "
-
-SRC_URI[x86-64.sha256sum] = "db80adfae5cfe2311274cade0d2b9f4ad250bf0aeb1fcc405ebfcf2cd228b15e"
+SRC_URI[x86-64.sha256sum] = "f2d931e35e70a2d0e32124b4a2d5aeb5b1016b497c95a75a36ddfeaa68d06645"
 SRC_URI[aarch64.sha256sum] = "d3540855990513846b0dc8914ef85711b88f9911549b2d0a70fd16c659f4aa4e"
 
 do_install() {
