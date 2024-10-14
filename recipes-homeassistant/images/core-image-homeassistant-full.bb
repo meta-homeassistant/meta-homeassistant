@@ -5,10 +5,14 @@ IMAGE_INSTALL = "\
     ${CORE_IMAGE_EXTRA_INSTALL} \
     python3-homeassistant \
     \
-    python3-homeassistant-acer-projector \
     python3-homeassistant-accuweather \
-    python3-homeassistant-amazon-polly \
+    python3-homeassistant-acer-projector \
+    python3-homeassistant-acmeda \
+    python3-homeassistant-adax \
+    python3-homeassistant-adguard \
+    python3-homeassistant-advantage-air \
     python3-homeassistant-airthings-ble \
+    python3-homeassistant-amazon-polly \
     python3-homeassistant-aruba \
     python3-homeassistant-assist-pipeline \
     python3-homeassistant-axis \
@@ -38,7 +42,6 @@ IMAGE_INSTALL = "\
     python3-homeassistant-google-mail \
     python3-homeassistant-google-tasks \
     python3-homeassistant-google-translate \
-    python3-homeassistant-hacs \
     python3-homeassistant-hardware \
     python3-homeassistant-hue \
     python3-homeassistant-image-upload \
@@ -77,14 +80,20 @@ IMAGE_INSTALL = "\
     python3-homeassistant-switchbot \
     python3-homeassistant-systemmonitor \
     python3-homeassistant-ted5000 \
+    python3-homeassistant-trafikverket-camera \
+    python3-homeassistant-trafikverket-ferry \
+    python3-homeassistant-trafikverket-train \
+    python3-homeassistant-trafikverket-weatherstation \
     python3-homeassistant-trend \
     python3-homeassistant-tts \
     python3-homeassistant-upnp \
     python3-homeassistant-usb \
     python3-homeassistant-utility-meter \
     python3-homeassistant-vlc \
+    python3-homeassistant-zabbix \
     python3-homeassistant-zeroconf \
     python3-homeassistant-zestimate \
+    python3-homeassistant-zoneminder \
     python3-homeassistant-zwave-js \
     python3-homeassistant-zwave-me \
     "

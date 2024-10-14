@@ -1,6 +1,10 @@
 PACKAGES += "\
     ${PN}-acer-projector \
     ${PN}-accuweather \
+    ${PN}-acmeda \
+    ${PN}-adax \
+    ${PN}-adguard \
+    ${PN}-advantage-air \
     ${PN}-airthings-ble \
     ${PN}-amazon-polly \
     ${PN}-aruba \
@@ -33,7 +37,6 @@ PACKAGES += "\
     ${PN}-google-mail \
     ${PN}-google-tasks \
     ${PN}-google-translate \
-    ${PN}-hacs \
     ${PN}-hardware \
     ${PN}-hue \
     ${PN}-image-upload \
@@ -72,14 +75,20 @@ PACKAGES += "\
     ${PN}-switchbot \
     ${PN}-systemmonitor \
     ${PN}-ted5000 \
+    ${PN}-trafikverket-camera \
+    ${PN}-trafikverket-ferry \
+    ${PN}-trafikverket-train \
+    ${PN}-trafikverket-weatherstation \
     ${PN}-trend \
     ${PN}-tts \
     ${PN}-upnp \
     ${PN}-usb \
     ${PN}-utility-meter \
     ${PN}-vlc \
+    ${PN}-zabbix \
     ${PN}-zeroconf \
     ${PN}-zestimate \
+    ${PN}-zoneminder \
     ${PN}-zwave-js \
     ${PN}-zwave-me \
 "
@@ -92,6 +101,27 @@ RDEPENDS:${PN}-acer-projector = "\
 ALLOW_EMPTY:${PN}-accuweather = "1"
 RDEPENDS:${PN}-accuweather = "\
     python3-accuweather (=3.0.0) \
+"
+
+ALLOW_EMPTY:${PN}-acmeda = "1"
+RDEPENDS:${PN}-acmeda = "\
+    python3-aiopulse (=0.4.6) \
+"
+
+ALLOW_EMPTY:${PN}-adax = "1"
+RDEPENDS:${PN}-adax = "\
+    python3-adax (=0.4.0) \
+    python3-adax-local (=0.1.5) \
+"
+
+ALLOW_EMPTY:${PN}-adguard = "1"
+RDEPENDS:${PN}-adguard = "\
+    python3-adguardhome (=0.7.0) \
+"
+
+ALLOW_EMPTY:${PN}-advantage-air = "1"
+RDEPENDS:${PN}-advantage-air = "\
+    python3-advantage-air (=0.4.4) \
 "
 
 ALLOW_EMPTY:${PN}-airthings-ble = "1"
@@ -127,7 +157,7 @@ RDEPENDS:${PN}-backup = "\
 
 ALLOW_EMPTY:${PN}-bluesound = "1"
 RDEPENDS:${PN}-bluesound = "\
-    python3-pyblu (=0.4.0) \
+    python3-pyblu (=1.0.2) \
 "
 
 ALLOW_EMPTY:${PN}-bluetooth = "1"
@@ -148,7 +178,7 @@ RDEPENDS:${PN}-camera = "\
 
 ALLOW_EMPTY:${PN}-cast = "1"
 RDEPENDS:${PN}-cast = "\
-    python3-pychromecast (>=14.0.1) \
+    python3-pychromecast (>=14.0.2) \
 "
 
 ALLOW_EMPTY:${PN}-cisco-ios = "1"
@@ -169,7 +199,7 @@ RDEPENDS:${PN}-compensation = "\
 ALLOW_EMPTY:${PN}-conversation = "1"
 RDEPENDS:${PN}-conversation = "\
     python3-hassil (>=1.7.4) \
-    python3-home-assistant-intents (>=2024.9.4) \
+    python3-home-assistant-intents (>=2024.10.2) \
 "
 
 ALLOW_EMPTY:${PN}-cpuspeed = "1"
@@ -186,7 +216,7 @@ ALLOW_EMPTY:${PN}-dhcp = "1"
 RDEPENDS:${PN}-dhcp = "\
     python3-aiodhcpwatcher (=1.0.2) \
     python3-aiodiscover (=2.1.0) \
-    python3-cached-ipaddress (=0.5.0) \
+    python3-cached-ipaddress (=0.6.0) \
 "
 
 ALLOW_EMPTY:${PN}-dlna-dmr = "1"
@@ -219,7 +249,6 @@ ALLOW_EMPTY:${PN}-folder-watcher = "1"
 RDEPENDS:${PN}-folder-watcher = "\
     python3-watchdog (=2.3.1) \
 "
-# PREFERRED_VERSION_python3_watchdog
 
 ALLOW_EMPTY:${PN}-fritz = "1"
 RDEPENDS:${PN}-fritz = "\
@@ -239,7 +268,7 @@ RDEPENDS:${PN}-fritzbox-callmonitor = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    python3-home-assistant-frontend (=20240904.0) \
+    python3-home-assistant-frontend (=20240909.1) \
 "
 
 ALLOW_EMPTY:${PN}-generic = "1"
@@ -250,7 +279,7 @@ RDEPENDS:${PN}-generic = "\
 
 ALLOW_EMPTY:${PN}-github = "1"
 RDEPENDS:${PN}-github = "\
-    python3-aiogithubapi (=23.11.0) \
+    python3-aiogithubapi (=24.6.0) \
 "
 
 ALLOW_EMPTY:${PN}-google-mail = "1"
@@ -266,11 +295,6 @@ RDEPENDS:${PN}-google-tasks = "\
 ALLOW_EMPTY:${PN}-google-translate = "1"
 RDEPENDS:${PN}-google-translate = "\
     python3-gtts (=2.2.4) \
-"
-
-ALLOW_EMPTY:${PN}-hacs = "1"
-RDEPENDS:${PN}-hacs = "\
-    python3-aiogithubapi (=23.11.0) \
 "
 
 ALLOW_EMPTY:${PN}-hardware = "1"
@@ -295,7 +319,7 @@ RDEPENDS:${PN}-ipp = "\
 
 ALLOW_EMPTY:${PN}-isal = "1"
 RDEPENDS:${PN}-isal = "\
-    python3-isal (=1.6.1) \
+    python3-isal (=1.7.1) \
 "
 
 ALLOW_EMPTY:${PN}-keyboard-remote = "1"
@@ -306,7 +330,7 @@ RDEPENDS:${PN}-keyboard-remote = "\
 
 ALLOW_EMPTY:${PN}-matter = "1"
 RDEPENDS:${PN}-matter = "\
-    python3-matter-server (=6.3.0) \
+    python3-python-matter-server (=6.5.2) \
 "
 
 ALLOW_EMPTY:${PN}-met = "1"
@@ -472,6 +496,26 @@ RDEPENDS:${PN}-ted5000 = "\
     python3-xmltodict (=0.13.0) \
 "
 
+ALLOW_EMPTY:${PN}-trafikverket-camera = "1"
+RDEPENDS:${PN}-trafikverket-camera = "\
+    python3-pytrafikverket (=1.0.0) \
+"
+
+ALLOW_EMPTY:${PN}-trafikverket-ferry = "1"
+RDEPENDS:${PN}-trafikverket-ferry = "\
+    python3-pytrafikverket (=1.0.0) \
+"
+
+ALLOW_EMPTY:${PN}-trafikverket-train = "1"
+RDEPENDS:${PN}-trafikverket-train = "\
+    python3-pytrafikverket (=1.0.0) \
+"
+
+ALLOW_EMPTY:${PN}-trafikverket-weatherstation = "1"
+RDEPENDS:${PN}-trafikverket-weatherstation = "\
+    python3-pytrafikverket (=1.0.0) \
+"
+
 ALLOW_EMPTY:${PN}-trend = "1"
 RDEPENDS:${PN}-trend = "\
     python3-numpy (>=1.26.0) \
@@ -504,6 +548,11 @@ RDEPENDS:${PN}-vlc = "\
     python3-python-vlc (>=3.0.18122) \
 "
 
+ALLOW_EMPTY:${PN}-zabbix = "1"
+RDEPENDS:${PN}-zabbix = "\
+    python3-py-zabbix (=1.1.7) \
+"
+
 ALLOW_EMPTY:${PN}-zeroconf = "1"
 RDEPENDS:${PN}-zeroconf = "\
     python3-zeroconf (>=0.133.0) \
@@ -514,10 +563,15 @@ RDEPENDS:${PN}-zestimate = "\
     python3-xmltodict (=0.13.0) \
 "
 
+ALLOW_EMPTY:${PN}-zoneminder = "1"
+RDEPENDS:${PN}-zoneminder = "\
+    python3-zm-py (=0.5.4) \
+"
+
 ALLOW_EMPTY:${PN}-zwave-js = "1"
 RDEPENDS:${PN}-zwave-js = "\
     python3-pyserial (=3.5) \
-    python3-zwave-js-server-python (=0.57.0) \
+    python3-zwave-js-server-python (=0.58.1) \
 "
 
 ALLOW_EMPTY:${PN}-zwave-me = "1"
@@ -549,6 +603,10 @@ RDEPENDS:${PN} += "\
 RRECOMMENDS:${PN} += "\
     ${PN}-acer-projector \
     ${PN}-accuweather \
+    ${PN}-acmeda \
+    ${PN}-adax \
+    ${PN}-adguard \
+    ${PN}-advantage-air \
     ${PN}-airthings-ble \
     ${PN}-aruba \
     ${PN}-amazon-polly \
@@ -573,7 +631,6 @@ RRECOMMENDS:${PN} += "\
     ${PN}-github \
     ${PN}-google-mail \
     ${PN}-google-tasks \
-    ${PN}-hacs \
     ${PN}-hue \
     ${PN}-ipp \
     ${PN}-isal \
@@ -605,12 +662,18 @@ RRECOMMENDS:${PN} += "\
     ${PN}-switchbot \
     ${PN}-systemmonitor \
     ${PN}-ted5000 \
+    ${PN}-trafikverket-camera \
+    ${PN}-trafikverket-ferry \
+    ${PN}-trafikverket-train \
+    ${PN}-trafikverket-weatherstation \
     ${PN}-trend \
     ${PN}-tts \
     ${PN}-upnp \
     ${PN}-utility-meter \
     ${PN}-vlc \
+    ${PN}-zabbix \
     ${PN}-zestimate \
+    ${PN}-zoneminder \
     ${PN}-zwave-js \
     ${PN}-zwave-me \
 "

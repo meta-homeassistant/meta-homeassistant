@@ -1,5 +1,9 @@
 COMPONENT_TEST_PACKAGES = "\
     ${PN}-accuweather \
+    ${PN}-acmeda \
+    ${PN}-adax \
+    ${PN}-adguard \
+    ${PN}-advantage-air \
     ${PN}-airthings-ble \
     ${PN}-assist-pipeline \
     ${PN}-backup \
@@ -42,12 +46,19 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-startca \
     ${PN}-switchbot \
     ${PN}-systemmonitor \
+    ${PN}-trafikverket-camera \
+    ${PN}-trafikverket-ferry \
+    ${PN}-trafikverket-train \
+    ${PN}-trafikverket-weatherstation \
     ${PN}-trend \
     ${PN}-tts \
     ${PN}-upnp \
     ${PN}-usb \
     ${PN}-utility-meter \
     ${PN}-zeroconf \
+    ${PN}-zodiac \
+    ${PN}-zone \
+    ${PN}-zwave-js \
     ${PN}-zwave-me \
 "
 
