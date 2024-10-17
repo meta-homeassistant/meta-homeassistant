@@ -186,6 +186,7 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
                     "ipp",
                     "isal",
                     "keyboard_remote",
+                    "kwb",
                     "matter",
                     "met",
                     "mobile_app",
