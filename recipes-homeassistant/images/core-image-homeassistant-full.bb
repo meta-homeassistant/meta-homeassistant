@@ -19,6 +19,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-backup \
     python3-homeassistant-bluesound \
     python3-homeassistant-bluetooth \
+    python3-homeassistant-bluetooth-tracker \
     python3-homeassistant-camera \
     python3-homeassistant-cast \
     python3-homeassistant-cisco-ios \

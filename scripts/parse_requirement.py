@@ -326,7 +326,7 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
                 f.close()
         except FileNotFoundError:       
             print("Component manifest for " + component.split('/')[-1] + " not found!")
-    return pd.DataFrame(df, columns=["Component", "Dependencies", "Requirements", "Required HA Version", "Availabe Yocto/OE Version"]).explode("Requirements")
+    return pd.DataFrame(df, columns=["Component", "Requirements", "Required HA Version", "Availabe Yocto/OE Version"]).explode("Requirements")
 
 def main() -> None:
     """Main"""

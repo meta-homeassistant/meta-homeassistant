@@ -13,6 +13,7 @@ PACKAGES += "\
     ${PN}-backup \
     ${PN}-bluesound \
     ${PN}-bluetooth \
+    ${PN}-bluetooth-tracker \
     ${PN}-camera \
     ${PN}-cast \
     ${PN}-cisco-ios \
@@ -169,6 +170,12 @@ RDEPENDS:${PN}-bluetooth = "\
     python3-bluetooth-data-tools (=1.20.0) \
     python3-dbus-fast (>=2.21.3) \
     python3-habluetooth (=3.4.0) \
+"
+
+ALLOW_EMPTY:${PN}-bluetooth-tracker = "1"
+RDEPENDS:${PN}-bluetooth-tracker = "\
+    python3-bt-proximity (=0.2.1) \
+    python3-pybluez (>=0.22) \
 "
 
 ALLOW_EMPTY:${PN}-camera = "1"
@@ -613,6 +620,7 @@ RRECOMMENDS:${PN} += "\
     ${PN}-axis \
     ${PN}-backup \
     ${PN}-bluesound \
+    ${PN}-bluetooth-tracker \
     ${PN}-camera \
     ${PN}-cast \
     ${PN}-cisco-ios \
