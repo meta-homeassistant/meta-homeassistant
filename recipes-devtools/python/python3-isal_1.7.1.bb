@@ -28,7 +28,7 @@ SRC_URI:aarch64 = "\
     https://files.pythonhosted.org/packages/ee/6f/2064c978ea6912dbc10e5ceb2ae535563222f8758ee5b8d74a70ecad4424/${WHL_BP}-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl;downloadfilename=${BP}.zip;subdir=${BP};name=aarch64 \
 "
 SRC_URI[x86-64.sha256sum] = "f2d931e35e70a2d0e32124b4a2d5aeb5b1016b497c95a75a36ddfeaa68d06645"
-SRC_URI[aarch64.sha256sum] = "d3540855990513846b0dc8914ef85711b88f9911549b2d0a70fd16c659f4aa4e"
+SRC_URI[aarch64.sha256sum] = "24dda4a2c3eae0e1aaf16283b71f6b4ad75d7784d9e7d9545330bfcd274699bc"
 
 do_install() {
     install -d ${D}${libdir}/${PYTHON_DIR}/site-packages/${WHL_BPN}
