@@ -157,7 +157,7 @@ RDEPENDS:${PN}-backup = "\
 
 ALLOW_EMPTY:${PN}-bluesound = "1"
 RDEPENDS:${PN}-bluesound = "\
-    python3-pyblu (=1.0.2) \
+    python3-pyblu (=1.0.3) \
 "
 
 ALLOW_EMPTY:${PN}-bluetooth = "1"
@@ -178,7 +178,7 @@ RDEPENDS:${PN}-camera = "\
 
 ALLOW_EMPTY:${PN}-cast = "1"
 RDEPENDS:${PN}-cast = "\
-    python3-pychromecast (>=14.0.2) \
+    python3-pychromecast (>=14.0.3) \
 "
 
 ALLOW_EMPTY:${PN}-cisco-ios = "1"
@@ -268,7 +268,7 @@ RDEPENDS:${PN}-fritzbox-callmonitor = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    python3-home-assistant-frontend (=20240909.1) \
+    python3-home-assistant-frontend (=20241002.3) \
 "
 
 ALLOW_EMPTY:${PN}-generic = "1"
