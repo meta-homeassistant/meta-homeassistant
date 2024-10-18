@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/LouisChrist/pyblu"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1e9cdf4214388e44c780f384315d4730"
 
-SRC_URI[sha256sum] = "a7e683bb70d60e4bdc15f899849bd6f482c021a5f88912151e9ea57dc9624121"
+SRC_URI[sha256sum] = "1b597583a9fea5465e51315f60319085d0923888ccae0a48c57a9cf03641a0db"
 
 inherit pypi python_poetry_core
 
