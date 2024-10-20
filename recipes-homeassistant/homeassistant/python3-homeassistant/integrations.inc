@@ -44,6 +44,7 @@ PACKAGES += "\
     ${PN}-ipp \
     ${PN}-isal \
     ${PN}-keyboard-remote \
+    ${PN}-kwb \
     ${PN}-matter \
     ${PN}-met \
     ${PN}-mobile-app \
@@ -333,6 +334,11 @@ ALLOW_EMPTY:${PN}-keyboard-remote = "1"
 RDEPENDS:${PN}-keyboard-remote = "\
     python3-evdev (>=1.6.1) \
     python3-asyncinotify (>=4.0.2) \
+"
+
+ALLOW_EMPTY:${PN}-kwb = "1"
+RDEPENDS:${PN}-kwb = "\
+    python3-pykwb (=0.0.8) \
 "
 
 ALLOW_EMPTY:${PN}-matter = "1"
@@ -643,6 +649,7 @@ RRECOMMENDS:${PN} += "\
     ${PN}-ipp \
     ${PN}-isal \
     ${PN}-keyboard-remote \
+    ${PN}-kwb \
     ${PN}-met \
     ${PN}-modbus \
     ${PN}-mqtt \

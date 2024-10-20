@@ -49,6 +49,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-ipp \
     python3-homeassistant-isal \
     python3-homeassistant-keyboard-remote \
+    python3-homeassistant-kwb \
     python3-homeassistant-matter \
     python3-homeassistant-met \
     python3-homeassistant-mobile-app \
