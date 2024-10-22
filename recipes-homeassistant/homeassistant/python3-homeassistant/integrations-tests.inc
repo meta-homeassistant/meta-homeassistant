@@ -34,6 +34,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-mobile-app \
     ${PN}-namecheapdns \
     ${PN}-network \
+    ${PN}-nmap-tracker \
     ${PN}-octoprint \
     ${PN}-qwikswitch \
     ${PN}-radio-browser \
