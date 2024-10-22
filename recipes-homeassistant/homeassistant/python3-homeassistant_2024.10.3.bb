@@ -16,7 +16,7 @@ SRC_URI = "\
     file://run-ptest-sample \
 "
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
-SRCREV = "6952d2420f38a793bbaf1375089d0e611f8e7766"
+SRCREV = "a301d51fb2a69ce2b187a481d5cfa9b7cb30e453"
 
 inherit python_setuptools_build_meta useradd systemd ptest
 
@@ -58,6 +58,7 @@ do_install:append () {
 require recipes-homeassistant/homeassistant/python3-homeassistant/integrations.inc
 require recipes-homeassistant/homeassistant/python3-homeassistant/integrations-tests.inc
 
+#TODO: python3-uv (=0.4.15)
 RDEPENDS:${PN} += "\
     python3-aiodns (>=3.2.0) \
     python3-aiohasupervisor (=0.1.0) \
@@ -76,7 +77,7 @@ RDEPENDS:${PN} += "\
     python3-fnv-hash-fast (=1.0.2) \
     python3-hass-nabucasa (=0.81.1) \
     python3-httpx (>=0.27.2) \
-    python3-home-assistant-bluetooth (>=1.12.2) \
+    python3-home-assistant-bluetooth (>=1.13.0) \
     python3-ifaddr (=0.2.0) \
     python3-jinja2 (>=3.1.4) \
     python3-lru-dict (>=1.3.0) \

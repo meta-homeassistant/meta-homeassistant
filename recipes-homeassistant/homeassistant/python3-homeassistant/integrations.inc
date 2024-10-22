@@ -159,7 +159,7 @@ RDEPENDS:${PN}-backup = "\
 
 ALLOW_EMPTY:${PN}-bluesound = "1"
 RDEPENDS:${PN}-bluesound = "\
-    python3-pyblu (=1.0.3) \
+    python3-pyblu (=1.0.4) \
 "
 
 ALLOW_EMPTY:${PN}-bluetooth = "1"
@@ -322,7 +322,7 @@ RDEPENDS:${PN}-image-upload = "\
 
 ALLOW_EMPTY:${PN}-ipp = "1"
 RDEPENDS:${PN}-ipp = "\
-    python3-pyipp (=0.16.0) \
+    python3-pyipp (=0.17.0) \
 "
 
 ALLOW_EMPTY:${PN}-isal = "1"
