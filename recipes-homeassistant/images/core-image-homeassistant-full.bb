@@ -57,6 +57,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-mqtt \
     python3-homeassistant-namecheapdns \
     python3-homeassistant-network \
+    python3-homeassistant-nmap-tracker \
     python3-homeassistant-norway-air \
     python3-homeassistant-octoprint \
     python3-homeassistant-ohmconnect \
