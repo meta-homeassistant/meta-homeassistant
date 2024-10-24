@@ -8,7 +8,7 @@ DEPENDS = "\
     python3-charset-normalizer-native \
 "
 
-SRC_URI[sha256sum] = "68015a428c46521cdf82896d920376ebac885711a937179cf1deca20b8e1f3ea"
+SRC_URI[sha256sum] = "078c2def77fedb1f28f6f74d1435e39b8e545be423cc1175560b8279bf93bc64"
 
 inherit pypi python_poetry_core
 

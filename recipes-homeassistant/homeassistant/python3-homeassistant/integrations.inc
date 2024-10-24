@@ -52,6 +52,7 @@ PACKAGES += "\
     ${PN}-mqtt \
     ${PN}-namecheapdns \
     ${PN}-network \
+    ${PN}-nmap-tracker \
     ${PN}-norway-air \
     ${PN}-octoprint \
     ${PN}-ohmconnect \
@@ -376,6 +377,13 @@ RDEPENDS:${PN}-network = "\
     python3-ifaddr (=0.2.0) \
 "
 
+ALLOW_EMPTY:${PN}-nmap-tracker = "1"
+RDEPENDS:${PN}-nmap-tracker = "\
+    python3-aiooui (=0.1.6) \
+    python3-getmac (=0.9.4) \
+    python3-netmap (=0.7.0.2) \
+"
+
 ALLOW_EMPTY:${PN}-norway-air = "1"
 RDEPENDS:${PN}-norway-air = "\
     python3-pymetno (>=0.12.0) \
@@ -655,6 +663,7 @@ RRECOMMENDS:${PN} += "\
     ${PN}-mqtt \
     ${PN}-namecheapdns \
     ${PN}-network \
+    ${PN}-nmap-tracker \
     ${PN}-norway-air \
     ${PN}-octoprint \
     ${PN}-ohmconnect \

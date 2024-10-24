@@ -194,6 +194,7 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
                     "mqtt",
                     "namecheapdns",
                     "network",
+                    "nmap_tracker",
                     "norway_air",
                     "octoprint",
                     "ohmconnect",
