@@ -4,7 +4,6 @@ on a OE target.
 
 If you need help or like to discuss a topic please join the [`#meta-homeassistant:matrix.org`](https://matrix.to/#/#meta-homeassistant:matrix.org) room on [matrix.org](https://matrix.org/).
 
-
 Please see the corresponding sections below for details.
 
 # Quickstart
@@ -35,16 +34,11 @@ You should now be able to access Home Assistant via web browser usually under th
 
 The project provides files to quickly get started using [kas](https://github.com/siemens/kas).
 
-The two main entry points are `kas/homeassistant-master.yml` and `kas/homeassistant-mickledore.yml`.
+The two main entry points are `kas/homeassistant-main.yml` and `kas/homeassistant-main-full.yml`.
 
 To build against latest Yocto master use:
 ```
-kas build kas/homeassistant-master.yml
-```
-
-To build against latest Yocto mickledore use:
-```
-kas build kas/homeassistant-michledore.yml
+kas build kas/homeassistant-main.yml
 ```
 
 # Dependencies
@@ -65,6 +59,8 @@ Why are these needed?
 - [meta-python](https://github.com/openembedded/meta-openembedded/tree/mickledore/meta-python) : contains many of the required python3 packages
 - [meta-networking](https://github.com/openembedded/meta-openembedded/tree/mickledore/meta-networking) : contains several networking oriented python3 packages
 
+Note: HomeAssistant regularly uses the very latest versions of python packages in their builds. This also means that from a Yocto/OE perspective the team is forced to keep track of master as the very latest pushes to the dependency layers are often required for succesfull builds and satisfying dependency requirements. Therefore this repository tracks the upstream master branch and currently no older releases of Yocto are specifically supported.
+
 # Build configuration
 
 Home Assistant requires specific versions of some of its python dependencies. The recipe makes sure those dependencies are satisfied at root filesystem generation time but that doesn't give any gurantees that `bitbake` will pick a version that satisfies the version restriction in `RDEPENDS`. In order for the build to select the right versions, your distro file should include the version selection in `conf/distro/include/ha-versions.inc` when you are building `python3-homeassistant`. A sample distro (that can also be used as such, is provided - see `homeassistant.conf`).
@@ -80,12 +76,16 @@ So if you are missing something you can enforce it by specifically adding it to 
 # Layer structure
 The layer is structured in the following way:
 
-- recipes-homeassistant/homeassistant: contains the core recipe needed to run homeassistant via Yocto. Moreover it contains other recipe for components which are hosted here: https://github.com/home-assistant.
-- recipes-homeassistant/home-assistant-libs: contains recipes for components which are hosted by HA themselves at: https://github.com/home-assistant-libs
-- recipes-homeassistant/nabucasa: contains recipes for the HA cloud integration and which are hosted by HA at: https://github.com/NabuCasa/
+- kas: contains all kas configuration.
+- recipes-homeassistant/homeassistant: contains the core recipe needed to run homeassistant via Yocto
 - recipes-homeassistant/images: contains sample images to build
+- recipes-devtools: contains all Yocto python recipes which are needed for all the supported integrations.
+- recipes-multimedia: contains a backported older version of ffmpeg. Current master support version 7 but HomeAssistant does not yet.
+- scripts: convenience scripts for easier upgrades between versions.
 
-The recipes-devtools folder then contains all Yocto python recipes which do not fit the above categories. Most often these are other python dependencies.
+# Testing
+Ptest support is provided for homeassistant and all currently supported integrations. The list can be seen in `integrations-test.inc`.
+Homeassistant is tested with qemux86-64 architecture to see if all ptest pass before upgrading versions.
 
 # Contributing
 
