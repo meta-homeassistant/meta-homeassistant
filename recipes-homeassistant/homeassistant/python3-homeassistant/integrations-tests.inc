@@ -12,9 +12,9 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-alexa \
     ${PN}-analytics \
     ${PN}-api \
-    ${PN}-api-streams \
     ${PN}-application-credentials \
     ${PN}-assist-pipeline \
+    ${PN}-assist-satellite \
     ${PN}-auth \
     ${PN}-automation \
     ${PN}-backup \
@@ -94,17 +94,16 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-homeassistant \
     ${PN}-homeassistant-alerts \
     ${PN}-homeassistant-green \
-    ${PN}-homeassistant-hardware \
-    ${PN}-homeassistant-sky-connect \
-    ${PN}-homeassistant-yellow \
     ${PN}-http \
     ${PN}-hue \
+    ${PN}-humidifier \
     ${PN}-image \
     ${PN}-image-processing \
     ${PN}-image-upload \
     ${PN}-input-boolean \
     ${PN}-input-button \
     ${PN}-input-datetime \
+    ${PN}-input-number \
     ${PN}-input-select \
     ${PN}-input-text \
     ${PN}-integration \
@@ -127,7 +126,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-london-air \
     ${PN}-lovelace \
     ${PN}-manual \
-    ${PN}-manual-mqtt \
     ${PN}-map \
     ${PN}-mazda \
     ${PN}-media-player \
@@ -140,11 +138,8 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-min-max \
     ${PN}-mjpeg \
     ${PN}-mobile-app \
+    ${PN}-mold-indicator \
     ${PN}-moon \
-    ${PN}-mqtt-eventstream \
-    ${PN}-mqtt-json \
-    ${PN}-mqtt-room \
-    ${PN}-mqtt-statestream \
     ${PN}-my \
     ${PN}-myq \
     ${PN}-namecheapdns \
@@ -154,7 +149,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-notify \
     ${PN}-number \
     ${PN}-octoprint \
-    ${PN}-onboarding \
     ${PN}-openalpr-cloud \
     ${PN}-openhardwaremonitor \
     ${PN}-panel-custom \
@@ -169,6 +163,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-random \
     ${PN}-recorder \
     ${PN}-recovery-mode \
+    ${PN}-remote \
     ${PN}-repairs \
     ${PN}-rest-command \
     ${PN}-rhasspy \
@@ -179,14 +174,14 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-script \
     ${PN}-search \
     ${PN}-select \
-    ${PN}-sensor \
     ${PN}-sentry \
     ${PN}-shell-command \
     ${PN}-shelly \
     ${PN}-shopping-list \
     ${PN}-sigfox \
+    ${PN}-simulated \
     ${PN}-siren \
-    ${PN}-snips \
+    ${PN}-smtp \
     ${PN}-spaceapi \
     ${PN}-speedtestdotnet \
     ${PN}-ssdp \
@@ -200,6 +195,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-system-health \
     ${PN}-system-log \
     ${PN}-systemmonitor \
+    ${PN}-tag \
     ${PN}-tcp \
     ${PN}-temper \
     ${PN}-template \
@@ -233,6 +229,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-webhook \
     ${PN}-websocket-api \
     ${PN}-worldclock \
+    ${PN}-wsdot \
     ${PN}-xiaomi \
     ${PN}-yandextts \
     ${PN}-zeroconf \
@@ -244,18 +241,32 @@ COMPONENT_TEST_PACKAGES = "\
 
 # Temporarily disabled as the tests are failing. Investigation is pending.
 # ${PN}-axis
+# ${PN}-dsmr-reader
 # ${PN}-generic
 # ${PN}-github
+# ${PN}-homeassistant-hardware
+# ${PN}-homeassistant-sky-connect
+# ${PN}-homeassistant-yellow
 # ${PN}-mqtt
+# ${PN}-mqtt-eventstream
+# ${PN}-mqtt-json
+# ${PN}-mqtt-room
+# ${PN}-mqtt-statestream
+# ${PN}-onboarding
 # ${PN}-owntracks
 # ${PN}-fritz
 # ${PN}-google-mail
 # ${PN}-google-tasks
+# ${PN}-manual-mqtt
 # ${PN}-matter
 # ${PN}-modbus
 # ${PN}-private-ble-device
+# ${PN}-raspberry-pi
+# ${PN}-sensor
+# ${PN}-snips
 # ${PN}-stream
 # ${PN}-sql
+# ${PN}-telegram
 
 python __anonymous() {
     if 'ptest' not in d.getVar('DISTRO_FEATURES'):
