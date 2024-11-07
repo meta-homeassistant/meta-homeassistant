@@ -147,7 +147,9 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
     """Parse HomeAssistant manifests to gather requirements."""
     integrations = load_integrations()
     components_path = os.path.join(ha_path, "homeassistant/components")
+    test_path = os.path.join(ha_path, "tests/components")
     list_of_components = [f.path for f in os.scandir(components_path) if f.is_dir()]
+    list_of_tests = [os.path.basename(f.path) for f in os.scandir(test_path) if f.is_dir()]
 
     df = []
     for component in list_of_components:
@@ -157,12 +159,23 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
 
             requirements = manifest.get("requirements", [])
             if not requirements:
-                df.append(create_entry(
-                    manifest["domain"],
-                    " ",
-                    " ",
-                    " ",
-                ))
+                if manifest["domain"] in list_of_tests:
+                    df.append(create_entry(
+                        manifest["domain"],
+                        "y",
+                        " ",
+                        " ",
+                        " ",
+
+                    ))
+                else:
+                    df.append(create_entry(
+                        manifest["domain"],
+                        " ",
+                        " ",
+                        " ",
+                        " ",
+                    ))
             for requirement in requirements:
                 package_name, ha_version = parse_requirement(requirement)
                 yocto_version = get_yocto_version(
@@ -177,14 +190,22 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
                     upgrade_only,
                     integrations_only,
                 ):
-                    df.append(
-                        create_entry(
+                    if manifest["domain"] in list_of_tests:
+                        df.append(create_entry(
                             manifest["domain"],
+                            "y",
                             package_name,
                             ha_version,
                             yocto_version,
-                        )
-                    )
+                        ))
+                    else:
+                        df.append(create_entry(
+                            manifest["domain"],
+                            " ",
+                            package_name,
+                            ha_version,
+                            yocto_version,
+                        ))
         except FileNotFoundError:
             print(f"Manifest file not found for component: {component.split('/')[-1]}")
         except json.JSONDecodeError:
@@ -194,6 +215,7 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
         df,
         columns=[
             "Component",
+            "Tests Available",
             "Requirements",
             "Required HA Version",
             "Available Yocto/OE Version",
@@ -234,8 +256,6 @@ def should_include(
     Determine if a package should be included
     based on upgrade and integration filters.
     """
-    if domain == "3_day_blinds":
-        print("stop")
     if integrations_only == "y" and domain not in integrations:
         return False
     if (
@@ -247,10 +267,11 @@ def should_include(
     return True
 
 
-def create_entry(domain, package_name, ha_version, yocto_version):
+def create_entry(domain, tests, package_name, ha_version, yocto_version):
     """Create a dictionary entry for a component's requirements."""
     return {
         "Component": domain,
+        "Tests Available": tests,
         "Requirements": package_name,
         "Required HA Version": ha_version,
         "Available Yocto/OE Version": yocto_version or "",
