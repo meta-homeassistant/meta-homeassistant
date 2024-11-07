@@ -136,7 +136,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-met \
     ${PN}-microsoft-face \
     ${PN}-microsoft-face-detect \
-    ${PN}-microsoft-face-identity \
+    ${PN}-microsoft-face-identify \
     ${PN}-min-max \
     ${PN}-mjpeg \
     ${PN}-mobile-app \

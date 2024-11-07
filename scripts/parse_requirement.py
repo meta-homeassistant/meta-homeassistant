@@ -90,7 +90,6 @@ def get_recipes(ha_path):
         "../../../../sources/meta-openembedded/meta-python/recipes-connectivity/python3-pytun",
         "../../../../sources/meta-openembedded/meta-python/recipes-devtools/python",
         "../../../../sources/meta-openembedded/meta-python/recipes-devtools/python-jsonref",
-        "../../../../sources/meta-openembedded/meta-python/recipes-devtools/python3_oauth2client",
         "../../../../sources/meta-openembedded/meta-python/recipes-devtools/python3-attrdict3",
         "../../../../sources/meta-openembedded/meta-python/recipes-devtools/python3-gspread",
         "../../../../sources/meta-openembedded/meta-python/recipes-devtools/python3-piccata",
