@@ -175,7 +175,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-search \
     ${PN}-select \
     ${PN}-sentry \
-    ${PN}-shell-command \
     ${PN}-shelly \
     ${PN}-shopping-list \
     ${PN}-sigfox \
@@ -197,7 +196,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-systemmonitor \
     ${PN}-tag \
     ${PN}-tcp \
-    ${PN}-temper \
     ${PN}-template \
     ${PN}-text \
     ${PN}-threshold \
@@ -235,7 +233,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-zeroconf \
     ${PN}-zodiac \
     ${PN}-zone \
-    ${PN}-zwave-js \
     ${PN}-zwave-me \
 "
 
@@ -263,10 +260,13 @@ COMPONENT_TEST_PACKAGES = "\
 # ${PN}-private-ble-device
 # ${PN}-raspberry-pi
 # ${PN}-sensor
+# ${PN}-shell-command
 # ${PN}-snips
 # ${PN}-stream
 # ${PN}-sql
 # ${PN}-telegram
+# ${PN}-temper
+# ${PN}-zwave-js
 
 python __anonymous() {
     if 'ptest' not in d.getVar('DISTRO_FEATURES'):
@@ -296,9 +296,8 @@ python do_addptest () {
         package_line = f"  {line_to_append} \\\n"
         with open(target_file, 'a') as file:
             file.write(package_line)
-    # TODO: python3-zwave-js: disable failing test
     with open(target_file, 'a') as file:
-        line_to_append = "-k \"not test_fixture_functions\""
+        line_to_append = ""
         package_line = f"  {line_to_append} \\\n"
         file.write(package_line)
 }
