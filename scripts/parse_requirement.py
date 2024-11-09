@@ -2,349 +2,310 @@
 
 import os
 import json
+import argparse
 import shutil
 import sys
-import argparse
-import pandas as pd
 from git import Repo, GitCommandError
+import pandas as pd
 from packaging import version
 
 
+SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
+
+
+def load_layers():
+    """
+    Load and return layer configurations from the 'layers.json' file.
+
+    The JSON file is expected to be in the same directory as this script.
+    
+    Returns:
+        dict: Parsed layer configurations from 'layers.json'.
+    """
+    script_dir = os.path.dirname(os.path.realpath(__file__))
+    layers_path = os.path.join(script_dir, "layers.json")
+    with open(layers_path, "r", encoding="utf8") as file:
+        return json.load(file)
+
+def load_integrations():
+    """
+    Load and return integration configurations from 'integrations.json'.
+
+    The JSON file is expected to be in the same directory as this script.
+    
+    Returns:
+        dict: Parsed integration configurations from 'integrations.json'.
+    """
+    script_dir = os.path.dirname(os.path.realpath(__file__))
+    integrations_path = os.path.join(script_dir, "integrations.json")
+    with open(integrations_path, "r", encoding="utf8") as file:
+        return json.load(file)
+
+
+
 def parse_arguments():
-    """Parse the user input"""
+    """
+    Parse command-line arguments for the Home Assistant dependency parser.
+
+    Supported arguments:
+        -v, --version   : Home Assistant version (default: latest version).
+        -u, --upgrade   : Show only packages that need upgrading ('y' or 'n').
+        -c, --clean     : Clean HA Core repository after parsing ('y' or 'n').
+        -i, --integrate : Show only available configurations ('y' or 'n').
+
+    Returns:
+        argparse.Namespace: Parsed arguments with version, upgrade, clean,
+                            and integrate options.
+    """
     parser = argparse.ArgumentParser()
 
     parser.add_argument("-v", "--version", help="HA Version", type=str, default="")
     parser.add_argument(
-        "-u",
-        "--upgrade",
+        "-u", "--upgrade",
         help="Only print packages which need upgrading",
         type=str,
         default="n",
         choices=["y", "n"],
     )
     parser.add_argument(
-        "-c",
-        "--clean",
+        "-c", "--clean",
         help="Clean HA Core Repository after parsing",
         type=str,
         default="y",
         choices=["y", "n"],
     )
     parser.add_argument(
-        "-i",
-        "--integrate",
+        "-i", "--integrate",
         help="Show only available configuration",
         type=str,
         default="n",
         choices=["y", "n"],
     )
-    args = parser.parse_args()
-
-    return args
+    return parser.parse_args()
 
 
-def get_repo(ha_path, ha_version):
-    """Clone or initialize the Home Assistant repository."""
-    if os.path.isdir(ha_path):
-        repo = Repo(ha_path)
-    else:
-        repo = Repo.clone_from("https://github.com/home-assistant/core.git", ha_path)
+def get_repo(ha_path, ha_version=""):
+    """
+    Clone or initialize the Home Assistant repository and checkout a specific version.
 
-    # Get the tags and sort them
-    tags = sorted(repo.tags, key=lambda t: t.commit.committed_datetime)
-    if ha_version == "":
-        latest_tag = tags[-1]
-        ha_version = latest_tag.name
-        print("Found the following latest tag: " + ha_version)
-    else:
-        print("Using tag: " + ha_version)
-    # Now that we have it, check out this branch
+    If a version is not provided, the function defaults to the latest available tag.
+
+    Args:
+        ha_path (str): Local path to store the cloned Home Assistant repository.
+        ha_version (str, optional): Specific Home Assistant version to checkout. Defaults to latest version.
+
+    Returns:
+        str: The checked-out version tag name.
+    """
     try:
+        # Initialize or clone repository if not present
+        repo = (
+            Repo(ha_path)
+            if os.path.isdir(ha_path)
+            else Repo.clone_from("https://github.com/home-assistant/core.git", ha_path)
+        )
+
+        # Get the desired tag
+        tags = sorted(repo.tags, key=lambda t: t.commit.committed_datetime)
+        if not ha_version:
+            ha_version = tags[-1].name
+            print(f"Using the latest tag: {ha_version}")
+        else:
+            print(f"Using specified tag: {ha_version}")
+
+        # Attempt to checkout the tag
         repo.git.checkout(ha_version)
-    except GitCommandError:
-        print("Cannot find the required version. Does the tag exist?")
-        sys.exit()
-    return ha_version
+        return ha_version
+
+    except GitCommandError as e:
+        print(f"Failed to checkout tag {ha_version}. Error: {e}")
+        sys.exit(1)
+    except Exception as e:
+        print(f"An error occurred while setting up the repository: {e}")
+        sys.exit(1)
+
 
 def get_recipes(ha_path):
     """Get a list of all recipes and versions available in Yocto/OE"""
     list_of_recipes = []
-    # Now there are multiple places where the python recipes can be found
-    # 1: the meta-homeassistant layer
-    # 2: poky
-    # 3: the openembedded layer
-    # pylint: disable=C0301
-    layers = [
-        "../../recipes-devtools/python",
-        "../../recipes-homeassistant/homeassistant",
-        "../../../../sources/meta-openembedded/meta-python/recipes-connectivity/python-gsocketpool",
-        "../../../../sources/meta-openembedded/meta-python/recipes-connectivity/python-h2",
-        "../../../../sources/meta-openembedded/meta-python/recipes-connectivity/python-hpack",
-        "../../../../sources/meta-openembedded/meta-python/recipes-connectivity/python-hyperframe",
-        "../../../../sources/meta-openembedded/meta-python/recipes-connectivity/python-priority",
-        "../../../../sources/meta-openembedded/meta-python/recipes-connectivity/python-pyconnman",
-        "../../../../sources/meta-openembedded/meta-python/recipes-connectivity/python-pyro4",
-        "../../../../sources/meta-openembedded/meta-python/recipes-connectivity/python-thrift",
-        "../../../../sources/meta-openembedded/meta-python/recipes-connectivity/python-txws",
-        "../../../../sources/meta-openembedded/meta-python/recipes-connectivity/python3-pytun",
-        "../../../../sources/meta-openembedded/meta-python/recipes-devtools/python",
-        "../../../../sources/meta-openembedded/meta-python/recipes-devtools/python-jsonref",
-        "../../../../sources/meta-openembedded/meta-python/recipes-devtools/python3_oauth2client",
-        "../../../../sources/meta-openembedded/meta-python/recipes-devtools/python3-attrdict3",
-        "../../../../sources/meta-openembedded/meta-python/recipes-devtools/python3-gspread",
-        "../../../../sources/meta-openembedded/meta-python/recipes-devtools/python3-piccata",
-        "../../../../sources/meta-openembedded/meta-python/recipes-devtools/python3-reedsolo",
-        "../../../../sources/meta-openembedded/meta-python/recipes-devtools/python3-wxgtk4",
-        "../../../../sources/meta-openembedded/meta-python/recipes-extended/python-blivet",
-        "../../../../sources/meta-openembedded/meta-python/recipes-extended/python-cson",
-        "../../../../sources/meta-openembedded/meta-python/recipes-extended/python-meh",
-        "../../../../sources/meta-openembedded/meta-python/recipes-extended/python-pyephem",
-        "../../../../sources/meta-openembedded/meta-python/recipes-extended/python-pykickstart",
-        "../../../../sources/meta-openembedded/meta-python/recipes-extended/python-pyparted",
-        "../../../../sources/meta-openembedded/meta-python/recipes-extended/python-rich",
-        "../../../../sources/meta-openembedded/meta-python/recipes-extended/python3-portalocker",
-        "../../../../sources/meta-openembedded/meta-python/recipes-extended/python3-pydot",
-        "../../../../sources/meta-openembedded/meta-python/recipes-extended/pywbem",
-        "../../../../sources/meta-openembedded/meta-python/recipes-extended/pywbemtools",
-        "../../../../sources/meta-openembedded/meta-python/recipes-extended/send2trash",
-        "../../../../sources/meta-openembedded/meta-python/recipes-networking/python",
-        "../../../../sources/meta-openembedded/meta-networking/recipes-devtools/python",
-        "../../../../sources/meta-openembedded/meta-oe/recipes-devtools/python",
-        "../../../../sources/poky/meta/recipes-devtools/python",
-    ]
+    layers = load_layers()  # Call function to load layers from the JSON file
+
     for layer in layers:
         search_path = os.path.join(ha_path, layer)
-        list_of_recipes = list_of_recipes + [
-            f.name.strip(".bb")
-            for f in os.scandir(search_path)
-            if (f.is_file() and f.name.endswith(".bb"))
-        ]
-    return [i.split("_")[0] for i in list_of_recipes], [i.split("_")[1] for i in list_of_recipes]
+        if os.path.exists(search_path):
+            list_of_recipes.extend(
+                f.name.strip(".bb")
+                for f in os.scandir(search_path)
+                if (f.is_file() and f.name.endswith(".bb"))
+            )
+    return [i.split("_")[0] for i in list_of_recipes], [
+        i.split("_")[1] for i in list_of_recipes
+    ]
+
 
 def parse_manifests(ha_path, upgrade_only, integrations_only):
-    """Parse the HomeAssistant manifest for the components, dependencies and reqs"""
+    """Parse HomeAssistant manifests to gather requirements."""
+    integrations = load_integrations()
     components_path = os.path.join(ha_path, "homeassistant/components")
+    test_path = os.path.join(ha_path, "tests/components")
     list_of_components = [f.path for f in os.scandir(components_path) if f.is_dir()]
+    list_of_tests = [os.path.basename(f.path) for f in os.scandir(test_path) if f.is_dir()]
 
     df = []
     for component in list_of_components:
         try:
-            with open(component + "/manifest.json", encoding="utf8") as f:
-                manifest = json.load(f)
-                # Check if manifest specifies dependencies
-                if "dependencies" in manifest:
-                    dependencies = manifest["dependencies"]
+            manifest = load_manifest(component)
+            list_of_recipes, list_of_versions = get_recipes(ha_path)
+
+            requirements = manifest.get("requirements", [])
+            if not requirements:
+                if manifest["domain"] in list_of_tests:
+                    df.append(create_entry(
+                        manifest["domain"],
+                        "y",
+                        " ",
+                        " ",
+                        " ",
+
+                    ))
                 else:
-                    dependencies = ['']
+                    df.append(create_entry(
+                        manifest["domain"],
+                        " ",
+                        " ",
+                        " ",
+                        " ",
+                    ))
+            for requirement in requirements:
+                package_name, ha_version = parse_requirement(requirement)
+                yocto_version = get_yocto_version(
+                    package_name, list_of_recipes, list_of_versions
+                )
 
-                [list_of_recipes, list_of_versions] = get_recipes(ha_path)
+                if should_include(
+                    manifest["domain"],
+                    ha_version,
+                    yocto_version,
+                    integrations,
+                    upgrade_only,
+                    integrations_only,
+                ):
+                    if manifest["domain"] in list_of_tests:
+                        df.append(create_entry(
+                            manifest["domain"],
+                            "y",
+                            package_name,
+                            ha_version,
+                            yocto_version,
+                        ))
+                    else:
+                        df.append(create_entry(
+                            manifest["domain"],
+                            " ",
+                            package_name,
+                            ha_version,
+                            yocto_version,
+                        ))
+        except FileNotFoundError:
+            print(f"Manifest file not found for component: {component.split('/')[-1]}")
+        except json.JSONDecodeError:
+            print(f"Error decoding JSON for component: {component.split('/')[-1]}")
 
-                integrations = [
-                    "acer_projector",
-                    "accuweather",
-                    "acmeda",
-                    "adax",
-                    "adguard",
-                    "advantage_air",
-                    "airthings_ble",
-                    "amazon_polly",
-                    "aruba",
-                    "assist_pipeline",
-                    "axis",
-                    "backup",
-                    "bluesound",
-                    "bluetooth",
-                    "camera",
-                    "cast",
-                    "cisco_ios",
-                    "cloud",
-                    "compensation",
-                    "conversation",
-                    "cpuspeed",
-                    "debugpy",
-                    "dhcp",
-                    "dlna_dmr",
-                    "dlna_dms",
-                    "dunehd",
-                    "evohome",
-                    "ffmpeg",
-                    "folder_watcher",
-                    "fritz",
-                    "fritzbox",
-                    "fritzbox_callmonitor",
-                    "frontend",
-                    "generic",
-                    "github",
-                    "google_mail",
-                    "google_tasks",
-                    "google_translate",
-                    "hacs",
-                    "hardware",
-                    "hue",
-                    "image_upload",
-                    "ipp",
-                    "isal",
-                    "keyboard_remote",
-                    "kwb",
-                    "matter",
-                    "met",
-                    "mobile_app",
-                    "modbus",
-                    "mqtt",
-                    "namecheapdns",
-                    "network",
-                    "nmap_tracker",
-                    "norway_air",
-                    "octoprint",
-                    "ohmconnect",
-                    "otp",
-                    "owntracks",
-                    "pandora",
-                    "private_ble_device",
-                    "proxy",
-                    "pulseaudio_loopback",
-                    "qwikswitch",
-                    "radio_browser",
-                    "recorder",
-                    "route53",
-                    "scrape",
-                    "sentry",
-                    "seven_segments",
-                    "shelly",
-                    "speedtestdotnet",
-                    "sql",
-                    "ssdp",
-                    "startca",
-                    "stream",
-                    "switchbot",
-                    "systemmonitor",
-                    "ted5000",
-                    "trafikverket_camera",
-                    "trafikverket_ferry",
-                    "trafikverket_train",
-                    "trafikverket_weatherstation",
-                    "trend",
-                    "tts",
-                    "upnp",
-                    "usb",
-                    "utility_meter",
-                    "vlc",
-                    "zabbix",
-                    "zeroconf",
-                    "zestimate",
-                    "zoneminder",
-                    "zwave_js",
-                    "zwave_me"
-                ]
+    return pd.DataFrame(
+        df,
+        columns=[
+            "Component",
+            "Tests Available",
+            "Requirements",
+            "Required HA Version",
+            "Available Yocto/OE Version",
+        ],
+    )
 
-                # Check if the component specifies any requirements
-                if "requirements" in manifest:
-                    requirements = manifest["requirements"]
-                    for requirement in requirements:
-                        # Get the individual packages and convert them to OpenEmbedded naming convention
-                        package = requirement.split("==")
-                        package[0] = "python3-" + package[0].lower().replace("_", "-")
 
-                        if integrations_only == "y":
-                            if manifest["domain"] in integrations:
-                                if upgrade_only == "y":
-                                    if package[0] in list_of_recipes and version.parse(package[1]) != version.parse(list_of_versions[list_of_recipes.index(package[0])]):
-                                        df.append(
-                                            {
-                                                "Component": manifest["domain"],
-                                                "Dependencies": dependencies,
-                                                "Requirements": package[0],
-                                                "Required HA Version": package[1],
-                                                "Availabe Yocto/OE Version": list_of_versions[list_of_recipes.index(package[0])],
-                                            }
-                                        )
-                                else:
-                                    if package[0] in list_of_recipes:
-                                        df.append(
-                                            {
-                                                "Component": manifest["domain"],
-                                                "Dependencies": dependencies,
-                                                "Requirements": package[0],
-                                                "Required HA Version": package[1],
-                                                "Availabe Yocto/OE Version": list_of_versions[list_of_recipes.index(package[0])],
-                                            }
-                                        )
-                                    else:
-                                        df.append(
-                                            {
-                                                "Component": manifest["domain"],
-                                                "Dependencies": dependencies,
-                                                "Requirements": package[0],
-                                                "Required HA Version": package[1],
-                                                "Availabe Yocto/OE Version": [''],
-                                            }
-                                        )
-                        else:
-                            if upgrade_only == "y":
-                                if package[0] in list_of_recipes and version.parse(package[1]) > version.parse(list_of_versions[list_of_recipes.index(package[0])]):
-                                    df.append(
-                                        {
-                                            "Component": manifest["domain"],
-                                            "Dependencies": dependencies,
-                                            "Requirements": package[0],
-                                            "Required HA Version": package[1],
-                                            "Availabe Yocto/OE Version": list_of_versions[list_of_recipes.index(package[0])],
-                                        }
-                                    )
-                            else:
-                                if package[0] in list_of_recipes:
-                                    df.append(
-                                        {
-                                            "Component": manifest["domain"],
-                                            "Dependencies": dependencies,
-                                            "Requirements": package[0],
-                                            "Required HA Version": package[1],
-                                            "Availabe Yocto/OE Version": list_of_versions[list_of_recipes.index(package[0])],
-                                        }
-                                    )
-                                else:
-                                    df.append(
-                                        {
-                                            "Component": manifest["domain"],
-                                            "Dependencies": dependencies,
-                                            "Requirements": package[0],
-                                            "Required HA Version": package[1],
-                                            "Availabe Yocto/OE Version": [''],
-                                        }
-                                    )
+def load_manifest(component_path):
+    """Load the manifest file of a component."""
+    manifest_path = os.path.join(component_path, "manifest.json")
+    with open(manifest_path, encoding="utf8") as f:
+        return json.load(f)
 
-                # Uncomment below if you want also to see all components which have no requirements at all (and are auto included)
-                # else: # Add dummy fields to the CSV
-                #     package = ['', '']            
-                #     df.append(
-                #         {
-                #             "Component": manifest["domain"],
-                #             "Dependencies": dependencies,
-                #             "Requirements": package[0],
-                #             "Required Version": package[1],
-                #         }
-                #     )
-                f.close()
-        except FileNotFoundError:       
-            print("Component manifest for " + component.split('/')[-1] + " not found!")
-    return pd.DataFrame(df, columns=["Component", "Requirements", "Required HA Version", "Availabe Yocto/OE Version"]).explode("Requirements")
+
+def parse_requirement(requirement):
+    """Parse the requirement into a package name and version."""
+    package_name, ha_version = requirement.split("==")
+    package_name = "python3-" + package_name.lower().replace("_", "-")
+    return package_name, ha_version
+
+
+def get_yocto_version(package_name, list_of_recipes, list_of_versions):
+    """Get the Yocto/OE version of a package if available, otherwise return empty string."""
+    if package_name in list_of_recipes:
+        return list_of_versions[list_of_recipes.index(package_name)]
+    return ""
+
+
+def should_include(
+    domain,
+    ha_version,
+    yocto_version,
+    integrations,
+    upgrade_only,
+    integrations_only,
+):
+    """
+    Determine if a package should be included
+    based on upgrade and integration filters.
+    """
+    if integrations_only == "y" and domain not in integrations:
+        return False
+    if (
+        upgrade_only == "y"
+        and yocto_version
+        and version.parse(ha_version) <= version.parse(yocto_version)
+    ):
+        return False
+    return True
+
+
+def create_entry(domain, tests, package_name, ha_version, yocto_version):
+    """Create a dictionary entry for a component's requirements."""
+    return {
+        "Component": domain,
+        "Tests Available": tests,
+        "Requirements": package_name,
+        "Required HA Version": ha_version,
+        "Available Yocto/OE Version": yocto_version or "",
+    }
+
 
 def main() -> None:
-    """Main"""
+    """Main function to generate Home Assistant dependency CSV."""
     args = parse_arguments()
+    ha_path = os.path.join(SCRIPT_DIR, "HA")
 
-    ha_path = os.path.join(os.path.dirname(__file__), "HA")
-    # First get the repository for scanning, read the manifest and distill the requirements
+    # Clone or initialize the repository, then parse
+    # and save manifest information
     get_repo(ha_path, args.version)
     manifest_info = parse_manifests(ha_path, args.upgrade, args.integrate)
-    manifest_info.to_csv(args.version + '.csv', index=False)
+    save_csv(manifest_info, args.version)
 
-    # Clean everything
+    # Clean up if specified
     if args.clean == "y":
-        shutil.rmtree(ha_path)
-        print("Removed checked out HA repository")
+        cleanup_repo(ha_path)
     print("Finished")
+
+
+def save_csv(data, filename):
+    """Save manifest information to a CSV file."""
+    output_path = os.path.join(SCRIPT_DIR, f"{filename}.csv")
+    data.to_csv(output_path, index=False)
+    print(f"Saved CSV: {output_path}")
+
+
+def cleanup_repo(ha_path):
+    """Remove the Home Assistant repository directory."""
+    shutil.rmtree(ha_path)
+    print("Removed checked out HA repository")
 
 
 if __name__ == "__main__":
