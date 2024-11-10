@@ -1,5 +1,5 @@
 SUMMARY = "Python WebRTC models"
-HOMEPAGE = "https://pypi.org/project/webrtc-models"
+HOMEPAGE = "https://github.com/home-assistant-libs/python-webrtc-models"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
 
