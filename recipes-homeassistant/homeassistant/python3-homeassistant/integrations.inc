@@ -36,6 +36,7 @@ PACKAGES += "\
     ${PN}-generic \
     ${PN}-github \
     ${PN}-google-mail \
+    ${PN}-google-sheets \
     ${PN}-google-tasks \
     ${PN}-google-translate \
     ${PN}-hardware \
@@ -294,6 +295,11 @@ RDEPENDS:${PN}-github = "\
 ALLOW_EMPTY:${PN}-google-mail = "1"
 RDEPENDS:${PN}-google-mail = "\
     python3-google-api-python-client (>=2.71.0) \
+"
+
+ALLOW_EMPTY:${PN}-google-sheets = "1"
+RDEPENDS:${PN}-google-sheets = "\
+    python3-gspread (>=5.5.0) \
 "
 
 ALLOW_EMPTY:${PN}-google-tasks = "1"
@@ -652,6 +658,7 @@ RRECOMMENDS:${PN} += "\
     ${PN}-generic \
     ${PN}-github \
     ${PN}-google-mail \
+    ${PN}-google-sheets \
     ${PN}-google-tasks \
     ${PN}-hue \
     ${PN}-ipp \
