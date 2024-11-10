@@ -1,5 +1,6 @@
 """Module providing a way of creating a CSV with all the dependencies of HomeAssistant"""
 
+import re
 import os
 import json
 import argparse
@@ -13,34 +14,65 @@ from packaging import version
 SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
 
 
+def extract_component_test_packages(file_path):
+    """
+    Extract the COMPONENT_TEST_PACKAGES from the integration-test.inc file.
+
+    Args:
+        file_path (str): Path to the integration-test.inc file.
+
+    Returns:
+        list: A list of component package names without the '${PN}-' prefix.
+    """
+
+    with open(file_path, 'r') as file:
+        content = file.read()
+
+    # Regular expression to find the COMPONENT_TEST_PACKAGES block
+    match = re.search(r'COMPONENT_TEST_PACKAGES\s*=\s*"([^"]+)"', content, re.DOTALL)
+    if not match:
+        print("COMPONENT_TEST_PACKAGES block not found.")
+        return []
+
+    # Extract the packages block and split it into lines
+    packages_block = match.group(1)
+    packages_list = packages_block.split("\\\n")
+
+    # Clean up the package names by removing '${PN}-' prefix and trimming whitespace
+    extracted_packages = [
+        line.strip().replace("${PN}-", "")
+        for line in packages_list if line.strip()
+    ]
+
+    return extracted_packages
+
+
 def load_layers():
     """
     Load and return layer configurations from the 'layers.json' file.
 
     The JSON file is expected to be in the same directory as this script.
-    
+
     Returns:
         dict: Parsed layer configurations from 'layers.json'.
     """
-    script_dir = os.path.dirname(os.path.realpath(__file__))
-    layers_path = os.path.join(script_dir, "layers.json")
+    layers_path = os.path.join(SCRIPT_DIR, "layers.json")
     with open(layers_path, "r", encoding="utf8") as file:
         return json.load(file)
 
+
 def load_integrations():
     """
-    Load and return integration configurations from 'integrations.json'.
+    Load and return integration configurations from the 'integrations.json' file.
 
     The JSON file is expected to be in the same directory as this script.
-    
+
     Returns:
         dict: Parsed integration configurations from 'integrations.json'.
     """
-    script_dir = os.path.dirname(os.path.realpath(__file__))
-    integrations_path = os.path.join(script_dir, "integrations.json")
+    integrations_path = os.path.join(SCRIPT_DIR, "integrations.json")
     with open(integrations_path, "r", encoding="utf8") as file:
         return json.load(file)
-
 
 
 def parse_arguments():
@@ -151,6 +183,8 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
     list_of_components = [f.path for f in os.scandir(components_path) if f.is_dir()]
     list_of_tests = [os.path.basename(f.path) for f in os.scandir(test_path) if f.is_dir()]
 
+    test_packages = extract_component_test_packages(os.path.join(SCRIPT_DIR, "../recipes-homeassistant/homeassistant/python3-homeassistant/integrations-tests.inc"))
+
     df = []
     for component in list_of_components:
         try:
@@ -158,24 +192,19 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
             list_of_recipes, list_of_versions = get_recipes(ha_path)
 
             requirements = manifest.get("requirements", [])
-            if not requirements:
-                if manifest["domain"] in list_of_tests:
-                    df.append(create_entry(
-                        manifest["domain"],
-                        "y",
-                        " ",
-                        " ",
-                        " ",
+            has_test = manifest["domain"] in list_of_tests
 
-                    ))
-                else:
-                    df.append(create_entry(
-                        manifest["domain"],
-                        " ",
-                        " ",
-                        " ",
-                        " ",
-                    ))
+            is_test_package = manifest["domain"].replace('_','-') in test_packages
+            if not requirements:
+
+                df.append(create_entry(
+                    manifest["domain"],
+                    "y" if has_test else "n",
+                    "y" if is_test_package else "n",
+                    " ",
+                    " ",
+                    " ",
+                ))
             for requirement in requirements:
                 package_name, ha_version = parse_requirement(requirement)
                 yocto_version = get_yocto_version(
@@ -190,22 +219,15 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
                     upgrade_only,
                     integrations_only,
                 ):
-                    if manifest["domain"] in list_of_tests:
-                        df.append(create_entry(
-                            manifest["domain"],
-                            "y",
-                            package_name,
-                            ha_version,
-                            yocto_version,
-                        ))
-                    else:
-                        df.append(create_entry(
-                            manifest["domain"],
-                            " ",
-                            package_name,
-                            ha_version,
-                            yocto_version,
-                        ))
+                    df.append(create_entry(
+                        manifest["domain"],
+                        "y" if has_test else "n",
+                        "y" if is_test_package else "n",
+                        package_name,
+                        ha_version,
+                        yocto_version,
+
+                    ))
         except FileNotFoundError:
             print(f"Manifest file not found for component: {component.split('/')[-1]}")
         except json.JSONDecodeError:
@@ -216,6 +238,7 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
         columns=[
             "Component",
             "Tests Available",
+            "In Test Packages",
             "Requirements",
             "Required HA Version",
             "Available Yocto/OE Version",
@@ -267,11 +290,12 @@ def should_include(
     return True
 
 
-def create_entry(domain, tests, package_name, ha_version, yocto_version):
+def create_entry(domain, tests, test_package, package_name, ha_version, yocto_version):
     """Create a dictionary entry for a component's requirements."""
     return {
         "Component": domain,
         "Tests Available": tests,
+        "In Test Packages": test_package,
         "Requirements": package_name,
         "Required HA Version": ha_version,
         "Available Yocto/OE Version": yocto_version or "",
