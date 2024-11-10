@@ -197,7 +197,7 @@ RDEPENDS:${PN}-cisco-ios = "\
 
 ALLOW_EMPTY:${PN}-cloud = "1"
 RDEPENDS:${PN}-cloud = "\
-    python3-hass-nabucasa (=0.81.1) \
+    python3-hass-nabucasa (=0.83.0) \
 "
 
 ALLOW_EMPTY:${PN}-compensation = "1"

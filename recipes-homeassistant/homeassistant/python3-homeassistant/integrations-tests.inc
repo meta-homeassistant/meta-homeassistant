@@ -80,7 +80,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-geo-location \
     ${PN}-geofency \
     ${PN}-google-assistant \
-    ${PN}-google-domains \
     ${PN}-google-translate \
     ${PN}-google-wifi \
     ${PN}-gpslogger \
