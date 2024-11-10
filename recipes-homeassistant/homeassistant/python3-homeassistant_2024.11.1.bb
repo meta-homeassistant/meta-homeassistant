@@ -12,11 +12,10 @@ HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 SRC_URI = "\
     git://github.com/home-assistant/core.git;protocol=https;branch=master \
     file://homeassistant.service \
-    file://0001-Allow-newer-version-of-setuptools.patch \
     file://run-ptest-sample \
 "
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
-SRCREV = "c09f15b0e9ef645c561410bd6e79543a92c1ccab"
+SRCREV = "ab0556227cf2f88dbe23f6c5498eaf957475a791"
 
 inherit python_setuptools_build_meta useradd systemd ptest
 
@@ -58,24 +57,24 @@ do_install:append () {
 require recipes-homeassistant/homeassistant/python3-homeassistant/integrations.inc
 require recipes-homeassistant/homeassistant/python3-homeassistant/integrations-tests.inc
 
-#TODO: python3-uv (=0.4.15)
+#TODO: python3-uv (=0.4.28)
 RDEPENDS:${PN} += "\
     python3-aiodns (>=3.2.0) \
-    python3-aiohasupervisor (=0.1.0) \
-    python3-aiohttp (>=3.10.8) \
+    python3-aiohasupervisor (=0.2.1) \
+    python3-aiohttp (>=3.10.10) \
     python3-aiohttp-cors (=0.7.0) \
     python3-aiohttp-fast-zlib (=0.1.1) \
     python3-aiozoneinfo (=0.2.1) \
     python3-astral (=2.2) \
     python3-async-interrupt (=1.2.0) \
-    python3-attrs (>=23.2.0) \
+    python3-attrs (>=24.2.0) \
     ${@bb.utils.contains("DISTRO_FEATURES", "ptest", "python3-atomicwrites", "python3-atomicwrites-homeassistant (=1.4.1)",d)} \
     python3-awesomeversion (>=24.6.0) \
     python3-bcrypt (>=4.2.0) \
     python3-certifi (>=2021.5.30) \
     python3-ciso8601 (=2.3.1) \
     python3-fnv-hash-fast (=1.0.2) \
-    python3-hass-nabucasa (=0.81.1) \
+    python3-hass-nabucasa (=0.83.0) \
     python3-httpx (>=0.27.2) \
     python3-home-assistant-bluetooth (>=1.13.0) \
     python3-ifaddr (=0.2.0) \
@@ -84,8 +83,9 @@ RDEPENDS:${PN} += "\
     python3-pyjwt (=2.9.0) \
     python3-cryptography (>=43.0.1) \
     python3-pillow (>=10.4.0) \
+    python3-propcache (>=0.2.0) \
     python3-pyopenssl (>=24.2.1) \
-    python3-orjson (>=3.10.7) \
+    python3-orjson (>=3.10.10) \
     python3-packaging (>=23.1) \
     python3-psutil-home-assistant (=0.0.1) \
     python3-python-slugify (=8.0.4) \
@@ -98,7 +98,8 @@ RDEPENDS:${PN} += "\
     python3-voluptuous (=0.15.2) \
     python3-voluptuous-serialize (=2.6.0) \
     python3-voluptuous-openapi (=0.0.5) \
-    python3-yarl (>=1.13.1) \
+    python3-yarl (>=1.17.1) \
+    python3-webrtc-models (>=0.2.0) \
     \
     python3-statistics \
     python3-core (>=3.12.0) \
