@@ -21,6 +21,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-bayesian \
     ${PN}-binary-sensor \
     ${PN}-blueprint \
+    ${PN}-bluesound \
     ${PN}-bluetooth \
     ${PN}-bluetooth-adapters \
     ${PN}-bluetooth-le-tracker \
@@ -61,6 +62,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-emulated-hue \
     ${PN}-energy \
     ${PN}-event \
+    ${PN}-evohome \
     ${PN}-facebook \
     ${PN}-fail2ban \
     ${PN}-fan \
@@ -80,6 +82,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-geo-location \
     ${PN}-geofency \
     ${PN}-google-assistant \
+    ${PN}-google-sheets \
     ${PN}-google-translate \
     ${PN}-google-wifi \
     ${PN}-gpslogger \
@@ -125,7 +128,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-london-air \
     ${PN}-lovelace \
     ${PN}-manual \
-    ${PN}-map \
     ${PN}-mazda \
     ${PN}-media-player \
     ${PN}-media-source \
@@ -150,8 +152,8 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-octoprint \
     ${PN}-openalpr-cloud \
     ${PN}-openhardwaremonitor \
+    ${PN}-otp \
     ${PN}-panel-custom \
-    ${PN}-panel-iframe \
     ${PN}-persistent-notification \
     ${PN}-person \
     ${PN}-plant \
@@ -202,6 +204,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-time-date \
     ${PN}-timer \
     ${PN}-tod \
+    ${PN}-todo \
     ${PN}-tomato \
     ${PN}-trace \
     ${PN}-trafikverket-camera \
@@ -238,11 +241,17 @@ COMPONENT_TEST_PACKAGES = "\
 # Temporarily disabled as the tests are failing. Investigation is pending.
 # ${PN}-axis
 # ${PN}-dsmr-reader
+# ${PN}-fritz
 # ${PN}-generic
 # ${PN}-github
+# ${PN}-google-mail
+# ${PN}-google-tasks
 # ${PN}-homeassistant-hardware
 # ${PN}-homeassistant-sky-connect
 # ${PN}-homeassistant-yellow
+# ${PN}-manual-mqtt
+# ${PN}-matter
+# ${PN}-modbus
 # ${PN}-mqtt
 # ${PN}-mqtt-eventstream
 # ${PN}-mqtt-json
@@ -250,19 +259,13 @@ COMPONENT_TEST_PACKAGES = "\
 # ${PN}-mqtt-statestream
 # ${PN}-onboarding
 # ${PN}-owntracks
-# ${PN}-fritz
-# ${PN}-google-mail
-# ${PN}-google-tasks
-# ${PN}-manual-mqtt
-# ${PN}-matter
-# ${PN}-modbus
 # ${PN}-private-ble-device
 # ${PN}-raspberry-pi
 # ${PN}-sensor
 # ${PN}-shell-command
 # ${PN}-snips
-# ${PN}-stream
 # ${PN}-sql
+# ${PN}-stream
 # ${PN}-telegram
 # ${PN}-temper
 # ${PN}-zwave-js
