@@ -1,4 +1,4 @@
-From 8d0159bae9de8d6b86dcc97042612a3d67995e0d Mon Sep 17 00:00:00 2001
+From cbd73b26b41bdc3854699f27e91f3039fe30105c Mon Sep 17 00:00:00 2001
 From: Tom Geelen <tom.geelen@demcon.com>
 Date: Tue, 4 Apr 2023 00:37:57 +0200
 Subject: [PATCH] Fix compilation error for orjson
@@ -10,7 +10,7 @@ Upstream-Status: Pending
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Cargo.toml b/Cargo.toml
-index 7df36e9..65ac313 100644
+index 0664979..ca8d31e 100644
 --- a/Cargo.toml
 +++ b/Cargo.toml
 @@ -96,7 +96,7 @@ debug = false
