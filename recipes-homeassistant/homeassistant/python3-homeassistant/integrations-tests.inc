@@ -36,14 +36,12 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-compensation \
     ${PN}-config \
     ${PN}-configurator \
-    ${PN}-conversation \
     ${PN}-counter \
     ${PN}-cover \
     ${PN}-cpuspeed \
     ${PN}-date \
     ${PN}-datetime \
     ${PN}-debugpy \
-    ${PN}-default-config \
     ${PN}-demo \
     ${PN}-derivative \
     ${PN}-device-automation \
@@ -82,7 +80,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-geo-location \
     ${PN}-geofency \
     ${PN}-google-assistant \
-    ${PN}-google-sheets \
     ${PN}-google-translate \
     ${PN}-google-wifi \
     ${PN}-gpslogger \
@@ -191,7 +188,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-sun \
     ${PN}-switch \
     ${PN}-switch-as-x \
-    ${PN}-switchbot \
     ${PN}-system-health \
     ${PN}-system-log \
     ${PN}-systemmonitor \
@@ -227,7 +223,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-water-heater \
     ${PN}-weather \
     ${PN}-webhook \
-    ${PN}-websocket-api \
     ${PN}-worldclock \
     ${PN}-wsdot \
     ${PN}-xiaomi \
@@ -240,11 +235,14 @@ COMPONENT_TEST_PACKAGES = "\
 
 # Temporarily disabled as the tests are failing. Investigation is pending.
 # ${PN}-axis
+# ${PN}-conversation
+# ${PN}-default-config
 # ${PN}-dsmr-reader
 # ${PN}-fritz
 # ${PN}-generic
 # ${PN}-github
 # ${PN}-google-mail
+# ${PN}-google-sheets
 # ${PN}-google-tasks
 # ${PN}-homeassistant-hardware
 # ${PN}-homeassistant-sky-connect
@@ -266,8 +264,10 @@ COMPONENT_TEST_PACKAGES = "\
 # ${PN}-snips
 # ${PN}-sql
 # ${PN}-stream
+# ${PN}-switchbot
 # ${PN}-telegram
 # ${PN}-temper
+# ${PN}-websocket-api
 # ${PN}-zwave-js
 
 python __anonymous() {

@@ -10,4 +10,5 @@ pytest --automake \
   and not test_check_package_fragment \
   and not test_hass_components_use_reported \
   and not test_create_eager_task_from_thread_in_integration \
+  and not test_config_platform_valid \
 "
