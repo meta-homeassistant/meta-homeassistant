@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/Fatal1ty/mashumaro"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e7bdee652937974f23d94be386c358bd"
 
-SRC_URI[sha256sum] = "b0b2443be4bdad29bb209d91fe4a2a918fbd7b63cccfeb457c7eeb567db02f5e"
+SRC_URI[sha256sum] = "169f0290253b3e6077bcb39c14a9dd0791a3fdedd9e286e536ae561d4ff1975b"
 
 inherit pypi python_setuptools_build_meta
 
