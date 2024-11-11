@@ -75,6 +75,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-fritzbox \
     ${PN}-fritzbox-callmonitor \
     ${PN}-frontend \
+    ${PN}-go2rtc \
     ${PN}-generic-hygrostat \
     ${PN}-generic-thermostat \
     ${PN}-geo-location \

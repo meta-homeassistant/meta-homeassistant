@@ -33,6 +33,7 @@ PACKAGES += "\
     ${PN}-fritzbox \
     ${PN}-fritzbox-callmonitor \
     ${PN}-frontend \
+    ${PN}-go2rtc \
     ${PN}-generic \
     ${PN}-github \
     ${PN}-google-mail \
@@ -279,6 +280,11 @@ RDEPENDS:${PN}-fritzbox-callmonitor = "\
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
     python3-home-assistant-frontend (=20241002.4) \
+"
+
+ALLOW_EMPTY:${PN}-go2rtc = "1"
+RDEPENDS:${PN}-go2rtc = "\
+    python3-go2rtc-client (>=0.1.0) \
 "
 
 ALLOW_EMPTY:${PN}-generic = "1"
@@ -615,6 +621,7 @@ RDEPENDS:${PN} += "\
     ${PN}-dhcp \
     ${PN}-ffmpeg \
     ${PN}-frontend \
+    ${PN}-go2rtc \
     ${PN}-google-translate \
     ${PN}-hardware \
     ${PN}-image-upload \
