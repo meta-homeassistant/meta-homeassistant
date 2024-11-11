@@ -9,11 +9,11 @@ HOMEASSISTANT_CONFIG_DIR[doc] = "Configuration directory used by home-assistant.
 HOMEASSISTANT_USER ?= "homeassistant"
 HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 
-SRC_URI = "\
-    git://github.com/home-assistant/core.git;protocol=https;branch=master \
-    file://homeassistant.service \
-    file://run-ptest-sample \
-"
+SRC_URI = "git://github.com/home-assistant/core.git;protocol=https;branch=master \
+           file://homeassistant.service \
+           file://run-ptest-sample \
+           file://0001-Relax-setuptools-requirement.patch \
+           "
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
 SRCREV = "ab0556227cf2f88dbe23f6c5498eaf957475a791"
 
