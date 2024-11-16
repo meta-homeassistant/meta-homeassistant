@@ -3,7 +3,7 @@
 # test_get_system_info_supervisor_not_loaded is skipped due to the fact that this is an unsupported way of running HA.
 # The following tests seem to fail and needs investigation
 
-pytest --automake \
+pytest -n auto --automake \
   --ignore=tests/components/ \
   -k "not test_merge \
   and not test_get_system_info_supervisor_not_loaded \

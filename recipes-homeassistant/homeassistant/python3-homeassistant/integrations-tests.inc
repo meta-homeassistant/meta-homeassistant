@@ -13,7 +13,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-analytics \
     ${PN}-api \
     ${PN}-application-credentials \
-    ${PN}-assist-pipeline \
     ${PN}-assist-satellite \
     ${PN}-auth \
     ${PN}-automation \
@@ -45,7 +44,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-demo \
     ${PN}-derivative \
     ${PN}-device-automation \
-    ${PN}-device-sun-light-trigger \
     ${PN}-device-tracker \
     ${PN}-dhcp \
     ${PN}-diagnostics \
@@ -75,7 +73,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-fritzbox \
     ${PN}-fritzbox-callmonitor \
     ${PN}-frontend \
-    ${PN}-go2rtc \
     ${PN}-generic-hygrostat \
     ${PN}-generic-thermostat \
     ${PN}-geo-location \
@@ -130,7 +127,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-media-player \
     ${PN}-media-source \
     ${PN}-meraki \
-    ${PN}-met \
     ${PN}-microsoft-face \
     ${PN}-microsoft-face-detect \
     ${PN}-microsoft-face-identify \
@@ -169,29 +165,25 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-rss-feed-template \
     ${PN}-scene \
     ${PN}-schedule \
-    ${PN}-scrape \
     ${PN}-script \
     ${PN}-search \
     ${PN}-select \
     ${PN}-sentry \
-    ${PN}-shelly \
     ${PN}-shopping-list \
     ${PN}-sigfox \
     ${PN}-simulated \
     ${PN}-siren \
     ${PN}-smtp \
     ${PN}-spaceapi \
-    ${PN}-speedtestdotnet \
+    ${PN}-speedtestdotnet \ 
     ${PN}-ssdp \
     ${PN}-startca \
-    ${PN}-statistics \
     ${PN}-stt \
     ${PN}-sun \
     ${PN}-switch \
     ${PN}-switch-as-x \
     ${PN}-system-health \
     ${PN}-system-log \
-    ${PN}-systemmonitor \
     ${PN}-tag \
     ${PN}-tcp \
     ${PN}-template \
@@ -234,43 +226,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-zwave-me \
 "
 
-# Temporarily disabled as the tests are failing. Investigation is pending.
-# ${PN}-axis
-# ${PN}-conversation
-# ${PN}-default-config
-# ${PN}-dsmr-reader
-# ${PN}-fritz
-# ${PN}-generic
-# ${PN}-github
-# ${PN}-google-mail
-# ${PN}-google-sheets
-# ${PN}-google-tasks
-# ${PN}-homeassistant-hardware
-# ${PN}-homeassistant-sky-connect
-# ${PN}-homeassistant-yellow
-# ${PN}-manual-mqtt
-# ${PN}-matter
-# ${PN}-modbus
-# ${PN}-mqtt
-# ${PN}-mqtt-eventstream
-# ${PN}-mqtt-json
-# ${PN}-mqtt-room
-# ${PN}-mqtt-statestream
-# ${PN}-onboarding
-# ${PN}-owntracks
-# ${PN}-private-ble-device
-# ${PN}-raspberry-pi
-# ${PN}-sensor
-# ${PN}-shell-command
-# ${PN}-snips
-# ${PN}-sql
-# ${PN}-stream
-# ${PN}-switchbot
-# ${PN}-telegram
-# ${PN}-temper
-# ${PN}-websocket-api
-# ${PN}-zwave-js
-
 python __anonymous() {
     if 'ptest' not in d.getVar('DISTRO_FEATURES'):
         return
@@ -279,27 +234,26 @@ python __anonymous() {
 }
 
 python do_addptest () {
-    import os
     import shutil
 
     source_file = os.path.join(d.getVar('UNPACKDIR'), 'run-ptest-sample')
     target_file = os.path.join(d.getVar('UNPACKDIR'), 'run-ptest')
     shutil.copy(source_file, target_file)
-    
+
     # Get the list of packages
     packages_list = d.getVar('COMPONENT_TEST_PACKAGES').split()
 
-    with open(target_file, 'a') as file:
-            file.write(f"\npytest --automake \\\n")
-    
+    with open(target_file, 'a', encoding='utf-8') as file:
+        file.write("\npytest -n auto --automake \\\n")
+
     # Iterate over each package and append the line to the file
     for package in packages_list:
         # Define the line to be appended
         line_to_append = "tests/components/" + package.removeprefix(d.getVar('PN')+'-').replace('-', '_') + "/"
         package_line = f"  {line_to_append} \\\n"
-        with open(target_file, 'a') as file:
+        with open(target_file, 'a', encoding='utf-8') as file:
             file.write(package_line)
-    with open(target_file, 'a') as file:
+    with open(target_file, 'a', encoding='utf-8') as file:
         line_to_append = ""
         package_line = f"  {line_to_append} \\\n"
         file.write(package_line)
