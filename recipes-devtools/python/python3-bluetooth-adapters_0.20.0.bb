@@ -8,7 +8,7 @@ SRC_URI = "\
     file://run-ptest \
 "
 SRC_URI[sha256sum] = "d2ff76ca3ee7aa27df18e0c233e36e16251bd92225d0c1d5712f07360f607176"
-SRCREV = "e2bd4ab08d52a919dbd82276985a28db9864c19a"
+SRCREV = "2fec024ef0ccffcda7d99a5679582173cbb4883d"
 
 inherit python_poetry_core ptest
 
@@ -16,13 +16,12 @@ S = "${WORKDIR}/git"
 
 RDEPENDS:${PN} = "\
     python3-aiooui (>=0.1.1) \
+    python3-bleak (>=0.21.1) \
     python3-core (>3.9) \
     python3-uart-devices (>=0.1.0) \
 "
 
 RDEPENDS:${PN}-dev = "\
-    python3-async-timeout (>=4.0.2) \
-    python3-bleak (>=0.21.1)) \
     python3-dbus-fast (>=1.21.0) \
     python3-usb-devices (>=0.4.5) \
 "
