@@ -112,19 +112,20 @@ RDEPENDS:${PN}-ptest = "\
     python3-license-expression \
     python3-pydantic \
     python3-pylint \
-    python3-pytest \
-    python3-pytest-asyncio \
     python3-pytest-aiohttp \
+    python3-pytest-asyncio \
     python3-pytest-cov \
     python3-pytest-freezer \
     python3-pytest-socket \
     python3-pytest-timeout \
     python3-pytest-unordered \
     python3-pytest-xdist \
+    python3-pytest \
     python3-requests-mock \
     python3-respx \
     python3-syrupy \
     python3-tqdm \
+    python3-types-paho-mqtt \
     python3-types-psutil \
     python3-types-python-dateutil \
     \

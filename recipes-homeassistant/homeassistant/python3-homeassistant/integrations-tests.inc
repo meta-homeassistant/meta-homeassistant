@@ -41,6 +41,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-date \
     ${PN}-datetime \
     ${PN}-debugpy \
+    ${PN}-default-config \
     ${PN}-demo \
     ${PN}-derivative \
     ${PN}-device-automation \
