@@ -9,7 +9,7 @@ PYPI_PACKAGE = "async_upnp_client"
 
 S = "${WORKDIR}/async_upnp_client-${PV}"
 
-SRC_URI[sha256sum] = "179790fee5555dbcaa0523f26ae812bc46790ad36fa11ed295cda5be3d704f1f"
+SRC_URI[sha256sum] = "06f1ec722fb04fd79f16ca5615260b3c3d958ff39e0163bc49c6ef0843606266"
 
 RDEPENDS:${PN} = "\
 	python3-core (>=3.8) \
@@ -17,5 +17,5 @@ RDEPENDS:${PN} = "\
 	python3-aiohttp (>=3.9.1) \
 	python3-python-didl-lite (=1.4.0) \
 	python3-defusedxml (>=0.6.0) \
-	python3-voluptuous (>=0.12.1) \
+	python3-voluptuous (>=0.14.2) \
 "
