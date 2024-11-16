@@ -137,7 +137,7 @@ RDEPENDS:${PN}-aftership = "\
 
 ALLOW_EMPTY:${PN}-airthings-ble = "1"
 RDEPENDS:${PN}-airthings-ble = "\
-    python3-airthings-ble (=0.9.1) \
+    python3-airthings-ble (=0.9.2) \
 "
 
 ALLOW_EMPTY:${PN}-amazon-polly = "1"
@@ -174,12 +174,12 @@ RDEPENDS:${PN}-bluesound = "\
 ALLOW_EMPTY:${PN}-bluetooth = "1"
 RDEPENDS:${PN}-bluetooth = "\
     python3-bleak (>=0.22.1) \
-    python3-bleak-retry-connector (=3.5.0) \
-    python3-bluetooth-adapters (=0.19.4) \
+    python3-bleak-retry-connector (=3.6.0) \
+    python3-bluetooth-adapters (=0.20.0) \
     python3-bluetooth-auto-recovery (=1.4.2) \
     python3-bluetooth-data-tools (=1.20.0) \
     python3-dbus-fast (>=2.21.3) \
-    python3-habluetooth (=3.4.0) \
+    python3-habluetooth (=3.6.0) \
 "
 
 ALLOW_EMPTY:${PN}-bluetooth-tracker = "1"
@@ -195,7 +195,7 @@ RDEPENDS:${PN}-camera = "\
 
 ALLOW_EMPTY:${PN}-cast = "1"
 RDEPENDS:${PN}-cast = "\
-    python3-pychromecast (>=14.0.3) \
+    python3-pychromecast (>=14.0.5) \
 "
 
 ALLOW_EMPTY:${PN}-cisco-ios = "1"
@@ -216,7 +216,7 @@ RDEPENDS:${PN}-compensation = "\
 ALLOW_EMPTY:${PN}-conversation = "1"
 RDEPENDS:${PN}-conversation = "\
     python3-hassil (>=1.7.4) \
-    python3-home-assistant-intents (>=2024.10.2) \
+    python3-home-assistant-intents (>=2024.11.6) \
 "
 
 ALLOW_EMPTY:${PN}-cpuspeed = "1"
@@ -226,25 +226,25 @@ RDEPENDS:${PN}-cpuspeed = "\
 
 ALLOW_EMPTY:${PN}-debugpy = "1"
 RDEPENDS:${PN}-debugpy = "\
-    python3-debugpy (=1.8.1) \
+    python3-debugpy (=1.8.6) \
 "
 
 ALLOW_EMPTY:${PN}-dhcp = "1"
 RDEPENDS:${PN}-dhcp = "\
     python3-aiodhcpwatcher (=1.0.2) \
     python3-aiodiscover (=2.1.0) \
-    python3-cached-ipaddress (=0.6.0) \
+    python3-cached-ipaddress (=0.8.0) \
 "
 
 ALLOW_EMPTY:${PN}-dlna-dmr = "1"
 RDEPENDS:${PN}-dlna-dmr = "\
-    python3-async-upnp-client (=0.40.0) \
+    python3-async-upnp-client (=0.41.0) \
     python3-getmac (=0.9.4) \
 "
 
 ALLOW_EMPTY:${PN}-dlna-dms = "1"
 RDEPENDS:${PN}-dlna-dms = "\
-    python3-async-upnp-client (=0.40.0) \
+    python3-async-upnp-client (=0.41.0) \
 "
 
 ALLOW_EMPTY:${PN}-dunehd = "1"
@@ -259,7 +259,7 @@ RDEPENDS:${PN}-evohome = "\
 
 ALLOW_EMPTY:${PN}-ffmpeg = "1"
 RDEPENDS:${PN}-ffmpeg = "\
-    python3-ha-ffmpeg (=3.2.0) \
+    python3-ha-ffmpeg (=3.2.2) \
 "
 
 ALLOW_EMPTY:${PN}-folder-watcher = "1"
@@ -362,7 +362,7 @@ RDEPENDS:${PN}-kwb = "\
 
 ALLOW_EMPTY:${PN}-matter = "1"
 RDEPENDS:${PN}-matter = "\
-    python3-python-matter-server (=6.5.2) \
+    python3-python-matter-server (=6.6.0) \
 "
 
 ALLOW_EMPTY:${PN}-met = "1"
@@ -397,7 +397,7 @@ RDEPENDS:${PN}-network = "\
 
 ALLOW_EMPTY:${PN}-nmap-tracker = "1"
 RDEPENDS:${PN}-nmap-tracker = "\
-    python3-aiooui (=0.1.6) \
+    python3-aiooui (=0.1.7) \
     python3-getmac (=0.9.4) \
     python3-netmap (=0.7.0.2) \
 "
@@ -454,7 +454,8 @@ RDEPENDS:${PN}-qwikswitch = "\
 
 ALLOW_EMPTY:${PN}-radio-browser = "1"
 RDEPENDS:${PN}-radio-browser = "\
-    python3-radios (=0.3.1) \
+    python3-radios (=0.3.2) \
+    python3-pycountry (=24.6.1) \
 "
 
 ALLOW_EMPTY:${PN}-recorder = "1"
@@ -488,7 +489,7 @@ RDEPENDS:${PN}-seven-segments = "\
 
 ALLOW_EMPTY:${PN}-shelly = "1"
 RDEPENDS:${PN}-shelly = "\
-    python3-aioshelly (=11.4.2) \
+    python3-aioshelly (=12.0.1) \
 "
 
 ALLOW_EMPTY:${PN}-speedtestdotnet = "1"
@@ -504,7 +505,7 @@ RDEPENDS:${PN}-sql = "\
 
 ALLOW_EMPTY:${PN}-ssdp = "1"
 RDEPENDS:${PN}-ssdp = "\
-    python3-async-upnp-client (=0.40.0) \
+    python3-async-upnp-client (=0.41.0) \
 "
 
 ALLOW_EMPTY:${PN}-startca = "1"
@@ -521,7 +522,7 @@ RDEPENDS:${PN}-stream = "\
 
 ALLOW_EMPTY:${PN}-switchbot = "1"
 RDEPENDS:${PN}-switchbot = "\
-    python3-pyswitchbot (=0.48.2) \
+    python3-pyswitchbot (=0.51.0) \
 "
 
 ALLOW_EMPTY:${PN}-systemmonitor = "1"
@@ -567,7 +568,7 @@ RDEPENDS:${PN}-tts = "\
 
 ALLOW_EMPTY:${PN}-upnp = "1"
 RDEPENDS:${PN}-upnp = "\
-    python3-async-upnp-client (=0.40.0) \
+    python3-async-upnp-client (=0.41.0) \
     python3-getmac (=0.9.4) \
 "
 
@@ -594,7 +595,7 @@ RDEPENDS:${PN}-zabbix = "\
 
 ALLOW_EMPTY:${PN}-zeroconf = "1"
 RDEPENDS:${PN}-zeroconf = "\
-    python3-zeroconf (>=0.133.0) \
+    python3-zeroconf (>=0.136.0) \
 "
 
 ALLOW_EMPTY:${PN}-zestimate = "1"

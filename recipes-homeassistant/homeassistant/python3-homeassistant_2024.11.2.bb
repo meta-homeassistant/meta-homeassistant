@@ -15,7 +15,7 @@ SRC_URI = "git://github.com/home-assistant/core.git;protocol=https;branch=master
            file://0001-Relax-setuptools-requirement.patch \
            "
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
-SRCREV = "ab0556227cf2f88dbe23f6c5498eaf957475a791"
+SRCREV = "847afabed1ebd49c4d9d7ffda9f02f30032eaf18"
 
 inherit python_setuptools_build_meta useradd systemd ptest
 
@@ -61,7 +61,7 @@ require recipes-homeassistant/homeassistant/python3-homeassistant/integrations-t
 RDEPENDS:${PN} += "\
     python3-aiodns (>=3.2.0) \
     python3-aiohasupervisor (=0.2.1) \
-    python3-aiohttp (>=3.10.10) \
+    python3-aiohttp (>=3.10.11) \
     python3-aiohttp-cors (=0.7.0) \
     python3-aiohttp-fast-zlib (=0.1.1) \
     python3-aiozoneinfo (=0.2.1) \
