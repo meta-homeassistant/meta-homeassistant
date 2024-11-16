@@ -5,6 +5,7 @@ PACKAGES += "\
     ${PN}-adax \
     ${PN}-adguard \
     ${PN}-advantage-air \
+    ${PN}-aftership \
     ${PN}-airthings-ble \
     ${PN}-amazon-polly \
     ${PN}-aruba \
@@ -127,6 +128,11 @@ RDEPENDS:${PN}-adguard = "\
 ALLOW_EMPTY:${PN}-advantage-air = "1"
 RDEPENDS:${PN}-advantage-air = "\
     python3-advantage-air (=0.4.4) \
+"
+
+ALLOW_EMPTY:${PN}-aftership = "1"
+RDEPENDS:${PN}-aftership = "\
+    python3-pyaftership (>=21.11.0) \
 "
 
 ALLOW_EMPTY:${PN}-airthings-ble = "1"
@@ -641,6 +647,7 @@ RRECOMMENDS:${PN} += "\
     ${PN}-adax \
     ${PN}-adguard \
     ${PN}-advantage-air \
+    ${PN}-aftership \
     ${PN}-airthings-ble \
     ${PN}-aruba \
     ${PN}-amazon-polly \
