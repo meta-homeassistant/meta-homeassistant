@@ -36,6 +36,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-compensation \
     ${PN}-config \
     ${PN}-configurator \
+    ${PN}-conversation \
     ${PN}-counter \
     ${PN}-cover \
     ${PN}-cpuspeed \
@@ -79,6 +80,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-generic-thermostat \
     ${PN}-geo-location \
     ${PN}-geofency \
+    ${PN}-go2rtc \
     ${PN}-google-assistant \
     ${PN}-google-translate \
     ${PN}-google-wifi \
@@ -125,6 +127,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-london-air \
     ${PN}-lovelace \
     ${PN}-manual \
+    ${PN}-matter \
     ${PN}-mazda \
     ${PN}-media-player \
     ${PN}-media-source \
@@ -144,8 +147,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-nmap-tracker \
     ${PN}-no-ip \
     ${PN}-notify \
-    ${PN}-number \
-    ${PN}-octoprint \
     ${PN}-openalpr-cloud \
     ${PN}-openhardwaremonitor \
     ${PN}-otp \
@@ -216,7 +217,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-voicerss \
     ${PN}-wake-word \
     ${PN}-water-heater \
-    ${PN}-weather \
     ${PN}-webhook \
     ${PN}-worldclock \
     ${PN}-wsdot \
