@@ -5,6 +5,7 @@ PACKAGES += "\
     ${PN}-adax \
     ${PN}-adguard \
     ${PN}-advantage-air \
+    ${PN}-aemet \
     ${PN}-aftership \
     ${PN}-airgradient \
     ${PN}-airly \
@@ -134,6 +135,11 @@ RDEPENDS:${PN}-adguard = "\
 ALLOW_EMPTY:${PN}-advantage-air = "1"
 RDEPENDS:${PN}-advantage-air = "\
     python3-advantage-air (=0.4.4) \
+"
+
+ALLOW_EMPTY:${PN}-aemet = "1"
+RDEPENDS:${PN}-aemet = "\
+    python3-aemet-opendata (=0.5.4) \
 "
 
 ALLOW_EMPTY:${PN}-aftership = "1"
@@ -684,6 +690,7 @@ RRECOMMENDS:${PN} += "\
     ${PN}-adax \
     ${PN}-adguard \
     ${PN}-advantage-air \
+    ${PN}-aemet \
     ${PN}-aftership \
     ${PN}-agent-dvr \
     ${PN}-airgradient \

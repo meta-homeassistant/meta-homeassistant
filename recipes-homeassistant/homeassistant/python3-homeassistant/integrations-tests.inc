@@ -4,6 +4,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-adax \
     ${PN}-adguard \
     ${PN}-advantage-air \
+    ${PN}-aemet \
     ${PN}-aftership \
     ${PN}-agent-dvr \
     ${PN}-air-quality \
