@@ -6,6 +6,7 @@ PACKAGES += "\
     ${PN}-adguard \
     ${PN}-advantage-air \
     ${PN}-aftership \
+    ${PN}-airgradient \
     ${PN}-airthings-ble \
     ${PN}-agent-dvr \
     ${PN}-amazon-polly \
@@ -139,6 +140,11 @@ RDEPENDS:${PN}-aftership = "\
 ALLOW_EMPTY:${PN}-agent-dvr = "1"
 RDEPENDS:${PN}-agent-dvr = "\
     python3-agent-py (=0.0.24) \
+"
+
+ALLOW_EMPTY:${PN}-airgradient = "1"
+RDEPENDS:${PN}-airgradient = "\
+    python3-airgradient (=0.9.1) \
 "
 
 ALLOW_EMPTY:${PN}-airthings-ble = "1"
@@ -656,6 +662,7 @@ RRECOMMENDS:${PN} += "\
     ${PN}-advantage-air \
     ${PN}-aftership \
     ${PN}-agent-dvr \
+    ${PN}-airgradient \
     ${PN}-airthings-ble \
     ${PN}-aruba \
     ${PN}-amazon-polly \
