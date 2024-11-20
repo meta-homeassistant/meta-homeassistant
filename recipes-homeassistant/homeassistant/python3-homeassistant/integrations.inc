@@ -10,6 +10,7 @@ PACKAGES += "\
     ${PN}-airly \
     ${PN}-airnow \
     ${PN}-airq \
+    ${PN}-airthings \
     ${PN}-airthings-ble \
     ${PN}-agent-dvr \
     ${PN}-amazon-polly \
@@ -163,6 +164,11 @@ RDEPENDS:${PN}-airnow = "\
 ALLOW_EMPTY:${PN}-airq = "1"
 RDEPENDS:${PN}-airq = "\
     python3-aioairq (=0.3.2) \
+"
+
+ALLOW_EMPTY:${PN}-airthings = "1"
+RDEPENDS:${PN}-airthings = "\
+    python3-airthings-cloud (=0.2.0) \
 "
 
 ALLOW_EMPTY:${PN}-airthings-ble = "1"
@@ -684,6 +690,7 @@ RRECOMMENDS:${PN} += "\
     ${PN}-airly \
     ${PN}-airnow \
     ${PN}-airq \
+    ${PN}-airthings \
     ${PN}-airthings-ble \
     ${PN}-aruba \
     ${PN}-amazon-polly \

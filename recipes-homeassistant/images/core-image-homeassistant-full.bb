@@ -17,6 +17,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-airly \
     python3-homeassistant-airnow \
     python3-homeassistant-airq \
+    python3-homeassistant-airthings \
     python3-homeassistant-airthings-ble \
     python3-homeassistant-amazon-polly \
     python3-homeassistant-aruba \

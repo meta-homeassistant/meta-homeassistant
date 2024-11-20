@@ -11,6 +11,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-airly \
     ${PN}-airnow \
     ${PN}-airq \
+    ${PN}-airthings \
     ${PN}-airthings-ble \
     ${PN}-aladdin-connect \
     ${PN}-alarm-control-panel \
