@@ -8,6 +8,7 @@ PACKAGES += "\
     ${PN}-aftership \
     ${PN}-airgradient \
     ${PN}-airly \
+    ${PN}-airnow \
     ${PN}-airthings-ble \
     ${PN}-agent-dvr \
     ${PN}-amazon-polly \
@@ -151,6 +152,11 @@ RDEPENDS:${PN}-airgradient = "\
 ALLOW_EMPTY:${PN}-airly = "1"
 RDEPENDS:${PN}-airly = "\
     python3-airly (=1.1.0) \
+"
+
+ALLOW_EMPTY:${PN}-airnow = "1"
+RDEPENDS:${PN}-airnow = "\
+    python3-pyairnow (>=1.2.1) \
 "
 
 ALLOW_EMPTY:${PN}-airthings-ble = "1"
@@ -670,6 +676,7 @@ RRECOMMENDS:${PN} += "\
     ${PN}-agent-dvr \
     ${PN}-airgradient \
     ${PN}-airly \
+    ${PN}-airnow \
     ${PN}-airthings-ble \
     ${PN}-aruba \
     ${PN}-amazon-polly \
