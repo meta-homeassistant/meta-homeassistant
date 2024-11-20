@@ -8,6 +8,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-agent-dvr \
     ${PN}-air-quality \
     ${PN}-airgradient \
+    ${PN}-airly \
     ${PN}-airthings-ble \
     ${PN}-aladdin-connect \
     ${PN}-alarm-control-panel \
