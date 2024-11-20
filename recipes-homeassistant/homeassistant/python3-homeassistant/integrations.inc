@@ -158,7 +158,7 @@ RDEPENDS:${PN}-assist-pipeline = "\
 
 ALLOW_EMPTY:${PN}-axis = "1"
 RDEPENDS:${PN}-axis = "\
-    python3-axis (=62) \
+    python3-axis (=63) \
 "
 
 ALLOW_EMPTY:${PN}-backup = "1"
