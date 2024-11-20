@@ -7,6 +7,7 @@ PACKAGES += "\
     ${PN}-advantage-air \
     ${PN}-aftership \
     ${PN}-airthings-ble \
+    ${PN}-agent-dvr \
     ${PN}-amazon-polly \
     ${PN}-aruba \
     ${PN}-assist-pipeline \
@@ -133,6 +134,11 @@ RDEPENDS:${PN}-advantage-air = "\
 ALLOW_EMPTY:${PN}-aftership = "1"
 RDEPENDS:${PN}-aftership = "\
     python3-pyaftership (>=21.11.0) \
+"
+
+ALLOW_EMPTY:${PN}-agent-dvr = "1"
+RDEPENDS:${PN}-agent-dvr = "\
+    python3-agent-py (=0.0.24) \
 "
 
 ALLOW_EMPTY:${PN}-airthings-ble = "1"
@@ -649,6 +655,7 @@ RRECOMMENDS:${PN} += "\
     ${PN}-adguard \
     ${PN}-advantage-air \
     ${PN}-aftership \
+    ${PN}-agent-dvr \
     ${PN}-airthings-ble \
     ${PN}-aruba \
     ${PN}-amazon-polly \

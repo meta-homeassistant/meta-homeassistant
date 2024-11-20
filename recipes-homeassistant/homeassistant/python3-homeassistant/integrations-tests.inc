@@ -5,6 +5,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-adguard \
     ${PN}-advantage-air \
     ${PN}-aftership \
+    ${PN}-agent-dvr \
     ${PN}-air-quality \
     ${PN}-airthings-ble \
     ${PN}-aladdin-connect \
