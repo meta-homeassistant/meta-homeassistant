@@ -11,6 +11,14 @@ IMAGE_INSTALL = "\
     python3-homeassistant-adax \
     python3-homeassistant-adguard \
     python3-homeassistant-advantage-air \
+    python3-homeassistant-aemet \
+    python3-homeassistant-aftership \
+    python3-homeassistant-agent-dvr \
+    python3-homeassistant-airgradient \
+    python3-homeassistant-airly \
+    python3-homeassistant-airnow \
+    python3-homeassistant-airq \
+    python3-homeassistant-airthings \
     python3-homeassistant-airthings-ble \
     python3-homeassistant-amazon-polly \
     python3-homeassistant-aruba \

@@ -1,4 +1,4 @@
-From 90bcd209af22464fcdf5e5dd8026bb05ab11f4b9 Mon Sep 17 00:00:00 2001
+From 106af5c3f147f097ac1e50ceb6206a203f0ca6ad Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Wed, 9 Oct 2024 20:51:36 +0000
 Subject: [PATCH] relax build tool dependencies
@@ -10,7 +10,7 @@ Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index 7f752ff..acdc0ab 100644
+index 905b5bd..7ac6c26 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@

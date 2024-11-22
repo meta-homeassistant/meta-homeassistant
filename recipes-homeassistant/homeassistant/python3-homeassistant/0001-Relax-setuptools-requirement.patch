@@ -1,7 +1,7 @@
-From ffa8485caa50b1fb6bfb293e18f54a8d70afe0f3 Mon Sep 17 00:00:00 2001
+From 316f2a3853a46fe87e630979ee35c242d0d84eec Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
-Date: Sun, 5 May 2024 15:24:46 +0000
-Subject: [PATCH] Allow newer version of setuptools
+Date: Mon, 11 Nov 2024 18:03:19 +0000
+Subject: [PATCH] Relax setuptools requirement
 
 Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
 Upstream-Status: Pending
@@ -10,13 +10,13 @@ Upstream-Status: Pending
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index ccb1c38af5..0b82d4ebf4 100644
+index e13d9ce273..8f4f40b0d2 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@
  [build-system]
--requires = ["setuptools==69.2.0", "wheel~=0.43.0"]
-+requires = ["setuptools>=69.2.0", "wheel>=0.43.0"]
+-requires = ["setuptools==75.1.0"]
++requires = ["setuptools>=72.1.0"]
  build-backend = "setuptools.build_meta"
  
  [project]

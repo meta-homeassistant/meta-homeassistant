@@ -4,7 +4,15 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-adax \
     ${PN}-adguard \
     ${PN}-advantage-air \
+    ${PN}-aemet \
+    ${PN}-aftership \
+    ${PN}-agent-dvr \
     ${PN}-air-quality \
+    ${PN}-airgradient \
+    ${PN}-airly \
+    ${PN}-airnow \
+    ${PN}-airq \
+    ${PN}-airthings \
     ${PN}-airthings-ble \
     ${PN}-aladdin-connect \
     ${PN}-alarm-control-panel \
@@ -13,7 +21,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-analytics \
     ${PN}-api \
     ${PN}-application-credentials \
-    ${PN}-assist-pipeline \
     ${PN}-assist-satellite \
     ${PN}-auth \
     ${PN}-automation \
@@ -21,6 +28,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-bayesian \
     ${PN}-binary-sensor \
     ${PN}-blueprint \
+    ${PN}-bluesound \
     ${PN}-bluetooth \
     ${PN}-bluetooth-adapters \
     ${PN}-bluetooth-le-tracker \
@@ -46,7 +54,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-demo \
     ${PN}-derivative \
     ${PN}-device-automation \
-    ${PN}-device-sun-light-trigger \
     ${PN}-device-tracker \
     ${PN}-dhcp \
     ${PN}-diagnostics \
@@ -61,6 +68,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-emulated-hue \
     ${PN}-energy \
     ${PN}-event \
+    ${PN}-evohome \
     ${PN}-facebook \
     ${PN}-fail2ban \
     ${PN}-fan \
@@ -79,8 +87,8 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-generic-thermostat \
     ${PN}-geo-location \
     ${PN}-geofency \
+    ${PN}-go2rtc \
     ${PN}-google-assistant \
-    ${PN}-google-domains \
     ${PN}-google-translate \
     ${PN}-google-wifi \
     ${PN}-gpslogger \
@@ -126,12 +134,11 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-london-air \
     ${PN}-lovelace \
     ${PN}-manual \
-    ${PN}-map \
+    ${PN}-matter \
     ${PN}-mazda \
     ${PN}-media-player \
     ${PN}-media-source \
     ${PN}-meraki \
-    ${PN}-met \
     ${PN}-microsoft-face \
     ${PN}-microsoft-face-detect \
     ${PN}-microsoft-face-identify \
@@ -147,12 +154,10 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-nmap-tracker \
     ${PN}-no-ip \
     ${PN}-notify \
-    ${PN}-number \
-    ${PN}-octoprint \
     ${PN}-openalpr-cloud \
     ${PN}-openhardwaremonitor \
+    ${PN}-otp \
     ${PN}-panel-custom \
-    ${PN}-panel-iframe \
     ${PN}-persistent-notification \
     ${PN}-person \
     ${PN}-plant \
@@ -170,30 +175,25 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-rss-feed-template \
     ${PN}-scene \
     ${PN}-schedule \
-    ${PN}-scrape \
     ${PN}-script \
     ${PN}-search \
     ${PN}-select \
     ${PN}-sentry \
-    ${PN}-shelly \
     ${PN}-shopping-list \
     ${PN}-sigfox \
     ${PN}-simulated \
     ${PN}-siren \
     ${PN}-smtp \
     ${PN}-spaceapi \
-    ${PN}-speedtestdotnet \
+    ${PN}-speedtestdotnet \ 
     ${PN}-ssdp \
     ${PN}-startca \
-    ${PN}-statistics \
     ${PN}-stt \
     ${PN}-sun \
     ${PN}-switch \
     ${PN}-switch-as-x \
-    ${PN}-switchbot \
     ${PN}-system-health \
     ${PN}-system-log \
-    ${PN}-systemmonitor \
     ${PN}-tag \
     ${PN}-tcp \
     ${PN}-template \
@@ -203,6 +203,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-time-date \
     ${PN}-timer \
     ${PN}-tod \
+    ${PN}-todo \
     ${PN}-tomato \
     ${PN}-trace \
     ${PN}-trafikverket-camera \
@@ -223,9 +224,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-voicerss \
     ${PN}-wake-word \
     ${PN}-water-heater \
-    ${PN}-weather \
     ${PN}-webhook \
-    ${PN}-websocket-api \
     ${PN}-worldclock \
     ${PN}-wsdot \
     ${PN}-xiaomi \
@@ -236,38 +235,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-zwave-me \
 "
 
-# Temporarily disabled as the tests are failing. Investigation is pending.
-# ${PN}-axis
-# ${PN}-dsmr-reader
-# ${PN}-generic
-# ${PN}-github
-# ${PN}-homeassistant-hardware
-# ${PN}-homeassistant-sky-connect
-# ${PN}-homeassistant-yellow
-# ${PN}-mqtt
-# ${PN}-mqtt-eventstream
-# ${PN}-mqtt-json
-# ${PN}-mqtt-room
-# ${PN}-mqtt-statestream
-# ${PN}-onboarding
-# ${PN}-owntracks
-# ${PN}-fritz
-# ${PN}-google-mail
-# ${PN}-google-tasks
-# ${PN}-manual-mqtt
-# ${PN}-matter
-# ${PN}-modbus
-# ${PN}-private-ble-device
-# ${PN}-raspberry-pi
-# ${PN}-sensor
-# ${PN}-shell-command
-# ${PN}-snips
-# ${PN}-stream
-# ${PN}-sql
-# ${PN}-telegram
-# ${PN}-temper
-# ${PN}-zwave-js
-
 python __anonymous() {
     if 'ptest' not in d.getVar('DISTRO_FEATURES'):
         return
@@ -276,27 +243,26 @@ python __anonymous() {
 }
 
 python do_addptest () {
-    import os
     import shutil
 
     source_file = os.path.join(d.getVar('UNPACKDIR'), 'run-ptest-sample')
     target_file = os.path.join(d.getVar('UNPACKDIR'), 'run-ptest')
     shutil.copy(source_file, target_file)
-    
+
     # Get the list of packages
     packages_list = d.getVar('COMPONENT_TEST_PACKAGES').split()
 
-    with open(target_file, 'a') as file:
-            file.write(f"\npytest --automake \\\n")
-    
+    with open(target_file, 'a', encoding='utf-8') as file:
+        file.write("\npytest -n auto --automake \\\n")
+
     # Iterate over each package and append the line to the file
     for package in packages_list:
         # Define the line to be appended
         line_to_append = "tests/components/" + package.removeprefix(d.getVar('PN')+'-').replace('-', '_') + "/"
         package_line = f"  {line_to_append} \\\n"
-        with open(target_file, 'a') as file:
+        with open(target_file, 'a', encoding='utf-8') as file:
             file.write(package_line)
-    with open(target_file, 'a') as file:
+    with open(target_file, 'a', encoding='utf-8') as file:
         line_to_append = ""
         package_line = f"  {line_to_append} \\\n"
         file.write(package_line)

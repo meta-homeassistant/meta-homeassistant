@@ -1,13 +1,10 @@
 SRC_URI += " \
-    crate://crates.io/arrayvec/0.7.4 \
+    crate://crates.io/arrayvec/0.7.6 \
     crate://crates.io/associative-cache/2.0.0 \
-    crate://crates.io/autocfg/1.3.0 \
-    crate://crates.io/beef/0.5.2 \
     crate://crates.io/bytecount/0.6.8 \
     crate://crates.io/castaway/0.2.3 \
-    crate://crates.io/cc/1.1.8 \
+    crate://crates.io/cc/1.1.31 \
     crate://crates.io/cfg-if/1.0.0 \
-    crate://crates.io/chrono/0.4.34 \
     crate://crates.io/compact_str/0.8.0 \
     crate://crates.io/crunchy/0.2.2 \
     crate://crates.io/encoding_rs/0.8.34 \
@@ -15,26 +12,27 @@ SRC_URI += " \
     crate://crates.io/half/2.4.1 \
     crate://crates.io/itoa/1.0.11 \
     crate://crates.io/itoap/1.0.1 \
-    crate://crates.io/libc/0.2.155 \
+    crate://crates.io/jiff/0.1.13 \
+    crate://crates.io/libc/0.2.161 \
     crate://crates.io/memchr/2.7.4 \
     crate://crates.io/no-panic/0.1.30 \
-    crate://crates.io/num-traits/0.2.19 \
-    crate://crates.io/once_cell/1.19.0 \
-    crate://crates.io/proc-macro2/1.0.86 \
-    crate://crates.io/pyo3-build-config/0.22.2 \
-    crate://crates.io/pyo3-ffi/0.22.2 \
-    crate://crates.io/quote/1.0.36 \
-    crate://crates.io/rustversion/1.0.17 \
+    crate://crates.io/once_cell/1.20.2 \
+    crate://crates.io/proc-macro2/1.0.88 \
+    crate://crates.io/pyo3-build-config/0.23.0-dev \
+    crate://crates.io/pyo3-ffi/0.23.0-dev \
+    crate://crates.io/quote/1.0.37 \
+    crate://crates.io/rustversion/1.0.18 \
     crate://crates.io/ryu/1.0.18 \
-    crate://crates.io/serde/1.0.203 \
-    crate://crates.io/serde_derive/1.0.205 \
-    crate://crates.io/serde_json/1.0.122 \
-    crate://crates.io/simdutf8/0.1.4 \
+    crate://crates.io/serde/1.0.211 \
+    crate://crates.io/serde_derive/1.0.211 \
+    crate://crates.io/serde_json/1.0.132 \
+    crate://crates.io/shlex/1.3.0 \
+    crate://crates.io/simdutf8/0.1.5 \
     crate://crates.io/smallvec/1.13.2 \
     crate://crates.io/static_assertions/1.1.0 \
-    crate://crates.io/syn/2.0.72 \
+    crate://crates.io/syn/2.0.82 \
     crate://crates.io/target-lexicon/0.12.16 \
-    crate://crates.io/unicode-ident/1.0.12 \
+    crate://crates.io/unicode-ident/1.0.13 \
     crate://crates.io/unwinding/0.2.2 \
     crate://crates.io/version_check/0.9.5 \
     crate://crates.io/xxhash-rust/0.8.12 \

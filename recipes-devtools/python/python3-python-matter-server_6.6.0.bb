@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/home-assistant-libs/python-matter-server"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=c5a0d917e64171a83d11a738274272f6"
 
-SRC_URI[sha256sum] = "45fec724e69956b7818f558322fa76e61de6a6e965745c5a4fe7c028a458c1e9"
+SRC_URI[sha256sum] = "5d9da5a33587b7d30ba647a8177381c46656da43cdc2c5d2a7ed59a65a95566f"
 
 inherit pypi python_setuptools_build_meta
 

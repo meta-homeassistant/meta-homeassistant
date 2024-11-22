@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 inherit pypi python_setuptools_build_meta
 
-SRC_URI[sha256sum] = "5be7430e6eda80f27e58d67f66a81d2bfebdcf3dfdf8615a0dc816daeaa6585d"
+SRC_URI[sha256sum] = "1e4021f526648c3695723ee3d12ce6e2b2b9e85cfff6c64fd70570562197b4d4"
 PYPI_PACKAGE = "hass_nabucasa"
 
 RDEPENDS:${PN} = "\
