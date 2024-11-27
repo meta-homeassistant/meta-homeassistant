@@ -13,6 +13,10 @@ PACKAGES += "\
     ${PN}-airq \
     ${PN}-airthings \
     ${PN}-airthings-ble \
+    ${PN}-airtouch4 \
+    ${PN}-airtouch5 \
+    ${PN}-airvisual \
+    ${PN}-airvisual-pro \
     ${PN}-agent-dvr \
     ${PN}-amazon-polly \
     ${PN}-aruba \
@@ -169,7 +173,7 @@ RDEPENDS:${PN}-airnow = "\
 
 ALLOW_EMPTY:${PN}-airq = "1"
 RDEPENDS:${PN}-airq = "\
-    python3-aioairq (=0.3.2) \
+    python3-aioairq (=0.4.3) \
 "
 
 ALLOW_EMPTY:${PN}-airthings = "1"
@@ -180,6 +184,26 @@ RDEPENDS:${PN}-airthings = "\
 ALLOW_EMPTY:${PN}-airthings-ble = "1"
 RDEPENDS:${PN}-airthings-ble = "\
     python3-airthings-ble (=0.9.2) \
+"
+
+ALLOW_EMPTY:${PN}-airtouch4 = "1"
+RDEPENDS:${PN}-airtouch4 = "\
+    python3-airtouch4pyapi (>=1.0.5) \
+"
+
+ALLOW_EMPTY:${PN}-airtouch5 = "1"
+RDEPENDS:${PN}-airtouch5 = "\
+    python3-airtouch5py (=0.2.10) \
+"
+
+ALLOW_EMPTY:${PN}-airvisual = "1"
+RDEPENDS:${PN}-airvisual = "\
+    python3-pyairvisual (=2023.08.1) \
+"
+
+ALLOW_EMPTY:${PN}-airvisual-pro = "1"
+RDEPENDS:${PN}-airvisual-pro = "\
+    python3-pyairvisual (=2023.08.1) \
 "
 
 ALLOW_EMPTY:${PN}-amazon-polly = "1"
@@ -217,7 +241,7 @@ ALLOW_EMPTY:${PN}-bluetooth = "1"
 RDEPENDS:${PN}-bluetooth = "\
     python3-bleak (>=0.22.1) \
     python3-bleak-retry-connector (=3.6.0) \
-    python3-bluetooth-adapters (=0.20.0) \
+    python3-bluetooth-adapters (=0.20.2) \
     python3-bluetooth-auto-recovery (=1.4.2) \
     python3-bluetooth-data-tools (=1.20.0) \
     python3-dbus-fast (>=2.21.3) \
@@ -699,6 +723,10 @@ RRECOMMENDS:${PN} += "\
     ${PN}-airq \
     ${PN}-airthings \
     ${PN}-airthings-ble \
+    ${PN}-airtouch4 \
+    ${PN}-airtouch5 \
+    ${PN}-airvisual \
+    ${PN}-airvisual-pro \    
     ${PN}-aruba \
     ${PN}-amazon-polly \
     ${PN}-axis \
