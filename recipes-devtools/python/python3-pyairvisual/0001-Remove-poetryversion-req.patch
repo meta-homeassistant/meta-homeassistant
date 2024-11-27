@@ -1,0 +1,22 @@
+From 3bb0db8bf8db51fa84f683a3bcb2561cc8933b4a Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Tue, 26 Nov 2024 22:29:22 +0000
+Subject: [PATCH] Remove poetryversion req
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ pyproject.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index b130a56..3cf96f9 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = ["setuptools >= 35.0.2", "wheel >= 0.29.0", "poetry>=0.12"]
++requires = ["setuptools >= 35.0.2", "wheel >= 0.29.0"]
+ build-backend = "poetry.core.masonry.api"
+ 
+ [tool.black]

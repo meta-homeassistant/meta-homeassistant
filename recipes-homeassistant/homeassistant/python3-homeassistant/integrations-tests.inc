@@ -14,6 +14,10 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-airq \
     ${PN}-airthings \
     ${PN}-airthings-ble \
+    ${PN}-airtouch4 \
+    ${PN}-airtouch5 \
+    ${PN}-airvisual \
+    ${PN}-airvisual-pro \
     ${PN}-aladdin-connect \
     ${PN}-alarm-control-panel \
     ${PN}-alert \

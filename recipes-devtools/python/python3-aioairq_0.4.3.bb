@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/CorantGmbH/aioairq"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e23fadd6ceef8c618fc1c65191d846fa"
 
-SRC_URI[sha256sum] = "0b42529c77086418f6c4dcb6abb8039ef0de2819e8ad3f577299424ed92ffa93"
+SRC_URI[sha256sum] = "ae7f1836114a8707bf6769bb9b6557e75092d233515f28efeb32b78eb63c70a3"
 
 inherit pypi python_setuptools_build_meta
 
