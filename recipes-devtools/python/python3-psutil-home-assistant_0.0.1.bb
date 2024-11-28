@@ -3,7 +3,8 @@ HOMEPAGE = "https://github.com/home-assistant-libs/psutil-home-assistant"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=dab31a1d28183826937f4b152143a33f"
 
-PYPI_SRC_URI = "git://github.com/home-assistant-libs/psutil-home-assistant.git;protocol=https;branch=master;tag=${PV}"
+PYPI_SRC_URI = "git://github.com/home-assistant-libs/psutil-home-assistant.git;protocol=https;branch=master"
+SRCREV = "7a09bcf9773b528d8b9f33257839d7775704f1a4"
 
 SRC_URI:append = " \
     file://run-ptest \
