@@ -3,11 +3,7 @@ HOMEPAGE = "https://github.com/bdraco/ulid-transform"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d8b5b84f8af09011094cd7c29a9f972c"
 
-inherit python_poetry_core pypi
-
-DEPENDS += "\
-    python3-cython-native \
-"
+inherit python_poetry_core pypi cython
 
 PYPI_PACKAGE = "ulid_transform"
 

@@ -3,10 +3,6 @@ HOMEPAGE = "https://github.com/bluetooth-devices/habluetooth"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=da57f3e0372e39698a274746eb9d65d6"
 
-DEPENDS += "\
-    python3-cython-native \
-"
-
 SRC_URI = "\
     git://github.com/Bluetooth-Devices/habluetooth.git;protocol=https;branch=main \
     file://run-ptest \
@@ -14,7 +10,7 @@ SRC_URI = "\
 SRC_URI[sha256sum] = "89dc8c4e9d79a25c2666dafde0f49241144ac29e69d9d9f5bbf1122733c7f42c"
 SRCREV = "fb9320ae5d2da9bfaa4589a7b0fea8c7eaeab860"
 
-inherit python_poetry_core ptest
+inherit python_poetry_core ptest cython
 
 S = "${WORKDIR}/git"
 

@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/gjohansson-ST/pytrafikverket"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d1b94612955aac1df750a14de9ce3381"
 
-SRC_URI[sha256sum] = "aaf25b004e42d7d452839a7cdb7b0227f7562070520f8909af0fe9f0f1761e42"
+SRC_URI[sha256sum] = "c9fa37e9f0150b62daadeb10d50717ab6106846b6457335b5af0fa9729e1bac4"
 
 inherit pypi python_poetry_core
 
