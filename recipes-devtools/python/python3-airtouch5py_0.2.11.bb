@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/danzel/airtouch5py"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
 
-SRC_URI[sha256sum] = "0d9f0f100a34148025429eff39831e7d62303e820fa2da1a53716106230bc843"
+SRC_URI[sha256sum] = "5cb9d6bda9017a730694e70e789d1896286184a2a3aafcc86df0e90471328d9e"
 
 inherit pypi python_poetry_core
 

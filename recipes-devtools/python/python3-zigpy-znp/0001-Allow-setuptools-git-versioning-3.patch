@@ -1,7 +1,7 @@
-From edd70ddd9f9e927a65f37efa9bb60b852cf00340 Mon Sep 17 00:00:00 2001
+From a1c8647346d3d7d818aa5d9f82553f0d8f59c1e4 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
-Date: Mon, 11 Nov 2024 18:03:19 +0000
-Subject: [PATCH] Relax setuptools requirement
+Date: Sun, 15 Dec 2024 20:44:42 +0000
+Subject: [PATCH] Allow setuptools-git-versioning >=3
 
 Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
 Upstream-Status: Pending
@@ -10,13 +10,13 @@ Upstream-Status: Pending
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index f4ae0f39de..9f73fb7d6c 100644
+index 24c596d..ba4f557 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@
  [build-system]
--requires = ["setuptools==75.1.0"]
-+requires = ["setuptools>=72.1.0"]
+-requires = ["setuptools>=61.0.0", "wheel", "setuptools-git-versioning<2"]
++requires = ["setuptools>=61.0.0", "wheel", "setuptools-git-versioning"]
  build-backend = "setuptools.build_meta"
  
  [project]

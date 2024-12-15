@@ -9,13 +9,13 @@ HOMEASSISTANT_CONFIG_DIR[doc] = "Configuration directory used by home-assistant.
 HOMEASSISTANT_USER ?= "homeassistant"
 HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 
-SRC_URI = "git://github.com/home-assistant/core.git;protocol=https;branch=rc \
+SRC_URI = "git://github.com/home-assistant/core.git;protocol=https;branch=master \
            file://homeassistant.service \
            file://run-ptest-sample \
            file://0001-Relax-setuptools-requirement.patch \
            "
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
-SRCREV = "759a2b84f5c78522b915e4cfe8e51aae352f1167"
+SRCREV = "cf53a9743f3f65ed24a7a883f971593ba4f21c1e"
 
 inherit python_setuptools_build_meta useradd systemd ptest
 
@@ -61,7 +61,7 @@ require recipes-homeassistant/homeassistant/python3-homeassistant/integrations-t
 RDEPENDS:${PN} += "\
     python3-aiodns (>=3.2.0) \
     python3-aiohasupervisor (=0.2.1) \
-    python3-aiohttp (>=3.11.9) \
+    python3-aiohttp (>=3.11.10) \
     python3-aiohttp-cors (=0.7.0) \
     python3-aiohttp-fast-zlib (=0.2.0) \
     python3-aiozoneinfo (=0.2.1) \
@@ -75,7 +75,7 @@ RDEPENDS:${PN} += "\
     python3-certifi (>=2021.5.30) \
     python3-ciso8601 (=2.3.1) \
     python3-fnv-hash-fast (=1.0.2) \
-    python3-hass-nabucasa (=0.85.0) \
+    python3-hass-nabucasa (=0.86.0) \
     python3-httpx (>=0.27.2) \
     python3-home-assistant-bluetooth (>=1.13.0) \
     python3-ifaddr (=0.2.0) \

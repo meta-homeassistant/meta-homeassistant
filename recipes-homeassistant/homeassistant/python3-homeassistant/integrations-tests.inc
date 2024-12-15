@@ -91,6 +91,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-generic-thermostat \
     ${PN}-geo-location \
     ${PN}-geofency \
+    ${PN}-github \
     ${PN}-go2rtc \
     ${PN}-google-assistant \
     ${PN}-google-translate \
@@ -106,6 +107,8 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-homeassistant \
     ${PN}-homeassistant-alerts \
     ${PN}-homeassistant-green \
+    ${PN}-homeassistant-sky-connect \
+    ${PN}-homeassistant-yellow \
     ${PN}-http \
     ${PN}-hue \
     ${PN}-humidifier \
@@ -158,6 +161,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-nmap-tracker \
     ${PN}-no-ip \
     ${PN}-notify \
+    ${PN}-number \
     ${PN}-openalpr-cloud \
     ${PN}-openhardwaremonitor \
     ${PN}-otp \
@@ -189,7 +193,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-siren \
     ${PN}-smtp \
     ${PN}-spaceapi \
-    ${PN}-speedtestdotnet \ 
+    ${PN}-spider \
     ${PN}-ssdp \
     ${PN}-startca \
     ${PN}-stt \
@@ -229,6 +233,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-wake-word \
     ${PN}-water-heater \
     ${PN}-webhook \
+    ${PN}-websocket-api \
     ${PN}-worldclock \
     ${PN}-wsdot \
     ${PN}-xiaomi \

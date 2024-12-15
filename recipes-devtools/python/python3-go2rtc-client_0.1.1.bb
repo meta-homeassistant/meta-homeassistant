@@ -4,7 +4,7 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
 
 DEPENDS = "python3-hatchling-native"
-SRC_URI[sha256sum] = "7c8415abd711b5afea7d20d622728ddf8c719d6d050ff63b4d2b63a54d8e6a9e"
+SRC_URI[sha256sum] = "9e18dd1f188b13aed9ef696ac52d1223e33d171dfd4592778d8db4efe8cda155"
 
 inherit pypi python_hatchling
 

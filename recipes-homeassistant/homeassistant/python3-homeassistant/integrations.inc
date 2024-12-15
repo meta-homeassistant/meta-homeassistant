@@ -105,6 +105,7 @@ PACKAGES += "\
     ${PN}-zabbix \
     ${PN}-zeroconf \
     ${PN}-zestimate \
+    ${PN}-zha \
     ${PN}-zoneminder \
     ${PN}-zwave-js \
     ${PN}-zwave-me \
@@ -271,7 +272,7 @@ RDEPENDS:${PN}-cisco-ios = "\
 
 ALLOW_EMPTY:${PN}-cloud = "1"
 RDEPENDS:${PN}-cloud = "\
-    python3-hass-nabucasa (=0.85.0) \
+    python3-hass-nabucasa (=0.86.0) \
 "
 
 ALLOW_EMPTY:${PN}-compensation = "1"
@@ -282,7 +283,7 @@ RDEPENDS:${PN}-compensation = "\
 ALLOW_EMPTY:${PN}-conversation = "1"
 RDEPENDS:${PN}-conversation = "\
     python3-hassil (>=2.0.5) \
-    python3-home-assistant-intents (>=2024.12.2) \
+    python3-home-assistant-intents (>=2024.12.4) \
 "
 
 ALLOW_EMPTY:${PN}-cpuspeed = "1"
@@ -351,7 +352,7 @@ RDEPENDS:${PN}-fritzbox-callmonitor = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    python3-home-assistant-frontend (=20241127.3) \
+    python3-home-assistant-frontend (>=20241127.6) \
 "
 
 ALLOW_EMPTY:${PN}-generic = "1"
@@ -669,6 +670,12 @@ RDEPENDS:${PN}-zestimate = "\
     python3-xmltodict (>=0.13.0) \
 "
 
+ALLOW_EMPTY:${PN}-zha = "1"
+RDEPENDS:${PN}-zha = "\
+    python3-zha (>=0.0.41) \
+    python3-universal-silabs-flasher (>=0.0.25) \
+"
+
 ALLOW_EMPTY:${PN}-zoneminder = "1"
 RDEPENDS:${PN}-zoneminder = "\
     python3-zm-py (=0.5.4) \
@@ -796,6 +803,7 @@ RRECOMMENDS:${PN} += "\
     ${PN}-vlc \
     ${PN}-zabbix \
     ${PN}-zestimate \
+    ${PN}-zha \
     ${PN}-zoneminder \
     ${PN}-zwave-js \
     ${PN}-zwave-me \

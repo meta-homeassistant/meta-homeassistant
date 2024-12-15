@@ -9,13 +9,13 @@ SRC_URI = "\
     git://github.com/home-assistant-libs/aioshelly;branch=main;protocol=https \
     file://run-ptest \
 "
-SRCREV = "66e505292fad9e22a265db3827a01454c7781677"
+SRCREV = "b426c28e159ef7d7ffde85e68a2fa9ac3abdb5cb"
 SRC_URI[sha256sum] = "fa242998c371bf361efdc66dc875196e618506848d0eece298167a6081458d8e"
 
 S = "${WORKDIR}/git"
 
 RDEPENDS:${PN} = "\
-    python3-aiohttp \
+    python3-aiohttp (>=3.11.1) \
     python3-bluetooth-data-tools (>=1.19.0) \
     python3-core (>=3.11) \
     python3-habluetooth (>=2.1.0) \
