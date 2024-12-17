@@ -112,7 +112,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-http \
     ${PN}-hue \
     ${PN}-humidifier \
-    ${PN}-image \
     ${PN}-image-processing \
     ${PN}-image-upload \
     ${PN}-input-boolean \
@@ -186,7 +185,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-script \
     ${PN}-search \
     ${PN}-select \
-    ${PN}-sentry \
     ${PN}-shopping-list \
     ${PN}-sigfox \
     ${PN}-simulated \
@@ -201,10 +199,8 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-switch \
     ${PN}-switch-as-x \
     ${PN}-system-health \
-    ${PN}-system-log \
     ${PN}-tag \
     ${PN}-tcp \
-    ${PN}-template \
     ${PN}-text \
     ${PN}-threshold \
     ${PN}-time \
