@@ -9,7 +9,7 @@ SRC_URI = "${PYPI_SRC_URI} \
            file://run-ptest \
            file://0001-Correct-hatchling-build-path.patch \
            "
-SRC_URI[sha256sum] = "021988baa2761335223c888a2cd4f4e9fd2eb5cc97a944cf5d2bab8b2c66af57"
+SRC_URI[sha256sum] = "d94ae9854b17cdfa35c55969f03d8375049a40918ed2b87b6763262eb0aa354f"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.9.5) \

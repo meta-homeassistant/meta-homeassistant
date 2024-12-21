@@ -283,7 +283,7 @@ RDEPENDS:${PN}-compensation = "\
 ALLOW_EMPTY:${PN}-conversation = "1"
 RDEPENDS:${PN}-conversation = "\
     python3-hassil (>=2.0.5) \
-    python3-home-assistant-intents (>=2024.12.4) \
+    python3-home-assistant-intents (>=2024.12.9) \
 "
 
 ALLOW_EMPTY:${PN}-cpuspeed = "1"
@@ -293,7 +293,7 @@ RDEPENDS:${PN}-cpuspeed = "\
 
 ALLOW_EMPTY:${PN}-debugpy = "1"
 RDEPENDS:${PN}-debugpy = "\
-    python3-debugpy (=1.8.6) \
+    python3-debugpy (=1.8.8) \
 "
 
 ALLOW_EMPTY:${PN}-dhcp = "1"
@@ -321,7 +321,7 @@ RDEPENDS:${PN}-dunehd = "\
 
 ALLOW_EMPTY:${PN}-evohome = "1"
 RDEPENDS:${PN}-evohome = "\
-    python3-evohome-async (=0.4.20) \
+    python3-evohome-async (=0.4.21) \
 "
 
 ALLOW_EMPTY:${PN}-ffmpeg = "1"
@@ -352,7 +352,7 @@ RDEPENDS:${PN}-fritzbox-callmonitor = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    python3-home-assistant-frontend (>=20241127.6) \
+    python3-home-assistant-frontend (>=20241127.8) \
 "
 
 ALLOW_EMPTY:${PN}-generic = "1"
@@ -672,7 +672,7 @@ RDEPENDS:${PN}-zestimate = "\
 
 ALLOW_EMPTY:${PN}-zha = "1"
 RDEPENDS:${PN}-zha = "\
-    python3-zha (>=0.0.41) \
+    python3-zha (>=0.0.42) \
     python3-universal-silabs-flasher (>=0.0.25) \
 "
 

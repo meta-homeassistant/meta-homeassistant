@@ -11,7 +11,7 @@ inherit pypi python_setuptools_build_meta
 
 PYPI_PACKAGE = "home_assistant_frontend"
 
-SRC_URI[sha256sum] = "ccb257fd5e4fadf7c52e64f0d06d6bbfb4ee0acd345c1e8a2097778cd1a88679"
+SRC_URI[sha256sum] = "80d90615a7fe2274bb37c1142157cea6e7a0878093c1a06dab056de17a0b5938"
 
 RDEPENDS:${PN} += "\
     python3-core (>=3.11) \
