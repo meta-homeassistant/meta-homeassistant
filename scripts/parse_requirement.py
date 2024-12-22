@@ -170,8 +170,14 @@ def get_recipes(ha_path):
                 for f in os.scandir(search_path)
                 if (f.is_file() and f.name.endswith(".bb"))
             )
-    return [i.split("_")[0] for i in list_of_recipes], [
-        i.split("_")[1] for i in list_of_recipes
+    version_pattern = re.compile(r'_([\d.]+)$')
+    
+    # Filter items that match the version pattern
+    filtered_recipes = [i for i in list_of_recipes if version_pattern.search(i)]
+    
+    # Split the items into parts
+    return [i.rsplit("_", 1)[0] for i in filtered_recipes], [
+        version_pattern.search(i).group(1) for i in filtered_recipes
     ]
 
 

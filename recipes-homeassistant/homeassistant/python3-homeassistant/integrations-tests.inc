@@ -91,6 +91,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-generic-thermostat \
     ${PN}-geo-location \
     ${PN}-geofency \
+    ${PN}-github \
     ${PN}-go2rtc \
     ${PN}-google-assistant \
     ${PN}-google-translate \
@@ -106,10 +107,11 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-homeassistant \
     ${PN}-homeassistant-alerts \
     ${PN}-homeassistant-green \
+    ${PN}-homeassistant-sky-connect \
+    ${PN}-homeassistant-yellow \
     ${PN}-http \
     ${PN}-hue \
     ${PN}-humidifier \
-    ${PN}-image \
     ${PN}-image-processing \
     ${PN}-image-upload \
     ${PN}-input-boolean \
@@ -158,6 +160,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-nmap-tracker \
     ${PN}-no-ip \
     ${PN}-notify \
+    ${PN}-number \
     ${PN}-openalpr-cloud \
     ${PN}-openhardwaremonitor \
     ${PN}-otp \
@@ -182,14 +185,13 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-script \
     ${PN}-search \
     ${PN}-select \
-    ${PN}-sentry \
     ${PN}-shopping-list \
     ${PN}-sigfox \
     ${PN}-simulated \
     ${PN}-siren \
     ${PN}-smtp \
     ${PN}-spaceapi \
-    ${PN}-speedtestdotnet \ 
+    ${PN}-spider \
     ${PN}-ssdp \
     ${PN}-startca \
     ${PN}-stt \
@@ -197,10 +199,8 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-switch \
     ${PN}-switch-as-x \
     ${PN}-system-health \
-    ${PN}-system-log \
     ${PN}-tag \
     ${PN}-tcp \
-    ${PN}-template \
     ${PN}-text \
     ${PN}-threshold \
     ${PN}-time \
@@ -229,6 +229,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-wake-word \
     ${PN}-water-heater \
     ${PN}-webhook \
+    ${PN}-websocket-api \
     ${PN}-worldclock \
     ${PN}-wsdot \
     ${PN}-xiaomi \

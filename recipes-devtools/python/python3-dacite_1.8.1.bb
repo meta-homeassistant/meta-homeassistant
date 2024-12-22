@@ -3,7 +3,8 @@ HOMEPAGE = "https://github.com/konradhalas/dacite"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=72f6cbdc854c4c393ac30db3dbba2766"
 
-SRC_URI = "git://github.com/konradhalas/dacite;protocol=https;branch=master;tag=v${PV}"
+SRC_URI = "git://github.com/konradhalas/dacite;protocol=https;branch=master"
+SRCREV = "10a9ec40fc5874ae434aa68b975d1b1bf667a42f"
 
 S = "${WORKDIR}/git"
 

@@ -18,7 +18,6 @@ DEPENDS += "python3"
 # We need to reimplement these since there is a - versus _ problem in the package name
 WHL_BPN = "isal"
 WHL_BP = "isal-${PV}"
-WHL_PN = "isal"
 
 SRC_URI:x86-64 = "\
     https://files.pythonhosted.org/packages/7f/46/0c0a1dafc2c5ee4f1bb6f87a09841bf37e4148dbda4f088ac6a3fc0e57c8/${WHL_BP}-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl;downloadfilename=${BP}.zip;subdir=${BP};name=x86-64 \

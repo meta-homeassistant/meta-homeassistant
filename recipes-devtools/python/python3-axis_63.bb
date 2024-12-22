@@ -12,5 +12,5 @@ RDEPENDS:${PN} = "\
     python3-httpx (>=0.26) \
     python3-orjson (>=3.9) \
     python3-packaging (>=23) \
-    python3-xmltodict (=0.13.0) \
+    python3-xmltodict (>=0.13.0) \
 "
