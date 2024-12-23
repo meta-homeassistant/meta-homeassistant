@@ -18,6 +18,8 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-airtouch5 \
     ${PN}-airvisual \
     ${PN}-airvisual-pro \
+    ${PN}-airzone \
+    ${PN}-airzone-cloud \
     ${PN}-aladdin-connect \
     ${PN}-alarm-control-panel \
     ${PN}-alert \

@@ -24,6 +24,8 @@ IMAGE_INSTALL = "\
     python3-homeassistant-airtouch5 \
     python3-homeassistant-airvisual \
     python3-homeassistant-airvisual-pro \
+    python3-homeassistant-airzone \
+    python3-homeassistant-airzone-cloud \
     python3-homeassistant-amazon-polly \
     python3-homeassistant-aruba \
     python3-homeassistant-assist-pipeline \

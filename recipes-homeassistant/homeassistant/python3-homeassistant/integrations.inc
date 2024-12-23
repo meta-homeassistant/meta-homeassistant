@@ -7,6 +7,7 @@ PACKAGES += "\
     ${PN}-advantage-air \
     ${PN}-aemet \
     ${PN}-aftership \
+    ${PN}-agent-dvr \
     ${PN}-airgradient \
     ${PN}-airly \
     ${PN}-airnow \
@@ -17,7 +18,8 @@ PACKAGES += "\
     ${PN}-airtouch5 \
     ${PN}-airvisual \
     ${PN}-airvisual-pro \
-    ${PN}-agent-dvr \
+    ${PN}-airzone \
+    ${PN}-airzone-cloud \
     ${PN}-amazon-polly \
     ${PN}-aruba \
     ${PN}-assist-pipeline \
@@ -205,6 +207,16 @@ RDEPENDS:${PN}-airvisual = "\
 ALLOW_EMPTY:${PN}-airvisual-pro = "1"
 RDEPENDS:${PN}-airvisual-pro = "\
     python3-pyairvisual (=2023.08.1) \
+"
+
+ALLOW_EMPTY:${PN}-airzone = "1"
+RDEPENDS:${PN}-airzone = "\
+    python3-aioairzone (=0.9.7) \
+"
+
+ALLOW_EMPTY:${PN}-airzone-cloud = "1"
+RDEPENDS:${PN}-airzone-cloud = "\
+    python3-aioairzone-cloud (=0.6.10) \
 "
 
 ALLOW_EMPTY:${PN}-amazon-polly = "1"
@@ -734,6 +746,8 @@ RRECOMMENDS:${PN} += "\
     ${PN}-airtouch5 \
     ${PN}-airvisual \
     ${PN}-airvisual-pro \    
+    ${PN}-airzone \    
+    ${PN}-airzone-cloud \    
     ${PN}-aruba \
     ${PN}-amazon-polly \
     ${PN}-axis \
