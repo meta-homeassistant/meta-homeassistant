@@ -1,4 +1,5 @@
 COMPONENT_TEST_PACKAGES = "\
+    ${PN}-acaia \
     ${PN}-accuweather \
     ${PN}-acmeda \
     ${PN}-adax \
@@ -20,6 +21,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-airvisual-pro \
     ${PN}-airzone \
     ${PN}-airzone-cloud \
+    ${PN}-alarmdecoder \
     ${PN}-aladdin-connect \
     ${PN}-alarm-control-panel \
     ${PN}-alert \

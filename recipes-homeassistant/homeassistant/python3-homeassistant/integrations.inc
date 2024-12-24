@@ -1,4 +1,5 @@
 PACKAGES += "\
+    ${PN}-acaia \
     ${PN}-acer-projector \
     ${PN}-accuweather \
     ${PN}-acmeda \
@@ -20,6 +21,8 @@ PACKAGES += "\
     ${PN}-airvisual-pro \
     ${PN}-airzone \
     ${PN}-airzone-cloud \
+    ${PN}-alarmdecoder \
+    ${PN}-alpha-vantage \
     ${PN}-amazon-polly \
     ${PN}-aruba \
     ${PN}-assist-pipeline \
@@ -111,6 +114,11 @@ PACKAGES += "\
     ${PN}-zoneminder \
     ${PN}-zwave-js \
     ${PN}-zwave-me \
+"
+
+ALLOW_EMPTY:${PN}-acaia = "1"
+RDEPENDS:${PN}-acaia = "\
+    python3-aioacaia (=0.1.11) \
 "
 
 ALLOW_EMPTY:${PN}-accuweather = "1"
@@ -217,6 +225,16 @@ RDEPENDS:${PN}-airzone = "\
 ALLOW_EMPTY:${PN}-airzone-cloud = "1"
 RDEPENDS:${PN}-airzone-cloud = "\
     python3-aioairzone-cloud (=0.6.10) \
+"
+
+ALLOW_EMPTY:${PN}-alarmdecoder = "1"
+RDEPENDS:${PN}-alarmdecoder = "\
+    python3-adext (=0.4.3) \
+"
+
+ALLOW_EMPTY:${PN}-alpha-vantage = "1"
+RDEPENDS:${PN}-alpha-vantage = "\
+    python3-alpha-vantage (>=2.3.1) \
 "
 
 ALLOW_EMPTY:${PN}-amazon-polly = "1"
@@ -727,8 +745,9 @@ RDEPENDS:${PN} += "\
 "
 
 RRECOMMENDS:${PN} += "\
-    ${PN}-acer-projector \
+    ${PN}-acaia \
     ${PN}-accuweather \
+    ${PN}-acer-projector \
     ${PN}-acmeda \
     ${PN}-adax \
     ${PN}-adguard \
@@ -748,6 +767,8 @@ RRECOMMENDS:${PN} += "\
     ${PN}-airvisual-pro \    
     ${PN}-airzone \    
     ${PN}-airzone-cloud \    
+    ${PN}-alarmdecoder \    
+    ${PN}-alpha-vantage \    
     ${PN}-aruba \
     ${PN}-amazon-polly \
     ${PN}-axis \
