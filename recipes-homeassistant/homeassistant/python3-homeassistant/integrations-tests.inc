@@ -111,6 +111,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-homeassistant \
     ${PN}-homeassistant-alerts \
     ${PN}-homeassistant-green \
+    ${PN}-homeassistant-hardware \
     ${PN}-homeassistant-sky-connect \
     ${PN}-homeassistant-yellow \
     ${PN}-http \
@@ -177,6 +178,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-qwikswitch \
     ${PN}-radio-browser \
     ${PN}-random \
+    ${PN}-raspberry-pi \
     ${PN}-recorder \
     ${PN}-recovery-mode \
     ${PN}-remote \
