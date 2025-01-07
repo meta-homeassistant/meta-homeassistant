@@ -1,4 +1,4 @@
-From 106af5c3f147f097ac1e50ceb6206a203f0ca6ad Mon Sep 17 00:00:00 2001
+From 7c71a3d618793fed5fcdf645a0e8038ac6b69bcb Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Wed, 9 Oct 2024 20:51:36 +0000
 Subject: [PATCH] relax build tool dependencies
