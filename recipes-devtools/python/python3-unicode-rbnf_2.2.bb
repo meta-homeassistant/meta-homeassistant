@@ -7,6 +7,6 @@ inherit python_setuptools_build_meta
 
 SRC_URI = "git://github.com/rhasspy/unicode-rbnf;protocol=https;branch=master"
 
-SRCREV = "6a84331e8a63244e9ac550fbb9a1345fe23f63db"
+SRCREV = "e26874c196b842a47f3770667155cc81662bfbc1"
 
 S = "${WORKDIR}/git"
