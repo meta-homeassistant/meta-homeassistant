@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/Danielhiversen/pySwitchbot/"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5d503272f52c35147ec960cb56a03bf4"
 
-SRC_URI[sha256sum] = "c0317c3e87bca6d6a11edd43a348ad8f79fd38e3ef93196ad403a00d36911e77"
+SRC_URI[sha256sum] = "fa7cedcc9c0fdef8e0f96ae9db2dd30cdd829477e97e99f2b3dfa347ce3861bf"
 
 inherit pypi setuptools3
 

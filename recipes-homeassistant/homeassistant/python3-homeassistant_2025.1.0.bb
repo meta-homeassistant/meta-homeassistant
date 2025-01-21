@@ -15,7 +15,7 @@ SRC_URI = "git://github.com/home-assistant/core.git;protocol=https;branch=master
            file://0001-Relax-setuptools-requirement.patch \
            "
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
-SRCREV = "6974f61703261ae329b76bb2d8884fec573350cb"
+SRCREV = "a412acec0ef0ffdf8a54b6a3ad54ae8a840c3e9b"
 
 inherit python_setuptools_build_meta useradd systemd ptest
 
@@ -57,10 +57,10 @@ do_install:append () {
 require recipes-homeassistant/homeassistant/python3-homeassistant/integrations.inc
 require recipes-homeassistant/homeassistant/python3-homeassistant/integrations-tests.inc
 
-#TODO: python3-uv (=0.5.4)
+#TODO: python3-uv (=0.5.8)
 RDEPENDS:${PN} += "\
     python3-aiodns (>=3.2.0) \
-    python3-aiohasupervisor (=0.2.1) \
+    python3-aiohasupervisor (=0.2.2b5) \
     python3-aiohttp (>=3.11.11) \
     python3-aiohttp-cors (=0.7.0) \
     python3-aiohttp-fast-zlib (=0.2.0) \
@@ -73,19 +73,20 @@ RDEPENDS:${PN} += "\
     python3-awesomeversion (>=24.6.0) \
     python3-bcrypt (>=4.2.0) \
     python3-certifi (>=2021.5.30) \
-    python3-ciso8601 (=2.3.1) \
+    python3-ciso8601 (=2.3.2) \
+    python3-cronsim (>=2.6) \
     python3-fnv-hash-fast (=1.0.2) \
-    python3-hass-nabucasa (=0.86.0) \
+    python3-hass-nabucasa (=0.87.0) \
     python3-httpx (>=0.27.2) \
     python3-home-assistant-bluetooth (>=1.13.0) \
     python3-ifaddr (=0.2.0) \
-    python3-jinja2 (>=3.1.4) \
+    python3-jinja2 (>=3.1.5) \
     python3-lru-dict (>=1.3.0) \
     python3-pyjwt (=2.10.1) \
-    python3-cryptography (>=43.0.1) \
+    python3-cryptography (>=44.0.0) \
     python3-pillow (>=11.0.0) \
     python3-propcache (>=0.2.1) \
-    python3-pyopenssl (>=24.2.1) \
+    python3-pyopenssl (>=24.3.0) \
     python3-orjson (>=3.10.12) \
     python3-packaging (>=23.1) \
     python3-psutil-home-assistant (=0.0.1) \

@@ -1,5 +1,5 @@
 SUMMARY = "Asynchronous python client for Home Assistant Supervisor."
-HOMEPAGE = "https://www.home-assistant.io/"
+HOMEPAGE = "https://github.com/home-assistant-libs/python-supervisor-client"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
 
@@ -9,7 +9,7 @@ SRC_URI = "git://github.com/home-assistant-libs/python-supervisor-client;branch=
            "
 
 SRC_URI[sha256sum] = "26af5c49d30c5d58111e140ad4bb86c1547a1814c8af0ded87bcbd86e4524233"
-SRCREV = "1c0f4856e00f853a4125f7deed21ce14d8efbbfe"
+SRCREV = "51a8a78e82bac3fc816fabb7ffcc1b53232552ba"
 
 inherit python_setuptools_build_meta ptest
 

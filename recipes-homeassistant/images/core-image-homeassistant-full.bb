@@ -5,6 +5,7 @@ IMAGE_INSTALL = "\
     ${CORE_IMAGE_EXTRA_INSTALL} \
     python3-homeassistant \
     \
+    python3-homeassistant-acaia \
     python3-homeassistant-accuweather \
     python3-homeassistant-acer-projector \
     python3-homeassistant-acmeda \
@@ -24,6 +25,10 @@ IMAGE_INSTALL = "\
     python3-homeassistant-airtouch5 \
     python3-homeassistant-airvisual \
     python3-homeassistant-airvisual-pro \
+    python3-homeassistant-airzone \
+    python3-homeassistant-airzone-cloud \
+    python3-homeassistant-alarmdecoder \
+    python3-homeassistant-alpha-vantage \
     python3-homeassistant-amazon-polly \
     python3-homeassistant-aruba \
     python3-homeassistant-assist-pipeline \

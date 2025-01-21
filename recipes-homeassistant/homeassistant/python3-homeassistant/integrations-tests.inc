@@ -1,4 +1,5 @@
 COMPONENT_TEST_PACKAGES = "\
+    ${PN}-acaia \
     ${PN}-accuweather \
     ${PN}-acmeda \
     ${PN}-adax \
@@ -18,6 +19,9 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-airtouch5 \
     ${PN}-airvisual \
     ${PN}-airvisual-pro \
+    ${PN}-airzone \
+    ${PN}-airzone-cloud \
+    ${PN}-alarmdecoder \
     ${PN}-aladdin-connect \
     ${PN}-alarm-control-panel \
     ${PN}-alert \
@@ -107,6 +111,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-homeassistant \
     ${PN}-homeassistant-alerts \
     ${PN}-homeassistant-green \
+    ${PN}-homeassistant-hardware \
     ${PN}-homeassistant-sky-connect \
     ${PN}-homeassistant-yellow \
     ${PN}-http \
@@ -173,6 +178,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-qwikswitch \
     ${PN}-radio-browser \
     ${PN}-random \
+    ${PN}-raspberry-pi \
     ${PN}-recorder \
     ${PN}-recovery-mode \
     ${PN}-remote \
