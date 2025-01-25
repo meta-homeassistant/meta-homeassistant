@@ -219,7 +219,7 @@ RDEPENDS:${PN}-airvisual-pro = "\
 
 ALLOW_EMPTY:${PN}-airzone = "1"
 RDEPENDS:${PN}-airzone = "\
-    python3-aioairzone (=0.9.7) \
+    python3-aioairzone (=0.9.9) \
 "
 
 ALLOW_EMPTY:${PN}-airzone-cloud = "1"
@@ -277,7 +277,7 @@ RDEPENDS:${PN}-bluetooth = "\
     python3-bluetooth-auto-recovery (=1.4.2) \
     python3-bluetooth-data-tools (=1.20.0) \
     python3-dbus-fast (>=2.24.3) \
-    python3-habluetooth (=3.6.0) \
+    python3-habluetooth (=3.7.0) \
 "
 
 ALLOW_EMPTY:${PN}-bluetooth-tracker = "1"
@@ -383,7 +383,7 @@ RDEPENDS:${PN}-fritzbox-callmonitor = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    python3-home-assistant-frontend (>=20250103.0) \
+    python3-home-assistant-frontend (>=20250109.2) \
 "
 
 ALLOW_EMPTY:${PN}-generic = "1"
@@ -495,7 +495,7 @@ RDEPENDS:${PN}-network = "\
 
 ALLOW_EMPTY:${PN}-nmap-tracker = "1"
 RDEPENDS:${PN}-nmap-tracker = "\
-    python3-aiooui (=0.1.7) \
+    python3-aiooui (=0.1.9) \
     python3-getmac (=0.9.4) \
     python3-netmap (=0.7.0.2) \
 "
@@ -703,7 +703,7 @@ RDEPENDS:${PN}-zestimate = "\
 
 ALLOW_EMPTY:${PN}-zha = "1"
 RDEPENDS:${PN}-zha = "\
-    python3-zha (>=0.0.44) \
+    python3-zha (>=0.0.45) \
     python3-universal-silabs-flasher (>=0.0.25) \
 "
 
