@@ -21,11 +21,12 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-airvisual-pro \
     ${PN}-airzone \
     ${PN}-airzone-cloud \
-    ${PN}-alarmdecoder \
     ${PN}-aladdin-connect \
     ${PN}-alarm-control-panel \
+    ${PN}-alarmdecoder \
     ${PN}-alert \
     ${PN}-alexa \
+    ${PN}-amberelectric \
     ${PN}-analytics \
     ${PN}-api \
     ${PN}-application-credentials \

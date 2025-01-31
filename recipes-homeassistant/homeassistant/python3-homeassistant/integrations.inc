@@ -24,6 +24,7 @@ PACKAGES += "\
     ${PN}-alarmdecoder \
     ${PN}-alpha-vantage \
     ${PN}-amazon-polly \
+    ${PN}-amberelectric \
     ${PN}-aruba \
     ${PN}-assist-pipeline \
     ${PN}-axis \
@@ -240,6 +241,11 @@ RDEPENDS:${PN}-alpha-vantage = "\
 ALLOW_EMPTY:${PN}-amazon-polly = "1"
 RDEPENDS:${PN}-amazon-polly = "\
     python3-boto3 (>=1.34.131) \
+"
+
+ALLOW_EMPTY:${PN}-amberelectric = "1"
+RDEPENDS:${PN}-amberelectric = "\
+    python3-amberelectric (>=2.0.12) \
 "
 
 ALLOW_EMPTY:${PN}-aruba = "1"
@@ -772,6 +778,7 @@ RRECOMMENDS:${PN} += "\
     ${PN}-alpha-vantage \    
     ${PN}-aruba \
     ${PN}-amazon-polly \
+    ${PN}-amberelectric \
     ${PN}-axis \
     ${PN}-backup \
     ${PN}-bluesound \
