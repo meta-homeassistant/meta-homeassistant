@@ -25,6 +25,7 @@ PACKAGES += "\
     ${PN}-alpha-vantage \
     ${PN}-amazon-polly \
     ${PN}-amberelectric \
+    ${PN}-ampio \
     ${PN}-aruba \
     ${PN}-assist-pipeline \
     ${PN}-axis \
@@ -246,6 +247,11 @@ RDEPENDS:${PN}-amazon-polly = "\
 ALLOW_EMPTY:${PN}-amberelectric = "1"
 RDEPENDS:${PN}-amberelectric = "\
     python3-amberelectric (>=2.0.12) \
+"
+
+ALLOW_EMPTY:${PN}-ampio = "1"
+RDEPENDS:${PN}-ampio = "\
+    python3-asmog (>=0.0.6) \
 "
 
 ALLOW_EMPTY:${PN}-aruba = "1"
@@ -779,6 +785,7 @@ RRECOMMENDS:${PN} += "\
     ${PN}-aruba \
     ${PN}-amazon-polly \
     ${PN}-amberelectric \
+    ${PN}-ampio \
     ${PN}-axis \
     ${PN}-backup \
     ${PN}-bluesound \

@@ -31,6 +31,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-alpha-vantage \
     python3-homeassistant-amazon-polly \
     python3-homeassistant-amberelectric \
+    python3-homeassistant-ampio \
     python3-homeassistant-aruba \
     python3-homeassistant-assist-pipeline \
     python3-homeassistant-axis \
