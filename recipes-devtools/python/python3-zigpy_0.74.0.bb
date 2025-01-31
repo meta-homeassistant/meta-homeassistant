@@ -8,21 +8,21 @@ DEPENDS += "\
 "
 
 SRC_URI += "file://0001-Allow-setuptools-git-versioning-3.patch"
-SRC_URI[sha256sum] = "1bdddd84fdcc09f04ec81a7cd6dfca1692c42849e3a2f25f87f82c8f88f8c4f5"
+SRC_URI[sha256sum] = "0da0dc408f7acd25af3a920ba16326d385d2f35bd14975279e161a543b0481d4"
 
 inherit pypi python_setuptools_build_meta
 
 PYPI_PACKAGE = "zigpy"
 
 RDEPENDS:${PN} = "\
+    python3-attrs \
     python3-aiohttp \
     python3-aiosqlite (>=0.20.0) \
     python3-crccheck \
     python3-cryptography \
-    python3-frozendict \
+    python3-voluptuous \
     python3-jsonschema \
     python3-pyserial-asyncio \
     python3-typing-extensions \
-    python3-voluptuous \
-    python3-attrs \
+    python3-frozendict \
 "
