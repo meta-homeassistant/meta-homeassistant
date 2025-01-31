@@ -66,6 +66,8 @@ PACKAGES += "\
     ${PN}-isal \
     ${PN}-keyboard-remote \
     ${PN}-kwb \
+    ${PN}-local-calendar \
+    ${PN}-local-todo \
     ${PN}-matter \
     ${PN}-met \
     ${PN}-mobile-app \
@@ -470,6 +472,16 @@ RDEPENDS:${PN}-kwb = "\
     python3-pykwb (=0.0.8) \
 "
 
+ALLOW_EMPTY:${PN}-local-calendar = "1"
+RDEPENDS:${PN}-local-calendar = "\
+    python3-ical (>=8.2.0) \
+"
+
+ALLOW_EMPTY:${PN}-local-todo = "1"
+RDEPENDS:${PN}-local-todo = "\
+    python3-ical (>=8.2.0) \
+"
+
 ALLOW_EMPTY:${PN}-matter = "1"
 RDEPENDS:${PN}-matter = "\
     python3-python-matter-server (=6.6.0) \
@@ -814,6 +826,8 @@ RRECOMMENDS:${PN} += "\
     ${PN}-isal \
     ${PN}-keyboard-remote \
     ${PN}-kwb \
+    ${PN}-local-calendar \
+    ${PN}-local-todo \
     ${PN}-met \
     ${PN}-modbus \
     ${PN}-mqtt \

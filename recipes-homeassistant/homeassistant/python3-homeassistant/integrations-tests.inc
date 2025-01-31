@@ -136,8 +136,10 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-lawn-mower \
     ${PN}-life360 \
     ${PN}-light \
+    ${PN}-local-calendar \
     ${PN}-local-file \
     ${PN}-local-ip \
+    ${PN}-local-todo \
     ${PN}-locative \
     ${PN}-lock \
     ${PN}-logbook \
