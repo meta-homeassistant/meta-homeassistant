@@ -70,7 +70,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-dlna-dmr \
     ${PN}-dlna-dms \
     ${PN}-downloader \
-    ${PN}-dte-energy-bridge \
     ${PN}-duckdns \
     ${PN}-dunehd \
     ${PN}-eight-sleep \
@@ -196,7 +195,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-select \
     ${PN}-shopping-list \
     ${PN}-sigfox \
-    ${PN}-simulated \
     ${PN}-siren \
     ${PN}-smtp \
     ${PN}-spaceapi \
