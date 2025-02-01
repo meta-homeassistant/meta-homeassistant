@@ -180,7 +180,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-qwikswitch \
     ${PN}-radio-browser \
     ${PN}-random \
-    ${PN}-raspberry-pi \
     ${PN}-recorder \
     ${PN}-recovery-mode \
     ${PN}-remote \
@@ -245,6 +244,11 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-zodiac \
     ${PN}-zone \
     ${PN}-zwave-me \
+"
+
+# The following component is specific to this MACHINE_ARCH so treat it as such
+COMPONENT_TEST_PACKAGES:append:raspberrypi4 = "\
+    ${PN}-raspberry-pi \
 "
 
 python __anonymous() {
