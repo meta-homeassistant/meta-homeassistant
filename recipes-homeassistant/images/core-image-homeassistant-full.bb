@@ -48,6 +48,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-conversation \
     python3-homeassistant-cpuspeed \
     python3-homeassistant-debugpy \
+    python3-homeassistant-decora-wifi \
     python3-homeassistant-dhcp \
     python3-homeassistant-dlna-dmr \
     python3-homeassistant-dlna-dms \
@@ -72,6 +73,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-kwb \
     python3-homeassistant-local-calendar \
     python3-homeassistant-local-todo \
+    python3-homeassistant-luftdaten \
     python3-homeassistant-matter \
     python3-homeassistant-met \
     python3-homeassistant-mobile-app \
@@ -97,6 +99,8 @@ IMAGE_INSTALL = "\
     python3-homeassistant-sentry \
     python3-homeassistant-seven-segments \
     python3-homeassistant-shelly \
+    python3-homeassistant-simplisafe \
+    python3-homeassistant-sony-projector \
     python3-homeassistant-speedtestdotnet \
     python3-homeassistant-sql \
     python3-homeassistant-ssdp \

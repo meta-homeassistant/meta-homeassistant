@@ -42,6 +42,7 @@ PACKAGES += "\
     ${PN}-conversation \
     ${PN}-cpuspeed \
     ${PN}-debugpy \
+    ${PN}-decora-wifi \
     ${PN}-dhcp \
     ${PN}-dlna-dmr \
     ${PN}-dlna-dms \
@@ -69,6 +70,7 @@ PACKAGES += "\
     ${PN}-kwb \
     ${PN}-local-calendar \
     ${PN}-local-todo \
+    ${PN}-luftdaten \
     ${PN}-matter \
     ${PN}-met \
     ${PN}-mobile-app \
@@ -94,6 +96,8 @@ PACKAGES += "\
     ${PN}-sentry \
     ${PN}-seven-segments \
     ${PN}-shelly \
+    ${PN}-simplisafe \
+    ${PN}-sony-projector \
     ${PN}-speedtestdotnet \
     ${PN}-sql \
     ${PN}-ssdp \
@@ -112,6 +116,8 @@ PACKAGES += "\
     ${PN}-usb \
     ${PN}-utility-meter \
     ${PN}-vlc \
+    ${PN}-w800rf32 \
+    ${PN}-wirelesstag \
     ${PN}-zabbix \
     ${PN}-zeroconf \
     ${PN}-zestimate \
@@ -347,6 +353,11 @@ RDEPENDS:${PN}-debugpy = "\
     python3-debugpy (=1.8.11) \
 "
 
+ALLOW_EMPTY:${PN}-decora-wifi = "1"
+RDEPENDS:${PN}-decora-wifi = "\
+    python3-decora-wifi (=1.4) \
+"
+
 ALLOW_EMPTY:${PN}-dhcp = "1"
 RDEPENDS:${PN}-dhcp = "\
     python3-aiodhcpwatcher (=1.0.2) \
@@ -488,6 +499,11 @@ RDEPENDS:${PN}-local-todo = "\
     python3-ical (>=8.2.0) \
 "
 
+ALLOW_EMPTY:${PN}-luftdaten = "1"
+RDEPENDS:${PN}-luftdaten = "\
+    python3-luftdaten (=0.7.4) \
+"
+
 ALLOW_EMPTY:${PN}-matter = "1"
 RDEPENDS:${PN}-matter = "\
     python3-python-matter-server (=6.6.0) \
@@ -620,6 +636,16 @@ RDEPENDS:${PN}-shelly = "\
     python3-aioshelly (=12.2.0) \
 "
 
+ALLOW_EMPTY:${PN}-simplisafe = "1"
+RDEPENDS:${PN}-simplisafe = "\
+    python3-simplisafe-python (=2024.1.0) \
+"
+
+ALLOW_EMPTY:${PN}-sony-projector = "1"
+RDEPENDS:${PN}-sony-projector = "\
+    python3-pysdcp (=1) \
+"
+
 ALLOW_EMPTY:${PN}-speedtestdotnet = "1"
 RDEPENDS:${PN}-speedtestdotnet = "\
     python3-speedtest-cli (=2.1.3) \
@@ -714,6 +740,16 @@ RDEPENDS:${PN}-utility-meter = "\
 ALLOW_EMPTY:${PN}-vlc = "1"
 RDEPENDS:${PN}-vlc = "\
     python3-python-vlc (>=3.0.18122) \
+"
+
+ALLOW_EMPTY:${PN}-w800rf32 = "1"
+RDEPENDS:${PN}-w800rf32 = "\
+    python3-pyw800rf32 (= 0.4) \
+"
+
+ALLOW_EMPTY:${PN}-wirelesstag = "1"
+RDEPENDS:${PN}-wirelesstag = "\
+    python3-wirelesstagpy (=0.8.1) \
 "
 
 ALLOW_EMPTY:${PN}-zabbix = "1"
@@ -815,6 +851,7 @@ RRECOMMENDS:${PN} += "\
     ${PN}-compensation \
     ${PN}-cpuspeed \
     ${PN}-debugpy \
+    ${PN}-decora-wifi \
     ${PN}-dlna-dmr \
     ${PN}-dlna-dms \
     ${PN}-dunehd \
@@ -835,6 +872,7 @@ RRECOMMENDS:${PN} += "\
     ${PN}-kwb \
     ${PN}-local-calendar \
     ${PN}-local-todo \
+    ${PN}-luftdaten \
     ${PN}-met \
     ${PN}-modbus \
     ${PN}-mqtt \
@@ -856,6 +894,8 @@ RRECOMMENDS:${PN} += "\
     ${PN}-sentry \
     ${PN}-seven-segments \
     ${PN}-shelly \
+    ${PN}-simplisafe \
+    ${PN}-sony-projector \
     ${PN}-speedtestdotnet \
     ${PN}-sql \
     ${PN}-startca \
@@ -872,6 +912,8 @@ RRECOMMENDS:${PN} += "\
     ${PN}-upnp \
     ${PN}-utility-meter \
     ${PN}-vlc \
+    ${PN}-w800rf32 \
+    ${PN}-wirelesstag \
     ${PN}-zabbix \
     ${PN}-zestimate \
     ${PN}-zha \
