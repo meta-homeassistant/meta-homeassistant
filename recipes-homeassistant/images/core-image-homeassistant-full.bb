@@ -34,6 +34,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-ampio \
     python3-homeassistant-aruba \
     python3-homeassistant-assist-pipeline \
+    python3-homeassistant-atag \
     python3-homeassistant-axis \
     python3-homeassistant-backup \
     python3-homeassistant-bluesound \

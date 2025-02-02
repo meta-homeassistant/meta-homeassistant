@@ -31,6 +31,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-api \
     ${PN}-application-credentials \
     ${PN}-assist-satellite \
+    ${PN}-atag \
     ${PN}-auth \
     ${PN}-automation \
     ${PN}-backup \
@@ -135,7 +136,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-lawn-mower \
     ${PN}-life360 \
     ${PN}-light \
-    ${PN}-local-calendar \
     ${PN}-local-file \
     ${PN}-local-ip \
     ${PN}-local-todo \

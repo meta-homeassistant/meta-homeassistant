@@ -28,6 +28,7 @@ PACKAGES += "\
     ${PN}-ampio \
     ${PN}-aruba \
     ${PN}-assist-pipeline \
+    ${PN}-atag \
     ${PN}-axis \
     ${PN}-backup \
     ${PN}-bluesound \
@@ -265,6 +266,11 @@ ALLOW_EMPTY:${PN}-assist-pipeline = "1"
 RDEPENDS:${PN}-assist-pipeline = "\
     python3-pymicro-vad (=1.0.1) \
     python3-pyspeex-noise (=1.0.2) \
+"
+
+ALLOW_EMPTY:${PN}-atag = "1"
+RDEPENDS:${PN}-atag = "\
+    python3-pyatag (>=0.3.5.3) \
 "
 
 ALLOW_EMPTY:${PN}-axis = "1"
@@ -794,10 +800,11 @@ RRECOMMENDS:${PN} += "\
     ${PN}-airzone-cloud \    
     ${PN}-alarmdecoder \    
     ${PN}-alpha-vantage \    
-    ${PN}-aruba \
     ${PN}-amazon-polly \
     ${PN}-amberelectric \
     ${PN}-ampio \
+    ${PN}-aruba \
+    ${PN}-atag \
     ${PN}-axis \
     ${PN}-backup \
     ${PN}-bluesound \
