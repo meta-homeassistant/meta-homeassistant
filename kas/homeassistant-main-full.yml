@@ -1,31 +1,8 @@
 header:
   version: 14
+  includes:
+    - homeassistant-main.yml
 
 distro: homeassistant
 target: core-image-homeassistant-full
 
-repos:
-  meta-homeassistant:
-
-  poky:
-    url: https://git.yoctoproject.org/git/poky
-    branch: master
-    commit: "8d909f94a630ba582a81068dc1ea52ce3470c6fb"
-    layers:
-      meta:
-      meta-poky:
-
-  meta-openembedded:
-    url: http://git.openembedded.org/meta-openembedded
-    branch: master
-    layers:
-      meta-oe:
-      meta-python:
-      meta-networking:
-
-local_conf_header:
-
-  license_flags: |
-    LICENSE_FLAGS_ACCEPTED = "\
-      commercial_ffmpeg \
-    "
