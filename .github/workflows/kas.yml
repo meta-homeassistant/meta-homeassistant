@@ -12,6 +12,11 @@ jobs:
         yocto-version: [main]
         machine: [qemu, container]
     steps:
+    - name: Setup unpriviledged user namespaces
+      # https://discourse.ubuntu.com/t/ubuntu-24-04-lts-noble-numbat-release-notes/39890
+      run: |
+        sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+
     - name: Reclaim the bytes
       uses: data-intuitive/reclaim-the-bytes@v2
       with:
