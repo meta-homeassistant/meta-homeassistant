@@ -1,7 +1,7 @@
 header:
   version: 14
 
-local_conf_header:  
+local_conf_header:
   reduce_diskspace: |
     INHERIT += "rm_work_and_downloads"
 
@@ -14,10 +14,10 @@ local_conf_header:
     DISTRO_FEATURES_BACKFILL_CONSIDERED = "sysvinit"
 
   Yocto Sstate cache: |
-    BB_SIGNATURE_HANDLER = "OEEquivHash"
+    BB_HASHSERVE_UPSTREAM = "wss://hashserv.yoctoproject.org/ws"
+    SSTATE_MIRRORS ?= "file://.* http://cdn.jsdelivr.net/yocto/sstate/all/PATH;downloadfilename=PATH"
     BB_HASHSERVE = "auto"
-    BB_HASHSERVE_UPSTREAM = "hashserv.yocto.io:8687"
-    SSTATE_MIRRORS:append = " file://.* https://sstate.yoctoproject.org/all/PATH;downloadfilename=PATH"
+    BB_SIGNATURE_HANDLER = "OEEquivHash"
 
   Yocto Source mirror: |
     MIRRORS:append = "\

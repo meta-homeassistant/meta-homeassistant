@@ -41,6 +41,15 @@ To build against latest Yocto master use:
 kas build kas/homeassistant-main.yml
 ```
 
+## Updating lock file
+
+The dependencies are locked to a given version. In order to update the layers run:
+
+```
+kas lock --update kas/homeassistant-main.yml
+kas lock --update kas/homeassistant-main-full.yml
+```
+
 # Dependencies
 
 ```
@@ -69,8 +78,8 @@ Also to note is that packages in HomeAssistant update very rapidly. This means t
 All missing recipes are backported into this layer to ensure functionality from meta-openembedded and poky.
 
 # Configuring HA
-Note that with `python3-homeassistant.bb` only the critical components are directly installed via `RDEPENDS`. 
-Any optional component is installed via `RRECOMMENDS`. 
+Note that with `python3-homeassistant.bb` only the critical components are directly installed via `RDEPENDS`.
+Any optional component is installed via `RRECOMMENDS`.
 So if you are missing something you can enforce it by specifically adding it to an `IMAGE_INSTALL`.
 
 # Layer structure
