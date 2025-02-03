@@ -1,6 +1,6 @@
 SUMMARY = "Faster zlib and gzip compatible compression and decompression by providing python bindings for the isa-l library."
 HOMEPAGE = "https://github.com/pycompression/python-isal"
-LICENSE = "PSF-2.0 & BSD-3-Clause"
+LICENSE = "PSF-2.0"
 LIC_FILES_CHKSUM = "\
     file://${WHL_BP}.dist-info/LICENSE;md5=18130810ab035d8cac1d00602892f13d \
 "
@@ -20,13 +20,14 @@ WHL_BPN = "isal"
 WHL_BP = "isal-${PV}"
 
 SRC_URI:x86-64 = "\
-    https://files.pythonhosted.org/packages/7f/46/0c0a1dafc2c5ee4f1bb6f87a09841bf37e4148dbda4f088ac6a3fc0e57c8/${WHL_BP}-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl;downloadfilename=${BP}.zip;subdir=${BP};name=x86-64 \
+    https://files.pythonhosted.org/packages/c3/de/f85284cd757028fc388edb694e13371b04372546cf21f6ee66fd16ddf7ce/${WHL_BP}-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl;downloadfilename=${BP}.zip;subdir=${BP};name=x86-64 \
 "
 
 SRC_URI:aarch64 = "\
-    https://files.pythonhosted.org/packages/ee/6f/2064c978ea6912dbc10e5ceb2ae535563222f8758ee5b8d74a70ecad4424/${WHL_BP}-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl;downloadfilename=${BP}.zip;subdir=${BP};name=aarch64 \
+    https://files.pythonhosted.org/packages/17/8c/fea8c856eb35c739cea3d886153e474ccbff07326a29565805189de9064e/${WHL_BP}-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl;downloadfilename=${BP}.zip;subdir=${BP};name=aarch64 \
 "
-SRC_URI[x86-64.sha256sum] = "f2d931e35e70a2d0e32124b4a2d5aeb5b1016b497c95a75a36ddfeaa68d06645"
+
+SRC_URI[x86-64.sha256sum] = "c2474249bc5789656e6d7dd1fee1394aab5f46f7835c6ff6c0adc0f9320645ce"
 SRC_URI[aarch64.sha256sum] = "24dda4a2c3eae0e1aaf16283b71f6b4ad75d7784d9e7d9545330bfcd274699bc"
 
 do_install() {

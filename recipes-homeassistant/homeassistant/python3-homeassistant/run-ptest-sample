@@ -7,8 +7,4 @@ pytest -n auto --automake \
   --ignore=tests/components/ \
   -k "not test_merge \
   and not test_get_system_info_supervisor_not_loaded \
-  and not test_check_package_fragment \
-  and not test_hass_components_use_reported \
-  and not test_create_eager_task_from_thread_in_integration \
-  and not test_config_platform_valid \
-"
+  "

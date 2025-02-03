@@ -8,12 +8,12 @@ DEPENDS += "\
 "
 
 SRC_URI += "file://0001-Allow-setuptools-git-versioning-3.patch"
-SRC_URI[sha256sum] = "8b54ad856ee427fc0706b718dab03bf17d641fbc11c8029a5b7e8c7d0aff906b"
+SRC_URI[sha256sum] = "b54dfa4f966358ffb0f59967b7329ccd7480b2b7c7c37da8309cfce59ef963b2"
 
 inherit pypi python_setuptools_build_meta
 
 PYPI_PACKAGE = "zha_quirks"
 
 RDEPENDS:${PN} += "\
-    python3-zigpy (>=0.70.0) \
+    python3-zigpy (>=0.74.0) \
 "

@@ -21,15 +21,18 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-airvisual-pro \
     ${PN}-airzone \
     ${PN}-airzone-cloud \
-    ${PN}-alarmdecoder \
     ${PN}-aladdin-connect \
     ${PN}-alarm-control-panel \
+    ${PN}-alarmdecoder \
     ${PN}-alert \
     ${PN}-alexa \
+    ${PN}-amberelectric \
     ${PN}-analytics \
     ${PN}-api \
     ${PN}-application-credentials \
+    ${PN}-assist-pipeline \
     ${PN}-assist-satellite \
+    ${PN}-atag \
     ${PN}-auth \
     ${PN}-automation \
     ${PN}-backup \
@@ -69,7 +72,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-dlna-dmr \
     ${PN}-dlna-dms \
     ${PN}-downloader \
-    ${PN}-dte-energy-bridge \
     ${PN}-duckdns \
     ${PN}-dunehd \
     ${PN}-eight-sleep \
@@ -137,6 +139,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-light \
     ${PN}-local-file \
     ${PN}-local-ip \
+    ${PN}-local-todo \
     ${PN}-locative \
     ${PN}-lock \
     ${PN}-logbook \
@@ -144,6 +147,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-logger \
     ${PN}-london-air \
     ${PN}-lovelace \
+    ${PN}-luftdaten \
     ${PN}-manual \
     ${PN}-matter \
     ${PN}-mazda \
@@ -178,7 +182,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-qwikswitch \
     ${PN}-radio-browser \
     ${PN}-random \
-    ${PN}-raspberry-pi \
     ${PN}-recorder \
     ${PN}-recovery-mode \
     ${PN}-remote \
@@ -193,7 +196,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-select \
     ${PN}-shopping-list \
     ${PN}-sigfox \
-    ${PN}-simulated \
+    ${PN}-simplisafe \
     ${PN}-siren \
     ${PN}-smtp \
     ${PN}-spaceapi \
@@ -244,6 +247,11 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-zodiac \
     ${PN}-zone \
     ${PN}-zwave-me \
+"
+
+# The following component is specific to this MACHINE_ARCH so treat it as such
+COMPONENT_TEST_PACKAGES:append:raspberrypi4 = "\
+    ${PN}-raspberry-pi \
 "
 
 python __anonymous() {

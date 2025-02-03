@@ -24,8 +24,11 @@ PACKAGES += "\
     ${PN}-alarmdecoder \
     ${PN}-alpha-vantage \
     ${PN}-amazon-polly \
+    ${PN}-amberelectric \
+    ${PN}-ampio \
     ${PN}-aruba \
     ${PN}-assist-pipeline \
+    ${PN}-atag \
     ${PN}-axis \
     ${PN}-backup \
     ${PN}-bluesound \
@@ -39,6 +42,7 @@ PACKAGES += "\
     ${PN}-conversation \
     ${PN}-cpuspeed \
     ${PN}-debugpy \
+    ${PN}-decora-wifi \
     ${PN}-dhcp \
     ${PN}-dlna-dmr \
     ${PN}-dlna-dms \
@@ -64,6 +68,9 @@ PACKAGES += "\
     ${PN}-isal \
     ${PN}-keyboard-remote \
     ${PN}-kwb \
+    ${PN}-local-calendar \
+    ${PN}-local-todo \
+    ${PN}-luftdaten \
     ${PN}-matter \
     ${PN}-met \
     ${PN}-mobile-app \
@@ -89,6 +96,8 @@ PACKAGES += "\
     ${PN}-sentry \
     ${PN}-seven-segments \
     ${PN}-shelly \
+    ${PN}-simplisafe \
+    ${PN}-sony-projector \
     ${PN}-speedtestdotnet \
     ${PN}-sql \
     ${PN}-ssdp \
@@ -107,6 +116,8 @@ PACKAGES += "\
     ${PN}-usb \
     ${PN}-utility-meter \
     ${PN}-vlc \
+    ${PN}-w800rf32 \
+    ${PN}-wirelesstag \
     ${PN}-zabbix \
     ${PN}-zeroconf \
     ${PN}-zestimate \
@@ -219,7 +230,7 @@ RDEPENDS:${PN}-airvisual-pro = "\
 
 ALLOW_EMPTY:${PN}-airzone = "1"
 RDEPENDS:${PN}-airzone = "\
-    python3-aioairzone (=0.9.7) \
+    python3-aioairzone (=0.9.9) \
 "
 
 ALLOW_EMPTY:${PN}-airzone-cloud = "1"
@@ -242,6 +253,16 @@ RDEPENDS:${PN}-amazon-polly = "\
     python3-boto3 (>=1.34.131) \
 "
 
+ALLOW_EMPTY:${PN}-amberelectric = "1"
+RDEPENDS:${PN}-amberelectric = "\
+    python3-amberelectric (>=2.0.12) \
+"
+
+ALLOW_EMPTY:${PN}-ampio = "1"
+RDEPENDS:${PN}-ampio = "\
+    python3-asmog (>=0.0.6) \
+"
+
 ALLOW_EMPTY:${PN}-aruba = "1"
 RDEPENDS:${PN}-aruba = "\
     python3-pexpect (>=4.6.0) \
@@ -251,6 +272,11 @@ ALLOW_EMPTY:${PN}-assist-pipeline = "1"
 RDEPENDS:${PN}-assist-pipeline = "\
     python3-pymicro-vad (=1.0.1) \
     python3-pyspeex-noise (=1.0.2) \
+"
+
+ALLOW_EMPTY:${PN}-atag = "1"
+RDEPENDS:${PN}-atag = "\
+    python3-pyatag (>=0.3.5.3) \
 "
 
 ALLOW_EMPTY:${PN}-axis = "1"
@@ -277,7 +303,7 @@ RDEPENDS:${PN}-bluetooth = "\
     python3-bluetooth-auto-recovery (=1.4.2) \
     python3-bluetooth-data-tools (=1.20.0) \
     python3-dbus-fast (>=2.24.3) \
-    python3-habluetooth (=3.6.0) \
+    python3-habluetooth (=3.7.0) \
 "
 
 ALLOW_EMPTY:${PN}-bluetooth-tracker = "1"
@@ -325,6 +351,11 @@ RDEPENDS:${PN}-cpuspeed = "\
 ALLOW_EMPTY:${PN}-debugpy = "1"
 RDEPENDS:${PN}-debugpy = "\
     python3-debugpy (=1.8.11) \
+"
+
+ALLOW_EMPTY:${PN}-decora-wifi = "1"
+RDEPENDS:${PN}-decora-wifi = "\
+    python3-decora-wifi (=1.4) \
 "
 
 ALLOW_EMPTY:${PN}-dhcp = "1"
@@ -383,7 +414,7 @@ RDEPENDS:${PN}-fritzbox-callmonitor = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    python3-home-assistant-frontend (>=20250103.0) \
+    python3-home-assistant-frontend (>=20250109.2) \
 "
 
 ALLOW_EMPTY:${PN}-generic = "1"
@@ -458,6 +489,21 @@ RDEPENDS:${PN}-kwb = "\
     python3-pykwb (=0.0.8) \
 "
 
+ALLOW_EMPTY:${PN}-local-calendar = "1"
+RDEPENDS:${PN}-local-calendar = "\
+    python3-ical (>=8.2.0) \
+"
+
+ALLOW_EMPTY:${PN}-local-todo = "1"
+RDEPENDS:${PN}-local-todo = "\
+    python3-ical (>=8.2.0) \
+"
+
+ALLOW_EMPTY:${PN}-luftdaten = "1"
+RDEPENDS:${PN}-luftdaten = "\
+    python3-luftdaten (=0.7.4) \
+"
+
 ALLOW_EMPTY:${PN}-matter = "1"
 RDEPENDS:${PN}-matter = "\
     python3-python-matter-server (=6.6.0) \
@@ -495,7 +541,7 @@ RDEPENDS:${PN}-network = "\
 
 ALLOW_EMPTY:${PN}-nmap-tracker = "1"
 RDEPENDS:${PN}-nmap-tracker = "\
-    python3-aiooui (=0.1.7) \
+    python3-aiooui (=0.1.9) \
     python3-getmac (=0.9.4) \
     python3-netmap (=0.7.0.2) \
 "
@@ -588,6 +634,16 @@ RDEPENDS:${PN}-seven-segments = "\
 ALLOW_EMPTY:${PN}-shelly = "1"
 RDEPENDS:${PN}-shelly = "\
     python3-aioshelly (=12.2.0) \
+"
+
+ALLOW_EMPTY:${PN}-simplisafe = "1"
+RDEPENDS:${PN}-simplisafe = "\
+    python3-simplisafe-python (=2024.1.0) \
+"
+
+ALLOW_EMPTY:${PN}-sony-projector = "1"
+RDEPENDS:${PN}-sony-projector = "\
+    python3-pysdcp (=1) \
 "
 
 ALLOW_EMPTY:${PN}-speedtestdotnet = "1"
@@ -686,6 +742,16 @@ RDEPENDS:${PN}-vlc = "\
     python3-python-vlc (>=3.0.18122) \
 "
 
+ALLOW_EMPTY:${PN}-w800rf32 = "1"
+RDEPENDS:${PN}-w800rf32 = "\
+    python3-pyw800rf32 (= 0.4) \
+"
+
+ALLOW_EMPTY:${PN}-wirelesstag = "1"
+RDEPENDS:${PN}-wirelesstag = "\
+    python3-wirelesstagpy (=0.8.1) \
+"
+
 ALLOW_EMPTY:${PN}-zabbix = "1"
 RDEPENDS:${PN}-zabbix = "\
     python3-py-zabbix (=1.1.7) \
@@ -703,7 +769,7 @@ RDEPENDS:${PN}-zestimate = "\
 
 ALLOW_EMPTY:${PN}-zha = "1"
 RDEPENDS:${PN}-zha = "\
-    python3-zha (>=0.0.44) \
+    python3-zha (>=0.0.45) \
     python3-universal-silabs-flasher (>=0.0.25) \
 "
 
@@ -770,8 +836,11 @@ RRECOMMENDS:${PN} += "\
     ${PN}-airzone-cloud \    
     ${PN}-alarmdecoder \    
     ${PN}-alpha-vantage \    
-    ${PN}-aruba \
     ${PN}-amazon-polly \
+    ${PN}-amberelectric \
+    ${PN}-ampio \
+    ${PN}-aruba \
+    ${PN}-atag \
     ${PN}-axis \
     ${PN}-backup \
     ${PN}-bluesound \
@@ -782,6 +851,7 @@ RRECOMMENDS:${PN} += "\
     ${PN}-compensation \
     ${PN}-cpuspeed \
     ${PN}-debugpy \
+    ${PN}-decora-wifi \
     ${PN}-dlna-dmr \
     ${PN}-dlna-dms \
     ${PN}-dunehd \
@@ -800,6 +870,9 @@ RRECOMMENDS:${PN} += "\
     ${PN}-isal \
     ${PN}-keyboard-remote \
     ${PN}-kwb \
+    ${PN}-local-calendar \
+    ${PN}-local-todo \
+    ${PN}-luftdaten \
     ${PN}-met \
     ${PN}-modbus \
     ${PN}-mqtt \
@@ -821,6 +894,8 @@ RRECOMMENDS:${PN} += "\
     ${PN}-sentry \
     ${PN}-seven-segments \
     ${PN}-shelly \
+    ${PN}-simplisafe \
+    ${PN}-sony-projector \
     ${PN}-speedtestdotnet \
     ${PN}-sql \
     ${PN}-startca \
@@ -837,6 +912,8 @@ RRECOMMENDS:${PN} += "\
     ${PN}-upnp \
     ${PN}-utility-meter \
     ${PN}-vlc \
+    ${PN}-w800rf32 \
+    ${PN}-wirelesstag \
     ${PN}-zabbix \
     ${PN}-zestimate \
     ${PN}-zha \

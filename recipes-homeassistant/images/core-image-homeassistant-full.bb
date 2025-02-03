@@ -30,8 +30,11 @@ IMAGE_INSTALL = "\
     python3-homeassistant-alarmdecoder \
     python3-homeassistant-alpha-vantage \
     python3-homeassistant-amazon-polly \
+    python3-homeassistant-amberelectric \
+    python3-homeassistant-ampio \
     python3-homeassistant-aruba \
     python3-homeassistant-assist-pipeline \
+    python3-homeassistant-atag \
     python3-homeassistant-axis \
     python3-homeassistant-backup \
     python3-homeassistant-bluesound \
@@ -45,6 +48,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-conversation \
     python3-homeassistant-cpuspeed \
     python3-homeassistant-debugpy \
+    python3-homeassistant-decora-wifi \
     python3-homeassistant-dhcp \
     python3-homeassistant-dlna-dmr \
     python3-homeassistant-dlna-dms \
@@ -67,6 +71,9 @@ IMAGE_INSTALL = "\
     python3-homeassistant-isal \
     python3-homeassistant-keyboard-remote \
     python3-homeassistant-kwb \
+    python3-homeassistant-local-calendar \
+    python3-homeassistant-local-todo \
+    python3-homeassistant-luftdaten \
     python3-homeassistant-matter \
     python3-homeassistant-met \
     python3-homeassistant-mobile-app \
@@ -92,6 +99,8 @@ IMAGE_INSTALL = "\
     python3-homeassistant-sentry \
     python3-homeassistant-seven-segments \
     python3-homeassistant-shelly \
+    python3-homeassistant-simplisafe \
+    python3-homeassistant-sony-projector \
     python3-homeassistant-speedtestdotnet \
     python3-homeassistant-sql \
     python3-homeassistant-ssdp \
