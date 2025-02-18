@@ -22,7 +22,7 @@ local_conf_header:
   raspberry: |
     RPI_USE_U_BOOT = "1"
     ENABLE_UART = "1"
-    LICENSE_FLAGS_WHITELIST = "commercial"
+    LICENSE_FLAGS_ACCEPTED = "commercial"
     IMAGE_INSTALL:append = " kernel-image kernel-modules"
 
   standard: |
