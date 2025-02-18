@@ -29,7 +29,7 @@ local_conf_header:
     PATCHRESOLVE = "noop"
     CONF_VERSION = "2"
     PACKAGE_CLASSES ?= "package_ipk"
-    EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
+    EXTRA_IMAGE_FEATURES ?= "empty-root-password allow-empty-password allow-root-login post-install-logging"
     USER_CLASSES ?= "buildstats"
     PACKAGECONFIG:append:pn-qemu-native = " sdl"
     PACKAGECONFIG:append:pn-nativesdk-qemu = " sdl"
