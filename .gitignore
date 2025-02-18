@@ -2,3 +2,11 @@ build*/
 .venv
 *.csv
 HA/
+
+# kas
+.kas_shell_history
+meta-openembedded/
+meta-raspberrypi/
+meta-swupdate-boards/
+meta-swupdate/
+poky/
