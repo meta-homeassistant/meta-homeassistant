@@ -27,7 +27,7 @@ local_conf_header:
 
   standard: |
     PATCHRESOLVE = "noop"
-    CONF_VERSION = "1"
+    CONF_VERSION = "2"
     PACKAGE_CLASSES ?= "package_ipk"
     EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
     USER_CLASSES ?= "buildstats"
