@@ -8,15 +8,15 @@ target: core-image-homeassistant
 repos:
   meta-raspberrypi:
     url : "git://git.yoctoproject.org/meta-raspberrypi"
-    refspec : master
+    branch : master
 
   meta-swupdate:
     url : "https://github.com/sbabic/meta-swupdate.git"
-    refspec : master
+    branch : master
 
   meta-swupdate-boards:
     url : "https://github.com/sbabic/meta-swupdate-boards.git"
-    refspec : master
+    branch : master
 
 local_conf_header:
   raspberry: |
