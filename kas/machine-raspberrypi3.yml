@@ -30,7 +30,7 @@ local_conf_header:
     CONF_VERSION = "1"
     PACKAGE_CLASSES ?= "package_ipk"
     EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
-    USER_CLASSES ?= "buildstats image-mklibs image-prelink"
+    USER_CLASSES ?= "buildstats"
     PACKAGECONFIG:append:pn-qemu-native = " sdl"
     PACKAGECONFIG:append:pn-nativesdk-qemu = " sdl"
     INHERIT += "image-buildinfo"
