@@ -6,12 +6,17 @@ jobs:
   build:
 
     timeout-minutes: 360
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         yocto-version: [main]
         machine: [qemu, container]
     steps:
+    - name: Setup unpriviledged user namespaces
+      # https://discourse.ubuntu.com/t/ubuntu-24-04-lts-noble-numbat-release-notes/39890
+      run: |
+        sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+
     - name: Reclaim the bytes
       uses: data-intuitive/reclaim-the-bytes@v2
       with:
@@ -27,7 +32,7 @@ jobs:
         remove-swap: false
     - name: Install dependencies
       run: |
-        sudo apt install gawk wget git diffstat unzip texinfo gcc build-essential chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 python3-subunit zstd liblz4-tool file locales libacl1
+        sudo apt install gawk wget git diffstat unzip texinfo gcc build-essential chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 python3-subunit python3-websockets zstd liblz4-tool file locales libacl1
         sudo locale-gen en_US.UTF-8
         df -h
     - uses: actions/checkout@v1
