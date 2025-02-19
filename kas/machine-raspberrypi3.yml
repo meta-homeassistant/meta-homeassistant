@@ -8,29 +8,29 @@ target: core-image-homeassistant
 repos:
   meta-raspberrypi:
     url : "git://git.yoctoproject.org/meta-raspberrypi"
-    refspec : master
+    branch : master
 
   meta-swupdate:
     url : "https://github.com/sbabic/meta-swupdate.git"
-    refspec : master
+    branch : master
 
   meta-swupdate-boards:
     url : "https://github.com/sbabic/meta-swupdate-boards.git"
-    refspec : master
+    branch : master
 
 local_conf_header:
   raspberry: |
     RPI_USE_U_BOOT = "1"
     ENABLE_UART = "1"
-    LICENSE_FLAGS_WHITELIST = "commercial"
+    LICENSE_FLAGS_ACCEPTED = "commercial"
     IMAGE_INSTALL:append = " kernel-image kernel-modules"
 
   standard: |
     PATCHRESOLVE = "noop"
-    CONF_VERSION = "1"
+    CONF_VERSION = "2"
     PACKAGE_CLASSES ?= "package_ipk"
-    EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
-    USER_CLASSES ?= "buildstats image-mklibs image-prelink"
+    EXTRA_IMAGE_FEATURES ?= "empty-root-password allow-empty-password allow-root-login post-install-logging"
+    USER_CLASSES ?= "buildstats"
     PACKAGECONFIG:append:pn-qemu-native = " sdl"
     PACKAGECONFIG:append:pn-nativesdk-qemu = " sdl"
     INHERIT += "image-buildinfo"
