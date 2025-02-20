@@ -2,5 +2,3 @@ header:
   version: 14
 
 machine: qemuarm64
-distro: homeassistant
-target: core-image-homeassistant

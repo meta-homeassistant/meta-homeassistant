@@ -1,8 +1,8 @@
 header:
   version: 14
 
-distro: homeassistant
-target: core-image-homeassistant
+distro: poky
+target: python3-homeassistant
 
 repos:
   meta-homeassistant:
