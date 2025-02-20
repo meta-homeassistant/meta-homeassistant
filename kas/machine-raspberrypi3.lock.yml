@@ -1,0 +1,10 @@
+header:
+    version: 14
+overrides:
+    repos:
+        meta-raspberrypi:
+            commit: 923ac579c78ca42d425c303c34b65e199470ef67
+        meta-swupdate:
+            commit: 66b195e6a879bd17f26878ab8d725b1e7b145322
+        meta-swupdate-boards:
+            commit: 67209aed77c0c4dff771f070a3e5f45410ae8449

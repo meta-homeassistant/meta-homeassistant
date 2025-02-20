@@ -7,8 +7,6 @@ repos:
       meta-yocto-bsp:
 
 machine: genericx86-64
-distro: homeassistant
-target: container-homeassistant
 
 local_conf_header:
   container: |

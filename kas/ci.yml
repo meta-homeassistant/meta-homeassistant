@@ -5,14 +5,6 @@ local_conf_header:
   reduce_diskspace: |
     INHERIT += "rm_work_and_downloads"
 
-  Strip down unneeded features: |
-    POKY_DEFAULT_DISTRO_FEATURES:remove = "ptest"
-    POKY_DEFAULT_DISTRO_FEATURES:remove = "wayland"
-    DISTRO_FEATURES_DEFAULT:remove = "x11"
-    DISTRO_FEATURES:append = " systemd usrmerge"
-    VIRTUAL-RUNTIME_init_manager = "systemd"
-    DISTRO_FEATURES_BACKFILL_CONSIDERED = "sysvinit"
-
   Yocto Sstate cache: |
     BB_HASHSERVE_UPSTREAM = "wss://hashserv.yoctoproject.org/ws"
     SSTATE_MIRRORS ?= "file://.* http://cdn.jsdelivr.net/yocto/sstate/all/PATH;downloadfilename=PATH"
