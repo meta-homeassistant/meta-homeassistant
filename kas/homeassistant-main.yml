@@ -15,7 +15,7 @@ repos:
       meta-poky:
 
   meta-openembedded:
-    url: http://git.openembedded.org/meta-openembedded
+    url: https://git.openembedded.org/meta-openembedded
     branch: master
     layers:
       meta-oe:
