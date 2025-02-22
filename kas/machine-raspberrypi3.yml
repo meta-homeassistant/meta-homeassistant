@@ -44,4 +44,4 @@ local_conf_header:
 
   swu-specific: |
     IMAGE_FSTYPES += " ext4 ext4.gz ext4.zst wic.xz wic.bmap"
-    WKS_FILES_raspberrypi3 = "ts-raspberrypi.wks"
+    WKS_FILES:raspberrypi3 = "ts-raspberrypi.wks"
