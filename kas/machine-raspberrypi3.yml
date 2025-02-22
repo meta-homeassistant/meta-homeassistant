@@ -43,5 +43,5 @@ local_conf_header:
     VIRTUAL-RUNTIME_initscripts = "systemd-compat-units"
 
   swu-specific: |
-    IMAGE_FSTYPES += " ext4 ext4.gz ext4.zst wic"
+    IMAGE_FSTYPES += " ext4 ext4.gz ext4.zst wic.xz wic.bmap"
     WKS_FILES_raspberrypi3 = "ts-raspberrypi.wks"
