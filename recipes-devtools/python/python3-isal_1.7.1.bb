@@ -28,7 +28,7 @@ SRC_URI:aarch64 = "\
 "
 
 SRC_URI[x86-64.sha256sum] = "c2474249bc5789656e6d7dd1fee1394aab5f46f7835c6ff6c0adc0f9320645ce"
-SRC_URI[aarch64.sha256sum] = "24dda4a2c3eae0e1aaf16283b71f6b4ad75d7784d9e7d9545330bfcd274699bc"
+SRC_URI[aarch64.sha256sum] = "446d8392feae87423a589e21d7b9dc218ec2bf96cc36c05b53fc49036ac95e5b"
 
 do_install() {
     install -d ${D}${libdir}/${PYTHON_DIR}/site-packages/${WHL_BPN}

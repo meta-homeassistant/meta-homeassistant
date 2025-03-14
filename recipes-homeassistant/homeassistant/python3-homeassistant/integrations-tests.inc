@@ -32,7 +32,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-analytics \
     ${PN}-api \
     ${PN}-application-credentials \
-    ${PN}-assist-pipeline \
     ${PN}-assist-satellite \
     ${PN}-atag \
     ${PN}-auth \
@@ -151,7 +150,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-lovelace \
     ${PN}-luftdaten \
     ${PN}-manual \
-    ${PN}-matter \
     ${PN}-mazda \
     ${PN}-media-player \
     ${PN}-media-source \
@@ -176,7 +174,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-openhardwaremonitor \
     ${PN}-otp \
     ${PN}-panel-custom \
-    ${PN}-peblar \
     ${PN}-peco \
     ${PN}-persistent-notification \
     ${PN}-person \
