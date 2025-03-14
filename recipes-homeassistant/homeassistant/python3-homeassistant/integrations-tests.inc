@@ -27,6 +27,8 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-alert \
     ${PN}-alexa \
     ${PN}-amberelectric \
+    ${PN}-ambient-network \
+    ${PN}-ambient-station \
     ${PN}-analytics \
     ${PN}-api \
     ${PN}-application-credentials \
@@ -174,6 +176,8 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-openhardwaremonitor \
     ${PN}-otp \
     ${PN}-panel-custom \
+    ${PN}-peblar \
+    ${PN}-peco \
     ${PN}-persistent-notification \
     ${PN}-person \
     ${PN}-plant \
