@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         yocto-version: [main]
-        machine: [qemu, container]
+        machine: [qemuarm64, qemux86-64]
     steps:
     - name: Setup unpriviledged user namespaces
       # https://discourse.ubuntu.com/t/ubuntu-24-04-lts-noble-numbat-release-notes/39890

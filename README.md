@@ -24,7 +24,7 @@ bitbake-layers add-layer ../meta-homeassistant
 
 bitbake core-image-homeassistant
 
-runqemu qemux86 nographic
+runqemu nographic
 
 ```
 
@@ -37,6 +37,7 @@ The project provides files to quickly get started using [kas](https://github.com
 The two main entry points are `kas/homeassistant-main.yml` and `kas/homeassistant-main-full.yml`.
 
 To build against latest Yocto master use:
+
 ```
 kas build kas/homeassistant-main.yml
 ```
@@ -47,7 +48,6 @@ The dependencies are locked to a given version. In order to update the layers ru
 
 ```
 kas lock --update kas/homeassistant-main.yml
-kas lock --update kas/homeassistant-main-full.yml
 ```
 
 # Dependencies
@@ -78,11 +78,13 @@ Also to note is that packages in HomeAssistant update very rapidly. This means t
 All missing recipes are backported into this layer to ensure functionality from meta-openembedded and poky.
 
 # Configuring HA
+
 Note that with `python3-homeassistant.bb` only the critical components are directly installed via `RDEPENDS`.
 Any optional component is installed via `RRECOMMENDS`.
 So if you are missing something you can enforce it by specifically adding it to an `IMAGE_INSTALL`.
 
 # Layer structure
+
 The layer is structured in the following way:
 
 - kas: contains all kas configuration.
@@ -93,12 +95,13 @@ The layer is structured in the following way:
 - scripts: convenience scripts for easier upgrades between versions.
 
 # Testing
+
 Ptest support is provided for homeassistant and all currently supported integrations. The list can be seen in `integrations-test.inc`.
 Homeassistant is tested with qemux86-64 architecture to see if all ptest pass before upgrading versions.
 
 # Contributing
 
-Please submit any patches against the homeassistant as Pull Requests on Github.
+Please submit any patches against meta-homeassistant as Pull Requests on Github.
 
 ## Maintainers
 
