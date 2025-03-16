@@ -31,6 +31,8 @@ IMAGE_INSTALL = "\
     python3-homeassistant-alpha-vantage \
     python3-homeassistant-amazon-polly \
     python3-homeassistant-amberelectric \
+    python3-homeassistant-ambient-network \
+    python3-homeassistant-ambient-station \
     python3-homeassistant-ampio \
     python3-homeassistant-aruba \
     python3-homeassistant-assist-pipeline \
@@ -88,6 +90,8 @@ IMAGE_INSTALL = "\
     python3-homeassistant-otp \
     python3-homeassistant-owntracks \
     python3-homeassistant-pandora \
+    python3-homeassistant-peblar \
+    python3-homeassistant-peco \
     python3-homeassistant-private-ble-device \
     python3-homeassistant-proxy \
     python3-homeassistant-pulseaudio-loopback \

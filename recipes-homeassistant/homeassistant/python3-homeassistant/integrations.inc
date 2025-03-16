@@ -25,6 +25,8 @@ PACKAGES += "\
     ${PN}-alpha-vantage \
     ${PN}-amazon-polly \
     ${PN}-amberelectric \
+    ${PN}-ambient-network \
+    ${PN}-ambient-station \
     ${PN}-ampio \
     ${PN}-aruba \
     ${PN}-assist-pipeline \
@@ -85,6 +87,8 @@ PACKAGES += "\
     ${PN}-otp \
     ${PN}-owntracks \
     ${PN}-pandora \
+    ${PN}-peblar \
+    ${PN}-peco \
     ${PN}-private-ble-device \
     ${PN}-proxy \
     ${PN}-pulseaudio-loopback \
@@ -256,6 +260,16 @@ RDEPENDS:${PN}-amazon-polly = "\
 ALLOW_EMPTY:${PN}-amberelectric = "1"
 RDEPENDS:${PN}-amberelectric = "\
     python3-amberelectric (>=2.0.12) \
+"
+
+ALLOW_EMPTY:${PN}-ambient-network = "1"
+RDEPENDS:${PN}-ambient-network = "\
+    python3-aioambient (>=2024.08.0) \
+"
+
+ALLOW_EMPTY:${PN}-ambient-station = "1"
+RDEPENDS:${PN}-ambient-station = "\
+    python3-aioambient (>=2024.08.0) \
 "
 
 ALLOW_EMPTY:${PN}-ampio = "1"
@@ -576,6 +590,16 @@ RDEPENDS:${PN}-pandora = "\
     python3-pexpect (>=4.6.0) \
 "
 
+ALLOW_EMPTY:${PN}-peblar = "1"
+RDEPENDS:${PN}-peblar = "\
+    python3-peblar (>=0.4.0) \
+"
+
+ALLOW_EMPTY:${PN}-peco = "1"
+RDEPENDS:${PN}-peco = "\
+    python3-peco (>=0.1.2) \
+"
+
 ALLOW_EMPTY:${PN}-private-ble-device = "1"
 RDEPENDS:${PN}-private-ble-device = "\
     python3-bluetooth-data-tools (=1.20.0) \
@@ -838,6 +862,8 @@ RRECOMMENDS:${PN} += "\
     ${PN}-alpha-vantage \    
     ${PN}-amazon-polly \
     ${PN}-amberelectric \
+    ${PN}-ambient-network \
+    ${PN}-ambient-station \
     ${PN}-ampio \
     ${PN}-aruba \
     ${PN}-atag \
