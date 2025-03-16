@@ -1,7 +1,7 @@
 header:
   version: 14
   includes:
-    - homeassistant-main.yml
+    - kas/homeassistant-main.yml
 
 distro: homeassistant
 target: core-image-homeassistant-full
