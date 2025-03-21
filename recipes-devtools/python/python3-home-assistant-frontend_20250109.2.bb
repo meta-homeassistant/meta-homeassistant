@@ -11,6 +11,7 @@ inherit pypi python_setuptools_build_meta
 
 PYPI_PACKAGE = "home_assistant_frontend"
 
+SRC_URI += "file://0001-relax-setuptools-version-requirement.patch"
 SRC_URI[sha256sum] = "7b6ad116f6625449612a7301a76cc282ee61a74633d3e8b717b5e012216f5bf3"
 
 RDEPENDS:${PN} += "\
