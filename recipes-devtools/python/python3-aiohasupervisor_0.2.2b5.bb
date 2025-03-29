@@ -2,6 +2,7 @@ SUMMARY = "Asynchronous python client for Home Assistant Supervisor."
 HOMEPAGE = "https://github.com/home-assistant-libs/python-supervisor-client"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI = "git://github.com/home-assistant-libs/python-supervisor-client;branch=main;protocol=https \
            file://run-ptest \
