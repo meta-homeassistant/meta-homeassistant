@@ -1,4 +1,4 @@
-From 1cfbc6308aeea305ba61a6b8fbf899d57da247bb Mon Sep 17 00:00:00 2001
+From 2f4eea749fcc902b5265bdd087f86e2bd80d45e1 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Tue, 27 Aug 2024 22:00:04 +0000
 Subject: [PATCH] Correct hatchling build path

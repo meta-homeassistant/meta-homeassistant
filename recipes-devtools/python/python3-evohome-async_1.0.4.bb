@@ -7,10 +7,9 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 inherit pypi python_hatchling ptest
 
 SRC_URI:append = " \
-           file://run-ptest \
-           file://0001-Correct-hatchling-build-path.patch \
-           "
-SRC_URI[sha256sum] = "d94ae9854b17cdfa35c55969f03d8375049a40918ed2b87b6763262eb0aa354f"
+    file://run-ptest \
+    "
+SRC_URI[sha256sum] = "678ce8ef1101973dc81d43420f050f23fe457f9990efe919855b44625c4f572e"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.9.5) \

@@ -4,6 +4,7 @@ Date: Wed, 26 Mar 2025 21:40:45 +0000
 Subject: [PATCH] relax setuptools req
 
 Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
 ---
  pyproject.toml | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
