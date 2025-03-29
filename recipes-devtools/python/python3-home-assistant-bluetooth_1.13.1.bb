@@ -8,7 +8,7 @@ SRCREV = "d4fd8a5fcad393c10f6c7472d93e996f0a0c31ba"
 
 inherit pypi python_poetry_core ptest
 
-SRC_URI[sha256sum] = "3fa8a0d05a844063501a37e0b98501337e7035623b345d5c285a778e9416fd93"
+SRC_URI[sha256sum] = "0ae0e2a8491cc762ee9e694b8bc7665f1e2b4618926f63969a23a2e3a48ce55e"
 
 RDEPENDS:${PN} = "\
     python3-core (>=3.11) \
