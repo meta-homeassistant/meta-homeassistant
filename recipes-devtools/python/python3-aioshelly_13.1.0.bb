@@ -19,7 +19,7 @@ RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.11.1) \
     python3-bluetooth-data-tools (>=1.19.0) \
     python3-core (>=3.11) \
-    python3-habluetooth (>=2.1.0) \
+    python3-habluetooth (>=3.22.0) \
     python3-orjson (>=3.8.1) \
 "
 
