@@ -8,7 +8,7 @@ DEPENDS += "\
     python3-setuptools-git-versioning-native \
 "
 
-SRC_URI[sha256sum] = "1534d498b39a5e44d91f35d2eff94e4f42f0a9b8e5f5e3eb7171b2af8b815f4e"
+SRC_URI[sha256sum] = "3b5bb51c47c56ef1cbf9022956e32a83dccebe00e91420f614c76a1ac8f36c9e"
 
 inherit pypi python_setuptools_build_meta
 
