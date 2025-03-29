@@ -18,7 +18,7 @@ RDEPENDS:${PN} += "\
     python3-coloredlogs (=15.0.1) \
     python3-core (>= 3.11) \
     python3-cryptography (>=43.0.1) \
-    python3-home-assistant-chip-clusters (=2024.9.0) \
+    python3-home-assistant-chip-clusters (=2024.11.4) \
     python3-orjson (>=3.10.7) \
     python3-zeroconf (>=0.134.0) \
 "

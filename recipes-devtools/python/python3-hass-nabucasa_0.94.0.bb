@@ -11,7 +11,7 @@ PYPI_PACKAGE = "hass_nabucasa"
 UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} = "\
-    python3-acme (=3.0.1) \
+    python3-acme (=3.2.0) \
     python3-aiohttp (>=3.6.1) \
     ${@bb.utils.contains("DISTRO_FEATURES", "ptest", "python3-atomicwrites", "python3-atomicwrites-homeassistant (=1.4.1)",d)} \
     python3-attrs (>=19.3) \
@@ -21,7 +21,7 @@ RDEPENDS:${PN} = "\
     python3-ecdsa \
     python3-pycognito (=2024.5.1) \
     python3-pyjwt (>=2.8.0) \
-    python3-snitun (>=0.39.1) \
+    python3-snitun (>=0.40.0) \
     python3-webrtc-models (<1.0.0) \
     python3-pyasn1 \
 "
