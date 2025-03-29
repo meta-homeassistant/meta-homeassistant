@@ -2,6 +2,7 @@ SUMMARY = "Python wrapper for getting weather data from AccuWeather API."
 HOMEPAGE = "https://github.com/bieniu/accuweather"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e72b109bec9876d435561472fac35592"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI = "git://github.com/bieniu/accuweather.git;protocol=https;branch=master"
 SRC_URI[sha256sum] = "63a3be60ae486b743ee6919b1877338b8db05e508b941c146a3d0baf9afc480b"
