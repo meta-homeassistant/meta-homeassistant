@@ -6,7 +6,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit pypi python_setuptools_build_meta
 
-SRC_URI[sha256sum] = "0c1460c4e0c88f8442bc9ddbe5aabeee272372bead340ae9bf28d66e9a7daf61"
+SRC_URI[sha256sum] = "225af3542bbfa7e2d937c815e719567e84de9057dff0c68619ea0167d0c84844"
 
 RDEPENDS:${PN} = "\
     python3-pyyaml (>=6.0) \
