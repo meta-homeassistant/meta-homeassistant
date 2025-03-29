@@ -2,6 +2,7 @@ SUMMARY = "An asyncio Python client to access the Evohome web service"
 HOMEPAGE = "https://github.com/zxdavb/evohome-async"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=136e4f49dbf29942c572a3a8f6e88a77"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit pypi python_hatchling ptest
 
@@ -27,3 +28,4 @@ do_install_ptest() {
 }
 
 PYPI_PACKAGE = "evohome_async"
+UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

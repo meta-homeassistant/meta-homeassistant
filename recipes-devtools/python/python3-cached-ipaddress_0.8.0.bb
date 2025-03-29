@@ -2,6 +2,7 @@ SUMMARY = "Cache construction of ipaddress objects"
 HOMEPAGE = "https://github.com/bdraco/cached-ipaddress"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fb4df16459d09819e161c1b17625a532"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "65037b86959f20fd6505b8ecdbd9cb79c79fb0abc8d3a65c59125aa8d68e9c9b"
 
@@ -13,3 +14,4 @@ RDEPENDS:${PN} = "\
 "
 
 PYPI_PACKAGE = "cached_ipaddress"
+UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

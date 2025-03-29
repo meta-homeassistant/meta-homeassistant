@@ -2,6 +2,7 @@ SUMMARY = "High availability Bluetooth"
 HOMEPAGE = "https://github.com/bluetooth-devices/habluetooth"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=da57f3e0372e39698a274746eb9d65d6"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI = "\
     git://github.com/Bluetooth-Devices/habluetooth.git;protocol=https;branch=main \

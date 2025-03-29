@@ -2,6 +2,7 @@ SUMMARY = "Python library and CLI tool to interface with Google Translate's text
 HOMEPAGE = "https://github.com/pndurette/gTTS"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=9adeade917617bdadfcd128d5647b498"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit pypi python_setuptools_build_meta
 

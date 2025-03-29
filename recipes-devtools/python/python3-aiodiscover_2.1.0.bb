@@ -2,6 +2,7 @@ SUMMARY = "Discover hosts by arp and ptr lookup"
 HOMEPAGE = "https://github.com/bdraco/aiodiscover"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5c1e4dcca80a6a841c085ded9c25b768"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI = "\
     git://github.com/bdraco/aiodiscover.git;protocol=https;branch=main \

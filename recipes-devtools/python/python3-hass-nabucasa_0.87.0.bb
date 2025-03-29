@@ -2,11 +2,13 @@ DESCRIPTION = "Issues related to the cloud integration in Nabu Casa"
 HOMEPAGE = "https://github.com/NabuCasa/hass-nabucasa"
 LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit pypi python_setuptools_build_meta
 
 SRC_URI[sha256sum] = "5fa1c174c28436dfdaea3f9e05c138dc9f4d8273fd3da2af6a481791849e4a00"
 PYPI_PACKAGE = "hass_nabucasa"
+UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} = "\
     python3-acme (=3.0.1) \

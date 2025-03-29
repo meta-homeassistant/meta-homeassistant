@@ -2,6 +2,7 @@ SUMMARY = "Recover bluetooth adapters that are in an stuck state"
 HOMEPAGE = "https://github.com/bluetooth-devices/bluetooth-auto-recovery"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d8b5b84f8af09011094cd7c29a9f972c"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI = "\
     git://github.com/Bluetooth-Devices/bluetooth-auto-recovery.git;protocol=https;branch=main \

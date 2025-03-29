@@ -2,6 +2,7 @@ SUMMARY = "Python library to control Shelly"
 HOMEPAGE = "https://github.com/home-assistant-libs/aioshelly"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=dab31a1d28183826937f4b152143a33f"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit python_setuptools_build_meta ptest
 
