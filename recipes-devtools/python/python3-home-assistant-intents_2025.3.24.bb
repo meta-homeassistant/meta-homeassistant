@@ -6,7 +6,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit pypi python_setuptools_build_meta
 
-SRC_URI[sha256sum] = "7c127e24e358f0b4db3034a4284895c393cbd07eaf62758442f70d769ef8c6d8"
+SRC_URI[sha256sum] = "c295470a42ec11b4ef187a42b9b4d262794421a5226b658a5105e6d534c8baf7"
 
 PYPI_PACKAGE = "home_assistant_intents"
 UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
