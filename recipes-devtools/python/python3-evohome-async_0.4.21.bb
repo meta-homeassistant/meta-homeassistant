@@ -6,7 +6,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit pypi python_hatchling ptest
 
-SRC_URI = "${PYPI_SRC_URI} \
+SRC_URI:append = " \
            file://run-ptest \
            file://0001-Correct-hatchling-build-path.patch \
            "
