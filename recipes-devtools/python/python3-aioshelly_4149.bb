@@ -10,7 +10,7 @@ SRC_URI = "\
     git://github.com/home-assistant-libs/aioshelly;branch=main;protocol=https \
     file://run-ptest \
 "
-SRCREV = "7e389c0eb583debf67d3c961bf59be405e62951e"
+SRCREV = "1a02d6289df5c414d43ea04bb98214b3dcd71a20"
 SRC_URI[sha256sum] = "fa242998c371bf361efdc66dc875196e618506848d0eece298167a6081458d8e"
 
 S = "${WORKDIR}/git"
