@@ -184,7 +184,7 @@ RDEPENDS:${PN}-agent-dvr = "\
 
 ALLOW_EMPTY:${PN}-airgradient = "1"
 RDEPENDS:${PN}-airgradient = "\
-    python3-airgradient (=0.9.1) \
+    python3-airgradient (=0.9.2) \
 "
 
 ALLOW_EMPTY:${PN}-airly = "1"
@@ -199,7 +199,7 @@ RDEPENDS:${PN}-airnow = "\
 
 ALLOW_EMPTY:${PN}-airq = "1"
 RDEPENDS:${PN}-airq = "\
-    python3-aioairq (=0.4.3) \
+    python3-aioairq (=0.4.4) \
 "
 
 ALLOW_EMPTY:${PN}-airthings = "1"
@@ -301,7 +301,7 @@ RDEPENDS:${PN}-axis = "\
 ALLOW_EMPTY:${PN}-backup = "1"
 RDEPENDS:${PN}-backup = "\
     python3-cronsim (>=2.6) \
-    python3-securetar (=2024.11.0) \
+    python3-securetar (=2025.2.1) \
 "
 
 ALLOW_EMPTY:${PN}-bluesound = "1"
@@ -343,7 +343,7 @@ RDEPENDS:${PN}-cisco-ios = "\
 
 ALLOW_EMPTY:${PN}-cloud = "1"
 RDEPENDS:${PN}-cloud = "\
-    python3-hass-nabucasa (=0.87.0) \
+    python3-hass-nabucasa (>=0.92.0) \
 "
 
 ALLOW_EMPTY:${PN}-compensation = "1"
@@ -374,20 +374,20 @@ RDEPENDS:${PN}-decora-wifi = "\
 
 ALLOW_EMPTY:${PN}-dhcp = "1"
 RDEPENDS:${PN}-dhcp = "\
-    python3-aiodhcpwatcher (=1.0.2) \
+    python3-aiodhcpwatcher (=1.1.1) \
     python3-aiodiscover (=2.1.0) \
     python3-cached-ipaddress (>=0.9.2) \
 "
 
 ALLOW_EMPTY:${PN}-dlna-dmr = "1"
 RDEPENDS:${PN}-dlna-dmr = "\
-    python3-async-upnp-client (=0.42.0) \
-    python3-getmac (=0.9.4) \
+    python3-async-upnp-client (=0.43.0) \
+    python3-getmac (=0.9.5) \
 "
 
 ALLOW_EMPTY:${PN}-dlna-dms = "1"
 RDEPENDS:${PN}-dlna-dms = "\
-    python3-async-upnp-client (=0.42.0) \
+    python3-async-upnp-client (=0.43.0) \
 "
 
 ALLOW_EMPTY:${PN}-dunehd = "1"
@@ -418,7 +418,7 @@ RDEPENDS:${PN}-fritz = "\
 
 ALLOW_EMPTY:${PN}-fritzbox = "1"
 RDEPENDS:${PN}-fritzbox = "\
-    python3-pyfritzhome (=0.6.12) \
+    python3-pyfritzhome (=0.6.17) \
 "
 
 ALLOW_EMPTY:${PN}-fritzbox-callmonitor = "1"
@@ -556,7 +556,7 @@ RDEPENDS:${PN}-network = "\
 ALLOW_EMPTY:${PN}-nmap-tracker = "1"
 RDEPENDS:${PN}-nmap-tracker = "\
     python3-aiooui (=0.1.9) \
-    python3-getmac (=0.9.4) \
+    python3-getmac (=0.9.5) \
     python3-netmap (=0.7.0.2) \
 "
 
@@ -683,7 +683,7 @@ RDEPENDS:${PN}-sql = "\
 
 ALLOW_EMPTY:${PN}-ssdp = "1"
 RDEPENDS:${PN}-ssdp = "\
-    python3-async-upnp-client (=0.42.0) \
+    python3-async-upnp-client (=0.43.0) \
 "
 
 ALLOW_EMPTY:${PN}-startca = "1"
@@ -746,8 +746,8 @@ RDEPENDS:${PN}-tts = "\
 
 ALLOW_EMPTY:${PN}-upnp = "1"
 RDEPENDS:${PN}-upnp = "\
-    python3-async-upnp-client (=0.42.0) \
-    python3-getmac (=0.9.4) \
+    python3-async-upnp-client (=0.43.0) \
+    python3-getmac (=0.9.5) \
 "
 
 ALLOW_EMPTY:${PN}-usb = "1"
