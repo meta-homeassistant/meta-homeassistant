@@ -4,14 +4,15 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d8b5b84f8af09011094cd7c29a9f972c"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI = "\
-    git://github.com/Bluetooth-Devices/bleak-retry-connector.git;protocol=https;branch=main \
+SRC_URI:append = " \
     file://run-ptest \
 "
 SRC_URI[sha256sum] = "71f30928180b74f0381e0752f681d18d8de888faa9c81c78cd17123718909ea0"
 SRCREV = "bf87683893ab1ad8f518e5db677832c6d91523d0"
 
-inherit python_poetry_core ptest
+inherit pypi python_poetry_core ptest
+
+PYPI_SRC_URI = "git://github.com/Bluetooth-Devices/bleak-retry-connector.git;protocol=https;branch=main"
 
 S = "${UNPACKDIR}/git"
 
