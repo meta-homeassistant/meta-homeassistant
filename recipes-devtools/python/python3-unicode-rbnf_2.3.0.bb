@@ -6,7 +6,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit pypi python_setuptools_build_meta
 
-SRCREV = "e26874c196b842a47f3770667155cc81662bfbc1"
+SRC_URI[sha256sum] = "8a3ac2fe199929b7f342bbc74f5f86f01a4e7d324811be02ea6474851e73e5ad"
 
 PYPI_PACKAGE = "unicode_rbnf"
 UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

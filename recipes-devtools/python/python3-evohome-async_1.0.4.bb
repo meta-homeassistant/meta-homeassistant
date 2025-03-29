@@ -12,8 +12,12 @@ SRC_URI:append = " \
 SRC_URI[sha256sum] = "678ce8ef1101973dc81d43420f050f23fe457f9990efe919855b44625c4f572e"
 
 RDEPENDS:${PN} = "\
-    python3-aiohttp (>=3.9.5) \
-    python3-voluptuous (>=0.13.1) \
+    python3-aiohttp (>=3.11.11) \
+    python3-aiozoneinfo (>=0.2.1) \
+    python3-voluptuous (>=0.15.2) \
+    python3-aiofiles (>=24.1.0) \
+    python3-debugpy (>=1.8.9) \
+    python3-credentials-manager \
 "
 
 RDEPENDS:${PN}-ptest = "\
