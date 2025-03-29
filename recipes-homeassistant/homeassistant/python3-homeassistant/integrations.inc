@@ -375,7 +375,7 @@ RDEPENDS:${PN}-decora-wifi = "\
 ALLOW_EMPTY:${PN}-dhcp = "1"
 RDEPENDS:${PN}-dhcp = "\
     python3-aiodhcpwatcher (=1.1.1) \
-    python3-aiodiscover (=2.1.0) \
+    python3-aiodiscover (>=2.6.0) \
     python3-cached-ipaddress (>=0.9.2) \
 "
 
