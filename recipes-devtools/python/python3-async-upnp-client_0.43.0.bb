@@ -11,7 +11,7 @@ UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 S = "${WORKDIR}/async_upnp_client-${PV}"
 
-SRC_URI[sha256sum] = "558ec3f981ca04c33cce13d9ef77391f21f4fc8d35ee12b7698f8760887c9b7d"
+SRC_URI[sha256sum] = "42994c265fa335c0ddc43be48fc80d3171dfed4258534277546b7b45137ef6a0"
 
 RDEPENDS:${PN} = "\
 	python3-core (>=3.8) \
