@@ -138,7 +138,7 @@ RDEPENDS:${PN}-acaia = "\
 
 ALLOW_EMPTY:${PN}-accuweather = "1"
 RDEPENDS:${PN}-accuweather = "\
-    python3-accuweather (=4.1.0) \
+    python3-accuweather (>=4.1.0) \
 "
 
 ALLOW_EMPTY:${PN}-acer-projector = "1"

@@ -2,8 +2,9 @@ SUMMARY = "Tools to fetch zoneinfo with asyncio"
 HOMEPAGE = "https://github.com/bluetooth-devices/aiozoneinfo"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=9fd9da0eba9bb27343ae47cb3fb6cde8"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "457e2c665a2c7e093119efb87cc5e0da29e6f59aac504a544bec822c5be1cb6b"
+SRC_URI[sha256sum] = "987ce2a7d5141f3f4c2e9d50606310d0bf60d688ad9f087aa7267433ba85fff3"
 
 inherit pypi python_poetry_core
 
