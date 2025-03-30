@@ -10,6 +10,8 @@ SRC_URI[sha256sum] = "0b39998aa941431eb3d9b0d4b2460bc773b9df6fed7621c2dfb291a7e0
 
 inherit pypi python_setuptools_build_meta ptest
 
+DEPENDS += "python3-setuptools-scm-native"
+
 PYPI_PACKAGE = "keyring"
 RDEPENDS:${PN} = "\
     python3-secretstorage \
