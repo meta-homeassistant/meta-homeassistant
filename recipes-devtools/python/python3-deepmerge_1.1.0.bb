@@ -2,7 +2,6 @@ SUMMARY = "Deepmerge: merging nested data structures"
 HOMEPAGE = "https://github.com/toumorokoshi/deepmerge"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5461efe2d19ce359c7d72d7be3c05e1c"
-RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI:append = " file://0001-remove-setuptools_scm-from-dependency.patch"
 SRC_URI[md5sum] = "7689f466b46247372aa6c29a7edbf3ba"
