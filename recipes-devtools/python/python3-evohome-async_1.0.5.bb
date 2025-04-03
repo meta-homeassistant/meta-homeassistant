@@ -9,7 +9,7 @@ inherit pypi python_hatchling ptest
 SRC_URI:append = " \
     file://run-ptest \
     "
-SRC_URI[sha256sum] = "678ce8ef1101973dc81d43420f050f23fe457f9990efe919855b44625c4f572e"
+SRC_URI[sha256sum] = "804b3861f77c4f8daee7e4c4ee33ba6d32295665727127f4fbae34a8eb9a9778"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.11.11) \
