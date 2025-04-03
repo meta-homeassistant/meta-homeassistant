@@ -397,7 +397,7 @@ RDEPENDS:${PN}-dunehd = "\
 
 ALLOW_EMPTY:${PN}-evohome = "1"
 RDEPENDS:${PN}-evohome = "\
-    python3-evohome-async (=1.0.4) \
+    python3-evohome-async (>=1.0.4) \
 "
 
 ALLOW_EMPTY:${PN}-ffmpeg = "1"
