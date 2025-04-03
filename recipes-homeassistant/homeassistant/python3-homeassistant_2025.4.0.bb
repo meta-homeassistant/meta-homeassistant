@@ -12,7 +12,7 @@ HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 SRC_URI = "git://github.com/home-assistant/core.git;protocol=https;branch=master \
            file://homeassistant.service \
            file://run-ptest-sample \
-           file://0001-Update-Setuptools-version.patch \
+           file://0001-adjust-setuptools-req.patch \
            "
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
 SRCREV = "0c19e47bd454b1e7411a3258e960fd1fcd857562"

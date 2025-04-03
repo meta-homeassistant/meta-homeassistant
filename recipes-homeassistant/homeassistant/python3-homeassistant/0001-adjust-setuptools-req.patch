@@ -1,21 +1,22 @@
-From bf8670ed26a024e85419d00ce7c0855aea2083ef Mon Sep 17 00:00:00 2001
+From 61bc51bc06e342a0c5ee9c9413aeb2c0f04cd0d3 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
-Date: Wed, 2 Apr 2025 22:06:48 +0000
-Subject: [PATCH] Update Setuptools version
+Date: Thu, 3 Apr 2025 21:30:10 +0000
+Subject: [PATCH] adjust setuptools req
 
 Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
 ---
  pyproject.toml | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index 8966c2fd9b2..43b51fa3bf0 100644
+index 8966c2fd9b2..646204b3b24 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@
  [build-system]
 -requires = ["setuptools==77.0.3"]
-+requires = ["setuptools>=76.0.0"]
++requires = ["setuptools>=77.0.3"]
  build-backend = "setuptools.build_meta"
  
  [project]
