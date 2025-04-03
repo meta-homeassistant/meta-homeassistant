@@ -12,10 +12,10 @@ HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 SRC_URI = "git://github.com/home-assistant/core.git;protocol=https;branch=master \
            file://homeassistant.service \
            file://run-ptest-sample \
-           file://0001-Relax-setuptools-requirement.patch \
+           file://0001-Update-Setuptools-version.patch \
            "
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
-SRCREV = "2f244b2b66907a6156b9074a6dbde2c32f6d5f41"
+SRCREV = "0c19e47bd454b1e7411a3258e960fd1fcd857562"
 
 inherit python_setuptools_build_meta useradd systemd ptest
 
@@ -57,15 +57,16 @@ do_install:append () {
 require recipes-homeassistant/homeassistant/python3-homeassistant/integrations.inc
 require recipes-homeassistant/homeassistant/python3-homeassistant/integrations-tests.inc
 
-#TODO: python3-uv (=0.6.1)
+#TODO: python3-uv (=0.6.10)
 RDEPENDS:${PN} += "\
     python3-aiodns (>=3.2.0) \
     python3-aiohasupervisor (=0.3.0) \
-    python3-aiohttp (>=3.11.13) \
+    python3-aiohttp (>=3.11.16) \
     python3-aiohttp-cors (=0.7.0) \
     python3-aiohttp-fast-zlib (=0.2.3) \
     python3-aiohttp-asyncmdnsresolver (=0.1.1) \
     python3-aiozoneinfo (=0.2.3) \
+    python3-annotatedyaml (=0.4.5) \
     python3-astral (=2.2) \
     python3-async-interrupt (=1.2.2) \
     python3-attrs (>=25.1.0) \
@@ -76,37 +77,45 @@ RDEPENDS:${PN} += "\
     python3-certifi (>=2021.5.30) \
     python3-ciso8601 (=2.3.2) \
     python3-cronsim (>=2.6) \
-    python3-fnv-hash-fast (>=1.2.6) \
-    python3-hass-nabucasa (>=0.92.0) \
+    python3-fnv-hash-fast (>=1.4.0) \
+    python3-ha-ffmpeg (>=3.2.2) \
+    python3-hass-nabucasa (>=0.94.0) \
+    python3-hassil (>=2.2.3) \
     python3-httpx (>=0.28.1) \
     python3-home-assistant-bluetooth (>=1.13.1) \
+    python3-home-assistant-intents (>=2025.3.28) \
     python3-ifaddr (=0.2.0) \
     python3-jinja2 (>=3.1.6) \
     python3-lru-dict (>=1.3.0) \
+    python3-mutagen (>=1.47.0) \
+    python3-numpy (>=2.2.2) \
     python3-pyjwt (=2.10.1) \
     python3-cryptography (>=44.0.1) \
     python3-pillow (>=11.1.0) \
     python3-propcache (>=0.3.0) \
     python3-pyopenssl (>=25.0.0) \
-    python3-orjson (>=3.10.12) \
+    python3-orjson (>=3.10.16) \
     python3-packaging (>=23.1) \
     python3-psutil-home-assistant (=0.0.1) \
+    python3-pymicro-vad (>=1.0.1) \
+    python3-pyspeex-noise (>=1.0.2) \
     python3-python-slugify (=8.0.4) \
+    python3-pyturbojpeg (>=1.7.5) \
     python3-pyyaml (>=6.0.2) \
     python3-requests (>=2.32.3) \
     python3-securetar (=2025.2.1) \
-    python3-sqlalchemy (>=2.0.38) \
+    python3-sqlalchemy (>=2.0.39) \
     python3-standard-aifc (=3.13.0) \
     python3-standard-telnetlib (=3.13.0) \
-    python3-typing-extensions (>=4.12.2) \
-    python3-ulid-transform (>=1.2.1) \
+    python3-typing-extensions (>=4.13.0) \
+    python3-ulid-transform (>=1.4.0) \
     python3-urllib3 (>=1.26.5) \
     python3-voluptuous (=0.15.2) \
     python3-voluptuous-serialize (=2.6.0) \
     python3-voluptuous-openapi (=0.0.6) \
     python3-yarl (>=1.18.3) \
     python3-webrtc-models (>=0.3.0) \
-    python3-zeroconf (>=0.145.1) \
+    python3-zeroconf (>=0.146.0) \
     \
     python3-statistics \
     python3-core (>=3.13.0) \
