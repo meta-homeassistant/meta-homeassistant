@@ -2,6 +2,7 @@ SUMMARY = "Python iCalendar implementation (rfc 2445)"
 HOMEPAGE = "https://github.com/allenporter/ical"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "4d3c8c215230c18b1544d11f8e3342301943b5c6fc1b9980442735b84f8015cd"
 
