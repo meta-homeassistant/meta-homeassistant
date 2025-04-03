@@ -8,7 +8,7 @@ SRC_URI:append = "\
     file://0001-Fix-license-field.patch \
     file://0001-allow-older-setuptools-version.patch \
 "
-SRC_URI[sha256sum] = "3c6a2b31098f3ce896880ed7485686f44bc8d15ad122865caecbcd812d57d913"
+SRC_URI[sha256sum] = "71d78caa1f8d280ebc3467a07b5948084ad3a4a6f5f2a7892b76bc08fec4bf9a"
 
 PYPI_PACKAGE = "bluetooth_data_tools"
 UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
