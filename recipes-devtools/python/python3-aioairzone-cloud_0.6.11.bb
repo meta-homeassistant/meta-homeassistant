@@ -4,7 +4,7 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "1879047fb57e8c914763dbdc437bbe266d777b510c29d13ba3099ff8f5963b58"
+SRC_URI[sha256sum] = "a13f5c9773171eb2a6490ceb5f45ccd59a4c0caad263ee79829d806ca90621b8"
 
 inherit pypi python_setuptools_build_meta
 
