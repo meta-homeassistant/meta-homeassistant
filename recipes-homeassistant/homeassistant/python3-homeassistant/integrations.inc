@@ -464,6 +464,8 @@ RDEPENDS:${PN}-google-translate = "\
 ALLOW_EMPTY:${PN}-hardware = "1"
 RDEPENDS:${PN}-hardware = "\
     python3-psutil-home-assistant (=0.0.1) \
+    python3-universal-silabs-flasher (>=0.0.25) \
+    python3-ha-silabs-firmware-client (>=0.2.0) \
 "
 
 ALLOW_EMPTY:${PN}-hue = "1"
