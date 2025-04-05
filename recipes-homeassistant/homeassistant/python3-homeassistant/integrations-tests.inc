@@ -79,7 +79,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-emulated-hue \
     ${PN}-energy \
     ${PN}-event \
-    ${PN}-evohome \
     ${PN}-facebook \
     ${PN}-fail2ban \
     ${PN}-fan \
