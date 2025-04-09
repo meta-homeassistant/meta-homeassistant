@@ -6,11 +6,22 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "621389ab241b8cb7f51f3d306b6de86da35104068a6720aa4ac252167ba53b26"
 
-inherit pypi python_setuptools_build_meta
+SRC_URI = "git://github.com/bieniu/accuweather.git;protocol=https;branch=master"
+SRCREV = "0363bdb54ff96c7c26b40ca632fd956add10eed4"
+
+inherit python_setuptools_build_meta ptest-python-pytest
+
+S = "${WORKDIR}/git"
 
 RDEPENDS:${PN} += "\
     python3-aiohttp (>=3.9.4) \
     python3-orjson \
 "
 
-PYPI_PACKAGE = "accuweather"
+RDEPENDS:${PN}-ptest += "\
+    python3-aioresponses \
+    python3-mypy \
+    python3-pytest-asyncio \
+    python3-pytest-timeout \
+    python3-syrupy \
+"
