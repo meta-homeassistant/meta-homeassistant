@@ -6,12 +6,11 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI = "\
     git://github.com/bdraco/aiodiscover.git;protocol=https;branch=main \
-    file://run-ptest \
 "
 SRC_URI[sha256sum] = "73846ff8b85abaffaaa0ad4fad5965b76c7d518878ecdd0e5dcf1126d77a57c7"
 SRCREV = "f76c7915091a9e91d67ed69f5e2ba95de1262380"
 
-inherit  python_poetry_core ptest
+inherit  python_poetry_core ptest-python-pytest
 
 S = "${WORKDIR}/git"
 
@@ -24,10 +23,8 @@ RDEPENDS:${PN} = "\
     python3-cached-ipaddress (>=0.2.0) \
 "
 
-RDEPENDS:${PN}-ptest = "\
-    python3-pytest \
+RDEPENDS:${PN}-ptest:append = " \
     python3-pytest-asyncio \
-    python3-unittest-automake-output \
 "
 
 do_install_ptest() {
