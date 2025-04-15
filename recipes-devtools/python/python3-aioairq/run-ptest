@@ -1,0 +1,4 @@
+#!/bin/sh
+# skip tests on device as they require a connected device
+
+pytest --automake -k "not test_core_on_device"
