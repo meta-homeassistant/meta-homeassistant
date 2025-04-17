@@ -4,12 +4,14 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=dab31a1d28183826937f4b152143a33f"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-inherit pypi python_setuptools_build_meta ptest
+inherit python_setuptools_build_meta ptest-python-pytest
 
-SRC_URI = "\
-    file://run-ptest \
-"
+SRC_URI = "git://github.com/home-assistant-libs/aioshelly.git;protocol=https;branch=main"
 SRC_URI[sha256sum] = "347c1d5dc1c5f6d2d3f15d04cdad54209cb928251ba46ae4f3e173185f6a13b4"
+
+SRCREV = "51a353aeab2b1915fd5a58869df33e970acf246c"
+
+S = "${WORKDIR}/git"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.11.1) \
@@ -19,13 +21,6 @@ RDEPENDS:${PN} = "\
     python3-orjson (>=3.8.1) \
 "
 
-RDEPENDS:${PN}-ptest = "\
-    python3-pytest \
+RDEPENDS:${PN}-ptest:append = " \
     python3-pytest-asyncio \
-    python3-unittest-automake-output \
 "
-
-do_install_ptest() {
-    install -d ${D}${PTEST_PATH}/tests
-    cp -rf ${S}/tests/rpc_device/* ${D}${PTEST_PATH}/tests/
-}
