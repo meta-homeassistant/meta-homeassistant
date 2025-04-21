@@ -1,0 +1,6 @@
+#!/bin/sh
+
+pytest --automake \
+  -k "not test_ssl \
+  and not test_ssl_exception \
+  "
