@@ -2,6 +2,7 @@ SUMMARY = "Powerful Python library for atomic file writes. Fork from homeassista
 HOMEPAGE = "https://pypi.org/project/atomicwrites-homeassistant/"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=91cc36cfafeefb7863673bcfcb1d4da4"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit pypi setuptools3 ptest-python-pytest
 

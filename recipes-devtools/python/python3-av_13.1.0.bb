@@ -2,6 +2,7 @@ SUMMARY = "Pythonic bindings for FFmpeg's libraries."
 HOMEPAGE = "https://github.com/PyAV-Org/PyAV"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=a9c4cea4308c4521674ecd7c3255d8af"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 DEPENDS += "\
     ffmpeg \

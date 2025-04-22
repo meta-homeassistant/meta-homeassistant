@@ -2,6 +2,7 @@ SUMMARY = "isal support for aiohttp"
 HOMEPAGE = "https://github.com/bdraco/aiohttp-isal"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=9fd9da0eba9bb27343ae47cb3fb6cde8"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI = "\
     git://github.com/bdraco/aiohttp-isal.git;protocol=https;branch=main \

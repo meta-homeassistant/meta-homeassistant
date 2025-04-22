@@ -2,6 +2,7 @@ SUMMARY = "Python library enabling easy communication with Axis devices and its 
 HOMEPAGE = "https://github.com/Kane610/axis"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=78a6a0bb7d76993abedec7510368fb0e"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI:append = " \
     ${PYPI_SRC_URI} \
