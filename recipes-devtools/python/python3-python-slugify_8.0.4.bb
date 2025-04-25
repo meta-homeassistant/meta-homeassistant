@@ -2,6 +2,7 @@ SUMMARY = "A Python Slugify application that handles Unicode"
 HOMEPAGE = "https://github.com/un33k/python-slugify"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7946d011d653bfcfbb24480377867128"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 PYPI_PACKAGE = "python-slugify"
 

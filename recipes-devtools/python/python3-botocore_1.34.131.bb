@@ -2,6 +2,7 @@ DESCRIPTION = "Low-level, data-driven core of boto 3."
 HOMEPAGE = "https://github.com/boto/botocore"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=2ee41112a44fe7014dce33e26468ba93"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI:append = " \
     file://run-ptest \

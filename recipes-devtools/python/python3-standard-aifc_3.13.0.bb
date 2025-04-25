@@ -2,6 +2,7 @@ SUMMARY = "Standard library aifc redistribution. "dead battery"."
 HOMEPAGE = "https://github.com/youknowone/python-deadlib"
 LICENSE = "PSF-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=4e3cd541391435e0a82da0f9f489e85f"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "64e249c7cb4b3daf2fdba4e95721f811bde8bdfc43ad9f936589b7bb2fae2e43"
 
@@ -13,3 +14,4 @@ RDEPENDS:${PN} = "\
 "
 
 PYPI_PACKAGE = "standard_aifc"
+UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

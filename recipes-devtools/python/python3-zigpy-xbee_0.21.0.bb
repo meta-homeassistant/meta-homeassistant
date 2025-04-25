@@ -2,6 +2,7 @@ SUMMARY = "A library which communicates with XBee radios for zigpy"
 HOMEPAGE = "https://github.com/zigpy/zigpy-xbee"
 LICENSE = "GPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d32239bcb673463ab874e80d47fae504"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 DEPENDS += "\
     python3-setuptools-git-versioning-native \
@@ -15,3 +16,4 @@ inherit pypi python_setuptools_build_meta
 RDEPENDS:${PN} += "python3-zigpy (>=0.70.0)"
 
 PYPI_PACKAGE = "zigpy_xbee"
+UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

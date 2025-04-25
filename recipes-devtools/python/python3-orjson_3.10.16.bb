@@ -2,6 +2,7 @@ SUMMARY = "Fast, correct Python JSON library supporting dataclasses, datetimes, 
 HOMEPAGE = "https://pypi.org/project/orjson/"
 LICENSE = "Apache-2.0 | MIT"
 LIC_FILES_CHKSUM = "file://LICENSE-APACHE;md5=1836efb2eb779966696f473ee8540542"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 require ${BPN}-crates.inc
 

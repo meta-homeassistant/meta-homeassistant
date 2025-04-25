@@ -2,6 +2,7 @@ SUMMARY = "This Python library provides an easy way to get vendor information fr
 HOMEPAGE = "https://github.com/bauerj/mac_vendor_lookup"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENCE;md5=86d3f3a95c324c9479bd8986968f4327"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 # Pypi only offers the wheel version and no tar-gz for this package. Also Github does not have a tarball.
 # Revert to manual building

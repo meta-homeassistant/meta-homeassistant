@@ -1,6 +1,8 @@
 SUMMARY = "Correctly generate plurals, singular nouns, ordinals, indefinite articles"
+HOMEPAGE = "https://github.com/jaraco/inflect"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=141643e11c48898150daa83802dbc65f"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 DEPENDS += "\
     python3-setuptools-scm-native \

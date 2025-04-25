@@ -2,6 +2,7 @@ SUMMARY = "DIDL-Lite (Digital Item Declaration Language) tools for Python"
 HOMEPAGE = "https://github.com/StevenLooman/python-didl-lite"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=f4eda51018051de136d3b3742e9a7a40"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit pypi setuptools3
 

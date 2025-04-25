@@ -2,6 +2,7 @@ SUMMARY = "Asynchronous Python client for the Radio Browser APIt"
 HOMEPAGE = "https://github.com/frenck/python-radios"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=70c1553aadb543ba3f430ad86244f922"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "52aa939bc520d16f2f2d1559012610113e94b58e4c5f18320e5545f5f23a8405"
 

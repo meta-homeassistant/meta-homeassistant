@@ -2,6 +2,7 @@ SUMMARY = "Simple python wrapper over wirelesstags REST API"
 HOMEPAGE = "https://github.com/sergeymaysak/wirelesstagpy/"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f41ae89e0ff8515325f6df23b0809b2a"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 DEPENDS = "\
     python3-requests-native \

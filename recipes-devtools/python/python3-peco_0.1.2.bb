@@ -2,6 +2,7 @@ SUMMARY = "A library for interacting with the PECO outage map to gain the number
 HOMEPAGE = "https://IceBotYT.github.io/peco-outage-api"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a744b5db69f59a2cc2a223bfc51b8cdc"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "c56eb9b442fce9e70e7c621b9c68929cab6aed298a4315b678c4d5aecfe7c4d7"
 

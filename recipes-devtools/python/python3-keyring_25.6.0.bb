@@ -2,6 +2,7 @@ SUMMARY = "Store and access your passwords safely."
 HOMEPAGE = "https://github.com/jaraco/keyring"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=141643e11c48898150daa83802dbc65f"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI:append = " \
     file://run-ptest \
