@@ -1,7 +1,7 @@
-From 4f7e0fab8041e69b54f919b40507d0254fe91a7e Mon Sep 17 00:00:00 2001
+From 16330a4f14e32d33b7aeae45b727a27517c116cb Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
-Date: Sun, 15 Dec 2024 20:23:59 +0000
-Subject: [PATCH] Allow setuptools-git-versioning >=3
+Date: Fri, 25 Apr 2025 17:22:22 +0000
+Subject: [PATCH] Relax gitversioning version
 
 Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
 Upstream-Status: Pending
