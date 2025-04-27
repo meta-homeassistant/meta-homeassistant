@@ -4,11 +4,13 @@ LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-inherit pypi python_setuptools_build_meta
+inherit python_setuptools_build_meta ptest-python-pytest
 
+SRC_URI = "git://github.com/NabuCasa/hass-nabucasa.git;protocol=https;branch=master"
 SRC_URI[sha256sum] = "faca4945f2abafbd5ca4a9350969e6655826ca2c88ac3a42088cc6f700ba0bb2"
-PYPI_PACKAGE = "hass_nabucasa"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
+SRCREV = "45a5446b0d30fddff905c6f06c2b669ae27f1c10"
+
+S = "${WORKDIR}/git"
 
 RDEPENDS:${PN} = "\
     python3-acme (>=3.2.0) \
@@ -25,3 +27,14 @@ RDEPENDS:${PN} = "\
     python3-webrtc-models (<1.0.0) \
     python3-pyasn1 \
 "
+
+RDEPENDS:${PN}-ptest += "\
+    python3-pytest-aiohttp \
+    python3-pytest-timeout \
+    python3-syrupy \
+    python3-tomli \
+"
+
+do_install_ptest:append() {
+    install ${S}/pyproject.toml ${D}${PTEST_PATH}/
+}
