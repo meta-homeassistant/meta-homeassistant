@@ -6,4 +6,9 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "456435cdbf1f5f45c433a250b8b795146e893b6fc659060f15451e812a2ab17d"
 
-inherit pypi setuptools3
+inherit pypi setuptools3 ptest-python-pytest
+
+RDEPENDS:${PN}-ptest += "\
+    python3-pytest-mock \
+    python3-pytest-benchmark \
+"
