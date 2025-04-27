@@ -6,7 +6,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "50283d8e7ad07d89be5cb027338c6365a32044df3ae2556ad3f52f4840b3d0d1"
 
-inherit pypi setuptools3
+inherit pypi setuptools3 ptest-python-pytest
 
 # Uncomment this line to enable all the optional features.
 #PACKAGECONFIG ?= "aiohttp dev dev-docs dev-lint dev-test requests timezone"
@@ -24,4 +24,10 @@ RDEPENDS:${PN} += "\
     python3-geographiclib \
 "
 
+RDEPENDS:${PN}-ptest += "\
+    python3-pytest-asyncio \
+"
+
 PYPI_PACKAGE = "geopy"
+
+PTEST_PYTEST_DIR = "test"
