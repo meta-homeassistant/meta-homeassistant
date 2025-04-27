@@ -6,6 +6,6 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "5aab98716ef90ab5ac6be294b2c3965dbf76dc869f048846a0af74ebb506c10d"
 
-inherit pypi setuptools3
+inherit pypi setuptools3 ptest-python-pytest
 
 PYPI_PACKAGE = "cronsim"
