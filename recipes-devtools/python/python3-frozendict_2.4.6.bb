@@ -6,4 +6,6 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "df7cd16470fbd26fc4969a208efadc46319334eb97def1ddf48919b351192b8e"
 
-inherit pypi setuptools3 cython
+inherit pypi setuptools3 cython ptest-python-pytest
+
+PTEST_PYTEST_DIR = "test"
