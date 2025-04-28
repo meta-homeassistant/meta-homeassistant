@@ -8,7 +8,7 @@ DEPENDS += "\
     python3-pybind11-native \
 "
 
-inherit pypi python_setuptools_build_meta
+inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 PYPI_SRC_URI = "git://github.com/rhasspy/webrtc-noise-gain.git;protocol=https;branch=master"
 
