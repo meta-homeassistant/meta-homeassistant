@@ -11,15 +11,8 @@ SRCREV = "154f4b3efb7763097a050107e9585126594ebac2"
 
 S = "${WORKDIR}/git"
 
-inherit python_poetry_core ptest
+inherit python_poetry_core ptest-python-pytest
 
-RDEPENDS:${PN}-ptest = "\
-    python3-pytest \
+RDEPENDS:${PN}-ptest += "\
     python3-pytest-asyncio \
-    python3-unittest-automake-output \
 "
-
-do_install_ptest() {
-    install -d ${D}${PTEST_PATH}/tests
-    cp -rf ${S}/tests/* ${D}${PTEST_PATH}/tests/
-}
