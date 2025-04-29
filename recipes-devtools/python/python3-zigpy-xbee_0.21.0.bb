@@ -11,7 +11,7 @@ DEPENDS += "\
 SRC_URI += "file://0001-Allow-setuptools-git-versioning-3.patch"
 SRC_URI[sha256sum] = "63f9f06e864f58fd4b2c6c0b0ef00b126e6711faf6ccba4ec9c610f0f51c8d3e"
 
-inherit pypi python_setuptools_build_meta
+inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "python3-zigpy (>=0.70.0)"
 
