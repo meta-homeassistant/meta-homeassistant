@@ -6,9 +6,11 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "09ad7f2886969da3df064e93fd47ceab47ad91144ec80e103c5cf97bb0038908"
 
-inherit pypi setuptools3
+inherit pypi setuptools3 ptest-python-pytest
 
 RDEPENDS:${PN} += "python3-pyserial"
 
 PYPI_PACKAGE = "pyserial-asyncio-fast"
 UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
+
+PTEST_PYTEST_DIR = "test"
