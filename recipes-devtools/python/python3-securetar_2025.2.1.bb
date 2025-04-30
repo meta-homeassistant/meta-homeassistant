@@ -6,7 +6,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "59536a73fe5cecbc1f00b1838c8b1052464a024e2adcf6c9ce1d200d91990fb1"
 
-inherit pypi python_setuptools_build_meta
+inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} = "\
     python3-cryptography \
