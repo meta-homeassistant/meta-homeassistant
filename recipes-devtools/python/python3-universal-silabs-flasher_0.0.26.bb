@@ -10,7 +10,7 @@ DEPENDS += "\
 
 SRC_URI[sha256sum] = "481eef9ad48ee92d1345dbbdd295475f16731064654b71ea2a8b1d3d24ec1027"
 
-inherit pypi python_setuptools_build_meta
+inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 PYPI_PACKAGE = "universal_silabs_flasher"
 UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
