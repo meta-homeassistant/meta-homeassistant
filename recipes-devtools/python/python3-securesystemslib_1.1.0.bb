@@ -9,7 +9,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 DEPENDS = "python3-hatchling-native"
 SRC_URI[sha256sum] = "27143a8e04b5573636f260f21d7e26b48bcedcf394e6f74ec31e9a5287e0c38b"
 
-inherit pypi python_hatchling
+inherit pypi python_hatchling ptest-python-pytest
 
 PYPI_PACKAGE = "securesystemslib"
 
@@ -20,4 +20,8 @@ PACKAGES += "\
 RDEPENDS:${PN} = "\
     bash \
     python3-cryptography (>=40.0.0) \
+"
+
+RDEPENDS:${PN}-ptest += "\
+    python3-asn1crypto \
 "
