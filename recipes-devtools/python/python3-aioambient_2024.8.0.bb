@@ -2,6 +2,7 @@ SUMMARY = "A clean, async-friendly library for the Ambient Weather API"
 HOMEPAGE = "https://github.com/bachya/aioambient"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=54f0a03d1f0386cedfc691fdb5edb93a"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "a11643343db382ba9c5a79c70a9394dbf2ae6b1d4a28c4ef43b7c69618b237da"
 

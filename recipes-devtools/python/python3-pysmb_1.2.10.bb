@@ -2,6 +2,7 @@ SUMMARY = "pysmb is an experimental SMB/CIFS library written in Python to suppor
 HOMEPAGE = "https://miketeo.net/projects/pysmb"
 LICENSE = "Zlib"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=06f070053828db68be36bd1c8c95ca5e"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "5796253bf10d0c5fbeae3d5ae89c66c275d1b3e547f0bc55b7d4799168b19076"
 

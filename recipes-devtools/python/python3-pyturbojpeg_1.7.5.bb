@@ -2,6 +2,7 @@ SUMMARY = "A Python wrapper of libjpeg-turbo for decoding and encoding JPEG imag
 HOMEPAGE = "https://github.com/lilohuang/PyTurboJPEG"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5df3bb9cdf8813c063c798998565c764"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "5dd5f40dbf4159f41b6abaa123733910e8b1182df562b6ddb768991868b487d3"
 

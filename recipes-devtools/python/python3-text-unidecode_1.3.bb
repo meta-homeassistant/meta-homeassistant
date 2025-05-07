@@ -2,6 +2,7 @@ SUMMARY = "Text unidecode"
 HOMEPAGE = "https://github.com/kmike/text-unidecode"
 LICENSE = "Artistic-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ccfb8875bc60bc3d6e91e42e5e8f5587"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit pypi setuptools3
 

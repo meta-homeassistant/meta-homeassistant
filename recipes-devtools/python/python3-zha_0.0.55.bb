@@ -8,9 +8,15 @@ DEPENDS += "\
     python3-setuptools-git-versioning-native \
 "
 
+SRC_URI = "\
+    git://github.com/zigpy/zha.git;protocol=https;branch=dev \
+"
 SRC_URI[sha256sum] = "8d3d6f71b62a61f532b89807279171dd4bce351f886aa4749c38034589e42eea"
+SRCREV = "2e8fbe8b71aa94cdcd0bfb667374f2c275d009cb"
 
-inherit pypi python_setuptools_build_meta
+inherit python_setuptools_build_meta ptest-python-pytest
+
+S = "${WORKDIR}/git"
 
 RDEPENDS:${PN} += "\
     python3-bellows (>=0.44.0) \
@@ -24,4 +30,6 @@ RDEPENDS:${PN} += "\
     python3-zigpy-znp (>=0.14.0) \
 "
 
-PYPI_PACKAGE = "zha"
+do_install_ptest:append() {
+    install ${S}/pyproject.toml ${D}${PTEST_PATH}/
+}

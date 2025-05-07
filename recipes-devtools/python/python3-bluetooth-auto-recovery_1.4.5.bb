@@ -6,12 +6,11 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI = "\
     git://github.com/Bluetooth-Devices/bluetooth-auto-recovery.git;protocol=https;branch=main \
-    file://run-ptest \
 "
 SRC_URI[sha256sum] = "8bac63dda39a8dfd7164af88d43c1ef27661108ec182a9327677b76e3222698d"
 SRCREV = "84909c607e541fb693430937d27c6a91c2419807"
 
-inherit python_poetry_core ptest
+inherit python_poetry_core ptest-python-pytest
 
 S = "${WORKDIR}/git"
 
@@ -24,13 +23,6 @@ RDEPENDS:${PN} = "\
     python3-usb-devices (>=0.4.1) \
 "
 
-RDEPENDS:${PN}-ptest = "\
-    python3-pytest \
+RDEPENDS:${PN}-ptest += "\
     python3-pytest-asyncio \
-    python3-unittest-automake-output \
 "
-
-do_install_ptest() {
-    install -d ${D}${PTEST_PATH}/tests
-    cp -rf ${S}/tests/* ${D}${PTEST_PATH}/tests/
-}

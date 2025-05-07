@@ -6,7 +6,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "a5a809ef7ba95ee673a78704f90ce34612deb3696269d1a6fd61f98642b99dd3"
 
-inherit pypi python_poetry_core ptest
+inherit pypi python_poetry_core ptest-python-pytest
 
 PYPI_PACKAGE = "bluetooth_adapters"
 

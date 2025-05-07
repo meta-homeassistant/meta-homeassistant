@@ -2,6 +2,7 @@ DESCRIPTION = "Python library for generating and parsing RFC 3339-compliant time
 HOMEPAGE = "https://github.com/kurtraschke/pyRFC3339"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=91b3003300a14a301fc1efc878bcee51"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit pypi setuptools3
 

@@ -2,6 +2,7 @@ SUMMARY = "A simple API for AirVisual air quality data"
 HOMEPAGE = "https://github.com/bachya/pyairvisual"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=51d385c25872662fea76588b089e43f5"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI += "file://0001-Remove-poetryversion-req.patch"
 SRC_URI[sha256sum] = "5898835815160101710769072083850f7e4d638236aa7f5240316e594d6a38ad"

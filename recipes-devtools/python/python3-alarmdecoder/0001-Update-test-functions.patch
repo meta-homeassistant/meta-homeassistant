@@ -1,0 +1,168 @@
+From f536d45ed5d1562b9f1f03e255ade2e973a7c82d Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Mon, 21 Apr 2025 21:31:17 +0000
+Subject: [PATCH] Update test functions
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ test/test_ad2.py      | 20 ++++++++++----------
+ test/test_devices.py  | 26 +++++++++++++-------------
+ test/test_messages.py | 16 ++++++++--------
+ 3 files changed, 31 insertions(+), 31 deletions(-)
+
+diff --git a/test/test_ad2.py b/test/test_ad2.py
+index 34feb84..0d1d992 100644
+--- a/test/test_ad2.py
++++ b/test/test_ad2.py
+@@ -229,12 +229,12 @@ class TestAlarmDecoder(TestCase):
+ 
+     def test_config_message(self):
+         msg = self._decoder._handle_message(b'!CONFIG>MODE=A&CONFIGBITS=ff04&ADDRESS=18&LRR=N&COM=N&EXP=NNNNN&REL=NNNN&MASK=ffffffff&DEDUPLICATE=N')
+-        self.assertEquals(self._decoder.mode, ADEMCO)
+-        self.assertEquals(self._decoder.address, 18)
+-        self.assertEquals(self._decoder.configbits, int('ff04', 16))
+-        self.assertEquals(self._decoder.address_mask, int('ffffffff', 16))
+-        self.assertEquals(self._decoder.emulate_zone, [False for x in range(5)])
+-        self.assertEquals(self._decoder.emulate_relay, [False for x in range(4)])
++        self.assertEqual(self._decoder.mode, ADEMCO)
++        self.assertEqual(self._decoder.address, 18)
++        self.assertEqual(self._decoder.configbits, int('ff04', 16))
++        self.assertEqual(self._decoder.address_mask, int('ffffffff', 16))
++        self.assertEqual(self._decoder.emulate_zone, [False for x in range(5)])
++        self.assertEqual(self._decoder.emulate_relay, [False for x in range(4)])
+         self.assertFalse(self._decoder.emulate_lrr)
+         self.assertFalse(self._decoder.emulate_com)
+         self.assertFalse(self._decoder.deduplicate)
+@@ -354,15 +354,15 @@ class TestAlarmDecoder(TestCase):
+ 
+     def test_zone_fault_and_restore(self):
+         self._decoder._on_read(self, data=b'[00010001000000000A--],003,[f70000051003000008020000000000],"FAULT 03                        "')
+-        self.assertEquals(self._zone_faulted, 3)
++        self.assertEqual(self._zone_faulted, 3)
+ 
+         self._decoder._on_read(self, data=b'[00010001000000000A--],004,[f70000051003000008020000000000],"FAULT 04                        "')
+-        self.assertEquals(self._zone_faulted, 4)
++        self.assertEqual(self._zone_faulted, 4)
+ 
+         self._decoder._on_read(self, data=b'[00010001000000000A--],005,[f70000051003000008020000000000],"FAULT 05                        "')
+-        self.assertEquals(self._zone_faulted, 5)
++        self.assertEqual(self._zone_faulted, 5)
+ 
+         self._decoder._on_read(self, data=b'[00010001000000000A--],004,[f70000051003000008020000000000],"FAULT 04                        "')
+         self._decoder._on_read(self, data=b'[00010001000000000A--],004,[f70000051003000008020000000000],"FAULT 05                        "')
+         self._decoder._on_read(self, data=b'[00010001000000000A--],004,[f70000051003000008020000000000],"FAULT 04                        "')
+-        self.assertEquals(self._zone_restored, 3)
++        self.assertEqual(self._zone_restored, 3)
+diff --git a/test/test_devices.py b/test/test_devices.py
+index d418780..3618e93 100644
+--- a/test/test_devices.py
++++ b/test/test_devices.py
+@@ -112,7 +112,7 @@ class TestSerialDevice(TestCase):
+                     except StopIteration:
+                         pass
+ 
+-                    self.assertEquals(ret, "testing")
++                    self.assertEqual(ret, "testing")
+ 
+     def test_read_line_timeout(self):
+         with patch.object(self._device._device, 'read', return_value=b'a') as mock:
+@@ -207,7 +207,7 @@ class TestSocketDevice(TestCase):
+                     except StopIteration:
+                         pass
+ 
+-            self.assertEquals(ret, "testing")
++            self.assertEqual(ret, "testing")
+ 
+     def test_read_line_timeout(self):
+         with patch('socket.socket.fileno', return_value=1):
+@@ -317,15 +317,15 @@ if have_pyftdi:
+             with patch.object(Ftdi, 'find_all', return_value=[(0, 0, 'AD2', 1, 'AD2')]):
+                 device = USBDevice.find()
+ 
+-                self.assertEquals(device.interface, 'AD2')
++                self.assertEqual(device.interface, 'AD2')
+ 
+         def test_find_with_param(self):
+             with patch.object(Ftdi, 'find_all', return_value=[(0, 0, 'AD2-1', 1, 'AD2'), (0, 0, 'AD2-2', 1, 'AD2')]):
+                 device = USBDevice.find((0, 0, 'AD2-1', 1, 'AD2'))
+-                self.assertEquals(device.interface, 'AD2-1')
++                self.assertEqual(device.interface, 'AD2-1')
+ 
+                 device = USBDevice.find((0, 0, 'AD2-2', 1, 'AD2'))
+-                self.assertEquals(device.interface, 'AD2-2')
++                self.assertEqual(device.interface, 'AD2-2')
+ 
+         def test_events(self):
+             self.assertFalse(self._attached)
+@@ -347,7 +347,7 @@ if have_pyftdi:
+             with patch.object(USBDevice, 'find_all', return_value=[]) as mock:
+                 devices = USBDevice.find_all()
+ 
+-            self.assertEquals(devices, [])
++            self.assertEqual(devices, [])
+ 
+         def test_find_all_exception(self):
+             with patch.object(Ftdi, 'find_all', side_effect=[USBError('testing'), FtdiError]) as mock:
+@@ -360,16 +360,16 @@ if have_pyftdi:
+         def test_interface_serial_number(self):
+             self._device.interface = 'AD2USB'
+ 
+-            self.assertEquals(self._device.interface, 'AD2USB')
+-            self.assertEquals(self._device.serial_number, 'AD2USB')
+-            self.assertEquals(self._device._device_number, 0)
++            self.assertEqual(self._device.interface, 'AD2USB')
++            self.assertEqual(self._device.serial_number, 'AD2USB')
++            self.assertEqual(self._device._device_number, 0)
+ 
+         def test_interface_index(self):
+             self._device.interface = 1
+ 
+-            self.assertEquals(self._device.interface, 1)
+-            self.assertEquals(self._device.serial_number, None)
+-            self.assertEquals(self._device._device_number, 1)
++            self.assertEqual(self._device.interface, 1)
++            self.assertEqual(self._device.serial_number, None)
++            self.assertEqual(self._device._device_number, 1)
+ 
+         def test_open(self):
+             self._device.interface = 'AD2USB'
+@@ -428,7 +428,7 @@ if have_pyftdi:
+                 except StopIteration:
+                     pass
+ 
+-                self.assertEquals(ret, b"testing")
++                self.assertEqual(ret, b"testing")
+ 
+         def test_read_line_timeout(self):
+             with patch.object(self._device._device, 'read_data', return_value='a') as mock:
+diff --git a/test/test_messages.py b/test/test_messages.py
+index da6a2c7..541afbc 100644
+--- a/test/test_messages.py
++++ b/test/test_messages.py
+@@ -75,17 +75,17 @@ class TestMessages(TestCase):
+     def test_lrr_message_parse_v2(self):
+         msg = LRRMessage('!LRR:001,1,CID_3401,ff')
+         self.assertIsInstance(msg, LRRMessage)
+-        self.assertEquals(msg.event_data, '001')
+-        self.assertEquals(msg.partition, '1')
+-        self.assertEquals(msg.event_prefix, 'CID')
+-        self.assertEquals(msg.event_source, LRR_EVENT_TYPE.CID)
+-        self.assertEquals(msg.event_status, LRR_EVENT_STATUS.RESTORE)
+-        self.assertEquals(msg.event_code, LRR_CID_EVENT.OPENCLOSE_BY_USER)
+-        self.assertEquals(msg.report_code, 'ff')
++        self.assertEqual(msg.event_data, '001')
++        self.assertEqual(msg.partition, '1')
++        self.assertEqual(msg.event_prefix, 'CID')
++        self.assertEqual(msg.event_source, LRR_EVENT_TYPE.CID)
++        self.assertEqual(msg.event_status, LRR_EVENT_STATUS.RESTORE)
++        self.assertEqual(msg.event_code, LRR_CID_EVENT.OPENCLOSE_BY_USER)
++        self.assertEqual(msg.report_code, 'ff')
+ 
+     def test_lrr_event_code_override(self):
+         msg = LRRMessage('!LRR:001,1,CID_3400,01')
+-        self.assertEquals(msg.event_code, LRR_CID_EVENT.OPENCLOSE_BY_USER)  # 400 -> 401
++        self.assertEqual(msg.event_code, LRR_CID_EVENT.OPENCLOSE_BY_USER)  # 400 -> 401
+ 
+     def test_lrr_message_parse_fail(self):
+         with self.assertRaises(InvalidMessageError):

@@ -2,6 +2,7 @@ SUMMARY = "CORS support for aiohttp"
 HOMEPAGE = "https://github.com/aio-libs/aiohttp-cors"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=74e00c8896f59680382a263042282781"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit pypi setuptools3
 

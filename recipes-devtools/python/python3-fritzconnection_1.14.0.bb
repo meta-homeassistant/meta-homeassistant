@@ -2,6 +2,7 @@ SUMMARY = "Python-Tool to communicate with the AVM Fritz!Box by the TR-064 proto
 HOMEPAGE = "https://github.com/kbr/fritzconnection"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=14e77f0736b95df3d3544d00d4894342"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "95dacaf9bed6b52d809169006c0994bc55cc893dbe0a014bcf9535ae9d00982f"
 

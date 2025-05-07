@@ -6,7 +6,11 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "e76055c7e16250f3ba33bd9998f470aa5aee7a8719b4083ce5e658cf64bc1e36"
 
-inherit pypi python_setuptools_build_meta
+inherit pypi python_setuptools_build_meta ptest-python-pytest
+
+SRC_URI:append = " \
+    file://run-ptest \
+"
 
 PYPI_PACKAGE = "aioairq"
 RDEPENDS:${PN} = "\

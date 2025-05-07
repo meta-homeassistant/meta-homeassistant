@@ -2,6 +2,7 @@ SUMMARY = "Pure Python FNV hash implementation"
 HOMEPAGE = "https://github.com/znerol/py-fnvhash"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://README.rst;beginline=29;endline=29;md5=9fc306bc8bfce4375f3500f34cb73bb6"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit pypi setuptools3
 

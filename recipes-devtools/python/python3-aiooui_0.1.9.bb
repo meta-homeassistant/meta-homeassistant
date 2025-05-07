@@ -2,6 +2,7 @@ SUMMARY = "Async OUI lookups"
 HOMEPAGE = "https://github.com/bluetooth-devices/aiooui"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=c8ea148e26a1546c1b0a99524d4da3f7"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 DEPENDS = "\
     python3-aiohttp-native \
