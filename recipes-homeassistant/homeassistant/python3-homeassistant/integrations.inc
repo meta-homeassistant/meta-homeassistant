@@ -30,6 +30,7 @@ INTEGRATIONS = "\
     ${PN}-ambient-station \
     ${PN}-ampio \
     ${PN}-analytics-insight \
+    ${PN}-android-ip-webcam \
     ${PN}-aruba \
     ${PN}-assist-pipeline \
     ${PN}-atag \
@@ -289,6 +290,11 @@ RDEPENDS:${PN}-ampio = "\
 ALLOW_EMPTY:${PN}-analytics-insight = "1"
 RDEPENDS:${PN}-analytics-insight = "\
     python3-python-homeassistant-analytics (>=0.9.0) \
+"
+
+ALLOW_EMPTY:${PN}-android-ip-webcam = "1"
+RDEPENDS:${PN}-android-ip-webcam = "\
+    python3-pydroid-ipcam (>=2.0.0) \
 "
 
 ALLOW_EMPTY:${PN}-ampio = "1"

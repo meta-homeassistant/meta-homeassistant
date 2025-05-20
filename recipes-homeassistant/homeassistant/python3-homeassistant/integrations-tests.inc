@@ -31,6 +31,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-ambient-station \
     ${PN}-analytics \
     ${PN}-analytics-insight \
+    ${PN}-android-ip-webcam \
     ${PN}-api \
     ${PN}-application-credentials \
     ${PN}-assist-satellite \
