@@ -35,7 +35,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-ambient-station \
     python3-homeassistant-amcrest \
     python3-homeassistant-ampio \
-    python3-homeassistant-analytics-insight \
+    python3-homeassistant-analytics-insights \
     python3-homeassistant-android-ip-webcam \
     python3-homeassistant-aruba \
     python3-homeassistant-assist-pipeline \

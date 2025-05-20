@@ -30,7 +30,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-ambient-network \
     ${PN}-ambient-station \
     ${PN}-analytics \
-    ${PN}-analytics-insight \
+    ${PN}-analytics-insights \
     ${PN}-android-ip-webcam \
     ${PN}-api \
     ${PN}-application-credentials \

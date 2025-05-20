@@ -29,7 +29,7 @@ INTEGRATIONS = "\
     ${PN}-ambient-network \
     ${PN}-ambient-station \
     ${PN}-ampio \
-    ${PN}-analytics-insight \
+    ${PN}-analytics-insights \
     ${PN}-android-ip-webcam \
     ${PN}-aruba \
     ${PN}-assist-pipeline \
@@ -287,8 +287,8 @@ RDEPENDS:${PN}-ampio = "\
     python3-asmog (>=0.0.6) \
 "
 
-ALLOW_EMPTY:${PN}-analytics-insight = "1"
-RDEPENDS:${PN}-analytics-insight = "\
+ALLOW_EMPTY:${PN}-analytics-insights = "1"
+RDEPENDS:${PN}-analytics-insights = "\
     python3-python-homeassistant-analytics (>=0.9.0) \
 "
 
