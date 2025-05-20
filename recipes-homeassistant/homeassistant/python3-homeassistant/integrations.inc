@@ -33,6 +33,7 @@ INTEGRATIONS = "\
     ${PN}-android-ip-webcam \
     ${PN}-androidtv \
     ${PN}-androidtv-remote \
+    ${PN}-anel-pwrctrl \
     ${PN}-aruba \
     ${PN}-assist-pipeline \
     ${PN}-atag \
@@ -308,6 +309,11 @@ RDEPENDS:${PN}-androidtv = "\
 ALLOW_EMPTY:${PN}-androidtv-remote = "1"
 RDEPENDS:${PN}-androidtv-remote = "\
     python3-androidtvremote2 (>=0.2.1) \
+"
+
+ALLOW_EMPTY:${PN}-anel-pwrctrl = "1"
+RDEPENDS:${PN}-anel-pwrctrl = "\
+    python3-anel-pwrctrl-homeassistant (>=0.0.1.dev2) \
 "
 
 ALLOW_EMPTY:${PN}-ampio = "1"

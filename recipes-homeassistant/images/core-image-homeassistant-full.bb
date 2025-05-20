@@ -39,6 +39,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-android-ip-webcam \
     python3-homeassistant-androidtv \
     python3-homeassistant-androidtv-remote \
+    python3-homeassistant-anel-pwrctrl \
     python3-homeassistant-aruba \
     python3-homeassistant-assist-pipeline \
     python3-homeassistant-atag \
