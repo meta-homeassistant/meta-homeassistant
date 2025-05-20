@@ -33,7 +33,19 @@ IMAGE_INSTALL = "\
     python3-homeassistant-amberelectric \
     python3-homeassistant-ambient-network \
     python3-homeassistant-ambient-station \
+    python3-homeassistant-amcrest \
     python3-homeassistant-ampio \
+    python3-homeassistant-analytics-insights \
+    python3-homeassistant-android-ip-webcam \
+    python3-homeassistant-androidtv \
+    python3-homeassistant-androidtv-remote \
+    python3-homeassistant-anel-pwrctrl \
+    python3-homeassistant-anova \
+    python3-homeassistant-anthemav \
+    python3-homeassistant-anthropic \
+    python3-homeassistant-aosmith \
+    python3-homeassistant-apache-kafka \
+    python3-homeassistant-apcupsd \
     python3-homeassistant-aruba \
     python3-homeassistant-assist-pipeline \
     python3-homeassistant-atag \
@@ -46,6 +58,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-cast \
     python3-homeassistant-cisco-ios \
     python3-homeassistant-cloud \
+    python3-homeassistant-co2signal \
     python3-homeassistant-compensation \
     python3-homeassistant-conversation \
     python3-homeassistant-cpuspeed \
@@ -72,6 +85,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-isal \
     python3-homeassistant-keyboard-remote \
     python3-homeassistant-kwb \
+    python3-homeassistant-letpot \
     python3-homeassistant-local-calendar \
     python3-homeassistant-local-todo \
     python3-homeassistant-luftdaten \
@@ -98,6 +112,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-radio-browser \
     python3-homeassistant-recorder \
     python3-homeassistant-route53 \
+    python3-homeassistant-ruuvi-gateway \
     python3-homeassistant-scrape \
     python3-homeassistant-sentry \
     python3-homeassistant-seven-segments \
@@ -112,6 +127,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-switchbot \
     python3-homeassistant-systemmonitor \
     python3-homeassistant-ted5000 \
+    python3-homeassistant-tibber \
     python3-homeassistant-trafikverket-camera \
     python3-homeassistant-trafikverket-ferry \
     python3-homeassistant-trafikverket-train \

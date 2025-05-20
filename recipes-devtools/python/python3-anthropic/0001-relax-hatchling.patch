@@ -1,0 +1,24 @@
+From 9088ca4a922638f621e951003bd29b820f9ca6cb Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Tue, 13 May 2025 22:25:09 +0000
+Subject: [PATCH] relax hatchling
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ pyproject.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index 63ae072..d94c45d 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -92,7 +92,7 @@ typecheck = { chain = [
+ "typecheck:mypy" = "mypy ."
+ 
+ [build-system]
+-requires = ["hatchling==1.26.3", "hatch-fancy-pypi-readme"]
++requires = ["hatchling>=1.26.3", "hatch-fancy-pypi-readme"]
+ build-backend = "hatchling.build"
+ 
+ [tool.hatch.build]

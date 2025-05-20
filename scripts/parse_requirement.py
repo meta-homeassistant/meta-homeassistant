@@ -200,9 +200,8 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
             requirements = manifest.get("requirements", [])
             has_test = manifest["domain"] in list_of_tests
 
-            is_test_package = manifest["domain"].replace('_','-') in test_packages
+            is_test_package = manifest["domain"].replace('_', '-') in test_packages
             if not requirements:
-
                 df.append(create_entry(
                     manifest["domain"],
                     "y" if has_test else "n",
@@ -232,7 +231,6 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
                         package_name,
                         ha_version,
                         yocto_version,
-
                     ))
         except FileNotFoundError:
             print(f"Manifest file not found for component: {component.split('/')[-1]}")
@@ -263,6 +261,7 @@ def parse_requirement(requirement):
     """Parse the requirement into a package name and version."""
     package_name, ha_version = requirement.split("==")
     package_name = "python3-" + package_name.lower().replace("_", "-")
+    package_name = re.sub(r'\[.*?\]$', '', package_name).strip()
     return package_name, ha_version
 
 
