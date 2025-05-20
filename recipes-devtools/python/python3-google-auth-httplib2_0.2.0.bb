@@ -15,6 +15,7 @@ RDEPENDS:${PN} += "\
 
 RDEPENDS:${PN}-ptest += "\
     python3-flask \
+    python3-pytest-localserver \
 "
 
 PYPI_PACKAGE = "google-auth-httplib2"
