@@ -225,6 +225,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-tcp \
     ${PN}-text \
     ${PN}-threshold \
+    ${PN}-tibber \
     ${PN}-time \
     ${PN}-time-date \
     ${PN}-timer \

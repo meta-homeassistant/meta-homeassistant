@@ -123,6 +123,7 @@ INTEGRATIONS = "\
     ${PN}-switchbot \
     ${PN}-systemmonitor \
     ${PN}-ted5000 \
+    ${PN}-tibber \
     ${PN}-trafikverket-camera \
     ${PN}-trafikverket-ferry \
     ${PN}-trafikverket-train \
@@ -801,6 +802,11 @@ RDEPENDS:${PN}-systemmonitor = "\
 ALLOW_EMPTY:${PN}-ted5000 = "1"
 RDEPENDS:${PN}-ted5000 = "\
     python3-xmltodict (>=0.13.0) \
+"
+
+ALLOW_EMPTY:${PN}-tibber = "1"
+RDEPENDS:${PN}-tibber = "\
+    python3-pytibber (>=0.30.8) \
 "
 
 ALLOW_EMPTY:${PN}-trafikverket-camera = "1"

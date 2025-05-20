@@ -126,6 +126,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-switchbot \
     python3-homeassistant-systemmonitor \
     python3-homeassistant-ted5000 \
+    python3-homeassistant-tibber \
     python3-homeassistant-trafikverket-camera \
     python3-homeassistant-trafikverket-ferry \
     python3-homeassistant-trafikverket-train \
