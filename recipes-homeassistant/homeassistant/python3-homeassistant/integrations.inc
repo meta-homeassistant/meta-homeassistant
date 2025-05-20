@@ -32,6 +32,7 @@ INTEGRATIONS = "\
     ${PN}-analytics-insights \
     ${PN}-android-ip-webcam \
     ${PN}-androidtv \
+    ${PN}-androidtv-remote \
     ${PN}-aruba \
     ${PN}-assist-pipeline \
     ${PN}-atag \
@@ -302,6 +303,11 @@ ALLOW_EMPTY:${PN}-androidtv = "1"
 RDEPENDS:${PN}-androidtv = "\
     python3-adb-shell (>=0.4.4) \
     python3-androidtv (>=0.0.75) \
+"
+
+ALLOW_EMPTY:${PN}-androidtv-remote = "1"
+RDEPENDS:${PN}-androidtv-remote = "\
+    python3-androidtvremote2 (>=0.2.1) \
 "
 
 ALLOW_EMPTY:${PN}-ampio = "1"
