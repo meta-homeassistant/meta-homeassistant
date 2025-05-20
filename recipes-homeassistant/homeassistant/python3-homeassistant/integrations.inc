@@ -39,6 +39,7 @@ INTEGRATIONS = "\
     ${PN}-anthropic \
     ${PN}-aosmith \
     ${PN}-apache-kafka \
+    ${PN}-apcupsd \
     ${PN}-aruba \
     ${PN}-assist-pipeline \
     ${PN}-atag \
@@ -344,6 +345,11 @@ RDEPENDS:${PN}-aosmith = "\
 ALLOW_EMPTY:${PN}-apache-kafka = "1"
 RDEPENDS:${PN}-apache-kafka = "\
     python3-aiokafka (>=0.10.0) \
+"
+
+ALLOW_EMPTY:${PN}-apcupsd = "1"
+RDEPENDS:${PN}-apcupsd = "\
+    python3-aioapcaccess (>=0.4.2) \
 "
 
 ALLOW_EMPTY:${PN}-ampio = "1"

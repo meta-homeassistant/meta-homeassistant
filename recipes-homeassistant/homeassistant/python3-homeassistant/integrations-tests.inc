@@ -39,6 +39,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-anthropic \
     ${PN}-aosmith \
     ${PN}-apache-kafka \
+    ${PN}-apcupsd \
     ${PN}-api \
     ${PN}-application-credentials \
     ${PN}-assist-satellite \
