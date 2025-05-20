@@ -81,6 +81,7 @@ INTEGRATIONS = "\
     ${PN}-isal \
     ${PN}-keyboard-remote \
     ${PN}-kwb \
+    ${PN}-letpot \
     ${PN}-local-calendar \
     ${PN}-local-todo \
     ${PN}-luftdaten \
@@ -578,6 +579,11 @@ RDEPENDS:${PN}-keyboard-remote = "\
 ALLOW_EMPTY:${PN}-kwb = "1"
 RDEPENDS:${PN}-kwb = "\
     python3-pykwb (=0.0.8) \
+"
+
+ALLOW_EMPTY:${PN}-letpot = "1"
+RDEPENDS:${PN}-letpot = "\
+    python3-letpot (=0.4.0) \
 "
 
 ALLOW_EMPTY:${PN}-local-calendar = "1"

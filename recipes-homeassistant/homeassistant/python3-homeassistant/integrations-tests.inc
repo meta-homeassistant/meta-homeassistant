@@ -145,6 +145,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-isal \
     ${PN}-kitchen-sink \
     ${PN}-lawn-mower \
+    ${PN}-letpot \
     ${PN}-life360 \
     ${PN}-light \
     ${PN}-local-file \
