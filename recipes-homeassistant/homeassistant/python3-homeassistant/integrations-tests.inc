@@ -34,6 +34,11 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-android-ip-webcam \
     ${PN}-androidtv \
     ${PN}-androidtv-remote \
+    ${PN}-anova \
+    ${PN}-anthemav \
+    ${PN}-anthropic \
+    ${PN}-aosmith \
+    ${PN}-apache-kafka \
     ${PN}-api \
     ${PN}-application-credentials \
     ${PN}-assist-satellite \

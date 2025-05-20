@@ -40,6 +40,11 @@ IMAGE_INSTALL = "\
     python3-homeassistant-androidtv \
     python3-homeassistant-androidtv-remote \
     python3-homeassistant-anel-pwrctrl \
+    python3-homeassistant-anova \
+    python3-homeassistant-anthemav \
+    python3-homeassistant-anthropic \
+    python3-homeassistant-aosmith \
+    python3-homeassistant-apache-kafka \
     python3-homeassistant-aruba \
     python3-homeassistant-assist-pipeline \
     python3-homeassistant-atag \

@@ -34,6 +34,11 @@ INTEGRATIONS = "\
     ${PN}-androidtv \
     ${PN}-androidtv-remote \
     ${PN}-anel-pwrctrl \
+    ${PN}-anova \
+    ${PN}-anthemav \
+    ${PN}-anthropic \
+    ${PN}-aosmith \
+    ${PN}-apache-kafka \
     ${PN}-aruba \
     ${PN}-assist-pipeline \
     ${PN}-atag \
@@ -314,6 +319,31 @@ RDEPENDS:${PN}-androidtv-remote = "\
 ALLOW_EMPTY:${PN}-anel-pwrctrl = "1"
 RDEPENDS:${PN}-anel-pwrctrl = "\
     python3-anel-pwrctrl-homeassistant (>=0.0.1.dev2) \
+"
+
+ALLOW_EMPTY:${PN}-anova = "1"
+RDEPENDS:${PN}-anova = "\
+    python3-anova-wifi (>=0.17.0) \
+"
+
+ALLOW_EMPTY:${PN}-anthemav = "1"
+RDEPENDS:${PN}-anthemav = "\
+    python3-anthemav (>=1.4.1) \
+"
+
+ALLOW_EMPTY:${PN}-anthropic = "1"
+RDEPENDS:${PN}-anthropic = "\
+    python3-anthropic (>=0.47.2) \
+"
+
+ALLOW_EMPTY:${PN}-aosmith = "1"
+RDEPENDS:${PN}-aosmith = "\
+    python3-py-aosmith (>=1.0.12) \
+"
+
+ALLOW_EMPTY:${PN}-apache-kafka = "1"
+RDEPENDS:${PN}-apache-kafka = "\
+    python3-aiokafka (>=0.10.0) \
 "
 
 ALLOW_EMPTY:${PN}-ampio = "1"
