@@ -111,6 +111,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-go2rtc \
     ${PN}-google-assistant \
     ${PN}-google-translate \
+    ${PN}-google-tasks \
     ${PN}-google-wifi \
     ${PN}-gpslogger \
     ${PN}-graphite \
