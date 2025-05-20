@@ -112,6 +112,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-radio-browser \
     python3-homeassistant-recorder \
     python3-homeassistant-route53 \
+    python3-homeassistant-ruuvi-gateway \
     python3-homeassistant-scrape \
     python3-homeassistant-sentry \
     python3-homeassistant-seven-segments \

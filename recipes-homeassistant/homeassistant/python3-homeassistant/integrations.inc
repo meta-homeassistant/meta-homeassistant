@@ -109,6 +109,7 @@ INTEGRATIONS = "\
     ${PN}-radio-browser \
     ${PN}-recorder \
     ${PN}-route53 \
+    ${PN}-ruuvi-gateway \
     ${PN}-scrape \
     ${PN}-sentry \
     ${PN}-seven-segments \
@@ -727,6 +728,11 @@ RDEPENDS:${PN}-recorder = "\
 ALLOW_EMPTY:${PN}-route53 = "1"
 RDEPENDS:${PN}-route53 = "\
     python3-boto3 (>=1.34.131) \
+"
+
+ALLOW_EMPTY:${PN}-ruuvi-gateway = "1"
+RDEPENDS:${PN}-ruuvi-gateway = "\
+    python3-aioruuvigateway (>=0.1.0) \
 "
 
 ALLOW_EMPTY:${PN}-scrape = "1"

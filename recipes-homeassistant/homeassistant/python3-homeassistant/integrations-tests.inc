@@ -202,6 +202,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-rest-command \
     ${PN}-rhasspy \
     ${PN}-rss-feed-template \
+    ${PN}-ruuvi-gateway \
     ${PN}-scene \
     ${PN}-schedule \
     ${PN}-script \

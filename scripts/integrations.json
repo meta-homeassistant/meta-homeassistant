@@ -109,6 +109,7 @@
     "radio_browser",
     "recorder",
     "route53",
+    "ruuvi_gateway",
     "scrape",
     "sentry",
     "seven_segments",
