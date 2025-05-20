@@ -62,6 +62,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-clicksend-tts \
     ${PN}-climate \
     ${PN}-cloud \
+    ${PN}-co2signal \
     ${PN}-compensation \
     ${PN}-config \
     ${PN}-configurator \

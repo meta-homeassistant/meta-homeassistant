@@ -52,6 +52,7 @@ INTEGRATIONS = "\
     ${PN}-cast \
     ${PN}-cisco-ios \
     ${PN}-cloud \
+    ${PN}-co2signal \
     ${PN}-compensation \
     ${PN}-conversation \
     ${PN}-cpuspeed \
@@ -425,6 +426,11 @@ RDEPENDS:${PN}-cisco-ios = "\
 ALLOW_EMPTY:${PN}-cloud = "1"
 RDEPENDS:${PN}-cloud = "\
     python3-hass-nabucasa (>=0.94.0) \
+"
+
+ALLOW_EMPTY:${PN}-co2signal = "1"
+RDEPENDS:${PN}-co2signal = "\
+    python3-aioelectricitymaps (>=0.4.0) \
 "
 
 ALLOW_EMPTY:${PN}-compensation = "1"
