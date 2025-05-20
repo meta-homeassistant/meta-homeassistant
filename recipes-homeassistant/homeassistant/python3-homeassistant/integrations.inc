@@ -1,4 +1,4 @@
-PACKAGES += "\
+INTEGRATIONS = "\
     ${PN}-acaia \
     ${PN}-acer-projector \
     ${PN}-accuweather \
@@ -29,6 +29,7 @@ PACKAGES += "\
     ${PN}-ambient-network \
     ${PN}-ambient-station \
     ${PN}-ampio \
+    ${PN}-analytics-insight \
     ${PN}-aruba \
     ${PN}-assist-pipeline \
     ${PN}-atag \
@@ -130,6 +131,9 @@ PACKAGES += "\
     ${PN}-zwave-js \
     ${PN}-zwave-me \
 "
+
+PACKAGES += "${INTEGRATIONS}"
+RRECOMMENDS:${PN} += "${INTEGRATIONS}"
 
 ALLOW_EMPTY:${PN}-acaia = "1"
 RDEPENDS:${PN}-acaia = "\
@@ -275,6 +279,16 @@ RDEPENDS:${PN}-ambient-station = "\
 ALLOW_EMPTY:${PN}-amcrest = "1"
 RDEPENDS:${PN}-amcrest = "\
     python3-amcrest (>=1.9.8) \
+"
+
+ALLOW_EMPTY:${PN}-ampio = "1"
+RDEPENDS:${PN}-ampio = "\
+    python3-asmog (>=0.0.6) \
+"
+
+ALLOW_EMPTY:${PN}-analytics-insight = "1"
+RDEPENDS:${PN}-analytics-insight = "\
+    python3-python-homeassistant-analytics (>=0.9.0) \
 "
 
 ALLOW_EMPTY:${PN}-ampio = "1"
@@ -813,138 +827,4 @@ ALLOW_EMPTY:${PN}-zwave-me = "1"
 RDEPENDS:${PN}-zwave-me = "\
     python3-url-normalize (=1.4.3) \
     python3-zwave-me-ws (=0.4.3) \
-"
-
-RDEPENDS:${PN} += "\
-    ${PN}-assist-pipeline \
-    ${PN}-bluetooth \
-    ${PN}-cloud \
-    ${PN}-conversation \
-    ${PN}-dhcp \
-    ${PN}-ffmpeg \
-    ${PN}-frontend \
-    ${PN}-go2rtc \
-    ${PN}-google-translate \
-    ${PN}-hardware \
-    ${PN}-image-upload \
-    ${PN}-matter \
-    ${PN}-mobile-app \
-    ${PN}-radio-browser \
-    ${PN}-recorder \
-    ${PN}-stream \
-    ${PN}-usb \
-    ${PN}-zeroconf \
-"
-
-RRECOMMENDS:${PN} += "\
-    ${PN}-acaia \
-    ${PN}-accuweather \
-    ${PN}-acer-projector \
-    ${PN}-acmeda \
-    ${PN}-adax \
-    ${PN}-adguard \
-    ${PN}-advantage-air \
-    ${PN}-aemet \
-    ${PN}-aftership \
-    ${PN}-agent-dvr \
-    ${PN}-airgradient \
-    ${PN}-airly \
-    ${PN}-airnow \
-    ${PN}-airq \
-    ${PN}-airthings \
-    ${PN}-airthings-ble \
-    ${PN}-airtouch4 \
-    ${PN}-airtouch5 \
-    ${PN}-airvisual \
-    ${PN}-airvisual-pro \    
-    ${PN}-airzone \    
-    ${PN}-airzone-cloud \    
-    ${PN}-alarmdecoder \    
-    ${PN}-alpha-vantage \    
-    ${PN}-amazon-polly \
-    ${PN}-amberelectric \
-    ${PN}-ambient-network \
-    ${PN}-ambient-station \
-    ${PN}-amcrest \
-    ${PN}-ampio \
-    ${PN}-aruba \
-    ${PN}-atag \
-    ${PN}-axis \
-    ${PN}-backup \
-    ${PN}-bluesound \
-    ${PN}-bluetooth-tracker \
-    ${PN}-camera \
-    ${PN}-cast \
-    ${PN}-cisco-ios \
-    ${PN}-compensation \
-    ${PN}-cpuspeed \
-    ${PN}-debugpy \
-    ${PN}-decora-wifi \
-    ${PN}-dlna-dmr \
-    ${PN}-dlna-dms \
-    ${PN}-dunehd \
-    ${PN}-folder-watcher \
-    ${PN}-fritz \
-    ${PN}-fritzbox \
-    ${PN}-fritzbox-callmonitor \
-    ${PN}-generic \
-    ${PN}-github \
-    ${PN}-google-mail \
-    ${PN}-google-sheets \
-    ${PN}-google-tasks \
-    ${PN}-hue \
-    ${PN}-ipp \
-    ${PN}-isal \
-    ${PN}-keyboard-remote \
-    ${PN}-kwb \
-    ${PN}-local-calendar \
-    ${PN}-local-todo \
-    ${PN}-luftdaten \
-    ${PN}-met \
-    ${PN}-modbus \
-    ${PN}-mqtt \
-    ${PN}-namecheapdns \
-    ${PN}-network \
-    ${PN}-nmap-tracker \
-    ${PN}-norway-air \
-    ${PN}-octoprint \
-    ${PN}-ohmconnect \
-    ${PN}-otp \
-    ${PN}-owntracks \
-    ${PN}-pandora \
-    ${PN}-private-ble-device \
-    ${PN}-proxy \
-    ${PN}-pulseaudio-loopback \
-    ${PN}-qwikswitch \
-    ${PN}-route53 \
-    ${PN}-scrape \
-    ${PN}-sentry \
-    ${PN}-seven-segments \
-    ${PN}-shelly \
-    ${PN}-simplisafe \
-    ${PN}-sony-projector \
-    ${PN}-speedtestdotnet \
-    ${PN}-sql \
-    ${PN}-startca \
-    ${PN}-ssdp \
-    ${PN}-switchbot \
-    ${PN}-systemmonitor \
-    ${PN}-ted5000 \
-    ${PN}-trafikverket-camera \
-    ${PN}-trafikverket-ferry \
-    ${PN}-trafikverket-train \
-    ${PN}-trafikverket-weatherstation \
-    ${PN}-trend \
-    ${PN}-tts \
-    ${PN}-upnp \
-    ${PN}-utility-meter \
-    ${PN}-vlc \
-    ${PN}-w800rf32 \
-    ${PN}-wirelesstag \
-    ${PN}-zabbix \
-    ${PN}-zestimate \
-    ${PN}-zha \
-    ${PN}-zoneminder \
-    ${PN}-zwave-js \
-    ${PN}-zwave-me \
 "

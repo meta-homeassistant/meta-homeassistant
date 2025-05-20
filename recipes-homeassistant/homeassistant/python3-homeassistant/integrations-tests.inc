@@ -30,6 +30,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-ambient-network \
     ${PN}-ambient-station \
     ${PN}-analytics \
+    ${PN}-analytics-insight \
     ${PN}-api \
     ${PN}-application-credentials \
     ${PN}-assist-satellite \
