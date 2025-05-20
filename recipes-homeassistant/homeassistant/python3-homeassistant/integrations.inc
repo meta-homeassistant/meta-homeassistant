@@ -25,6 +25,7 @@ PACKAGES += "\
     ${PN}-alpha-vantage \
     ${PN}-amazon-polly \
     ${PN}-amberelectric \
+    ${PN}-amcrest \
     ${PN}-ambient-network \
     ${PN}-ambient-station \
     ${PN}-ampio \
@@ -269,6 +270,11 @@ RDEPENDS:${PN}-ambient-network = "\
 ALLOW_EMPTY:${PN}-ambient-station = "1"
 RDEPENDS:${PN}-ambient-station = "\
     python3-aioambient (>=2024.8.0) \
+"
+
+ALLOW_EMPTY:${PN}-amcrest = "1"
+RDEPENDS:${PN}-amcrest = "\
+    python3-amcrest (>=1.9.8) \
 "
 
 ALLOW_EMPTY:${PN}-ampio = "1"
@@ -859,6 +865,7 @@ RRECOMMENDS:${PN} += "\
     ${PN}-amberelectric \
     ${PN}-ambient-network \
     ${PN}-ambient-station \
+    ${PN}-amcrest \
     ${PN}-ampio \
     ${PN}-aruba \
     ${PN}-atag \
