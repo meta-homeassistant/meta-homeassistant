@@ -31,6 +31,7 @@ INTEGRATIONS = "\
     ${PN}-ampio \
     ${PN}-analytics-insights \
     ${PN}-android-ip-webcam \
+    ${PN}-androidtv \
     ${PN}-aruba \
     ${PN}-assist-pipeline \
     ${PN}-atag \
@@ -295,6 +296,12 @@ RDEPENDS:${PN}-analytics-insights = "\
 ALLOW_EMPTY:${PN}-android-ip-webcam = "1"
 RDEPENDS:${PN}-android-ip-webcam = "\
     python3-pydroid-ipcam (>=2.0.0) \
+"
+
+ALLOW_EMPTY:${PN}-androidtv = "1"
+RDEPENDS:${PN}-androidtv = "\
+    python3-adb-shell (>=0.4.4) \
+    python3-androidtv (>=0.0.75) \
 "
 
 ALLOW_EMPTY:${PN}-ampio = "1"
