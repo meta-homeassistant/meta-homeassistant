@@ -12,10 +12,10 @@ HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 SRC_URI = "git://github.com/home-assistant/core.git;protocol=https;branch=master \
            file://homeassistant.service \
            file://run-ptest-sample \
-           file://0001-adjust-setuptools-req.patch \
+           file://0001-Relax-setuptools.patch \
            "
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
-SRCREV = "0c19e47bd454b1e7411a3258e960fd1fcd857562"
+SRCREV = "00627b82e0f791c01146f49c9e12e878395366f4"
 
 inherit python_setuptools_build_meta useradd systemd ptest
 
@@ -59,9 +59,9 @@ require recipes-homeassistant/homeassistant/python3-homeassistant/integrations-t
 
 #TODO: python3-uv (=0.6.10)
 RDEPENDS:${PN} += "\
-    python3-aiodns (>=3.2.0) \
-    python3-aiohasupervisor (=0.3.0) \
-    python3-aiohttp (>=3.11.16) \
+    python3-aiodns (>=3.4.0) \
+    python3-aiohasupervisor (=0.3.1) \
+    python3-aiohttp (>=3.11.18) \
     python3-aiohttp-cors (=0.7.0) \
     python3-aiohttp-fast-zlib (=0.2.3) \
     python3-aiohttp-asyncmdnsresolver (=0.1.1) \
@@ -77,13 +77,13 @@ RDEPENDS:${PN} += "\
     python3-certifi (>=2021.5.30) \
     python3-ciso8601 (=2.3.2) \
     python3-cronsim (>=2.6) \
-    python3-fnv-hash-fast (>=1.4.0) \
+    python3-fnv-hash-fast (>=1.5.0) \
     python3-ha-ffmpeg (>=3.2.2) \
-    python3-hass-nabucasa (>=0.94.0) \
+    python3-hass-nabucasa (>=0.96.0) \
     python3-hassil (>=2.2.3) \
     python3-httpx (>=0.28.1) \
     python3-home-assistant-bluetooth (>=1.13.1) \
-    python3-home-assistant-intents (>=2025.3.28) \
+    python3-home-assistant-intents (>=2025.5.7) \
     python3-ifaddr (=0.2.0) \
     python3-jinja2 (>=3.1.6) \
     python3-lru-dict (>=1.3.0) \
@@ -91,10 +91,10 @@ RDEPENDS:${PN} += "\
     python3-numpy (>=2.2.2) \
     python3-pyjwt (=2.10.1) \
     python3-cryptography (>=44.0.1) \
-    python3-pillow (>=11.1.0) \
-    python3-propcache (>=0.3.0) \
+    python3-pillow (>=11.2.1) \
+    python3-propcache (>=0.3.1) \
     python3-pyopenssl (>=25.0.0) \
-    python3-orjson (>=3.10.16) \
+    python3-orjson (>=3.10.18) \
     python3-packaging (>=23.1) \
     python3-psutil-home-assistant (=0.0.1) \
     python3-pymicro-vad (>=1.0.1) \
@@ -104,7 +104,7 @@ RDEPENDS:${PN} += "\
     python3-pyyaml (>=6.0.2) \
     python3-requests (>=2.32.3) \
     python3-securetar (=2025.2.1) \
-    python3-sqlalchemy (>=2.0.39) \
+    python3-sqlalchemy (>=2.0.40) \
     python3-standard-aifc (=3.13.0) \
     python3-standard-telnetlib (=3.13.0) \
     python3-typing-extensions (>=4.13.0) \
@@ -112,10 +112,10 @@ RDEPENDS:${PN} += "\
     python3-urllib3 (>=1.26.5) \
     python3-voluptuous (=0.15.2) \
     python3-voluptuous-serialize (=2.6.0) \
-    python3-voluptuous-openapi (=0.0.6) \
-    python3-yarl (>=1.18.3) \
+    python3-voluptuous-openapi (=0.0.7) \
+    python3-yarl (>=1.20.0) \
     python3-webrtc-models (>=0.3.0) \
-    python3-zeroconf (>=0.146.0) \
+    python3-zeroconf (>=0.147.0) \
     \
     python3-statistics \
     python3-core (>=3.13.0) \
