@@ -30,6 +30,16 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-ambient-network \
     ${PN}-ambient-station \
     ${PN}-analytics \
+    ${PN}-analytics-insights \
+    ${PN}-android-ip-webcam \
+    ${PN}-androidtv \
+    ${PN}-androidtv-remote \
+    ${PN}-anova \
+    ${PN}-anthemav \
+    ${PN}-anthropic \
+    ${PN}-aosmith \
+    ${PN}-apache-kafka \
+    ${PN}-apcupsd \
     ${PN}-api \
     ${PN}-application-credentials \
     ${PN}-assist-satellite \
@@ -52,6 +62,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-clicksend-tts \
     ${PN}-climate \
     ${PN}-cloud \
+    ${PN}-co2signal \
     ${PN}-compensation \
     ${PN}-config \
     ${PN}-configurator \
@@ -101,6 +112,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-go2rtc \
     ${PN}-google-assistant \
     ${PN}-google-translate \
+    ${PN}-google-tasks \
     ${PN}-google-wifi \
     ${PN}-gpslogger \
     ${PN}-graphite \
@@ -135,6 +147,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-isal \
     ${PN}-kitchen-sink \
     ${PN}-lawn-mower \
+    ${PN}-letpot \
     ${PN}-life360 \
     ${PN}-light \
     ${PN}-local-file \
@@ -189,6 +202,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-rest-command \
     ${PN}-rhasspy \
     ${PN}-rss-feed-template \
+    ${PN}-ruuvi-gateway \
     ${PN}-scene \
     ${PN}-schedule \
     ${PN}-script \
@@ -212,6 +226,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-tcp \
     ${PN}-text \
     ${PN}-threshold \
+    ${PN}-tibber \
     ${PN}-time \
     ${PN}-time-date \
     ${PN}-timer \

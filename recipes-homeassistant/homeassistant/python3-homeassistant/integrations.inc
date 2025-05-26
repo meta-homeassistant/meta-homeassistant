@@ -1,4 +1,4 @@
-PACKAGES += "\
+INTEGRATIONS = "\
     ${PN}-acaia \
     ${PN}-acer-projector \
     ${PN}-accuweather \
@@ -25,9 +25,21 @@ PACKAGES += "\
     ${PN}-alpha-vantage \
     ${PN}-amazon-polly \
     ${PN}-amberelectric \
+    ${PN}-amcrest \
     ${PN}-ambient-network \
     ${PN}-ambient-station \
     ${PN}-ampio \
+    ${PN}-analytics-insights \
+    ${PN}-android-ip-webcam \
+    ${PN}-androidtv \
+    ${PN}-androidtv-remote \
+    ${PN}-anel-pwrctrl \
+    ${PN}-anova \
+    ${PN}-anthemav \
+    ${PN}-anthropic \
+    ${PN}-aosmith \
+    ${PN}-apache-kafka \
+    ${PN}-apcupsd \
     ${PN}-aruba \
     ${PN}-assist-pipeline \
     ${PN}-atag \
@@ -40,6 +52,7 @@ PACKAGES += "\
     ${PN}-cast \
     ${PN}-cisco-ios \
     ${PN}-cloud \
+    ${PN}-co2signal \
     ${PN}-compensation \
     ${PN}-conversation \
     ${PN}-cpuspeed \
@@ -69,6 +82,7 @@ PACKAGES += "\
     ${PN}-isal \
     ${PN}-keyboard-remote \
     ${PN}-kwb \
+    ${PN}-letpot \
     ${PN}-local-calendar \
     ${PN}-local-todo \
     ${PN}-luftdaten \
@@ -95,6 +109,7 @@ PACKAGES += "\
     ${PN}-radio-browser \
     ${PN}-recorder \
     ${PN}-route53 \
+    ${PN}-ruuvi-gateway \
     ${PN}-scrape \
     ${PN}-sentry \
     ${PN}-seven-segments \
@@ -109,6 +124,7 @@ PACKAGES += "\
     ${PN}-switchbot \
     ${PN}-systemmonitor \
     ${PN}-ted5000 \
+    ${PN}-tibber \
     ${PN}-trafikverket-camera \
     ${PN}-trafikverket-ferry \
     ${PN}-trafikverket-train \
@@ -129,6 +145,9 @@ PACKAGES += "\
     ${PN}-zwave-js \
     ${PN}-zwave-me \
 "
+
+PACKAGES += "${INTEGRATIONS}"
+RRECOMMENDS:${PN} += "${INTEGRATIONS}"
 
 ALLOW_EMPTY:${PN}-acaia = "1"
 RDEPENDS:${PN}-acaia = "\
@@ -271,6 +290,72 @@ RDEPENDS:${PN}-ambient-station = "\
     python3-aioambient (>=2024.8.0) \
 "
 
+ALLOW_EMPTY:${PN}-amcrest = "1"
+RDEPENDS:${PN}-amcrest = "\
+    python3-amcrest (>=1.9.8) \
+"
+
+ALLOW_EMPTY:${PN}-ampio = "1"
+RDEPENDS:${PN}-ampio = "\
+    python3-asmog (>=0.0.6) \
+"
+
+ALLOW_EMPTY:${PN}-analytics-insights = "1"
+RDEPENDS:${PN}-analytics-insights = "\
+    python3-python-homeassistant-analytics (>=0.9.0) \
+"
+
+ALLOW_EMPTY:${PN}-android-ip-webcam = "1"
+RDEPENDS:${PN}-android-ip-webcam = "\
+    python3-pydroid-ipcam (>=2.0.0) \
+"
+
+ALLOW_EMPTY:${PN}-androidtv = "1"
+RDEPENDS:${PN}-androidtv = "\
+    python3-adb-shell (>=0.4.4) \
+    python3-androidtv (>=0.0.75) \
+"
+
+ALLOW_EMPTY:${PN}-androidtv-remote = "1"
+RDEPENDS:${PN}-androidtv-remote = "\
+    python3-androidtvremote2 (>=0.2.1) \
+"
+
+ALLOW_EMPTY:${PN}-anel-pwrctrl = "1"
+RDEPENDS:${PN}-anel-pwrctrl = "\
+    python3-anel-pwrctrl-homeassistant (>=0.0.1.dev2) \
+"
+
+ALLOW_EMPTY:${PN}-anova = "1"
+RDEPENDS:${PN}-anova = "\
+    python3-anova-wifi (>=0.17.0) \
+"
+
+ALLOW_EMPTY:${PN}-anthemav = "1"
+RDEPENDS:${PN}-anthemav = "\
+    python3-anthemav (>=1.4.1) \
+"
+
+ALLOW_EMPTY:${PN}-anthropic = "1"
+RDEPENDS:${PN}-anthropic = "\
+    python3-anthropic (>=0.47.2) \
+"
+
+ALLOW_EMPTY:${PN}-aosmith = "1"
+RDEPENDS:${PN}-aosmith = "\
+    python3-py-aosmith (>=1.0.12) \
+"
+
+ALLOW_EMPTY:${PN}-apache-kafka = "1"
+RDEPENDS:${PN}-apache-kafka = "\
+    python3-aiokafka (>=0.10.0) \
+"
+
+ALLOW_EMPTY:${PN}-apcupsd = "1"
+RDEPENDS:${PN}-apcupsd = "\
+    python3-aioapcaccess (>=0.4.2) \
+"
+
 ALLOW_EMPTY:${PN}-ampio = "1"
 RDEPENDS:${PN}-ampio = "\
     python3-asmog (>=0.0.6) \
@@ -343,6 +428,11 @@ RDEPENDS:${PN}-cisco-ios = "\
 ALLOW_EMPTY:${PN}-cloud = "1"
 RDEPENDS:${PN}-cloud = "\
     python3-hass-nabucasa (>=0.94.0) \
+"
+
+ALLOW_EMPTY:${PN}-co2signal = "1"
+RDEPENDS:${PN}-co2signal = "\
+    python3-aioelectricitymaps (>=0.4.0) \
 "
 
 ALLOW_EMPTY:${PN}-compensation = "1"
@@ -499,6 +589,11 @@ RDEPENDS:${PN}-kwb = "\
     python3-pykwb (=0.0.8) \
 "
 
+ALLOW_EMPTY:${PN}-letpot = "1"
+RDEPENDS:${PN}-letpot = "\
+    python3-letpot (=0.4.0) \
+"
+
 ALLOW_EMPTY:${PN}-local-calendar = "1"
 RDEPENDS:${PN}-local-calendar = "\
     python3-ical (>=9.0.3) \
@@ -635,6 +730,11 @@ RDEPENDS:${PN}-route53 = "\
     python3-boto3 (>=1.34.131) \
 "
 
+ALLOW_EMPTY:${PN}-ruuvi-gateway = "1"
+RDEPENDS:${PN}-ruuvi-gateway = "\
+    python3-aioruuvigateway (>=0.1.0) \
+"
+
 ALLOW_EMPTY:${PN}-scrape = "1"
 RDEPENDS:${PN}-scrape = "\
     python3-beautifulsoup4 (>=4.12.3) \
@@ -708,6 +808,11 @@ RDEPENDS:${PN}-systemmonitor = "\
 ALLOW_EMPTY:${PN}-ted5000 = "1"
 RDEPENDS:${PN}-ted5000 = "\
     python3-xmltodict (>=0.13.0) \
+"
+
+ALLOW_EMPTY:${PN}-tibber = "1"
+RDEPENDS:${PN}-tibber = "\
+    python3-pytibber (>=0.30.8) \
 "
 
 ALLOW_EMPTY:${PN}-trafikverket-camera = "1"
@@ -807,137 +912,4 @@ ALLOW_EMPTY:${PN}-zwave-me = "1"
 RDEPENDS:${PN}-zwave-me = "\
     python3-url-normalize (=1.4.3) \
     python3-zwave-me-ws (=0.4.3) \
-"
-
-RDEPENDS:${PN} += "\
-    ${PN}-assist-pipeline \
-    ${PN}-bluetooth \
-    ${PN}-cloud \
-    ${PN}-conversation \
-    ${PN}-dhcp \
-    ${PN}-ffmpeg \
-    ${PN}-frontend \
-    ${PN}-go2rtc \
-    ${PN}-google-translate \
-    ${PN}-hardware \
-    ${PN}-image-upload \
-    ${PN}-matter \
-    ${PN}-mobile-app \
-    ${PN}-radio-browser \
-    ${PN}-recorder \
-    ${PN}-stream \
-    ${PN}-usb \
-    ${PN}-zeroconf \
-"
-
-RRECOMMENDS:${PN} += "\
-    ${PN}-acaia \
-    ${PN}-accuweather \
-    ${PN}-acer-projector \
-    ${PN}-acmeda \
-    ${PN}-adax \
-    ${PN}-adguard \
-    ${PN}-advantage-air \
-    ${PN}-aemet \
-    ${PN}-aftership \
-    ${PN}-agent-dvr \
-    ${PN}-airgradient \
-    ${PN}-airly \
-    ${PN}-airnow \
-    ${PN}-airq \
-    ${PN}-airthings \
-    ${PN}-airthings-ble \
-    ${PN}-airtouch4 \
-    ${PN}-airtouch5 \
-    ${PN}-airvisual \
-    ${PN}-airvisual-pro \    
-    ${PN}-airzone \    
-    ${PN}-airzone-cloud \    
-    ${PN}-alarmdecoder \    
-    ${PN}-alpha-vantage \    
-    ${PN}-amazon-polly \
-    ${PN}-amberelectric \
-    ${PN}-ambient-network \
-    ${PN}-ambient-station \
-    ${PN}-ampio \
-    ${PN}-aruba \
-    ${PN}-atag \
-    ${PN}-axis \
-    ${PN}-backup \
-    ${PN}-bluesound \
-    ${PN}-bluetooth-tracker \
-    ${PN}-camera \
-    ${PN}-cast \
-    ${PN}-cisco-ios \
-    ${PN}-compensation \
-    ${PN}-cpuspeed \
-    ${PN}-debugpy \
-    ${PN}-decora-wifi \
-    ${PN}-dlna-dmr \
-    ${PN}-dlna-dms \
-    ${PN}-dunehd \
-    ${PN}-folder-watcher \
-    ${PN}-fritz \
-    ${PN}-fritzbox \
-    ${PN}-fritzbox-callmonitor \
-    ${PN}-generic \
-    ${PN}-github \
-    ${PN}-google-mail \
-    ${PN}-google-sheets \
-    ${PN}-google-tasks \
-    ${PN}-hue \
-    ${PN}-ipp \
-    ${PN}-isal \
-    ${PN}-keyboard-remote \
-    ${PN}-kwb \
-    ${PN}-local-calendar \
-    ${PN}-local-todo \
-    ${PN}-luftdaten \
-    ${PN}-met \
-    ${PN}-modbus \
-    ${PN}-mqtt \
-    ${PN}-namecheapdns \
-    ${PN}-network \
-    ${PN}-nmap-tracker \
-    ${PN}-norway-air \
-    ${PN}-octoprint \
-    ${PN}-ohmconnect \
-    ${PN}-otp \
-    ${PN}-owntracks \
-    ${PN}-pandora \
-    ${PN}-private-ble-device \
-    ${PN}-proxy \
-    ${PN}-pulseaudio-loopback \
-    ${PN}-qwikswitch \
-    ${PN}-route53 \
-    ${PN}-scrape \
-    ${PN}-sentry \
-    ${PN}-seven-segments \
-    ${PN}-shelly \
-    ${PN}-simplisafe \
-    ${PN}-sony-projector \
-    ${PN}-speedtestdotnet \
-    ${PN}-sql \
-    ${PN}-startca \
-    ${PN}-ssdp \
-    ${PN}-switchbot \
-    ${PN}-systemmonitor \
-    ${PN}-ted5000 \
-    ${PN}-trafikverket-camera \
-    ${PN}-trafikverket-ferry \
-    ${PN}-trafikverket-train \
-    ${PN}-trafikverket-weatherstation \
-    ${PN}-trend \
-    ${PN}-tts \
-    ${PN}-upnp \
-    ${PN}-utility-meter \
-    ${PN}-vlc \
-    ${PN}-w800rf32 \
-    ${PN}-wirelesstag \
-    ${PN}-zabbix \
-    ${PN}-zestimate \
-    ${PN}-zha \
-    ${PN}-zoneminder \
-    ${PN}-zwave-js \
-    ${PN}-zwave-me \
 "
