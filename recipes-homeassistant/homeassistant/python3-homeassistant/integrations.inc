@@ -252,12 +252,12 @@ RDEPENDS:${PN}-airvisual-pro = "\
 
 ALLOW_EMPTY:${PN}-airzone = "1"
 RDEPENDS:${PN}-airzone = "\
-    python3-aioairzone (=0.9.9) \
+    python3-aioairzone (=1.0.0) \
 "
 
 ALLOW_EMPTY:${PN}-airzone-cloud = "1"
 RDEPENDS:${PN}-airzone-cloud = "\
-    python3-aioairzone-cloud (=0.6.11) \
+    python3-aioairzone-cloud (=0.6.12) \
 "
 
 ALLOW_EMPTY:${PN}-alarmdecoder = "1"
@@ -272,7 +272,7 @@ RDEPENDS:${PN}-alpha-vantage = "\
 
 ALLOW_EMPTY:${PN}-amazon-polly = "1"
 RDEPENDS:${PN}-amazon-polly = "\
-    python3-boto3 (>=1.34.131) \
+    python3-boto3 (>=1.37.1) \
 "
 
 ALLOW_EMPTY:${PN}-amberelectric = "1"
@@ -390,7 +390,7 @@ RDEPENDS:${PN}-backup = "\
 
 ALLOW_EMPTY:${PN}-bluesound = "1"
 RDEPENDS:${PN}-bluesound = "\
-    python3-pyblu (=2.0.0) \
+    python3-pyblu (=2.0.1) \
 "
 
 ALLOW_EMPTY:${PN}-bluetooth = "1"
@@ -398,10 +398,10 @@ RDEPENDS:${PN}-bluetooth = "\
     python3-bleak (>=0.22.3) \
     python3-bleak-retry-connector (=3.9.0) \
     python3-bluetooth-adapters (=0.21.4) \
-    python3-bluetooth-auto-recovery (>=1.4.5) \
-    python3-bluetooth-data-tools (>=1.26.5) \
+    python3-bluetooth-auto-recovery (>=1.5.1) \
+    python3-bluetooth-data-tools (>=1.28.1) \
     python3-dbus-fast (>=2.33.0) \
-    python3-habluetooth (>=3.37.0) \
+    python3-habluetooth (>=3.48.2) \
 "
 
 ALLOW_EMPTY:${PN}-bluetooth-tracker = "1"
@@ -427,7 +427,7 @@ RDEPENDS:${PN}-cisco-ios = "\
 
 ALLOW_EMPTY:${PN}-cloud = "1"
 RDEPENDS:${PN}-cloud = "\
-    python3-hass-nabucasa (>=0.94.0) \
+    python3-hass-nabucasa (>=0.96.0) \
 "
 
 ALLOW_EMPTY:${PN}-co2signal = "1"
@@ -443,7 +443,7 @@ RDEPENDS:${PN}-compensation = "\
 ALLOW_EMPTY:${PN}-conversation = "1"
 RDEPENDS:${PN}-conversation = "\
     python3-hassil (>=2.2.3) \
-    python3-home-assistant-intents (>=2025.3.28) \
+    python3-home-assistant-intents (>=2025.5.7) \
 "
 
 ALLOW_EMPTY:${PN}-cpuspeed = "1"
@@ -464,7 +464,7 @@ RDEPENDS:${PN}-decora-wifi = "\
 ALLOW_EMPTY:${PN}-dhcp = "1"
 RDEPENDS:${PN}-dhcp = "\
     python3-aiodhcpwatcher (=1.1.1) \
-    python3-aiodiscover (>=2.6.1) \
+    python3-aiodiscover (>=2.7.0) \
     python3-cached-ipaddress (>=0.10.0) \
 "
 
@@ -512,13 +512,13 @@ RDEPENDS:${PN}-fritzbox-callmonitor = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    python3-home-assistant-frontend (>=20250109.2) \
+    python3-home-assistant-frontend (>=20250516.0) \
 "
 
 ALLOW_EMPTY:${PN}-generic = "1"
 RDEPENDS:${PN}-generic = "\
     python3-av (=13.1.0) \
-    python3-pillow (>=11.0.0) \
+    python3-pillow (>=11.2.1) \
 "
 
 ALLOW_EMPTY:${PN}-github = "1"
@@ -596,12 +596,12 @@ RDEPENDS:${PN}-letpot = "\
 
 ALLOW_EMPTY:${PN}-local-calendar = "1"
 RDEPENDS:${PN}-local-calendar = "\
-    python3-ical (>=9.0.3) \
+    python3-ical (>=9.2.4) \
 "
 
 ALLOW_EMPTY:${PN}-local-todo = "1"
 RDEPENDS:${PN}-local-todo = "\
-    python3-ical (>=9.0.3) \
+    python3-ical (>=9.2.4) \
 "
 
 ALLOW_EMPTY:${PN}-luftdaten = "1"
@@ -753,7 +753,7 @@ RDEPENDS:${PN}-seven-segments = "\
 
 ALLOW_EMPTY:${PN}-shelly = "1"
 RDEPENDS:${PN}-shelly = "\
-    python3-aioshelly (=13.4.0) \
+    python3-aioshelly (=13.6.0) \
 "
 
 ALLOW_EMPTY:${PN}-simplisafe = "1"
@@ -796,7 +796,7 @@ RDEPENDS:${PN}-stream = "\
 
 ALLOW_EMPTY:${PN}-switchbot = "1"
 RDEPENDS:${PN}-switchbot = "\
-    python3-pyswitchbot (>=0.58.0) \
+    python3-pyswitchbot (>=0.60.1) \
 "
 
 ALLOW_EMPTY:${PN}-systemmonitor = "1"
@@ -894,7 +894,7 @@ RDEPENDS:${PN}-zestimate = "\
 
 ALLOW_EMPTY:${PN}-zha = "1"
 RDEPENDS:${PN}-zha = "\
-    python3-zha (>=0.0.55) \
+    python3-zha (>=0.0.57) \
 "
 
 ALLOW_EMPTY:${PN}-zoneminder = "1"
@@ -905,11 +905,11 @@ RDEPENDS:${PN}-zoneminder = "\
 ALLOW_EMPTY:${PN}-zwave-js = "1"
 RDEPENDS:${PN}-zwave-js = "\
     python3-pyserial (=3.5) \
-    python3-zwave-js-server-python (>=0.62.0) \
+    python3-zwave-js-server-python (>=0.63.0) \
 "
 
 ALLOW_EMPTY:${PN}-zwave-me = "1"
 RDEPENDS:${PN}-zwave-me = "\
-    python3-url-normalize (=1.4.3) \
+    python3-url-normalize (=2.2.1) \
     python3-zwave-me-ws (=0.4.3) \
 "
