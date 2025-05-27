@@ -13,8 +13,7 @@ DEPENDS += "\
 PYPI_PACKAGE = "python-jose"
 UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
-SRC_URI[md5sum] = "382a4da9ec39a3fb872fd1cf672b8a57"
-SRC_URI[sha256sum] = "4e4192402e100b5fb09de5a8ea6bcc39c36ad4526341c123d401e2561720335b"
+SRC_URI[sha256sum] = "9a9a40f418ced8ecaf7e3b28d69887ceaa76adad3bcaa6dae0d9e596fec1d680"
 
 RDEPENDS:${PN} = "\
     python3-pycryptodome \
