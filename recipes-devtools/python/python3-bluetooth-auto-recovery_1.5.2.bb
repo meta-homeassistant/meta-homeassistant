@@ -8,7 +8,7 @@ SRC_URI = "\
     git://github.com/Bluetooth-Devices/bluetooth-auto-recovery.git;protocol=https;branch=main \
 "
 SRC_URI[sha256sum] = "8bac63dda39a8dfd7164af88d43c1ef27661108ec182a9327677b76e3222698d"
-SRCREV = "84909c607e541fb693430937d27c6a91c2419807"
+SRCREV = "6c3b8541e3f1507dd3e54a4d426d88e3a29f0955"
 
 inherit python_poetry_core ptest-python-pytest
 
