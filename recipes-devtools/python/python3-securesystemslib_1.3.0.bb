@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e9703d169911cdb29305f88411c78717 \
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 DEPENDS = "python3-hatchling-native"
-SRC_URI[sha256sum] = "27143a8e04b5573636f260f21d7e26b48bcedcf394e6f74ec31e9a5287e0c38b"
+SRC_URI[sha256sum] = "5b53e5989289d97fa42ed7fde1b4bad80985f15dba8c774c043b395a90c908e5"
 
 inherit pypi python_hatchling ptest-python-pytest
 
