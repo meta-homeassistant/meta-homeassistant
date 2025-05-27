@@ -4,7 +4,7 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=732518afbb3ba92dbf606e49f9045cc9"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "d9c74f627a1f0426dadba9c80bdf83c29a962741f6a97565136aaf17cc3f2ae7"
+SRC_URI[sha256sum] = "50077870288b4e4af56aefedf699af38714317acee303daa28e7a78c1ed67dcf"
 
 inherit pypi python_poetry_core
 
