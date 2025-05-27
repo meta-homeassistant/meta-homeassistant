@@ -7,7 +7,6 @@ LIC_FILES_CHKSUM = "\
 "
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[md5sum] = "abb96bcda81817d6c632915c53ac29c8"
-SRC_URI[sha256sum] = "e60305c5e5d314f5389259b7f22aaa33d8f7dee49763119234af3755c55b9101"
+SRC_URI[sha256sum] = "f4324edc670a0f49750a81b895f35c3adb843cca46f0530f79fc1babb23789dc"
 
 inherit pypi setuptools3
