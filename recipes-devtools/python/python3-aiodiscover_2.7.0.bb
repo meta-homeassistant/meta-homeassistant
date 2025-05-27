@@ -8,7 +8,7 @@ SRC_URI = "\
     git://github.com/bdraco/aiodiscover.git;protocol=https;branch=main \
 "
 SRC_URI[sha256sum] = "73846ff8b85abaffaaa0ad4fad5965b76c7d518878ecdd0e5dcf1126d77a57c7"
-SRCREV = "f76c7915091a9e91d67ed69f5e2ba95de1262380"
+SRCREV = "8ee4840b3cf6f9762c25db3418ba45899e47d286"
 
 inherit  python_poetry_core ptest-python-pytest
 
