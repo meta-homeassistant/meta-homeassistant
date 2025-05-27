@@ -1,4 +1,4 @@
-From 16330a4f14e32d33b7aeae45b727a27517c116cb Mon Sep 17 00:00:00 2001
+From 090cb848d5a933eb3d3d15c93849521a3d9ea90e Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Fri, 25 Apr 2025 17:22:22 +0000
 Subject: [PATCH] Relax gitversioning version
@@ -10,7 +10,7 @@ Upstream-Status: Pending
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index d095190..dfb0996 100644
+index d2b92ef..072ff83 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@

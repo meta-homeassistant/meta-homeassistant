@@ -12,7 +12,7 @@ SRC_URI = "git://github.com/zigpy/bellows.git;protocol=https;branch=dev \
            file://0001-Relax-gitversioning-version.patch \
            "
 SRC_URI[sha256sum] = "15c427e98262e48c23c3f057fff5faeb3674264c3af5f3790886bd637452f4b0"
-SRCREV = "1f61e0b0a37c9a81d628683c9748878b5c0aa30d"
+SRCREV = "9f002c43ca5455247b7e698df7f19fa688bfb499"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
