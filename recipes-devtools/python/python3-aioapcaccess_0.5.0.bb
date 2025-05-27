@@ -7,7 +7,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 DEPENDS += "python3-setuptools-scm-native"
 
 SRC_URI = "git://github.com/yuxincs/aioapcaccess.git;protocol=https;branch=main"
-SRCREV = "db9ae54208c94fcfca468ea9c09ac008fe50494a"
+SRCREV = "67b1ae74bbe2511aa7ac2e998fc9b94b659c10af"
 
 S = "${WORKDIR}/git"
 
