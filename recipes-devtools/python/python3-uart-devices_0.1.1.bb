@@ -7,7 +7,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI = "\
     git://github.com/bdraco/uart-devices.git;protocol=https;branch=main \
 "
-SRCREV = "154f4b3efb7763097a050107e9585126594ebac2"
+SRCREV = "d6b02acc497e90ade012972f02ca85eaca7c8705"
 
 S = "${WORKDIR}/git"
 
