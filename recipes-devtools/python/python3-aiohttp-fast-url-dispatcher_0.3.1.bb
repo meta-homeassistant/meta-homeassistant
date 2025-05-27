@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=da57f3e0372e39698a274746eb9d65d6"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
-SRC_URI[sha256sum] = "0fc11c60a4209429340d9d2d07b6b0819a45ebd0d47ceb78bea915dbe042addd"
+SRC_URI[sha256sum] = "5a730a3872503ee5c94c65c6dee2a17b4773e022630f2557cae84f2e74ea26ed"
 
 inherit pypi python_poetry_core
 
