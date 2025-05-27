@@ -9,7 +9,7 @@ inherit pypi python_poetry_core cython
 PYPI_PACKAGE = "fnv_hash_fast"
 UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
-SRC_URI[sha256sum] = "12a2a437263f08815bd2d5759c12e881408718bb82cfffceb0341575f2c43f0a"
+SRC_URI[sha256sum] = "c3f0d077a5e0eee6bc12938a6f560b6394b5736f3e30db83b2eca8e0fb948a74"
 
 RDEPENDS:${PN} = "\
     python3-core (>=3.10) \
