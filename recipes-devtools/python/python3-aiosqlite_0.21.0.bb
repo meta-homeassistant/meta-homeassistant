@@ -4,7 +4,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f0c422eaa1f23d09f8203dc0af3e2d54"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "6d35c8c256637f4672f843c31021464090805bf925385ac39473fb16eaaca3d7"
+SRC_URI[sha256sum] = "131bb8056daa3bc875608c631c678cda73922a2d4ba8aec373b19f18c17e7aa3"
 
 inherit pypi python_flit_core
 
