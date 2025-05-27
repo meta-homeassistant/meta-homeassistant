@@ -6,7 +6,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI = "git://github.com/boto/boto3.git;protocol=https;branch=master"
 SRC_URI[sha256sum] = "0e966b8a475ecb06cc0846304454b8da2473d4c8198a45dfb2c5304871986883"
-SRCREV = "fd8bccadc77b2ea53d786afcf77148955acf15aa"
+SRCREV = "8c036e4ab3d99bb22e3b4f9c1d14504462ef127a"
 
 inherit setuptools3 ptest-python-pytest
 
