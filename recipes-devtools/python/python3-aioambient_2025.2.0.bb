@@ -4,6 +4,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=54f0a03d1f0386cedfc691fdb5edb93a"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
+SRC_URI += "file://0001-relax-build-reqs.patch"
 SRC_URI[sha256sum] = "07ab9f36e4e3d3ebd8f4ee9c75f0ab9b87ad09cf1d9e4515e238c9353328f7c8"
 
 inherit pypi python_poetry_core
