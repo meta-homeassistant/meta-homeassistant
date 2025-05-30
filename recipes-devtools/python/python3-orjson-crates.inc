@@ -38,6 +38,7 @@ SRC_URI += " \
     crate://crates.io/version_check/0.9.5 \
     crate://crates.io/xxhash-rust/0.8.15 \
 "
+
 SRC_URI[associative-cache-2.0.0.sha256sum] = "b993cd767a2bc7307dd87622311ca22c44329cc7a21366206bfa0896827b2bad"
 SRC_URI[bytecount-0.6.8.sha256sum] = "5ce89b21cab1437276d2650d57e971f9d548a2d9037cc231abdc0562b97498ce"
 SRC_URI[castaway-0.2.3.sha256sum] = "0abae9be0aaf9ea96a3b1b8b1b55c602ca751eba1b1500220cea4ecbafe7c0d5"
