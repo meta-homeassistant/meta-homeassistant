@@ -1,7 +1,7 @@
-From fa41f791df85209814b869f7cb72e3590d810097 Mon Sep 17 00:00:00 2001
+From 082a6fa2fa59b33bd567808d1f71eee76d580315 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
-Date: Fri, 21 Mar 2025 14:08:43 +0000
-Subject: [PATCH] relax setuptools version requirement
+Date: Sat, 31 May 2025 21:57:29 +0200
+Subject: [PATCH] relax build deps
 
 Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
 Upstream-Status: Pending
@@ -10,13 +10,13 @@ Upstream-Status: Pending
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index c4d13eb..23e77e4 100644
+index 0a5a6fb..5f4d41d 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@
  [build-system]
--requires = ["setuptools~=75.1"]
-+requires = ["setuptools>=75.1"]
+-requires = ["setuptools~=77.0"]
++requires = ["setuptools>=77.0"]
  build-backend = "setuptools.build_meta"
  
  [project]
