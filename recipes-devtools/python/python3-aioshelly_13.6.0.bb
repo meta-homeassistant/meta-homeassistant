@@ -9,7 +9,7 @@ inherit python_setuptools_build_meta ptest-python-pytest
 SRC_URI = "git://github.com/home-assistant-libs/aioshelly.git;protocol=https;branch=main"
 SRC_URI[sha256sum] = "347c1d5dc1c5f6d2d3f15d04cdad54209cb928251ba46ae4f3e173185f6a13b4"
 
-SRCREV = "51a353aeab2b1915fd5a58869df33e970acf246c"
+SRCREV = "ab7f4b7af6cf73d57b51f8459f80480ace559361"
 
 S = "${WORKDIR}/git"
 
