@@ -68,6 +68,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-dlna-dmr \
     python3-homeassistant-dlna-dms \
     python3-homeassistant-dunehd \
+    python3-homeassistant-evohome \
     python3-homeassistant-ffmpeg \
     python3-homeassistant-fritz \
     python3-homeassistant-fritzbox \

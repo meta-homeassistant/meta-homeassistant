@@ -90,6 +90,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-emulated-hue \
     ${PN}-energy \
     ${PN}-event \
+    ${PN}-evohome-async \
     ${PN}-facebook \
     ${PN}-fail2ban \
     ${PN}-fan \
@@ -111,8 +112,9 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-github \
     ${PN}-go2rtc \
     ${PN}-google-assistant \
-    ${PN}-google-translate \
+    ${PN}-google-sheets \
     ${PN}-google-tasks \
+    ${PN}-google-translate \
     ${PN}-google-wifi \
     ${PN}-gpslogger \
     ${PN}-graphite \
@@ -208,6 +210,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-script \
     ${PN}-search \
     ${PN}-select \
+    ${PN}-sensor \
     ${PN}-shopping-list \
     ${PN}-sigfox \
     ${PN}-simplisafe \

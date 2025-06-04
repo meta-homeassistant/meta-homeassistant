@@ -62,6 +62,7 @@ INTEGRATIONS = "\
     ${PN}-dlna-dmr \
     ${PN}-dlna-dms \
     ${PN}-dunehd \
+    ${PN}-evohome \
     ${PN}-ffmpeg \
     ${PN}-folder-watcher \
     ${PN}-fritz \
@@ -482,6 +483,11 @@ RDEPENDS:${PN}-dlna-dms = "\
 ALLOW_EMPTY:${PN}-dunehd = "1"
 RDEPENDS:${PN}-dunehd = "\
     python3-pdunehd (>=1.3.2) \
+"
+
+ALLOW_EMPTY:${PN}-evohome = "1"
+RDEPENDS:${PN}-evohome = "\
+    python3-evohome-async (>=1.0.5) \
 "
 
 ALLOW_EMPTY:${PN}-ffmpeg = "1"
