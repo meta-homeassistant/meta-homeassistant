@@ -8,6 +8,10 @@ SRC_URI[sha256sum] = "7e94c6ffd8e2f56d3686f77cdd1a540a4c6eac5a2f919390bdd14fb62e
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
+SRC_URI:append = " \
+    file://run-ptest \
+"
+
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.0.6) \
     python3-gql (>=3.0.0) \
