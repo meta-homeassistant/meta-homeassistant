@@ -9,13 +9,13 @@ HOMEASSISTANT_CONFIG_DIR[doc] = "Configuration directory used by home-assistant.
 HOMEASSISTANT_USER ?= "homeassistant"
 HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 
-SRC_URI = "git://github.com/home-assistant/core.git;protocol=https;branch=master \
+SRC_URI = "git://github.com/home-assistant/core.git;protocol=https;branch=rc \
            file://homeassistant.service \
            file://run-ptest-sample \
            file://0001-Relax-setuptools.patch \
            "
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
-SRCREV = "3e6473d13094a548bc9cdee2fa68ac2a23551ee1"
+SRCREV = "6c098c3e0a7b6ca2017fe9fb63fbac8d8255f5a5"
 
 inherit python_setuptools_build_meta useradd systemd ptest
 
@@ -61,7 +61,7 @@ require recipes-homeassistant/homeassistant/python3-homeassistant/integrations-t
 RDEPENDS:${PN} += "\
     python3-aiodns (>=3.4.0) \
     python3-aiohasupervisor (=0.3.1) \
-    python3-aiohttp (>=3.11.18) \
+    python3-aiohttp (>=3.12.6) \
     python3-aiohttp-cors (=0.7.0) \
     python3-aiohttp-fast-zlib (=0.2.3) \
     python3-aiohttp-asyncmdnsresolver (=0.1.1) \
@@ -79,21 +79,21 @@ RDEPENDS:${PN} += "\
     python3-cronsim (>=2.6) \
     python3-fnv-hash-fast (>=1.5.0) \
     python3-ha-ffmpeg (>=3.2.2) \
-    python3-hass-nabucasa (>=0.96.0) \
+    python3-hass-nabucasa (>=0.101.0) \
     python3-hassil (>=2.2.3) \
     python3-httpx (>=0.28.1) \
     python3-home-assistant-bluetooth (>=1.13.1) \
-    python3-home-assistant-intents (>=2025.5.7) \
+    python3-home-assistant-intents (>=2025.5.28) \
     python3-ifaddr (=0.2.0) \
     python3-jinja2 (>=3.1.6) \
     python3-lru-dict (>=1.3.0) \
     python3-mutagen (>=1.47.0) \
     python3-numpy (>=2.2.2) \
     python3-pyjwt (=2.10.1) \
-    python3-cryptography (>=44.0.1) \
+    python3-cryptography (>=45.0.1) \
     python3-pillow (>=11.2.1) \
     python3-propcache (>=0.3.1) \
-    python3-pyopenssl (>=25.0.0) \
+    python3-pyopenssl (>=25.1.0) \
     python3-orjson (>=3.10.18) \
     python3-packaging (>=23.1) \
     python3-psutil-home-assistant (=0.0.1) \
