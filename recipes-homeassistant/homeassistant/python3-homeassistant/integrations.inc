@@ -77,6 +77,7 @@ INTEGRATIONS = "\
     ${PN}-google-tasks \
     ${PN}-google-translate \
     ${PN}-hardware \
+    ${PN}-homekit \
     ${PN}-hue \
     ${PN}-image-upload \
     ${PN}-ipp \
@@ -562,6 +563,14 @@ RDEPENDS:${PN}-hardware = "\
     python3-psutil-home-assistant (=0.0.1) \
     python3-universal-silabs-flasher (>=0.0.25) \
     python3-ha-silabs-firmware-client (>=0.2.0) \
+"
+
+ALLOW_EMPTY:${PN}-homekit = "1"
+RDEPENDS:${PN}-homekit = "\
+    python3-hap-python (>=4.9.2) \
+    python3-fnv-hash-fast (>=1.5.0) \
+    python3-pyqrcode (>=1.2.1) \
+    python3-base36 (>=0.1.1) \
 "
 
 ALLOW_EMPTY:${PN}-hue = "1"

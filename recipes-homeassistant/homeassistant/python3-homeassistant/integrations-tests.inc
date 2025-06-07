@@ -130,6 +130,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-homeassistant-hardware \
     ${PN}-homeassistant-sky-connect \
     ${PN}-homeassistant-yellow \
+    ${PN}-homekit \
     ${PN}-http \
     ${PN}-hue \
     ${PN}-humidifier \
