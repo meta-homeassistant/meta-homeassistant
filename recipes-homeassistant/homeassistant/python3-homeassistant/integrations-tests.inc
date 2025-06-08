@@ -43,7 +43,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-api \
     ${PN}-application-credentials \
     ${PN}-assist-satellite \
-    ${PN}-atag \
     ${PN}-auth \
     ${PN}-automation \
     ${PN}-backup \
@@ -51,7 +50,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-binary-sensor \
     ${PN}-blueprint \
     ${PN}-bluesound \
-    ${PN}-bluetooth \
     ${PN}-bluetooth-adapters \
     ${PN}-bluetooth-le-tracker \
     ${PN}-button \
@@ -66,7 +64,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-compensation \
     ${PN}-config \
     ${PN}-configurator \
-    ${PN}-conversation \
     ${PN}-counter \
     ${PN}-cover \
     ${PN}-cpuspeed \
@@ -90,7 +87,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-emulated-hue \
     ${PN}-energy \
     ${PN}-event \
-    ${PN}-evohome-async \
     ${PN}-facebook \
     ${PN}-fail2ban \
     ${PN}-fan \
@@ -211,7 +207,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-script \
     ${PN}-search \
     ${PN}-select \
-    ${PN}-sensor \
     ${PN}-shopping-list \
     ${PN}-sigfox \
     ${PN}-simplisafe \
@@ -259,7 +254,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-webhook \
     ${PN}-websocket-api \
     ${PN}-worldclock \
-    ${PN}-wsdot \
     ${PN}-xiaomi \
     ${PN}-yandextts \
     ${PN}-zeroconf \
