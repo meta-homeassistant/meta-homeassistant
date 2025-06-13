@@ -114,7 +114,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-google-wifi \
     ${PN}-gpslogger \
     ${PN}-graphite \
-    ${PN}-group \
     ${PN}-hardkernel \
     ${PN}-hardware \
     ${PN}-hddtemp \
