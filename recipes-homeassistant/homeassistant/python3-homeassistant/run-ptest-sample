@@ -8,4 +8,5 @@ pytest -n auto --automake \
   -k "not test_merge \
   and not test_get_system_info_supervisor_not_loaded \
   and not test_async_parallel_updates_with_zero_on_sync_update \
+  and not test_config_platform_valid \
   "

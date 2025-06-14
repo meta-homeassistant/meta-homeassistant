@@ -202,14 +202,22 @@ def parse_manifests(ha_path, upgrade_only, integrations_only):
 
             is_test_package = manifest["domain"].replace('_', '-') in test_packages
             if not requirements:
-                df.append(create_entry(
+                if should_include(
                     manifest["domain"],
-                    "y" if has_test else "n",
-                    "y" if is_test_package else "n",
-                    " ",
-                    " ",
-                    " ",
-                ))
+                    '-',
+                    '-',
+                    integrations,
+                    upgrade_only,
+                    integrations_only,
+                ):
+                    df.append(create_entry(
+                        manifest["domain"],
+                        "y" if has_test else "n",
+                        "y" if is_test_package else "n",
+                        " ",
+                        " ",
+                        " ",
+                    ))
             for requirement in requirements:
                 package_name, ha_version = parse_requirement(requirement)
                 yocto_version = get_yocto_version(

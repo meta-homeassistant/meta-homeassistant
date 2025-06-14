@@ -13,7 +13,7 @@ UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} += "\
     python3-aiohttp (>=3.10.5) \
-    python3-aiorun (=2024.8.1) \
+    python3-aiorun (>=2024.8.1) \
     python3-async-timeout (=4.0.3) \
     python3-coloredlogs (=15.0.1) \
     python3-core (>= 3.11) \

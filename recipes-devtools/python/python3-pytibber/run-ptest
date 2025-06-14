@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# there needs to be something in /etc/resolv.conf for the gunicorn
+# ptests to work, so make sure there's at least one nameserver line
+echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+
+pytest --automake
