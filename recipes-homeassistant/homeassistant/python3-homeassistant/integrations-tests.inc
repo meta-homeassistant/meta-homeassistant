@@ -43,7 +43,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-api \
     ${PN}-application-credentials \
     ${PN}-assist-satellite \
-    ${PN}-atag \
     ${PN}-auth \
     ${PN}-automation \
     ${PN}-backup \
@@ -51,7 +50,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-binary-sensor \
     ${PN}-blueprint \
     ${PN}-bluesound \
-    ${PN}-bluetooth \
     ${PN}-bluetooth-adapters \
     ${PN}-bluetooth-le-tracker \
     ${PN}-button \
@@ -66,7 +64,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-compensation \
     ${PN}-config \
     ${PN}-configurator \
-    ${PN}-conversation \
     ${PN}-counter \
     ${PN}-cover \
     ${PN}-cpuspeed \
@@ -111,12 +108,12 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-github \
     ${PN}-go2rtc \
     ${PN}-google-assistant \
-    ${PN}-google-translate \
+    ${PN}-google-sheets \
     ${PN}-google-tasks \
+    ${PN}-google-translate \
     ${PN}-google-wifi \
     ${PN}-gpslogger \
     ${PN}-graphite \
-    ${PN}-group \
     ${PN}-hardkernel \
     ${PN}-hardware \
     ${PN}-hddtemp \
@@ -128,6 +125,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-homeassistant-hardware \
     ${PN}-homeassistant-sky-connect \
     ${PN}-homeassistant-yellow \
+    ${PN}-homekit \
     ${PN}-http \
     ${PN}-hue \
     ${PN}-humidifier \
@@ -255,7 +253,6 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-webhook \
     ${PN}-websocket-api \
     ${PN}-worldclock \
-    ${PN}-wsdot \
     ${PN}-xiaomi \
     ${PN}-yandextts \
     ${PN}-zeroconf \
