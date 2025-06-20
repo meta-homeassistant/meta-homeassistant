@@ -10,8 +10,6 @@ SRC_URI = "git://github.com/StevenLooman/async_upnp_client.git;protocol=https;br
 SRCREV = "1bbeeb178f3cd69b387b43d1eb359aa2e45d347d"
 SRC_URI[sha256sum] = "569b8e56e4ffae73f1acb45d2f70ff65a263f70b964d482081b82f5561cd8ab4"
 
-S = "${WORKDIR}/git"
-
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.9.1) \
     python3-async-timeout (>=3.0.0) \
