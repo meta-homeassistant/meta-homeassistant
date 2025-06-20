@@ -10,8 +10,6 @@ SRCREV = "c7d6da98f2a1388c2e20bd235ac33df26e9e82a0"
 
 inherit setuptools3 ptest-python-pytest
 
-S = "${WORKDIR}/git"
-
 RDEPENDS:${PN} = "\
     python3-cryptography \
     python3-requests \
