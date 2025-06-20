@@ -10,8 +10,6 @@ SRCREV = "86ed133f258c770fb348232b1cab4b781139fd95"
 
 inherit setuptools3 ptest-python-pytest
 
-S = "${WORKDIR}/git"
-
 PACKAGECONFIG ?= "qrcode"
 PACKAGECONFIG[qrcode] = ",,,python3-base36 python3-pyqrcode"
 
