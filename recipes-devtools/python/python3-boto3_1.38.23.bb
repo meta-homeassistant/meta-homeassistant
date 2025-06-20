@@ -10,8 +10,6 @@ SRCREV = "8c036e4ab3d99bb22e3b4f9c1d14504462ef127a"
 
 inherit setuptools3 ptest-python-pytest
 
-S = "${WORKDIR}/git"
-
 RDEPENDS:${PN} = "\
     python3-botocore (>=1.34.131) \
     python3-jmespath (>=0.7.1) \
