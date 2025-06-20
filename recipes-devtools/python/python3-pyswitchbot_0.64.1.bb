@@ -10,8 +10,6 @@ SRCREV = "995794f4eb9310f87a88059d53e6d735043dd16e"
 
 inherit setuptools3 ptest-python-pytest
 
-S = "${WORKDIR}/git"
-
 RDEPENDS:${PN} += "\
     python3-aiohttp (>=3.9.5)  \
     python3-bleak (>=0.19.0) \
