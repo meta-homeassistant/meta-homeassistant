@@ -10,8 +10,6 @@ SRC_URI = "git://github.com/NabuCasa/hass-nabucasa.git;protocol=https;branch=mai
 SRC_URI[sha256sum] = "faca4945f2abafbd5ca4a9350969e6655826ca2c88ac3a42088cc6f700ba0bb2"
 SRCREV = "747e369a0d12c940aa06d10dc43afb8e45463d7a"
 
-S = "${WORKDIR}/git"
-
 RDEPENDS:${PN} = "\
     python3-acme (>=3.2.0) \
     python3-aiohttp (>=3.6.1) \
