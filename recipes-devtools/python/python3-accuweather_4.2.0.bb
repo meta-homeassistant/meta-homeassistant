@@ -11,8 +11,6 @@ SRCREV = "0363bdb54ff96c7c26b40ca632fd956add10eed4"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
-S = "${WORKDIR}/git"
-
 RDEPENDS:${PN} += "\
     python3-aiohttp (>=3.9.4) \
     python3-orjson \
