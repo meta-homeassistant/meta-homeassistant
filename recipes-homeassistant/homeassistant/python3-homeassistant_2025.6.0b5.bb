@@ -19,8 +19,6 @@ SRCREV = "6c098c3e0a7b6ca2017fe9fb63fbac8d8255f5a5"
 
 inherit python_setuptools_build_meta useradd systemd ptest
 
-S = "${WORKDIR}/git"
-
 USERADD_PACKAGES = "${PN}"
 GROUPADD_PARAM:${PN} = "homeassistant"
 USERADD_PARAM:${PN} = "\
