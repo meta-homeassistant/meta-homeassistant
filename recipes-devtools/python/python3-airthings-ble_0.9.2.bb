@@ -10,5 +10,3 @@ SRC_URI = "\
     git://github.com/Airthings/airthings-ble;protocol=https;branch=main; \
 "
 SRCREV = "69e503045bd7061e40edf5e3c0b0fc5b3e2d1362"
-
-S = "${WORKDIR}/git"
