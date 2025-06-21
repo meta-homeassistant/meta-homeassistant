@@ -14,8 +14,6 @@ DEPENDS += "\
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
-S = "${WORKDIR}/git"
-
 RDEPENDS:${PN} = "\
     python3-aiohttp \
     python3-yarl \
