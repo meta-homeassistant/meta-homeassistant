@@ -16,8 +16,6 @@ SRCREV = "a2de928a47370a27616a55093631dc3f6301671e"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
-S = "${WORKDIR}/git"
-
 RDEPENDS:${PN} += "\
     python3-bellows (>=0.44.0) \
     python3-pyserial (>=3.5) \
