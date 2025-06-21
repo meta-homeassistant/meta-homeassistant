@@ -7,6 +7,4 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI = "git://github.com/konradhalas/dacite;protocol=https;branch=master"
 SRCREV = "daad7e4a15569321d3cf118f8083a71a65d7e044"
 
-S = "${WORKDIR}/git"
-
 inherit python_setuptools_build_meta
