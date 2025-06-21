@@ -9,8 +9,6 @@ SRC_URI = "\
 "
 SRCREV = "d6b02acc497e90ade012972f02ca85eaca7c8705"
 
-S = "${WORKDIR}/git"
-
 inherit python_poetry_core ptest-python-pytest
 
 RDEPENDS:${PN}-ptest += "\
