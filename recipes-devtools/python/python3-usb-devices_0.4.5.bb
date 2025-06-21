@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "9b5c7606df2bc791c6c45b7f76244a0cbed83cb6fa4c68791a143c0334
 SRCREV = "4d885fe1647108d71afa9e0aaff216b690226ea5"
 
 inherit python_poetry_core ptest-python-pytest
-
-S = "${WORKDIR}/git"
