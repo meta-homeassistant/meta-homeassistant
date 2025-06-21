@@ -11,8 +11,6 @@ SRC_URI[sha256sum] = "347c1d5dc1c5f6d2d3f15d04cdad54209cb928251ba46ae4f3e173185f
 
 SRCREV = "ab7f4b7af6cf73d57b51f8459f80480ace559361"
 
-S = "${WORKDIR}/git"
-
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.11.1) \
     python3-bluetooth-data-tools (>=1.19.0) \
