@@ -14,5 +14,3 @@ SRC_URI[sha256sum] = "05eea82b1c92619884abe4f0ed1e98f83b21c3fdf5b2e8aa924c835cfe
 SRCREV = "e6a399a8bcb13595a68589307349c19d528c502e"
 
 inherit setuptools3 pkgconfig cython ptest-python-pytest
-
-S = "${WORKDIR}/git"

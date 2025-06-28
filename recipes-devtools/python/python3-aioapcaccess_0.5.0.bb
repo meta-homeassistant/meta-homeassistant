@@ -9,6 +9,4 @@ DEPENDS += "python3-setuptools-scm-native"
 SRC_URI = "git://github.com/yuxincs/aioapcaccess.git;protocol=https;branch=main"
 SRCREV = "67b1ae74bbe2511aa7ac2e998fc9b94b659c10af"
 
-S = "${WORKDIR}/git"
-
 inherit python_setuptools_build_meta

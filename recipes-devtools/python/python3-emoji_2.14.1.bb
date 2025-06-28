@@ -10,8 +10,6 @@ SRCREV = "257c6ae1a6414c84b37339d6ef88a6dda41ecdbd"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
-S = "${WORKDIR}/git"
-
 RDEPENDS:${PN} = "python3-typing-extensions"
 
 do_install_ptest:append() {

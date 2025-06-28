@@ -11,7 +11,7 @@ SRC_URI[sha256sum] = "ebe4f3a98d76d93a3140da2823e9ef59ca50a59761fdc453b30b4407c4
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-S = "${WORKDIR}/git"
+S = "${UNPACKDIR}/python3-psutil-home-assistant-${PV}"
 
 RDEPENDS:${PN} = "\
     python3-psutil \

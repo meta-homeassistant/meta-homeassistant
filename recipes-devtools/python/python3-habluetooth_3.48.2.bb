@@ -12,8 +12,6 @@ SRCREV = "76c04adc5db1e7a039e5077d5c691bf3c9699829"
 
 inherit python_poetry_core cython ptest-python-pytest
 
-S = "${WORKDIR}/git"
-
 RDEPENDS:${PN} = "\
     python3-core (>=3.11) \
     python3-bleak (>=0.21.1) \

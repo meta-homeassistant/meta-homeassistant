@@ -11,7 +11,7 @@ PYPI_SRC_URI = "git://github.com/pndurette/gTTS;protocol=https;branch=main"
 
 SRCREV = "5007fa454d296ab77249ab706af4bc299e500401"
 
-S = "${UNPACKDIR}/git"
+S = "${UNPACKDIR}/python3-gtts-${PV}"
 
 RDEPENDS:${PN} = "\
     python3-click \

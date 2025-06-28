@@ -10,8 +10,6 @@ SRCREV = "58d6a4ad751086302c3ae71ac0907c56f9beed5a"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
-S = "${WORKDIR}/git"
-
 PACKAGECONFIG[orjson] = ",,,python3-orjson"
 PACKAGECONFIG[yaml] = ",,,python3-pyyaml"
 

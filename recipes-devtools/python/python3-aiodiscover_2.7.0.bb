@@ -12,8 +12,6 @@ SRCREV = "8ee4840b3cf6f9762c25db3418ba45899e47d286"
 
 inherit  python_poetry_core ptest-python-pytest
 
-S = "${WORKDIR}/git"
-
 RDEPENDS:${PN} = "\
     python3-async-timeout (>=4.0.1) \
     python3-netifaces (>=0.11.0) \

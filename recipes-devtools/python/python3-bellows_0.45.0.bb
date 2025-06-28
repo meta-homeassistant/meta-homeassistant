@@ -16,8 +16,6 @@ SRCREV = "9f002c43ca5455247b7e698df7f19fa688bfb499"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
-S = "${WORKDIR}/git"
-
 RDEPENDS:${PN} = "\
     python3-click \
     python3-click-log (>=0.2.1) \

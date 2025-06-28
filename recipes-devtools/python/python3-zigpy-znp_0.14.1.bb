@@ -9,7 +9,7 @@ DEPENDS += "\
 "
 
 SRC_URI:append = " file://0001-Allow-setuptools-git-versioning-3.patch"
-SRC_URI[sha256sum] = "5313503bc6397f48eb6608a69b1748711b8ee963241c6b6beccc3280c2c1c873"
+SRC_URI[sha256sum] = "bfd8cba410542391d00ae3f439ad875c93063e259fed203990cccf84801a4939"
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
@@ -22,4 +22,10 @@ RDEPENDS:${PN} = "\
     python3-jsonschema \
     python3-voluptuous \
     python3-zigpy (>=0.70.0) \
+"
+
+
+RDEPENDS:${PN}-ptest += "\
+    python3-pytest-asyncio \
+    python3-pytest-timeout \
 "

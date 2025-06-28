@@ -12,8 +12,6 @@ SRCREV = "9e93cd5a8dcde40340a6b78a72318f339bd7258c"
 
 inherit setuptools3 ptest-python-pytest
 
-S = "${WORKDIR}/git"
-
 PACKAGES += "\
     python-version-smaller-3-dot-11 \
 "

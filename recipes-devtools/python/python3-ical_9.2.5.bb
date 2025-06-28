@@ -10,8 +10,6 @@ SRCREV = "0166f0770b42fa6531161cfc2eca57070edf4903"
 
 inherit setuptools3 ptest-python-pytest
 
-S = "${WORKDIR}/git"
-
 RDEPENDS:${PN} += "\
     python3-dateutil (>=2.8.2) \
     python3-pydantic (>=2.10.4) \
