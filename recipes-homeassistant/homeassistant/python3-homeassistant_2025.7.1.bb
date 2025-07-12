@@ -17,7 +17,7 @@ SRC_URI = "git://github.com/home-assistant/core.git;protocol=https;branch=master
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
 SRCREV = "5d6b02f470b9ba46a02b7f40a4304f666727f909"
 
-inherit python_setuptools_build_meta useradd systemd ptest
+inherit python_setuptools_build_meta useradd systemd ptest-python-pytest
 
 USERADD_PACKAGES = "${PN}"
 GROUPADD_PARAM:${PN} = "homeassistant"
@@ -114,32 +114,29 @@ RDEPENDS:${PN} += "\
 "
 
 RDEPENDS:${PN}-ptest = "\
-    python3-astroid \
-    python3-coverage \
-    python3-freezegun \
-    python3-go2rtc-client \
-    python3-license-expression \
-    python3-pydantic \
-    python3-pylint \
-    python3-pytest-aiohttp \
-    python3-pytest-asyncio \
-    python3-pytest-cov \
-    python3-pytest-freezer \
-    python3-pytest-socket \
-    python3-pytest-timeout \
-    python3-pytest-unordered \
-    python3-pytest-xdist \
-    python3-pytest \
-    python3-requests-mock \
-    python3-respx \
-    python3-syrupy \
-    python3-tqdm \
-    python3-types-paho-mqtt \
-    python3-types-psutil \
-    python3-types-python-dateutil \
+    python3-astroid (>=3.3.10) \
+    python3-coverage (>=7.8.2) \
+    python3-freezegun (>=1.5.2) \
+    python3-go2rtc-client (>=0.2.1) \
+    python3-license-expression (>=30.4.1) \
+    python3-mock-open (>=1.4.0) \
+    python3-pydantic (>=2.11.7) \
+    python3-pylint (>=3.3.7) \
+    python3-pytest-aiohttp (>=1.0.0) \
+    python3-pytest-asyncio (>=1.1.0) \
+    python3-pytest-cov (>=6.1.1) \
+    python3-pytest-freezer (>=0.4.9) \
+    python3-pytest-socket (>=0.7.0) \
+    python3-pytest-sugar (>=1.0.0) \
+    python3-pytest-timeout (>=2.4.0) \
+    python3-pytest-unordered (>=0.7.0) \
+    python3-pytest-xdist (>=3.7.0) \
+    python3-requests-mock (>=1.12.1) \
+    python3-respx (>=0.22.0) \
+    python3-syrupy (>=4.9.1) \
+    python3-tqdm (>=4.67.1) \
     \
     bash \
-    python3-unittest-automake-output \
     tzdata \
 "
 
