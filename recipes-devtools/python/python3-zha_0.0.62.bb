@@ -12,7 +12,7 @@ SRC_URI = "\
     git://github.com/zigpy/zha.git;protocol=https;branch=dev \
 "
 SRC_URI[sha256sum] = "8d3d6f71b62a61f532b89807279171dd4bce351f886aa4749c38034589e42eea"
-SRCREV = "a2de928a47370a27616a55093631dc3f6301671e"
+SRCREV = "e212bd478e89bb4e1d6f91b32654ab90c2b8c29f"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
