@@ -47,14 +47,18 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-apcupsd \
     ${PN}-api \
     ${PN}-application-credentials \
+    ${PN}-assist-pipeline \
     ${PN}-assist-satellite \
+    ${PN}-atag \
     ${PN}-auth \
     ${PN}-automation \
+    ${PN}-axis \
     ${PN}-backup \
     ${PN}-bayesian \
     ${PN}-binary-sensor \
     ${PN}-blueprint \
     ${PN}-bluesound \
+    ${PN}-bluetooth \
     ${PN}-bluetooth-adapters \
     ${PN}-bluetooth-le-tracker \
     ${PN}-button \
@@ -69,6 +73,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-compensation \
     ${PN}-config \
     ${PN}-configurator \
+    ${PN}-conversation \
     ${PN}-counter \
     ${PN}-cover \
     ${PN}-cpuspeed \
@@ -103,9 +108,11 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-folder \
     ${PN}-folder-watcher \
     ${PN}-freedns \
+    ${PN}-fritz \
     ${PN}-fritzbox \
     ${PN}-fritzbox-callmonitor \
     ${PN}-frontend \
+    ${PN}-generic \
     ${PN}-generic-hygrostat \
     ${PN}-generic-thermostat \
     ${PN}-geo-location \
@@ -113,6 +120,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-github \
     ${PN}-go2rtc \
     ${PN}-google-assistant \
+    ${PN}-google-mail \
     ${PN}-google-sheets \
     ${PN}-google-tasks \
     ${PN}-google-translate \
@@ -153,6 +161,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-letpot \
     ${PN}-life360 \
     ${PN}-light \
+    ${PN}-local-calendar \
     ${PN}-local-file \
     ${PN}-local-ip \
     ${PN}-local-todo \
@@ -165,18 +174,22 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-lovelace \
     ${PN}-luftdaten \
     ${PN}-manual \
+    ${PN}-matter \
     ${PN}-mazda \
     ${PN}-media-player \
     ${PN}-media-source \
     ${PN}-meraki \
+    ${PN}-met \
     ${PN}-microsoft-face \
     ${PN}-microsoft-face-detect \
     ${PN}-microsoft-face-identify \
     ${PN}-min-max \
     ${PN}-mjpeg \
     ${PN}-mobile-app \
+    ${PN}-modbus \
     ${PN}-mold-indicator \
     ${PN}-moon \
+    ${PN}-mqtt \
     ${PN}-my \
     ${PN}-myq \
     ${PN}-namecheapdns \
@@ -185,14 +198,19 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-no-ip \
     ${PN}-notify \
     ${PN}-number \
+    ${PN}-octoprint \
     ${PN}-openalpr-cloud \
     ${PN}-openhardwaremonitor \
     ${PN}-otp \
+    ${PN}-owntracks \
+    ${PN}-pandora \
     ${PN}-panel-custom \
+    ${PN}-peblar \
     ${PN}-peco \
     ${PN}-persistent-notification \
     ${PN}-person \
     ${PN}-plant \
+    ${PN}-private-ble-device \
     ${PN}-proximity \
     ${PN}-push \
     ${PN}-qwikswitch \
@@ -208,23 +226,31 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-ruuvi-gateway \
     ${PN}-scene \
     ${PN}-schedule \
+    ${PN}-scrape \
     ${PN}-script \
     ${PN}-search \
     ${PN}-select \
+    ${PN}-sentry \
+    ${PN}-shelly \
     ${PN}-shopping-list \
     ${PN}-sigfox \
     ${PN}-simplisafe \
     ${PN}-siren \
     ${PN}-smtp \
     ${PN}-spaceapi \
+    ${PN}-speedtestdotnet \
     ${PN}-spider \
+    ${PN}-sql \
     ${PN}-ssdp \
     ${PN}-startca \
+    ${PN}-stream \
     ${PN}-stt \
     ${PN}-sun \
     ${PN}-switch \
     ${PN}-switch-as-x \
+    ${PN}-switchbot \
     ${PN}-system-health \
+    ${PN}-systemmonitor \
     ${PN}-tag \
     ${PN}-tcp \
     ${PN}-text \
@@ -261,8 +287,10 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-xiaomi \
     ${PN}-yandextts \
     ${PN}-zeroconf \
+    ${PN}-zha \
     ${PN}-zodiac \
     ${PN}-zone \
+    ${PN}-zwave-js \
     ${PN}-zwave-me \
 ', '', d)}"
 
