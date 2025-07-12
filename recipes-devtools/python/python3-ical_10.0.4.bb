@@ -6,7 +6,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI = "git://github.com/allenporter/ical.git;protocol=https;branch=main"
 SRC_URI[sha256sum] = "0d27946eec356536f4addacb63f8b9016b3b06160d77dc2a46981aa55519a2a7"
-SRCREV = "0166f0770b42fa6531161cfc2eca57070edf4903"
+SRCREV = "e6a4bc1160d48736aadfade12641fa3c2db618c6"
 
 inherit setuptools3 ptest-python-pytest
 
