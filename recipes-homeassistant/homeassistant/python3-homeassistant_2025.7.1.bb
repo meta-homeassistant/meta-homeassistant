@@ -117,6 +117,7 @@ RDEPENDS:${PN}-ptest = "\
     python3-astroid \
     python3-coverage \
     python3-freezegun \
+    python3-go2rtc-client \
     python3-license-expression \
     python3-pydantic \
     python3-pylint \
