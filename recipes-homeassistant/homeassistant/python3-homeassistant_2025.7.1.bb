@@ -9,13 +9,13 @@ HOMEASSISTANT_CONFIG_DIR[doc] = "Configuration directory used by home-assistant.
 HOMEASSISTANT_USER ?= "homeassistant"
 HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 
-SRC_URI = "git://github.com/home-assistant/core.git;protocol=https;branch=rc \
+SRC_URI = "git://github.com/home-assistant/core.git;protocol=https;branch=master \
            file://homeassistant.service \
            file://run-ptest-sample \
            file://0001-Relax-setuptools.patch \
            "
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
-SRCREV = "6c098c3e0a7b6ca2017fe9fb63fbac8d8255f5a5"
+SRCREV = "5d6b02f470b9ba46a02b7f40a4304f666727f909"
 
 inherit python_setuptools_build_meta useradd systemd ptest
 
