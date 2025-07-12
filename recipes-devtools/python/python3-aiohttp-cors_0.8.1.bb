@@ -1,13 +1,15 @@
 SUMMARY = "CORS support for aiohttp"
 HOMEPAGE = "https://github.com/aio-libs/aiohttp-cors"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=74e00c8896f59680382a263042282781"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=995d66ae531b6ad2bf8bd4b274c9a20a"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit pypi setuptools3
 
-SRC_URI[md5sum] = "de3940a901b269be82c8bd9f28d53ff0"
-SRC_URI[sha256sum] = "4d39c6d7100fd9764ed1caf8cebf0eb01bf5e3f24e2e073fda6234bc48b19f5d"
+SRC_URI[sha256sum] = "ccacf9cb84b64939ea15f859a146af1f662a6b1d68175754a07315e305fb1403"
+
+PYPI_PACKAGE = "aiohttp_cors"
+UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=1.1) \
