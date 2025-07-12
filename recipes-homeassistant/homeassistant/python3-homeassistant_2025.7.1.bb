@@ -56,10 +56,11 @@ require recipes-homeassistant/homeassistant/python3-homeassistant/integrations.i
 require recipes-homeassistant/homeassistant/python3-homeassistant/integrations-tests.inc
 
 #TODO: python3-uv (=0.7.1)
+#TODO: python3-aiohttp (=3.12.6)
 RDEPENDS:${PN} += "\
     python3-aiodns (>=3.5.0) \
     python3-aiohasupervisor (=0.3.1) \
-    python3-aiohttp (>=3.12.13) \
+    python3-aiohttp (>=3.11.8) \
     python3-aiohttp-cors (=0.8.1) \
     python3-aiohttp-fast-zlib (=0.3.0) \
     python3-aiohttp-asyncmdnsresolver (=0.1.1) \
