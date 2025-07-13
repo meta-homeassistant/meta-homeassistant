@@ -113,6 +113,7 @@ RDEPENDS:${PN} += "\
     python3-core (>=3.13.0) \
 "
 
+#TODO: python3-pydantic (=2.11.7)
 RDEPENDS:${PN}-ptest = "\
     python3-astroid (>=3.3.10) \
     python3-coverage (>=7.8.2) \
@@ -120,10 +121,10 @@ RDEPENDS:${PN}-ptest = "\
     python3-go2rtc-client (>=0.2.1) \
     python3-license-expression (>=30.4.1) \
     python3-mock-open (>=1.4.0) \
-    python3-pydantic (>=2.11.7) \
+    python3-pydantic \
     python3-pylint (>=3.3.7) \
-    python3-pytest-aiohttp (>=1.0.0) \
-    python3-pytest-asyncio (>=1.1.0) \
+    python3-pytest-aiohttp (>=1.1.0) \
+    python3-pytest-asyncio (>=1.0.0) \
     python3-pytest-cov (>=6.1.1) \
     python3-pytest-freezer (>=0.4.9) \
     python3-pytest-socket (>=0.7.0) \
