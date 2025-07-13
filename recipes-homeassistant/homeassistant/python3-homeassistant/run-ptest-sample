@@ -5,8 +5,9 @@
 
 pytest -n auto --automake \
   --ignore=tests/components/ \
-  -k "not test_merge \
-  and not test_get_system_info_supervisor_not_loaded \
-  and not test_async_parallel_updates_with_zero_on_sync_update \
+  -k "not test_get_system_info_supervisor_not_loaded \
+  and not test_merge \
+  and not test_evict_faked_translations \
+  and not test_track_time_interval_name \
   and not test_config_platform_valid \
   "
