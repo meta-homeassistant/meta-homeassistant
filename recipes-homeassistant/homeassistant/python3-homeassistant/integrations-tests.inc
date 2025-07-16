@@ -1,4 +1,9 @@
-COMPONENT_TEST_PACKAGES = "\
+PACKAGECONFIG ??= ""
+PACKAGECONFIG[integration-tests] = ",,,"
+
+COMPONENT_TEST_PACKAGES = ""
+COMPONENT_TEST_PACKAGES:append = "\
+    ${@bb.utils.contains('PACKAGECONFIG', 'integration-tests', '\
     ${PN}-acaia \
     ${PN}-accuweather \
     ${PN}-acmeda \
@@ -42,14 +47,18 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-apcupsd \
     ${PN}-api \
     ${PN}-application-credentials \
+    ${PN}-assist-pipeline \
     ${PN}-assist-satellite \
+    ${PN}-atag \
     ${PN}-auth \
     ${PN}-automation \
+    ${PN}-axis \
     ${PN}-backup \
     ${PN}-bayesian \
     ${PN}-binary-sensor \
     ${PN}-blueprint \
     ${PN}-bluesound \
+    ${PN}-bluetooth \
     ${PN}-bluetooth-adapters \
     ${PN}-bluetooth-le-tracker \
     ${PN}-button \
@@ -64,6 +73,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-compensation \
     ${PN}-config \
     ${PN}-configurator \
+    ${PN}-conversation \
     ${PN}-counter \
     ${PN}-cover \
     ${PN}-cpuspeed \
@@ -98,9 +108,11 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-folder \
     ${PN}-folder-watcher \
     ${PN}-freedns \
+    ${PN}-fritz \
     ${PN}-fritzbox \
     ${PN}-fritzbox-callmonitor \
     ${PN}-frontend \
+    ${PN}-generic \
     ${PN}-generic-hygrostat \
     ${PN}-generic-thermostat \
     ${PN}-geo-location \
@@ -108,6 +120,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-github \
     ${PN}-go2rtc \
     ${PN}-google-assistant \
+    ${PN}-google-mail \
     ${PN}-google-sheets \
     ${PN}-google-tasks \
     ${PN}-google-translate \
@@ -148,6 +161,7 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-letpot \
     ${PN}-life360 \
     ${PN}-light \
+    ${PN}-local-calendar \
     ${PN}-local-file \
     ${PN}-local-ip \
     ${PN}-local-todo \
@@ -160,18 +174,22 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-lovelace \
     ${PN}-luftdaten \
     ${PN}-manual \
+    ${PN}-matter \
     ${PN}-mazda \
     ${PN}-media-player \
     ${PN}-media-source \
     ${PN}-meraki \
+    ${PN}-met \
     ${PN}-microsoft-face \
     ${PN}-microsoft-face-detect \
     ${PN}-microsoft-face-identify \
     ${PN}-min-max \
     ${PN}-mjpeg \
     ${PN}-mobile-app \
+    ${PN}-modbus \
     ${PN}-mold-indicator \
     ${PN}-moon \
+    ${PN}-mqtt \
     ${PN}-my \
     ${PN}-myq \
     ${PN}-namecheapdns \
@@ -180,14 +198,19 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-no-ip \
     ${PN}-notify \
     ${PN}-number \
+    ${PN}-octoprint \
     ${PN}-openalpr-cloud \
     ${PN}-openhardwaremonitor \
     ${PN}-otp \
+    ${PN}-owntracks \
+    ${PN}-pandora \
     ${PN}-panel-custom \
+    ${PN}-peblar \
     ${PN}-peco \
     ${PN}-persistent-notification \
     ${PN}-person \
     ${PN}-plant \
+    ${PN}-private-ble-device \
     ${PN}-proximity \
     ${PN}-push \
     ${PN}-qwikswitch \
@@ -203,23 +226,31 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-ruuvi-gateway \
     ${PN}-scene \
     ${PN}-schedule \
+    ${PN}-scrape \
     ${PN}-script \
     ${PN}-search \
     ${PN}-select \
+    ${PN}-sentry \
+    ${PN}-shelly \
     ${PN}-shopping-list \
     ${PN}-sigfox \
     ${PN}-simplisafe \
     ${PN}-siren \
     ${PN}-smtp \
     ${PN}-spaceapi \
+    ${PN}-speedtestdotnet \
     ${PN}-spider \
+    ${PN}-sql \
     ${PN}-ssdp \
     ${PN}-startca \
+    ${PN}-stream \
     ${PN}-stt \
     ${PN}-sun \
     ${PN}-switch \
     ${PN}-switch-as-x \
+    ${PN}-switchbot \
     ${PN}-system-health \
+    ${PN}-systemmonitor \
     ${PN}-tag \
     ${PN}-tcp \
     ${PN}-text \
@@ -256,10 +287,12 @@ COMPONENT_TEST_PACKAGES = "\
     ${PN}-xiaomi \
     ${PN}-yandextts \
     ${PN}-zeroconf \
+    ${PN}-zha \
     ${PN}-zodiac \
     ${PN}-zone \
+    ${PN}-zwave-js \
     ${PN}-zwave-me \
-"
+', '', d)}"
 
 # The following component is specific to this MACHINE_ARCH so treat it as such
 COMPONENT_TEST_PACKAGES:append:raspberrypi4 = "\
@@ -269,7 +302,6 @@ COMPONENT_TEST_PACKAGES:append:raspberrypi4 = "\
 python __anonymous() {
     if 'ptest' not in d.getVar('DISTRO_FEATURES'):
         return
-
     bb.build.addtask('do_addptest', 'do_compile', 'do_configure', d)
 }
 
@@ -280,21 +312,22 @@ python do_addptest () {
     target_file = os.path.join(d.getVar('UNPACKDIR'), 'run-ptest')
     shutil.copy(source_file, target_file)
 
-    # Get the list of packages
-    packages_list = d.getVar('COMPONENT_TEST_PACKAGES').split()
+    if bb.utils.contains('PACKAGECONFIG', 'integration-tests', True, False, d):
+        # Get the list of packages
+        packages_list = d.getVar('COMPONENT_TEST_PACKAGES').split()
 
-    with open(target_file, 'a', encoding='utf-8') as file:
-        file.write("\npytest -n auto --automake \\\n")
-
-    # Iterate over each package and append the line to the file
-    for package in packages_list:
-        # Define the line to be appended
-        line_to_append = "tests/components/" + package.removeprefix(d.getVar('PN')+'-').replace('-', '_') + "/"
-        package_line = f"  {line_to_append} \\\n"
         with open(target_file, 'a', encoding='utf-8') as file:
+            file.write("\npytest -n auto --automake \\\n")
+
+        # Iterate over each package and append the line to the file
+        for package in packages_list:
+            # Define the line to be appended
+            line_to_append = "tests/components/" + package.removeprefix(d.getVar('PN')+'-').replace('-', '_') + "/"
+            package_line = f"  {line_to_append} \\\n"
+            with open(target_file, 'a', encoding='utf-8') as file:
+                file.write(package_line)
+        with open(target_file, 'a', encoding='utf-8') as file:
+            line_to_append = ""
+            package_line = f"  {line_to_append} \\\n"
             file.write(package_line)
-    with open(target_file, 'a', encoding='utf-8') as file:
-        line_to_append = ""
-        package_line = f"  {line_to_append} \\\n"
-        file.write(package_line)
 }

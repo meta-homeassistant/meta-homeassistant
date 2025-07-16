@@ -4,7 +4,7 @@ LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "7e94c6ffd8e2f56d3686f77cdd1a540a4c6eac5a2f919390bdd14fb62efbb5e8"
+SRC_URI[sha256sum] = "f7e75ab1391ace584f7723e5babaac463c4084132367883f0af60a4b5d7e2984"
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
