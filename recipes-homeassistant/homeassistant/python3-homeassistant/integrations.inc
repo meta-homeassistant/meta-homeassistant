@@ -52,6 +52,7 @@ INTEGRATIONS = "\
     ${PN}-cast \
     ${PN}-cisco-ios \
     ${PN}-cloud \
+    ${PN}-cloudflare \
     ${PN}-co2signal \
     ${PN}-compensation \
     ${PN}-conversation \
@@ -430,6 +431,11 @@ RDEPENDS:${PN}-cisco-ios = "\
 ALLOW_EMPTY:${PN}-cloud = "1"
 RDEPENDS:${PN}-cloud = "\
     python3-hass-nabucasa (>=0.105.0) \
+"
+
+ALLOW_EMPTY:${PN}-cloudflare = "1"
+RDEPENDS:${PN}-cloudflare = "\
+    python3-pycfdns (>=3.0.0) \
 "
 
 ALLOW_EMPTY:${PN}-co2signal = "1"

@@ -58,6 +58,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-cast \
     python3-homeassistant-cisco-ios \
     python3-homeassistant-cloud \
+    python3-homeassistant-cloudflare \
     python3-homeassistant-co2signal \
     python3-homeassistant-compensation \
     python3-homeassistant-conversation \
