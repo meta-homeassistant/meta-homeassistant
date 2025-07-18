@@ -123,6 +123,7 @@ INTEGRATIONS = "\
     ${PN}-sql \
     ${PN}-ssdp \
     ${PN}-startca \
+    ${PN}-steam-online \
     ${PN}-stream \
     ${PN}-switchbot \
     ${PN}-systemmonitor \
@@ -780,6 +781,11 @@ RDEPENDS:${PN}-shelly = "\
 ALLOW_EMPTY:${PN}-simplisafe = "1"
 RDEPENDS:${PN}-simplisafe = "\
     python3-simplisafe-python (=2024.1.0) \
+"
+
+ALLOW_EMPTY:${PN}-steam-online = "1"
+RDEPENDS:${PN}-steam-online = "\
+    python3-steamodd (>=4.21) \
 "
 
 ALLOW_EMPTY:${PN}-sony-projector = "1"

@@ -126,6 +126,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-sql \
     python3-homeassistant-ssdp \
     python3-homeassistant-startca \
+    python3-homeassistant-steam-online \
     python3-homeassistant-stream \
     python3-homeassistant-switchbot \
     python3-homeassistant-systemmonitor \
