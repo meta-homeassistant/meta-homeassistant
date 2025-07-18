@@ -47,18 +47,14 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-apcupsd \
     ${PN}-api \
     ${PN}-application-credentials \
-    ${PN}-assist-pipeline \
     ${PN}-assist-satellite \
-    ${PN}-atag \
     ${PN}-auth \
     ${PN}-automation \
-    ${PN}-axis \
     ${PN}-backup \
     ${PN}-bayesian \
     ${PN}-binary-sensor \
     ${PN}-blueprint \
     ${PN}-bluesound \
-    ${PN}-bluetooth \
     ${PN}-bluetooth-adapters \
     ${PN}-bluetooth-le-tracker \
     ${PN}-button \
@@ -73,7 +69,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-compensation \
     ${PN}-config \
     ${PN}-configurator \
-    ${PN}-conversation \
     ${PN}-counter \
     ${PN}-cover \
     ${PN}-cpuspeed \
@@ -108,11 +103,9 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-folder \
     ${PN}-folder-watcher \
     ${PN}-freedns \
-    ${PN}-fritz \
     ${PN}-fritzbox \
     ${PN}-fritzbox-callmonitor \
     ${PN}-frontend \
-    ${PN}-generic \
     ${PN}-generic-hygrostat \
     ${PN}-generic-thermostat \
     ${PN}-geo-location \
@@ -198,7 +191,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-no-ip \
     ${PN}-notify \
     ${PN}-number \
-    ${PN}-octoprint \
     ${PN}-openalpr-cloud \
     ${PN}-openhardwaremonitor \
     ${PN}-otp \
@@ -226,7 +218,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-ruuvi-gateway \
     ${PN}-scene \
     ${PN}-schedule \
-    ${PN}-scrape \
     ${PN}-script \
     ${PN}-search \
     ${PN}-select \
@@ -238,12 +229,9 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-siren \
     ${PN}-smtp \
     ${PN}-spaceapi \
-    ${PN}-speedtestdotnet \
     ${PN}-spider \
-    ${PN}-sql \
     ${PN}-ssdp \
     ${PN}-startca \
-    ${PN}-stream \
     ${PN}-stt \
     ${PN}-sun \
     ${PN}-switch \
@@ -287,10 +275,8 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-xiaomi \
     ${PN}-yandextts \
     ${PN}-zeroconf \
-    ${PN}-zha \
     ${PN}-zodiac \
     ${PN}-zone \
-    ${PN}-zwave-js \
     ${PN}-zwave-me \
 ', '', d)}"
 
