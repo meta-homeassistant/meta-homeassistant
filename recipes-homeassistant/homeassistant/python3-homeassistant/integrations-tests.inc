@@ -21,6 +21,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-aprs \
     ${PN}-apsystems \
     ${PN}-aranet \
+    ${PN}-arcam-fmj \
     ${PN}-dunehd \
     ${PN}-manual \
     ${PN}-mcp \

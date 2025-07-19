@@ -47,6 +47,7 @@ INTEGRATIONS = "\
     ${PN}-apsystems \
     ${PN}-aqualogic \
     ${PN}-aquostv \
+    ${PN}-arcam-fmj \
     ${PN}-aranet \
     ${PN}-aruba \
     ${PN}-assist-pipeline \
@@ -410,6 +411,11 @@ RDEPENDS:${PN}-aquostv = "\
 ALLOW_EMPTY:${PN}-aranet = "1"
 RDEPENDS:${PN}-aranet = "\
     python3-aranet4 (>=2.5.1) \
+"
+
+ALLOW_EMPTY:${PN}-arcam-fmj = "1"
+RDEPENDS:${PN}-arcam-fmj = "\
+    python3-arcam-fmj (>=1.8.1) \
 "
 
 ALLOW_EMPTY:${PN}-ampio = "1"
