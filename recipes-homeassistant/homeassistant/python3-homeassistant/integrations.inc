@@ -23,6 +23,7 @@ INTEGRATIONS = "\
     ${PN}-airzone-cloud \
     ${PN}-alarmdecoder \
     ${PN}-alpha-vantage \
+    ${PN}-altruist \
     ${PN}-amazon-polly \
     ${PN}-amberelectric \
     ${PN}-amcrest \
@@ -40,6 +41,10 @@ INTEGRATIONS = "\
     ${PN}-aosmith \
     ${PN}-apache-kafka \
     ${PN}-apcupsd \
+    ${PN}-apple-tv \
+    ${PN}-aprilaire \
+    ${PN}-aprs \
+    ${PN}-apsystems \
     ${PN}-aruba \
     ${PN}-assist-pipeline \
     ${PN}-atag \
@@ -277,6 +282,11 @@ RDEPENDS:${PN}-alpha-vantage = "\
     python3-alpha-vantage (>=2.3.1) \
 "
 
+ALLOW_EMPTY:${PN}-altruist = "1"
+RDEPENDS:${PN}-altruist = "\
+    python3-altruistclient (>=0.1.1) \
+"
+
 ALLOW_EMPTY:${PN}-amazon-polly = "1"
 RDEPENDS:${PN}-amazon-polly = "\
     python3-boto3 (>=1.37.1) \
@@ -361,6 +371,27 @@ RDEPENDS:${PN}-apache-kafka = "\
 ALLOW_EMPTY:${PN}-apcupsd = "1"
 RDEPENDS:${PN}-apcupsd = "\
     python3-aioapcaccess (>=0.4.2) \
+"
+
+ALLOW_EMPTY:${PN}-apple-tv = "1"
+RDEPENDS:${PN}-apple-tv = "\
+    python3-pyatv (>=0.16.0) \
+"
+
+ALLOW_EMPTY:${PN}-aprilaire = "1"
+RDEPENDS:${PN}-aprilaire = "\
+    python3-pyaprilaire (>=0.9.1) \
+"
+
+ALLOW_EMPTY:${PN}-aprs = "1"
+RDEPENDS:${PN}-aprs = "\
+    python3-aprslib (>=0.7.2) \
+    python3-geopy (>=2.3.0) \
+"
+
+ALLOW_EMPTY:${PN}-apsystems = "1"
+RDEPENDS:${PN}-apsystems = "\
+    python3-apsystems-ez1 (>=2.7.0) \
 "
 
 ALLOW_EMPTY:${PN}-ampio = "1"

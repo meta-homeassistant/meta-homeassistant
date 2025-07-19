@@ -4,7 +4,23 @@ PACKAGECONFIG[integration-tests] = ",,,"
 COMPONENT_TEST_PACKAGES = ""
 COMPONENT_TEST_PACKAGES:append = "\
     ${@bb.utils.contains('PACKAGECONFIG', 'integration-tests', '\
+    ${PN}-acaia \
+    ${PN}-accuweather \
+    ${PN}-acmeda \
+    ${PN}-alarm-control-panel \
+    ${PN}-aladdin-connect \
+    ${PN}-ai-task \
+    ${PN}-air-quality \
+    ${PN}-alert \
+    ${PN}-alexa \
+    ${PN}-altruist \
+    ${PN}-analytics \
+    ${PN}-apple-tv \
+    ${PN}-aprilaire \
+    ${PN}-aprs \
+    ${PN}-apsystems \
     ${PN}-dunehd \
+    ${PN}-manual \
     ${PN}-mcp \
     ${PN}-smartthings \
     ${PN}-steam-online \

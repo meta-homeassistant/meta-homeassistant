@@ -29,6 +29,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-airzone-cloud \
     python3-homeassistant-alarmdecoder \
     python3-homeassistant-alpha-vantage \
+    python3-homeassistant-altruist \
     python3-homeassistant-amazon-polly \
     python3-homeassistant-amberelectric \
     python3-homeassistant-ambient-network \
@@ -46,6 +47,10 @@ IMAGE_INSTALL = "\
     python3-homeassistant-aosmith \
     python3-homeassistant-apache-kafka \
     python3-homeassistant-apcupsd \
+    python3-homeassistant-apple-tv \
+    python3-homeassistant-aprilaire \
+    python3-homeassistant-aprs \
+    python3-homeassistant-apsystems \
     python3-homeassistant-aruba \
     python3-homeassistant-assist-pipeline \
     python3-homeassistant-atag \
