@@ -7,6 +7,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-acaia \
     ${PN}-accuweather \
     ${PN}-acmeda \
+    ${PN}-application-credentials \
     ${PN}-alarm-control-panel \
     ${PN}-aladdin-connect \
     ${PN}-ai-task \

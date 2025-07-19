@@ -45,6 +45,7 @@ INTEGRATIONS = "\
     ${PN}-aprilaire \
     ${PN}-aprs \
     ${PN}-apsystems \
+    ${PN}-aqualogic \
     ${PN}-aruba \
     ${PN}-assist-pipeline \
     ${PN}-atag \
@@ -392,6 +393,11 @@ RDEPENDS:${PN}-aprs = "\
 ALLOW_EMPTY:${PN}-apsystems = "1"
 RDEPENDS:${PN}-apsystems = "\
     python3-apsystems-ez1 (>=2.7.0) \
+"
+
+ALLOW_EMPTY:${PN}-aqualogic = "1"
+RDEPENDS:${PN}-aqualogic = "\
+    python3-aqualogic (>=2.6) \
 "
 
 ALLOW_EMPTY:${PN}-ampio = "1"
