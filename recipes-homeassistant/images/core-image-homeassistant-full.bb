@@ -52,6 +52,8 @@ IMAGE_INSTALL = "\
     python3-homeassistant-aprs \
     python3-homeassistant-apsystems \
     python3-homeassistant-aqualogic \
+    python3-homeassistant-aquostv \
+    python3-homeassistant-aranet \
     python3-homeassistant-aruba \
     python3-homeassistant-assist-pipeline \
     python3-homeassistant-atag \

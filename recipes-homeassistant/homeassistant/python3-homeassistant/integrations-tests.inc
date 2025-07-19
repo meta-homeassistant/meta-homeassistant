@@ -20,6 +20,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-aprilaire \
     ${PN}-aprs \
     ${PN}-apsystems \
+    ${PN}-aranet \
     ${PN}-dunehd \
     ${PN}-manual \
     ${PN}-mcp \

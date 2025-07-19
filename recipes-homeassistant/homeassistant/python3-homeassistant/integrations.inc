@@ -46,6 +46,8 @@ INTEGRATIONS = "\
     ${PN}-aprs \
     ${PN}-apsystems \
     ${PN}-aqualogic \
+    ${PN}-aquostv \
+    ${PN}-aranet \
     ${PN}-aruba \
     ${PN}-assist-pipeline \
     ${PN}-atag \
@@ -398,6 +400,16 @@ RDEPENDS:${PN}-apsystems = "\
 ALLOW_EMPTY:${PN}-aqualogic = "1"
 RDEPENDS:${PN}-aqualogic = "\
     python3-aqualogic (>=2.6) \
+"
+
+ALLOW_EMPTY:${PN}-aquostv = "1"
+RDEPENDS:${PN}-aquostv = "\
+    python3-sharp-aquos-rc (>=0.3.2) \
+"
+
+ALLOW_EMPTY:${PN}-aranet = "1"
+RDEPENDS:${PN}-aranet = "\
+    python3-aranet4 (>=2.5.1) \
 "
 
 ALLOW_EMPTY:${PN}-ampio = "1"
