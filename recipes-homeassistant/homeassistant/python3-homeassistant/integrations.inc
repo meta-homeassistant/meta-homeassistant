@@ -90,6 +90,8 @@ INTEGRATIONS = "\
     ${PN}-local-todo \
     ${PN}-luftdaten \
     ${PN}-matter \
+    ${PN}-mcp \
+    ${PN}-mcp-server \
     ${PN}-met \
     ${PN}-mobile-app \
     ${PN}-modbus \
@@ -118,6 +120,7 @@ INTEGRATIONS = "\
     ${PN}-seven-segments \
     ${PN}-shelly \
     ${PN}-simplisafe \
+    ${PN}-smartthings \
     ${PN}-sony-projector \
     ${PN}-speedtestdotnet \
     ${PN}-sql \
@@ -636,6 +639,18 @@ RDEPENDS:${PN}-matter = "\
     python3-python-matter-server (>7.0.0) \
 "
 
+ALLOW_EMPTY:${PN}-mcp = "1"
+RDEPENDS:${PN}-mcp = "\
+    python3-mcp (>=1.5.0) \
+"
+
+ALLOW_EMPTY:${PN}-mcp-server = "1"
+RDEPENDS:${PN}-mcp-server = "\
+    python3-mcp (>=1.5.0) \
+    python3-aiohttp-sse (>=2.2.0) \
+    python3-anyio (>=4.9.0) \
+"
+
 ALLOW_EMPTY:${PN}-met = "1"
 RDEPENDS:${PN}-met = "\
     python3-pymetno (>=0.13.0) \
@@ -781,6 +796,11 @@ RDEPENDS:${PN}-shelly = "\
 ALLOW_EMPTY:${PN}-simplisafe = "1"
 RDEPENDS:${PN}-simplisafe = "\
     python3-simplisafe-python (=2024.1.0) \
+"
+
+ALLOW_EMPTY:${PN}-smartthings = "1"
+RDEPENDS:${PN}-smartthings = "\
+    python3-pysmartthings (>=3.2.5) \
 "
 
 ALLOW_EMPTY:${PN}-steam-online = "1"

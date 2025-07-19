@@ -93,6 +93,8 @@ IMAGE_INSTALL = "\
     python3-homeassistant-local-todo \
     python3-homeassistant-luftdaten \
     python3-homeassistant-matter \
+    python3-homeassistant-mcp \
+    python3-homeassistant-mcp-server \
     python3-homeassistant-met \
     python3-homeassistant-mobile-app \
     python3-homeassistant-modbus \
@@ -121,6 +123,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-seven-segments \
     python3-homeassistant-shelly \
     python3-homeassistant-simplisafe \
+    python3-homeassistant-smartthings \
     python3-homeassistant-sony-projector \
     python3-homeassistant-speedtestdotnet \
     python3-homeassistant-sql \

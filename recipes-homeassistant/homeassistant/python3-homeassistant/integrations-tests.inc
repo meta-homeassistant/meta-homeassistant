@@ -5,6 +5,8 @@ COMPONENT_TEST_PACKAGES = ""
 COMPONENT_TEST_PACKAGES:append = "\
     ${@bb.utils.contains('PACKAGECONFIG', 'integration-tests', '\
     ${PN}-dunehd \
+    ${PN}-mcp \
+    ${PN}-smartthings \
     ${PN}-steam-online \
 ', '', d)}"
 
