@@ -7,21 +7,60 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-acaia \
     ${PN}-accuweather \
     ${PN}-acmeda \
-    ${PN}-application-credentials \
-    ${PN}-alarm-control-panel \
-    ${PN}-aladdin-connect \
+    ${PN}-adax \
+    ${PN}-advantage-air \
+    ${PN}-aemet \
+    ${PN}-aftership \
+    ${PN}-agent-dvr \
     ${PN}-ai-task \
     ${PN}-air-quality \
+    ${PN}-airgradient \
+    ${PN}-airly \
+    ${PN}-airthings \
+    ${PN}-airthings-ble \
+    ${PN}-airtouch4 \
+    ${PN}-airtouch5 \
+    ${PN}-airvisual \
+    ${PN}-airvisual-pro \
+    ${PN}-airzone \
+    ${PN}-airzone-cloud \
+    ${PN}-aladdin-connect \
+    ${PN}-alarm-control-panel \
+    ${PN}-alarmdecoder \
     ${PN}-alert \
     ${PN}-alexa \
     ${PN}-altruist \
+    ${PN}-amberelectric \
+    ${PN}-ambient-network \
+    ${PN}-ambient-station \
     ${PN}-analytics \
+    ${PN}-analytics-insights \
+    ${PN}-android-ip-webcam \
+    ${PN}-androidtv \
+    ${PN}-androidtv-remote \
+    ${PN}-anova \
+    ${PN}-anthemav \
+    ${PN}-anthropic \
+    ${PN}-aosmith \
+    ${PN}-apache-kafka \
+    ${PN}-apcupsd \
     ${PN}-apple-tv \
+    ${PN}-application-credentials \
     ${PN}-aprilaire \
     ${PN}-aprs \
     ${PN}-apsystems \
     ${PN}-aranet \
     ${PN}-arcam-fmj \
+    ${PN}-arve \
+    ${PN}-aseko-pool-live \
+    ${PN}-assist-pipeline \
+    ${PN}-asuswrt \
+    ${PN}-august \
+    ${PN}-aurora \
+    ${PN}-aurora-abb-powerone \
+    ${PN}-aussie-broadband \
+    ${PN}-auth \
+    ${PN}-automation \
     ${PN}-dunehd \
     ${PN}-manual \
     ${PN}-mcp \

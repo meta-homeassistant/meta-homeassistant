@@ -1,0 +1,24 @@
+From 3d1da2fe060b1d05765e9fbff7cda37d1daf987b Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Mon, 21 Jul 2025 01:05:21 +0200
+Subject: [PATCH] Fix typo
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index 6d99f96..9ea5d2b 100644
+--- a/setup.py
++++ b/setup.py
+@@ -22,7 +22,7 @@ setup(
+         'Programming Language :: Python',
+     ],
+     install_requires=[
+-        'bluepy>==1.1.4',
++        'bluepy>=1.1.4',
+         'csrmesh>=0.9.0',
+         'requests>=2.18.4',
+     ],

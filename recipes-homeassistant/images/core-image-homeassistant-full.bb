@@ -55,9 +55,20 @@ IMAGE_INSTALL = "\
     python3-homeassistant-aquostv \
     python3-homeassistant-aranet \
     python3-homeassistant-arcam-fmj \
+    python3-homeassistant-arris-tg2492lg \
     python3-homeassistant-aruba \
+    python3-homeassistant-arve \
+    python3-homeassistant-aseko-pool-live \
     python3-homeassistant-assist-pipeline \
+    python3-homeassistant-asuswrt \
     python3-homeassistant-atag \
+    python3-homeassistant-aten-pe \
+    python3-homeassistant-atome \
+    python3-homeassistant-august \
+    python3-homeassistant-aurora-abb-powerone \
+    python3-homeassistant-aussie-broadband \
+    python3-homeassistant-avea \
+    python3-homeassistant-avion \
     python3-homeassistant-axis \
     python3-homeassistant-backup \
     python3-homeassistant-bluesound \

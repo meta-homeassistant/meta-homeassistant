@@ -48,10 +48,22 @@ INTEGRATIONS = "\
     ${PN}-aqualogic \
     ${PN}-aquostv \
     ${PN}-arcam-fmj \
+    ${PN}-arris-tg2492lg \
     ${PN}-aranet \
     ${PN}-aruba \
+    ${PN}-arve \
+    ${PN}-aseko-pool-live \    
     ${PN}-assist-pipeline \
+    ${PN}-asuswrt \
     ${PN}-atag \
+    ${PN}-aten-pe \
+    ${PN}-atome \
+    ${PN}-august \
+    ${PN}-aurora \
+    ${PN}-aurora-abb-powerone \
+    ${PN}-aussie-broadband \
+    ${PN}-avea \
+    ${PN}-avion \
     ${PN}-axis \
     ${PN}-backup \
     ${PN}-bluesound \
@@ -418,6 +430,11 @@ RDEPENDS:${PN}-arcam-fmj = "\
     python3-arcam-fmj (>=1.8.1) \
 "
 
+ALLOW_EMPTY:${PN}-arris-tg2492lg = "1"
+RDEPENDS:${PN}-arris-tg2492lg = "\
+    python3-arris-tg2492lg (>=2.2.0) \
+"
+
 ALLOW_EMPTY:${PN}-ampio = "1"
 RDEPENDS:${PN}-ampio = "\
     python3-asmog (>=0.0.6) \
@@ -428,15 +445,72 @@ RDEPENDS:${PN}-aruba = "\
     python3-pexpect (>=4.9.0) \
 "
 
+ALLOW_EMPTY:${PN}-arve = "1"
+RDEPENDS:${PN}-arve = "\
+    python3-asyncarve (>=0.1.1) \
+"
+
+ALLOW_EMPTY:${PN}-aseko-pool-live = "1"
+RDEPENDS:${PN}-aseko-pool-live = "\
+    python3-aioaseko (>=1.0.0) \
+"
+
 ALLOW_EMPTY:${PN}-assist-pipeline = "1"
 RDEPENDS:${PN}-assist-pipeline = "\
     python3-pymicro-vad (>=1.0.1) \
     python3-pyspeex-noise (=1.0.2) \
 "
 
+ALLOW_EMPTY:${PN}-asuswrt = "1"
+RDEPENDS:${PN}-asuswrt = "\
+    python3-aioasuswrt (>=1.4.0) \
+    python3-pyasuswrt (>=0.1.21) \
+"
+
 ALLOW_EMPTY:${PN}-atag = "1"
 RDEPENDS:${PN}-atag = "\
     python3-pyatag (>=0.3.5.3) \
+"
+
+ALLOW_EMPTY:${PN}-aten-pe = "1"
+RDEPENDS:${PN}-aten-pe = "\
+    python3-atenpdu (>=0.3.2) \
+"
+
+ALLOW_EMPTY:${PN}-atome = "1"
+RDEPENDS:${PN}-atome = "\
+    python3-pyatome (>=0.1.1) \
+"
+
+ALLOW_EMPTY:${PN}-august = "1"
+RDEPENDS:${PN}-august = "\
+    python3-yalexs (>=8.10.0) \
+    python3-yalexs-ble (>=2.6.0) \
+"
+
+ALLOW_EMPTY:${PN}-aurora = "1"
+RDEPENDS:${PN}-aurora = "\
+    python3-auroranoaa (>=0.0.5) \
+"
+
+ALLOW_EMPTY:${PN}-aurora-abb-powerone = "1"
+RDEPENDS:${PN}-aurora-abb-powerone = "\
+    python3-aurorapy (>=0.2.7) \
+"
+
+ALLOW_EMPTY:${PN}-aussie-broadband = "1"
+RDEPENDS:${PN}-aussie-broadband = "\
+    python3-pyaussiebb (>=0.1.5) \
+"
+
+ALLOW_EMPTY:${PN}-avea = "1"
+RDEPENDS:${PN}-avea = "\
+    python3-avea (>=1.5.1) \
+"
+
+ALLOW_EMPTY:${PN}-avion = "1"
+RDEPENDS:${PN}-avion = "\
+    python3-avion (>=0.10) \
 "
 
 ALLOW_EMPTY:${PN}-axis = "1"
