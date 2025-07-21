@@ -67,9 +67,18 @@ IMAGE_INSTALL = "\
     python3-homeassistant-august \
     python3-homeassistant-aurora-abb-powerone \
     python3-homeassistant-aussie-broadband \
+    python3-homeassistant-autarco \
     python3-homeassistant-avea \
     python3-homeassistant-avion \
+    python3-homeassistant-awair \
+    python3-homeassistant-aws \
+    python3-homeassistant-aws-s3 \
     python3-homeassistant-axis \
+    python3-homeassistant-azure-data-explorer \
+    python3-homeassistant-azure-devops \
+    python3-homeassistant-azure-event-hub \
+    python3-homeassistant-azure-service-bus \
+    python3-homeassistant-azure-storage \
     python3-homeassistant-backup \
     python3-homeassistant-bluesound \
     python3-homeassistant-bluetooth \

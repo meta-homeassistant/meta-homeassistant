@@ -1,0 +1,15 @@
+From 015e5755b86df9d0642c77305418c66c7f008386 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Tue, 22 Jul 2025 00:55:30 +0200
+Subject: [PATCH] add missing init file
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ azure/__init__.py | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 azure/__init__.py
+
+diff --git a/azure/__init__.py b/azure/__init__.py
+new file mode 100644
+index 0000000..e69de29

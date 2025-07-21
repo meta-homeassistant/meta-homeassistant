@@ -62,9 +62,18 @@ INTEGRATIONS = "\
     ${PN}-aurora \
     ${PN}-aurora-abb-powerone \
     ${PN}-aussie-broadband \
+    ${PN}-autarco \
     ${PN}-avea \
     ${PN}-avion \
+    ${PN}-awair \
+    ${PN}-aws \
+    ${PN}-aws-s3 \
     ${PN}-axis \
+    ${PN}-azure-data-explorer \
+    ${PN}-azure-devops \
+    ${PN}-azure-event-hub \
+    ${PN}-azure-service-bus \
+    ${PN}-azure-storage \
     ${PN}-backup \
     ${PN}-bluesound \
     ${PN}-bluetooth \
@@ -503,6 +512,11 @@ RDEPENDS:${PN}-aussie-broadband = "\
     python3-pyaussiebb (>=0.1.5) \
 "
 
+ALLOW_EMPTY:${PN}-autarco = "1"
+RDEPENDS:${PN}-autarco = "\
+    python3-autarco (>=3.1.0) \
+"
+
 ALLOW_EMPTY:${PN}-avea = "1"
 RDEPENDS:${PN}-avea = "\
     python3-avea (>=1.5.1) \
@@ -513,9 +527,51 @@ RDEPENDS:${PN}-avion = "\
     python3-avion (>=0.10) \
 "
 
+ALLOW_EMPTY:${PN}-awair = "1"
+RDEPENDS:${PN}-awair = "\
+    python3-python-awair (>=0.2.4) \
+"
+
+ALLOW_EMPTY:${PN}-aws = "1"
+RDEPENDS:${PN}-aws = "\
+    python3-aiobotocore (>=2.21.1) \
+    python3-botocore (>=1.37.1) \
+"
+
+ALLOW_EMPTY:${PN}-aws-s3 = "1"
+RDEPENDS:${PN}-aws-s3 = "\
+    python3-aiobotocore (>=2.21.1) \
+"
+
 ALLOW_EMPTY:${PN}-axis = "1"
 RDEPENDS:${PN}-axis = "\
     python3-axis (=64) \
+"
+
+ALLOW_EMPTY:${PN}-azure-data-explorer = "1"
+RDEPENDS:${PN}-azure-data-explorer = "\
+    python3-azure-kusto-ingest (>=4.5.1) \
+    python3-azure-kusto-data (>=4.5.1) \
+"
+
+ALLOW_EMPTY:${PN}-azure-devops = "1"
+RDEPENDS:${PN}-azure-devops = "\
+    python3-aioazuredevops (>=2.2.1) \
+"
+
+ALLOW_EMPTY:${PN}-azure-event-hub = "1"
+RDEPENDS:${PN}-azure-event-hub = "\
+    python3-azure-eventhub (>=5.11.1) \
+"
+
+ALLOW_EMPTY:${PN}-azure-service-bus = "1"
+RDEPENDS:${PN}-azure-service-bus = "\
+    python3-azure-servicebus (>=7.10.0) \
+"
+
+ALLOW_EMPTY:${PN}-azure-storage = "1"
+RDEPENDS:${PN}-azure-storage = "\
+    python3-azure-storage-blob (>=12.24.0) \
 "
 
 ALLOW_EMPTY:${PN}-backup = "1"

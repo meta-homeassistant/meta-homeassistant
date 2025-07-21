@@ -59,8 +59,16 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-aurora \
     ${PN}-aurora-abb-powerone \
     ${PN}-aussie-broadband \
+    ${PN}-autarco \
     ${PN}-auth \
     ${PN}-automation \
+    ${PN}-awair \
+    ${PN}-aws \
+    ${PN}-aws-s3 \
+    ${PN}-azure-data-explorer \
+    ${PN}-azure-devops \
+    ${PN}-azure-event-hub \
+    ${PN}-azure-storage \
     ${PN}-dunehd \
     ${PN}-manual \
     ${PN}-mcp \
