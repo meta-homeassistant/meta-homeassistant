@@ -19,4 +19,11 @@ RDEPENDS:${PN} += "\
     python3-tenacity (>=8.0.0) \
 "
 
+# This package incorrectly tries to package RDEPENDS as well.
+# Explicitly remove them
+do_install:append() {
+    rm -rf ${D}${libdir}/${PYTHON_DIR}/site-packages/azure/kusto/__pycache__
+    rm -rf ${D}${libdir}/${PYTHON_DIR}/site-packages/azure/kusto/__init__.py
+}
+
 PYPI_PACKAGE = "azure-kusto-ingest"
