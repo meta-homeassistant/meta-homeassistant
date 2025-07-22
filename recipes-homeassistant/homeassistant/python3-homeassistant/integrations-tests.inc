@@ -69,6 +69,12 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-azure-devops \
     ${PN}-azure-event-hub \
     ${PN}-azure-storage \
+    ${PN}-bayesian \
+    ${PN}-binary-sensor \
+    ${PN}-blueprint \
+    ${PN}-bluetooth-adapters \
+    ${PN}-bluetooth-le-tracker \
+    ${PN}-button \
     ${PN}-dunehd \
     ${PN}-manual \
     ${PN}-mcp \
