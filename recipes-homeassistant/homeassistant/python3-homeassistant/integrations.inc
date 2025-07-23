@@ -75,9 +75,40 @@ INTEGRATIONS = "\
     ${PN}-azure-service-bus \
     ${PN}-azure-storage \
     ${PN}-backup \
+    ${PN}-baf \
+    ${PN}-baidu \
+    ${PN}-balboa \
+    ${PN}-bang-olufsen \
+    ${PN}-bbox \
+    ${PN}-beewi-smartclim \
+    ${PN}-bitcoin \
+    ${PN}-bizkaibus \
+    ${PN}-blackbird \
+    ${PN}-blebox \
+    ${PN}-blink \
+    ${PN}-blinksticklight \
+    ${PN}-blockchain \
+    ${PN}-blue-current \
+    ${PN}-bluemaestro \
     ${PN}-bluesound \
     ${PN}-bluetooth \
     ${PN}-bluetooth-tracker \
+    ${PN}-bmw-connected-drive \
+    ${PN}-bond \
+    ${PN}-bosch-alarm \
+    ${PN}-bosch-shc \
+    ${PN}-braviatv \
+    ${PN}-bring \
+    ${PN}-broadlink \
+    ${PN}-brother \
+    ${PN}-brottsplatskartan \
+    ${PN}-brunt \
+    ${PN}-bryant-evolution \
+    ${PN}-bsblan \
+    ${PN}-bt-home-hub-5 \
+    ${PN}-bt-smarthub \
+    ${PN}-bthome \
+    ${PN}-buienradar \
     ${PN}-camera \
     ${PN}-cast \
     ${PN}-cisco-ios \
@@ -580,6 +611,86 @@ RDEPENDS:${PN}-backup = "\
     python3-securetar (=2025.2.1) \
 "
 
+ALLOW_EMPTY:${PN}-baf = "1"
+RDEPENDS:${PN}-baf = "\
+    python3-aiobafi6 (>=0.9.0) \
+"
+
+ALLOW_EMPTY:${PN}-baidu = "1"
+RDEPENDS:${PN}-baidu = "\
+    python3-baidu-aip (>=1.6.6) \
+"
+
+ALLOW_EMPTY:${PN}-balboa = "1"
+RDEPENDS:${PN}-balboa = "\
+    python3-pybalboa (>=1.1.3) \
+"
+
+ALLOW_EMPTY:${PN}-bang-olufsen = "1"
+RDEPENDS:${PN}-bang-olufsen = "\
+    python3-mozart-api (>=4.1.1.116.4) \
+"
+
+ALLOW_EMPTY:${PN}-bbox = "1"
+RDEPENDS:${PN}-bbox = "\
+    python3-pybbox (>=0.0.5-alpha) \
+"
+
+ALLOW_EMPTY:${PN}-beewi-smartclim = "1"
+RDEPENDS:${PN}-beewi-smartclim = "\
+    python3-beewi-smartclim (>=0.0.10) \
+"
+
+ALLOW_EMPTY:${PN}-bitcoin = "1"
+RDEPENDS:${PN}-bitcoin = "\
+    python3-blockchain (>=1.4.4) \
+"
+
+ALLOW_EMPTY:${PN}-bizkaibus = "1"
+RDEPENDS:${PN}-bizkaibus = "\
+    python3-bizkaibus (>=0.1.1) \
+"
+
+ALLOW_EMPTY:${PN}-blackbird = "1"
+RDEPENDS:${PN}-blackbird = "\
+    python3-pyblackbird (>=0.6) \
+"
+
+ALLOW_EMPTY:${PN}-blebox = "1"
+RDEPENDS:${PN}-blebox = "\
+    python3-blebox-uniapi (>=2.5.0) \
+"
+
+ALLOW_EMPTY:${PN}-blink = "1"
+RDEPENDS:${PN}-blink = "\
+    python3-blinkpy (>=0.23.0) \
+"
+
+ALLOW_EMPTY:${PN}-blink = "1"
+RDEPENDS:${PN}-blink = "\
+    python3-blinkstick (>=0.23.0) \
+"
+
+ALLOW_EMPTY:${PN}-blinksticklight = "1"
+RDEPENDS:${PN}-blinksticklight = "\
+    python3-pyblu (>=1.2.0) \
+"
+
+ALLOW_EMPTY:${PN}-blockchain = "1"
+RDEPENDS:${PN}-blockchain = "\
+    python3-bluecurrent-api (>=1.2.3) \
+"
+
+ALLOW_EMPTY:${PN}-blue-current = "1"
+RDEPENDS:${PN}-blue-current = "\
+    python3-python-blockchain-api (>=0.0.2) \
+"
+
+ALLOW_EMPTY:${PN}-bluemaestro = "1"
+RDEPENDS:${PN}-bluemaestro = "\
+    python3-bluemaestro-ble (>=0.4.1) \
+"
+
 ALLOW_EMPTY:${PN}-bluesound = "1"
 RDEPENDS:${PN}-bluesound = "\
     python3-pyblu (=2.0.1) \
@@ -600,6 +711,86 @@ ALLOW_EMPTY:${PN}-bluetooth-tracker = "1"
 RDEPENDS:${PN}-bluetooth-tracker = "\
     python3-bt-proximity (=0.2.1) \
     python3-pybluez (>=0.22) \
+"
+
+ALLOW_EMPTY:${PN}-bmw-connected-drive = "1"
+RDEPENDS:${PN}-bmw-connected-drive = "\
+    python3-bimmer-connected (>=0.17.2) \
+"
+
+ALLOW_EMPTY:${PN}-bond = "1"
+RDEPENDS:${PN}-bond = "\
+    python3-bosch-alarm-mode2 (>=0.4.6) \
+"
+
+ALLOW_EMPTY:${PN}-bosch-alarm = "1"
+RDEPENDS:${PN}-bosch-alarm = "\
+    python3-bond-async (>=0.2.1) \
+"
+
+ALLOW_EMPTY:${PN}-bosch-shc = "1"
+RDEPENDS:${PN}-bosch-shc = "\
+    python3-boschshcpy (>=0.2.91) \
+"
+
+ALLOW_EMPTY:${PN}-braviatv = "1"
+RDEPENDS:${PN}-braviatv = "\
+    python3-pybravia (>=0.3.4) \
+"
+
+ALLOW_EMPTY:${PN}-bring = "1"
+RDEPENDS:${PN}-bring = "\
+    python3-bring-api (>=1.1.0) \
+"
+
+ALLOW_EMPTY:${PN}-broadlink = "1"
+RDEPENDS:${PN}-broadlink = "\
+    python3-broadlink (>=0.19.0) \
+"
+
+ALLOW_EMPTY:${PN}-brother = "1"
+RDEPENDS:${PN}-brother = "\
+    python3-brother (>=4.3.1) \
+"
+
+ALLOW_EMPTY:${PN}-brottsplatskartan = "1"
+RDEPENDS:${PN}-brottsplatskartan = "\
+    python3-brottsplatskartan (>=1.0.5) \
+"
+
+ALLOW_EMPTY:${PN}-brunt = "1"
+RDEPENDS:${PN}-brunt = "\
+    python3-brunt (>=1.2.0) \
+"
+
+ALLOW_EMPTY:${PN}-bryant-evolution = "1"
+RDEPENDS:${PN}-bryant-evolution = "\
+    python3-evolutionhttp (>=0.0.18) \
+"
+
+ALLOW_EMPTY:${PN}-bsblan = "1"
+RDEPENDS:${PN}-bsblan = "\
+    python3-python-bsblan (>=2.1.0) \
+"
+
+ALLOW_EMPTY:${PN}-bt-home-hub-5 = "1"
+RDEPENDS:${PN}-bt-home-hub-5 = "\
+    python3-bthomehub5-devicelist (>=0.1.1) \
+"
+
+ALLOW_EMPTY:${PN}-bt-smarthub = "1"
+RDEPENDS:${PN}-bt-smarthub = "\
+    python3-btsmarthub-devicelist (>=0.2.3) \
+"
+
+ALLOW_EMPTY:${PN}-bthome = "1"
+RDEPENDS:${PN}-bthome = "\
+    python3-bthome-ble (>=3.13.1) \
+"
+
+ALLOW_EMPTY:${PN}-buienradar = "1"
+RDEPENDS:${PN}-buienradar = "\
+    python3-buienradar (>=1.0.6) \
 "
 
 ALLOW_EMPTY:${PN}-camera = "1"

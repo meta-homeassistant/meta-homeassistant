@@ -53,7 +53,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-arcam-fmj \
     ${PN}-arve \
     ${PN}-aseko-pool-live \
-    ${PN}-assist-pipeline \
     ${PN}-asuswrt \
     ${PN}-august \
     ${PN}-aurora \
@@ -69,11 +68,36 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-azure-devops \
     ${PN}-azure-event-hub \
     ${PN}-azure-storage \
+    ${PN}-backup \
+    ${PN}-baf \
+    ${PN}-balboa \
+    ${PN}-bang-olufsen \
     ${PN}-bayesian \
     ${PN}-binary-sensor \
+    ${PN}-blackbird \
+    ${PN}-blebox \
+    ${PN}-blink \
+    ${PN}-blue-current \
+    ${PN}-bluemaestro \
     ${PN}-blueprint \
+    ${PN}-bluesound \
+    ${PN}-bluetooth \
     ${PN}-bluetooth-adapters \
     ${PN}-bluetooth-le-tracker \
+    ${PN}-bmw-connected-drive \
+    ${PN}-bond \
+    ${PN}-bosch-alarm \
+    ${PN}-bond-shc \
+    ${PN}-braviatv \
+    ${PN}-bring \
+    ${PN}-broadlink \
+    ${PN}-brother \
+    ${PN}-brottsplatskartan \
+    ${PN}-brunt \
+    ${PN}-bryant-evolution \
+    ${PN}-bsblan \
+    ${PN}-bthome \
+    ${PN}-buienradar \
     ${PN}-button \
     ${PN}-dunehd \
     ${PN}-manual \

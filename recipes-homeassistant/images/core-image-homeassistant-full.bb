@@ -80,9 +80,40 @@ IMAGE_INSTALL = "\
     python3-homeassistant-azure-service-bus \
     python3-homeassistant-azure-storage \
     python3-homeassistant-backup \
+    python3-homeassistant-baf \
+    python3-homeassistant-baidu \
+    python3-homeassistant-balboa \
+    python3-homeassistant-bang-olufsen \
+    python3-homeassistant-bbox \
+    python3-homeassistant-beewi-smartclim \
+    python3-homeassistant-bitcoin \
+    python3-homeassistant-bizkaibus \
+    python3-homeassistant-blackbird \
+    python3-homeassistant-blebox \
+    python3-homeassistant-blink \
+    python3-homeassistant-blinksticklight \
+    python3-homeassistant-blockchain \
+    python3-homeassistant-blue-current \
+    python3-homeassistant-bluemaestro \
     python3-homeassistant-bluesound \
     python3-homeassistant-bluetooth \
     python3-homeassistant-bluetooth-tracker \
+    python3-homeassistant-bmw-connected-drive \
+    python3-homeassistant-bond \
+    python3-homeassistant-bosch-alarm \
+    python3-homeassistant-bosch-shc \
+    python3-homeassistant-braviatv \
+    python3-homeassistant-bring \
+    python3-homeassistant-broadlink \
+    python3-homeassistant-brother \
+    python3-homeassistant-brottsplatskartan \
+    python3-homeassistant-brunt \
+    python3-homeassistant-bryant-evolution \
+    python3-homeassistant-bsblan \
+    python3-homeassistant-bt-home-hub-5 \
+    python3-homeassistant-bt-smarthub \
+    python3-homeassistant-bthome \
+    python3-homeassistant-buienradar \
     python3-homeassistant-camera \
     python3-homeassistant-cast \
     python3-homeassistant-cisco-ios \
