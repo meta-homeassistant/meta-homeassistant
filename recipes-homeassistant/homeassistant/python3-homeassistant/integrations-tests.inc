@@ -75,28 +75,24 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-bayesian \
     ${PN}-binary-sensor \
     ${PN}-blackbird \
-    ${PN}-blebox \
     ${PN}-blink \
     ${PN}-blue-current \
     ${PN}-bluemaestro \
     ${PN}-blueprint \
     ${PN}-bluesound \
-    ${PN}-bluetooth \
     ${PN}-bluetooth-adapters \
     ${PN}-bluetooth-le-tracker \
     ${PN}-bmw-connected-drive \
     ${PN}-bond \
     ${PN}-bosch-alarm \
-    ${PN}-bond-shc \
+    ${PN}-bosch-shc \
     ${PN}-braviatv \
     ${PN}-bring \
     ${PN}-broadlink \
-    ${PN}-brother \
     ${PN}-brottsplatskartan \
     ${PN}-brunt \
     ${PN}-bryant-evolution \
     ${PN}-bsblan \
-    ${PN}-bthome \
     ${PN}-buienradar \
     ${PN}-button \
     ${PN}-dunehd \
@@ -129,7 +125,7 @@ python do_addptest () {
         packages_list = d.getVar('COMPONENT_TEST_PACKAGES').split()
 
         with open(target_file, 'a', encoding='utf-8') as file:
-            file.write("\npytest -n auto --automake \\\n")
+            file.write("\npytest -n auto --automake --disable-pytest-warnings\\\n")
 
         # Iterate over each package and append the line to the file
         for package in packages_list:
