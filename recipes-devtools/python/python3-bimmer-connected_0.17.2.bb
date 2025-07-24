@@ -4,9 +4,12 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
+SRC_URI += "file://0001-make-PEP-517-compatible.patch"
 SRC_URI[sha256sum] = "b1fa68caee58699ab9908d03d20cd37a97d1ac225565b839ec5bca9d79cfc7e3"
 
-inherit pypi setuptools3
+inherit pypi python_setuptools_build_meta ptest-python-pytest
+
+DEPENDS += "python3-pbr-native"
 
 RDEPENDS:${PN} += "\
     python3-pillow \
