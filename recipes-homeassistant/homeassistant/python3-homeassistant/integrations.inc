@@ -666,14 +666,9 @@ RDEPENDS:${PN}-blink = "\
     python3-blinkpy (>=0.23.0) \
 "
 
-ALLOW_EMPTY:${PN}-blink = "1"
-RDEPENDS:${PN}-blink = "\
-    python3-blinkstick (>=0.23.0) \
-"
-
 ALLOW_EMPTY:${PN}-blinksticklight = "1"
 RDEPENDS:${PN}-blinksticklight = "\
-    python3-pyblu (>=1.2.0) \
+    python3-blinkstick (>=1.2.0) \
 "
 
 ALLOW_EMPTY:${PN}-blockchain = "1"
