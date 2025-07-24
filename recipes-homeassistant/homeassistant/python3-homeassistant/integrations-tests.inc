@@ -95,6 +95,22 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-bsblan \
     ${PN}-buienradar \
     ${PN}-button \
+    ${PN}-calendar \
+    ${PN}-camera \
+    ${PN}-cast \
+    ${PN}-cert-expiry \
+    ${PN}-clicksend-tts \
+    ${PN}-climate \
+    ${PN}-cloudflare \
+    ${PN}-co2signal \
+    ${PN}-compensation \
+    ${PN}-config \
+    ${PN}-conversation \
+    ${PN}-configurator \
+    ${PN}-counter \
+    ${PN}-cover \
+    ${PN}-cpuspeed \
+    ${PN}-cups \
     ${PN}-dunehd \
     ${PN}-manual \
     ${PN}-mcp \

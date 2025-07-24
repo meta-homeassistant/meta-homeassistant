@@ -123,6 +123,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-compensation \
     python3-homeassistant-conversation \
     python3-homeassistant-cpuspeed \
+    python3-homeassistant-cups \
     python3-homeassistant-debugpy \
     python3-homeassistant-decora-wifi \
     python3-homeassistant-dhcp \

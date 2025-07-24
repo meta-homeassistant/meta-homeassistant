@@ -118,6 +118,7 @@ INTEGRATIONS = "\
     ${PN}-compensation \
     ${PN}-conversation \
     ${PN}-cpuspeed \
+    ${PN}-cups \
     ${PN}-debugpy \
     ${PN}-decora-wifi \
     ${PN}-dhcp \
@@ -832,6 +833,11 @@ RDEPENDS:${PN}-conversation = "\
 ALLOW_EMPTY:${PN}-cpuspeed = "1"
 RDEPENDS:${PN}-cpuspeed = "\
     python3-py-cpuinfo (=9.0.0) \
+"
+
+ALLOW_EMPTY:${PN}-cups = "1"
+RDEPENDS:${PN}-cups = "\
+    python3-pycups (>=2.0.4) \
 "
 
 ALLOW_EMPTY:${PN}-debugpy = "1"
