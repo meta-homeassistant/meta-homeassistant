@@ -1,0 +1,59 @@
+From ead079d5605ccbf151ffb406047ac91f97e7dfc7 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Thu, 24 Jul 2025 07:41:43 +0200
+Subject: [PATCH] make PEP 517 compatible
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ pyproject.toml | 41 +++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 41 insertions(+)
+ create mode 100644 pyproject.toml
+
+diff --git a/pyproject.toml b/pyproject.toml
+new file mode 100644
+index 0000000..d9502cf
+--- /dev/null
++++ b/pyproject.toml
+@@ -0,0 +1,41 @@
++[project]
++name = "blebox_uniapi"
++version = "2.5.0"
++description = "Python API for accessing BleBox smart home devices"
++authors = [
++    { name = "BleBox", email = "opensource@blebox.eu" }
++]
++license = { text = "Apache Software License 2.0" }
++readme = "README.rst"
++keywords = ["blebox_uniapi"]
++classifiers = [
++    "Development Status :: 2 - Pre-Alpha",
++    "Intended Audience :: Developers",
++    "License :: OSI Approved :: Apache Software License",
++    "Natural Language :: English",
++    "Programming Language :: Python :: 3.9",
++    "Programming Language :: Python :: 3.10"
++]
++requires-python = ">=3.9"
++dependencies = [
++    "aiohttp>=3",
++    "jmespath>1.0.0"
++]
++
++[project.urls]
++Homepage = "https://github.com/blebox/blebox_uniapi"
++
++[project.optional-dependencies]
++test = [
++    "pytest>=3",
++    "pytest-asyncio>=0.10.0",
++    "deepmerge"
++]
++
++[tool.setuptools]
++packages = ["blebox_uniapi"]
++include-package-data = false
++
++[build-system]
++requires = ["setuptools>=61", "wheel"]
++build-backend = "setuptools.build_meta"

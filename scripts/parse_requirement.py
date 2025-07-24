@@ -29,7 +29,7 @@ def extract_component_test_packages(file_path):
         content = file.read()
 
     # Regular expression to find the COMPONENT_TEST_PACKAGES block
-    match = re.search(r'COMPONENT_TEST_PACKAGES\s*=\s*"([^"]+)"', content, re.DOTALL)
+    match = re.search(r'COMPONENT_TEST_PACKAGES:append\s*=\s*"([^"]+)"', content, re.DOTALL)
     if not match:
         print("COMPONENT_TEST_PACKAGES block not found.")
         return []

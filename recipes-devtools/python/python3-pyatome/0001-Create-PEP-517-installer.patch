@@ -1,0 +1,49 @@
+From d7bbeccaf1588eca15f83536c7b203a8f8360a02 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Mon, 21 Jul 2025 00:42:49 +0200
+Subject: [PATCH] Create PEP-517 installer
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ pyproject.toml | 31 +++++++++++++++++++++++++++++++
+ 1 file changed, 31 insertions(+)
+ create mode 100644 pyproject.toml
+
+diff --git a/pyproject.toml b/pyproject.toml
+new file mode 100644
+index 0000000..bf53b3c
+--- /dev/null
++++ b/pyproject.toml
+@@ -0,0 +1,31 @@
++[project]
++name = "pyAtome"
++version = "0.1.2"
++description = "Get your energy consumption from Atome Linky device"
++authors = [
++    { name = "Pierre Ourdouille", email = "baqs@users.github.com" }
++]
++license = { text = "Apache Software License 2.0" }
++readme = "README.md"
++keywords = []
++classifiers = []
++requires-python = ">=3.7"
++dependencies = [
++    "requests",
++    "fake_useragent",
++    "simplejson"
++]
++
++[project.urls]
++Homepage = "http://github.com/baqs/pyAtome/"
++
++[project.scripts]
++pyatome = "pyatome.__main__:main"
++
++[tool.setuptools]
++packages = ["pyatome"]
++include-package-data = true
++
++[build-system]
++requires = ["setuptools>=61", "wheel"]
++build-backend = "setuptools.build_meta"

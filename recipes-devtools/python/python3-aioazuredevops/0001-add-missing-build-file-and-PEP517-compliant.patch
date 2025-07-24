@@ -1,0 +1,66 @@
+From 563d70d4997afc206827951130b3f0be715939b7 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Tue, 22 Jul 2025 00:40:38 +0200
+Subject: [PATCH] add missing build file and PEP517 compliant
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ pyproject.toml         | 25 +++++++++++++++++++++++++
+ requirements.txt       |  3 +++
+ requirements_setup.txt |  1 +
+ 3 files changed, 29 insertions(+)
+ create mode 100644 requirements.txt
+ create mode 100644 requirements_setup.txt
+
+diff --git a/pyproject.toml b/pyproject.toml
+index faa7bbe..32418f7 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,3 +1,28 @@
++[project]
++name = "aioazuredevops"
++version = "2.2.1"
++description = "Get data from the Azure DevOps API"
++authors = [
++    { name = "Aidan Timson (Timmo)", email = "aidan@timmo.dev" }
++]
++license = { text = "Apache-2.0" }
++readme = "README.md"
++keywords = ["aioazuredevops", "api", "async", "asyncio", "azure devops", "devops", "integration"]
++requires-python = ">=3.11"
++dependencies = []  # See requirements.txt
++classifiers = []
++
++[project.urls]
++Homepage = "https://github.com/timmo001/aioazuredevops"
++
++[tool.setuptools]
++packages = ["aioazuredevops"]
++include-package-data = true
++
++[build-system]
++requires = ["setuptools>=61", "wheel", "incremental"]
++build-backend = "setuptools.build_meta"
++
+ [tool.black]
+ extend-exclude = "/generated/"
+ 
+diff --git a/requirements.txt b/requirements.txt
+new file mode 100644
+index 0000000..5969342
+--- /dev/null
++++ b/requirements.txt
+@@ -0,0 +1,3 @@
++aiohttp>=3.9.0b0;python_version>='3.12'
++aiohttp>=3.8.5;python_version<'3.12'
++incremental>=22.10.0
+\ No newline at end of file
+diff --git a/requirements_setup.txt b/requirements_setup.txt
+new file mode 100644
+index 0000000..7acb8b5
+--- /dev/null
++++ b/requirements_setup.txt
+@@ -0,0 +1 @@
++incremental==24.7.2
+\ No newline at end of file

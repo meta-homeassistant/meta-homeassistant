@@ -1,0 +1,26 @@
+From 30b9a35c66fed40df748813de657e6c1d97d62db Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Thu, 24 Jul 2025 07:44:25 +0200
+Subject: [PATCH] fix compilation
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ setup.py | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/setup.py b/setup.py
+index 944e02f..9195122 100644
+--- a/setup.py
++++ b/setup.py
+@@ -12,9 +12,7 @@ with open("HISTORY.rst") as history_file:
+ 
+ requirements = ["aiohttp>=3", "jmespath>1.0.0"]
+ 
+-setup_requirements = [
+-    "pytest-runner",
+-]
++setup_requirements = []
+ 
+ test_requirements = [
+     "pytest>=3",

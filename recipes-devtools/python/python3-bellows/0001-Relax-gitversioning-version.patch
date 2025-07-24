@@ -1,4 +1,4 @@
-From 090cb848d5a933eb3d3d15c93849521a3d9ea90e Mon Sep 17 00:00:00 2001
+From c88073ab739d8955b3dce3e13b2200444d43c990 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Fri, 25 Apr 2025 17:22:22 +0000
 Subject: [PATCH] Relax gitversioning version

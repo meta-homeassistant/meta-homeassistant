@@ -1,0 +1,95 @@
+From 7c9f4c4e4edf8aa718995984ba22b577eb7644d8 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Thu, 24 Jul 2025 18:56:50 +0200
+Subject: [PATCH] make PEP 517 compatible
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ pyproject.toml | 76 ++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 76 insertions(+)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index f205cf9..218a689 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,3 +1,79 @@
++[project]
++name = "bimmer_connected"
++version = "0.0.0"  # Version is managed by pbr or set elsewhere
++authors = [
++    { name = "gerard33" },
++    { name = "rikroe" }
++]
++description = "Library to read data from the BMW Connected Drive portal"
++readme = "README.rst"
++license = { text = "Apache-2.0" }
++keywords = ["BMW", "Connected Drive", "home automation"]
++classifiers = [
++    "Development Status :: 4 - Beta",
++    "Environment :: Console",
++    "Intended Audience :: Developers",
++    "Programming Language :: Python :: 3",
++    "Programming Language :: Python :: 3.8",
++    "Programming Language :: Python :: 3.9",
++    "Programming Language :: Python :: 3.10",
++    "Programming Language :: Python :: 3.11",
++    "Programming Language :: Python :: 3.12",
++    "Programming Language :: Python :: 3.13"
++]
++requires-python = ">=3.8"
++dependencies = [
++    "httpx",
++    "pycryptodome>=3.4",
++    "pyjwt>=2.1.0"
++]
++
++[project.urls]
++Homepage = "https://github.com/bimmerconnected/bimmer_connected"
++BugTracker = "https://github.com/bimmerconnected/bimmer_connected/issues"
++Documentation = "https://bimmer-connected.readthedocs.io/en/latest/"
++Source = "https://github.com/bimmerconnected/bimmer_connected"
++
++[project.optional-dependencies]
++china = [
++    "Pillow"
++]
++test = [
++    "pytest",
++    "pytest-cov",
++    "pytest-timeout",
++    "pytest-asyncio",
++    "respx",
++    "black",
++    "mypy",
++    "types-setuptools",
++    "pbr",
++    "time_machine",
++    "pre-commit",
++    "backports.zoneinfo; python_version < '3.9'",
++    "ruff",
++    "types-Pillow"
++]
++docs = [
++    "sphinx",
++    "sphinx-autobuild",
++    "sphinx_rtd_theme",
++    "sphinx-argparse",
++    "pbr",
++    "six"
++]
++
++[project.scripts]
++bimmerconnected = "bimmer_connected.cli:main"
++
++[tool.setuptools]
++packages = ["bimmer_connected"]
++include-package-data = true
++
++[build-system]
++requires = ["setuptools>=61", "wheel", "pbr"]
++build-backend = "setuptools.build_meta"
++
+ [tool.black]
+ line-length = 120
+ 
