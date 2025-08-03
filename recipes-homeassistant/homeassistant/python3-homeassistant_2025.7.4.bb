@@ -15,7 +15,7 @@ SRC_URI = "git://github.com/home-assistant/core.git;protocol=https;branch=master
            file://0001-Relax-setuptools.patch \
            "
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
-SRCREV = "5d6b02f470b9ba46a02b7f40a4304f666727f909"
+SRCREV = "777b3128bb58b7b171fd798799b2b1d51f824981"
 
 inherit python_setuptools_build_meta useradd systemd ptest-python-pytest
 
@@ -56,11 +56,10 @@ require recipes-homeassistant/homeassistant/python3-homeassistant/integrations.i
 require recipes-homeassistant/homeassistant/python3-homeassistant/integrations-tests.inc
 
 #TODO: python3-uv (=0.7.1)
-#TODO: python3-aiohttp (=3.12.6)
 RDEPENDS:${PN} += "\
     python3-aiodns (>=3.5.0) \
     python3-aiohasupervisor (=0.3.1) \
-    python3-aiohttp (>=3.11.8) \
+    python3-aiohttp (=3.12.14) \
     python3-aiohttp-cors (=0.8.1) \
     python3-aiohttp-fast-zlib (=0.3.0) \
     python3-aiohttp-asyncmdnsresolver (=0.1.1) \
@@ -77,13 +76,12 @@ RDEPENDS:${PN} += "\
     python3-ciso8601 (=2.3.2) \
     python3-cronsim (>=2.6) \
     python3-fnv-hash-fast (>=1.5.0) \
-    python3-hass-nabucasa (>=0.105.0) \
+    python3-hass-nabucasa (>=0.106.0) \
     python3-httpx (>=0.28.1) \
     python3-home-assistant-bluetooth (>=1.13.1) \
     python3-ifaddr (=0.2.0) \
     python3-jinja2 (>=3.1.6) \
     python3-lru-dict (>=1.3.0) \
-    python3-mutagen (>=1.47.0) \
     python3-pyjwt (=2.10.1) \
     python3-cryptography (>=45.0.3) \
     python3-pillow (>=11.2.1) \

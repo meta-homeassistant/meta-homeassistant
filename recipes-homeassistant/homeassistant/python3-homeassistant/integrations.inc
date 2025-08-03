@@ -906,7 +906,7 @@ RDEPENDS:${PN}-fritzbox-callmonitor = "\
 
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
-    python3-home-assistant-frontend (>=20250702.1) \
+    python3-home-assistant-frontend (>=20250702.3) \
 "
 
 ALLOW_EMPTY:${PN}-generic = "1"
@@ -1220,7 +1220,7 @@ RDEPENDS:${PN}-stream = "\
 
 ALLOW_EMPTY:${PN}-switchbot = "1"
 RDEPENDS:${PN}-switchbot = "\
-    python3-pyswitchbot (>=0.67.0) \
+    python3-pyswitchbot (>=0.68.2) \
 "
 
 ALLOW_EMPTY:${PN}-systemmonitor = "1"
