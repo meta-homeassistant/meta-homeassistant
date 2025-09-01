@@ -109,15 +109,36 @@ INTEGRATIONS = "\
     ${PN}-bt-smarthub \
     ${PN}-bthome \
     ${PN}-buienradar \
+    ${PN}-caldav \
+    ${PN}-cambridge-audio \
     ${PN}-camera \
+    ${PN}-canary \
     ${PN}-cast \
+    ${PN}-ccm15 \
+    ${PN}-chacon-dio \
+    ${PN}-channels \
     ${PN}-cisco-ios \
+    ${PN}-cisco-mobility-express \
+    ${PN}-cisco-webex-teams \
+    ${PN}-clementine \
     ${PN}-cloud \
     ${PN}-cloudflare \
+    ${PN}-cmus \
     ${PN}-co2signal \
+    ${PN}-coinbase \
+    ${PN}-color-extractor \
+    ${PN}-comelit \
+    ${PN}-comfoconnect \
+    ${PN}-command-line \
     ${PN}-compensation \
+    ${PN}-concord232 \
+    ${PN}-control4 \
     ${PN}-conversation \
+    ${PN}-cookidoo \
+    ${PN}-coolmaster \
+    ${PN}-cppm-tracker \
     ${PN}-cpuspeed \
+    ${PN}-crownstone \
     ${PN}-cups \
     ${PN}-debugpy \
     ${PN}-decora-wifi \
@@ -789,9 +810,25 @@ RDEPENDS:${PN}-buienradar = "\
     python3-buienradar (>=1.0.6) \
 "
 
+ALLOW_EMPTY:${PN}-caldav = "1"
+RDEPENDS:${PN}-caldav = "\
+    python3-caldav (>=1.6.0) \
+    python3-icalendar (>=6.1.0) \
+"
+
+ALLOW_EMPTY:${PN}-cambridge-audio = "1"
+RDEPENDS:${PN}-cambridge-audio = "\
+    python3-aiostreammagic (>=2.11.0) \
+"
+
 ALLOW_EMPTY:${PN}-camera = "1"
 RDEPENDS:${PN}-camera = "\
     python3-pyturbojpeg (=1.7.5) \
+"
+
+ALLOW_EMPTY:${PN}-canary = "1"
+RDEPENDS:${PN}-canary = "\
+    python3-py-canary (>=0.5.4) \
 "
 
 ALLOW_EMPTY:${PN}-cast = "1"
@@ -799,14 +836,44 @@ RDEPENDS:${PN}-cast = "\
     python3-pychromecast (>=14.0.7) \
 "
 
+ALLOW_EMPTY:${PN}-ccm15 = "1"
+RDEPENDS:${PN}-ccm15 = "\
+    python3-py-ccm15 (>=0.0.9) \
+"
+
+ALLOW_EMPTY:${PN}-chacon-dio = "1"
+RDEPENDS:${PN}-chacon-dio = "\
+    python3-dio-chacon-wifi-api (>=1.2.2) \
+"
+
+ALLOW_EMPTY:${PN}-channels = "1"
+RDEPENDS:${PN}-channels = "\
+    python3-pychannels (>=1.2.3) \
+"
+
 ALLOW_EMPTY:${PN}-cisco-ios = "1"
 RDEPENDS:${PN}-cisco-ios = "\
     python3-pexpect (>=4.9.0) \
 "
 
+ALLOW_EMPTY:${PN}-cisco-mobility-express = "1"
+RDEPENDS:${PN}-cisco-mobility-express = "\
+    python3-ciscomobilityexpress (>=0.3.9) \
+"
+
+ALLOW_EMPTY:${PN}-cisco-webex-teams = "1"
+RDEPENDS:${PN}-cisco-webex-teams = "\
+    python3-webexpythonsdk (>=2.0.1) \
+"
+
+ALLOW_EMPTY:${PN}-clementine = "1"
+RDEPENDS:${PN}-clementine = "\
+    python3-python-clementine-remote (>=1.0.1) \
+"
+
 ALLOW_EMPTY:${PN}-cloud = "1"
 RDEPENDS:${PN}-cloud = "\
-    python3-hass-nabucasa (>=0.105.0) \
+    python3-hass-nabucasa (>=0.106.0) \
 "
 
 ALLOW_EMPTY:${PN}-cloudflare = "1"
@@ -814,14 +881,55 @@ RDEPENDS:${PN}-cloudflare = "\
     python3-pycfdns (>=3.0.0) \
 "
 
+ALLOW_EMPTY:${PN}-cmus = "1"
+RDEPENDS:${PN}-cmus = "\
+    python3-pycmus (>=0.1.1) \
+"
+
 ALLOW_EMPTY:${PN}-co2signal = "1"
 RDEPENDS:${PN}-co2signal = "\
     python3-aioelectricitymaps (>=0.4.0) \
 "
 
+ALLOW_EMPTY:${PN}-coinbase = "1"
+RDEPENDS:${PN}-coinbase = "\
+    python3-coinbase (>=2.1.0) \
+    python3-coinbase-advanced-py (>=1.2.2) \
+"
+
+ALLOW_EMPTY:${PN}-color-extractor = "1"
+RDEPENDS:${PN}-color-extractor = "\
+    python3-colorthief (>=0.2.1) \
+"
+
+ALLOW_EMPTY:${PN}-comelit = "1"
+RDEPENDS:${PN}-comelit = "\
+    python3-aiocomelit (>=0.12.3) \
+"
+
+ALLOW_EMPTY:${PN}-comfoconnect = "1"
+RDEPENDS:${PN}-comfoconnect = "\
+    python3-pycomfoconnect (>=0.5.1) \
+"
+
+ALLOW_EMPTY:${PN}-command-line = "1"
+RDEPENDS:${PN}-command-line = "\
+    python3-jsonpath (>=0.82.2) \
+"
+
 ALLOW_EMPTY:${PN}-compensation = "1"
 RDEPENDS:${PN}-compensation = "\
     python3-numpy (>=2.3.0) \
+"
+
+ALLOW_EMPTY:${PN}-concord232 = "1"
+RDEPENDS:${PN}-concord232 = "\
+    python3-concord232 (>=0.15.1) \
+"
+
+ALLOW_EMPTY:${PN}-control4 = "1"
+RDEPENDS:${PN}-control4 = "\
+    python3-pycontrol4 (>=1.2.0) \
 "
 
 ALLOW_EMPTY:${PN}-conversation = "1"
@@ -830,9 +938,32 @@ RDEPENDS:${PN}-conversation = "\
     python3-home-assistant-intents (>=2025.6.23) \
 "
 
+ALLOW_EMPTY:${PN}-cookidoo = "1"
+RDEPENDS:${PN}-cookidoo = "\
+    python3-cookidoo-api (>=0.12.2) \
+"
+
+ALLOW_EMPTY:${PN}-coolmaster = "1"
+RDEPENDS:${PN}-coolmaster = "\
+    python3-pycoolmasternet-async (>=0.2.2) \
+"
+
+ALLOW_EMPTY:${PN}-cppm-tracker = "1"
+RDEPENDS:${PN}-cppm-tracker = "\
+    python3-clearpasspy (>=1.0.2) \
+"
+
 ALLOW_EMPTY:${PN}-cpuspeed = "1"
 RDEPENDS:${PN}-cpuspeed = "\
     python3-py-cpuinfo (=9.0.0) \
+"
+
+ALLOW_EMPTY:${PN}-crownstone = "1"
+RDEPENDS:${PN}-crownstone = "\
+    python3-crownstone-cloud (>=1.4.11) \
+    python3-crownstone-sse (>=2.0.5) \
+    python3-crownstone-uart (>=2.1.0) \
+    python3-pyserial (>=3.5) \
 "
 
 ALLOW_EMPTY:${PN}-cups = "1"

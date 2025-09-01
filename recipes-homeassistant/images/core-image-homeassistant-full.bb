@@ -114,15 +114,36 @@ IMAGE_INSTALL = "\
     python3-homeassistant-bt-smarthub \
     python3-homeassistant-bthome \
     python3-homeassistant-buienradar \
+    python3-homeassistant-caldav \
+    python3-homeassistant-cambridge-audio \
     python3-homeassistant-camera \
+    python3-homeassistant-canary \
     python3-homeassistant-cast \
+    python3-homeassistant-ccm15 \
+    python3-homeassistant-chacon-dio \
+    python3-homeassistant-channels \
     python3-homeassistant-cisco-ios \
+    python3-homeassistant-cisco-mobility-express \
+    python3-homeassistant-cisco-webex-teams \
+    python3-homeassistant-clementine \
     python3-homeassistant-cloud \
     python3-homeassistant-cloudflare \
+    python3-homeassistant-cmus \
     python3-homeassistant-co2signal \
+    python3-homeassistant-coinbase \
+    python3-homeassistant-color-extractor \
+    python3-homeassistant-comelit \
+    python3-homeassistant-comfoconnect \
+    python3-homeassistant-command-line \
     python3-homeassistant-compensation \
+    python3-homeassistant-concord232 \
+    python3-homeassistant-control4 \
     python3-homeassistant-conversation \
+    python3-homeassistant-cookidoo \
+    python3-homeassistant-coolmaster \
+    python3-homeassistant-cppm-tracker \
     python3-homeassistant-cpuspeed \
+    python3-homeassistant-crownstone \
     python3-homeassistant-cups \
     python3-homeassistant-debugpy \
     python3-homeassistant-decora-wifi \

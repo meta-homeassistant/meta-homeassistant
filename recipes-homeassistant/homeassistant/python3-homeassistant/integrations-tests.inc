@@ -95,21 +95,36 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-bsblan \
     ${PN}-buienradar \
     ${PN}-button \
+    ${PN}-caldav \
     ${PN}-calendar \
+    ${PN}-cambridge-audio \
     ${PN}-camera \
+    ${PN}-canary \
     ${PN}-cast \
+    ${PN}-ccm15 \
     ${PN}-cert-expiry \
+    ${PN}-chacon-dio \
     ${PN}-clicksend-tts \
     ${PN}-climate \
+    ${PN}-cloud \
     ${PN}-cloudflare \
     ${PN}-co2signal \
+    ${PN}-coinbase \
+    ${PN}-color-extractor \
+    ${PN}-comelit \
+    ${PN}-comfoconnect \
+    ${PN}-command-line \
     ${PN}-compensation \
     ${PN}-config \
-    ${PN}-conversation \
     ${PN}-configurator \
+    ${PN}-control4 \
+    ${PN}-conversation \
+    ${PN}-cookidoo \
+    ${PN}-coolmaster \
     ${PN}-counter \
     ${PN}-cover \
     ${PN}-cpuspeed \
+    ${PN}-crownstone \
     ${PN}-cups \
     ${PN}-dunehd \
     ${PN}-manual \
