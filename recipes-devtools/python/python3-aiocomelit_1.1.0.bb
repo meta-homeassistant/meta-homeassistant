@@ -13,5 +13,7 @@ PYPI_PACKAGE = "aiocomelit"
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.12.7) \
     python3-colorlog \
+    python3-flexcache \
+    python3-flexparser \
     python3-pint \
 "
