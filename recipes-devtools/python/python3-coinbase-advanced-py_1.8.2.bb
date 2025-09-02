@@ -17,6 +17,13 @@ RDEPENDS:${PN} += "\
     python3-websockets (>=12.0) \
 "
 
+# This package incorrectly tries to package RDEPENDS as well.
+# Explicitly remove them
+do_install:append() {
+    rm -rf ${D}${libdir}/${PYTHON_DIR}/site-packages/coinbase/__pycache__/__init__.cpython-313.pyc
+    rm -rf ${D}${libdir}/${PYTHON_DIR}/site-packages/coinbase/__init__.py
+}
+
 RDEPENDS:${PN}-ptest += "\
     python3-requests-mock (>=1.11.0) \
     python3-asynctest (>=0.13.0) \
