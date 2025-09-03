@@ -7,13 +7,15 @@ LIC_FILES_CHKSUM = "\
 "
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-DEPENDS = "python3-hatch-vcs-native python3-hatchling-native"
-SRC_URI[sha256sum] = "04da40b0b0433a0f53f6fb678b636fa29296013ed262754c73611453362c6ac0"
+SRC_URI[sha256sum] = "6e742601ec9ca1a0bc6e871fffe0392145bcc67de730f398ba5cefa5c49773f8"
 
-inherit pypi python_hatchling ptest-python-pytest
+DEPENDS += "python3-setuptools-scm-native"
+
+inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 PYPI_PACKAGE = "caldav"
 RDEPENDS:${PN} = "\
+    python3-vobject \
     python3-lxml \
     python3-requests \
     python3-recurring-ical-events (>=2.0.0) \

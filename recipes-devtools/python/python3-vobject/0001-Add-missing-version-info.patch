@@ -1,0 +1,23 @@
+From ec4130b47c362d5c159791477a01d8e4e5d99783 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Wed, 3 Sep 2025 21:56:49 +0200
+Subject: [PATCH] Add missing version info
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ setup.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/setup.py b/setup.py
+index b43dcf5..afd5f19 100644
+--- a/setup.py
++++ b/setup.py
+@@ -33,6 +33,7 @@ setup(name = "vobject",
+       maintainer = "David Arnold",
+       maintainer_email="davida@pobox.com",
+       license = "Apache",
++      version = "0.9.9",
+       zip_safe = True,
+       project_urls = {
+           "Home": "http://py-vobject.github.io/",

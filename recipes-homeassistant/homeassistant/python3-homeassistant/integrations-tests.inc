@@ -106,7 +106,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-chacon-dio \
     ${PN}-clicksend-tts \
     ${PN}-climate \
-    ${PN}-cloud \
     ${PN}-cloudflare \
     ${PN}-co2signal \
     ${PN}-coinbase \
@@ -118,7 +117,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-config \
     ${PN}-configurator \
     ${PN}-control4 \
-    ${PN}-conversation \
     ${PN}-cookidoo \
     ${PN}-coolmaster \
     ${PN}-counter \
