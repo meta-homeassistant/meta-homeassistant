@@ -1,0 +1,43 @@
+From 72639f6e6f0ce0c55a4e817b43bdeacec9401e42 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Mon, 1 Sep 2025 23:39:35 +0200
+Subject: [PATCH] Fix compilation
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ setup.py | 14 --------------
+ 1 file changed, 14 deletions(-)
+
+diff --git a/setup.py b/setup.py
+index 6e9c828..f5826d4 100644
+--- a/setup.py
++++ b/setup.py
+@@ -4,15 +4,6 @@ from setuptools import find_packages, setup
+ 
+ root = os.path.abspath(os.path.dirname(__file__))
+ 
+-with open(os.path.join(root, "requirements.txt"), "r") as fh:
+-    requirements = fh.readlines()
+-
+-with open(os.path.join(root, "test_requirements.txt"), "r") as fh:
+-    test_requirements = fh.readlines()
+-
+-with open(os.path.join(root, "lint_requirements.txt"), "r") as fh:
+-    lint_requirements = fh.readlines()
+-
+ README = open(os.path.join(root, "README.md"), "r").read()
+ 
+ about = {}
+@@ -31,11 +22,6 @@ setup(
+     url="https://github.com/coinbase/coinbase-advanced-py",
+     keywords=["Coinbase", "Advanced Trade", "API", "Advanced API"],
+     packages=find_packages(exclude=("tests",)),
+-    install_requires=[req for req in requirements],
+-    extras_require={
+-        "test": [test_req for test_req in test_requirements],
+-        "lint": [lint_req for lint_req in lint_requirements],
+-    },
+     classifiers=[
+         "Intended Audience :: Developers",
+         "Intended Audience :: Financial and Insurance Industry",

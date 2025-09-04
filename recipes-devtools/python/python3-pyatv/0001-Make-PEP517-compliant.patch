@@ -1,0 +1,102 @@
+From 9ee181a49c1addecaf6a042bed0954286d4ff5b5 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Sat, 19 Jul 2025 23:39:49 +0200
+Subject: [PATCH] Make PEP517 compliant
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ pyproject.toml | 69 ++++++++++++++++++++++++++++++++++++++++++++++++++
+ setup.py       |  2 +-
+ 2 files changed, 70 insertions(+), 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index 622e520..02acb01 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,3 +1,72 @@
++[project]
++name = "pyatv"
++version = "0.16.1"
++description = "A client library for Apple TV and AirPlay devices"
++authors = [
++    { name = "Pierre Ståhl", email = "pierre.staahl@gmail.com" }
++]
++license = { text = "MIT" }
++readme = "README.md"
++keywords = ["apple", "tv", "airplay", "raop", "companion", "dmap", "dacp"]
++classifiers = [
++    "Development Status :: 4 - Beta",
++    "Intended Audience :: Developers",
++    "License :: OSI Approved :: MIT License",
++    "Operating System :: OS Independent",
++    "Programming Language :: Python :: 3.9",
++    "Programming Language :: Python :: 3.10",
++    "Programming Language :: Python :: 3.11",
++    "Programming Language :: Python :: 3.12",
++    "Programming Language :: Python :: 3.13",
++    "Topic :: Software Development :: Libraries",
++    "Topic :: Home Automation",
++    "Typing :: Typed"
++]
++requires-python = ">=3.9.0"
++dependencies = [
++    "aiohttp>=3.8.3,<5",
++    "async-timeout>=4.0.2",
++    "cryptography>=44.0.1",
++    "chacha20poly1305-reuseable>=0.13.2",
++    "ifaddr>=0.1.7",
++    "miniaudio>=1.45",
++    "protobuf>=6.31.1",
++    "pydantic>=1.10.10",
++    "requests>=2.30.0",
++    "srptools>=0.2.0",
++    "tabulate>=0.9.0",
++    "tinytag>=1.10.0",
++    "zeroconf>=0.129.0"
++]
++
++[project.urls]
++Homepage = "https://pyatv.dev"
++Repository = "https://github.com/postlund/pyatv"
++BugReports = "https://github.com/postlund/pyatv/issues"
++Download = "https://github.com/postlund/pyatv/archive/refs/tags/v0.16.1.zip"
++
++[project.optional-dependencies]
++test = [
++    "pytest==6.2.5",
++    "pytest-xdist==2.4.0"
++]
++
++[project.scripts]
++atvremote = "pyatv.scripts.atvremote:main"
++atvproxy = "pyatv.scripts.atvproxy:main"
++atvscript = "pyatv.scripts.atvscript:main"
++atvlog = "pyatv.scripts.atvlog:main"
++
++[tool.setuptools]
++packages = ["pyatv"]
++include-package-data = true
++zip-safe = false
++platforms = ["any"]
++
++[build-system]
++requires = ["setuptools>=61", "wheel"]
++build-backend = "setuptools.build_meta"
++
+ [tool.black]
+ target-version = ["py35", "py36", "py37", "py38"]
+ extend-exclude = '(protobuf/(__init__|.*_pb2).py)|__pycache__'
+diff --git a/setup.py b/setup.py
+index f0b0c59..3623c10 100644
+--- a/setup.py
++++ b/setup.py
+@@ -44,7 +44,7 @@ setup(
+     install_requires=get_requirements(),
+     test_suite="tests",
+     keywords=["apple", "tv", "airplay", "raop", "companion", "dmap", "dacp"],
+-    setup_requires=["pytest-runner"],
++    setup_requires=[],
+     tests_require=["pytest==6.2.5", "pytest-xdist==2.4.0"],
+     python_requires=">=3.9.0",
+     entry_points={

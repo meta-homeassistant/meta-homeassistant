@@ -29,6 +29,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-airzone-cloud \
     python3-homeassistant-alarmdecoder \
     python3-homeassistant-alpha-vantage \
+    python3-homeassistant-altruist \
     python3-homeassistant-amazon-polly \
     python3-homeassistant-amberelectric \
     python3-homeassistant-ambient-network \
@@ -46,22 +47,104 @@ IMAGE_INSTALL = "\
     python3-homeassistant-aosmith \
     python3-homeassistant-apache-kafka \
     python3-homeassistant-apcupsd \
+    python3-homeassistant-apple-tv \
+    python3-homeassistant-aprilaire \
+    python3-homeassistant-aprs \
+    python3-homeassistant-apsystems \
+    python3-homeassistant-aqualogic \
+    python3-homeassistant-aquostv \
+    python3-homeassistant-aranet \
+    python3-homeassistant-arcam-fmj \
+    python3-homeassistant-arris-tg2492lg \
     python3-homeassistant-aruba \
+    python3-homeassistant-arve \
+    python3-homeassistant-aseko-pool-live \
     python3-homeassistant-assist-pipeline \
+    python3-homeassistant-asuswrt \
     python3-homeassistant-atag \
+    python3-homeassistant-aten-pe \
+    python3-homeassistant-atome \
+    python3-homeassistant-august \
+    python3-homeassistant-aurora-abb-powerone \
+    python3-homeassistant-aussie-broadband \
+    python3-homeassistant-autarco \
+    python3-homeassistant-avea \
+    python3-homeassistant-avion \
+    python3-homeassistant-awair \
+    python3-homeassistant-aws \
+    python3-homeassistant-aws-s3 \
     python3-homeassistant-axis \
+    python3-homeassistant-azure-data-explorer \
+    python3-homeassistant-azure-devops \
+    python3-homeassistant-azure-event-hub \
+    python3-homeassistant-azure-service-bus \
+    python3-homeassistant-azure-storage \
     python3-homeassistant-backup \
+    python3-homeassistant-baf \
+    python3-homeassistant-baidu \
+    python3-homeassistant-balboa \
+    python3-homeassistant-bang-olufsen \
+    python3-homeassistant-bbox \
+    python3-homeassistant-beewi-smartclim \
+    python3-homeassistant-bitcoin \
+    python3-homeassistant-bizkaibus \
+    python3-homeassistant-blackbird \
+    python3-homeassistant-blebox \
+    python3-homeassistant-blink \
+    python3-homeassistant-blinksticklight \
+    python3-homeassistant-blockchain \
+    python3-homeassistant-blue-current \
+    python3-homeassistant-bluemaestro \
     python3-homeassistant-bluesound \
     python3-homeassistant-bluetooth \
     python3-homeassistant-bluetooth-tracker \
+    python3-homeassistant-bmw-connected-drive \
+    python3-homeassistant-bond \
+    python3-homeassistant-bosch-alarm \
+    python3-homeassistant-bosch-shc \
+    python3-homeassistant-braviatv \
+    python3-homeassistant-bring \
+    python3-homeassistant-broadlink \
+    python3-homeassistant-brother \
+    python3-homeassistant-brottsplatskartan \
+    python3-homeassistant-brunt \
+    python3-homeassistant-bryant-evolution \
+    python3-homeassistant-bsblan \
+    python3-homeassistant-bt-home-hub-5 \
+    python3-homeassistant-bt-smarthub \
+    python3-homeassistant-bthome \
+    python3-homeassistant-buienradar \
+    python3-homeassistant-caldav \
+    python3-homeassistant-cambridge-audio \
     python3-homeassistant-camera \
+    python3-homeassistant-canary \
     python3-homeassistant-cast \
+    python3-homeassistant-ccm15 \
+    python3-homeassistant-chacon-dio \
+    python3-homeassistant-channels \
     python3-homeassistant-cisco-ios \
+    python3-homeassistant-cisco-mobility-express \
+    python3-homeassistant-cisco-webex-teams \
+    python3-homeassistant-clementine \
     python3-homeassistant-cloud \
+    python3-homeassistant-cloudflare \
+    python3-homeassistant-cmus \
     python3-homeassistant-co2signal \
+    python3-homeassistant-coinbase \
+    python3-homeassistant-color-extractor \
+    python3-homeassistant-comelit \
+    python3-homeassistant-comfoconnect \
+    python3-homeassistant-command-line \
     python3-homeassistant-compensation \
+    python3-homeassistant-concord232 \
+    python3-homeassistant-control4 \
     python3-homeassistant-conversation \
+    python3-homeassistant-cookidoo \
+    python3-homeassistant-coolmaster \
+    python3-homeassistant-cppm-tracker \
     python3-homeassistant-cpuspeed \
+    python3-homeassistant-crownstone \
+    python3-homeassistant-cups \
     python3-homeassistant-debugpy \
     python3-homeassistant-decora-wifi \
     python3-homeassistant-dhcp \
@@ -92,6 +175,8 @@ IMAGE_INSTALL = "\
     python3-homeassistant-local-todo \
     python3-homeassistant-luftdaten \
     python3-homeassistant-matter \
+    python3-homeassistant-mcp \
+    python3-homeassistant-mcp-server \
     python3-homeassistant-met \
     python3-homeassistant-mobile-app \
     python3-homeassistant-modbus \
@@ -120,11 +205,13 @@ IMAGE_INSTALL = "\
     python3-homeassistant-seven-segments \
     python3-homeassistant-shelly \
     python3-homeassistant-simplisafe \
+    python3-homeassistant-smartthings \
     python3-homeassistant-sony-projector \
     python3-homeassistant-speedtestdotnet \
     python3-homeassistant-sql \
     python3-homeassistant-ssdp \
     python3-homeassistant-startca \
+    python3-homeassistant-steam-online \
     python3-homeassistant-stream \
     python3-homeassistant-switchbot \
     python3-homeassistant-systemmonitor \

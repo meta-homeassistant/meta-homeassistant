@@ -8,16 +8,14 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-accuweather \
     ${PN}-acmeda \
     ${PN}-adax \
-    ${PN}-adguard \
     ${PN}-advantage-air \
     ${PN}-aemet \
     ${PN}-aftership \
     ${PN}-agent-dvr \
+    ${PN}-ai-task \
     ${PN}-air-quality \
     ${PN}-airgradient \
     ${PN}-airly \
-    ${PN}-airnow \
-    ${PN}-airq \
     ${PN}-airthings \
     ${PN}-airthings-ble \
     ${PN}-airtouch4 \
@@ -31,6 +29,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-alarmdecoder \
     ${PN}-alert \
     ${PN}-alexa \
+    ${PN}-altruist \
     ${PN}-amberelectric \
     ${PN}-ambient-network \
     ${PN}-ambient-station \
@@ -45,253 +44,91 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-aosmith \
     ${PN}-apache-kafka \
     ${PN}-apcupsd \
-    ${PN}-api \
+    ${PN}-apple-tv \
     ${PN}-application-credentials \
-    ${PN}-assist-pipeline \
-    ${PN}-assist-satellite \
-    ${PN}-atag \
+    ${PN}-aprilaire \
+    ${PN}-aprs \
+    ${PN}-apsystems \
+    ${PN}-aranet \
+    ${PN}-arcam-fmj \
+    ${PN}-arve \
+    ${PN}-aseko-pool-live \
+    ${PN}-asuswrt \
+    ${PN}-august \
+    ${PN}-aurora \
+    ${PN}-aurora-abb-powerone \
+    ${PN}-aussie-broadband \
+    ${PN}-autarco \
     ${PN}-auth \
     ${PN}-automation \
-    ${PN}-axis \
+    ${PN}-awair \
+    ${PN}-aws \
+    ${PN}-aws-s3 \
+    ${PN}-azure-data-explorer \
+    ${PN}-azure-devops \
+    ${PN}-azure-event-hub \
+    ${PN}-azure-storage \
     ${PN}-backup \
+    ${PN}-baf \
+    ${PN}-balboa \
+    ${PN}-bang-olufsen \
     ${PN}-bayesian \
     ${PN}-binary-sensor \
+    ${PN}-blackbird \
+    ${PN}-blink \
+    ${PN}-blue-current \
+    ${PN}-bluemaestro \
     ${PN}-blueprint \
     ${PN}-bluesound \
-    ${PN}-bluetooth \
     ${PN}-bluetooth-adapters \
     ${PN}-bluetooth-le-tracker \
+    ${PN}-bmw-connected-drive \
+    ${PN}-bond \
+    ${PN}-bosch-alarm \
+    ${PN}-bosch-shc \
+    ${PN}-braviatv \
+    ${PN}-bring \
+    ${PN}-broadlink \
+    ${PN}-brottsplatskartan \
+    ${PN}-brunt \
+    ${PN}-bryant-evolution \
+    ${PN}-bsblan \
+    ${PN}-buienradar \
     ${PN}-button \
+    ${PN}-caldav \
     ${PN}-calendar \
+    ${PN}-cambridge-audio \
     ${PN}-camera \
+    ${PN}-canary \
     ${PN}-cast \
+    ${PN}-ccm15 \
     ${PN}-cert-expiry \
+    ${PN}-chacon-dio \
     ${PN}-clicksend-tts \
     ${PN}-climate \
-    ${PN}-cloud \
+    ${PN}-cloudflare \
     ${PN}-co2signal \
+    ${PN}-coinbase \
+    ${PN}-color-extractor \
+    ${PN}-comelit \
+    ${PN}-comfoconnect \
+    ${PN}-command-line \
     ${PN}-compensation \
     ${PN}-config \
     ${PN}-configurator \
-    ${PN}-conversation \
+    ${PN}-control4 \
+    ${PN}-cookidoo \
+    ${PN}-coolmaster \
     ${PN}-counter \
     ${PN}-cover \
     ${PN}-cpuspeed \
-    ${PN}-date \
-    ${PN}-datetime \
-    ${PN}-debugpy \
-    ${PN}-default-config \
-    ${PN}-demo \
-    ${PN}-derivative \
-    ${PN}-device-automation \
-    ${PN}-device-tracker \
-    ${PN}-dhcp \
-    ${PN}-diagnostics \
-    ${PN}-dialogflow \
-    ${PN}-dlna-dmr \
-    ${PN}-dlna-dms \
-    ${PN}-downloader \
-    ${PN}-duckdns \
+    ${PN}-crownstone \
+    ${PN}-cups \
     ${PN}-dunehd \
-    ${PN}-eight-sleep \
-    ${PN}-emulated-hue \
-    ${PN}-energy \
-    ${PN}-event \
-    ${PN}-facebook \
-    ${PN}-fail2ban \
-    ${PN}-fan \
-    ${PN}-ffmpeg \
-    ${PN}-file-upload \
-    ${PN}-filesize \
-    ${PN}-filter \
-    ${PN}-flux \
-    ${PN}-folder \
-    ${PN}-folder-watcher \
-    ${PN}-freedns \
-    ${PN}-fritz \
-    ${PN}-fritzbox \
-    ${PN}-fritzbox-callmonitor \
-    ${PN}-frontend \
-    ${PN}-generic \
-    ${PN}-generic-hygrostat \
-    ${PN}-generic-thermostat \
-    ${PN}-geo-location \
-    ${PN}-geofency \
-    ${PN}-github \
-    ${PN}-go2rtc \
-    ${PN}-google-assistant \
-    ${PN}-google-mail \
-    ${PN}-google-sheets \
-    ${PN}-google-tasks \
-    ${PN}-google-translate \
-    ${PN}-google-wifi \
-    ${PN}-gpslogger \
-    ${PN}-graphite \
-    ${PN}-hardkernel \
-    ${PN}-hardware \
-    ${PN}-hddtemp \
-    ${PN}-history \
-    ${PN}-history-stats \
-    ${PN}-homeassistant \
-    ${PN}-homeassistant-alerts \
-    ${PN}-homeassistant-green \
-    ${PN}-homeassistant-hardware \
-    ${PN}-homeassistant-sky-connect \
-    ${PN}-homeassistant-yellow \
-    ${PN}-homekit \
-    ${PN}-http \
-    ${PN}-hue \
-    ${PN}-humidifier \
-    ${PN}-image-processing \
-    ${PN}-image-upload \
-    ${PN}-input-boolean \
-    ${PN}-input-button \
-    ${PN}-input-datetime \
-    ${PN}-input-number \
-    ${PN}-input-select \
-    ${PN}-input-text \
-    ${PN}-integration \
-    ${PN}-intent \
-    ${PN}-intent-script \
-    ${PN}-ios \
-    ${PN}-ipp \
-    ${PN}-isal \
-    ${PN}-kitchen-sink \
-    ${PN}-lawn-mower \
-    ${PN}-letpot \
-    ${PN}-life360 \
-    ${PN}-light \
-    ${PN}-local-calendar \
-    ${PN}-local-file \
-    ${PN}-local-ip \
-    ${PN}-local-todo \
-    ${PN}-locative \
-    ${PN}-lock \
-    ${PN}-logbook \
-    ${PN}-logentries \
-    ${PN}-logger \
-    ${PN}-london-air \
-    ${PN}-lovelace \
-    ${PN}-luftdaten \
     ${PN}-manual \
-    ${PN}-matter \
-    ${PN}-mazda \
-    ${PN}-media-player \
-    ${PN}-media-source \
-    ${PN}-meraki \
-    ${PN}-met \
-    ${PN}-microsoft-face \
-    ${PN}-microsoft-face-detect \
-    ${PN}-microsoft-face-identify \
-    ${PN}-min-max \
-    ${PN}-mjpeg \
-    ${PN}-mobile-app \
-    ${PN}-modbus \
-    ${PN}-mold-indicator \
-    ${PN}-moon \
-    ${PN}-mqtt \
-    ${PN}-my \
-    ${PN}-myq \
-    ${PN}-namecheapdns \
-    ${PN}-network \
-    ${PN}-nmap-tracker \
-    ${PN}-no-ip \
-    ${PN}-notify \
-    ${PN}-number \
-    ${PN}-octoprint \
-    ${PN}-openalpr-cloud \
-    ${PN}-openhardwaremonitor \
-    ${PN}-otp \
-    ${PN}-owntracks \
-    ${PN}-pandora \
-    ${PN}-panel-custom \
-    ${PN}-peblar \
-    ${PN}-peco \
-    ${PN}-persistent-notification \
-    ${PN}-person \
-    ${PN}-plant \
-    ${PN}-private-ble-device \
-    ${PN}-proximity \
-    ${PN}-push \
-    ${PN}-qwikswitch \
-    ${PN}-radio-browser \
-    ${PN}-random \
-    ${PN}-recorder \
-    ${PN}-recovery-mode \
-    ${PN}-remote \
-    ${PN}-repairs \
-    ${PN}-rest-command \
-    ${PN}-rhasspy \
-    ${PN}-rss-feed-template \
-    ${PN}-ruuvi-gateway \
-    ${PN}-scene \
-    ${PN}-schedule \
-    ${PN}-scrape \
-    ${PN}-script \
-    ${PN}-search \
-    ${PN}-select \
-    ${PN}-sentry \
-    ${PN}-shelly \
-    ${PN}-shopping-list \
-    ${PN}-sigfox \
-    ${PN}-simplisafe \
-    ${PN}-siren \
-    ${PN}-smtp \
-    ${PN}-spaceapi \
-    ${PN}-speedtestdotnet \
-    ${PN}-spider \
-    ${PN}-sql \
-    ${PN}-ssdp \
-    ${PN}-startca \
-    ${PN}-stream \
-    ${PN}-stt \
-    ${PN}-sun \
-    ${PN}-switch \
-    ${PN}-switch-as-x \
-    ${PN}-switchbot \
-    ${PN}-system-health \
-    ${PN}-systemmonitor \
-    ${PN}-tag \
-    ${PN}-tcp \
-    ${PN}-text \
-    ${PN}-threshold \
-    ${PN}-tibber \
-    ${PN}-time \
-    ${PN}-time-date \
-    ${PN}-timer \
-    ${PN}-tod \
-    ${PN}-todo \
-    ${PN}-tomato \
-    ${PN}-trace \
-    ${PN}-trafikverket-camera \
-    ${PN}-trafikverket-ferry \
-    ${PN}-trafikverket-train \
-    ${PN}-trafikverket-weatherstation \
-    ${PN}-trend \
-    ${PN}-tts \
-    ${PN}-uk-transport \
-    ${PN}-universal \
-    ${PN}-update \
-    ${PN}-upnp \
-    ${PN}-uptime \
-    ${PN}-usb \
-    ${PN}-utility-meter \
-    ${PN}-vacuum \
-    ${PN}-valve \
-    ${PN}-voicerss \
-    ${PN}-wake-word \
-    ${PN}-water-heater \
-    ${PN}-webhook \
-    ${PN}-websocket-api \
-    ${PN}-worldclock \
-    ${PN}-xiaomi \
-    ${PN}-yandextts \
-    ${PN}-zeroconf \
-    ${PN}-zha \
-    ${PN}-zodiac \
-    ${PN}-zone \
-    ${PN}-zwave-js \
-    ${PN}-zwave-me \
+    ${PN}-mcp \
+    ${PN}-smartthings \
+    ${PN}-steam-online \
 ', '', d)}"
 
 # The following component is specific to this MACHINE_ARCH so treat it as such
@@ -317,7 +154,7 @@ python do_addptest () {
         packages_list = d.getVar('COMPONENT_TEST_PACKAGES').split()
 
         with open(target_file, 'a', encoding='utf-8') as file:
-            file.write("\npytest -n auto --automake \\\n")
+            file.write("\npytest -n auto --automake --disable-pytest-warnings\\\n")
 
         # Iterate over each package and append the line to the file
         for package in packages_list:
