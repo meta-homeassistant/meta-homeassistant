@@ -140,12 +140,46 @@ INTEGRATIONS = "\
     ${PN}-cpuspeed \
     ${PN}-crownstone \
     ${PN}-cups \
+    ${PN}-daikin \
+    ${PN}-danfoss-air \
+    ${PN}-datadog \
+    ${PN}-deako \
     ${PN}-debugpy \
+    ${PN}-deconz \
+    ${PN}-decora \
     ${PN}-decora-wifi \
+    ${PN}-delijn \
+    ${PN}-deluge \
+    ${PN}-denonavr \
+    ${PN}-devialet \
+    ${PN}-devolo-home-control \
+    ${PN}-devolo-home-network \
+    ${PN}-dexcom \
     ${PN}-dhcp \
+    ${PN}-digital-ocean \
+    ${PN}-directv \
+    ${PN}-discogs \
+    ${PN}-discord \
+    ${PN}-discovergy \
+    ${PN}-dlib-face-detect \
+    ${PN}-dlib-face-identify \
+    ${PN}-dlink \
     ${PN}-dlna-dmr \
     ${PN}-dlna-dms \
+    ${PN}-dnsip \
+    ${PN}-dominos \
+    ${PN}-doods \
+    ${PN}-doorbird \
+    ${PN}-dormakaba-dkey \
+    ${PN}-dovado \
+    ${PN}-dremel-3d-printer \
+    ${PN}-drop-connect \
+    ${PN}-dsmr \
+    ${PN}-duke-energy \
     ${PN}-dunehd \
+    ${PN}-duotecno \
+    ${PN}-dwd-weather-warnings \
+    ${PN}-dynalite \
     ${PN}-evohome \
     ${PN}-ffmpeg \
     ${PN}-folder-watcher \
@@ -971,9 +1005,40 @@ RDEPENDS:${PN}-cups = "\
     python3-pycups (>=2.0.4) \
 "
 
+ALLOW_EMPTY:${PN}-daikin = "1"
+RDEPENDS:${PN}-daikin = "\
+    python3-pydaikin (>=2.15.0) \
+"
+
+ALLOW_EMPTY:${PN}-danfoss-air = "1"
+RDEPENDS:${PN}-danfoss-air = "\
+    python3-pydanfossair (>=0.1.0) \
+"
+
+ALLOW_EMPTY:${PN}-datadog = "1"
+RDEPENDS:${PN}-datadog = "\
+    python3-datadog (>=0.15.0) \
+"
+
+ALLOW_EMPTY:${PN}-deako = "1"
+RDEPENDS:${PN}-deako = "\
+    python3-pydeako (>=0.6.0) \
+"
+
 ALLOW_EMPTY:${PN}-debugpy = "1"
 RDEPENDS:${PN}-debugpy = "\
     python3-debugpy (>=1.8.14) \
+"
+
+ALLOW_EMPTY:${PN}-deconz = "1"
+RDEPENDS:${PN}-deconz = "\
+    python3-pydeconz (>=120) \
+"
+
+ALLOW_EMPTY:${PN}-decora = "1"
+RDEPENDS:${PN}-decora = "\
+    bluepy (>=1.3.0) \
+    python3-decora (>=0.6) \
 "
 
 ALLOW_EMPTY:${PN}-decora-wifi = "1"
@@ -981,11 +1046,86 @@ RDEPENDS:${PN}-decora-wifi = "\
     python3-decora-wifi (>=1.4) \
 "
 
+ALLOW_EMPTY:${PN}-delijn = "1"
+RDEPENDS:${PN}-delijn = "\
+    python3-pydelijn (>=1.1.0) \
+"
+
+ALLOW_EMPTY:${PN}-deluge = "1"
+RDEPENDS:${PN}-deluge = "\
+    python3-deluge-client (>=1.10.2) \
+"
+
+ALLOW_EMPTY:${PN}-denonavr = "1"
+RDEPENDS:${PN}-denonavr = "\
+    python3-denonavr (>=1.1.1) \
+"
+
+ALLOW_EMPTY:${PN}-devialet = "1"
+RDEPENDS:${PN}-devialet = "\
+    python3-devialet (>=1.5.7) \
+"
+
+ALLOW_EMPTY:${PN}-devolo-home-control = "1"
+RDEPENDS:${PN}-devolo-home-control = "\
+    python3-devolo-home-control-api (>=0.19.0) \
+"
+
+ALLOW_EMPTY:${PN}-devolo-home-network = "1"
+RDEPENDS:${PN}-devolo-home-network = "\
+    python3-devolo-plc-api (>=1.5.1) \
+"
+
+ALLOW_EMPTY:${PN}-dexcom = "1"
+RDEPENDS:${PN}-dexcom = "\
+    python3-pydexcom (>=0.2.3) \
+"
+
 ALLOW_EMPTY:${PN}-dhcp = "1"
 RDEPENDS:${PN}-dhcp = "\
     python3-aiodhcpwatcher (>=1.2.0) \
     python3-aiodiscover (>=2.7.0) \
     python3-cached-ipaddress (>=0.10.0) \
+"
+
+ALLOW_EMPTY:${PN}-digital-ocean = "1"
+RDEPENDS:${PN}-digital-ocean = "\
+    python3-python-digitalocean (>=1.13.2) \
+"
+
+ALLOW_EMPTY:${PN}-directv = "1"
+RDEPENDS:${PN}-directv = "\
+    python3-directv (>=0.4.0) \
+"
+
+ALLOW_EMPTY:${PN}-discogs = "1"
+RDEPENDS:${PN}-discogs = "\
+    python3-discogs-client (>=2.3.0) \
+"
+
+ALLOW_EMPTY:${PN}-discord = "1"
+RDEPENDS:${PN}-discord = "\
+    python3-nextcord (>=3.1.0) \
+"
+
+ALLOW_EMPTY:${PN}-discovergy = "1"
+RDEPENDS:${PN}-discovergy = "\
+    python3-pydiscovergy (>=3.0.2) \
+"
+
+ALLOW_EMPTY:${PN}-dlib-face-detect = "1"
+RDEPENDS:${PN}-dlib-face-detect = "\
+    python3-face-recognition (>=1.2.3) \
+"
+
+ALLOW_EMPTY:${PN}-dlib-face-identify = "1"
+RDEPENDS:${PN}-dlib-face-identify = "\
+    python3-face-recognition (>=1.2.3) \
+"
+
+ALLOW_EMPTY:${PN}-dlink = "1"
+RDEPENDS:${PN}-dlink = "\
+    python3-pyw215 (>=0.8.0) \
 "
 
 ALLOW_EMPTY:${PN}-dlna-dmr = "1"
@@ -999,9 +1139,76 @@ RDEPENDS:${PN}-dlna-dms = "\
     python3-async-upnp-client (=0.44.0) \
 "
 
+ALLOW_EMPTY:${PN}-dnsip = "1"
+RDEPENDS:${PN}-dnsip = "\
+    python3-aiodns (>=3.5.0) \
+"
+
+ALLOW_EMPTY:${PN}-dominos = "1"
+RDEPENDS:${PN}-dominos = "\
+    python3-pizzapi (>=0.0.6) \
+"
+
+ALLOW_EMPTY:${PN}-doods = "1"
+RDEPENDS:${PN}-doods = "\
+    python3-pydoods (>=1.0.2) \
+    python3-pillow (>=11.2.1) \
+"
+
+ALLOW_EMPTY:${PN}-doorbird = "1"
+RDEPENDS:${PN}-doorbird = "\
+    python3-doorbirdpy (>=3.0.8) \
+"
+
+ALLOW_EMPTY:${PN}-dormakaba-dkey = "1"
+RDEPENDS:${PN}-dormakaba-dkey = "\
+    python3-py-dormakaba-dkey (>=1.0.6) \
+"
+
+ALLOW_EMPTY:${PN}-dovado = "1"
+RDEPENDS:${PN}-dovado = "\
+    python3-dovado (>=0.4.1) \
+"
+
+ALLOW_EMPTY:${PN}-dremel-3d-printer = "1"
+RDEPENDS:${PN}-dremel-3d-printer = "\
+    python3-dremel3dpy (>=2.1.1) \
+"
+
+ALLOW_EMPTY:${PN}-drop-connect = "1"
+RDEPENDS:${PN}-drop-connect = "\
+    python3-dropmqttapi (>=1.0.3) \
+"
+
+ALLOW_EMPTY:${PN}-dsmr = "1"
+RDEPENDS:${PN}-dsmr = "\
+    python3-dsmr-parser (>=1.4.3) \
+"
+
+ALLOW_EMPTY:${PN}-duke-energy = "1"
+RDEPENDS:${PN}-duke-energy = "\
+    python3-aiodukeenergy (>=0.3.0) \
+"
+
 ALLOW_EMPTY:${PN}-dunehd = "1"
 RDEPENDS:${PN}-dunehd = "\
     python3-pdunehd (>=1.3.2) \
+"
+
+ALLOW_EMPTY:${PN}-duotecno = "1"
+RDEPENDS:${PN}-duotecno = "\
+    python3-pyduotecno (>=2024.10.1) \
+"
+
+ALLOW_EMPTY:${PN}-dwd-weather-warnings = "1"
+RDEPENDS:${PN}-dwd-weather-warnings = "\
+    python3-dwdwfsapi (>=1.0.7) \
+"
+
+ALLOW_EMPTY:${PN}-dynalite = "1"
+RDEPENDS:${PN}-dynalite = "\
+    python3-dynalite-devices (>=0.1.47) \
+    python3-dynalite-panel (>=0.0.4) \
 "
 
 ALLOW_EMPTY:${PN}-evohome = "1"

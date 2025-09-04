@@ -1,19 +1,3 @@
-# FIXME: the LIC_FILES_CHKSUM values have been updated by 'devtool upgrade'.
-# The following is the difference between the old and the new license text.
-# Please update the LICENSE value if needed, and summarize the changes in
-# the commit message via 'License-Update:' tag.
-# (example: 'License-Update: copyright years updated.')
-#
-# The changes:
-#
-# --- PKG-INFO
-# +++ PKG-INFO
-# @@ -1 +1 @@
-# -License: UNKNOWN
-# +Classifier: Development Status :: 4 - Beta
-# 
-#
-
 SUMMARY = "Python API for controlling Leviton Decora Smart WiFi switches"
 HOMEPAGE = "http://github.com/tlyakhov/python-decora_wifi"
 LICENSE = "MIT"

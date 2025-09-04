@@ -1,0 +1,24 @@
+From be8c3f9e835d3fa01bdef20927100ec890c6561c Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Tue, 9 Sep 2025 23:41:49 +0200
+Subject: [PATCH] Fix compilation
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index 9c0e573..07a0119 100644
+--- a/setup.py
++++ b/setup.py
+@@ -249,7 +249,7 @@ setup(
+     author_email='davis@dlib.net',
+     url='https://github.com/davisking/dlib',
+     license='Boost Software License',
+-    ext_modules=[CMakeExtension('_dlib_pybind11','tools/python')],
++    # ext_modules=[CMakeExtension('_dlib_pybind11','tools/python')],
+     cmdclass=dict(build_ext=CMakeBuild),
+     zip_safe=False,
+     #install_requires=['cmake'], # removed because the pip cmake package is busted, maybe someday it will be usable.
