@@ -3,6 +3,7 @@ HOMEPAGE = "https://home-assistant.io/"
 SECTION = "devel/python"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=86d3f3a95c324c9479bd8986968f4327"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 HOMEASSISTANT_CONFIG_DIR ?= "${localstatedir}/lib/homeassistant"
 HOMEASSISTANT_CONFIG_DIR[doc] = "Configuration directory used by home-assistant."
@@ -15,7 +16,7 @@ SRC_URI = "git://github.com/home-assistant/core.git;protocol=https;branch=master
            file://0001-Relax-setuptools.patch \
            "
 SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
-SRCREV = "777b3128bb58b7b171fd798799b2b1d51f824981"
+SRCREV = "0cda883b56c7ba4021b1a907eb08886e70ba38a4"
 
 inherit python_setuptools_build_meta useradd systemd ptest-python-pytest
 
@@ -55,11 +56,11 @@ do_install:append () {
 require recipes-homeassistant/homeassistant/python3-homeassistant/integrations.inc
 require recipes-homeassistant/homeassistant/python3-homeassistant/integrations-tests.inc
 
-#TODO: python3-uv (=0.7.1)
+#TODO: python3-uv (=0.8.9)
 RDEPENDS:${PN} += "\
     python3-aiodns (>=3.5.0) \
-    python3-aiohasupervisor (=0.3.1) \
-    python3-aiohttp (=3.12.14) \
+    python3-aiohasupervisor (=0.3.2) \
+    python3-aiohttp (=3.12.15) \
     python3-aiohttp-cors (=0.8.1) \
     python3-aiohttp-fast-zlib (=0.3.0) \
     python3-aiohttp-asyncmdnsresolver (=0.1.1) \
@@ -73,63 +74,63 @@ RDEPENDS:${PN} += "\
     python3-awesomeversion (>=25.5.0) \
     python3-bcrypt (>=4.3.0) \
     python3-certifi (>=2021.5.30) \
-    python3-ciso8601 (=2.3.2) \
+    python3-ciso8601 (=2.3.3) \
     python3-cronsim (>=2.6) \
     python3-fnv-hash-fast (>=1.5.0) \
-    python3-hass-nabucasa (>=0.106.0) \
+    python3-hass-nabucasa (>=1.1.0) \
     python3-httpx (>=0.28.1) \
     python3-home-assistant-bluetooth (>=1.13.1) \
     python3-ifaddr (=0.2.0) \
     python3-jinja2 (>=3.1.6) \
     python3-lru-dict (>=1.3.0) \
     python3-pyjwt (=2.10.1) \
-    python3-cryptography (>=45.0.3) \
-    python3-pillow (>=11.2.1) \
+    python3-cryptography (>=45.0.7) \
+    python3-pillow (>=11.3.0) \
     python3-propcache (>=0.3.2) \
     python3-pyopenssl (>=25.1.0) \
-    python3-orjson (>=3.10.18) \
+    python3-orjson (>=3.11.3) \
     python3-packaging (>=23.1) \
     python3-psutil-home-assistant (=0.0.1) \
     python3-python-slugify (=8.0.4) \
     python3-pyyaml (>=6.0.2) \
-    python3-requests (>=2.32.4) \
+    python3-requests (>=2.32.5) \
     python3-securetar (=2025.2.1) \
     python3-sqlalchemy (>=2.0.41) \
     python3-standard-aifc (=3.13.0) \
     python3-standard-telnetlib (=3.13.0) \
-    python3-typing-extensions (>=4.14.0) \
+    python3-typing-extensions (>=4.15.0) \
     python3-ulid-transform (>=1.4.0) \
     python3-urllib3 (>=2.0) \
     python3-voluptuous (=0.15.2) \
-    python3-voluptuous-serialize (=2.6.0) \
+    python3-voluptuous-serialize (=2.7.0) \
     python3-voluptuous-openapi (=0.1.0) \
     python3-yarl (>=1.20.1) \
     python3-webrtc-models (>=0.3.0) \
-    python3-zeroconf (>=0.147.0) \
+    python3-zeroconf (>=0.147.2) \
     \
     python3-statistics \
     python3-core (>=3.13.0) \
 "
 
-#TODO: python3-pydantic (=2.11.7)
 RDEPENDS:${PN}-ptest = "\
-    python3-astroid (>=3.3.10) \
-    python3-coverage (>=7.8.2) \
+    python3-astroid (>=3.3.11) \
+    python3-coverage (>=7.10.0) \
     python3-freezegun (>=1.5.2) \
     python3-go2rtc-client (>=0.2.1) \
-    python3-license-expression (>=30.4.1) \
+    python3-license-expression (>=30.4.3) \
     python3-mock-open (>=1.4.0) \
-    python3-pydantic \
-    python3-pylint (>=3.3.7) \
+    python3-pydantic (>=2.11.7) \
+    python3-pylint (>=3.3.8) \
     python3-pytest-aiohttp (>=1.1.0) \
-    python3-pytest-asyncio (>=1.0.0) \
-    python3-pytest-cov (>=6.1.1) \
+    python3-pytest-asyncio (>=1.1.0) \
+    python3-pytest-cov (>=6.2.1) \
     python3-pytest-freezer (>=0.4.9) \
     python3-pytest-socket (>=0.7.0) \
     python3-pytest-sugar (>=1.0.0) \
     python3-pytest-timeout (>=2.4.0) \
     python3-pytest-unordered (>=0.7.0) \
-    python3-pytest-xdist (>=3.7.0) \
+    python3-pytest-picked (>=0.5.1) \
+    python3-pytest-xdist (>=3.8.0) \
     python3-requests-mock (>=1.12.1) \
     python3-respx (>=0.22.0) \
     python3-syrupy (>=4.9.1) \

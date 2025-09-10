@@ -173,6 +173,27 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-mcp \
     ${PN}-smartthings \
     ${PN}-steam-online \
+    ${PN}-axis \
+    ${PN}-bluetooth \
+    ${PN}-brother \
+    ${PN}-cloud \
+    ${PN}-conversation \
+    ${PN}-frontend \
+    ${PN}-homekit \
+    ${PN}-hue \
+    ${PN}-letpot \
+    ${PN}-local-calendar \
+    ${PN}-local-todo \
+    ${PN}-matter \
+    ${PN}-modbus \
+    ${PN}-scrape \
+    ${PN}-shelly \
+    ${PN}-ssdp \
+    ${PN}-stream \
+    ${PN}-switchbot \
+    ${PN}-upnp \
+    ${PN}-zha \
+    ${PN}-zwave-js \
 ', '', d)}"
 
 # The following component is specific to this MACHINE_ARCH so treat it as such
