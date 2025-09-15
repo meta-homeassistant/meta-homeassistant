@@ -4,7 +4,7 @@ LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "bfc82cc2befa5cf94fcbb1ebe4d5d0ecb4668cfd4a53e6242cf27ff681ab66d2"
+SRC_URI[sha256sum] = "bc97dfb3f946c8b6d368fcf6fc8541e09a2a3f4a63d0171edf3a1b4a5715883e"
 
 inherit pypi setuptools3
 
