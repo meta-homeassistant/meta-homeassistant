@@ -1,4 +1,4 @@
-From 7c9f4c4e4edf8aa718995984ba22b577eb7644d8 Mon Sep 17 00:00:00 2001
+From f7817d6c49ec16b812d42c8ed3eb3d871c291962 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Thu, 24 Jul 2025 18:56:50 +0200
 Subject: [PATCH] make PEP 517 compatible
@@ -10,7 +10,7 @@ Upstream-Status: Pending
  1 file changed, 76 insertions(+)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index f205cf9..218a689 100644
+index 7508d47..82f7605 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,3 +1,79 @@

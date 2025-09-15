@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI += "file://0001-make-PEP-517-compatible.patch"
-SRC_URI[sha256sum] = "b1fa68caee58699ab9908d03d20cd37a97d1ac225565b839ec5bca9d79cfc7e3"
+SRC_URI[sha256sum] = "bd86f6cd4d50fc601248745c7f919163b9d95d475747b40c1c808e133da6072d"
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
