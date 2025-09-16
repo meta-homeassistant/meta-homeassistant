@@ -1,4 +1,4 @@
-From 211df19711686d8b4eea910d0d192eba1e002384 Mon Sep 17 00:00:00 2001
+From ffdeb52a36540f22cfedc7114ace9498b1e813d3 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Mon, 24 Mar 2025 18:41:13 +0000
 Subject: [PATCH] fix setuptools
@@ -10,7 +10,7 @@ Upstream-Status: Pending
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index 6cd8852..234a5c2 100644
+index fb54c58..e200642 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@

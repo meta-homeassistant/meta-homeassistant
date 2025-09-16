@@ -8,7 +8,7 @@ SRC_URI = "git://github.com/Bluetooth-Devices/habluetooth.git;protocol=https;bra
            file://0001-relax-setuptools-req.patch \
            "
 SRC_URI[sha256sum] = "89dc8c4e9d79a25c2666dafde0f49241144ac29e69d9d9f5bbf1122733c7f42c"
-SRCREV = "065e9f9946b8a964d229d3fba9615c2dfa0d11c3"
+SRCREV = "cc91ef43fd6649c2451583ec8ab02be2eacf45f3"
 
 inherit python_poetry_core cython ptest-python-pytest
 
