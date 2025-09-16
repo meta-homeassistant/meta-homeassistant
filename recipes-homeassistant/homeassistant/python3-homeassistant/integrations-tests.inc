@@ -124,7 +124,51 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-cpuspeed \
     ${PN}-crownstone \
     ${PN}-cups \
+    ${PN}-daikin \
+    ${PN}-datadog \
+    ${PN}-date \
+    ${PN}-datetime \
+    ${PN}-deako \
+    ${PN}-debugpy \
+    ${PN}-deconz \
+    ${PN}-decora \
+    ${PN}-default-config \
+    ${PN}-deluge \
+    ${PN}-demo \
+    ${PN}-denonavr \
+    ${PN}-derivative \
+    ${PN}-devialet \
+    ${PN}-device-automation \
+    ${PN}-device-sun-light-trigger \
+    ${PN}-device-tracker \
+    ${PN}-devolo-home-control \
+    ${PN}-devolo-home-network \
+    ${PN}-dexcom \
+    ${PN}-dhcp \
+    ${PN}-diagnostics \
+    ${PN}-dialogflow \
+    ${PN}-directv \
+    ${PN}-discord \
+    ${PN}-discovergy \
+    ${PN}-dlib-face-detect \
+    ${PN}-dlib-face-identify \
+    ${PN}-dlink \
+    ${PN}-dlna-dmr \
+    ${PN}-dlna-dms \
+    ${PN}-dnsip \
+    ${PN}-doorbird \
+    ${PN}-dormakaba-dkey \
+    ${PN}-downloader \
+    ${PN}-dremel-3d-printer \
+    ${PN}-drop-connect \
+    ${PN}-dsmr \
+    ${PN}-dsmr-reader \
+    ${PN}-duckdns \
+    ${PN}-duke-energy \
     ${PN}-dunehd \
+    ${PN}-duotecno \
+    ${PN}-dwd-weather-warnings \
+    ${PN}-dynalite \
     ${PN}-manual \
     ${PN}-mcp \
     ${PN}-smartthings \

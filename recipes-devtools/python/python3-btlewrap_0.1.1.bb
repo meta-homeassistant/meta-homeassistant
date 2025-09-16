@@ -7,7 +7,7 @@ SRC_URI[sha256sum] = "f3befbeed3a6c5abf99dc0d6bbaab570868a5175e52252d53c45bd78c8
 
 inherit pypi setuptools3
 #PACKAGECONFIG ?= "bluepy pygatt testing"
-PACKAGECONFIG[bluepy] = ",,,python3-bluepy"
+PACKAGECONFIG[bluepy] = ",,,bluepy"
 PACKAGECONFIG[pygatt] = ",,,python3-pygatt"
 PACKAGECONFIG[testing] = ",,,python3-pytest"
 

@@ -1,0 +1,22 @@
+From 51c069ce5814a2ebe120884f77db7ae29191a4a0 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Mon, 8 Sep 2025 00:47:35 +0200
+Subject: [PATCH] relax build req
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ pyproject.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index a41b6e2..af11f66 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = ["setuptools~=62.3", "wheel~=0.37.1"]
++requires = ["setuptools>=62.3", "wheel>=0.37.1"]
+ build-backend = "setuptools.build_meta"
+ 
+ [project]

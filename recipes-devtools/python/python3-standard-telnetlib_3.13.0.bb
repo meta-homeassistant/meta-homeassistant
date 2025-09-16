@@ -10,3 +10,5 @@ inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 PYPI_PACKAGE = "standard_telnetlib"
 UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
+
+BBCLASSEXTEND = "native nativesdk"

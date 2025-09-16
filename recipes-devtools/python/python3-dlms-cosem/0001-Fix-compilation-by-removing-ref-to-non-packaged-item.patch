@@ -1,0 +1,32 @@
+From 055349d2a71070371805b543bea8c1361d42ec79 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Mon, 8 Sep 2025 00:29:21 +0200
+Subject: [PATCH] Fix compilation by removing ref to non-packaged item
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ setup.py | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/setup.py b/setup.py
+index a8b59bb..b696f52 100644
+--- a/setup.py
++++ b/setup.py
+@@ -99,15 +99,12 @@ class UploadCommand(Command):
+ with open("README.md") as readme_file:
+     readme = readme_file.read()
+ 
+-with open("HISTORY.md") as history_file:
+-    history = history_file.read()
+-
+ setup(
+     name=NAME,
+     version=VERSION,
+     python_requires=REQUIRES_PYTHON,
+     description=DESCRIPTION,
+-    long_description=readme + "\n\n" + history,
++    long_description=readme,
+     long_description_content_type="text/markdown",
+     author=AUTHOR,
+     author_email=EMAIL,

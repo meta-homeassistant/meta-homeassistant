@@ -1,5 +1,5 @@
 SUMMARY = "Mozart platform API"
-HOMEPAGE = "https://pypi.org/project/mozart-api/"
+HOMEPAGE = "https://github.com/bang-olufsen/mozart-open-api"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=da8c5ff82c5bd7705d518966865aba9b"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"

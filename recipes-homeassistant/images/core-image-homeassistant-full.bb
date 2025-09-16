@@ -145,12 +145,46 @@ IMAGE_INSTALL = "\
     python3-homeassistant-cpuspeed \
     python3-homeassistant-crownstone \
     python3-homeassistant-cups \
+    python3-homeassistant-daikin \
+    python3-homeassistant-danfoss-air \
+    python3-homeassistant-datadog \
+    python3-homeassistant-deako \
     python3-homeassistant-debugpy \
+    python3-homeassistant-deconz \
+    python3-homeassistant-decora \
     python3-homeassistant-decora-wifi \
+    python3-homeassistant-delijn \
+    python3-homeassistant-deluge \
+    python3-homeassistant-denonavr \
+    python3-homeassistant-devialet \
+    python3-homeassistant-devolo-home-control \
+    python3-homeassistant-devolo-home-network \
+    python3-homeassistant-dexcom \
     python3-homeassistant-dhcp \
+    python3-homeassistant-digital-ocean \
+    python3-homeassistant-directv \
+    python3-homeassistant-discogs \
+    python3-homeassistant-discord \
+    python3-homeassistant-discovergy \
+    python3-homeassistant-dlib-face-detect \
+    python3-homeassistant-dlib-face-identify \
+    python3-homeassistant-dlink \
     python3-homeassistant-dlna-dmr \
     python3-homeassistant-dlna-dms \
+    python3-homeassistant-dnsip \
+    python3-homeassistant-dominos \
+    python3-homeassistant-doods \
+    python3-homeassistant-doorbird \
+    python3-homeassistant-dormakaba-dkey \
+    python3-homeassistant-dovado \
+    python3-homeassistant-dremel-3d-printer \
+    python3-homeassistant-drop-connect \
+    python3-homeassistant-dsmr \
+    python3-homeassistant-duke-energy \
     python3-homeassistant-dunehd \
+    python3-homeassistant-duotecno \
+    python3-homeassistant-dwd-weather-warnings \
+    python3-homeassistant-dynalite \
     python3-homeassistant-evohome \
     python3-homeassistant-ffmpeg \
     python3-homeassistant-fritz \
