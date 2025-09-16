@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=2453eb85b33e21e22cb4fa811c650d75"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI += "file://0001-relax-hatchling.patch"
-SRC_URI[sha256sum] = "f06bc924d7eb85f8a43fe587b875ff58b410d60251b7dc5f1387b322a35bd67b"
+SRC_URI[sha256sum] = "d1531b210ea300c73423141d29bcee20fcd24ef9f426f6437c0a5d93fc98fb8e"
 
 DEPENDS += "\
 	python3-hatch-fancy-pypi-readme-native \
