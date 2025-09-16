@@ -1,4 +1,4 @@
-From cc7cee8f0a5591a053ed98df054d46f37b037f15 Mon Sep 17 00:00:00 2001
+From ddeeaa8122458236f75870c4bed4bd8c92785e6f Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Tue, 15 Apr 2025 13:42:18 +0000
 Subject: [PATCH] relax build requirements
@@ -10,12 +10,12 @@ Upstream-Status: Pending
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index 7327ad3..c3086fc 100644
+index 822f4b8..5c5aa68 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@
  [build-system]
--requires = ["setuptools>=68.0,<78.2", "wheel>=0.40,<0.47"]
+-requires = ["setuptools>=68.0,<80.10", "wheel>=0.40,<0.47"]
 +requires = ["setuptools>=68.0", "wheel>=0.40"]
  build-backend = "setuptools.build_meta"
  

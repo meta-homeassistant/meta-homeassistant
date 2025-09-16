@@ -747,6 +747,7 @@ RDEPENDS:${PN}-bluesound = "\
     python3-pyblu (=2.0.1) \
 "
 
+# python3-dbus-fast (>=2.44.3)
 ALLOW_EMPTY:${PN}-bluetooth = "1"
 RDEPENDS:${PN}-bluetooth = "\
     python3-bleak (>=0.22.3) \
@@ -754,7 +755,7 @@ RDEPENDS:${PN}-bluetooth = "\
     python3-bluetooth-adapters (=0.21.4) \
     python3-bluetooth-auto-recovery (>=1.5.2) \
     python3-bluetooth-data-tools (>=1.28.2) \
-    python3-dbus-fast (>=2.44.3) \
+    python3-dbus-fast (>=2.44.1) \
     python3-habluetooth (>=5.3.0) \
 "
 
@@ -865,9 +866,10 @@ RDEPENDS:${PN}-canary = "\
     python3-py-canary (>=0.5.4) \
 "
 
+# python3-pychromecast (>= 14.0.9)
 ALLOW_EMPTY:${PN}-cast = "1"
 RDEPENDS:${PN}-cast = "\
-    python3-pychromecast (>=14.0.9) \
+    python3-pychromecast (>=14.0.7) \
 "
 
 ALLOW_EMPTY:${PN}-ccm15 = "1"

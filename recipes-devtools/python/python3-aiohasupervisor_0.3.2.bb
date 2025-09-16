@@ -7,7 +7,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI = "git://github.com/home-assistant-libs/python-supervisor-client.git;protocol=https;branch=main \
            file://0001-relax-build-requirements.patch \
            "
-SRCREV = "4ebcdebc5ca6c1c771c8cdbaa6f73e01daaec7a1"
+SRCREV = "a28b55d3fada13ed120ff98f4c5dacaf7666ce54"
 SRC_URI[sha256sum] = "91bf0b051f28582196f900a31c9bcbebec6de9e3ed1a32a2947a892c04748ce2"
 
 inherit python_setuptools_build_meta ptest-python-pytest
