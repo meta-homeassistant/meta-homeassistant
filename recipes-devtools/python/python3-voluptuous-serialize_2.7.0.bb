@@ -4,7 +4,9 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=dab31a1d28183826937f4b152143a33f"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-inherit setuptools3 pypi ptest-python-pytest
+inherit python_setuptools_build_meta pypi ptest-python-pytest
 
-SRC_URI[md5sum] = "e94c0d555f3b8d2f2c92b540e5eda3d2"
-SRC_URI[sha256sum] = "79acdc58239582a393144402d827fa8efd6df0f5350cdc606d9242f6f9bca7c4"
+SRC_URI[sha256sum] = "d0da959f2fd93c8f1eb779c5d116231940493b51020c2c1026bab76eb56cd09e"
+
+PYPI_PACKAGE = "voluptuous_serialize"
+UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
