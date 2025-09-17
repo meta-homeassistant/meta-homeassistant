@@ -6,7 +6,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit pypi python_setuptools_build_meta
 
-SRC_URI[sha256sum] = "8ba20544da9db9b09dcc83a2f7f7dabcd913af67df5aaf724cd73351d7eb8062"
+SRC_URI[sha256sum] = "8ee52202ec22ff5eac46d48686c81986720982120b266e945629fc7448af82e0"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.9.3) \
