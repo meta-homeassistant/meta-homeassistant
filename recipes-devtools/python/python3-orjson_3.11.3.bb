@@ -8,7 +8,7 @@ require ${BPN}-crates.inc
 
 PYPI_PACKAGE = "orjson"
 
-SRC_URI[sha256sum] = "e8da3947d92123eda795b68228cafe2724815621fe35e8e320a9e9593a4bcd53"
+SRC_URI[sha256sum] = "1c0603b1d2ffcd43a411d64797a19556ef76958aef1c182f22dc30860152a98a"
 SRC_URI:append = " \
     file://0001-Fix-compilation-error-for-orjson.patch \
 "
