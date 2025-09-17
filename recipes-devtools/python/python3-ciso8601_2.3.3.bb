@@ -6,7 +6,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit pypi setuptools3 ptest-python-pytest
 
-SRC_URI[sha256sum] = "ec1616969aa46c51310b196022e5d3926f8d3fa52b80ec17f6b4133623bd5434"
+SRC_URI[sha256sum] = "db5d78d9fb0de8686fbad1c1c2d168ed52efb6e8bf8774ae26226e5034a46dae"
 
 RDEPENDS:${PN} = "\
     python3-pytz \
