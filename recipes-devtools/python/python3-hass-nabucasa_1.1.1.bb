@@ -11,19 +11,22 @@ SRC_URI[sha256sum] = "faca4945f2abafbd5ca4a9350969e6655826ca2c88ac3a42088cc6f700
 SRCREV = "2dd7e96710316968848b4fdfacbc1497c8a8b598"
 
 RDEPENDS:${PN} = "\
-    python3-acme (>=3.2.0) \
+    python3-acme (>=5.0.0) \
     python3-aiohttp (>=3.6.1) \
+    python3-async-timeout (>=4) \
     ${@bb.utils.contains("DISTRO_FEATURES", "ptest", "python3-atomicwrites", "python3-atomicwrites-homeassistant (=1.4.1)",d)} \
     python3-attrs (>=19.3) \
     python3-ciso8601 (>=2.3.0) \
-    python3-core (>=3.11) \
     python3-cryptography (>=42.0.0) \
-    python3-ecdsa \
+    python3-josepy (>=2) \
     python3-pycognito (=2024.5.1) \
     python3-pyjwt (>=2.8.0) \
-    python3-snitun (>=0.40.0) \
+    python3-snitun (>=0.44.0) \
     python3-webrtc-models (<1.0.0) \
+    python3-yarl (>=1.20) \
+    python3-sentence-stream (>=1.2.0) \
     python3-pyasn1 \
+    python3-ecdsa \
 "
 
 RDEPENDS:${PN}-ptest += "\
