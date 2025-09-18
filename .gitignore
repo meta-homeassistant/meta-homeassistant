@@ -2,6 +2,7 @@ build*/
 .venv
 *.csv
 HA/
+upgrade_logs/
 
 # kas
 .kas_shell_history
