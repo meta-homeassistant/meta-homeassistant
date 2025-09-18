@@ -195,6 +195,64 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-upnp \
     ${PN}-zha \
     ${PN}-zwave-js \
+    ${PN}-adguard \
+    ${PN}-airnow \
+    ${PN}-airq \
+    ${PN}-assist-pipeline \
+    ${PN}-atag \
+    ${PN}-blebox \
+    ${PN}-bthome \
+    ${PN}-ffmpeg \
+    ${PN}-folder-watcher \
+    ${PN}-fritz \
+    ${PN}-fritzbox \
+    ${PN}-fritzbox-callmonitor \
+    ${PN}-generic \
+    ${PN}-github \
+    ${PN}-google-mail \
+    ${PN}-google-sheets \
+    ${PN}-google-tasks \
+    ${PN}-google-translate \
+    ${PN}-hardware \
+    ${PN}-image-upload \
+    ${PN}-ipp \
+    ${PN}-isal \
+    ${PN}-luftdaten \
+    ${PN}-mcp-server \
+    ${PN}-met \
+    ${PN}-mobile-app \
+    ${PN}-mqtt \
+    ${PN}-namecheapdns \
+    ${PN}-network \
+    ${PN}-nmap-tracker \
+    ${PN}-octoprint \
+    ${PN}-otp \
+    ${PN}-owntracks \
+    ${PN}-pandora \
+    ${PN}-peblar \
+    ${PN}-peco \
+    ${PN}-private-ble-device \
+    ${PN}-qwikswitch \
+    ${PN}-radio-browser \
+    ${PN}-recorder \
+    ${PN}-ruuvi-gateway \
+    ${PN}-sentry \
+    ${PN}-simplisafe \
+    ${PN}-speedtestdotnet \
+    ${PN}-sql \
+    ${PN}-startca \
+    ${PN}-systemmonitor \
+    ${PN}-tibber \
+    ${PN}-trafikverket-camera \
+    ${PN}-trafikverket-ferry \
+    ${PN}-trafikverket-train \
+    ${PN}-trafikverket-weatherstation \
+    ${PN}-trend \
+    ${PN}-tts \
+    ${PN}-usb \
+    ${PN}-utility-meter \
+    ${PN}-zeroconf \
+    ${PN}-zwave-me \
 ', '', d)}"
 
 # The following component is specific to this MACHINE_ARCH so treat it as such
