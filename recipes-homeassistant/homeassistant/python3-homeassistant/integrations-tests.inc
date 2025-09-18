@@ -64,6 +64,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-awair \
     ${PN}-aws \
     ${PN}-aws-s3 \
+    ${PN}-axis \
     ${PN}-azure-data-explorer \
     ${PN}-azure-devops \
     ${PN}-azure-event-hub \
@@ -80,6 +81,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-bluemaestro \
     ${PN}-blueprint \
     ${PN}-bluesound \
+    ${PN}-bluetooth \
     ${PN}-bluetooth-adapters \
     ${PN}-bluetooth-le-tracker \
     ${PN}-bmw-connected-drive \
@@ -89,6 +91,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-braviatv \
     ${PN}-bring \
     ${PN}-broadlink \
+    ${PN}-brother \
     ${PN}-brottsplatskartan \
     ${PN}-brunt \
     ${PN}-bryant-evolution \
@@ -106,6 +109,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-chacon-dio \
     ${PN}-clicksend-tts \
     ${PN}-climate \
+    ${PN}-cloud \
     ${PN}-cloudflare \
     ${PN}-co2signal \
     ${PN}-coinbase \
@@ -117,6 +121,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-config \
     ${PN}-configurator \
     ${PN}-control4 \
+    ${PN}-conversation \
     ${PN}-cookidoo \
     ${PN}-coolmaster \
     ${PN}-counter \
@@ -169,26 +174,21 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-duotecno \
     ${PN}-dwd-weather-warnings \
     ${PN}-dynalite \
-    ${PN}-manual \
-    ${PN}-mcp \
-    ${PN}-smartthings \
-    ${PN}-steam-online \
-    ${PN}-axis \
-    ${PN}-bluetooth \
-    ${PN}-brother \
-    ${PN}-cloud \
-    ${PN}-conversation \
     ${PN}-frontend \
     ${PN}-homekit \
     ${PN}-hue \
     ${PN}-letpot \
     ${PN}-local-calendar \
     ${PN}-local-todo \
+    ${PN}-manual \
     ${PN}-matter \
+    ${PN}-mcp \
     ${PN}-modbus \
     ${PN}-scrape \
     ${PN}-shelly \
+    ${PN}-smartthings \
     ${PN}-ssdp \
+    ${PN}-steam-online \
     ${PN}-stream \
     ${PN}-switchbot \
     ${PN}-upnp \

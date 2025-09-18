@@ -1,7 +1,7 @@
 INTEGRATIONS = "\
     ${PN}-acaia \
-    ${PN}-acer-projector \
     ${PN}-accuweather \
+    ${PN}-acer-projector \
     ${PN}-acmeda \
     ${PN}-adax \
     ${PN}-adguard \
@@ -26,9 +26,9 @@ INTEGRATIONS = "\
     ${PN}-altruist \
     ${PN}-amazon-polly \
     ${PN}-amberelectric \
-    ${PN}-amcrest \
     ${PN}-ambient-network \
     ${PN}-ambient-station \
+    ${PN}-amcrest \
     ${PN}-ampio \
     ${PN}-analytics-insights \
     ${PN}-android-ip-webcam \
@@ -47,9 +47,9 @@ INTEGRATIONS = "\
     ${PN}-apsystems \
     ${PN}-aqualogic \
     ${PN}-aquostv \
+    ${PN}-aranet \
     ${PN}-arcam-fmj \
     ${PN}-arris-tg2492lg \
-    ${PN}-aranet \
     ${PN}-aruba \
     ${PN}-arve \
     ${PN}-aseko-pool-live \    
@@ -187,9 +187,9 @@ INTEGRATIONS = "\
     ${PN}-fritzbox \
     ${PN}-fritzbox-callmonitor \
     ${PN}-frontend \
-    ${PN}-go2rtc \
     ${PN}-generic \
     ${PN}-github \
+    ${PN}-go2rtc \
     ${PN}-google-mail \
     ${PN}-google-sheets \
     ${PN}-google-tasks \
