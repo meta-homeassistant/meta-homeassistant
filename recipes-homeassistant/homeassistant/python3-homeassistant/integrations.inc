@@ -12,6 +12,7 @@ INTEGRATIONS = "\
     ${PN}-airgradient \
     ${PN}-airly \
     ${PN}-airnow \
+    ${PN}-airos \    
     ${PN}-airq \
     ${PN}-airthings \
     ${PN}-airthings-ble \
@@ -21,6 +22,7 @@ INTEGRATIONS = "\
     ${PN}-airvisual-pro \
     ${PN}-airzone \
     ${PN}-airzone-cloud \
+    ${PN}-aladdin-connect \
     ${PN}-alarmdecoder \
     ${PN}-alpha-vantage \
     ${PN}-altruist \
@@ -339,6 +341,11 @@ RDEPENDS:${PN}-airnow = "\
     python3-pyairnow (>=1.3.1) \
 "
 
+ALLOW_EMPTY:${PN}-airos = "1"
+RDEPENDS:${PN}-airos = "\
+    python3-airos (>=0.4.4) \
+"
+
 ALLOW_EMPTY:${PN}-airq = "1"
 RDEPENDS:${PN}-airq = "\
     python3-aioairq (>=0.4.6) \
@@ -382,6 +389,11 @@ RDEPENDS:${PN}-airzone = "\
 ALLOW_EMPTY:${PN}-airzone-cloud = "1"
 RDEPENDS:${PN}-airzone-cloud = "\
     python3-aioairzone-cloud (=0.6.12) \
+"
+
+ALLOW_EMPTY:${PN}-aladdin-connect = "1"
+RDEPENDS:${PN}-aladdin-connect = "\
+    python3-genie-partner-sdk (>=1.0.11) \
 "
 
 ALLOW_EMPTY:${PN}-alarmdecoder = "1"

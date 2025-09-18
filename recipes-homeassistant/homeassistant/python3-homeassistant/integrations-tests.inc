@@ -16,6 +16,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-air-quality \
     ${PN}-airgradient \
     ${PN}-airly \
+    ${PN}-airos \
     ${PN}-airthings \
     ${PN}-airthings-ble \
     ${PN}-airtouch4 \
