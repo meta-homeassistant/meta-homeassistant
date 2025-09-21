@@ -287,7 +287,7 @@ RDEPENDS:${PN}-accuweather = "\
 
 ALLOW_EMPTY:${PN}-acer-projector = "1"
 RDEPENDS:${PN}-acer-projector = "\
-    python3-pyserial (=3.5) \
+    python3-pyserial (>=3.5) \
 "
 
 ALLOW_EMPTY:${PN}-acmeda = "1"
@@ -297,23 +297,23 @@ RDEPENDS:${PN}-acmeda = "\
 
 ALLOW_EMPTY:${PN}-adax = "1"
 RDEPENDS:${PN}-adax = "\
-    python3-adax (=0.4.0) \
-    python3-adax-local (=0.1.5) \
+    python3-adax (>=0.4.0) \
+    python3-adax-local (>=0.1.5) \
 "
 
 ALLOW_EMPTY:${PN}-adguard = "1"
 RDEPENDS:${PN}-adguard = "\
-    python3-adguardhome (=0.7.0) \
+    python3-adguardhome (>=0.7.0) \
 "
 
 ALLOW_EMPTY:${PN}-advantage-air = "1"
 RDEPENDS:${PN}-advantage-air = "\
-    python3-advantage-air (=0.4.4) \
+    python3-advantage-air (>=0.4.4) \
 "
 
 ALLOW_EMPTY:${PN}-aemet = "1"
 RDEPENDS:${PN}-aemet = "\
-    python3-aemet-opendata (=0.6.4) \
+    python3-aemet-opendata (>=0.6.4) \
 "
 
 ALLOW_EMPTY:${PN}-aftership = "1"
@@ -323,17 +323,17 @@ RDEPENDS:${PN}-aftership = "\
 
 ALLOW_EMPTY:${PN}-agent-dvr = "1"
 RDEPENDS:${PN}-agent-dvr = "\
-    python3-agent-py (=0.0.24) \
+    python3-agent-py (>=0.0.24) \
 "
 
 ALLOW_EMPTY:${PN}-airgradient = "1"
 RDEPENDS:${PN}-airgradient = "\
-    python3-airgradient (=0.9.2) \
+    python3-airgradient (>=0.9.2) \
 "
 
 ALLOW_EMPTY:${PN}-airly = "1"
 RDEPENDS:${PN}-airly = "\
-    python3-airly (=1.1.0) \
+    python3-airly (>=1.1.0) \
 "
 
 ALLOW_EMPTY:${PN}-airnow = "1"
@@ -353,12 +353,12 @@ RDEPENDS:${PN}-airq = "\
 
 ALLOW_EMPTY:${PN}-airthings = "1"
 RDEPENDS:${PN}-airthings = "\
-    python3-airthings-cloud (=0.2.0) \
+    python3-airthings-cloud (>=0.2.0) \
 "
 
 ALLOW_EMPTY:${PN}-airthings-ble = "1"
 RDEPENDS:${PN}-airthings-ble = "\
-    python3-airthings-ble (=0.9.2) \
+    python3-airthings-ble (>=0.9.2) \
 "
 
 ALLOW_EMPTY:${PN}-airtouch4 = "1"
@@ -368,27 +368,27 @@ RDEPENDS:${PN}-airtouch4 = "\
 
 ALLOW_EMPTY:${PN}-airtouch5 = "1"
 RDEPENDS:${PN}-airtouch5 = "\
-    python3-airtouch5py (=0.2.11) \
+    python3-airtouch5py (>=0.3.0) \
 "
 
 ALLOW_EMPTY:${PN}-airvisual = "1"
 RDEPENDS:${PN}-airvisual = "\
-    python3-pyairvisual (=2023.8.1) \
+    python3-pyairvisual (>=2023.08.1) \
 "
 
 ALLOW_EMPTY:${PN}-airvisual-pro = "1"
 RDEPENDS:${PN}-airvisual-pro = "\
-    python3-pyairvisual (=2023.8.1) \
+    python3-pyairvisual (>=2023.08.1) \
 "
 
 ALLOW_EMPTY:${PN}-airzone = "1"
 RDEPENDS:${PN}-airzone = "\
-    python3-aioairzone (=1.0.0) \
+    python3-aioairzone (>=1.0.0) \
 "
 
 ALLOW_EMPTY:${PN}-airzone-cloud = "1"
 RDEPENDS:${PN}-airzone-cloud = "\
-    python3-aioairzone-cloud (=0.6.12) \
+    python3-aioairzone-cloud (>=0.7.2) \
 "
 
 ALLOW_EMPTY:${PN}-aladdin-connect = "1"
@@ -566,7 +566,7 @@ RDEPENDS:${PN}-aseko-pool-live = "\
 ALLOW_EMPTY:${PN}-assist-pipeline = "1"
 RDEPENDS:${PN}-assist-pipeline = "\
     python3-pymicro-vad (>=1.0.1) \
-    python3-pyspeex-noise (=1.0.2) \
+    python3-pyspeex-noise (>=1.0.2) \
 "
 
 ALLOW_EMPTY:${PN}-asuswrt = "1"
@@ -644,7 +644,7 @@ RDEPENDS:${PN}-aws-s3 = "\
 
 ALLOW_EMPTY:${PN}-axis = "1"
 RDEPENDS:${PN}-axis = "\
-    python3-axis (=64) \
+    python3-axis (>=65) \
 "
 
 ALLOW_EMPTY:${PN}-azure-data-explorer = "1"
@@ -676,7 +676,7 @@ RDEPENDS:${PN}-azure-storage = "\
 ALLOW_EMPTY:${PN}-backup = "1"
 RDEPENDS:${PN}-backup = "\
     python3-cronsim (>=2.6) \
-    python3-securetar (=2025.2.1) \
+    python3-securetar (>=2025.2.1) \
 "
 
 ALLOW_EMPTY:${PN}-baf = "1"
@@ -756,24 +756,24 @@ RDEPENDS:${PN}-bluemaestro = "\
 
 ALLOW_EMPTY:${PN}-bluesound = "1"
 RDEPENDS:${PN}-bluesound = "\
-    python3-pyblu (=2.0.1) \
+    python3-pyblu (>=2.0.4) \
 "
 
 # python3-dbus-fast (>=2.44.3)
 ALLOW_EMPTY:${PN}-bluetooth = "1"
 RDEPENDS:${PN}-bluetooth = "\
     python3-bleak (>=1.0.1) \
-    python3-bleak-retry-connector (=3.9.0) \
-    python3-bluetooth-adapters (=0.21.4) \
+    python3-bleak-retry-connector (>=4.4.3) \
+    python3-bluetooth-adapters (>=2.1.0) \
     python3-bluetooth-auto-recovery (>=1.5.2) \
     python3-bluetooth-data-tools (>=1.28.2) \
-    python3-dbus-fast (>=2.44.1) \
+    python3-dbus-fast (>=2.44.3) \
     python3-habluetooth (>=5.6.4) \
 "
 
 ALLOW_EMPTY:${PN}-bluetooth-tracker = "1"
 RDEPENDS:${PN}-bluetooth-tracker = "\
-    python3-bt-proximity (=0.2.1) \
+    python3-bt-proximity (>=0.2.1) \
     python3-pybluez (>=0.22) \
 "
 
@@ -870,7 +870,7 @@ RDEPENDS:${PN}-cambridge-audio = "\
 
 ALLOW_EMPTY:${PN}-camera = "1"
 RDEPENDS:${PN}-camera = "\
-    python3-pyturbojpeg (=1.7.5) \
+    python3-pyturbojpeg (>=1.8.0) \
 "
 
 ALLOW_EMPTY:${PN}-canary = "1"
@@ -881,7 +881,7 @@ RDEPENDS:${PN}-canary = "\
 # python3-pychromecast (>= 14.0.9)
 ALLOW_EMPTY:${PN}-cast = "1"
 RDEPENDS:${PN}-cast = "\
-    python3-pychromecast (>=14.0.7) \
+    python3-pychromecast (>=14.0.9) \
 "
 
 ALLOW_EMPTY:${PN}-ccm15 = "1"
@@ -1003,7 +1003,7 @@ RDEPENDS:${PN}-cppm-tracker = "\
 
 ALLOW_EMPTY:${PN}-cpuspeed = "1"
 RDEPENDS:${PN}-cpuspeed = "\
-    python3-py-cpuinfo (=9.0.0) \
+    python3-py-cpuinfo (>=9.0.0) \
 "
 
 ALLOW_EMPTY:${PN}-crownstone = "1"
@@ -1144,13 +1144,13 @@ RDEPENDS:${PN}-dlink = "\
 
 ALLOW_EMPTY:${PN}-dlna-dmr = "1"
 RDEPENDS:${PN}-dlna-dmr = "\
-    python3-async-upnp-client (=0.44.0) \
-    python3-getmac (=0.9.5) \
+    python3-async-upnp-client (>=0.45.0) \
+    python3-getmac (>=0.9.5) \
 "
 
 ALLOW_EMPTY:${PN}-dlna-dms = "1"
 RDEPENDS:${PN}-dlna-dms = "\
-    python3-async-upnp-client (=0.44.0) \
+    python3-async-upnp-client (>=0.45.0) \
 "
 
 ALLOW_EMPTY:${PN}-dnsip = "1"
@@ -1232,12 +1232,12 @@ RDEPENDS:${PN}-evohome = "\
 
 ALLOW_EMPTY:${PN}-ffmpeg = "1"
 RDEPENDS:${PN}-ffmpeg = "\
-    python3-ha-ffmpeg (=3.2.2) \
+    python3-ha-ffmpeg (>=3.2.2) \
 "
 
 ALLOW_EMPTY:${PN}-folder-watcher = "1"
 RDEPENDS:${PN}-folder-watcher = "\
-    python3-watchdog (=6.0.0) \
+    python3-watchdog (>=6.0.0) \
 "
 
 ALLOW_EMPTY:${PN}-fritz = "1"
@@ -1248,7 +1248,7 @@ RDEPENDS:${PN}-fritz = "\
 
 ALLOW_EMPTY:${PN}-fritzbox = "1"
 RDEPENDS:${PN}-fritzbox = "\
-    python3-pyfritzhome (=0.6.17) \
+    python3-pyfritzhome (>=0.6.17) \
 "
 
 ALLOW_EMPTY:${PN}-fritzbox-callmonitor = "1"
@@ -1299,7 +1299,7 @@ RDEPENDS:${PN}-google-translate = "\
 
 ALLOW_EMPTY:${PN}-hardware = "1"
 RDEPENDS:${PN}-hardware = "\
-    python3-psutil-home-assistant (=0.0.1) \
+    python3-psutil-home-assistant (>=0.0.1) \
     python3-universal-silabs-flasher (>=0.0.25) \
     python3-ha-silabs-firmware-client (>=0.2.0) \
 "
@@ -1329,7 +1329,7 @@ RDEPENDS:${PN}-ipp = "\
 
 ALLOW_EMPTY:${PN}-isal = "1"
 RDEPENDS:${PN}-isal = "\
-    python3-isal (=1.7.1) \
+    python3-isal (>=1.7.1) \
 "
 
 ALLOW_EMPTY:${PN}-keyboard-remote = "1"
@@ -1345,7 +1345,7 @@ RDEPENDS:${PN}-kwb = "\
 
 ALLOW_EMPTY:${PN}-letpot = "1"
 RDEPENDS:${PN}-letpot = "\
-    python3-letpot (=0.4.0) \
+    python3-letpot (>=0.6.2) \
 "
 
 ALLOW_EMPTY:${PN}-local-calendar = "1"
@@ -1360,7 +1360,7 @@ RDEPENDS:${PN}-local-todo = "\
 
 ALLOW_EMPTY:${PN}-luftdaten = "1"
 RDEPENDS:${PN}-luftdaten = "\
-    python3-luftdaten (=0.7.4) \
+    python3-luftdaten (>=0.7.4) \
 "
 
 ALLOW_EMPTY:${PN}-matter = "1"
@@ -1387,7 +1387,7 @@ RDEPENDS:${PN}-met = "\
 
 ALLOW_EMPTY:${PN}-mobile-app = "1"
 RDEPENDS:${PN}-mobile-app = "\
-    python3-pynacl (=1.5.0) \
+    python3-pynacl (>=1.5.0) \
 "
 
 ALLOW_EMPTY:${PN}-modbus = "1"
@@ -1402,19 +1402,19 @@ RDEPENDS:${PN}-mqtt = "\
 
 ALLOW_EMPTY:${PN}-namecheapdns = "1"
 RDEPENDS:${PN}-namecheapdns = "\
-    python3-defusedxml (=0.7.1) \
+    python3-defusedxml (>=0.7.1) \
 "
 
 ALLOW_EMPTY:${PN}-network = "1"
 RDEPENDS:${PN}-network = "\
-    python3-ifaddr (=0.2.0) \
+    python3-ifaddr (>=0.2.0) \
 "
 
 ALLOW_EMPTY:${PN}-nmap-tracker = "1"
 RDEPENDS:${PN}-nmap-tracker = "\
-    python3-aiooui (=0.1.9) \
-    python3-getmac (=0.9.5) \
-    python3-netmap (=0.7.0.2) \
+    python3-aiooui (>=0.1.9) \
+    python3-getmac (>=0.9.5) \
+    python3-netmap (>=0.7.0.2) \
 "
 
 ALLOW_EMPTY:${PN}-norway-air = "1"
@@ -1429,7 +1429,7 @@ RDEPENDS:${PN}-octoprint = "\
 
 ALLOW_EMPTY:${PN}-ohmconnect = "1"
 RDEPENDS:${PN}-ohmconnect = "\
-    python3-defusedxml (=0.7.1) \
+    python3-defusedxml (>=0.7.1) \
 "
 
 ALLOW_EMPTY:${PN}-otp = "1"
@@ -1439,7 +1439,7 @@ RDEPENDS:${PN}-otp = "\
 
 ALLOW_EMPTY:${PN}-owntracks = "1"
 RDEPENDS:${PN}-owntracks = "\
-    python3-pynacl (=1.5.0) \
+    python3-pynacl (>=1.5.0) \
 "
 
 ALLOW_EMPTY:${PN}-pandora = "1"
@@ -1479,8 +1479,8 @@ RDEPENDS:${PN}-qwikswitch = "\
 
 ALLOW_EMPTY:${PN}-radio-browser = "1"
 RDEPENDS:${PN}-radio-browser = "\
-    python3-radios (=0.3.2) \
-    python3-pycountry (=24.6.1) \
+    python3-radios (>=0.3.2) \
+    python3-pycountry (>=24.6.1) \
 "
 
 ALLOW_EMPTY:${PN}-recorder = "1"
@@ -1488,7 +1488,7 @@ RDEPENDS:${PN}-recorder = "\
     python3-sqlite3 \
     python3-fnv-hash-fast (>=1.5.0) \
     python3-sqlalchemy (>=2.0.41) \
-    python3-psutil-home-assistant (=0.0.1) \
+    python3-psutil-home-assistant (>=0.0.1) \
 "
 
 ALLOW_EMPTY:${PN}-route53 = "1"
@@ -1519,12 +1519,12 @@ RDEPENDS:${PN}-seven-segments = "\
 
 ALLOW_EMPTY:${PN}-shelly = "1"
 RDEPENDS:${PN}-shelly = "\
-    python3-aioshelly (=13.6.0) \
+    python3-aioshelly (>=13.8.0) \
 "
 
 ALLOW_EMPTY:${PN}-simplisafe = "1"
 RDEPENDS:${PN}-simplisafe = "\
-    python3-simplisafe-python (=2024.1.0) \
+    python3-simplisafe-python (>=2024.01.0) \
 "
 
 ALLOW_EMPTY:${PN}-smartthings = "1"
@@ -1539,12 +1539,12 @@ RDEPENDS:${PN}-steam-online = "\
 
 ALLOW_EMPTY:${PN}-sony-projector = "1"
 RDEPENDS:${PN}-sony-projector = "\
-    python3-pysdcp (=1) \
+    python3-pysdcp (>=1) \
 "
 
 ALLOW_EMPTY:${PN}-speedtestdotnet = "1"
 RDEPENDS:${PN}-speedtestdotnet = "\
-    python3-speedtest-cli (=2.1.3) \
+    python3-speedtest-cli (>=2.1.3) \
 "
 
 ALLOW_EMPTY:${PN}-sql = "1"
@@ -1555,7 +1555,7 @@ RDEPENDS:${PN}-sql = "\
 
 ALLOW_EMPTY:${PN}-ssdp = "1"
 RDEPENDS:${PN}-ssdp = "\
-    python3-async-upnp-client (=0.44.0) \
+    python3-async-upnp-client (>=0.45.0) \
 "
 
 ALLOW_EMPTY:${PN}-startca = "1"
@@ -1565,7 +1565,7 @@ RDEPENDS:${PN}-startca = "\
 
 ALLOW_EMPTY:${PN}-stream = "1"
 RDEPENDS:${PN}-stream = "\
-    python3-pyturbojpeg (=1.7.5) \
+    python3-pyturbojpeg (>=1.8.0) \
     python3-av (>=13.1.0) \
     python3-numpy (>=2.3.2) \
 "
@@ -1578,7 +1578,7 @@ RDEPENDS:${PN}-switchbot = "\
 ALLOW_EMPTY:${PN}-systemmonitor = "1"
 RDEPENDS:${PN}-systemmonitor = "\
     python3-psutil (>=7.0.0) \
-    python3-psutil-home-assistant (=0.0.1) \
+    python3-psutil-home-assistant (>=0.0.1) \
 "
 
 ALLOW_EMPTY:${PN}-ted5000 = "1"
@@ -1593,22 +1593,22 @@ RDEPENDS:${PN}-tibber = "\
 
 ALLOW_EMPTY:${PN}-trafikverket-camera = "1"
 RDEPENDS:${PN}-trafikverket-camera = "\
-    python3-pytrafikverket (=1.1.1) \
+    python3-pytrafikverket (>=1.1.1) \
 "
 
 ALLOW_EMPTY:${PN}-trafikverket-ferry = "1"
 RDEPENDS:${PN}-trafikverket-ferry = "\
-    python3-pytrafikverket (=1.1.1) \
+    python3-pytrafikverket (>=1.1.1) \
 "
 
 ALLOW_EMPTY:${PN}-trafikverket-train = "1"
 RDEPENDS:${PN}-trafikverket-train = "\
-    python3-pytrafikverket (=1.1.1) \
+    python3-pytrafikverket (>=1.1.1) \
 "
 
 ALLOW_EMPTY:${PN}-trafikverket-weatherstation = "1"
 RDEPENDS:${PN}-trafikverket-weatherstation = "\
-    python3-pytrafikverket (=1.1.1) \
+    python3-pytrafikverket (>=1.1.1) \
 "
 
 ALLOW_EMPTY:${PN}-trend = "1"
@@ -1618,19 +1618,19 @@ RDEPENDS:${PN}-trend = "\
 
 ALLOW_EMPTY:${PN}-tts = "1"
 RDEPENDS:${PN}-tts = "\
-    python3-mutagen (=1.47.0) \
+    python3-mutagen (>=1.47.0) \
 "
 
 ALLOW_EMPTY:${PN}-upnp = "1"
 RDEPENDS:${PN}-upnp = "\
-    python3-async-upnp-client (=0.44.0) \
-    python3-getmac (=0.9.5) \
+    python3-async-upnp-client (>=0.45.0) \
+    python3-getmac (>=0.9.5) \
 "
 
 ALLOW_EMPTY:${PN}-usb = "1"
 RDEPENDS:${PN}-usb = "\
-    python3-pyserial (=3.5) \
-    python3-aiousbwatcher (=1.1.1) \
+    python3-pyserial (>=3.5) \
+    python3-aiousbwatcher (>=1.1.1) \
 "
 
 ALLOW_EMPTY:${PN}-utility-meter = "1"
@@ -1645,17 +1645,17 @@ RDEPENDS:${PN}-vlc = "\
 
 ALLOW_EMPTY:${PN}-w800rf32 = "1"
 RDEPENDS:${PN}-w800rf32 = "\
-    python3-pyw800rf32 (= 0.4) \
+    python3-pyw800rf32 (>= 0.4) \
 "
 
 ALLOW_EMPTY:${PN}-wirelesstag = "1"
 RDEPENDS:${PN}-wirelesstag = "\
-    python3-wirelesstagpy (=0.8.1) \
+    python3-wirelesstagpy (>=0.8.1) \
 "
 
 ALLOW_EMPTY:${PN}-zabbix = "1"
 RDEPENDS:${PN}-zabbix = "\
-    python3-zabbix-utils (=2.0.2) \
+    python3-zabbix-utils (>=2.0.2) \
 "
 
 ALLOW_EMPTY:${PN}-zeroconf = "1"
@@ -1675,17 +1675,17 @@ RDEPENDS:${PN}-zha = "\
 
 ALLOW_EMPTY:${PN}-zoneminder = "1"
 RDEPENDS:${PN}-zoneminder = "\
-    python3-zm-py (=0.5.4) \
+    python3-zm-py (>=0.5.4) \
 "
 
 ALLOW_EMPTY:${PN}-zwave-js = "1"
 RDEPENDS:${PN}-zwave-js = "\
-    python3-pyserial (=3.5) \
+    python3-pyserial (>=3.5) \
     python3-zwave-js-server-python (>=0.67.1) \
 "
 
 ALLOW_EMPTY:${PN}-zwave-me = "1"
 RDEPENDS:${PN}-zwave-me = "\
-    python3-url-normalize (=2.2.1) \
-    python3-zwave-me-ws (=0.4.3) \
+    python3-url-normalize (>=2.2.1) \
+    python3-zwave-me-ws (>=0.4.3) \
 "
