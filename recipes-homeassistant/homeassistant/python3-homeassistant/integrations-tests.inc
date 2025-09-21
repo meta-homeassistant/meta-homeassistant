@@ -4,7 +4,6 @@ PACKAGECONFIG[integration-tests] = ",,,"
 COMPONENT_TEST_PACKAGES = ""
 COMPONENT_TEST_PACKAGES:append = "\
     ${@bb.utils.contains('PACKAGECONFIG', 'integration-tests', '\
-    ${PN}-acaia \
     ${PN}-accuweather \
     ${PN}-acmeda \
     ${PN}-adax \
@@ -82,7 +81,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-bluemaestro \
     ${PN}-blueprint \
     ${PN}-bluesound \
-    ${PN}-bluetooth \
     ${PN}-bluetooth-adapters \
     ${PN}-bluetooth-le-tracker \
     ${PN}-bmw-connected-drive \
@@ -190,7 +188,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-smartthings \
     ${PN}-ssdp \
     ${PN}-steam-online \
-    ${PN}-stream \
     ${PN}-switchbot \
     ${PN}-upnp \
     ${PN}-zha \
