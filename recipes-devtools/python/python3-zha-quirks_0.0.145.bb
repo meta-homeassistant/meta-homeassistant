@@ -9,7 +9,7 @@ DEPENDS += "\
 "
 
 SRC_URI:append = " file://0001-Allow-setuptools-git-versioning-3.patch"
-SRC_URI[sha256sum] = "8d2b27cb70481569207b0474edcb446bcdb8f2818a9497bd3d1b7ad1c7628aae"
+SRC_URI[sha256sum] = "489210218bef14fbc1e7b6713ab793ebbcbd89a87c1170cbd58146fe879d6d60"
 
 inherit pypi python_setuptools_build_meta
 
