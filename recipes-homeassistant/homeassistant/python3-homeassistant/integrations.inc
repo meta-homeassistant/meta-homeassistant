@@ -767,7 +767,7 @@ RDEPENDS:${PN}-bluetooth = "\
     python3-bluetooth-adapters (>=2.1.0) \
     python3-bluetooth-auto-recovery (>=1.5.2) \
     python3-bluetooth-data-tools (>=1.28.2) \
-    python3-dbus-fast (>=2.44.3) \
+    python3-dbus-fast (>=2.44.1) \
     python3-habluetooth (>=5.6.4) \
 "
 

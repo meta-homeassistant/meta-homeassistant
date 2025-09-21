@@ -4,11 +4,12 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=f4eda51018051de136d3b3742e9a7a40"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-inherit setuptools3 ptest-python-pytest
+inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-SRC_URI = "git://github.com/StevenLooman/async_upnp_client.git;protocol=https;branch=development"
-SRCREV = "1bbeeb178f3cd69b387b43d1eb359aa2e45d347d"
-SRC_URI[sha256sum] = "569b8e56e4ffae73f1acb45d2f70ff65a263f70b964d482081b82f5561cd8ab4"
+SRC_URI[sha256sum] = "f5814b6c24ab97ba0f0940eb20624355880ae45e2a87dadbfa7b8482eccf8d3b"
+
+PYPI_PACKAGE = "async_upnp_client"
+UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.9.1) \
