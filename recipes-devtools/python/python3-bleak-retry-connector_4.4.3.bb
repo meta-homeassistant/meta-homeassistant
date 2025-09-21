@@ -4,11 +4,12 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d8b5b84f8af09011094cd7c29a9f972c"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "5c772298b86bcd3b46a57b16cdd9aa5fca9434ebcf87d72493af94e4f4ca2a6e"
+SRC_URI[sha256sum] = "70aa305dbd26eaf0586dd24723daac93ee3dd6a465e9782bf02b711fcbc4a527"
 
 inherit pypi python_poetry_core
 
 PYPI_PACKAGE = "bleak_retry_connector"
+UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} = "\
     python3-core (>=3.10) \
