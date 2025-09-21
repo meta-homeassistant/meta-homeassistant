@@ -572,7 +572,7 @@ RDEPENDS:${PN}-assist-pipeline = "\
 ALLOW_EMPTY:${PN}-asuswrt = "1"
 RDEPENDS:${PN}-asuswrt = "\
     python3-aioasuswrt (>=1.4.0) \
-    python3-pyasuswrt (>=0.1.21) \
+    python3-asusrouter (>=1.20.1) \
 "
 
 ALLOW_EMPTY:${PN}-atag = "1"
