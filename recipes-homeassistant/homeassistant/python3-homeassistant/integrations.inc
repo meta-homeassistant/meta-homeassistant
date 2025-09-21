@@ -43,6 +43,7 @@ INTEGRATIONS = "\
     ${PN}-aosmith \
     ${PN}-apache-kafka \
     ${PN}-apcupsd \
+    ${PN}-api \
     ${PN}-apple-tv \
     ${PN}-aprilaire \
     ${PN}-aprs \

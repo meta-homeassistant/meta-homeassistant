@@ -7,6 +7,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-accuweather \
     ${PN}-acmeda \
     ${PN}-adax \
+    ${PN}-adguard \
     ${PN}-advantage-air \
     ${PN}-aemet \
     ${PN}-aftership \
@@ -15,7 +16,9 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-air-quality \
     ${PN}-airgradient \
     ${PN}-airly \
+    ${PN}-airnow \
     ${PN}-airos \
+    ${PN}-airq \
     ${PN}-airthings \
     ${PN}-airthings-ble \
     ${PN}-airtouch4 \
@@ -76,6 +79,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-bayesian \
     ${PN}-binary-sensor \
     ${PN}-blackbird \
+    ${PN}-blebox \
     ${PN}-blink \
     ${PN}-blue-current \
     ${PN}-bluemaestro \
@@ -95,6 +99,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-brunt \
     ${PN}-bryant-evolution \
     ${PN}-bsblan \
+    ${PN}-bthome \
     ${PN}-buienradar \
     ${PN}-button \
     ${PN}-caldav \
@@ -108,7 +113,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-chacon-dio \
     ${PN}-clicksend-tts \
     ${PN}-climate \
-    ${PN}-cloud \
     ${PN}-cloudflare \
     ${PN}-co2signal \
     ${PN}-coinbase \
@@ -173,25 +177,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-duotecno \
     ${PN}-dwd-weather-warnings \
     ${PN}-dynalite \
-    ${PN}-frontend \
-    ${PN}-homekit \
-    ${PN}-hue \
-    ${PN}-letpot \
-    ${PN}-local-calendar \
-    ${PN}-local-todo \
-    ${PN}-manual \
-    ${PN}-matter \
-    ${PN}-mcp \
-    ${PN}-modbus \
-    ${PN}-scrape \
-    ${PN}-shelly \
-    ${PN}-smartthings \
-    ${PN}-ssdp \
-    ${PN}-steam-online \
-    ${PN}-switchbot \
-    ${PN}-upnp \
-    ${PN}-zha \
-    ${PN}-zwave-js \
 ', '', d)}"
 
 # The following component is specific to this MACHINE_ARCH so treat it as such
