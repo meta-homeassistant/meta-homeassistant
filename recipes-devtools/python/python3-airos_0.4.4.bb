@@ -4,7 +4,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b6ad717ddaae2251044bbbb7bd265b2a"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "4fb9ae32b85eac9b964fecb5ea6a5c87ecf8427f3a32e05d05e7286be1e4a9de"
+SRC_URI[sha256sum] = "c63201b914be9ed4812a8ea3b3dffb5a3787319d5ac7830de614451c28efa15c"
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
