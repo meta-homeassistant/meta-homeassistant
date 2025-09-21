@@ -4,12 +4,9 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=dab31a1d28183826937f4b152143a33f"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-inherit python_setuptools_build_meta ptest-python-pytest
+inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-SRC_URI = "git://github.com/home-assistant-libs/aioshelly.git;protocol=https;branch=main"
-SRC_URI[sha256sum] = "347c1d5dc1c5f6d2d3f15d04cdad54209cb928251ba46ae4f3e173185f6a13b4"
-
-SRCREV = "ab7f4b7af6cf73d57b51f8459f80480ace559361"
+SRC_URI[sha256sum] = "c97a317cd56bb73fc13638393b9affb00e18d14a6ba32419e8a3480cf7fce239"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.11.1) \
