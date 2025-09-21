@@ -6,7 +6,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "8f330cd87425adbc9bb37a32ebb14a7e4bad18afc8ffe5a22c4a5f0ad51c447f"
 
-inherit pypi python_poetry_core
+inherit pypi python_hatchling
 
 PYPI_PACKAGE = "pyblu"
 
