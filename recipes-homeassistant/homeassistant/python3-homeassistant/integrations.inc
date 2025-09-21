@@ -881,7 +881,7 @@ RDEPENDS:${PN}-canary = "\
 # python3-pychromecast (>= 14.0.9)
 ALLOW_EMPTY:${PN}-cast = "1"
 RDEPENDS:${PN}-cast = "\
-    python3-pychromecast (>=14.0.9) \
+    python3-pychromecast (>=14.0.7) \
 "
 
 ALLOW_EMPTY:${PN}-ccm15 = "1"
