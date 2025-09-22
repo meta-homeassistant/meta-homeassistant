@@ -18,6 +18,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-airgradient \
     python3-homeassistant-airly \
     python3-homeassistant-airnow \
+    python3-homeassistant-airos \
     python3-homeassistant-airq \
     python3-homeassistant-airthings \
     python3-homeassistant-airthings-ble \
@@ -27,6 +28,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-airvisual-pro \
     python3-homeassistant-airzone \
     python3-homeassistant-airzone-cloud \
+    python3-homeassistant-aladdin-connect \
     python3-homeassistant-alarmdecoder \
     python3-homeassistant-alpha-vantage \
     python3-homeassistant-altruist \

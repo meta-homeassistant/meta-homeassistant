@@ -1,4 +1,4 @@
-From 563d70d4997afc206827951130b3f0be715939b7 Mon Sep 17 00:00:00 2001
+From cbdc519d631aca708857f93b9ffcfbf8faf62722 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Tue, 22 Jul 2025 00:40:38 +0200
 Subject: [PATCH] add missing build file and PEP517 compliant
@@ -14,7 +14,7 @@ Upstream-Status: Pending
  create mode 100644 requirements_setup.txt
 
 diff --git a/pyproject.toml b/pyproject.toml
-index faa7bbe..32418f7 100644
+index 9feb4e0..ab6ec47 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,3 +1,28 @@

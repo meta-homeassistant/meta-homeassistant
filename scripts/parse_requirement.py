@@ -1,3 +1,4 @@
+
 """Module providing a way of creating a CSV with all the dependencies of HomeAssistant"""
 
 import re
@@ -170,7 +171,8 @@ def get_recipes(ha_path):
                 for f in os.scandir(search_path)
                 if (f.is_file() and f.name.endswith(".bb"))
             )
-    version_pattern = re.compile(r'_([\d.]+)$')
+    # Accept versions like 0.0.1, 1.2.3.post1, 0.0.1.dev2, etc.
+    version_pattern = re.compile(r'_([0-9]+(?:\.[0-9]+)*(?:[\.\-A-Za-z0-9]+)?)$')
     
     # Filter items that match the version pattern
     filtered_recipes = [i for i in list_of_recipes if version_pattern.search(i)]

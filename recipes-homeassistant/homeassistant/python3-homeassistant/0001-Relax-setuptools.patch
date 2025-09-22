@@ -1,4 +1,4 @@
-From 5d9a9d00ade5fdc1d706bf1aa2faf8786d99866c Mon Sep 17 00:00:00 2001
+From f2d8aae2f8e480ecf8610e0982f101d5369c0868 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Sun, 11 May 2025 20:35:35 +0000
 Subject: [PATCH] Relax setuptools
@@ -10,7 +10,7 @@ Upstream-Status: Pending
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index 03ad9af59a1..c22bc6ef018 100644
+index ef4603faa81..743e8ca9e51 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@

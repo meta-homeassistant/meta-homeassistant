@@ -4,10 +4,10 @@ PACKAGECONFIG[integration-tests] = ",,,"
 COMPONENT_TEST_PACKAGES = ""
 COMPONENT_TEST_PACKAGES:append = "\
     ${@bb.utils.contains('PACKAGECONFIG', 'integration-tests', '\
-    ${PN}-acaia \
     ${PN}-accuweather \
     ${PN}-acmeda \
     ${PN}-adax \
+    ${PN}-adguard \
     ${PN}-advantage-air \
     ${PN}-aemet \
     ${PN}-aftership \
@@ -16,6 +16,9 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-air-quality \
     ${PN}-airgradient \
     ${PN}-airly \
+    ${PN}-airnow \
+    ${PN}-airos \
+    ${PN}-airq \
     ${PN}-airthings \
     ${PN}-airthings-ble \
     ${PN}-airtouch4 \
@@ -64,6 +67,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-awair \
     ${PN}-aws \
     ${PN}-aws-s3 \
+    ${PN}-axis \
     ${PN}-azure-data-explorer \
     ${PN}-azure-devops \
     ${PN}-azure-event-hub \
@@ -75,6 +79,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-bayesian \
     ${PN}-binary-sensor \
     ${PN}-blackbird \
+    ${PN}-blebox \
     ${PN}-blink \
     ${PN}-blue-current \
     ${PN}-bluemaestro \
@@ -89,10 +94,12 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-braviatv \
     ${PN}-bring \
     ${PN}-broadlink \
+    ${PN}-brother \
     ${PN}-brottsplatskartan \
     ${PN}-brunt \
     ${PN}-bryant-evolution \
     ${PN}-bsblan \
+    ${PN}-bthome \
     ${PN}-buienradar \
     ${PN}-button \
     ${PN}-caldav \
@@ -117,6 +124,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-config \
     ${PN}-configurator \
     ${PN}-control4 \
+    ${PN}-conversation \
     ${PN}-cookidoo \
     ${PN}-coolmaster \
     ${PN}-counter \
@@ -169,10 +177,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-duotecno \
     ${PN}-dwd-weather-warnings \
     ${PN}-dynalite \
-    ${PN}-manual \
-    ${PN}-mcp \
-    ${PN}-smartthings \
-    ${PN}-steam-online \
 ', '', d)}"
 
 # The following component is specific to this MACHINE_ARCH so treat it as such

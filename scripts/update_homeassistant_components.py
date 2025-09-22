@@ -66,6 +66,20 @@ if updated:
 else:
     print("No upgrades performed.")
 
+# Write upgraded components to a CSV next to this script
+output_csv = os.path.join(script_dir, f"upgraded_components_{date}.csv")
+with open(output_csv, 'w', newline='') as out_f:
+    out_writer = csv.writer(out_f)
+    out_writer.writerow(['package', 'old_version', 'new_version'])
+    for u in updated:
+        # entries are like 'python3-xxx: old -> new'
+        m = re.match(r'([^:]+):\s*([0-9a-zA-Z\.\-]+)\s*->\s*([0-9a-zA-Z\.\-]+)', u)
+        if m:
+            out_writer.writerow([m.group(1).strip(), m.group(2).strip(), m.group(3).strip()])
+        else:
+            out_writer.writerow([u, '', ''])
+print(f"Wrote upgraded components to: {output_csv}")
+
 # --- Update integrations-tests.inc ---
 tests_file = os.path.join(script_dir, "../recipes-homeassistant/homeassistant/python3-homeassistant/integrations-tests.inc")
 
