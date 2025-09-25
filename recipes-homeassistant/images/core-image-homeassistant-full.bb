@@ -187,7 +187,59 @@ IMAGE_INSTALL = "\
     python3-homeassistant-duotecno \
     python3-homeassistant-dwd-weather-warnings \
     python3-homeassistant-dynalite \
+    python3-homeassistant-eafm \
+    python3-homeassistant-easyenergy \
+    python3-homeassistant-ebox \
+    python3-homeassistant-ebusd \
+    python3-homeassistant-ecoal-boiler \
+    python3-homeassistant-ecobee \
+    python3-homeassistant-ecoforest \
+    python3-homeassistant-econet \
+    python3-homeassistant-ecovacs \
+    python3-homeassistant-ecowitt \
+    python3-homeassistant-eddystone-temperature \
+    python3-homeassistant-edimax \
+    python3-homeassistant-edl21 \
+    python3-homeassistant-efergy \
+    python3-homeassistant-egardia \
+    python3-homeassistant-eheimdigital \
+    python3-homeassistant-electrasmart \
+    python3-homeassistant-electric-kiwi \
+    python3-homeassistant-elevenlabs \
+    python3-homeassistant-elgato \
+    python3-homeassistant-eliqonline \
+    python3-homeassistant-elkm1 \
+    python3-homeassistant-elmax \
+    python3-homeassistant-elv \
+    python3-homeassistant-elvia \
+    python3-homeassistant-emby \
+    python3-homeassistant-emoncms \
+    python3-homeassistant-emoncms-history \
+    python3-homeassistant-emonitor \
+    python3-homeassistant-emulated-kasa \
+    python3-homeassistant-emulated-roku \
+    python3-homeassistant-energenie-power-sockets \
+    python3-homeassistant-energyzero \
+    python3-homeassistant-enigma2 \
+    python3-homeassistant-enocean \
+    python3-homeassistant-enphase-envoy \
+    python3-homeassistant-entur-public-transport \
+    python3-homeassistant-environment-canada \
+    python3-homeassistant-envisalink \
+    python3-homeassistant-ephember \
+    python3-homeassistant-epic-games-store \
+    python3-homeassistant-epion \
+    python3-homeassistant-epson \
+    python3-homeassistant-eq3btsmart \
+    python3-homeassistant-escea \
+    python3-homeassistant-esphome \
+    python3-homeassistant-etherscan \
+    python3-homeassistant-eufy \
+    python3-homeassistant-eufylife-ble \
+    python3-homeassistant-everlights \
+    python3-homeassistant-evil-genius-labs \
     python3-homeassistant-evohome \
+    python3-homeassistant-ezviz \
     python3-homeassistant-ffmpeg \
     python3-homeassistant-fritz \
     python3-homeassistant-fritzbox \

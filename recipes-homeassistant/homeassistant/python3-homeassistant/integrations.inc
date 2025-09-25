@@ -183,7 +183,59 @@ INTEGRATIONS = "\
     ${PN}-duotecno \
     ${PN}-dwd-weather-warnings \
     ${PN}-dynalite \
+    ${PN}-eafm \
+    ${PN}-easyenergy \
+    ${PN}-ebox \
+    ${PN}-ebusd \
+    ${PN}-ecoal-boiler \
+    ${PN}-ecobee \
+    ${PN}-ecoforest \
+    ${PN}-econet \
+    ${PN}-ecovacs \
+    ${PN}-ecowitt \
+    ${PN}-eddystone-temperature \
+    ${PN}-edimax \
+    ${PN}-edl21 \
+    ${PN}-efergy \
+    ${PN}-egardia \
+    ${PN}-eheimdigital \
+    ${PN}-electrasmart \
+    ${PN}-electric-kiwi \
+    ${PN}-elevenlabs \
+    ${PN}-elgato \
+    ${PN}-eliqonline \
+    ${PN}-elkm1 \
+    ${PN}-elmax \
+    ${PN}-elv \
+    ${PN}-elvia \
+    ${PN}-emby \
+    ${PN}-emoncms \
+    ${PN}-emoncms-history \
+    ${PN}-emonitor \
+    ${PN}-emulated-kasa \
+    ${PN}-emulated-roku \
+    ${PN}-energenie-power-sockets \
+    ${PN}-energyzero \
+    ${PN}-enigma2 \
+    ${PN}-enocean \
+    ${PN}-enphase-envoy \
+    ${PN}-entur-public-transport \
+    ${PN}-environment-canada \
+    ${PN}-envisalink \
+    ${PN}-ephember \
+    ${PN}-epic-games-store \
+    ${PN}-epion \
+    ${PN}-epson \
+    ${PN}-eq3btsmart \
+    ${PN}-escea \
+    ${PN}-esphome \
+    ${PN}-etherscan \
+    ${PN}-eufy \
+    ${PN}-eufylife-ble \
+    ${PN}-everlights \
+    ${PN}-evil-genius-labs \
     ${PN}-evohome \
+    ${PN}-ezviz \
     ${PN}-ffmpeg \
     ${PN}-folder-watcher \
     ${PN}-fritz \
@@ -1225,10 +1277,273 @@ RDEPENDS:${PN}-dynalite = "\
     python3-dynalite-devices (>=0.1.47) \
     python3-dynalite-panel (>=0.0.4) \
 "
+ALLOW_EMPTY:${PN}-eafm = "1"
+RDEPENDS:${PN}-eafm = "\
+    python3-aioeafm (>=0.1.2) \
+"
+
+ALLOW_EMPTY:${PN}-easyenergy = "1"
+RDEPENDS:${PN}-easyenergy = "\
+    python3-easyenergy (>=2.1.2) \
+"
+
+ALLOW_EMPTY:${PN}-ebox = "1"
+RDEPENDS:${PN}-ebox = "\
+    python3-pyebox (>=1.1.4) \
+"
+
+ALLOW_EMPTY:${PN}-ebusd = "1"
+RDEPENDS:${PN}-ebusd = "\
+    python3-ebusdpy (>=0.0.17) \
+"
+
+ALLOW_EMPTY:${PN}-ecoal-boiler = "1"
+RDEPENDS:${PN}-ecoal-boiler = "\
+    python3-ecoaliface (>=0.4.0) \
+"
+
+ALLOW_EMPTY:${PN}-ecobee = "1"
+RDEPENDS:${PN}-ecobee = "\
+    python3-python-ecobee-api (>=0.2.20) \
+"
+
+ALLOW_EMPTY:${PN}-ecoforest = "1"
+RDEPENDS:${PN}-ecoforest = "\
+    python3-pyecoforest (>=0.4.0) \
+"
+
+ALLOW_EMPTY:${PN}-econet = "1"
+RDEPENDS:${PN}-econet = "\
+    python3-pyeconet (>=0.1.28) \
+"
+
+ALLOW_EMPTY:${PN}-ecovacs = "1"
+RDEPENDS:${PN}-ecovacs = "\
+    python3-py-sucks (>=0.9.11) \
+    python3-deebot-client (>=13.7.0) \
+"
+
+ALLOW_EMPTY:${PN}-ecowitt = "1"
+RDEPENDS:${PN}-ecowitt = "\
+    python3-aioecowitt (>=2025.9.1) \
+"
+
+ALLOW_EMPTY:${PN}-eddystone-temperature = "1"
+RDEPENDS:${PN}-eddystone-temperature = "\
+    python3-beacontools (>=2.1.0) \
+"
+
+ALLOW_EMPTY:${PN}-edimax = "1"
+RDEPENDS:${PN}-edimax = "\
+    python3-pyedimax (>=0.2.1) \
+"
+
+ALLOW_EMPTY:${PN}-edl21 = "1"
+RDEPENDS:${PN}-edl21 = "\
+    python3-pysml (>=0.1.5) \
+"
+
+ALLOW_EMPTY:${PN}-efergy = "1"
+RDEPENDS:${PN}-efergy = "\
+    python3-pyefergy (>=22.5.0) \
+"
+
+ALLOW_EMPTY:${PN}-egardia = "1"
+RDEPENDS:${PN}-egardia = "\
+    python3-pythonegardia (>=1.0.52) \
+"
+
+ALLOW_EMPTY:${PN}-eheimdigital = "1"
+RDEPENDS:${PN}-eheimdigital = "\
+    python3-eheimdigital (>=1.3.0) \
+"
+
+ALLOW_EMPTY:${PN}-electrasmart = "1"
+RDEPENDS:${PN}-electrasmart = "\
+    python3-pyelectra (>=1.2.4) \
+"
+
+ALLOW_EMPTY:${PN}-electric-kiwi = "1"
+RDEPENDS:${PN}-electric-kiwi = "\
+    python3-electrickiwi-api (>=0.9.14) \
+"
+
+ALLOW_EMPTY:${PN}-elevenlabs = "1"
+RDEPENDS:${PN}-elevenlabs = "\
+    python3-elevenlabs (>=2.3.0) \
+"
+
+ALLOW_EMPTY:${PN}-elgato = "1"
+RDEPENDS:${PN}-elgato = "\
+    python3-elgato (>=5.1.2) \
+"
+
+ALLOW_EMPTY:${PN}-eliqonline = "1"
+RDEPENDS:${PN}-eliqonline = "\
+    python3-eliqonline (>=1.2.2) \
+"
+
+ALLOW_EMPTY:${PN}-elkm1 = "1"
+RDEPENDS:${PN}-elkm1 = "\
+    python3-elkm1-lib (>=2.2.11) \
+"
+
+ALLOW_EMPTY:${PN}-elmax = "1"
+RDEPENDS:${PN}-elmax = "\
+    python3-elmax-api (>=0.0.6.4rc0) \
+"
+
+ALLOW_EMPTY:${PN}-elv = "1"
+RDEPENDS:${PN}-elv = "\
+    python3-pypca (>=0.0.7) \
+"
+
+ALLOW_EMPTY:${PN}-elvia = "1"
+RDEPENDS:${PN}-elvia = "\
+    python3-elvia (>=0.1.0) \
+"
+
+ALLOW_EMPTY:${PN}-emby = "1"
+RDEPENDS:${PN}-emby = "\
+    python3-pyemby (>=1.10) \
+"
+
+ALLOW_EMPTY:${PN}-emoncms = "1"
+RDEPENDS:${PN}-emoncms = "\
+    python3-pyemoncms (>=0.1.2) \
+"
+
+ALLOW_EMPTY:${PN}-emoncms-history = "1"
+RDEPENDS:${PN}-emoncms-history = "\
+    python3-pyemoncms (>=0.1.2) \
+"
+
+ALLOW_EMPTY:${PN}-emonitor = "1"
+RDEPENDS:${PN}-emonitor = "\
+    python3-aioemonitor (>=1.0.5) \
+"
+
+ALLOW_EMPTY:${PN}-emulated-kasa = "1"
+RDEPENDS:${PN}-emulated-kasa = "\
+    python3-sense-energy (>=0.13.8) \
+"
+
+ALLOW_EMPTY:${PN}-emulated-roku = "1"
+RDEPENDS:${PN}-emulated-roku = "\
+    python3-emulated-roku (>=0.3.0) \
+"
+
+ALLOW_EMPTY:${PN}-energenie-power-sockets = "1"
+RDEPENDS:${PN}-energenie-power-sockets = "\
+    python3-pyegps (>=0.2.5) \
+"
+
+ALLOW_EMPTY:${PN}-energyzero = "1"
+RDEPENDS:${PN}-energyzero = "\
+    python3-energyzero (>=2.1.1) \
+"
+
+ALLOW_EMPTY:${PN}-enigma2 = "1"
+RDEPENDS:${PN}-enigma2 = "\
+    python3-openwebifpy (>=4.3.1) \
+"
+
+ALLOW_EMPTY:${PN}-enocean = "1"
+RDEPENDS:${PN}-enocean = "\
+    python3-enocean (>=0.50) \
+"
+
+ALLOW_EMPTY:${PN}-enphase-envoy = "1"
+RDEPENDS:${PN}-enphase-envoy = "\
+    python3-pyenphase (>=2.3.0) \
+"
+
+ALLOW_EMPTY:${PN}-entur-public-transport = "1"
+RDEPENDS:${PN}-entur-public-transport = "\
+    python3-enturclient (>=0.2.4) \
+"
+
+ALLOW_EMPTY:${PN}-environment-canada = "1"
+RDEPENDS:${PN}-environment-canada = "\
+    python3-env-canada (>=0.11.2) \
+"
+
+ALLOW_EMPTY:${PN}-envisalink = "1"
+RDEPENDS:${PN}-envisalink = "\
+    python3-pyenvisalink (>=4.7) \
+"
+
+ALLOW_EMPTY:${PN}-ephember = "1"
+RDEPENDS:${PN}-ephember = "\
+    python3-pyephember2 (>=0.4.12) \
+"
+
+ALLOW_EMPTY:${PN}-epic-games-store = "1"
+RDEPENDS:${PN}-epic-games-store = "\
+    python3-epicstore-api (>=0.1.7) \
+"
+
+ALLOW_EMPTY:${PN}-epion = "1"
+RDEPENDS:${PN}-epion = "\
+    python3-epion (>=0.0.3) \
+"
+
+ALLOW_EMPTY:${PN}-epson = "1"
+RDEPENDS:${PN}-epson = "\
+    python3-epson-projector (>=0.5.1) \
+"
+
+ALLOW_EMPTY:${PN}-eq3btsmart = "1"
+RDEPENDS:${PN}-eq3btsmart = "\
+    python3-eq3btsmart (>=2.1.0) \
+    python3-bleak-esphome (>=3.3.0) \
+"
+
+ALLOW_EMPTY:${PN}-escea = "1"
+RDEPENDS:${PN}-escea = "\
+    python3-pescea (>=1.0.12) \
+"
+
+ALLOW_EMPTY:${PN}-esphome = "1"
+RDEPENDS:${PN}-esphome = "\
+    python3-aioesphomeapi (>=39.0.1) \
+    python3-esphome-dashboard-api (>=1.3.0) \
+    python3-bleak-esphome (>=3.3.0) \
+"
+
+ALLOW_EMPTY:${PN}-etherscan = "1"
+RDEPENDS:${PN}-etherscan = "\
+    python3-python-etherscan-api (>=0.0.3) \
+"
+
+ALLOW_EMPTY:${PN}-eufy = "1"
+RDEPENDS:${PN}-eufy = "\
+    python3-lakeside (>=0.13) \
+"
+
+ALLOW_EMPTY:${PN}-eufylife-ble = "1"
+RDEPENDS:${PN}-eufylife-ble = "\
+    python3-eufylife-ble-client (>=0.1.8) \
+"
+
+ALLOW_EMPTY:${PN}-everlights = "1"
+RDEPENDS:${PN}-everlights = "\
+    python3-pyeverlights (>=0.1.0) \
+"
+
+ALLOW_EMPTY:${PN}-evil-genius-labs = "1"
+RDEPENDS:${PN}-evil-genius-labs = "\
+    python3-pyevilgenius (>=2.0.0) \
+"
 
 ALLOW_EMPTY:${PN}-evohome = "1"
 RDEPENDS:${PN}-evohome = "\
     python3-evohome-async (>=1.0.5) \
+"
+
+ALLOW_EMPTY:${PN}-ezviz = "1"
+RDEPENDS:${PN}-ezviz = "\
+    python3-pyezvizapi (>=1.0.0.7) \
 "
 
 ALLOW_EMPTY:${PN}-ffmpeg = "1"

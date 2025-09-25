@@ -177,6 +177,50 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-duotecno \
     ${PN}-dwd-weather-warnings \
     ${PN}-dynalite \
+    ${PN}-eafm \
+    ${PN}-easyenergy \
+    ${PN}-ecobee \
+    ${PN}-ecoforest \
+    ${PN}-econet \
+    ${PN}-ecovacs \
+    ${PN}-ecowitt \
+    ${PN}-eddystone-temperature \
+    ${PN}-edl21 \
+    ${PN}-efergy \
+    ${PN}-eheimdigital \
+    ${PN}-eight-sleep \
+    ${PN}-electrasmart \
+    ${PN}-electric-kiwi \
+    ${PN}-elevenlabs \
+    ${PN}-elgato \
+    ${PN}-elkm1 \
+    ${PN}-elmax \
+    ${PN}-elvia \
+    ${PN}-emoncms \
+    ${PN}-emoncms-history \
+    ${PN}-emonitor \
+    ${PN}-emulated-kasa \
+    ${PN}-emulated-roku \
+    ${PN}-emulated-hue \
+    ${PN}-energenie-power-sockets \
+    ${PN}-energy \
+    ${PN}-energyzero \
+    ${PN}-enigma2 \
+    ${PN}-enocean \
+    ${PN}-enphase-envoy \
+    ${PN}-environment-canada \
+    ${PN}-epic-games-store \
+    ${PN}-epion \
+    ${PN}-epson \
+    ${PN}-eq3btsmart \
+    ${PN}-escea \
+    ${PN}-esphome \
+    ${PN}-eufylife-ble \
+    ${PN}-event \
+    ${PN}-everlights \
+    ${PN}-evil-genius-labs \
+    ${PN}-evohome \
+    ${PN}-ezviz \
 ', '', d)}"
 
 # The following component is specific to this MACHINE_ARCH so treat it as such
