@@ -1,0 +1,41 @@
+From f1b38c192ed40593c4520f3241a3e1d29db3d710 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Sat, 27 Sep 2025 21:31:02 +0200
+Subject: [PATCH] fix compilation
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ pyproject.toml | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index 56dc993..1d7f8f1 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -45,13 +45,13 @@ requires = ["hatchling"]
+ build-backend = "hatchling.build"
+ 
+ [tool.hatch.build]
+-sources = ["src"]
++sources = ["."]
+ 
+ [tool.hatch.build.targets.wheel]
+-packages = ["src/evohomeasync", "src/evohomeasync2", "src/evohome"]
++packages = ["evohomeasync", "evohomeasync2", "evohome"]
+ 
+ [tool.hatch.version]
+-path = "src/evohome/__init__.py"
++path = "evohome/__init__.py"
+ 
+ 
+ #
+@@ -74,7 +74,7 @@ python_version = "3.12"
+ # enable_incomplete_feature = ["NewGenericSyntax"]
+ 
+ exclude = ["docs", "tests/tests_cc"]
+-files = ["cli", "src", "tests"]
++files = ["cli", "tests"]
+ 
+ no_implicit_optional = true
+ 
