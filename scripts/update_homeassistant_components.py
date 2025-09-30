@@ -102,26 +102,28 @@ with open(csv_file, newline='') as f:
 with open(tests_file, 'r') as f:
     tests_lines = f.readlines()
 
-# Find block start and end
-block_start_idx = None
-block_end_idx = None
-for idx, line in enumerate(tests_lines):
-    if block_start_idx is None and line.strip().startswith('COMPONENT_TEST_PACKAGES:append = "\\'):
-        block_start_idx = idx + 1  # block starts after this line
-    if block_start_idx is not None and "', '', d)}" in line:
-        block_end_idx = idx
-        break
-
-if block_start_idx is None or block_end_idx is None:
-    print("COMPONENT_TEST_PACKAGES:append block not found.")
-    sys.exit(1)
-
-# Parse current test packages
 current_tests = set()
-for line in tests_lines[block_start_idx:block_end_idx]:
-    m = re.match(r'\s*\$\{PN\}-([a-z0-9_\-]+) \\', line)
-    if m:
-        current_tests.add(m.group(1).replace('-', '_'))
+# Find block start and end
+for section in ['COMPONENT_TEST_PACKAGES_FLAKY:append', 'COMPONENT_TEST_PACKAGES:append']:
+    block_start_idx = None
+    block_end_idx = None
+    for idx, line in enumerate(tests_lines):
+        if block_start_idx is None and line.strip().startswith(section + ' = "\\'):
+            block_start_idx = idx + 1  # block starts after this line
+        if block_start_idx is not None and "', '', d)}" in line:
+            block_end_idx = idx
+            break
+
+    if block_start_idx is None or block_end_idx is None:
+        print("COMPONENT_TEST_PACKAGES:append block not found.")
+        sys.exit(1)
+
+    # Parse current test packages
+    
+    for line in tests_lines[block_start_idx:block_end_idx]:
+        m = re.match(r'\s*\$\{PN\}-([a-z0-9_\-]+) \\', line)
+        if m:
+            current_tests.add(m.group(1).replace('-', '_'))
 
 for comp_key, (component_col, test_col) in test_status.items():
     if test_col == 'y' and comp_key not in current_tests:

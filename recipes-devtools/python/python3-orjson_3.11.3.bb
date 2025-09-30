@@ -13,7 +13,7 @@ SRC_URI:append = " \
     file://0001-Fix-compilation-error-for-orjson.patch \
 "
 
-RDEPENDS:${PN}+= "\
+RDEPENDS:${PN} += "\
     python3-zoneinfo \
 "
 
