@@ -1,6 +1,17 @@
 PACKAGECONFIG ??= ""
 PACKAGECONFIG[integration-tests] = ",,,"
 
+COMPONENT_TEST_PACKAGES_FLAKY = ""
+COMPONENT_TEST_PACKAGES_FLAKY:append = "\
+    ${@bb.utils.contains('PACKAGECONFIG', 'integration-tests', '\
+    ${PN}-assist-pipeline \
+    ${PN}-backup \
+    ${PN}-bang-olufsen \
+    ${PN}-dhcp \
+    ${PN}-dsmr \
+    ${PN}-elevenlabs \
+', '', d)}"
+
 COMPONENT_TEST_PACKAGES = ""
 COMPONENT_TEST_PACKAGES:append = "\
     ${@bb.utils.contains('PACKAGECONFIG', 'integration-tests', '\
@@ -12,7 +23,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-aemet \
     ${PN}-aftership \
     ${PN}-agent-dvr \
-    ${PN}-ai-task \
     ${PN}-air-quality \
     ${PN}-airgradient \
     ${PN}-airly \
@@ -72,10 +82,8 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-azure-devops \
     ${PN}-azure-event-hub \
     ${PN}-azure-storage \
-    ${PN}-backup \
     ${PN}-baf \
     ${PN}-balboa \
-    ${PN}-bang-olufsen \
     ${PN}-bayesian \
     ${PN}-binary-sensor \
     ${PN}-blackbird \
@@ -105,7 +113,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-caldav \
     ${PN}-calendar \
     ${PN}-cambridge-audio \
-    ${PN}-camera \
     ${PN}-canary \
     ${PN}-cast \
     ${PN}-ccm15 \
@@ -152,7 +159,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-devolo-home-control \
     ${PN}-devolo-home-network \
     ${PN}-dexcom \
-    ${PN}-dhcp \
     ${PN}-diagnostics \
     ${PN}-dialogflow \
     ${PN}-directv \
@@ -169,7 +175,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-downloader \
     ${PN}-dremel-3d-printer \
     ${PN}-drop-connect \
-    ${PN}-dsmr \
     ${PN}-dsmr-reader \
     ${PN}-duckdns \
     ${PN}-duke-energy \
@@ -177,6 +182,47 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-duotecno \
     ${PN}-dwd-weather-warnings \
     ${PN}-dynalite \
+    ${PN}-eafm \
+    ${PN}-easyenergy \
+    ${PN}-ecobee \
+    ${PN}-ecoforest \
+    ${PN}-econet \
+    ${PN}-ecovacs \
+    ${PN}-ecowitt \
+    ${PN}-eddystone-temperature \
+    ${PN}-edl21 \
+    ${PN}-efergy \
+    ${PN}-eheimdigital \
+    ${PN}-eight-sleep \
+    ${PN}-electrasmart \
+    ${PN}-electric-kiwi \
+    ${PN}-elgato \
+    ${PN}-elkm1 \
+    ${PN}-elmax \
+    ${PN}-elvia \
+    ${PN}-emoncms \
+    ${PN}-emoncms-history \
+    ${PN}-emonitor \
+    ${PN}-emulated-kasa \
+    ${PN}-emulated-roku \
+    ${PN}-emulated-hue \
+    ${PN}-energenie-power-sockets \
+    ${PN}-energy \
+    ${PN}-enigma2 \
+    ${PN}-enocean \
+    ${PN}-enphase-envoy \
+    ${PN}-environment-canada \
+    ${PN}-epic-games-store \
+    ${PN}-epion \
+    ${PN}-epson \
+    ${PN}-eq3btsmart \
+    ${PN}-escea \
+    ${PN}-eufylife-ble \
+    ${PN}-event \
+    ${PN}-everlights \
+    ${PN}-evil-genius-labs \
+    ${PN}-evohome \
+    ${PN}-ezviz \        
 ', '', d)}"
 
 # The following component is specific to this MACHINE_ARCH so treat it as such
@@ -198,21 +244,34 @@ python do_addptest () {
     shutil.copy(source_file, target_file)
 
     if bb.utils.contains('PACKAGECONFIG', 'integration-tests', True, False, d):
-        # Get the list of packages
-        packages_list = d.getVar('COMPONENT_TEST_PACKAGES').split()
-
-        with open(target_file, 'a', encoding='utf-8') as file:
-            file.write("\npytest -n auto --automake --disable-pytest-warnings\\\n")
-
-        # Iterate over each package and append the line to the file
+        # Add the flaky tests
+        packages_list = d.getVar('COMPONENT_TEST_PACKAGES_FLAKY').split()
         for package in packages_list:
-            # Define the line to be appended
-            line_to_append = "tests/components/" + package.removeprefix(d.getVar('PN')+'-').replace('-', '_') + "/"
-            package_line = f"  {line_to_append} \\\n"
+            line_to_append = "\npytest --automake tests/components/" + package.removeprefix(d.getVar('PN')+'-').replace('-', '_') + "/"
+            package_line = f"  {line_to_append} \n"
             with open(target_file, 'a', encoding='utf-8') as file:
                 file.write(package_line)
+
+        # Get the list of non-flaky packages
+        packages_list = d.getVar('COMPONENT_TEST_PACKAGES').split()
+
+        # Group packages by first letter after prefix removal
+        from collections import defaultdict
+        grouped_packages = defaultdict(list)
+        pn_prefix = d.getVar('PN') + '-'
+        for package in packages_list:
+            pkg_name = package.removeprefix(pn_prefix).replace('-', '_')
+            if pkg_name:
+                first_letter = pkg_name[0].upper()
+                grouped_packages[first_letter].append(pkg_name)
+
+        # Only use groups that have at least one package (i.e., only letters with tests)
         with open(target_file, 'a', encoding='utf-8') as file:
-            line_to_append = ""
-            package_line = f"  {line_to_append} \\\n"
-            file.write(package_line)
+            for letter in sorted(grouped_packages):
+                pkgs = grouped_packages[letter]
+                if pkgs:
+                    file.write(f"\n# Tests for integrations starting with '{letter}'\n")
+                    file.write("pytest -n auto --automake\\\n")
+                    for pkg_name in pkgs:
+                        file.write(f"  tests/components/{pkg_name}/ \\\n")
 }

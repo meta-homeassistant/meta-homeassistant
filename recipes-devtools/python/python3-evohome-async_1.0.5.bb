@@ -6,6 +6,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit pypi python_hatchling ptest-python-pytest
 
+SRC_URI += "file://0001-fix-compilation.patch"
 SRC_URI[sha256sum] = "804b3861f77c4f8daee7e4c4ee33ba6d32295665727127f4fbae34a8eb9a9778"
 
 RDEPENDS:${PN} = "\
