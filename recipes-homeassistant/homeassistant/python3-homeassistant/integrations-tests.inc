@@ -222,7 +222,52 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-everlights \
     ${PN}-evil-genius-labs \
     ${PN}-evohome \
-    ${PN}-ezviz \        
+    ${PN}-ezviz \
+    ${PN}-faa-delays \
+    ${PN}-facebook \
+    ${PN}-fail2ban \
+    ${PN}-fan \
+    ${PN}-fastdotcom \
+    ${PN}-feedreader \
+    ${PN}-ffmpeg \
+    ${PN}-fibaro \
+    ${PN}-fido \
+    ${PN}-file \
+    ${PN}-file-upload \
+    ${PN}-filesize \
+    ${PN}-filter \
+    ${PN}-fints \
+    ${PN}-fireservicerota \
+    ${PN}-firmata \
+    ${PN}-fitbit \
+    ${PN}-fivem \
+    ${PN}-fjaraskupan \
+    ${PN}-flexit-bacnet \
+    ${PN}-flic \
+    ${PN}-flick-electric \
+    ${PN}-flipr \
+    ${PN}-flo \
+    ${PN}-flume \
+    ${PN}-flux \
+    ${PN}-flux-led \
+    ${PN}-folder \
+    ${PN}-folder-watcher \
+    ${PN}-foobot \
+    ${PN}-forecast-solar \
+    ${PN}-forked-daapd \
+    ${PN}-foscam \
+    ${PN}-freebox \
+    ${PN}-freedns \
+    ${PN}-freedompro \
+    ${PN}-fritz \
+    ${PN}-fritzbox \
+    ${PN}-fritzbox-callmonitor \
+    ${PN}-fronius \
+    ${PN}-frontend \
+    ${PN}-frontier-silicon \
+    ${PN}-fujitsu-fglair \
+    ${PN}-fully-kiosk \
+    ${PN}-fyta \
 ', '', d)}"
 
 # The following component is specific to this MACHINE_ARCH so treat it as such

@@ -1,0 +1,24 @@
+From f4f33e42c27caa2da837aeba338f597d112ee231 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Sat, 11 Oct 2025 21:57:51 +0200
+Subject: [PATCH] remove setup requirement
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ pyproject.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index 02401a1..d278eee 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,7 +1,7 @@
+ [build-system]
+ requires = [
+     "setuptools >= 48",
+-    "setuptools_scm[toml] >= 4, <6",
++    "setuptools_scm[toml] >= 4",
+     "setuptools_scm_git_archive",
+     "wheel >= 0.29.0",
+ ]

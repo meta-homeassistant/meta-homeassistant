@@ -240,11 +240,48 @@ IMAGE_INSTALL = "\
     python3-homeassistant-evil-genius-labs \
     python3-homeassistant-evohome \
     python3-homeassistant-ezviz \
+    python3-homeassistant-faa-delays \
+    python3-homeassistant-familyhub \
+    python3-homeassistant-fastdotcom \
+    python3-homeassistant-feedreader \
     python3-homeassistant-ffmpeg \
+    python3-homeassistant-fibaro \
+    python3-homeassistant-fido \
+    python3-homeassistant-file \
+    python3-homeassistant-fints \
+    python3-homeassistant-fireservicerota \
+    python3-homeassistant-firmata \
+    python3-homeassistant-fitbit \
+    python3-homeassistant-fivem \
+    python3-homeassistant-fixer \
+    python3-homeassistant-fjaraskupan \
+    python3-homeassistant-fleetgo \
+    python3-homeassistant-flexit-bacnet \
+    python3-homeassistant-flic \
+    python3-homeassistant-flick-electric \
+    python3-homeassistant-flipr \
+    python3-homeassistant-flo \
+    python3-homeassistant-flume \
+    python3-homeassistant-flux-led \
+    python3-homeassistant-folder-watcher \
+    python3-homeassistant-foobot \
+    python3-homeassistant-forecast-solar \
+    python3-homeassistant-forked-daapd \
+    python3-homeassistant-fortios \
+    python3-homeassistant-foscam \
+    python3-homeassistant-free-mobile \
+    python3-homeassistant-freebox \
+    python3-homeassistant-freedompro \
     python3-homeassistant-fritz \
     python3-homeassistant-fritzbox \
     python3-homeassistant-fritzbox-callmonitor \
+    python3-homeassistant-fronius \
     python3-homeassistant-frontend \
+    python3-homeassistant-frontier-silicon \
+    python3-homeassistant-fujitsu-fglair \
+    python3-homeassistant-fully-kiosk \
+    python3-homeassistant-futurenow \
+    python3-homeassistant-fyta \
     python3-homeassistant-generic \
     python3-homeassistant-github \
     python3-homeassistant-google-mail \

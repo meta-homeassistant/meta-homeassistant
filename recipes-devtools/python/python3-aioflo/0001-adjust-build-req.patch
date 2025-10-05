@@ -1,0 +1,22 @@
+From e325f7bd16726931a5b67e2a6d4af1f8143b0ee6 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Sat, 11 Oct 2025 01:40:44 +0200
+Subject: [PATCH] adjust build req
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ pyproject.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index aa4aa55..2b208ee 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = ["setuptools >= 35.0.2", "wheel >= 0.29.0", "poetry>=0.12"]
++requires = ["setuptools >= 35.0.2", "wheel >= 0.29.0", "poetry-core>=0.12"]
+ build-backend = "poetry.core.masonry.api"
+ 
+ [tool.isort]
