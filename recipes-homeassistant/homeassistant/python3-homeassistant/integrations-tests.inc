@@ -233,7 +233,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-fibaro \
     ${PN}-fido \
     ${PN}-file \
-    ${PN}-file-upload \
     ${PN}-filesize \
     ${PN}-filter \
     ${PN}-fints \
@@ -247,7 +246,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-flick-electric \
     ${PN}-flipr \
     ${PN}-flo \
-    ${PN}-flume \
     ${PN}-flux \
     ${PN}-flux-led \
     ${PN}-folder \

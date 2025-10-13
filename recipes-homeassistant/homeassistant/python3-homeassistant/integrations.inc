@@ -331,6 +331,7 @@ INTEGRATIONS = "\
     ${PN}-smartthings \
     ${PN}-sony-projector \
     ${PN}-speedtestdotnet \
+    ${PN}-spotify \
     ${PN}-sql \
     ${PN}-ssdp \
     ${PN}-startca \
@@ -2078,6 +2079,11 @@ RDEPENDS:${PN}-sony-projector = "\
 ALLOW_EMPTY:${PN}-speedtestdotnet = "1"
 RDEPENDS:${PN}-speedtestdotnet = "\
     python3-speedtest-cli (>=2.1.3) \
+"
+
+ALLOW_EMPTY:${PN}-spotify = "1"
+RDEPENDS:${PN}-spotify = "\
+    python3-spotifyaio (>=1.0.0) \
 "
 
 ALLOW_EMPTY:${PN}-sql = "1"

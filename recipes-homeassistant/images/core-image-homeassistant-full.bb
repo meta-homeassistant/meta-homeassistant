@@ -333,6 +333,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-smartthings \
     python3-homeassistant-sony-projector \
     python3-homeassistant-speedtestdotnet \
+    python3-homeassistant-spotify \
     python3-homeassistant-sql \
     python3-homeassistant-ssdp \
     python3-homeassistant-startca \
