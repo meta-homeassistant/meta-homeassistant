@@ -236,12 +236,48 @@ INTEGRATIONS = "\
     ${PN}-evil-genius-labs \
     ${PN}-evohome \
     ${PN}-ezviz \
+    ${PN}-faa-delays \
+    ${PN}-familyhub \
+    ${PN}-fastdotcom \
+    ${PN}-feedreader \
     ${PN}-ffmpeg \
+    ${PN}-fibaro \
+    ${PN}-fido \
+    ${PN}-file \
+    ${PN}-fints \
+    ${PN}-fireservicerota \
+    ${PN}-firmata \
+    ${PN}-fitbit \
+    ${PN}-fivem \
+    ${PN}-fixer \
+    ${PN}-fjaraskupan \
+    ${PN}-fleetgo \
+    ${PN}-flexit-bacnet \
+    ${PN}-flic \
+    ${PN}-flick-electric \
+    ${PN}-flipr \
+    ${PN}-flo \
+    ${PN}-flume \
+    ${PN}-flux-led \
     ${PN}-folder-watcher \
+    ${PN}-foobot \
+    ${PN}-forecast-solar \
+    ${PN}-forked-daapd \
+    ${PN}-fortios \
+    ${PN}-foscam \
+    ${PN}-free-mobile \
+    ${PN}-freebox \
+    ${PN}-freedompro \
     ${PN}-fritz \
     ${PN}-fritzbox \
     ${PN}-fritzbox-callmonitor \
+    ${PN}-fronius \
     ${PN}-frontend \
+    ${PN}-frontier-silicon \
+    ${PN}-fujitsu-fglair \
+    ${PN}-fully-kiosk \
+    ${PN}-futurenow \
+    ${PN}-fyta \
     ${PN}-generic \
     ${PN}-github \
     ${PN}-go2rtc \
@@ -295,6 +331,7 @@ INTEGRATIONS = "\
     ${PN}-smartthings \
     ${PN}-sony-projector \
     ${PN}-speedtestdotnet \
+    ${PN}-spotify \
     ${PN}-sql \
     ${PN}-ssdp \
     ${PN}-startca \
@@ -1546,14 +1583,165 @@ RDEPENDS:${PN}-ezviz = "\
     python3-pyezvizapi (>=1.0.0.7) \
 "
 
+ALLOW_EMPTY:${PN}-faa-delays = "1"
+RDEPENDS:${PN}-faa-delays = "\
+    python3-faadelays (>=2023.9.1) \
+"
+
+ALLOW_EMPTY:${PN}-familyhub = "1"
+RDEPENDS:${PN}-familyhub = "\
+    python3-python-family-hub-local (>=0.0.2) \
+"
+
+ALLOW_EMPTY:${PN}-fastdotcom = "1"
+RDEPENDS:${PN}-fastdotcom = "\
+    python3-fastdotcom (>=0.0.3) \
+"
+
+ALLOW_EMPTY:${PN}-feedreader = "1"
+RDEPENDS:${PN}-feedreader = "\
+    python3-feedparser (>=6.0.11) \
+"
+
 ALLOW_EMPTY:${PN}-ffmpeg = "1"
 RDEPENDS:${PN}-ffmpeg = "\
     python3-ha-ffmpeg (>=3.2.2) \
 "
 
+ALLOW_EMPTY:${PN}-fibaro = "1"
+RDEPENDS:${PN}-fibaro = "\
+    python3-pyfibaro (>=0.8.3) \
+"
+
+ALLOW_EMPTY:${PN}-fido = "1"
+RDEPENDS:${PN}-fido = "\
+    python3-pyfido (>=2.1.2) \
+"
+
+ALLOW_EMPTY:${PN}-file = "1"
+RDEPENDS:${PN}-file = "\
+    python3-file-read-backwards (>=2.0.0) \
+"
+
+ALLOW_EMPTY:${PN}-fints = "1"
+RDEPENDS:${PN}-fints = "\
+    python3-fints (>=3.1.0) \
+"
+
+ALLOW_EMPTY:${PN}-fireservicerota = "1"
+RDEPENDS:${PN}-fireservicerota = "\
+    python3-pyfireservicerota (>=0.0.46) \
+"
+
+ALLOW_EMPTY:${PN}-firmata = "1"
+RDEPENDS:${PN}-firmata = "\
+    python3-pymata-express (>=1.19) \
+"
+
+ALLOW_EMPTY:${PN}-fitbit = "1"
+RDEPENDS:${PN}-fitbit = "\
+    python3-fitbit (>=0.3.1) \
+"
+
+ALLOW_EMPTY:${PN}-fivem = "1"
+RDEPENDS:${PN}-fivem = "\
+    python3-fivem-api (>=0.1.2) \
+"
+
+ALLOW_EMPTY:${PN}-fixer = "1"
+RDEPENDS:${PN}-fixer = "\
+    python3-fixerio (>=1.0.0) \
+"
+
+ALLOW_EMPTY:${PN}-fjaraskupan = "1"
+RDEPENDS:${PN}-fjaraskupan = "\
+    python3-fjaraskupan (>=2.3.2) \
+"
+
+ALLOW_EMPTY:${PN}-fleetgo = "1"
+RDEPENDS:${PN}-fleetgo = "\
+    python3-ritassist (>=0.9.2) \
+"
+
+ALLOW_EMPTY:${PN}-flexit-bacnet = "1"
+RDEPENDS:${PN}-flexit-bacnet = "\
+    python3-flexit-bacnet (>=2.2.3) \
+"
+
+ALLOW_EMPTY:${PN}-flic = "1"
+RDEPENDS:${PN}-flic = "\
+    python3-pyflic (>=2.0.4) \
+"
+
+ALLOW_EMPTY:${PN}-flick-electric = "1"
+RDEPENDS:${PN}-flick-electric = "\
+    python3-pyflick (>=1.1.3) \
+"
+
+ALLOW_EMPTY:${PN}-flipr = "1"
+RDEPENDS:${PN}-flipr = "\
+    python3-flipr-api (>=1.6.1) \
+"
+
+ALLOW_EMPTY:${PN}-flo = "1"
+RDEPENDS:${PN}-flo = "\
+    python3-aioflo (>=2021.11.0) \
+"
+
+ALLOW_EMPTY:${PN}-flume = "1"
+RDEPENDS:${PN}-flume = "\
+    python3-pyflume (>=0.6.5) \
+"
+
+ALLOW_EMPTY:${PN}-flux-led = "1"
+RDEPENDS:${PN}-flux-led = "\
+    python3-flux-led (>=1.2.0) \
+"
+
 ALLOW_EMPTY:${PN}-folder-watcher = "1"
 RDEPENDS:${PN}-folder-watcher = "\
     python3-watchdog (>=6.0.0) \
+"
+
+ALLOW_EMPTY:${PN}-foobot = "1"
+RDEPENDS:${PN}-foobot = "\
+    python3-foobot-async (>=1.0.0) \
+"
+
+ALLOW_EMPTY:${PN}-forecast-solar = "1"
+RDEPENDS:${PN}-forecast-solar = "\
+    python3-forecast-solar (>=4.2.0) \
+"
+
+ALLOW_EMPTY:${PN}-forked-daapd = "1"
+RDEPENDS:${PN}-forked-daapd = "\
+    python3-pyforked-daapd (>=0.1.14) \
+    python3-pylibrespot-java (>=0.1.1) \
+"
+
+ALLOW_EMPTY:${PN}-fortios = "1"
+RDEPENDS:${PN}-fortios = "\
+    python3-fortiosapi (>=1.0.5) \
+"
+
+ALLOW_EMPTY:${PN}-foscam = "1"
+RDEPENDS:${PN}-foscam = "\
+    python3-libpyfoscamcgi (>=0.0.7) \
+"
+
+ALLOW_EMPTY:${PN}-free-mobile = "1"
+RDEPENDS:${PN}-free-mobile = "\
+    python3-freesms (>=0.2.0) \
+"
+
+ALLOW_EMPTY:${PN}-freebox = "1"
+RDEPENDS:${PN}-freebox = "\
+    python3-freebox-api (>=1.2.2) \
+"
+
+ALLOW_EMPTY:${PN}-freedompro = "1"
+RDEPENDS:${PN}-freedompro = "\
+    python3-pyfreedompro (>=1.1.0) \
 "
 
 ALLOW_EMPTY:${PN}-fritz = "1"
@@ -1572,9 +1760,39 @@ RDEPENDS:${PN}-fritzbox-callmonitor = "\
     python3-fritzconnection (>=1.14.0) \
 "
 
+ALLOW_EMPTY:${PN}-fronius = "1"
+RDEPENDS:${PN}-fronius = "\
+    python3-pyfronius (>=0.8.0) \
+"
+
 ALLOW_EMPTY:${PN}-frontend = "1"
 RDEPENDS:${PN}-frontend = "\
     python3-home-assistant-frontend (>=20250903.5) \
+"
+
+ALLOW_EMPTY:${PN}-frontier-silicon = "1"
+RDEPENDS:${PN}-frontier-silicon = "\
+    python3-afsapi (>=0.2.7) \
+"
+
+ALLOW_EMPTY:${PN}-fujitsu-fglair = "1"
+RDEPENDS:${PN}-fujitsu-fglair = "\
+    python3-ayla-iot-unofficial (>=1.4.7) \
+"
+
+ALLOW_EMPTY:${PN}-fully-kiosk = "1"
+RDEPENDS:${PN}-fully-kiosk = "\
+    python3-python-fullykiosk (>=0.0.14) \
+"
+
+ALLOW_EMPTY:${PN}-futurenow = "1"
+RDEPENDS:${PN}-futurenow = "\
+    python3-pyfnip (>=0.2) \
+"
+
+ALLOW_EMPTY:${PN}-fyta = "1"
+RDEPENDS:${PN}-fyta = "\
+    python3-fyta-cli (>=0.7.2) \
 "
 
 ALLOW_EMPTY:${PN}-generic = "1"
@@ -1861,6 +2079,11 @@ RDEPENDS:${PN}-sony-projector = "\
 ALLOW_EMPTY:${PN}-speedtestdotnet = "1"
 RDEPENDS:${PN}-speedtestdotnet = "\
     python3-speedtest-cli (>=2.1.3) \
+"
+
+ALLOW_EMPTY:${PN}-spotify = "1"
+RDEPENDS:${PN}-spotify = "\
+    python3-spotifyaio (>=1.0.0) \
 "
 
 ALLOW_EMPTY:${PN}-sql = "1"

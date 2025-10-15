@@ -1,0 +1,22 @@
+From a3389d1448cf68b446b2a6e04e0d19c8a15fb372 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Sat, 11 Oct 2025 02:02:30 +0200
+Subject: [PATCH] adjust build req
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ pyproject.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index f6143a0..3e59c89 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = [ "setuptools!=61.*,<=67.1.0,>=40.6.0", "wheel>=0.34.2",]
++requires = [ "setuptools>=40.6.0", "wheel>=0.34.2",]
+ build-backend = "setuptools.build_meta"
+ 
+ [project]
