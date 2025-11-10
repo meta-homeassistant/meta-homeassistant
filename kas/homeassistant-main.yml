@@ -7,11 +7,22 @@ target: python3-homeassistant
 repos:
   meta-homeassistant:
 
-  poky:
-    url: https://git.yoctoproject.org/poky
+  bitbake:
+    url: https://git.openembedded.org/bitbake
+    branch: master
+    layers:
+      .: disabled
+
+  openembedded-core:
+    url: https://git.openembedded.org/openembedded-core
     branch: master
     layers:
       meta:
+
+  meta-yocto:
+    url: https://git.yoctoproject.org/meta-yocto
+    branch: master
+    layers:
       meta-poky:
 
   meta-openembedded:
