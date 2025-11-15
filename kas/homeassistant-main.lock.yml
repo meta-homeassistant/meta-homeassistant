@@ -5,4 +5,10 @@ overrides:
         poky:
             commit: 853f8bfbb85af4437e35983ca7ab91d111bb9b75
         meta-openembedded:
-            commit: a08eabb3b87da69a71793bb8eaa2d64a6ac96aeb
+            commit: 945ef788cf2fa31fb71492295653d4383eacfaf3
+        bitbake:
+            commit: 2c6c40bdab8ebc6c04fe9992524add967fb4a053
+        openembedded-core:
+            commit: 478a645bad150f04dee1b0085c4542c2eefe7007
+        meta-yocto:
+            commit: 66ea31cee15309af07afeee8dec8a6fe1d92d28e

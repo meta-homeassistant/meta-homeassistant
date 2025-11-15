@@ -6,14 +6,19 @@ If you need help or like to discuss a topic please join the [`#meta-homeassistan
 
 Please see the corresponding sections below for details.
 
-# Quickstart
+# Quickstart (manual)
 
 ```sh
 
-git clone https://git.yoctoproject.org/git/poky
-cd poky
-git clone https://github.com/openembedded/meta-openembedded.git
-git clone https://github.com/meta-homeassistant/meta-homeassistant.git
+mkdir layers/
+git clone https://git.openembedded.org/bitbake ./layers/bitbake
+git clone https://git.openembedded.org/openembedded-core ./layers/openembedded-core
+git clone https://git.yoctoproject.org/meta-yocto ./layers/meta-yocto
+
+git clone https://github.com/openembedded/meta-openembedded.git ./layers/meta-openembedded
+git clone https://github.com/meta-homeassistant/meta-homeassistant.git ./layers/meta-homeassistant
+
+cd layers
 
 . ./oe-init-build-env
 
