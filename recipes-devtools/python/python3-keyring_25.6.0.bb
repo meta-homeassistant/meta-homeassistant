@@ -19,3 +19,5 @@ RDEPENDS:${PN} = "\
     python3-jaraco.functools \
     python3-jaraco.context \
 "
+
+BBCLASSEXTEND = "native nativesdk"

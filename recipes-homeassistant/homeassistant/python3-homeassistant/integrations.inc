@@ -278,16 +278,54 @@ INTEGRATIONS = "\
     ${PN}-fully-kiosk \
     ${PN}-futurenow \
     ${PN}-fyta \
+    ${PN}-garages-amsterdam \
+    ${PN}-gardena-bluetooth \
+    ${PN}-gc100 \
+    ${PN}-gdacs \
     ${PN}-generic \
+    ${PN}-geniushub \
+    ${PN}-geo-json-events \
+    ${PN}-geo-rss-events \
+    ${PN}-geocaching \
+    ${PN}-geonetnz-quakes \
+    ${PN}-geonetnz-volcano \
+    ${PN}-gios \
     ${PN}-github \
+    ${PN}-gitlab-ci \
+    ${PN}-gitter \
+    ${PN}-glances \
     ${PN}-go2rtc \
+    ${PN}-goalzero \
+    ${PN}-gogogate2 \
+    ${PN}-goodwe \
+    ${PN}-google \
+    ${PN}-google-assistant-sdk \
+    ${PN}-google-cloud \
+    ${PN}-google-drive \
+    ${PN}-google-generative-ai-conversation \
     ${PN}-google-mail \
+    ${PN}-google-maps \
+    ${PN}-google-photos \
+    ${PN}-google-pubsub \
     ${PN}-google-sheets \
     ${PN}-google-tasks \
     ${PN}-google-translate \
+    ${PN}-google-travel-time \
+    ${PN}-govee-ble \
+    ${PN}-govee-light-local \
+    ${PN}-gpsd \
+    ${PN}-gree \
+    ${PN}-greeneye-monitor \
+    ${PN}-greenwave \
+    ${PN}-growatt-server \
+    ${PN}-gstreamer \
+    ${PN}-gtfs \
+    ${PN}-guardian \
     ${PN}-hardware \
     ${PN}-homekit \
     ${PN}-hue \
+    ${PN}-husqvarna-automower-ble \
+    ${PN}-ibeacon \
     ${PN}-image-upload \
     ${PN}-ipp \
     ${PN}-isal \
@@ -1795,10 +1833,65 @@ RDEPENDS:${PN}-fyta = "\
     python3-fyta-cli (>=0.7.2) \
 "
 
+ALLOW_EMPTY:${PN}-garages-amsterdam = "1"
+RDEPENDS:${PN}-garages-amsterdam = "\
+    python3-odp-amsterdam (>=6.1.2) \
+"
+
+ALLOW_EMPTY:${PN}-gardena-bluetooth = "1"
+RDEPENDS:${PN}-gardena-bluetooth = "\
+    python3-gardena-bluetooth (>=1.6.0) \
+"
+
+ALLOW_EMPTY:${PN}-gc100 = "1"
+RDEPENDS:${PN}-gc100 = "\
+    python3-python-gc100 (>=1.0.3a0) \
+"
+
+ALLOW_EMPTY:${PN}-gdacs = "1"
+RDEPENDS:${PN}-gdacs = "\
+    python3-aio-georss-gdacs (>=0.10) \
+"
+
 ALLOW_EMPTY:${PN}-generic = "1"
 RDEPENDS:${PN}-generic = "\
     python3-av (>=13.1.0) \
     python3-pillow (>=11.3.0) \
+"
+
+ALLOW_EMPTY:${PN}-geniushub = "1"
+RDEPENDS:${PN}-geniushub = "\
+    python3-geniushub-client (>=0.7.1) \
+"
+
+ALLOW_EMPTY:${PN}-geo-json-events = "1"
+RDEPENDS:${PN}-geo-json-events = "\
+    python3-aio-geojson-generic-client (>=0.5) \
+"
+
+ALLOW_EMPTY:${PN}-geo-rss-events = "1"
+RDEPENDS:${PN}-geo-rss-events = "\
+    python3-georss-generic-client (>=0.8) \
+"
+
+ALLOW_EMPTY:${PN}-geocaching = "1"
+RDEPENDS:${PN}-geocaching = "\
+    python3-geocachingapi (>=0.3.0) \
+"
+
+ALLOW_EMPTY:${PN}-geonetnz-quakes = "1"
+RDEPENDS:${PN}-geonetnz-quakes = "\
+    python3-aio-geojson-geonetnz-quakes (>=0.16) \
+"
+
+ALLOW_EMPTY:${PN}-geonetnz-volcano = "1"
+RDEPENDS:${PN}-geonetnz-volcano = "\
+    python3-aio-geojson-geonetnz-volcano (>=0.9) \
+"
+
+ALLOW_EMPTY:${PN}-gios = "1"
+RDEPENDS:${PN}-gios = "\
+    python3-gios (>=6.1.2) \
 "
 
 ALLOW_EMPTY:${PN}-github = "1"
@@ -1806,14 +1899,87 @@ RDEPENDS:${PN}-github = "\
     python3-aiogithubapi (>=24.6.0) \
 "
 
+ALLOW_EMPTY:${PN}-gitlab-ci = "1"
+RDEPENDS:${PN}-gitlab-ci = "\
+    python3-python-gitlab (>=1.6.0) \
+"
+
+ALLOW_EMPTY:${PN}-gitter = "1"
+RDEPENDS:${PN}-gitter = "\
+    python3-gitterpy (>=0.1.7) \
+"
+
+ALLOW_EMPTY:${PN}-glances = "1"
+RDEPENDS:${PN}-glances = "\
+    python3-glances-api (>=0.8.0) \
+"
+
 ALLOW_EMPTY:${PN}-go2rtc = "1"
 RDEPENDS:${PN}-go2rtc = "\
     python3-go2rtc-client (>=0.1.2) \
 "
 
+ALLOW_EMPTY:${PN}-goalzero = "1"
+RDEPENDS:${PN}-goalzero = "\
+    python3-goalzero (>=0.2.2) \
+"
+
+ALLOW_EMPTY:${PN}-gogogate2 = "1"
+RDEPENDS:${PN}-gogogate2 = "\
+    python3-ismartgate (>=5.0.2) \
+"
+
+ALLOW_EMPTY:${PN}-goodwe = "1"
+RDEPENDS:${PN}-goodwe = "\
+    python3-goodwe (>=0.4.8) \
+"
+
+ALLOW_EMPTY:${PN}-google = "1"
+RDEPENDS:${PN}-google = "\
+    python3-gcal-sync (>=8.0.0) \
+    python3-oauth2client (>=4.1.3) \
+    python3-ical (>=11.0.0) \
+"
+
+ALLOW_EMPTY:${PN}-google-assistant-sdk = "1"
+RDEPENDS:${PN}-google-assistant-sdk = "\
+    python3-gassist-text (>=0.0.14) \
+"
+
+ALLOW_EMPTY:${PN}-google-cloud = "1"
+RDEPENDS:${PN}-google-cloud = "\
+    python3-google-cloud-texttospeech (>=2.25.1) \
+    python3-google-cloud-speech (>=2.31.1) \
+"
+
+ALLOW_EMPTY:${PN}-google-drive = "1"
+RDEPENDS:${PN}-google-drive = "\
+    python3-python-google-drive-api (>=0.1.0) \
+"
+
+ALLOW_EMPTY:${PN}-google-generative-ai-conversation = "1"
+RDEPENDS:${PN}-google-generative-ai-conversation = "\
+    python3-google-genai (>=1.29.0) \
+"
+
 ALLOW_EMPTY:${PN}-google-mail = "1"
 RDEPENDS:${PN}-google-mail = "\
     python3-google-api-python-client (>=2.71.0) \
+"
+
+ALLOW_EMPTY:${PN}-google-maps = "1"
+RDEPENDS:${PN}-google-maps = "\
+    python3-locationsharinglib (>=5.0.1) \
+"
+
+ALLOW_EMPTY:${PN}-google-photos = "1"
+RDEPENDS:${PN}-google-photos = "\
+    python3-google-photos-library-api (>=0.12.1) \
+"
+
+ALLOW_EMPTY:${PN}-google-pubsub = "1"
+RDEPENDS:${PN}-google-pubsub = "\
+    python3-google-cloud-pubsub (>=2.29.0) \
 "
 
 ALLOW_EMPTY:${PN}-google-sheets = "1"
@@ -1829,6 +1995,61 @@ RDEPENDS:${PN}-google-tasks = "\
 ALLOW_EMPTY:${PN}-google-translate = "1"
 RDEPENDS:${PN}-google-translate = "\
     python3-gtts (>=2.5.3) \
+"
+
+ALLOW_EMPTY:${PN}-google-travel-time = "1"
+RDEPENDS:${PN}-google-travel-time = "\
+    python3-google-maps-routing (>=0.6.15) \
+"
+
+ALLOW_EMPTY:${PN}-govee-ble = "1"
+RDEPENDS:${PN}-govee-ble = "\
+    python3-govee-ble (>=0.44.0) \
+"
+
+ALLOW_EMPTY:${PN}-govee-light-local = "1"
+RDEPENDS:${PN}-govee-light-local = "\
+    python3-govee-local-api (>=2.1.0) \
+"
+
+ALLOW_EMPTY:${PN}-gpsd = "1"
+RDEPENDS:${PN}-gpsd = "\
+    python3-gps3 (>=0.33.3) \
+"
+
+ALLOW_EMPTY:${PN}-gree = "1"
+RDEPENDS:${PN}-gree = "\
+    python3-greeclimate (>=2.1.0) \
+"
+
+ALLOW_EMPTY:${PN}-greeneye-monitor = "1"
+RDEPENDS:${PN}-greeneye-monitor = "\
+    python3-greeneye-monitor (>=3.0.3) \
+"
+
+ALLOW_EMPTY:${PN}-greenwave = "1"
+RDEPENDS:${PN}-greenwave = "\
+    python3-greenwavereality (>=0.5.1) \
+"
+
+ALLOW_EMPTY:${PN}-growatt-server = "1"
+RDEPENDS:${PN}-growatt-server = "\
+    python3-growattserver (>=1.7.1) \
+"
+
+ALLOW_EMPTY:${PN}-gstreamer = "1"
+RDEPENDS:${PN}-gstreamer = "\
+    python3-gstreamer-player (>=1.1.2) \
+"
+
+ALLOW_EMPTY:${PN}-gtfs = "1"
+RDEPENDS:${PN}-gtfs = "\
+    python3-pygtfs (>=0.1.9) \
+"
+
+ALLOW_EMPTY:${PN}-guardian = "1"
+RDEPENDS:${PN}-guardian = "\
+    python3-aioguardian (>=2022.07.0) \
 "
 
 ALLOW_EMPTY:${PN}-hardware = "1"
@@ -1849,6 +2070,17 @@ RDEPENDS:${PN}-homekit = "\
 ALLOW_EMPTY:${PN}-hue = "1"
 RDEPENDS:${PN}-hue = "\
     python3-aiohue (>=4.7.5) \
+"
+
+ALLOW_EMPTY:${PN}-husqvarna-automower-ble = "1"
+RDEPENDS:${PN}-husqvarna-automower-ble = "\
+    python3-automower-ble (>=0.2.7) \
+    python3-gardena-bluetooth (>=1.6.0) \
+"
+
+ALLOW_EMPTY:${PN}-ibeacon = "1"
+RDEPENDS:${PN}-ibeacon = "\
+    python3-ibeacon-ble (>=1.2.0) \
 "
 
 ALLOW_EMPTY:${PN}-image-upload = "1"

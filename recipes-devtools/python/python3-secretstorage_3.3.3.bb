@@ -15,3 +15,5 @@ RDEPENDS:${PN} += "\
 
 PYPI_PACKAGE = "SecretStorage"
 UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
+
+BBCLASSEXTEND = "native nativesdk"

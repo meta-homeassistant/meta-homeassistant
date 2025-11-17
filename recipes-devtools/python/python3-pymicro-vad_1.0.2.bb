@@ -8,8 +8,9 @@ DEPENDS += "\
     python3-pybind11-native \
 "
 
-SRC_URI = "git://github.com/rhasspy/pymicro-vad.git;protocol=https;branch=main"
-SRC_URI[sha256sum] = "60e0508b338b694c7ad71c633c0da6fcd2678a88abb8e948b80fa68934965111"
-SRCREV = "c3e17ff6bd56efbcddfdab06a83ba236b7b04643"
+inherit pypi python_setuptools_build_meta
 
-inherit python_setuptools_build_meta ptest-python-pytest
+SRC_URI[sha256sum] = "b386ff00fad76e29fa145a8af472cde9e1275c2716ef5c350e7a143b8d97f507"
+
+PYPI_PACKAGE = "pymicro_vad"
+UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

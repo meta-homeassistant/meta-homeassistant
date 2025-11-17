@@ -9,3 +9,5 @@ SRC_URI[sha256sum] = "cf0e9e845622b81e4a28df94c40345400256ec608d0e55bb8a3feaa916
 inherit pypi python_flit_core
 
 PYPI_PACKAGE = "jeepney"
+
+BBCLASSEXTEND = "native nativesdk"

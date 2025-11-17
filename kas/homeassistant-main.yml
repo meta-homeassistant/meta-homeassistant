@@ -32,6 +32,22 @@ repos:
       meta-oe:
       meta-python:
       meta-networking:
+      meta-multimedia:
+
+  meta-sca:
+    url: "https://github.com/priv-kweihmann/meta-sca.git"
+    branch: master
+    path: "sources/meta-sca"
+    
+  meta-python-ai:
+    url: "https://github.com/zboszor/meta-python-ai.git"
+    path: "sources/meta-python-ai"
+    branch: "master"
+  
+  meta-clang-revival:
+    url: "https://github.com/zboszor/meta-clang-revival"
+    path: "sources/meta-clang-revival"
+    branch: "main"
 
 local_conf_header:
 
