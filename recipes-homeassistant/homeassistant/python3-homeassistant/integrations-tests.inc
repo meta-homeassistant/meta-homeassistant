@@ -291,7 +291,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-google-translate \
     ${PN}-google-travel-time \
     ${PN}-google-wifi \
-    ${PN}-govee-ble \
     ${PN}-govee-light-local \
     ${PN}-gpsd \
     ${PN}-gpslogger \
