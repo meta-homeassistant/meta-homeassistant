@@ -8,4 +8,8 @@ SRC_URI[sha256sum] = "d7f555e4ff99c54cd5178005daf83ea35f80325273eaad5baacba8781e
 
 inherit pypi python_setuptools_build_meta
 
+RDEPENDS:${PN} += "\
+    python3-dicttoxml \
+"
+
 PYPI_PACKAGE = "ismartgate"

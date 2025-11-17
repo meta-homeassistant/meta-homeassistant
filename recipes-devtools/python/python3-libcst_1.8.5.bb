@@ -17,4 +17,6 @@ require ${BPN}-crates.inc
 
 inherit pypi python_setuptools3_rust cargo-update-recipe-crates
 
+RDEPENDS:${PN} += "python3-pyyaml-ft"
+
 PYPI_PACKAGE = "libcst"

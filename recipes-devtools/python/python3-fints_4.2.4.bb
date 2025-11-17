@@ -10,6 +10,7 @@ inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "\
 	python3-bleach \
+	python3-enum-tools \
 	python3-mt-940 \
 	python3-requests \
 	python3-sepaxml (>=2.1) \
