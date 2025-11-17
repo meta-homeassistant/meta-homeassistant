@@ -325,6 +325,7 @@ INTEGRATIONS = "\
     ${PN}-homekit \
     ${PN}-hue \
     ${PN}-husqvarna-automower-ble \
+    ${PN}-ibeacon \
     ${PN}-image-upload \
     ${PN}-ipp \
     ${PN}-isal \
@@ -2075,6 +2076,11 @@ ALLOW_EMPTY:${PN}-husqvarna-automower-ble = "1"
 RDEPENDS:${PN}-husqvarna-automower-ble = "\
     python3-automower-ble (>=0.2.7) \
     python3-gardena-bluetooth (>=1.6.0) \
+"
+
+ALLOW_EMPTY:${PN}-ibeacon = "1"
+RDEPENDS:${PN}-ibeacon = "\
+    python3-ibeacon-ble (>=1.2.0) \
 "
 
 ALLOW_EMPTY:${PN}-image-upload = "1"
