@@ -17,14 +17,14 @@ git clone https://git.yoctoproject.org/meta-yocto ./layers/meta-yocto
 
 git clone https://github.com/openembedded/meta-openembedded.git ./layers/meta-openembedded
 git clone https://github.com/meta-homeassistant/meta-homeassistant.git ./layers/meta-homeassistant
-
-cd layers
+git clone https://github.com/zboszor/meta-python-ai.git ./layers/meta-python-ai
 
 . ./oe-init-build-env
 
 bitbake-layers add-layer ../meta-openembedded/meta-oe
 bitbake-layers add-layer ../meta-openembedded/meta-python
 bitbake-layers add-layer ../meta-openembedded/meta-networking
+bitbake-layers add-layer ../meta-python-ai
 bitbake-layers add-layer ../meta-homeassistant
 
 bitbake core-image-homeassistant
@@ -65,13 +65,18 @@ revision: HEAD
 URI: https://github.com/openembedded/meta-openembedded.git
 branch: master
 revision: HEAD
+
+URI: https://github.com/zboszor/meta-python-ai.git
+branch: master
+revision: HEAD
 ```
 
 Why are these needed?
 
-- [meta-oe](https://github.com/openembedded/meta-openembedded/tree/mickledore/meta-oe) : contains meta-python
-- [meta-python](https://github.com/openembedded/meta-openembedded/tree/mickledore/meta-python) : contains many of the required python3 packages
-- [meta-networking](https://github.com/openembedded/meta-openembedded/tree/mickledore/meta-networking) : contains several networking oriented python3 packages
+- [meta-oe](https://github.com/openembedded/meta-openembedded/tree/master/meta-oe) : contains meta-python
+- [meta-python](https://github.com/openembedded/meta-openembedded/tree/master/meta-python) : contains many of the required python3 packages
+- [meta-networking](https://github.com/openembedded/meta-openembedded/tree/master/meta-networking) : contains several networking oriented python3 packages
+- [meta-python-ai](https://github.com/zboszor/meta-python-ai.git) : contains several python recipes needed (such as python3-scipy)
 
 Note: HomeAssistant regularly uses the very latest versions of python packages in their builds. This also means that from a Yocto/OE perspective the team is forced to keep track of master as the very latest pushes to the dependency layers are often required for succesfull builds and satisfying dependency requirements. Therefore this repository tracks the upstream master branch and currently no older releases of Yocto are specifically supported.
 

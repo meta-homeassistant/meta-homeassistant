@@ -12,7 +12,7 @@ PACKAGECONFIG ?= "libcst"
 PACKAGECONFIG[libcst] = ",,,python3-libcst"
 
 RDEPENDS:${PN} += "\
-    python3-google-api-core-grpc \
+    python3-google-api-core \
     python3-google-auth \
     python3-grpc-google-iam-v1 \
     python3-grpcio \
