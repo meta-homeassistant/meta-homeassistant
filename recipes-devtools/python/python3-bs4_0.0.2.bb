@@ -1,6 +1,6 @@
 SUMMARY = "Dummy package for Beautiful Soup (beautifulsoup4)"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=8;endline=8;md5=f0a3e4a2554ebb89c046c93d45d8e4bc"
+LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=8;endline=8;md5=f8476a3be0088ff877585f896845c0da"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 DEPENDS = "python3-hatchling-native"

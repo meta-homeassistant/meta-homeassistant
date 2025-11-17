@@ -22,7 +22,7 @@ DEPENDS += "\
 
 inherit pypi python_setuptools_build_meta
 
-RDEPENDS:${PN} += " \
+RDEPENDS:${PN} = " \
 	python3-anyio (>=4.8.0) \
 	python3-google-auth (>=2.14.1) \
 	python3-httpx (>=0.28.1) \
