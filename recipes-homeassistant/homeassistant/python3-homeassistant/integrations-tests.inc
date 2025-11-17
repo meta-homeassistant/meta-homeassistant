@@ -303,7 +303,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-gstreamer \
     ${PN}-guardian \
     ${PN}-husqvarna-automower-ble \
-    ${PN}-ibeacon \
 ', '', d)}"
 
 # The following component is specific to this MACHINE_ARCH so treat it as such
