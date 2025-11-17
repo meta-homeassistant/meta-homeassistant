@@ -6,6 +6,20 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "96ec32ae99a30b5a1b54cb874b577ec6e41b5d5b808bf0f10ed4620e867f9386"
 
+DEPENDS += "\
+	python3-id-native \
+	python3-keyring-native \
+	python3-markdown-it-py-native \
+	python3-nh3-native \
+	python3-pkginfo-native \
+	python3-readme-renderer-native \
+	python3-requests-native \
+	python3-requests-toolbelt-native \
+	python3-rfc3986-native \
+	python3-rich-native \
+	python3-twine-native \
+"
+
 inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} += " \
