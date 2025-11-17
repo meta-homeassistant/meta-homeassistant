@@ -10,3 +10,4 @@ SRC_URI[sha256sum] = "b539b01cafebd2406c00097f94525ea0f8ecd1dd92f7731f43eac0ef16
 inherit pypi python_setuptools_build_meta
 
 PYPI_PACKAGE = "PyRIC"
+UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
