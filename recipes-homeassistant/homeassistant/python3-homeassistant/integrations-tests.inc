@@ -4,6 +4,7 @@ PACKAGECONFIG[integration-tests] = ",,,"
 COMPONENT_TEST_PACKAGES_FLAKY = ""
 COMPONENT_TEST_PACKAGES_FLAKY:append = "\
     ${@bb.utils.contains('PACKAGECONFIG', 'integration-tests', '\
+    ${PN}-airtouch5 \
     ${PN}-assist-pipeline \
     ${PN}-backup \
     ${PN}-bang-olufsen \
@@ -32,7 +33,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-airthings \
     ${PN}-airthings-ble \
     ${PN}-airtouch4 \
-    ${PN}-airtouch5 \
     ${PN}-airvisual \
     ${PN}-airvisual-pro \
     ${PN}-airzone \
@@ -266,6 +266,52 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-fujitsu-fglair \
     ${PN}-fully-kiosk \
     ${PN}-fyta \
+    ${PN}-garages-amsterdam \
+    ${PN}-gardena-bluetooth \
+    ${PN}-gdacs \
+    ${PN}-generic \
+    ${PN}-generic-hygrostat \
+    ${PN}-generic-thermostat \
+    ${PN}-geniushub \
+    ${PN}-geo-json-events \
+    ${PN}-geo-location \
+    ${PN}-geo-rss-events \
+    ${PN}-geocaching \
+    ${PN}-geofency \
+    ${PN}-geonetnz-quakes \
+    ${PN}-geonetnz-volcano \
+    ${PN}-gios \
+    ${PN}-github \
+    ${PN}-glances \
+    ${PN}-go2rtc \
+    ${PN}-goalzero \
+    ${PN}-gogogate2 \
+    ${PN}-goodwe \
+    ${PN}-google \
+    ${PN}-google-assistant \
+    ${PN}-google-assistant-sdk \
+    ${PN}-google-cloud \
+    ${PN}-google-drive \
+    ${PN}-google-generative-ai-conversation \
+    ${PN}-google-mail \
+    ${PN}-google-photos \
+    ${PN}-google-pubsub \
+    ${PN}-google-sheets \
+    ${PN}-google-tasks \
+    ${PN}-google-translate \
+    ${PN}-google-travel-time \
+    ${PN}-google-wifi \
+    ${PN}-govee-ble \
+    ${PN}-govee-light-local \
+    ${PN}-gpsd \
+    ${PN}-gpslogger \
+    ${PN}-graphite \
+    ${PN}-gree \
+    ${PN}-greeneye-monitor \
+    ${PN}-group \
+    ${PN}-growatt-server \
+    ${PN}-gstreamer \
+    ${PN}-guardian \
 ', '', d)}"
 
 # The following component is specific to this MACHINE_ARCH so treat it as such
