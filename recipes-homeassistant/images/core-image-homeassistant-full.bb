@@ -328,6 +328,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-hardware \
     python3-homeassistant-homekit \
     python3-homeassistant-hue \
+    python3-homeassistant-husqvarna-automower-ble \
     python3-homeassistant-image-upload \
     python3-homeassistant-ipp \
     python3-homeassistant-isal \
