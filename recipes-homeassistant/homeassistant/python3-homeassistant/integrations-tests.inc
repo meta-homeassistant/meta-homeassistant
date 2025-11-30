@@ -268,31 +268,21 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-fyta \
     ${PN}-garages-amsterdam \
     ${PN}-gardena-bluetooth \
-    ${PN}-gdacs \
-    ${PN}-generic \
     ${PN}-generic-hygrostat \
     ${PN}-generic-thermostat \
     ${PN}-geniushub \
-    ${PN}-geo-json-events \
     ${PN}-geo-location \
-    ${PN}-geo-rss-events \
     ${PN}-geocaching \
     ${PN}-geofency \
-    ${PN}-geonetnz-quakes \
-    ${PN}-geonetnz-volcano \
     ${PN}-gios \
     ${PN}-github \
     ${PN}-glances \
-    ${PN}-go2rtc \
     ${PN}-goalzero \
     ${PN}-gogogate2 \
     ${PN}-goodwe \
-    ${PN}-google \
     ${PN}-google-assistant \
     ${PN}-google-assistant-sdk \
     ${PN}-google-cloud \
-    ${PN}-google-drive \
-    ${PN}-google-generative-ai-conversation \
     ${PN}-google-mail \
     ${PN}-google-photos \
     ${PN}-google-pubsub \
@@ -312,6 +302,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-growatt-server \
     ${PN}-gstreamer \
     ${PN}-guardian \
+    ${PN}-husqvarna-automower-ble \
 ', '', d)}"
 
 # The following component is specific to this MACHINE_ARCH so treat it as such
