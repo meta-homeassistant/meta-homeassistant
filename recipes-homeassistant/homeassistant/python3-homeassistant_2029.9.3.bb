@@ -139,7 +139,7 @@ RDEPENDS:${PN}-ptest = "\
     bash \
     tzdata \
     \
-    python3-pytest-retry \
+    python3-pytest-rerunfailures \
 "
 
 do_install_ptest() {
