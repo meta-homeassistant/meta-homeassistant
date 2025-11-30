@@ -1,0 +1,24 @@
+From fd401f4611c6f75509c8a2beed1c5dd174f64b37 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Fri, 31 Oct 2025 00:49:57 +0100
+Subject: [PATCH] Fix version
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index 17a1eda..2601fdd 100644
+--- a/setup.py
++++ b/setup.py
+@@ -12,7 +12,7 @@ URL = "https://github.com/manzanotti/geniushub-client"
+ with open("README.md", "r") as fh:
+     LONG_DESCRIPTION = fh.read()
+ 
+-VERSION = os.environ["GITHUB_REF_NAME"]
++VERSION = "0.1.7"
+ 
+ setup(
+     name="geniushub-client",
