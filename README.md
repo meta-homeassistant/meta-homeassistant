@@ -19,6 +19,7 @@ git clone https://github.com/openembedded/meta-openembedded.git ./layers/meta-op
 git clone https://github.com/meta-homeassistant/meta-homeassistant.git ./layers/meta-homeassistant
 git clone https://github.com/zboszor/meta-python-ai.git ./layers/meta-python-ai
 git clone https://github.com/priv-kweihmann/meta-sca.git ./layers/meta-sca
+git clone https://git.yoctoproject.org/meta-virtualization ./layers/meta-virtualization
 
 . ./oe-init-build-env
 
@@ -28,6 +29,7 @@ bitbake-layers add-layer ../meta-openembedded/meta-networking
 bitbake-layers add-layer ../meta-python-ai
 bitbake-layers add-layer ../meta-clang-revival
 bitbake-layers add-layer ../meta-sca
+bitbake-layers add-layer ../meta-virtualization
 bitbake-layers add-layer ../meta-homeassistant
 
 bitbake core-image-homeassistant
@@ -80,6 +82,10 @@ revision: HEAD
 URI: https://github.com/priv-kweihmann/meta-sca
 branch: master
 revision: HEAD
+
+URI: https://git.yoctoproject.org/meta-virtualization
+branch: master
+revision: HEAD
 ```
 
 Why are these needed?
@@ -90,6 +96,7 @@ Why are these needed?
 - [meta-multimedia](https://github.com/openembedded/meta-openembedded/tree/master/meta-networking) : contains several multimedia recipes for integrations.
 - [meta-python-ai](https://github.com/zboszor/meta-python-ai) : contains several python recipes needed (such as python3-scipy)
 - [meta-clang-revival](https://github.com/zboszor/meta-clang-revival) : needed for meta-python-ai.
+- [meta-virtualization](https://git.yoctoproject.org/meta-virtualization) : needed for meta-python-ai.
 - [meta-sca](https://github.com/priv-kweihmann/meta-sca) : has several `native` packages which are needed for compiling integrations.
 
 Note: HomeAssistant regularly uses the very latest versions of python packages in their builds. This also means that from a Yocto/OE perspective the team is forced to keep track of master as the very latest pushes to the dependency layers are often required for succesfull builds and satisfying dependency requirements. Therefore this repository tracks the upstream master branch and currently no older releases of Yocto are specifically supported.
