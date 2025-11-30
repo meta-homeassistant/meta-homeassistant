@@ -350,7 +350,7 @@ python do_addptest () {
                 pkgs = grouped_packages[letter]
                 if pkgs:
                     file.write(f"\n# Tests for integrations starting with '{letter}'\n")
-                    file.write("pytest -n auto --automake --retries 2 --retry-delay 5\\\n")
+                    file.write("pytest -n auto --automake --reruns 2 --reruns-delay 5\\\n")
                     for pkg_name in pkgs:
                         file.write(f"  tests/components/{pkg_name}/ \\\n")
 }
