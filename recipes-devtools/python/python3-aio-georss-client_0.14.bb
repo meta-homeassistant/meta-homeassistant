@@ -15,5 +15,7 @@ RDEPENDS:${PN} += " \
     python3-dateutil (>= 2.9.0) \
 "
 
+BBCLASSEXTEND = "native nativesdk"
+
 PYPI_PACKAGE = "aio_georss_client"
 UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

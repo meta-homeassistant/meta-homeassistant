@@ -6,10 +6,11 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "de54afbd02250690f6565f229340d93a3a869929fea5fb4b2e121d0076b555f8"
 
+DEPENDS = "python3-aio-georss-client-native"
+
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "\
-    python3-aio-georss-client (>=0.13) \
     python3-dateutil (>=2.9.0) \
 "
 
