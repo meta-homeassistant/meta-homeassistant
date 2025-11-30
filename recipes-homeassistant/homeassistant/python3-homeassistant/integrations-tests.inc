@@ -327,7 +327,7 @@ python do_addptest () {
         # Add the flaky tests
         packages_list = d.getVar('COMPONENT_TEST_PACKAGES_FLAKY').split()
         for package in packages_list:
-            line_to_append = "\npytest --automake tests/components/" + package.removeprefix(d.getVar('PN')+'-').replace('-', '_') + "/"
+            line_to_append = "\npytest --automake  --retries 2 --retry-delay 5 tests/components/" + package.removeprefix(d.getVar('PN')+'-').replace('-', '_') + "/"
             package_line = f"  {line_to_append} \n"
             with open(target_file, 'a', encoding='utf-8') as file:
                 file.write(package_line)
@@ -351,7 +351,7 @@ python do_addptest () {
                 pkgs = grouped_packages[letter]
                 if pkgs:
                     file.write(f"\n# Tests for integrations starting with '{letter}'\n")
-                    file.write("pytest -n auto --automake\\\n")
+                    file.write("pytest -n auto --automake --retries 2 --retry-delay 5\\\n")
                     for pkg_name in pkgs:
                         file.write(f"  tests/components/{pkg_name}/ \\\n")
 }
