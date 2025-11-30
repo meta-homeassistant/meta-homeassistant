@@ -1,0 +1,23 @@
+From e35898e79a38ad4aa3f83ee18e3e9882c5793d66 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Tue, 28 Oct 2025 19:22:51 +0100
+Subject: [PATCH] Update poetry-core dependency to allow for newer versions
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ pyproject.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index d370c41..32b9469 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,6 +1,6 @@
+ [build-system]
+ requires = [
+-    "poetry-core==2.0.1",
++    "poetry-core>=2.0.1",
+ ]
+ build-backend = "poetry.core.masonry.api"
+ 
