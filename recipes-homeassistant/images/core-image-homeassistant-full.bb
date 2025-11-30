@@ -282,11 +282,49 @@ IMAGE_INSTALL = "\
     python3-homeassistant-fully-kiosk \
     python3-homeassistant-futurenow \
     python3-homeassistant-fyta \
+    python3-homeassistant-garages-amsterdam \
+    python3-homeassistant-gardena-bluetooth \
+    python3-homeassistant-gc100 \
+    python3-homeassistant-gdacs \
     python3-homeassistant-generic \
+    python3-homeassistant-geniushub \
+    python3-homeassistant-geo-json-events \
+    python3-homeassistant-geo-rss-events \
+    python3-homeassistant-geocaching \
+    python3-homeassistant-geonetnz-quakes \
+    python3-homeassistant-geonetnz-volcano \
+    python3-homeassistant-gios \
     python3-homeassistant-github \
+    python3-homeassistant-gitlab-ci \
+    python3-homeassistant-gitter \
+    python3-homeassistant-glances \
+    python3-homeassistant-go2rtc \
+    python3-homeassistant-goalzero \
+    python3-homeassistant-gogogate2 \
+    python3-homeassistant-goodwe \
+    python3-homeassistant-google \
+    python3-homeassistant-google-assistant-sdk \
+    python3-homeassistant-google-cloud \
+    python3-homeassistant-google-drive \
+    python3-homeassistant-google-generative-ai-conversation \
     python3-homeassistant-google-mail \
+    python3-homeassistant-google-maps \
+    python3-homeassistant-google-photos \
+    python3-homeassistant-google-pubsub \
+    python3-homeassistant-google-sheets \
     python3-homeassistant-google-tasks \
     python3-homeassistant-google-translate \
+    python3-homeassistant-google-travel-time \
+    python3-homeassistant-govee-ble \
+    python3-homeassistant-govee-light-local \
+    python3-homeassistant-gpsd \
+    python3-homeassistant-gree \
+    python3-homeassistant-greeneye-monitor \
+    python3-homeassistant-greenwave \
+    python3-homeassistant-growatt-server \
+    python3-homeassistant-gstreamer \
+    python3-homeassistant-gtfs \
+    python3-homeassistant-guardian \
     python3-homeassistant-hardware \
     python3-homeassistant-homekit \
     python3-homeassistant-hue \
