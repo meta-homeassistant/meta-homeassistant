@@ -33,6 +33,7 @@ repos:
       meta-python:
       meta-networking:
       meta-multimedia:
+      meta-filesystems:
 
   meta-sca:
     url: "https://github.com/priv-kweihmann/meta-sca.git"
