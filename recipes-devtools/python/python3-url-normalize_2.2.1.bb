@@ -14,3 +14,4 @@ RDEPENDS:${PN} += "\
 "
 
 PYPI_PACKAGE = "url_normalize"
+UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
