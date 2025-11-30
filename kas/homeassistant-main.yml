@@ -50,7 +50,7 @@ repos:
     branch: "main"
   
   meta-virtualization:
-    url: "https://git.openembedded.org/meta-virtualization"
+    url: "https://git.yoctoproject.org/meta-virtualization"
     path: "sources/meta-virtualization"
     branch: master
 
