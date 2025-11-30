@@ -9,7 +9,7 @@ SRC_URI[sha256sum] = "2018bd9ba8377f5894e48376b67f99b3d7a766870df9f8ce96c10b3fee
 inherit pypi python_poetry_core
 
 RDEPENDS:${PN} = "\
-    pythont-httpx (>=0.23) \
+    python3-httpx (>=0.23) \
 "
 
 PYPI_PACKAGE = "glances_api"
