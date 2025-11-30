@@ -17,6 +17,8 @@ RDEPENDS:${PN} += "\
     python3-grpc-google-iam-v1 \
     python3-grpcio \
     python3-grpcio-status \
+    python3-opentelemetry-api \
+    python3-opentelemetry-sdk \
     python3-proto-plus \
     python3-protobuf \
 "

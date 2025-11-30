@@ -12,6 +12,7 @@ inherit pypi setuptools3
 
 RDEPENDS:${PN} += "\
     python3-dateutil (>=2.9.0) \
+    python3-aio-georss-client \
 "
 
 PYPI_PACKAGE = "aio_georss_gdacs"
