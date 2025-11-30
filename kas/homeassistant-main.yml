@@ -64,4 +64,5 @@ local_conf_header:
   license_flags: |
     LICENSE_FLAGS_ACCEPTED = "\
       commercial_ffmpeg \
+      commercial \
     "
