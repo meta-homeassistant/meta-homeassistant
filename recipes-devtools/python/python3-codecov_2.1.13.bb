@@ -1,7 +1,7 @@
 SUMMARY = "Hosted coverage reports for GitHub, Bitbucket and Gitlab"
 HOMEPAGE = "https://github.com/codecov/codecov-python"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=650b6b7ede4fbd14ab012aceb71d69d7"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=18ecfc9cb0c00f953ea19c093c018943"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit pypi setuptools3

@@ -15,7 +15,6 @@ DEPENDS = "\
 	python3-click-native \
 	python3-dist-meta-native \
 	python3-domdf-python-tools-native \
-	python3-dm-toml-native \
 	python3-shippinglabel-native \
 	python3-handy-archives-native \
 "
