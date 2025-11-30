@@ -26,6 +26,8 @@ git clone https://git.yoctoproject.org/meta-virtualization ./layers/meta-virtual
 bitbake-layers add-layer ../meta-openembedded/meta-oe
 bitbake-layers add-layer ../meta-openembedded/meta-python
 bitbake-layers add-layer ../meta-openembedded/meta-networking
+bitbake-layers add-layer ../meta-openembedded/meta-multimedia
+bitbake-layers add-layer ../meta-openembedded/meta-filesystems
 bitbake-layers add-layer ../meta-python-ai
 bitbake-layers add-layer ../meta-clang-revival
 bitbake-layers add-layer ../meta-sca
@@ -93,7 +95,8 @@ Why are these needed?
 - [meta-oe](https://github.com/openembedded/meta-openembedded/tree/master/meta-oe) : contains meta-python
 - [meta-python](https://github.com/openembedded/meta-openembedded/tree/master/meta-python) : contains many of the required python3 packages
 - [meta-networking](https://github.com/openembedded/meta-openembedded/tree/master/meta-networking) : contains several networking oriented python3 packages
-- [meta-multimedia](https://github.com/openembedded/meta-openembedded/tree/master/meta-networking) : contains several multimedia recipes for integrations.
+- [meta-multimedia](https://github.com/openembedded/meta-openembedded/tree/master/meta-multimedia) : contains several multimedia recipes for integrations.
+- [meta-filesystems](https://github.com/openembedded/meta-openembedded/tree/master/meta-filesystems) : contains needed recipes for filesystem related integrations
 - [meta-python-ai](https://github.com/zboszor/meta-python-ai) : contains several python recipes needed (such as python3-scipy)
 - [meta-clang-revival](https://github.com/zboszor/meta-clang-revival) : needed for meta-python-ai.
 - [meta-virtualization](https://git.yoctoproject.org/meta-virtualization) : needed for meta-python-ai.
