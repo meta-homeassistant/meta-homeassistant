@@ -11,10 +11,10 @@ inherit pypi python_poetry_core
 
 RDEPENDS:${PN} += "\
     python3-aiohttp (>=3.9.0) \
-    python3-asyncio-dgram (=2.0.0) \
+    python3-asyncio-dgram (>=2.0.0) \
     python3-certifi (>=2023.07.22) \
-    python3-frozenlist (=1.5.0) \
-    python3-typing-extensions (=4.8.0) \
+    python3-frozenlist (>=1.5.0) \
+    python3-typing-extensions (>=4.8.0) \
     python3-voluptuous (>=0.11.7) \
     python3-yarl (>=1.9.2) \
 "
