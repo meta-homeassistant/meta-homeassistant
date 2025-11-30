@@ -48,8 +48,17 @@ repos:
     url: "https://github.com/zboszor/meta-clang-revival"
     path: "sources/meta-clang-revival"
     branch: "main"
+  
+  meta-virtualization:
+    url: "https://git.openembedded.org/meta-virtualization"
+    path: "sources/meta-virtualization"
+    branch: master
 
 local_conf_header:
+  fortran_support: |
+    FORTRAN:forcevariable = ",fortran"
+    RUNTIMETARGET:append:pn-gcc-runtime = " libquadmath"
+    HOSTTOOLS += "gfortran"
 
   license_flags: |
     LICENSE_FLAGS_ACCEPTED = "\
