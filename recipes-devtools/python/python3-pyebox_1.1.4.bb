@@ -8,6 +8,6 @@ SRC_URI[sha256sum] = "baeb63634064257963131eb0b801a3891903c8525b128a359873df2166
 
 inherit pypi setuptools3
 
-RDEPENDS:${PN} += "python3-aiohttp python3-beautifulsoup4"
+RDEPENDS:${PN} += "python3-aiohttp python3-beautifulsoup4 python3-bs4"
 
 PYPI_PACKAGE = "pyebox"

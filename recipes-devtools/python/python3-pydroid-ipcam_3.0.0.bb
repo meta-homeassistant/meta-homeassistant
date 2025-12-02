@@ -11,3 +11,4 @@ inherit pypi setuptools3
 RDEPENDS:${PN} += "python3-aiohttp"
 
 PYPI_PACKAGE = "pydroid_ipcam"
+UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

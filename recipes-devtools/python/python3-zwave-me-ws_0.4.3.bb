@@ -9,6 +9,7 @@ SRC_URI[sha256sum] = "cdac9602054fb677c2227c8f47429fd785b29278d7a5ca033af4e37c7d
 inherit pypi python_poetry_core
 
 PYPI_PACKAGE = "zwave_me_ws"
+UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} = "\
     python3-core (>=3.8) \

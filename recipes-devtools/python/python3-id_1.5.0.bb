@@ -13,3 +13,5 @@ RDEPENDS:${PN} = "\
     python3-pydantic \
     python3-requests \
 "
+
+BBCLASSEXTEND = "native nativesdk"

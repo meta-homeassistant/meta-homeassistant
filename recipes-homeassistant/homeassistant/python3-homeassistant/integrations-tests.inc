@@ -4,6 +4,7 @@ PACKAGECONFIG[integration-tests] = ",,,"
 COMPONENT_TEST_PACKAGES_FLAKY = ""
 COMPONENT_TEST_PACKAGES_FLAKY:append = "\
     ${@bb.utils.contains('PACKAGECONFIG', 'integration-tests', '\
+    ${PN}-airtouch5 \
     ${PN}-assist-pipeline \
     ${PN}-backup \
     ${PN}-bang-olufsen \
@@ -32,7 +33,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-airthings \
     ${PN}-airthings-ble \
     ${PN}-airtouch4 \
-    ${PN}-airtouch5 \
     ${PN}-airvisual \
     ${PN}-airvisual-pro \
     ${PN}-airzone \
@@ -266,6 +266,42 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-fujitsu-fglair \
     ${PN}-fully-kiosk \
     ${PN}-fyta \
+    ${PN}-garages-amsterdam \
+    ${PN}-gardena-bluetooth \
+    ${PN}-generic-hygrostat \
+    ${PN}-generic-thermostat \
+    ${PN}-geniushub \
+    ${PN}-geo-location \
+    ${PN}-geocaching \
+    ${PN}-geofency \
+    ${PN}-gios \
+    ${PN}-github \
+    ${PN}-glances \
+    ${PN}-goalzero \
+    ${PN}-gogogate2 \
+    ${PN}-goodwe \
+    ${PN}-google-assistant \
+    ${PN}-google-assistant-sdk \
+    ${PN}-google-cloud \
+    ${PN}-google-mail \
+    ${PN}-google-photos \
+    ${PN}-google-pubsub \
+    ${PN}-google-sheets \
+    ${PN}-google-tasks \
+    ${PN}-google-translate \
+    ${PN}-google-travel-time \
+    ${PN}-google-wifi \
+    ${PN}-govee-light-local \
+    ${PN}-gpsd \
+    ${PN}-gpslogger \
+    ${PN}-graphite \
+    ${PN}-gree \
+    ${PN}-greeneye-monitor \
+    ${PN}-group \
+    ${PN}-growatt-server \
+    ${PN}-gstreamer \
+    ${PN}-guardian \
+    ${PN}-husqvarna-automower-ble \
 ', '', d)}"
 
 # The following component is specific to this MACHINE_ARCH so treat it as such
@@ -290,7 +326,7 @@ python do_addptest () {
         # Add the flaky tests
         packages_list = d.getVar('COMPONENT_TEST_PACKAGES_FLAKY').split()
         for package in packages_list:
-            line_to_append = "\npytest --automake tests/components/" + package.removeprefix(d.getVar('PN')+'-').replace('-', '_') + "/"
+            line_to_append = "\npytest --automake  --reruns 2 --reruns-delay 5 tests/components/" + package.removeprefix(d.getVar('PN')+'-').replace('-', '_') + "/"
             package_line = f"  {line_to_append} \n"
             with open(target_file, 'a', encoding='utf-8') as file:
                 file.write(package_line)
@@ -314,7 +350,7 @@ python do_addptest () {
                 pkgs = grouped_packages[letter]
                 if pkgs:
                     file.write(f"\n# Tests for integrations starting with '{letter}'\n")
-                    file.write("pytest -n auto --automake\\\n")
+                    file.write("pytest -n auto --automake --reruns 2 --reruns-delay 5\\\n")
                     for pkg_name in pkgs:
                         file.write(f"  tests/components/{pkg_name}/ \\\n")
 }

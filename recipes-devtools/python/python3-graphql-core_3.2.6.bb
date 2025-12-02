@@ -12,4 +12,4 @@ inherit pypi python_poetry_core ptest-python-pytest
 RDEPENDS:${PN} = "python3-typing-extensions"
 
 PYPI_PACKAGE = "graphql_core"
-UPSTREAM_CHECK_PYPI_PACKAGE = "{$PYPI_PACKAGE}"
+UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

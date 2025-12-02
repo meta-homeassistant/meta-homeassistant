@@ -10,3 +10,4 @@ inherit pypi setuptools3
 RDEPENDS:${PN} += "python3-aiohttp python3-requests"
 
 PYPI_PACKAGE = "alpha_vantage"
+UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
