@@ -12,3 +12,4 @@ WHL_PN = "mac_vendor_lookup"
 WHL_BPN = ""
 
 SRC_URI[x86_64.sha256sum] = "6c2b5ac4b27dab71ed43f7ac6402c6fde1463bcd730b8d58417f0004b3aafd40"
+SRC_URI[aarch64.sha256sum] = "6c2b5ac4b27dab71ed43f7ac6402c6fde1463bcd730b8d58417f0004b3aafd40"
