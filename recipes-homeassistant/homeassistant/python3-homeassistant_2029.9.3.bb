@@ -60,7 +60,7 @@ require recipes-homeassistant/homeassistant/python3-homeassistant/integrations-t
 RDEPENDS:${PN} += "\
     python3-aiodns (>=3.5.0) \
     python3-aiohasupervisor (>=0.3.2) \
-    python3-aiohttp (=3.12.15) \
+    python3-aiohttp (>=3.12.15) \
     python3-aiohttp-cors (=0.8.1) \
     python3-aiohttp-fast-zlib (=0.3.0) \
     python3-aiohttp-asyncmdnsresolver (=0.1.1) \
