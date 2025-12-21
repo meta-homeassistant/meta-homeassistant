@@ -4,7 +4,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2736a6a8b58491968000c6e0130f0471"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "e5cee62e24ae48089a53529a0f8b7cdbb371831c2cef0d2881fff568835c236c"
+SRC_URI[sha256sum] = "8c34e21599549d17ba3e6ddc5e806dcbbb879afc5afe256b0d6b933edd83dd6d"
 
 inherit pypi setuptools3
 
@@ -14,5 +14,5 @@ RDEPENDS:${PN} += "\
     python3-bleak \
 "
 
-PYPI_PACKAGE = "Adax-local"
+PYPI_PACKAGE = "adax_local"
 UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
