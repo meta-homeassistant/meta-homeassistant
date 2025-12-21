@@ -6,7 +6,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI = "git://github.com/home-assistant-libs/ha-silabs-firmware-client.git;protocol=https;branch=dev"
 SRC_URI[sha256sum] = "9291d462daab534d1da45e0b114e655d6e28ada00686d67e1c23b19f6583ccb9"
-SRCREV = "9dcd7e52e743e63afaf98910548a758a75a275b0"
+SRCREV = "aa118e885ecf50709029d8faac8af9ef8ef2dc55"
 
 DEPENDS += "\
     python3-setuptools-git-versioning-native \
