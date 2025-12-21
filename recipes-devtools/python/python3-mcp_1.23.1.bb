@@ -8,7 +8,7 @@ DEPENDS = "\
     python3-hatchling-native \
     python3-uv-dynamic-versioning-native \
 "
-SRC_URI[sha256sum] = "853f6b17a3f31ea6e2f278c2ec7d3b38457bc80c7c2c675260dd7f04a6fd0e70"
+SRC_URI[sha256sum] = "7403e053e8e2283b1e6ae631423cb54736933fea70b32422152e6064556cd298"
 
 inherit pypi python_hatchling ptest-python-pytest
 
