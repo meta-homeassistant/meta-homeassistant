@@ -7,7 +7,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI = "git://github.com/Bluetooth-Devices/habluetooth.git;protocol=https;branch=main \
            "
 SRC_URI[sha256sum] = "89dc8c4e9d79a25c2666dafde0f49241144ac29e69d9d9f5bbf1122733c7f42c"
-SRCREV = "51b38c9712c5f13fd41ef2fb037c552b60901f57"
+SRCREV = "aa25c30a609e85728e04f0171cc09730ade11631"
 
 inherit python_poetry_core cython ptest-python-pytest
 
