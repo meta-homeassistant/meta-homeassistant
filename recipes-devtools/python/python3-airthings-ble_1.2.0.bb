@@ -9,4 +9,4 @@ inherit python_poetry_core ptest-python-pytest
 SRC_URI = "\
     git://github.com/Airthings/airthings-ble;protocol=https;branch=main; \
 "
-SRCREV = "69e503045bd7061e40edf5e3c0b0fc5b3e2d1362"
+SRCREV = "47fd2e97854eb9c67c168954c79b3b59c2fb6531"
