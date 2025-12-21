@@ -6,7 +6,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-SRC_URI[sha256sum] = "f5814b6c24ab97ba0f0940eb20624355880ae45e2a87dadbfa7b8482eccf8d3b"
+SRC_URI[sha256sum] = "3a5edefff0f7e635503ce849d6638ad668ae5459ca7aff07bf893b143eead90b"
 
 PYPI_PACKAGE = "async_upnp_client"
 UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
