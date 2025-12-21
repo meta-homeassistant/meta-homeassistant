@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://.github/LICENSE.md;md5=dcd10fcc0e6a7bf9b19bf4970a991d
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 DEPENDS = "python3-hatchling-native"
-SRC_URI[sha256sum] = "d3b5ae663d7989dfff7f54049fe1d0ba936b6fef1205f4ea345b5c6908abf4c0"
+SRC_URI[sha256sum] = "b6167aedfc69e5922c942e6d684627186301ab5bcd2644d4493278a81afa3708"
 
 inherit pypi python_hatchling
 
