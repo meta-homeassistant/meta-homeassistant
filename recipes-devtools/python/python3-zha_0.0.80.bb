@@ -8,13 +8,9 @@ DEPENDS += "\
     python3-setuptools-git-versioning-native \
 "
 
-SRC_URI = "\
-    git://github.com/zigpy/zha.git;protocol=https;branch=dev \
-"
-SRC_URI[sha256sum] = "8d3d6f71b62a61f532b89807279171dd4bce351f886aa4749c38034589e42eea"
-SRCREV = "f29bdf1efadf30b02049f3fdccb8269a7ff610c5"
+SRC_URI[sha256sum] = "39701c09516ea0a19a41c871309ac2ac80a366b19a6890eb31e494525fa55f34"
 
-inherit python_setuptools_build_meta ptest-python-pytest
+inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "\
     python3-bellows (>=0.44.0) \
