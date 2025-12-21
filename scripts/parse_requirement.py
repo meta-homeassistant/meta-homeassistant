@@ -332,12 +332,10 @@ def main() -> None:
     if args.clean == "y":
         cleanup_repo(ha_path)
 
-    # If both -u and -i are set to 'y', call update_recipes.py with the version
-    if args.integrate == "y":
-        import subprocess
-        script_path = os.path.join(SCRIPT_DIR, "update_homeassistant_components.py")
-        print(f"Calling update_homeassistant_components.py {args.version}")
-        subprocess.run([sys.executable, script_path, args.version], check=True)
+    import subprocess
+    script_path = os.path.join(SCRIPT_DIR, "update_homeassistant_components.py")
+    print(f"Calling update_homeassistant_components.py {args.version}")
+    subprocess.run([sys.executable, script_path, args.version], check=True)
     print("Finished")
 
 
