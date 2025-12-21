@@ -8,7 +8,7 @@ DEPENDS += "\
     python3-setuptools-git-versioning-native \
 "
 
-SRC_URI[sha256sum] = "7f7a4a744273277430cbff19a1c7522372b434ab147adcbc821395566c3a6a14"
+SRC_URI[sha256sum] = "bef3b8b1258b5c04052ff5ccef7e4090c1d44d9805ec2ff05254928af8f53e2f"
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
