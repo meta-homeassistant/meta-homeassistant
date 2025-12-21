@@ -4,13 +4,9 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI = "git://github.com/home-assistant-libs/python-supervisor-client.git;protocol=https;branch=main \
-           file://0001-relax-build-requirements.patch \
-           "
-SRCREV = "a28b55d3fada13ed120ff98f4c5dacaf7666ce54"
-SRC_URI[sha256sum] = "91bf0b051f28582196f900a31c9bcbebec6de9e3ed1a32a2947a892c04748ce2"
+SRC_URI[sha256sum] = "24e268f58f37f9d8dafadba2ef9d860292ff622bc6e78b1ca4ef5e5095d1bbc8"
 
-inherit python_setuptools_build_meta ptest-python-pytest
+inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.3.0) \
