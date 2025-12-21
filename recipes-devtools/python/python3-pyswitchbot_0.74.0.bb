@@ -6,7 +6,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI = "git://github.com/sblibs/pySwitchbot.git;protocol=https;branch=master"
 SRC_URI[sha256sum] = "36eed884a7dcdfaa3a18bdf08c4d8530c4b59168ab02aa9585fbcefcfd53fd75"
-SRCREV = "ec39b4f55c7ceac06d5ba96ada3c0af0b85a50a1"
+SRCREV = "36a3ecaef0232c5d9e72fae9e01eac4e385b888f"
 
 inherit setuptools3 ptest-python-pytest
 
