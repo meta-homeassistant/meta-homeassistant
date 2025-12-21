@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=2453eb85b33e21e22cb4fa811c650d75"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI += "file://0001-relax-hatchling.patch"
-SRC_URI[sha256sum] = "d1531b210ea300c73423141d29bcee20fcd24ef9f426f6437c0a5d93fc98fb8e"
+SRC_URI[sha256sum] = "e8607422f4ab616db2ea5baacc215dd5f028da99ce2f022e33c7c535b29f3dfb"
 
 DEPENDS += "\
 	python3-hatch-fancy-pypi-readme-native \
@@ -14,6 +14,9 @@ DEPENDS += "\
 inherit pypi python_hatchling ptest-python-pytest
 
 RDEPENDS:${PN} = "\
+	python3-aiohttp \
+	python3-docstring-parser \
+	python3-httpx-aiohttp \
     python3-httpx (>=0.25.0) \
 	python3-pydantic (>=1.9.0) \
 	python3-typing-extensions (>=4.10) \
@@ -24,7 +27,20 @@ RDEPENDS:${PN} = "\
 "
 
 RDEPENDS:${PN}-ptest += "\
+	python3-botocore \
+	python3-dirty-equals \
+	python3-inline-snapshot \
+	python3-pytest-xdist \
+	python3-respx \
+	python3-tests \
     python3-pytest-asyncio \
 "
+
+do_install_ptest:append() {
+    install ${S}/pyproject.toml ${D}${PTEST_PATH}/
+	# The following items are added as tests need these files
+    install ${S}/README.md ${D}${PTEST_PATH}/
+}
+
 
 PYPI_PACKAGE = "anthropic"
