@@ -8,7 +8,7 @@ inherit python_setuptools_build_meta ptest-python-pytest
 
 SRC_URI = "git://github.com/NabuCasa/hass-nabucasa.git;protocol=https;branch=main"
 SRC_URI[sha256sum] = "faca4945f2abafbd5ca4a9350969e6655826ca2c88ac3a42088cc6f700ba0bb2"
-SRCREV = "2dd7e96710316968848b4fdfacbc1497c8a8b598"
+SRCREV = "9b872642baa642ce7f3585ad0a4e4b231fed40f9"
 
 RDEPENDS:${PN} = "\
     python3-acme (>=5.0.0) \
