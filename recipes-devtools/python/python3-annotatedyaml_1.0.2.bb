@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/home-assistant-libs/annotatedyaml"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=76a9bfd317d9fbffd2807de292360954"
 
-SRC_URI[sha256sum] = "e251929cd7e741fa2e9ece13e24e29bb8f1b5c6ca3a9ef7292a66a3ae8b9390f"
+SRC_URI[sha256sum] = "f9a49952994ef1952ca17d27bb6478342eb1189d2c28e4c0ddbbb32065471fb0"
 
 inherit pypi python_poetry_core cython
 
