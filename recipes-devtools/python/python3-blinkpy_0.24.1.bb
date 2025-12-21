@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.md;md5=de42c83a8a623a54d153a06063f64c9a"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI += "file://0001-relax-build-tool-req.patch"
-SRC_URI[sha256sum] = "62d9267bef36eca8ab9d08e37f12849664d63de23c4926a8ea6a127ede7b2114"
+SRC_URI[sha256sum] = "07ae4fc576b537d88b9394bbc9ff460f808fd40b7c39818508dd3a9e1923b398"
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
