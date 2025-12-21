@@ -7,7 +7,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "621389ab241b8cb7f51f3d306b6de86da35104068a6720aa4ac252167ba53b26"
 
 SRC_URI = "git://github.com/bieniu/accuweather.git;protocol=https;branch=master"
-SRCREV = "0071a2c3800cdb6d5d53aa5cf9f0f32d5310c184"
+SRCREV = "afa30d2fe15d717d779c88ce76290c610f87e2a7"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
