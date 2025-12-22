@@ -1,10 +1,10 @@
 SUMMARY = "Pytest Snapshot Test Utility"
 HOMEPAGE = "https://github.com/tophat/syrupy"
-LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=4a74db8ae475d2bd439d60ff9df4e3e3"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=48672cd576fa10fcb05f80eb40fff161"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "b7d0fcadad80a7d2f6c4c71917918e8ebe2483e8c703dfc8d49cdbb01081f9a4"
+SRC_URI[sha256sum] = "3282fe963fa5d4d3e47231b16d1d4d0f4523705e8199eeb99a22a1bc9f5942f2"
 
 inherit pypi python_poetry_core
 
