@@ -6,10 +6,12 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "bc97dfb3f946c8b6d368fcf6fc8541e09a2a3f4a63d0171edf3a1b4a5715883e"
 
-inherit pypi setuptools3
+inherit setuptools3 ptest-python-pytest
 
-# WARNING: the following rdepends are from setuptools install_requires. These
-# upstream names may not correspond exactly to bitbake package names.
+SRC_URI = "git://github.com/tchellomello/python-amcrest;protocol=https;tag=${PV};branch=master \
+           file://0001-Repair-Test.patch \
+           "
+
 RDEPENDS:${PN} += "\
     python3-argcomplete \
     python3-httpx \
@@ -18,4 +20,7 @@ RDEPENDS:${PN} += "\
     python3-urllib3 \
 "
 
-PYPI_PACKAGE = "amcrest"
+RDEPENDS:${PN}-ptest:append = "\
+    python3-mock \
+    python3-responses \
+"

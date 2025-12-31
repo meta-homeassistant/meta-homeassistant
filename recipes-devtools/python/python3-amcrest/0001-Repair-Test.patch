@@ -1,0 +1,29 @@
+From 2b962230b6ed82b46a42be0af664685e6647a67a Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Mon, 29 Dec 2025 14:14:37 +0100
+Subject: [PATCH] Repair Test
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ src/amcrest/utils.py | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/src/amcrest/utils.py b/src/amcrest/utils.py
+index a54d7b6..d327aed 100644
+--- a/src/amcrest/utils.py
++++ b/src/amcrest/utils.py
+@@ -51,7 +51,12 @@ def str2bool(value: Union[str, int]) -> bool:
+          False values: n, no, false, off, 0
+     """
+     if isinstance(value, str):
+-        return value.lower() in ("y", "yes", "on", "1", "true", "t")
++       v = value.strip().lower()
++       if v in ("y", "yes", "on", "1", "true", "t"):
++           return True
++       if v in ("n", "no", "off", "0", "false"):
++           return False
++       raise ValueError(f"Invalid truth value: {value!r}")
+     return bool(value)
+ 
+ 
