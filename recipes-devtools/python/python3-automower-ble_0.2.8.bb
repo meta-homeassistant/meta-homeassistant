@@ -1,4 +1,5 @@
 SUMMARY = "An unofficial reverse engineered Husqvarna Automower Connect BLE library"
+HOMEPAGE = "https://github.com/alistair23/AutoMower-BLE"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
