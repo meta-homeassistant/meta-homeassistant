@@ -1,0 +1,27 @@
+From 29e97b1136ffea6a246a1a92e44cc6df5cddb17b Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Tue, 30 Dec 2025 15:52:03 +0100
+Subject: [PATCH] add compat for pytest asyncio
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ tests/conftest.py | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/tests/conftest.py b/tests/conftest.py
+index 16ff8c0..28d41cd 100644
+--- a/tests/conftest.py
++++ b/tests/conftest.py
+@@ -18,6 +18,11 @@ USER = "root"
+ PASS = "pass"
+ RTSP_PORT = 8888
+ 
++@pytest.fixture
++def event_loop():
++    loop = asyncio.new_event_loop()
++    yield loop
++    loop.close()
+ 
+ @pytest.fixture
+ async def axis_device(respx_mock: respx.router.MockRouter) -> AxisDevice:
