@@ -11,6 +11,7 @@ UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} = "\
     python3-core (>=3.10) \
+    python3-cryptography \
 "
 
 inherit pypi python_poetry_core cython
