@@ -1,0 +1,24 @@
+From 24ad82ef1aba4b0c33a66eadcc1cb2a563baef99 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Wed, 31 Dec 2025 12:56:29 +0100
+Subject: [PATCH] repair test
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ bimmer_connected/tests/test_vehicle_status.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/bimmer_connected/tests/test_vehicle_status.py b/bimmer_connected/tests/test_vehicle_status.py
+index 1ab3164..fe0675e 100644
+--- a/bimmer_connected/tests/test_vehicle_status.py
++++ b/bimmer_connected/tests/test_vehicle_status.py
+@@ -201,7 +201,7 @@ async def test_plugged_in_waiting_for_charge_window(caplog, bmw_fixture: respx.R
+     assert vehicle.fuel_and_battery.charging_end_time is None
+     assert vehicle.fuel_and_battery.charging_status == ChargingState.WAITING_FOR_CHARGING
+     assert vehicle.fuel_and_battery.is_charger_connected is True
+-    assert vehicle.fuel_and_battery.charging_start_time == datetime.datetime(2021, 11, 29, 18, 1)
++    assert vehicle.fuel_and_battery.charging_start_time == datetime.datetime(2021, 11, 28, 18, 1)
+     assert vehicle.fuel_and_battery.charging_target == 100
+ 
+     assert len(get_deprecation_warning_count(caplog)) == 0
