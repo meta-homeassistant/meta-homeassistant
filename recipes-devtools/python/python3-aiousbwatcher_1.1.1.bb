@@ -10,3 +10,8 @@ inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 PYPI_PACKAGE = "aiousbwatcher"
 RDEPENDS:${PN} = "python3-asyncinotify (>=4.2.0)"
+
+RDEPENDS:${PN}-ptest += "\
+    python3-pytest-asyncio \
+    python3-pytest-cov \
+"
