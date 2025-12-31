@@ -1,24 +1,3 @@
-# FIXME: the LIC_FILES_CHKSUM values have been updated by 'devtool upgrade'.
-# The following is the difference between the old and the new license text.
-# Please update the LICENSE value if needed, and summarize the changes in
-# the commit message via 'License-Update:' tag.
-# (example: 'License-Update: copyright years updated.')
-#
-# The changes:
-#
-# --- LICENSE
-# +++ LICENSE
-# @@ -1,6 +1,6 @@
-#  # MIT License
-#  
-# -Copyright (c) 2022-2024 Klaas Schoute
-# +Copyright (c) 2022-2025 Klaas Schoute
-#  
-#  Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-# 
-#
-
 SUMMARY = "Asynchronous Python client for the Autarco Inverters"
 HOMEPAGE = "https://github.com/klaasnicolaas/python-autarco"
 LICENSE = "MIT"
