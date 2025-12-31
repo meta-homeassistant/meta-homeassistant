@@ -18,4 +18,11 @@ RDEPENDS:${PN} = " \
     python3-aiofiles (>=23.1.0) \
 "
 
+RDEPENDS:${PN}-ptest:append = "\
+    python3-pytest-cov \
+    python3-pytest-sugar \
+    python3-pytest-timeout \
+    python3-pytest-asyncio \
+"
+
 PYPI_PACKAGE = "blinkpy"
