@@ -16,4 +16,15 @@ RDEPENDS:${PN} += "\
     python3-incremental (>=22.10.0) \
 "
 
+RDEPENDS:${PN}-ptest:append = "\
+    python3-aioresponses \
+    python3-pytest-aiohttp \
+    python3-pytest-asyncio \
+    python3-pytest-cov \
+    python3-pytest-socket \
+    python3-pytest-sugar \
+    python3-pytest-timeout \
+    python3-syrupy \
+"
+
 PYPI_PACKAGE = "aioazuredevops"
