@@ -5,19 +5,19 @@ overrides:
         poky:
             commit: 853f8bfbb85af4437e35983ca7ab91d111bb9b75
         meta-openembedded:
-            commit: a555730e42f9c1e3ed2523b57565dbbb833d88af
+            commit: d302ffa54770d803b5149e5ab24df01c5892aa2e
         bitbake:
-            commit: 720df1a53452983c1c832f624490e255cf389204
+            commit: 6e511d035a3d1e4129dab7b0dfbf216bd8e99b47
         openembedded-core:
-            commit: ac7327583aef83fd400190506f3147623de38b68
+            commit: f55407185c63c895fa3c4fdf74e6e63ea9517a20
         meta-yocto:
-            commit: b3b659263566c4d2f2813190e72d93f8598a4c47
+            commit: 853589ccc3445f5952efc02a7102587cb4d4f075
         meta-sca:
-            commit: a7e53c02fc7c32d64f90cf138e22ab5580873170
+            commit: e68f1a9d17553a2a1b5b20962749f90482112a3f
         meta-python-ai:
-            commit: 8530eeae70676db7991bacbbd3bb874fcd198a8d
+            commit: 28579430064793e73c26ecd0b01e51ddb07355a4
         meta-clang-revival:
-            commit: c3998941ae2dd021302745e7f9a6362a67c3caad
+            commit: 44095d3186185fcd5852f6971e04494e420e34b6
         meta-virtualization:
-            commit: c2185cd5ef225c6606341745ad9ffb02efe364d9
+            commit: b9a29d2423407c1e50f19dc3f3e154d164c5f0ec
         
