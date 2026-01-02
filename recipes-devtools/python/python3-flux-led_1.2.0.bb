@@ -8,15 +8,14 @@ SRC_URI[sha256sum] = "3cfb68df243bdc9bdde6a91e9d05960949de70b8a76fdb799b70021c54
 
 inherit pypi setuptools3 ptest-python-pytest
 
-DEPENDS += "python3-pytest-runner-native"
+SRC_URI += "file://0001-Remove-setup-requires-unneeded-for-OE-build.patch"
 
 RDEPENDS:${PN} += "\
     python3-async-timeout (>=3.0.0) \
     python3-webcolors \
 "
 
-RDEPENDS:$PN-ptest += "\
-    python3-pytest-raises \
+RDEPENDS:${PN}-ptest += "\
     python3-pytest-asyncio \
 "
 
