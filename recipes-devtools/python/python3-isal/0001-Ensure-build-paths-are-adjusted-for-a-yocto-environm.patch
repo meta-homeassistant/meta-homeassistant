@@ -1,0 +1,35 @@
+From c921b0941f21e0de230211ce83c5a87c6f08ee85 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Sun, 14 Dec 2025 00:38:43 +0100
+Subject: [PATCH] Ensure build-paths are adjusted for a yocto environment
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Inappropriate [oe-specific]
+---
+ setup.py | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/setup.py b/setup.py
+index 1ed64c2..bced1ee 100644
+--- a/setup.py
++++ b/setup.py
+@@ -18,7 +18,8 @@ from pathlib import Path
+ from setuptools import Extension, setup
+ from setuptools.command.build_ext import build_ext
+ 
+-ISA_L_SOURCE = os.path.join("src", "isal", "isa-l")
++ISA_L_SOURCE = os.path.join(os.getcwd(), "src", "isal", "isa-l")
++YOCTO_BUILD = os.path.join(os.getcwd(), "build-tmp")
+ 
+ SYSTEM_IS_BSD = (sys.platform.startswith("freebsd") or
+                  sys.platform.startswith("netbsd"))
+@@ -99,7 +100,8 @@ def build_isa_l():
+                 return str(cache_path)
+ 
+     # Creating temporary directories
+-    build_dir = tempfile.mktemp()
++    shutil.rmtree(YOCTO_BUILD, ignore_errors=True)
++    build_dir = YOCTO_BUILD
+     shutil.copytree(ISA_L_SOURCE, build_dir)
+ 
+     # Build environment is a copy of OS environment to allow user to influence

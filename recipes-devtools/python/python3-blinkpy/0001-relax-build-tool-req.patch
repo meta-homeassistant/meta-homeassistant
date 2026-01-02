@@ -1,4 +1,4 @@
-From eaf127f7e93ca945b15f1b6a7881c563098da430 Mon Sep 17 00:00:00 2001
+From dd9325626dc8f2e16a2037d67e07b0e285052c0b Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Thu, 24 Jul 2025 19:05:53 +0200
 Subject: [PATCH] relax build tool req
@@ -15,8 +15,8 @@ index 5763356..49bbdd2 100644
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@
  [build-system]
--requires = ["setuptools~=68.0", "wheel~=0.40.0"]
-+requires = ["setuptools>=68.0", "wheel>=0.40.0"]
+-requires = ["setuptools>=68,<81", "wheel~=0.40.0"]
++requires = ["setuptools>=68", "wheel>=0.40.0"]
  build-backend = "setuptools.build_meta"
  
  [project]
