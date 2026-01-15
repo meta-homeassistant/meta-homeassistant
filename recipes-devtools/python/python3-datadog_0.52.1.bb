@@ -13,3 +13,12 @@ PYPI_PACKAGE = "datadog"
 RDEPENDS:${PN} = "\
     python3-requests (>=2.6.0) \
 "
+
+RDEPENDS:${PN}-ptest = "\
+    python3-click \
+    python3-freezegun \
+    python3-mock \
+    python3-dateutil \
+"
+#python3-pytest-vcr
+# python3-vcrpy
