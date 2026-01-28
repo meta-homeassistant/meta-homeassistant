@@ -159,25 +159,30 @@ def get_repo(ha_path, ha_version=""):
 
 
 def get_recipes(ha_path):
-    """Get a list of all recipes and versions available in Yocto/OE"""
+    """Get a list of all recipes and versions available in Yocto/OE.
+
+    This version searches each layer path recursively (walks subdirectories)
+    and collects all files ending with `.bb`.
+    """
     list_of_recipes = []
-    layers = load_layers()  # Call function to load layers from the JSON file
+    layers = load_layers()
 
     for layer in layers:
         search_path = os.path.join(ha_path, layer)
         if os.path.exists(search_path):
-            list_of_recipes.extend(
-                f.name.strip(".bb")
-                for f in os.scandir(search_path)
-                if (f.is_file() and f.name.endswith(".bb"))
-            )
+            for root, dirs, files in os.walk(search_path):
+                for fname in files:
+                    if fname.endswith('.bb'):
+                        # remove the trailing .bb
+                        list_of_recipes.append(fname[:-3])
+
     # Accept versions like 0.0.1, 1.2.3.post1, 0.0.1.dev2, etc.
     version_pattern = re.compile(r'_([0-9]+(?:\.[0-9]+)*(?:[\.\-A-Za-z0-9]+)?)$')
-    
+
     # Filter items that match the version pattern
     filtered_recipes = [i for i in list_of_recipes if version_pattern.search(i)]
-    
-    # Split the items into parts
+
+    # Split the items into parts: name and version
     return [i.rsplit("_", 1)[0] for i in filtered_recipes], [
         version_pattern.search(i).group(1) for i in filtered_recipes
     ]
