@@ -9,17 +9,13 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-accuweather \
     python3-adext \
     python3-aioapcaccess \
-    python3-aioconsole \
     python3-aiodiscover \
     python3-aioecowitt \
     python3-aioesphomeapi \
-    python3-aiohasupervisor \
-    python3-aiohttp-asyncmdnsresolver \
     python3-aiorun \
     python3-aioruuvigateway \
     python3-aioshelly \
     python3-aiousbwatcher \
-    python3-airos \
     python3-alarmdecoder \
     python3-amcrest \
     python3-androidtv \
@@ -28,16 +24,13 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-arris-tg2492lg \
     python3-asusrouter \
     python3-async-upnp-client \
-    python3-asyncstdlib \
     python3-audioop-lts \
     python3-aurorapy \
     python3-automower-ble \
-    python3-bimmer-connected \
     python3-blinkpy \
     python3-bluecurrent-api \
     python3-bluetooth-adapters \
     python3-bluetooth-auto-recovery \
-    python3-bring-api \
     python3-btsocket \
     python3-cookidoo-api \
     python3-crccheck \
@@ -57,7 +50,14 @@ PTESTS_NEEDS_ETHERNET_META_HOMEASSISTANT = "\
 "
 
 PTEST_CURRENTLY_FAILS_META_HOMEASSISTANT = "\
+    python3-aioconsole \
+    python3-aiohasupervisor \
+    python3-aiohttp-asyncmdnsresolver \
+    python3-airos \
+    python3-asyncstdlib \
     python3-axis \
+    python3-bimmer-connected \
+    python3-bring-api \
 "
 
 #e
