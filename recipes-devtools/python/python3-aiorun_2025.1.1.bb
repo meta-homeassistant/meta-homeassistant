@@ -12,4 +12,5 @@ PYPI_PACKAGE = "aiorun"
 
 RDEPENDS:${PN}-ptest += "\
     python3-pytest-cov \
+    python3-uvloop \
 "

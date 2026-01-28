@@ -4,7 +4,9 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI += "file://0001-make-PEP-517-compatible.patch"
+SRC_URI += "file://0002-repair-test.patch \
+           file://0001-python-call-should-be-python3.patch \
+           "
 SRC_URI[sha256sum] = "bd86f6cd4d50fc601248745c7f919163b9d95d475747b40c1c808e133da6072d"
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
@@ -17,6 +19,19 @@ RDEPENDS:${PN} += "\
     python3-pycryptodome (>=3.4) \
     python3-pyjwt (>=2.1.0)\
 "
+
+RDEPENDS:${PN}-ptest:append = "\
+    python3-pytest-cov \
+    python3-pytest-timeout \
+    python3-pytest-asyncio \
+    python3-respx \
+    python3-pbr \
+    python3-time-machine \
+    python3-tzdata \
+    python3-zoneinfo \
+"
+
+PTEST_PYTEST_DIR = "bimmer_connected/tests"
 
 PYPI_PACKAGE = "bimmer_connected"
 UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

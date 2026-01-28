@@ -6,7 +6,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "a48dd5774031d3f41a29e159ebdbb93e89c8f37c1e9e83e196296be51885a5c2"
 
-inherit pypi python_setuptools_build_meta
+inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 PYPI_PACKAGE = "aiohttp-sse"
 UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
@@ -14,3 +14,11 @@ UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.0) \
 "
+
+RDEPENDS:${PN}-ptest:append = "\
+    python3-pytest-asyncio \
+"
+
+do_install_ptest:append() {
+    install ${S}/pyproject.toml ${D}${PTEST_PATH}/
+}

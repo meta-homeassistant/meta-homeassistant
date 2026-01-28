@@ -1,0 +1,24 @@
+From 276a1ef1231a72c266eabdec5e68ed5d24e8fff8 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Wed, 31 Dec 2025 12:56:16 +0100
+Subject: [PATCH] python call should be python3
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ bimmer_connected/tests/test_cli.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/bimmer_connected/tests/test_cli.py b/bimmer_connected/tests/test_cli.py
+index b97acf8..315684a 100644
+--- a/bimmer_connected/tests/test_cli.py
++++ b/bimmer_connected/tests/test_cli.py
+@@ -30,7 +30,7 @@ def test_run_entrypoint():
+ def test_run_module():
+     """Test if the module can be run as a python module."""
+     result = subprocess.run(
+-        ["python", "-m", "bimmer_connected.cli", "--help"], capture_output=True, text=True, check=False
++        ["python3", "-m", "bimmer_connected.cli", "--help"], capture_output=True, text=True, check=False
+     )
+ 
+     assert FIXTURE_CLI_HELP in result.stdout

@@ -13,10 +13,10 @@ UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} = "\
     python3-core (>=3.10) \
+    python3-bluetooth-adapters (>=0.15.2) \
 "
 
 RDEPENDS:${PN}-dev += "\
     python3-bleak (>=0.21.0) \
-    python3-bluetooth-adapters (>=0.15.2) \
     python3-dbus-fast (>=1.14.0) \
 "

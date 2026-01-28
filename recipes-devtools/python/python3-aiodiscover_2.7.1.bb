@@ -23,9 +23,10 @@ RDEPENDS:${PN} = "\
 
 RDEPENDS:${PN}-ptest:append = " \
     python3-pytest-asyncio \
+    python3-pytest-cov \
+    python3-pytest-sugar \
+    python3-pytest-timeout \
+    python3-mypy \
 "
 
-do_install_ptest() {
-    install -d ${D}${PTEST_PATH}/tests
-    cp -rf ${S}/aiodiscover/tests/* ${D}${PTEST_PATH}/tests/
-}
+PTEST_PYTEST_DIR = "aiodiscover/tests"

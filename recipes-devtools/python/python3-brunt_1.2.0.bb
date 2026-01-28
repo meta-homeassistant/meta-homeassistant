@@ -10,4 +10,13 @@ inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 DEPENDS += "python3-setuptools-scm-native"
 
+RDEPENDS:${PN} = "\
+    python3-aiohttp \
+"
+
+RDEPENDS:${PN}-ptest:append = "\
+    python3-pytest-asyncio \
+    python3-requests \
+"
+
 PYPI_PACKAGE = "brunt"

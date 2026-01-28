@@ -9,3 +9,5 @@ SRC_URI[sha256sum] = "c27862842d15d83e6a34eb0b2866c323880eb3a75e4485b079ea11748f
 inherit pypi setuptools3 ptest-python-pytest
 
 PYPI_PACKAGE = "asynctest"
+
+PTEST_PYTEST_DIR = "test"

@@ -10,3 +10,10 @@ SRC_URI = "\
     git://github.com/Airthings/airthings-ble;protocol=https;branch=main; \
 "
 SRCREV = "47fd2e97854eb9c67c168954c79b3b59c2fb6531"
+
+RDEPENDS:${PN}-ptest = "\
+    python3-pytest-asyncio \
+    python3-pytest-cov \
+    python3-pylint \
+    python3-pytest-rerunfailures \
+"

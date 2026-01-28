@@ -5,10 +5,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=d8b5b84f8af09011094cd7c29a9f972c"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI = "\
-    git://github.com/Bluetooth-Devices/bluetooth-auto-recovery.git;protocol=https;branch=main \
+    git://github.com/Bluetooth-Devices/bluetooth-auto-recovery.git;protocol=https;tag=v${PV};branch=main \
 "
 SRC_URI[sha256sum] = "8bac63dda39a8dfd7164af88d43c1ef27661108ec182a9327677b76e3222698d"
-SRCREV = "3c66df866ab973c234059cfc17a37c446c690905"
 
 inherit python_poetry_core ptest-python-pytest
 

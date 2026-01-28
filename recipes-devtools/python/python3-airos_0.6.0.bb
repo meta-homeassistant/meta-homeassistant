@@ -5,12 +5,26 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=b6ad717ddaae2251044bbbb7bd265b2a"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "1d252249578f09699231e12b0fb1e3a47c947550d141b580787f882f411c2ca6"
+SRC_URI = "git://github.com/compatech/python-airos;protocol=https;tag=v${PV};branch=main"
 
-inherit pypi python_setuptools_build_meta ptest-python-pytest
+inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "\
 	python3-aiohttp (>=3.8.0) \
 	python3-mashumaro (>=3.14.0) \
 "
 
-PYPI_PACKAGE = "airos"
+RDEPENDS:${PN}-ptest:append = "\
+	python3-pytest-asyncio \
+	python3-pytest-cov \
+	python3-coverage \
+	python3-aioresponses \
+	python3-aiofiles \
+	python3-pydantic \
+"
+
+do_install_ptest:append() {
+	install ${S}/pyproject.toml ${D}${PTEST_PATH}/
+    install -d ${D}${PTEST_PATH}/fixtures/userdata/
+    cp -rf ${S}/fixtures/* ${D}${PTEST_PATH}/fixtures/
+}
