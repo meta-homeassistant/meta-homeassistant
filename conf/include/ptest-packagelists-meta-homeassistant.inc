@@ -35,6 +35,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-cookidoo-api \
     python3-crccheck \
     python3-emoji \
+    python3-fastuuid \
     python3-fjaraskupan \
     python3-mistune \
     python3-pyegps \
