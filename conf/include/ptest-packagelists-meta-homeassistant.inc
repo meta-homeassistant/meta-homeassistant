@@ -38,6 +38,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-fjaraskupan \
     python3-mistune \
     python3-pyegps \
+    python3-uuid7 \
     python3-uart-devices \
 "
 
