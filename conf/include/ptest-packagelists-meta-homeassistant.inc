@@ -215,6 +215,7 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-sentence-stream \
     python3-siobrultech-protocols \
     python3-sleekxmppfs \
+    python3-soundfile \
     python3-sse-starlette \
     python3-standard-aifc \
     python3-standard-telnetlib \
