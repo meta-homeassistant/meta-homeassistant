@@ -127,6 +127,7 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-file-read-backwards \
     python3-fints \
     python3-fixerio \
+    python3-flasgger \
     python3-flux-led \
     python3-fortiosapi \
     python3-frozendict \
