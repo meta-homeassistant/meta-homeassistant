@@ -37,6 +37,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-emoji \
     python3-fastuuid \
     python3-fjaraskupan \
+    python3-httpbin \
     python3-mistune \
     python3-pyegps \
     python3-uuid7 \
