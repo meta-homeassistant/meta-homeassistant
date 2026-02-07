@@ -50,6 +50,7 @@ PTESTS_NEEDS_ETHERNET_META_HOMEASSISTANT = "\
     python3-aioairq \
     python3-anthropic \
     python3-uvloop \
+    python3-vcrpy \
 "
 
 PTEST_CURRENTLY_FAILS_META_HOMEASSISTANT = "\
