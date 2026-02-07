@@ -27,6 +27,7 @@ RDEPENDS:${PN} = "\
     python3-sentence-stream (>=1.2.0) \
     python3-pyasn1 \
     python3-ecdsa \
+    python3-litellm \
 "
 
 RDEPENDS:${PN}-ptest += "\
