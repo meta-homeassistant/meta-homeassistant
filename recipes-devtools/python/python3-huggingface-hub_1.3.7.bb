@@ -21,7 +21,6 @@ RDEPENDS:${PN} += "\
     python3-tqdm \
     python3-typing-extensions \
 "
-#     python3-typer-slim 
 
 RDEPENDS:${PN}-ptest += " \
     python3-pytest-cov \
