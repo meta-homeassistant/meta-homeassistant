@@ -56,7 +56,6 @@ do_install:append () {
 require recipes-homeassistant/homeassistant/python3-homeassistant/integrations.inc
 require recipes-homeassistant/homeassistant/python3-homeassistant/integrations-tests.inc
 
-#TODO: python3-uv (=0.8.9)
 RDEPENDS:${PN} += "\
     python3-aiodns (>=3.5.0) \
     python3-aiohasupervisor (>=0.3.2) \
@@ -107,7 +106,7 @@ RDEPENDS:${PN} += "\
     python3-yarl (>=1.20.1) \
     python3-webrtc-models (>=0.3.0) \
     python3-zeroconf (>=0.147.2) \
-    \
+    python3-uv (>=0.8.9) \
     python3-statistics \
     python3-core (>=3.13.0) \
 "
