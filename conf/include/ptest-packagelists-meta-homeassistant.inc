@@ -216,6 +216,7 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-securetar \
     python3-segno \
     python3-sentence-stream \
+    python3-simple-websocket \
     python3-siobrultech-protocols \
     python3-sleekxmppfs \
     python3-soundfile \
