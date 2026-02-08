@@ -7,17 +7,17 @@ overrides:
         meta-openembedded:
             commit: d302ffa54770d803b5149e5ab24df01c5892aa2e
         bitbake:
-            commit: 6e511d035a3d1e4129dab7b0dfbf216bd8e99b47
+            commit: af9dd012e7f4d16dccd1d6118be5da94ede68f85
         openembedded-core:
-            commit: f55407185c63c895fa3c4fdf74e6e63ea9517a20
+            commit: 6ce19709f7835ee5cd7915e181f89397975236c8
         meta-yocto:
-            commit: 853589ccc3445f5952efc02a7102587cb4d4f075
+            commit: de4abc0a175af12eacc761a2e1e60ca7fdfeaa1b
         meta-sca:
-            commit: e68f1a9d17553a2a1b5b20962749f90482112a3f
+            commit: 6ca808298261b4e407c435454cf33f043135b842
         meta-python-ai:
             commit: 28579430064793e73c26ecd0b01e51ddb07355a4
         meta-clang-revival:
-            commit: 44095d3186185fcd5852f6971e04494e420e34b6
+            commit: 0c2fcf131346e2abc65ec5f49c5452bf3040870a
         meta-virtualization:
-            commit: b9a29d2423407c1e50f19dc3f3e154d164c5f0ec
+            commit: 28d26fd95397bf575e65fcca0cbb302b1e9bc7ff
         
