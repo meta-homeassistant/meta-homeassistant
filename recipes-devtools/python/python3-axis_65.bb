@@ -7,6 +7,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "7ddfab537ea080abc663304cb1135d8a8388f0ecfea7054ff31236b98fa24701"
 SRC_URI = "git://github.com/Kane610/axis;protocol=https;tag=v${PV};branch=master \
            file://0001-add-compat-for-pytest-asyncio.patch \
+           file://0001-relax-build-reqs.patch \
            "
 
 inherit python_setuptools_build_meta ptest-python-pytest
