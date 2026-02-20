@@ -29,7 +29,6 @@ bitbake-layers add-layer ../meta-openembedded/meta-networking
 bitbake-layers add-layer ../meta-openembedded/meta-multimedia
 bitbake-layers add-layer ../meta-openembedded/meta-filesystems
 bitbake-layers add-layer ../meta-python-ai
-bitbake-layers add-layer ../meta-clang-revival
 bitbake-layers add-layer ../meta-sca
 bitbake-layers add-layer ../meta-virtualization
 bitbake-layers add-layer ../meta-homeassistant
@@ -77,10 +76,6 @@ URI: https://github.com/zboszor/meta-python-ai
 branch: master
 revision: HEAD
 
-URI: https://github.com/zboszor/meta-clang-revival
-branch: main
-revision: HEAD
-
 URI: https://github.com/priv-kweihmann/meta-sca
 branch: master
 revision: HEAD
@@ -98,7 +93,6 @@ Why are these needed?
 - [meta-multimedia](https://github.com/openembedded/meta-openembedded/tree/master/meta-multimedia) : contains several multimedia recipes for integrations.
 - [meta-filesystems](https://github.com/openembedded/meta-openembedded/tree/master/meta-filesystems) : contains needed recipes for filesystem related integrations
 - [meta-python-ai](https://github.com/zboszor/meta-python-ai) : contains several python recipes needed (such as python3-scipy)
-- [meta-clang-revival](https://github.com/zboszor/meta-clang-revival) : needed for meta-python-ai.
 - [meta-virtualization](https://git.yoctoproject.org/meta-virtualization) : needed for meta-python-ai.
 - [meta-sca](https://github.com/priv-kweihmann/meta-sca) : has several `native` packages which are needed for compiling integrations.
 
