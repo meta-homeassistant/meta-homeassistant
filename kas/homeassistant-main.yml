@@ -1,7 +1,7 @@
 header:
   version: 14
 
-distro: poky
+distro: homeassistant
 target: python3-homeassistant
 
 repos:
