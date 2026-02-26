@@ -2118,7 +2118,7 @@ RDEPENDS:${PN}-luftdaten = "\
 
 ALLOW_EMPTY:${PN}-matter = "1"
 RDEPENDS:${PN}-matter = "\
-    python3-python-matter-server (>8.1.0) \
+    python3-python-matter-server (>=8.1.0) \
 "
 
 ALLOW_EMPTY:${PN}-mcp = "1"
