@@ -1,7 +1,7 @@
 header:
   version: 14
 
-distro: poky
+distro: homeassistant
 target: python3-homeassistant
 
 repos:
@@ -45,22 +45,12 @@ repos:
     path: "sources/meta-python-ai"
     branch: "master"
   
-  meta-clang-revival:
-    url: "https://github.com/zboszor/meta-clang-revival"
-    path: "sources/meta-clang-revival"
-    branch: "main"
-  
   meta-virtualization:
     url: "https://git.yoctoproject.org/meta-virtualization"
     path: "sources/meta-virtualization"
     branch: master
 
 local_conf_header:
-  fortran_support: |
-    FORTRAN:forcevariable = ",fortran"
-    RUNTIMETARGET:append:pn-gcc-runtime = " libquadmath"
-    HOSTTOOLS += "gfortran"
-
   license_flags: |
     LICENSE_FLAGS_ACCEPTED = "\
       commercial_ffmpeg \

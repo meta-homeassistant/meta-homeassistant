@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Some builds enable Python's safe path mode (via PYTHONSAFEPATH or -P), which
+# removes the current directory from sys.path. flasgger's upstream tests import
+# modules from the local "examples/" directory, so make sure this directory is
+# importable when running ptests.
+
+cd "$(dirname "$0")" || exit 1
+
+unset PYTHONSAFEPATH
+export PYTHONPATH="$PWD${PYTHONPATH:+:${PYTHONPATH}}"
+
+pytest --automake

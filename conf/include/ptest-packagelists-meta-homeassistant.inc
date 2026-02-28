@@ -35,8 +35,13 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-cookidoo-api \
     python3-crccheck \
     python3-emoji \
+    python3-fastuuid \
     python3-fjaraskupan \
+    python3-httpbin \
+    python3-mistune \
     python3-pyegps \
+    python3-pytest-httpbin \
+    python3-uuid7 \
     python3-uart-devices \
 "
 
@@ -46,7 +51,9 @@ PTESTS_SLOW_META_HOMEASSISTANT = "\
 PTESTS_NEEDS_ETHERNET_META_HOMEASSISTANT = "\
     python3-aioairq \
     python3-anthropic \
+    python3-huggingface-hub \
     python3-uvloop \
+    python3-vcrpy \
 "
 
 PTEST_CURRENTLY_FAILS_META_HOMEASSISTANT = "\
@@ -124,6 +131,7 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-file-read-backwards \
     python3-fints \
     python3-fixerio \
+    python3-flasgger \
     python3-flux-led \
     python3-fortiosapi \
     python3-frozendict \
@@ -208,8 +216,10 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-securetar \
     python3-segno \
     python3-sentence-stream \
+    python3-simple-websocket \
     python3-siobrultech-protocols \
     python3-sleekxmppfs \
+    python3-soundfile \
     python3-sse-starlette \
     python3-standard-aifc \
     python3-standard-telnetlib \
