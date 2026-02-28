@@ -41,31 +41,20 @@ jobs:
         sudo pip3 install kas
 
     - name: Restore sstate cache
-      id: cache-sstate-restore
-      uses: actions/cache/restore@v4
+      id: cache-sstate
+      uses: actions/cache@v4
       with:
-        path: |
-          sstate
+        path: sstate-cache
         key: sstate-${{ matrix.yocto-version }}-${{ matrix.machine }}
         restore-keys: |
           sstate-${{ matrix.yocto-version }}
           sstate-
-    - name: Move sstate
-      run: |
-        mkdir -p sstate
-        mv sstate sstate-cache
+
+    - name: Prepare sstate dir
+      run: mkdir -p sstate-cache
 
     - name: Run kas on ${{ matrix.machine }} on ${{ matrix.yocto-version }}
       run: |
-        export SSTATE_DIR="${PWD}/sstate"
+        export SSTATE_DIR="${PWD}/sstate-cache"
         export SSTATE_MIRRORS="file://.* file://${PWD}/sstate-cache/PATH;downloadfilename=PATH"
         kas build kas/homeassistant-${{ matrix.yocto-version }}.yml:kas/machine-${{ matrix.machine }}.yml:kas/ci.yml
-
-    - name: Save sstate cache
-      id: cache-sstate-save
-      uses: actions/cache/save@v4
-      if: always()
-      with:
-        path: |
-          sstate
-        key: ${{ steps.cache-sstate-restore.outputs.cache-primary-key }}
