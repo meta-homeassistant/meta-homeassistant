@@ -13,6 +13,12 @@ inherit pypi python_maturin cargo-update-recipe-crates
 PYPI_PACKAGE = "hf_xet"
 UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
+# The 1.2.0 sdist ships an empty hf_xet/python/ tree, so maturin fails when
+# python-source points there. Drop this key to build the extension module.
+do_configure:append() {
+	sed -i '/^python-source\s*=\s*"hf_xet\/python"\s*$/d' ${S}/pyproject.toml
+}
+
 # Consolidated remap prefixes to avoid embedding absolute build/source paths.
 # Keep a small set of high-yield prefixes rather than many overlapping ones.
 RUST_DEBUG_REMAP = " --remap-path-prefix=${S}=${TARGET_DBGSRC_DIR} --remap-path-prefix=${TMPDIR}=${TARGET_DBGSRC_DIR} --remap-path-prefix=/usr/src/debug=${TARGET_DBGSRC_DIR} --remap-path-prefix=/cache/builddir=${TARGET_DBGSRC_DIR} --remap-path-prefix=${CARGO_HOME}=${TARGET_DBGSRC_DIR}"
