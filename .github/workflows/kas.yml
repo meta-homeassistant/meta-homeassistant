@@ -1,60 +1,264 @@
 name: CI
-
 on: [push, pull_request]
 
 jobs:
-  build:
-
-    timeout-minutes: 360
+  chunk1:
     runs-on: ubuntu-24.04
+    timeout-minutes: 350
     strategy:
+      fail-fast: false
       matrix:
         yocto-version: [main]
         machine: [qemuarm64, qemux86-64]
+
+    outputs:
+      done: ${{ steps.check.outputs.done }}
+
     steps:
-    - name: Setup unpriviledged user namespaces
-      # https://discourse.ubuntu.com/t/ubuntu-24-04-lts-noble-numbat-release-notes/39890
-      run: |
-        sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+      - name: Setup unprivileged user namespaces
+        run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
 
-    - name: Reclaim the bytes
-      uses: data-intuitive/reclaim-the-bytes@v2
-      with:
-        remove-hosted-tool-cache: true
-        remove-go: true
-        remove-codeql: true
-        remove-powershell: true
-        remove-android-sdk: true
-        remove-haskell-ghc: true
-        remove-swift: true
-        remove-dotnet: true
-        remove-docker-images: true
-        remove-swap: false
-    - name: Install dependencies
-      run: |
-        sudo apt install gawk wget git diffstat unzip texinfo gcc build-essential chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 python3-subunit python3-websockets zstd liblz4-tool file locales libacl1
-        sudo locale-gen en_US.UTF-8
-        df -h
-    - uses: actions/checkout@v1
-    - name: Install Kas
-      run: |
-        sudo pip3 install kas
+      - name: Reclaim the bytes
+        uses: data-intuitive/reclaim-the-bytes@v2
+        with:
+          remove-hosted-tool-cache: true
+          remove-go: true
+          remove-codeql: true
+          remove-powershell: true
+          remove-android-sdk: true
+          remove-haskell-ghc: true
+          remove-swift: true
+          remove-dotnet: true
+          remove-docker-images: true
+          remove-swap: false
 
-    - name: Restore sstate cache
-      id: cache-sstate
-      uses: actions/cache@v4
-      with:
-        path: sstate-cache
-        key: sstate-${{ matrix.yocto-version }}-${{ matrix.machine }}
-        restore-keys: |
-          sstate-${{ matrix.yocto-version }}
-          sstate-
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            gawk wget git diffstat unzip texinfo gcc build-essential chrpath socat \
+            cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping \
+            python3-git python3-jinja2 python3-subunit python3-websockets zstd \
+            liblz4-tool file locales libacl1 pipx
+          sudo locale-gen en_US.UTF-8
+          df -h
 
-    - name: Prepare sstate dir
-      run: mkdir -p sstate-cache
+      - uses: actions/checkout@v4
 
-    - name: Run kas on ${{ matrix.machine }} on ${{ matrix.yocto-version }}
-      run: |
-        export SSTATE_DIR="${PWD}/sstate-cache"
-        export SSTATE_MIRRORS="file://.* file://${PWD}/sstate-cache/PATH;downloadfilename=PATH"
-        kas build kas/homeassistant-${{ matrix.yocto-version }}.yml:kas/machine-${{ matrix.machine }}.yml:kas/ci.yml
+      - name: Install kas (pipx)
+        run: |
+          pipx ensurepath
+          pipx install kas
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Restore Yocto caches
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            yocto-cache/sstate
+            yocto-cache/downloads
+          key: yocto-${{ matrix.yocto-version }}-${{ matrix.machine }}-${{ hashFiles('kas/**/*.yml', 'kas/*.yml') }}
+          restore-keys: |
+            yocto-${{ matrix.yocto-version }}-${{ matrix.machine }}-
+            yocto-${{ matrix.yocto-version }}-
+
+      - name: Chunk 1 build (time-boxed)
+        env:
+          SSTATE_DIR: ${{ github.workspace }}/yocto-cache/sstate
+          DL_DIR: ${{ github.workspace }}/yocto-cache/downloads
+        run: |
+          mkdir -p "$SSTATE_DIR" "$DL_DIR"
+          echo "cache-hit=${{ steps.cache.outputs.cache-hit }}"
+          # Run < 6 hours so GitHub doesn't kill it; SIGINT allows a cleaner shutdown.
+          timeout -s INT 330m \
+            kas build kas/homeassistant-${{ matrix.yocto-version }}.yml:kas/machine-${{ matrix.machine }}.yml:kas/ci.yml \
+            || true
+
+      - name: Check if image is done
+        id: check
+        run: |
+          # TODO: Adjust this to your actual image output.
+          # Typical locations:
+          # build/tmp/deploy/images/<machine>/*
+          IMAGE_GLOB="build/tmp/deploy/images/${{ matrix.machine }}/*.wic*"
+          if ls $IMAGE_GLOB >/dev/null 2>&1; then
+            echo "done=true" >> $GITHUB_OUTPUT
+            echo "Image found ($IMAGE_GLOB) -> done"
+          else
+            echo "done=false" >> $GITHUB_OUTPUT
+            echo "No image yet -> need another chunk"
+          fi
+
+  chunk2:
+    needs: chunk1
+    if: needs.chunk1.outputs.done != 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix:
+        yocto-version: [main]
+        machine: [qemuarm64, qemux86-64]
+
+    outputs:
+      done: ${{ steps.check.outputs.done }}
+
+    steps:
+      - name: Setup unprivileged user namespaces
+        run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+
+      - name: Reclaim the bytes
+        uses: data-intuitive/reclaim-the-bytes@v2
+        with:
+          remove-hosted-tool-cache: true
+          remove-go: true
+          remove-codeql: true
+          remove-powershell: true
+          remove-android-sdk: true
+          remove-haskell-ghc: true
+          remove-swift: true
+          remove-dotnet: true
+          remove-docker-images: true
+          remove-swap: false
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            gawk wget git diffstat unzip texinfo gcc build-essential chrpath socat \
+            cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping \
+            python3-git python3-jinja2 python3-subunit python3-websockets zstd \
+            liblz4-tool file locales libacl1 pipx
+          sudo locale-gen en_US.UTF-8
+          df -h
+
+      - uses: actions/checkout@v4
+
+      - name: Install kas (pipx)
+        run: |
+          pipx ensurepath
+          pipx install kas
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Restore Yocto caches
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            yocto-cache/sstate
+            yocto-cache/downloads
+          key: yocto-${{ matrix.yocto-version }}-${{ matrix.machine }}-${{ hashFiles('kas/**/*.yml', 'kas/*.yml') }}
+          restore-keys: |
+            yocto-${{ matrix.yocto-version }}-${{ matrix.machine }}-
+            yocto-${{ matrix.yocto-version }}-
+
+      - name: Chunk 2 build (finish or time-boxed)
+        env:
+          SSTATE_DIR: ${{ github.workspace }}/yocto-cache/sstate
+          DL_DIR: ${{ github.workspace }}/yocto-cache/downloads
+        run: |
+          mkdir -p "$SSTATE_DIR" "$DL_DIR"
+          echo "cache-hit=${{ steps.cache.outputs.cache-hit }}"
+          timeout -s INT 330m \
+            kas build kas/homeassistant-${{ matrix.yocto-version }}.yml:kas/machine-${{ matrix.machine }}.yml:kas/ci.yml \
+            || true
+
+      - name: Check if image is done
+        id: check
+        run: |
+          IMAGE_GLOB="build/tmp/deploy/images/${{ matrix.machine }}/*.wic*"
+          if ls $IMAGE_GLOB >/dev/null 2>&1; then
+            echo "done=true" >> $GITHUB_OUTPUT
+            echo "Image found ($IMAGE_GLOB) -> done"
+          else
+            echo "done=false" >> $GITHUB_OUTPUT
+            echo "No image yet -> would need chunk3"
+          fi
+
+  chunk3:
+    needs: chunk2
+    if: needs.chunk2.outputs.done != 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix:
+        yocto-version: [main]
+        machine: [qemuarm64, qemux86-64]
+
+    outputs:
+      done: ${{ steps.check.outputs.done }}
+
+    steps:
+      - name: Setup unprivileged user namespaces
+        run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+
+      - name: Reclaim the bytes
+        uses: data-intuitive/reclaim-the-bytes@v2
+        with:
+          remove-hosted-tool-cache: true
+          remove-go: true
+          remove-codeql: true
+          remove-powershell: true
+          remove-android-sdk: true
+          remove-haskell-ghc: true
+          remove-swift: true
+          remove-dotnet: true
+          remove-docker-images: true
+          remove-swap: false
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            gawk wget git diffstat unzip texinfo gcc build-essential chrpath socat \
+            cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping \
+            python3-git python3-jinja2 python3-subunit python3-websockets zstd \
+            liblz4-tool file locales libacl1 pipx
+          sudo locale-gen en_US.UTF-8
+          df -h
+
+      - uses: actions/checkout@v4
+
+      - name: Install kas (pipx)
+        run: |
+          pipx ensurepath
+          pipx install kas
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Restore Yocto caches
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            yocto-cache/sstate
+            yocto-cache/downloads
+          key: yocto-${{ matrix.yocto-version }}-${{ matrix.machine }}-${{ hashFiles('kas/**/*.yml', 'kas/*.yml') }}
+          restore-keys: |
+            yocto-${{ matrix.yocto-version }}-${{ matrix.machine }}-
+            yocto-${{ matrix.yocto-version }}-
+
+      - name: Chunk 3 build (finish or time-boxed)
+        env:
+          SSTATE_DIR: ${{ github.workspace }}/yocto-cache/sstate
+          DL_DIR: ${{ github.workspace }}/yocto-cache/downloads
+        run: |
+          mkdir -p "$SSTATE_DIR" "$DL_DIR"
+          echo "cache-hit=${{ steps.cache.outputs.cache-hit }}"
+          timeout -s INT 330m \
+            kas build kas/homeassistant-${{ matrix.yocto-version }}.yml:kas/machine-${{ matrix.machine }}.yml:kas/ci.yml \
+            || true
+
+      - name: Check if image is done
+        id: check
+        run: |
+          IMAGE_GLOB="build/tmp/deploy/images/${{ matrix.machine }}/*.wic*"
+          if ls $IMAGE_GLOB >/dev/null 2>&1; then
+            echo "done=true" >> $GITHUB_OUTPUT
+            echo "Image found ($IMAGE_GLOB) -> done"
+          else
+            echo "done=false" >> $GITHUB_OUTPUT
+            echo "No image yet -> would need chunk3"
+            exit 1
+          fi
