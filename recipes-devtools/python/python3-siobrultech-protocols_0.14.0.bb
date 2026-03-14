@@ -8,4 +8,10 @@ SRC_URI[sha256sum] = "6364422e6a7dbb3230f768374fa6f858ad03f39c806cbea766eb6fc135
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
+# Upstream wheel/sdist installs a top-level "tests" package, which collides
+# with other Python recipes that also ship /site-packages/tests/__init__.py.
+do_install:append() {
+	rm -rf ${D}${libdir}/${PYTHON_DIR}/site-packages/tests
+}
+
 
