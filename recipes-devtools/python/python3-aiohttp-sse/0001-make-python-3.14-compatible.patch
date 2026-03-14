@@ -1,0 +1,27 @@
+From ae1a88a36e35dfa63805f00f04cfdda80296d3bc Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Wed, 11 Mar 2026 09:22:48 +0100
+Subject: [PATCH] make python >=3.14 compatible
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ setup.py | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/setup.py b/setup.py
+index 3c38d44..afcedb8 100644
+--- a/setup.py
++++ b/setup.py
+@@ -24,8 +24,9 @@ class VersionFinder(ast.NodeVisitor):
+ 
+     def visit_Assign(self, node):
+         if not self.version:
+-            if node.targets[0].id == "__version__":
+-                self.version = node.value.s
++            target = node.targets[0]
++            if isinstance(target, ast.Name) and target.id == "__version__":
++                self.version = ast.literal_eval(node.value)
+ 
+ 
+ def read_version():
