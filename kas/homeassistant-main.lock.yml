@@ -18,4 +18,6 @@ overrides:
             commit: fbb65fa18e75006314d570d33f405520888a033d
         meta-virtualization:
             commit: a1e1a021b49f5257d8908aa9b8c2ee9c083e674c
+        meta-clang-revival:
+            commit: 14e4c8830eb1f2537bca5c3ff32d86a9b96a35c7
         

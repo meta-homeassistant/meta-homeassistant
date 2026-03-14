@@ -45,6 +45,11 @@ repos:
     path: "sources/meta-python-ai"
     branch: "master"
   
+  meta-clang-revival:
+    url: "https://github.com/zboszor/meta-clang-revival"
+    path: "sources/meta-clang-revival"
+    branch: "main"
+  
   meta-virtualization:
     url: "https://git.yoctoproject.org/meta-virtualization"
     path: "sources/meta-virtualization"
