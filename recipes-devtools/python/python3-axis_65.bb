@@ -9,6 +9,7 @@ SRC_URI = "git://github.com/Kane610/axis;protocol=https;tag=v${PV};branch=master
            file://0001-add-compat-for-pytest-asyncio.patch \
            file://0001-relax-build-reqs.patch \
            "
+SRCREV = "ab0c7ac130fa8b3c79002b2096d11b7f3cdb6404"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
