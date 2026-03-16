@@ -8,6 +8,7 @@ SRC_URI = "\
     git://github.com/JeffLIrion/python-androidtv;protocol=https;tag=v${PV};branch=master \
     file://run-ptest \
 "
+SRCREV = "343b74ea7bb3d159f8a715190b4b9d8c00c2c0fd"
 
 inherit setuptools3 ptest-python-pytest
 
