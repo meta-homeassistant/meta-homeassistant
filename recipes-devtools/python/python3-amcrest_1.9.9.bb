@@ -11,6 +11,7 @@ inherit setuptools3 ptest-python-pytest
 SRC_URI = "git://github.com/tchellomello/python-amcrest;protocol=https;tag=${PV};branch=master \
            file://0001-Repair-Test.patch \
            "
+SRCREV = "5d44bccf39a5c9d0c6fd5af96665e03dbe2c3eaf"
 
 RDEPENDS:${PN} += "\
     python3-argcomplete \
