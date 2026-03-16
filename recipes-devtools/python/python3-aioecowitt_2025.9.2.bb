@@ -6,6 +6,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "b2493c17017d8552b189e6f3077abe116327a463123cc21d7f31cdd4ad61f4fd"
 SRC_URI = "git://github.com/home-assistant-libs/aioecowitt;protocol=https;tag=${PV};branch=main"
+SRCREV = "a9ed7e4ea2aceb8ecc2779f34b7c0f890ec57859"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
