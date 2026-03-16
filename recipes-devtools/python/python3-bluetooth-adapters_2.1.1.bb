@@ -6,6 +6,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "f289e0f08814f74252a28862f488283680584744430d7eac45820f9c20ba041a"
 SRC_URI = "git://github.com/bluetooth-devices/bluetooth-adapters;protocol=https;tag=v${PV};branch=main"
+SRCREV = "a672291983539244616a8f277ed3ebba7336753d"
 
 inherit python_poetry_core ptest-python-pytest
 
