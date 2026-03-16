@@ -6,6 +6,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "7de6011cdb646b2bca8898048d283dbb6b5c4a43cb108827b14cc558df2b276b"
 SRC_URI = "git://github.com/mjj4791/python-buienradar;protocol=https;tag=${PV};branch=master"
+SRCREV = "86399aeaa3cce54f162259ae5e9b2747f4133012"
 
 inherit setuptools3 ptest-python-pytest
 
