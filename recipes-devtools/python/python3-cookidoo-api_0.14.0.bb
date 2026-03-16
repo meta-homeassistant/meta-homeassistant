@@ -6,6 +6,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "3e5018fc0dcc82b0d058281242bd5b888cac705fc7b764250995b3374f7107a4"
 SRC_URI = "git://github.com/miaucl/cookidoo-api;protocol=https;tag=${PV};branch=master"
+SRCREV = "719a481597aa1820db66abbeb8694a9ff6e7b212"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
