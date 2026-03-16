@@ -6,6 +6,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "bf4c6ecdf572240ab6384786cf243ebaeca7bbda8a9709d7aaa0a00503fa5e7c"
 SRC_URI = "git://github.com/Vaskivskyi/asusrouter;protocol=https;tag=${PV};branch=main-legacy"
+SRCREV = "0dbccb1cb1243f8181ce4ae3f67a73b2e4ec0489"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
