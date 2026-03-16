@@ -6,6 +6,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "1d252249578f09699231e12b0fb1e3a47c947550d141b580787f882f411c2ca6"
 SRC_URI = "git://github.com/compatech/python-airos;protocol=https;tag=v${PV};branch=main"
+SRCREV = "ffbad0347b6a4dc9430744c1254955d3f7e3dd60"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
