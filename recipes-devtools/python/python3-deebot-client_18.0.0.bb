@@ -4,7 +4,7 @@ LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=d32239bcb673463ab874e80d47fae504"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "19950467c861a7001fc462acfcd4fc360e59cac434ca3c0bcf2bdb057a28ace2"
+SRC_URI[sha256sum] = "9e2f4315f75046584fb340485b5b1d541667b9791e48545162dad13c90aac843"
 
 require ${BPN}-crates.inc
 
