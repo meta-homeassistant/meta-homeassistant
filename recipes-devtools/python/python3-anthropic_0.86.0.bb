@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=2453eb85b33e21e22cb4fa811c650d75"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI += "file://0001-relax-hatchling.patch"
-SRC_URI[sha256sum] = "e8607422f4ab616db2ea5baacc215dd5f028da99ce2f022e33c7c535b29f3dfb"
+SRC_URI[sha256sum] = "60023a7e879aa4fbb1fed99d487fe407b2ebf6569603e5047cfe304cebdaa0e5"
 
 DEPENDS += "\
 	python3-hatch-fancy-pypi-readme-native \
@@ -29,6 +29,7 @@ RDEPENDS:${PN} = "\
 RDEPENDS:${PN}-ptest += "\
 	python3-botocore \
 	python3-dirty-equals \
+	python3-http-snapshot \
 	python3-inline-snapshot \
 	python3-pytest-xdist \
 	python3-respx \
