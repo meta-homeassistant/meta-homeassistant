@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "\
 "
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "6e742601ec9ca1a0bc6e871fffe0392145bcc67de730f398ba5cefa5c49773f8"
+SRC_URI[sha256sum] = "0b6dc76a462c0c32a6dbdc537eda832226bd4d9dacf3906247626b68db5b10b6"
 
 DEPENDS += "python3-setuptools-scm-native"
 
