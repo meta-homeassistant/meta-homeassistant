@@ -1,10 +1,10 @@
 SUMMARY = "Asynchronous Python client for the AdGuard Home API."
 HOMEPAGE = "https://github.com/frenck/python-adguardhome"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE.md;md5=e9781798cd53ef5cc35225d21c15f5ea"
+LIC_FILES_CHKSUM = "file://LICENSE.md;md5=0789b59a6ea5842c0bf47837431adb5d"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "e3b79ac5d63824490b3bac53f31b7f4d59ca9ca5e5c90ff79858ce81f8e80047"
+SRC_URI[sha256sum] = "468207e568686a3f749cf0ae78f3e20a549a4197616d65286d207f726b68ab30"
 
 inherit pypi python_poetry_core
 
