@@ -16,6 +16,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-aioruuvigateway \
     python3-aioshelly \
     python3-aiousbwatcher \
+    python3-airos \
     python3-alarmdecoder \
     python3-amcrest \
     python3-androidtv \
@@ -41,8 +42,8 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-mistune \
     python3-pyegps \
     python3-pytest-httpbin \
-    python3-uuid7 \
     python3-uart-devices \
+    python3-uuid7 \
 "
 
 PTESTS_SLOW_META_HOMEASSISTANT = "\

@@ -6,13 +6,13 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "1d252249578f09699231e12b0fb1e3a47c947550d141b580787f882f411c2ca6"
 SRC_URI = "git://github.com/compatech/python-airos;protocol=https;tag=v${PV};branch=main"
-SRCREV = "ffbad0347b6a4dc9430744c1254955d3f7e3dd60"
+SRCREV = "fbd3aed87fbc8c612538217b9140bdc29e5ccae1"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "\
-	python3-aiohttp (>=3.8.0) \
-	python3-mashumaro (>=3.14.0) \
+	python3-aiohttp (>=3.13.3) \
+	python3-mashumaro (>=3.20) \
 "
 
 RDEPENDS:${PN}-ptest:append = "\
