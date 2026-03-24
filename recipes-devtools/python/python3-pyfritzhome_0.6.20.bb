@@ -6,7 +6,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI = "git://github.com/hthiery/python-fritzhome.git;protocol=https;branch=master"
 SRC_URI[sha256sum] = "e1c845efdc0c92ff8e80d3c317a6c05df35ed05449ec80df23f1dac69b8c4f58"
-SRCREV = "c7d6da98f2a1388c2e20bd235ac33df26e9e82a0"
+SRCREV = "17befd6640ce2f8e9a9ede54ed2a57c6dd427aeb"
 
 inherit setuptools3 ptest-python-pytest
 

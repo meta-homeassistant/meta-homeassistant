@@ -51,6 +51,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-mcp \
     python3-mistune \
     python3-pyegps \
+    python3-pyfritzhome \
     python3-pytest-httpbin \
     python3-requirements-parser \
     python3-uart-devices \
@@ -201,7 +202,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-pyemoncms \
     python3-pyfibaro \
     python3-pyflume \
-    python3-pyfritzhome \
     python3-pyfronius \
     python3-pyserial-asyncio-fast \
     python3-pyspeex-noise \
