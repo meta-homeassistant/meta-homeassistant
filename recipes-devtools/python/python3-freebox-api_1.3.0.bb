@@ -4,7 +4,7 @@ LICENSE = "GPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE.rst;md5=94367b65e8cc78bc24fe46e640568dee"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "a5e30098a2f9ef59cdda6ae837fc703ca472453e55807f2ec63aab0f2409d548"
+SRC_URI[sha256sum] = "a37c07b7519eea7bb1425907d43a587cae7c158e2ca43fe289dac7b626079222"
 
 inherit pypi python_poetry_core
 
