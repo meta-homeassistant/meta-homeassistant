@@ -4,10 +4,12 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "59536a73fe5cecbc1f00b1838c8b1052464a024e2adcf6c9ce1d200d91990fb1"
+SRC_URI = "git://github.com/pvizeli/securetar;protocol=https;tag=${PV};branch=main"
+SRCREV = "d469581c5e641de460d87b5da54d567564415080"
 
-inherit pypi python_setuptools_build_meta ptest-python-pytest
+inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} = "\
     python3-cryptography \
+    python3-pynacl \
 "
