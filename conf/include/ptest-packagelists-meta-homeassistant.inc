@@ -41,6 +41,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-emoji \
     python3-fastuuid \
     python3-fjaraskupan \
+    python3-gios \
     python3-httpbin \
     python3-mistune \
     python3-pyegps \
@@ -144,7 +145,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-geocachingapi \
     python3-geopy \
     python3-getmac \
-    python3-gios \
     python3-goodwe \
     python3-google-auth-httplib2 \
     python3-google-cloud-pubsub \
