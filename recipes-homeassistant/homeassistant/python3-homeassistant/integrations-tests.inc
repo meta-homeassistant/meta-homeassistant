@@ -16,6 +16,7 @@ COMPONENT_TEST_PACKAGES_FLAKY:append = "\
 COMPONENT_TEST_PACKAGES = ""
 COMPONENT_TEST_PACKAGES:append = "\
     ${@bb.utils.contains('PACKAGECONFIG', 'integration-tests', '\
+    ${PN}-acaia \
     ${PN}-accuweather \
     ${PN}-acmeda \
     ${PN}-adax \
@@ -24,6 +25,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-aemet \
     ${PN}-aftership \
     ${PN}-agent-dvr \
+    ${PN}-ai-task \
     ${PN}-air-quality \
     ${PN}-airgradient \
     ${PN}-airly \
@@ -57,6 +59,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-aosmith \
     ${PN}-apache-kafka \
     ${PN}-apcupsd \
+    ${PN}-api \
     ${PN}-apple-tv \
     ${PN}-application-credentials \
     ${PN}-aprilaire \
@@ -66,7 +69,9 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-arcam-fmj \
     ${PN}-arve \
     ${PN}-aseko-pool-live \
+    ${PN}-assist-satellite \
     ${PN}-asuswrt \
+    ${PN}-atag \
     ${PN}-august \
     ${PN}-aurora \
     ${PN}-aurora-abb-powerone \
@@ -93,12 +98,14 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-bluemaestro \
     ${PN}-blueprint \
     ${PN}-bluesound \
+    ${PN}-bluetooth \
     ${PN}-bluetooth-adapters \
     ${PN}-bluetooth-le-tracker \
     ${PN}-bmw-connected-drive \
     ${PN}-bond \
     ${PN}-bosch-alarm \
     ${PN}-bosch-shc \
+    ${PN}-brands \
     ${PN}-braviatv \
     ${PN}-bring \
     ${PN}-broadlink \
@@ -113,6 +120,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-caldav \
     ${PN}-calendar \
     ${PN}-cambridge-audio \
+    ${PN}-camera \
     ${PN}-canary \
     ${PN}-cast \
     ${PN}-ccm15 \
@@ -120,7 +128,9 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-chacon-dio \
     ${PN}-clicksend-tts \
     ${PN}-climate \
+    ${PN}-cloud \
     ${PN}-cloudflare \
+    ${PN}-cloudflare-r2 \
     ${PN}-co2signal \
     ${PN}-coinbase \
     ${PN}-color-extractor \
@@ -128,6 +138,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-comfoconnect \
     ${PN}-command-line \
     ${PN}-compensation \
+    ${PN}-concord232 \
     ${PN}-config \
     ${PN}-configurator \
     ${PN}-control4 \
@@ -138,7 +149,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-cover \
     ${PN}-cpuspeed \
     ${PN}-crownstone \
-    ${PN}-cups \
     ${PN}-daikin \
     ${PN}-datadog \
     ${PN}-date \
@@ -146,7 +156,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-deako \
     ${PN}-debugpy \
     ${PN}-deconz \
-    ${PN}-decora \
     ${PN}-default-config \
     ${PN}-deluge \
     ${PN}-demo \
@@ -164,8 +173,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-directv \
     ${PN}-discord \
     ${PN}-discovergy \
-    ${PN}-dlib-face-detect \
-    ${PN}-dlib-face-identify \
     ${PN}-dlink \
     ${PN}-dlna-dmr \
     ${PN}-dlna-dms \
@@ -189,7 +196,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-econet \
     ${PN}-ecovacs \
     ${PN}-ecowitt \
-    ${PN}-eddystone-temperature \
     ${PN}-edl21 \
     ${PN}-efergy \
     ${PN}-eheimdigital \
@@ -203,19 +209,22 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-emoncms \
     ${PN}-emoncms-history \
     ${PN}-emonitor \
+    ${PN}-emulated-hue \
     ${PN}-emulated-kasa \
     ${PN}-emulated-roku \
-    ${PN}-emulated-hue \
     ${PN}-energenie-power-sockets \
     ${PN}-energy \
+    ${PN}-energyzero \
     ${PN}-enigma2 \
     ${PN}-enocean \
     ${PN}-enphase-envoy \
+    ${PN}-environment-canada \
     ${PN}-epic-games-store \
     ${PN}-epion \
     ${PN}-epson \
     ${PN}-eq3btsmart \
     ${PN}-escea \
+    ${PN}-esphome \
     ${PN}-eufylife-ble \
     ${PN}-event \
     ${PN}-everlights \
@@ -232,6 +241,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-fibaro \
     ${PN}-fido \
     ${PN}-file \
+    ${PN}-file-upload \
     ${PN}-filesize \
     ${PN}-filter \
     ${PN}-fints \
@@ -242,9 +252,9 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-fjaraskupan \
     ${PN}-flexit-bacnet \
     ${PN}-flic \
-    ${PN}-flick-electric \
     ${PN}-flipr \
     ${PN}-flo \
+    ${PN}-flume \
     ${PN}-flux \
     ${PN}-flux-led \
     ${PN}-folder \
@@ -267,21 +277,31 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-fyta \
     ${PN}-garages-amsterdam \
     ${PN}-gardena-bluetooth \
+    ${PN}-gdacs \
+    ${PN}-generic \
     ${PN}-generic-hygrostat \
     ${PN}-generic-thermostat \
     ${PN}-geniushub \
+    ${PN}-geo-json-events \
     ${PN}-geo-location \
+    ${PN}-geo-rss-events \
     ${PN}-geocaching \
     ${PN}-geofency \
+    ${PN}-geonetnz-quakes \
+    ${PN}-geonetnz-volcano \
     ${PN}-gios \
     ${PN}-github \
     ${PN}-glances \
+    ${PN}-go2rtc \
     ${PN}-goalzero \
     ${PN}-gogogate2 \
     ${PN}-goodwe \
+    ${PN}-google \
     ${PN}-google-assistant \
     ${PN}-google-assistant-sdk \
     ${PN}-google-cloud \
+    ${PN}-google-drive \
+    ${PN}-google-generative-ai-conversation \
     ${PN}-google-mail \
     ${PN}-google-photos \
     ${PN}-google-pubsub \
@@ -290,6 +310,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-google-translate \
     ${PN}-google-travel-time \
     ${PN}-google-wifi \
+    ${PN}-govee-ble \
     ${PN}-govee-light-local \
     ${PN}-gpsd \
     ${PN}-gpslogger \
@@ -298,9 +319,213 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-greeneye-monitor \
     ${PN}-group \
     ${PN}-growatt-server \
-    ${PN}-gstreamer \
     ${PN}-guardian \
+    ${PN}-hardkernel \
+    ${PN}-hardware \
+    ${PN}-hassio \
+    ${PN}-hddtemp \
+    ${PN}-history \
+    ${PN}-history-stats \
+    ${PN}-homeassistant \
+    ${PN}-homeassistant-alerts \
+    ${PN}-homeassistant-connect-zbt2 \
+    ${PN}-homeassistant-green \
+    ${PN}-homeassistant-sky-connect \
+    ${PN}-homeassistant-yellow \
+    ${PN}-homekit \
+    ${PN}-http \
+    ${PN}-hue \
+    ${PN}-humidifier \
     ${PN}-husqvarna-automower-ble \
+    ${PN}-ibeacon \
+    ${PN}-image \
+    ${PN}-image-processing \
+    ${PN}-image-upload \
+    ${PN}-input-boolean \
+    ${PN}-input-button \
+    ${PN}-input-datetime \
+    ${PN}-input-number \
+    ${PN}-input-select \
+    ${PN}-input-text \
+    ${PN}-integration \
+    ${PN}-intent \
+    ${PN}-intent-script \
+    ${PN}-ios \
+    ${PN}-ipp \
+    ${PN}-isal \
+    ${PN}-juicenet \
+    ${PN}-kitchen-sink \
+    ${PN}-labs \
+    ${PN}-lawn-mower \
+    ${PN}-letpot \
+    ${PN}-life360 \
+    ${PN}-light \
+    ${PN}-local-calendar \
+    ${PN}-local-file \
+    ${PN}-local-ip \
+    ${PN}-local-todo \
+    ${PN}-locative \
+    ${PN}-lock \
+    ${PN}-logbook \
+    ${PN}-logentries \
+    ${PN}-logger \
+    ${PN}-london-air \
+    ${PN}-lovelace \
+    ${PN}-luftdaten \
+    ${PN}-manual \
+    ${PN}-manual-mqtt \
+    ${PN}-matter \
+    ${PN}-mazda \
+    ${PN}-mcp \
+    ${PN}-mcp-server \
+    ${PN}-media-player \
+    ${PN}-media-source \
+    ${PN}-meraki \
+    ${PN}-met \
+    ${PN}-microsoft-face \
+    ${PN}-microsoft-face-detect \
+    ${PN}-microsoft-face-identify \
+    ${PN}-min-max \
+    ${PN}-mjpeg \
+    ${PN}-mobile-app \
+    ${PN}-modbus \
+    ${PN}-mold-indicator \
+    ${PN}-moon \
+    ${PN}-mqtt \
+    ${PN}-mqtt-eventstream \
+    ${PN}-mqtt-json \
+    ${PN}-mqtt-room \
+    ${PN}-mqtt-statestream \
+    ${PN}-my \
+    ${PN}-myq \
+    ${PN}-namecheapdns \
+    ${PN}-network \
+    ${PN}-nmap-tracker \
+    ${PN}-no-ip \
+    ${PN}-notify \
+    ${PN}-number \
+    ${PN}-octoprint \
+    ${PN}-onboarding \
+    ${PN}-oncue \
+    ${PN}-openai-conversation \
+    ${PN}-openalpr-cloud \
+    ${PN}-openhardwaremonitor \
+    ${PN}-otp \
+    ${PN}-owntracks \
+    ${PN}-panel-custom \
+    ${PN}-peblar \
+    ${PN}-peco \
+    ${PN}-persistent-notification \
+    ${PN}-person \
+    ${PN}-ping \
+    ${PN}-plant \
+    ${PN}-plum-lightpad \
+    ${PN}-private-ble-device \
+    ${PN}-proximity \
+    ${PN}-push \
+    ${PN}-qwikswitch \
+    ${PN}-radio-browser \
+    ${PN}-random \
+    ${PN}-raspberry-pi \
+    ${PN}-recorder \
+    ${PN}-recovery-mode \
+    ${PN}-remote \
+    ${PN}-remote-calendar \
+    ${PN}-repairs \
+    ${PN}-rest \
+    ${PN}-rest-command \
+    ${PN}-rhasspy \
+    ${PN}-rss-feed-template \
+    ${PN}-ruuvi-gateway \
+    ${PN}-scene \
+    ${PN}-schedule \
+    ${PN}-scrape \
+    ${PN}-script \
+    ${PN}-search \
+    ${PN}-select \
+    ${PN}-sense \
+    ${PN}-sensor \
+    ${PN}-sentry \
+    ${PN}-sftp-storage \
+    ${PN}-shell-command \
+    ${PN}-shelly \
+    ${PN}-shopping-list \
+    ${PN}-sigfox \
+    ${PN}-simplisafe \
+    ${PN}-siren \
+    ${PN}-sleep-as-android \
+    ${PN}-smartthings \
+    ${PN}-smtp \
+    ${PN}-snmp \
+    ${PN}-spaceapi \
+    ${PN}-speedtestdotnet \
+    ${PN}-spider \
+    ${PN}-spotify \
+    ${PN}-sql \
+    ${PN}-ssdp \
+    ${PN}-startca \
+    ${PN}-statistics \
+    ${PN}-steam-online \
+    ${PN}-stream \
+    ${PN}-stt \
+    ${PN}-sun \
+    ${PN}-sunweg \
+    ${PN}-switch \
+    ${PN}-switch-as-x \
+    ${PN}-switchbot \
+    ${PN}-system-health \
+    ${PN}-system-log \
+    ${PN}-systemmonitor \
+    ${PN}-tag \
+    ${PN}-tcp \
+    ${PN}-telegram \
+    ${PN}-template \
+    ${PN}-text \
+    ${PN}-threshold \
+    ${PN}-tibber \
+    ${PN}-time \
+    ${PN}-time-date \
+    ${PN}-timer \
+    ${PN}-tod \
+    ${PN}-todo \
+    ${PN}-tomato \
+    ${PN}-trace \
+    ${PN}-trafikverket-camera \
+    ${PN}-trafikverket-ferry \
+    ${PN}-trafikverket-train \
+    ${PN}-trafikverket-weatherstation \
+    ${PN}-trend \
+    ${PN}-tts \
+    ${PN}-uk-transport \
+    ${PN}-universal \
+    ${PN}-update \
+    ${PN}-upnp \
+    ${PN}-uptime \
+    ${PN}-usage-prediction \
+    ${PN}-usb \
+    ${PN}-utility-meter \
+    ${PN}-vacuum \
+    ${PN}-valve \
+    ${PN}-voicerss \
+    ${PN}-volvooncall \
+    ${PN}-wake-word \
+    ${PN}-water-heater \
+    ${PN}-weather \
+    ${PN}-web-rtc \
+    ${PN}-webhook \
+    ${PN}-websocket-api \
+    ${PN}-worldclock \
+    ${PN}-xiaomi \
+    ${PN}-yale \
+    ${PN}-yalexs-ble \
+    ${PN}-yandextts \
+    ${PN}-zeroconf \
+    ${PN}-zha \
+    ${PN}-zodiac \
+    ${PN}-zone \
+    ${PN}-zoneminder \
+    ${PN}-zwave-js \
+    ${PN}-zwave-me \
 ', '', d)}"
 
 # The following component is specific to this MACHINE_ARCH so treat it as such
