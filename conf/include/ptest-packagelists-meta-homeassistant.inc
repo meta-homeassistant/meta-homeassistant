@@ -43,6 +43,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-fastuuid \
     python3-fjaraskupan \
     python3-gios \
+    python3-gql \
     python3-greeclimate \
     python3-hass-nabucasa \
     python3-home-assistant-intents \
@@ -163,7 +164,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-google-geo-type \
     python3-google-maps-routing \
     python3-google-photos-library-api \
-    python3-gql \
     python3-graphql-core \
     python3-ha-silabs-firmware-client \
     python3-habluetooth \
