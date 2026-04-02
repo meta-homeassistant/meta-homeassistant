@@ -8,8 +8,11 @@ DEPENDS += "\
     python3-setuptools-git-versioning-native \
 "
 
-SRC_URI:append = " file://0001-Allow-setuptools-git-versioning-3.patch"
-SRC_URI[sha256sum] = "bfd8cba410542391d00ae3f439ad875c93063e259fed203990cccf84801a4939"
+SRC_URI:append = "\
+    file://0001-Allow-setuptools-git-versioning-3.patch \
+    file://run-ptest \
+"
+SRC_URI[sha256sum] = "96235c7acdee241bddda0331343b2a4f69547292a5254725be60cb0e5fc92f4c"
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
@@ -17,15 +20,21 @@ PYPI_PACKAGE = "zigpy_znp"
 UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} = "\
-    python3-async-timeout \
+    python3-zigpy (>=0.91.2) \
+    python3-voluptuous \
     python3-coloredlogs \
     python3-jsonschema \
-    python3-voluptuous \
-    python3-zigpy (>=0.70.0) \
 "
-
 
 RDEPENDS:${PN}-ptest += "\
     python3-pytest-asyncio \
     python3-pytest-timeout \
+    python3-pytest-mock \
+    python3-pytest-cov \
 "
+
+do_install:append() {
+    # Drop host-build artifacts that can be picked up from contaminated source trees.
+    rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/oe-workdir
+    rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/build
+}

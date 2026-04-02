@@ -61,6 +61,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-securetar \
     python3-uart-devices \
     python3-uuid7 \
+    python3-zigpy-znp \
 "
 
 PTESTS_SLOW_META_HOMEASSISTANT = "\
@@ -244,6 +245,5 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-zigpy-deconz \
     python3-zigpy-xbee \
     python3-zigpy-zigate \
-    python3-zigpy-znp \
     python3-zm-py \
 "
