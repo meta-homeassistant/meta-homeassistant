@@ -131,6 +131,7 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-crownstone-sse \
     python3-dacite \
     python3-datadog \
+    python3-deptry \
     python3-devolo-home-control-api \
     python3-devolo-plc-api \
     python3-dio-chacon-wifi-api \
