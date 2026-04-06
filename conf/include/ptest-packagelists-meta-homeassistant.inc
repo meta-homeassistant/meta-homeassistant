@@ -12,6 +12,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-aiodiscover \
     python3-aioecowitt \
     python3-aioesphomeapi \
+    python3-aiohasupervisor \
     python3-aiorun \
     python3-aioruuvigateway \
     python3-aioshelly \
@@ -81,7 +82,6 @@ PTESTS_NEEDS_ETHERNET_META_HOMEASSISTANT = "\
 
 PTEST_CURRENTLY_FAILS_META_HOMEASSISTANT = "\
     python3-aioconsole \
-    python3-aiohasupervisor \
     python3-aiohttp-asyncmdnsresolver \
     python3-airos \
     python3-asyncstdlib \
