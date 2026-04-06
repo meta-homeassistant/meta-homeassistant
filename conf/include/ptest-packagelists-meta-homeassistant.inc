@@ -83,7 +83,6 @@ PTESTS_NEEDS_ETHERNET_META_HOMEASSISTANT = "\
 PTEST_CURRENTLY_FAILS_META_HOMEASSISTANT = "\
     python3-aioconsole \
     python3-aiohttp-asyncmdnsresolver \
-    python3-airos \
     python3-asyncstdlib \
     python3-axis \
     python3-bimmer-connected \
