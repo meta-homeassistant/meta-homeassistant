@@ -20,4 +20,3 @@ RDEPENDS:${PN} += "\
 "
 
 PYPI_PACKAGE = "recurring_ical_events"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

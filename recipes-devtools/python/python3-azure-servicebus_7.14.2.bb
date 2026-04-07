@@ -15,4 +15,3 @@ RDEPENDS:${PN} += "\
 "
 
 PYPI_PACKAGE = "azure_servicebus"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

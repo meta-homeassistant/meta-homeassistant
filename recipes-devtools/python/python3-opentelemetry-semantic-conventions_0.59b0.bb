@@ -14,4 +14,3 @@ RDEPENDS:${PN} += "\
 "
 
 PYPI_PACKAGE = "opentelemetry_semantic_conventions"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

@@ -17,4 +17,3 @@ RDEPENDS:${PN} += "\
 "
 
 PYPI_PACKAGE = "face_recognition"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

@@ -10,4 +10,3 @@ inherit pypi python_poetry_core ptest-python-pytest
 RDEPENDS:${PN} = "python3-packaging"
 
 PYPI_PACKAGE = "requirements_parser"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

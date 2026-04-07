@@ -9,7 +9,6 @@ SRC_URI[sha256sum] = "b7d9625bbb2121b923228fc70d0c2b010b386687501f5b50acec450122
 inherit pypi setuptools3
 
 PYPI_PACKAGE = "PyTurboJPEG"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} += "\
     libturbojpeg \

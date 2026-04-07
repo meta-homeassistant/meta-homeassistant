@@ -16,4 +16,3 @@ RDEPENDS:${PN} += " \
 "
 
 PYPI_PACKAGE = "aio_geojson_generic_client"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

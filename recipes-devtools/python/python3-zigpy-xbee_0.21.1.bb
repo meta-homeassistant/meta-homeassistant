@@ -26,4 +26,3 @@ RDEPENDS:${PN}-ptest:append = " \
 "
 
 PYPI_PACKAGE = "zigpy_xbee"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

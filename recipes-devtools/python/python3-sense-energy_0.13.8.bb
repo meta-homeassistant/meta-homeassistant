@@ -21,4 +21,3 @@ RDEPENDS:${PN} += "\
 "
 
 PYPI_PACKAGE = "sense_energy"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

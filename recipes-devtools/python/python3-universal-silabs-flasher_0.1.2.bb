@@ -13,7 +13,6 @@ SRC_URI[sha256sum] = "bef3b8b1258b5c04052ff5ccef7e4090c1d44d9805ec2ff05254928af8
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 PYPI_PACKAGE = "universal_silabs_flasher"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp \

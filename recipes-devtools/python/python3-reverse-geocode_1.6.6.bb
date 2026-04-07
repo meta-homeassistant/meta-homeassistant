@@ -11,4 +11,3 @@ inherit pypi setuptools3
 RDEPENDS:${PN} += "python3-numpy python3-scipy"
 
 PYPI_PACKAGE = "reverse_geocode"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

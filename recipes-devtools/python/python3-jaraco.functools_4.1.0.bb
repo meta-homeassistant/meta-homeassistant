@@ -11,7 +11,6 @@ inherit pypi python_setuptools_build_meta
 DEPENDS += "python3-setuptools-scm-native"
 
 PYPI_PACKAGE = "jaraco_functools"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} = "python3-more-itertools"
 

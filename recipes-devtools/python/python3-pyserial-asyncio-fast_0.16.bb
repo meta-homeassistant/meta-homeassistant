@@ -11,6 +11,5 @@ inherit pypi python_setuptools_build_meta ptest-python-pytest
 RDEPENDS:${PN} += "python3-pyserial"
 
 PYPI_PACKAGE = "pyserial_asyncio_fast"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 PTEST_PYTEST_DIR = "test"

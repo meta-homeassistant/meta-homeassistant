@@ -14,4 +14,3 @@ RDEPENDS:${PN} = "\
 "
 
 PYPI_PACKAGE = "cached_ipaddress"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

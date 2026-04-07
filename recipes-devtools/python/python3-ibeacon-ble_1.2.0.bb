@@ -9,7 +9,6 @@ SRC_URI[sha256sum] = "5255d7cd6e5f487c81f17147f84b3ba005d43ca4c103f703f7a7017471
 inherit pypi python_poetry_core
 
 PYPI_PACKAGE = "ibeacon_ble"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} = "\
     python3-aiooui (>=0.1.1) \

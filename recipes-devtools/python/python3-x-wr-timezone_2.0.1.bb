@@ -15,4 +15,3 @@ RDEPENDS:${PN} += "\
 "
 
 PYPI_PACKAGE = "x_wr_timezone"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

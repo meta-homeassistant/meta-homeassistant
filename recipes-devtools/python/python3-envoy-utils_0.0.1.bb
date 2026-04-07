@@ -10,4 +10,3 @@ inherit pypi setuptools3
 RDEPENDS:${PN} += "python3-zeroconf"
 
 PYPI_PACKAGE = "envoy_utils"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

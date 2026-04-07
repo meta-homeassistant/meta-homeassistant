@@ -25,4 +25,3 @@ RDEPENDS:${PN}-ptest += "\
 "
 
 PYPI_PACKAGE = "adb_shell"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

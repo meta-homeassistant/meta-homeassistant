@@ -14,4 +14,3 @@ RDEPENDS:${PN} = "\
 "
 
 PYPI_PACKAGE = "python_google_drive_api"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

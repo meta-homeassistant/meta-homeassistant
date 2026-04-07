@@ -18,4 +18,3 @@ RDEPENDS:${PN} += " \
 BBCLASSEXTEND = "native nativesdk"
 
 PYPI_PACKAGE = "aio_georss_client"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

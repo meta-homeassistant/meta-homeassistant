@@ -9,4 +9,3 @@ SRC_URI[sha256sum] = "003353c87b8428c627ac04af1bfa1fedb837038447da93bd67a8b297c4
 inherit pypi setuptools3
 
 PYPI_PACKAGE = "pyEmby"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

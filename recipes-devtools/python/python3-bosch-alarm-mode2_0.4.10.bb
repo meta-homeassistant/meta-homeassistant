@@ -10,4 +10,3 @@ SRC_URI[sha256sum] = "c35815b1fc713e356db2943e07330eff0f2b773c122567b1b6f4ab0648
 inherit pypi python_hatchling
 
 PYPI_PACKAGE = "bosch_alarm_mode2"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

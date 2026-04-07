@@ -19,4 +19,3 @@ RDEPENDS:${PN} += "\
 "
 
 PYPI_PACKAGE = "azure_storage_blob"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

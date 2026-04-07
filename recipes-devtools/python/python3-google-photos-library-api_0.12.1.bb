@@ -11,4 +11,3 @@ inherit pypi setuptools3 ptest-python-pytest
 RDEPENDS:${PN} += "python3-aiohttp python3-google-api-python-client python3-google-auth python3-mashumaro"
 
 PYPI_PACKAGE = "google_photos_library_api"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

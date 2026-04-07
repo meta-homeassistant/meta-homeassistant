@@ -9,4 +9,3 @@ SRC_URI[sha256sum] = "0fe314b26deeb59aefda292a8f459297a5292d9038448041fdb48bbe22
 inherit pypi setuptools3
 
 PYPI_PACKAGE = "pycoolmasternet_async"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

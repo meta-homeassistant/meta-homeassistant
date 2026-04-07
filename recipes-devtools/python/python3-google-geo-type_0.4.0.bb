@@ -17,4 +17,3 @@ RDEPENDS:${PN} += "\
 "
 
 PYPI_PACKAGE = "google_geo_type"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

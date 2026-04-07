@@ -18,4 +18,3 @@ RDEPENDS:${PN} += "\
 "
 
 PYPI_PACKAGE = "devolo_home_control_api"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

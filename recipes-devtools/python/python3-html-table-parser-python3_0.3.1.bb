@@ -9,4 +9,3 @@ SRC_URI[sha256sum] = "8e33c436c1011501b8d3ef95114587580e8e923ff59ee0490364665460
 inherit pypi python_poetry_core
 
 PYPI_PACKAGE = "html_table_parser_python3"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

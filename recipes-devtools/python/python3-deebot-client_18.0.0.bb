@@ -17,4 +17,3 @@ RDEPENDS:${PN} += "\
 	python3-defusedxml (>=0.7.1) \
 "
 PYPI_PACKAGE = "deebot_client"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

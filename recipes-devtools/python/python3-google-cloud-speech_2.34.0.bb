@@ -17,4 +17,3 @@ RDEPENDS:${PN} += "\
 "
 
 PYPI_PACKAGE = "google_cloud_speech"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

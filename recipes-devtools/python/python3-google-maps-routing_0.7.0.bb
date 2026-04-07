@@ -18,4 +18,3 @@ RDEPENDS:${PN} += "\
 "
 
 PYPI_PACKAGE = "google_maps_routing"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

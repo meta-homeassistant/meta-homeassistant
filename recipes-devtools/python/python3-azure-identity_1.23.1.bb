@@ -17,4 +17,3 @@ RDEPENDS:${PN} += "\
 "
 
 PYPI_PACKAGE = "azure_identity"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

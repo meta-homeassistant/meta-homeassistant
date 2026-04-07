@@ -12,4 +12,3 @@ RDEPENDS:${PN} += "python3-netaddr python3-requests"
 
 PYPI_PACKAGE = "pybbox"
 PYPI_PACKAGE_EXT = "zip"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

@@ -9,7 +9,6 @@ SRC_URI[sha256sum] = "0088fa57054fc54470befa1298eef008d0a5bda828691b90bbf6cff545
 inherit pypi python_setuptools_build_meta
 
 PYPI_PACKAGE = "aemet_opendata"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp \

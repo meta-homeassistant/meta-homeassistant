@@ -12,4 +12,3 @@ inherit pypi python_setuptools_build_meta ptest-python-pytest
 RDEPENDS:${PN} += "python3-pyusb"
 
 PYPI_PACKAGE = "pyEGPS"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

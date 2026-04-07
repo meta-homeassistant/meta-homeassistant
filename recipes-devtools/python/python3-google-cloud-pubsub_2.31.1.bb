@@ -24,4 +24,3 @@ RDEPENDS:${PN} += "\
 "
 
 PYPI_PACKAGE = "google_cloud_pubsub"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

@@ -14,4 +14,3 @@ RDEPENDS:${PN} = "\
 "
 
 PYPI_PACKAGE = "odp_amsterdam"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

@@ -34,4 +34,3 @@ RDEPENDS:${PN} = " \
 "
 
 PYPI_PACKAGE = "google_genai"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

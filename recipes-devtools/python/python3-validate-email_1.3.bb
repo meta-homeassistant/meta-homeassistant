@@ -9,4 +9,3 @@ SRC_URI[sha256sum] = "784719dc5f780be319cdd185dc85dd93afebdb6ebb943811bc4c7c5f9c
 inherit pypi setuptools3
 
 PYPI_PACKAGE = "validate_email"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

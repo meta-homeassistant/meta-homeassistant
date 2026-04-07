@@ -24,7 +24,6 @@ RDEPENDS:${PN}-ptest = "\
 "
 
 PYPI_PACKAGE = "arcam_fmj"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 do_install_ptest:append() {
     install ${S}/pyproject.toml ${D}${PTEST_PATH}/

@@ -13,4 +13,3 @@ RDEPENDS:${PN} += "\
 "
 
 PYPI_PACKAGE = "async_interrupt"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

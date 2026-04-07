@@ -17,7 +17,6 @@ SRC_URI[sha256sum] = "96235c7acdee241bddda0331343b2a4f69547292a5254725be60cb0e5f
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 PYPI_PACKAGE = "zigpy_znp"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} = "\
     python3-zigpy (>=0.91.2) \

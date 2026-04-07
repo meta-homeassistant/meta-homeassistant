@@ -9,7 +9,6 @@ SRC_URI[sha256sum] = "e8d5b53c2a7d71e07bdec6a466fa9048a3c4c2d7575824f6edeb08230d
 inherit pypi python_setuptools_build_meta
 
 PYPI_PACKAGE = "zwave_js_server_python"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>3) \

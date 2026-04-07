@@ -15,4 +15,3 @@ RDEPENDS:${PN} += " \
 "
 
 PYPI_PACKAGE = "aio_geojson_geonetnz_volcano"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

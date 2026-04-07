@@ -10,7 +10,6 @@ SRC_URI[sha256sum] = "559c743e5cc3bcc8133be1b6fb5e8492a9ddb17151129c21cbb2e3f2a1
 inherit pypi python_hatchling
 
 PYPI_PACKAGE = "webrtc_models"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} = "\
     python3-mashumaro (>=3.13) \

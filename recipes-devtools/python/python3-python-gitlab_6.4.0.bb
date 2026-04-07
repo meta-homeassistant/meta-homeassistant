@@ -13,4 +13,3 @@ RDEPENDS:${PN} += "\
     python3-requests-toolbelt (>=1.0.0) \
 "
 PYPI_PACKAGE = "python_gitlab"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

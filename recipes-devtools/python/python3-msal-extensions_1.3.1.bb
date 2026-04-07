@@ -13,4 +13,3 @@ PACKAGECONFIG[portalocker] = ",,,python3-portalocker"
 RDEPENDS:${PN} += "python3-msal (>=1.29)"
 
 PYPI_PACKAGE = "msal_extensions"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

@@ -9,7 +9,6 @@ SRC_URI[sha256sum] = "c38b266db8a808953ebd71ac25c381cb1981a78ff9340a14bcb9f1b9bf
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 PYPI_PACKAGE = "pytest_rerunfailures"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} = "\
     python3-packaging \

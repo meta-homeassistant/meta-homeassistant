@@ -34,4 +34,3 @@ RDEPENDS:${PN}-ptest:append = "\
 PTEST_PYTEST_DIR = "bimmer_connected/tests"
 
 PYPI_PACKAGE = "bimmer_connected"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

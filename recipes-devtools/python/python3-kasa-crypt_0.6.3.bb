@@ -9,4 +9,3 @@ SRC_URI[sha256sum] = "2de6de01b6c16435233e8da2541a2ebfa8d7725f1a307dc9d6057f08de
 inherit pypi python_poetry_core cython
 
 PYPI_PACKAGE = "kasa_crypt"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
