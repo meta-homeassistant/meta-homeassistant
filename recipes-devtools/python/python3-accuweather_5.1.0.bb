@@ -1,25 +1,3 @@
-# FIXME: the LIC_FILES_CHKSUM values have been updated by 'devtool upgrade'.
-# The following is the difference between the old and the new license text.
-# Please update the LICENSE value if needed, and summarize the changes in
-# the commit message via 'License-Update:' tag.
-# (example: 'License-Update: copyright years updated.')
-#
-# The changes:
-#
-# --- LICENSE
-# +++ LICENSE
-# @@ -186,7 +186,7 @@
-#        same "printed page" as the copyright notice for easier
-#        identification within third-party archives.
-#  
-# -   Copyright 2025 Maciej Bieniek
-# +   Copyright 2026 Maciej Bieniek
-#  
-#     Licensed under the Apache License, Version 2.0 (the "License");
-#     you may not use this file except in compliance with the License.
-# 
-#
-
 SUMMARY = "Python wrapper for getting weather data from AccuWeather API."
 HOMEPAGE = "https://github.com/bieniu/accuweather"
 LICENSE = "Apache-2.0"
