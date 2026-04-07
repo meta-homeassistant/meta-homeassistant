@@ -1,0 +1,23 @@
+From e29c167e9ffeb36ca9998862c7d24040a1d0a4f8 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Tue, 7 Apr 2026 23:36:50 +0200
+Subject: [PATCH] remove broken nonfunctional requirement
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ pyproject.toml | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index 2c7a5f1..1dae83f 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -2,7 +2,6 @@
+ requires = [
+     "setuptools >= 48",
+     "setuptools_scm[toml]",
+-    "setuptools_scm_git_archive",
+     "wheel >= 0.29.0",
+ ]
+ build-backend = 'setuptools.build_meta'
