@@ -5,7 +5,6 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=d8b5b84f8af09011094cd7c29a9f972c"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI = "git://github.com/Bluetooth-Devices/usb-devices.git;protocol=https;branch=main"
-SRC_URI[sha256sum] = "9b5c7606df2bc791c6c45b7f76244a0cbed83cb6fa4c68791a143c03345e195d"
 SRCREV = "4d885fe1647108d71afa9e0aaff216b690226ea5"
 
 inherit python_poetry_core ptest-python-pytest

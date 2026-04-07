@@ -4,9 +4,7 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=da57f3e0372e39698a274746eb9d65d6"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI = "git://github.com/Bluetooth-Devices/habluetooth.git;protocol=https;branch=main \
-           "
-SRC_URI[sha256sum] = "89dc8c4e9d79a25c2666dafde0f49241144ac29e69d9d9f5bbf1122733c7f42c"
+SRC_URI = "git://github.com/Bluetooth-Devices/habluetooth.git;protocol=https;branch=main"
 SRCREV = "aa25c30a609e85728e04f0171cc09730ade11631"
 
 inherit python_poetry_core cython ptest-python-pytest

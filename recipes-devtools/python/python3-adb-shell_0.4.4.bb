@@ -4,7 +4,6 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2ee41112a44fe7014dce33e26468ba93"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "04c305f30a2ca25d5c54b3cd6ce9bb64c36e5f07967b23b3fb6aaecc851b90b6"
 SRC_URI = "git://github.com/JeffLIrion/adb_shell;protocol=https;tag=v${PV};branch=master"
 SRCREV = "e97dbf70a26404abdf5f1972880aeb6443489d7a"
 
