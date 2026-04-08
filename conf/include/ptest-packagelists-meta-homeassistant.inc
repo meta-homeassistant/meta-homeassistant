@@ -188,6 +188,7 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-josepy \
     python3-jsonpickle \
     python3-keyring \
+    python3-libpass \
     python3-locationsharinglib \
     python3-mashumaro \
     python3-mcp \
