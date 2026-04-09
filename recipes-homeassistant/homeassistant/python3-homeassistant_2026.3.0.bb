@@ -15,7 +15,7 @@ SRC_URI = "git://github.com/home-assistant/core.git;protocol=https;branch=master
            file://run-ptest-sample \
            file://0001-Relax-setuptools.patch \
            "
-SRCREV = "3499ed7a987c6868bb1006ce8d80b86d3670b1f6"
+SRCREV = "2f9faa53a110f6acaf3b0e2216573bdf2a957388"
 
 inherit python_setuptools_build_meta useradd systemd ptest-python-pytest
 
@@ -85,8 +85,8 @@ RDEPENDS:${PN} += "\
     python3-cryptography (>=45.0.3) \
     python3-pillow (>=12.1.1) \
     python3-propcache (>=0.3.2) \
-    python3-pyopenssl (>=25.1.0) \
-    python3-orjson (>=3.11.3) \
+    python3-pyopenssl (>=25.3.0) \
+    python3-orjson (>=3.11.5) \
     python3-packaging (>=23.1) \
     python3-psutil-home-assistant (=0.0.1) \
     python3-python-slugify (=8.0.4) \
@@ -97,15 +97,15 @@ RDEPENDS:${PN} += "\
     python3-standard-aifc (=3.13.0) \
     python3-standard-telnetlib (=3.13.0) \
     python3-typing-extensions (>=4.15.0) \
-    python3-ulid-transform (>=1.4.0) \
+    python3-ulid-transform (>=1.5.2) \
     python3-urllib3 (>=2.0) \
     python3-voluptuous (=0.15.2) \
     python3-voluptuous-serialize (=2.7.0) \
-    python3-voluptuous-openapi (=0.1.0) \
+    python3-voluptuous-openapi (=0.2.0) \
     python3-yarl (>=1.20.1) \
     python3-webrtc-models (>=0.3.0) \
     python3-zeroconf (>=0.148.0) \
-    python3-uv (>=0.8.9) \
+    python3-uv (>=0.10.6) \
     python3-statistics \
     python3-core (>=3.13.0) \
 "
