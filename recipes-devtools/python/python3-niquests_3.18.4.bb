@@ -13,6 +13,7 @@ PYPI_PACKAGE = "niquests"
 RDEPENDS:${PN} += "\
 	python3-charset-normalizer \
 	python3-urllib3 \
+	python3-wassima \
 "
 	
 
