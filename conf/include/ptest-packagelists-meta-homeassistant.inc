@@ -64,6 +64,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-securetar \
     python3-uart-devices \
     python3-uuid7 \
+    python3-wassima \
     python3-zigpy-deconz \
     python3-zigpy-xbee \
     python3-zigpy-zigate \
