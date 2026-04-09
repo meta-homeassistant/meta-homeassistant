@@ -16,7 +16,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 require ${BPN}-crates.inc
 
 DEPENDS = "python3-maturin-native"
-SRC_URI[sha256sum] = "140422df01de34dc335bd29827ae6aec6ecb2b92c2ee8ed6bc6dbeee50ac2f4e"
+SRC_URI[sha256sum] = "e3b21b7e80024c95ff339fcd147ac6fc3dd98d3613c9d45d3a1f4fd1057f127b"
 
 inherit pypi python_maturin cargo-update-recipe-crates
 
