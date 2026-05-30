@@ -77,6 +77,7 @@ PTEST_CURRENTLY_FAILS_META_HOMEASSISTANT = "\
     python3-axis \
     python3-bimmer-connected \
     python3-bring-api \
+    python3-pydaikin \
 "
 
 #e
@@ -194,7 +195,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-py-ccm15 \
     python3-pyaes \
     python3-pyaussiebb \
-    python3-pydaikin \
     python3-pydantic-settings \
     python3-pydeconz \
     python3-pydexcom \
