@@ -1,0 +1,5 @@
+#!/bin/sh
+# Deselect flaky external-network passthrough tests (httpstat.us) for Yocto ptest stability.
+pytest --automake \
+    --deselect tests/test_server.py::test_foo \
+    --deselect tests/test_server.py::test_passthrough
