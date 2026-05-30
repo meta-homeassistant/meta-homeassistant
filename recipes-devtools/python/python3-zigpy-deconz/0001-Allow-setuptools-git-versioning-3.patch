@@ -1,4 +1,4 @@
-From d9275dfac9ac2c6b253c825d222cd361f67b76bd Mon Sep 17 00:00:00 2001
+From 4cb1473d82bb6c2f9f056d85362f6674c4cd03ba Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Sun, 15 Dec 2024 20:56:21 +0000
 Subject: [PATCH] Allow setuptools-git-versioning >=3
