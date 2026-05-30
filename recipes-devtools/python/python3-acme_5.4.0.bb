@@ -6,14 +6,12 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit pypi python_setuptools_build_meta
 
-SRC_URI[sha256sum] = "b701b23e66d3c58352896a72caa13523d9f72b183a0ba1cde93e6713a450a391"
+SRC_URI[sha256sum] = "906e6cca7f58b5526c0ddfe3d71a7a41f8fa10acf3b083dd35cf619b5b015ca8"
 
 RDEPENDS:${PN} = "\
-    python3-cryptography (>=3.2.1) \
-    python3-josepy (>=1.13.0) \
-    python3-pyopenssl (>=17.5.0) \
+    python3-cryptography (>=43.0.0) \
+    python3-josepy (>=2.0.0) \
+    python3-pyopenssl (>=25.0.0) \
     python3-pyrfc3339 \
-    python3-pytz (>=2019.3) \
-    python3-requests (>=2.20.0) \
-    python3-setuptools (>=41.6.0) \
+    python3-requests (>=2.25.1) \
 "
