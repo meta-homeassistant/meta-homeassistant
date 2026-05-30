@@ -55,6 +55,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-looptime \
     python3-mcp \
     python3-mistune \
+    python3-openapi-schema-validator \
     python3-pyegps \
     python3-pyfritzhome \
     python3-pyswitchbot \
