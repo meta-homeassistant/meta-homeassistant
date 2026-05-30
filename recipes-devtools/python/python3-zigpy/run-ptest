@@ -1,0 +1,3 @@
+#!/bin/sh
+# Use asyncio auto mode so unmarked async tests run under pytest in Yocto ptest.
+pytest --automake --asyncio-mode=auto
