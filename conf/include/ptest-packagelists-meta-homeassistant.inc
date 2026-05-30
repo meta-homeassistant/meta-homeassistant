@@ -44,6 +44,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-gios \
     python3-greeclimate \
     python3-hass-nabucasa \
+    python3-home-assistant-intents \
     python3-httpbin \
     python3-mistune \
     python3-pyegps \
@@ -162,7 +163,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-hap-python \
     python3-hassil \
     python3-home-assistant-bluetooth \
-    python3-home-assistant-intents \
     python3-homeassistant \
     python3-httpx-sse \
     python3-ical \
