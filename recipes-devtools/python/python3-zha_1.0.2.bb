@@ -10,6 +10,7 @@ DEPENDS += "\
 
 SRC_URI = "git://github.com/zigpy/zha;protocol=https;tag=${PV};branch=dev \
            file://0001-Repair-test-event-loop.patch \
+           file://0001-relax-build-requirement.patch \
            "
 SRCREV = "c1841332ab590362c6d004de326bbb3cbbe36e19"
 
