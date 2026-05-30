@@ -1,0 +1,35 @@
+From 518be706b06417266e85ee81dbd0a89185f31cc9 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Sun, 29 Mar 2026 21:18:04 +0200
+Subject: [PATCH] Use correct class for compilation
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Inappropriate [oe-specific]
+---
+ pyproject.toml | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index ebcd6a8..c5daf95 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -8,7 +8,7 @@ readme = "README.md"
+ 
+ [tool.poetry.dependencies]
+ python = "^3.6"
+-pydantic = ">=0.32.2<2.0.0"
++pydantic = ">=0.32.2,<2.0.0"
+ 
+ [tool.poetry.dev-dependencies]
+ vulture = "^1.0"
+@@ -27,8 +27,8 @@ portray = "^1.3.0"
+ cruft = "^1.1"
+ 
+ [build-system]
+-requires = ["poetry>=0.12"]
+-build-backend = "poetry.masonry.api"
++requires = ["poetry-core>=1.0.0"]
++build-backend = "poetry.core.masonry.api"
+ 
+ [tool.portray.mkdocs.theme]
+ favicon = "art/logo.png"
