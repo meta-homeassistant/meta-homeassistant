@@ -36,6 +36,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-cookidoo-api \
     python3-crccheck \
     python3-denonavr \
+    python3-doorbirdpy \
     python3-emoji \
     python3-fastuuid \
     python3-fjaraskupan \
@@ -116,7 +117,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-dio-chacon-wifi-api \
     python3-dlms-cosem \
     python3-docker-py \
-    python3-doorbirdpy \
     python3-dsmr-parser \
     python3-dynalite-devices \
     python3-eheimdigital \
