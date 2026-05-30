@@ -55,6 +55,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-pyfritzhome \
     python3-pyswitchbot \
     python3-pytest-httpbin \
+    python3-pytibber \
     python3-requirements-parser \
     python3-uart-devices \
     python3-uuid7 \
@@ -211,8 +212,7 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-python-gitlab \
     python3-python-google-drive-api \
     python3-python-jose-cryptography \
-    python3-python-memcached \
-    python3-pytibber \
+    python3-python-memcached \    
     python3-pyyaml-ft \
     python3-readme-renderer \
     python3-rfc3986 \
