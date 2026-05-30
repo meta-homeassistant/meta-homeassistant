@@ -4,9 +4,10 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=294a75dc2aa13b607c79c0a9ac06e800"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "f35ca2769fc9b9adb54fb3d2d93c216ca6333a6d67ee60ebb8dd8c70b72ccc72"
+SRC_URI = "git://github.com/bieniu/gios;protocol=https;tag=${PV};branch=master"
+SRCREV = "6b9bfd7a4721c334407e2b0d73db5ba70ac6f2f4"
 
-inherit pypi python_setuptools_build_meta ptest-python-pytest
+inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} = "\
 	python3-aiohttp (>=3.9.4) \
@@ -14,7 +15,7 @@ RDEPENDS:${PN} = "\
 	python3-yarl \
 "
 
-RDEPENDS:${PN}-ptest = "\
+RDEPENDS:${PN}-ptest:append = "\
 	python3-aioresponses \
 	python3-coverage \
 	python3-pytest-asyncio \
