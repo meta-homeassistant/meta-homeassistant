@@ -42,6 +42,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-mistune \
     python3-pyegps \
     python3-pytest-httpbin \
+    python3-requirements-parser \
     python3-uart-devices \
     python3-uuid7 \
 "
