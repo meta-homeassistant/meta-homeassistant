@@ -6,6 +6,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "82fc92d3d9b71c4bbf8fe0a3d0fe8ba120b78cc9153c566ce07bf43fb69037f8"
 SRC_URI = "git://github.com/esphome/aioesphomeapi;protocol=https;tag=v${PV};branch=main"
+SRCREV = "55306dbdda6919e509ec7f2645adb4b284151c3c"
 
 inherit setuptools3 ptest-python-pytest cython
 
