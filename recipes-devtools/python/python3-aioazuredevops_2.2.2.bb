@@ -8,6 +8,7 @@ SRC_URI += "\
     git://github.com/timmo001/aioazuredevops;protocol=https;tag=${PV};branch=master \
 "
 SRC_URI[sha256sum] = "b2b8f37e62135b252c55bacad1e8dd92b83a0fb67ed35416cebbbbda4c6bd9c9"
+SRCREV = "27879a1a8e1f473305ec4986117ffc0319562c64"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
