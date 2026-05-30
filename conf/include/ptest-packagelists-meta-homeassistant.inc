@@ -29,6 +29,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-audioop-lts \
     python3-aurorapy \
     python3-automower-ble \
+    python3-bellows \
     python3-blinkpy \
     python3-bluecurrent-api \
     python3-bluetooth-adapters \
@@ -108,7 +109,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-azure-servicebus \
     python3-azure-storage-blob \
     python3-azure-storage-queue \
-    python3-bellows \
     python3-blebox-uniapi \
     python3-blockchain \
     python3-brother \
