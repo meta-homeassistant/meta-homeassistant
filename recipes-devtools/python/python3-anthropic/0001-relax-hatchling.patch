@@ -1,4 +1,4 @@
-From 1022fbe5d21d15c2a62a489512d12db72199e9ea Mon Sep 17 00:00:00 2001
+From 7719c1e91e5a57920dff912aec8d3af937083642 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Tue, 13 May 2025 22:25:09 +0000
 Subject: [PATCH] relax hatchling
@@ -10,10 +10,10 @@ Upstream-Status: Pending
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index 3d93d3d..bb8bf85 100644
+index d120950..8f24a85 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
-@@ -80,7 +80,7 @@ pydantic-v2 = [
+@@ -92,7 +92,7 @@ pydantic-v2 = [
  ]
  
  [build-system]
