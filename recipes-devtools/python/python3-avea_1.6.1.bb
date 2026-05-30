@@ -4,10 +4,10 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=da981d94d3cd3e010abf14da3a7e79a0"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "417ba45e63029a593538f9ea94a562177d5d89ca8f7a3ed6a4f3325ce0aeb564"
+SRC_URI[sha256sum] = "7b3de41ce454330bf503a38f13ebeaef6a57770aea75c06653d1a8bb52243f9f"
 
 inherit pypi setuptools3
 
-RDEPENDS:${PN} += "bluepy"
+RDEPENDS:${PN} += "python3-bleak python3-bleak-retry-connector"
 
 PYPI_PACKAGE = "avea"
