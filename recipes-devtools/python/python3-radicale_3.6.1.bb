@@ -1,6 +1,6 @@
 SUMMARY = "CalDAV and CardDAV Server"
 HOMEPAGE = "https://radicale.org/"
-LICENSE = "GPL"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING.md;md5=97a733ff40c50b4bfc74471e1f6ca88b"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
