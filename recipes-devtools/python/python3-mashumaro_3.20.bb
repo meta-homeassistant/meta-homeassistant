@@ -6,12 +6,9 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI = "git://github.com/Fatal1ty/mashumaro.git;protocol=https;branch=master"
 SRC_URI[sha256sum] = "169f0290253b3e6077bcb39c14a9dd0791a3fdedd9e286e536ae561d4ff1975b"
-SRCREV = "420fa09a509ee6d4f63917aeecb44cc65522dfc8"
+SRCREV = "822dfec5f158adcc3415ad735f0af2be273e5699"
 
 inherit python_setuptools_build_meta ptest-python-pytest
-
-PACKAGECONFIG[orjson] = ",,,python3-orjson"
-PACKAGECONFIG[yaml] = ",,,python3-pyyaml"
 
 RDEPENDS:${PN} += "\
     python3-typing-extensions (>=4.1.0) \
@@ -19,5 +16,10 @@ RDEPENDS:${PN} += "\
 
 RDEPENDS:${PN}-ptest += "\
     python3-msgpack \
+    python3-orjson \
+    python3-pyyaml \
     python3-tomli-w \
+    python3-ciso8601 \
+    python3-tzdata \
+    python3-pendulum \
 "
