@@ -8,4 +8,4 @@ inherit python_poetry_core pypi cython
 
 PYPI_PACKAGE = "ulid_transform"
 
-SRC_URI[sha256sum] = "5914a3c4277b0d25ebb67f47bfee2167ac858d970249ea275221fb3e5d91c9a0"
+SRC_URI[sha256sum] = "cef07d688483e7573b835423f242d0d6700d92429abc438c0941de61eacdf215"
