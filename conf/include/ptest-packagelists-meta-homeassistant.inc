@@ -57,6 +57,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-pytest-httpbin \
     python3-pytibber \
     python3-requirements-parser \
+    python3-securetar \
     python3-uart-devices \
     python3-uuid7 \
 "
@@ -218,7 +219,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-rfc3986 \
     python3-secretstorage \
     python3-securesystemslib \
-    python3-securetar \
     python3-segno \
     python3-sentence-stream \
     python3-simple-websocket \
