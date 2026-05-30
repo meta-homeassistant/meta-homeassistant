@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# In ptest environments that run as root, chmod(000) does not reliably cause
+# PermissionError due to elevated capabilities. Deselect that one test only.
+if [ "$(id -u)" -eq 0 ]; then
+    pytest --automake \
+        --deselect tests/server/fastmcp/resources/test_file_resources.py::TestFileResource::test_permission_error
+else
+    pytest --automake
+fi
