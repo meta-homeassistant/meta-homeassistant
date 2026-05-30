@@ -4,8 +4,6 @@ LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "bc97dfb3f946c8b6d368fcf6fc8541e09a2a3f4a63d0171edf3a1b4a5715883e"
-
 inherit setuptools3 ptest-python-pytest
 
 SRC_URI = "git://github.com/tchellomello/python-amcrest;protocol=https;tag=${PV};branch=master \

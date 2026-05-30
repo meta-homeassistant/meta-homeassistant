@@ -6,7 +6,6 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
-SRC_URI[sha256sum] = "3a5edefff0f7e635503ce849d6638ad668ae5459ca7aff07bf893b143eead90b"
 SRC_URI = "git://github.com/StevenLooman/async_upnp_client.git;protocol=https;tag=${PV};branch=development"
 SRCREV = "2c2b9519a5bd208eb29bf3cbf05841fd3560c0e6"
 

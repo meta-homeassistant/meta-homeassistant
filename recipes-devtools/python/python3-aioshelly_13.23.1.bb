@@ -6,7 +6,6 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
-SRC_URI[sha256sum] = "f3296bfbc3f908c645863e6f5dbb06444f44d89e7e95ab85c1c464fce9490b75"
 SRC_URI = "git://github.com/home-assistant-libs/aioshelly;protocol=https;tag=${PV};branch=main"
 SRCREV = "cfe9f67327ca817b1c59db3e88278ef62a46124a"
 

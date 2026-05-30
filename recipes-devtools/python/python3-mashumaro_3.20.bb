@@ -5,7 +5,6 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e7bdee652937974f23d94be386c358bd"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI = "git://github.com/Fatal1ty/mashumaro.git;protocol=https;branch=master"
-SRC_URI[sha256sum] = "169f0290253b3e6077bcb39c14a9dd0791a3fdedd9e286e536ae561d4ff1975b"
 SRCREV = "822dfec5f158adcc3415ad735f0af2be273e5699"
 
 inherit python_setuptools_build_meta ptest-python-pytest

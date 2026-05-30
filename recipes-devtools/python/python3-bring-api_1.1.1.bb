@@ -4,7 +4,6 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a904c7a61349b66aabdf1e0870cfa3f4"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "af139e7b7d3cbfa444c27bf06b0f56b1499a6c0bbbc7c41519d732afeae0cf19"
 SRC_URI = "git://github.com/miaucl/bring-api;protocol=https;tag=${PV};branch=main"
 SRCREV = "56c43c45bd790eafa1a2255827916155d1c2be3e"
 

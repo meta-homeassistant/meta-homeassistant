@@ -6,7 +6,6 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI = "git://gitlab.com/klikini/doorbirdpy.git;protocol=https;tag=${PV};branch=master"
 SRCREV = "5aaaf042c57e0592a6b5c45665fc313221e1330f"
-SRC_URI[sha256sum] = "9b2685ac384f390852eb603375fd100446e4bc2cacb35af5a982423ffd31f002"
 
 inherit setuptools3 ptest-python-pytest
 

@@ -4,7 +4,6 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b6ad717ddaae2251044bbbb7bd265b2a"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "1d252249578f09699231e12b0fb1e3a47c947550d141b580787f882f411c2ca6"
 SRC_URI = "git://github.com/compatech/python-airos;protocol=https;tag=v${PV};branch=main \
            file://0001-relax-build-requirement.patch \
            "

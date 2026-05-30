@@ -4,7 +4,6 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "5f86cd48f27131cdbf2882699cbdf7a67dd4cbe89a81edfdc31211f42e4a5fd1"
 SRC_URI = "git://github.com/huggingface/huggingface_hub;protocol=https;tag=v${PV};branch=v1.3-release"
 SRCREV = "0d8d045a9f933331f33e609e578c5452b944495c"
 
