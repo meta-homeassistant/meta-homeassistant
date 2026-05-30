@@ -193,6 +193,7 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-mcp \
     python3-msal \
     python3-mutagen \
+    python3-niquests \
     python3-oauth2client \
     python3-opentelemetry-api \
     python3-opentelemetry-sdk \
