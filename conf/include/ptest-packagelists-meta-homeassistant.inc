@@ -80,6 +80,7 @@ PTEST_CURRENTLY_FAILS_META_HOMEASSISTANT = "\
     python3-bimmer-connected \
     python3-bring-api \
     python3-pydaikin \
+    python3-pytest-console-scripts \
 "
 
 #e
