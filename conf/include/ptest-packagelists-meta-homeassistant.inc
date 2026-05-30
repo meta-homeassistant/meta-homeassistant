@@ -136,6 +136,7 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-dio-chacon-wifi-api \
     python3-dlms-cosem \
     python3-docker-py \
+    python3-dulwich \
     python3-dynalite-devices \
     python3-eheimdigital \
     python3-elkm1-lib \
