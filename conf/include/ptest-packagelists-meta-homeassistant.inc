@@ -35,6 +35,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-btsocket \
     python3-cookidoo-api \
     python3-crccheck \
+    python3-denonavr \
     python3-emoji \
     python3-fastuuid \
     python3-fjaraskupan \
@@ -110,7 +111,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-crownstone-sse \
     python3-dacite \
     python3-datadog \
-    python3-denonavr \
     python3-devolo-home-control-api \
     python3-devolo-plc-api \
     python3-dio-chacon-wifi-api \
