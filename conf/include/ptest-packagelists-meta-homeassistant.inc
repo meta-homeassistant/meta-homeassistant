@@ -51,6 +51,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-home-assistant-intents \
     python3-httpbin \
     python3-ical \
+    python3-icalendar-searcher \
     python3-looptime \
     python3-mcp \
     python3-mistune \
