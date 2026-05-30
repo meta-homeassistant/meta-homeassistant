@@ -15,7 +15,6 @@ SRC_URI = "git://github.com/home-assistant/core.git;protocol=https;branch=master
            file://run-ptest-sample \
            file://0001-Relax-setuptools.patch \
            "
-SRC_URI[sha256sum] = "f4181f4023feb78cef0be655234200966daa140aea4634dbf3def8b18fd21d48"
 SRCREV = "3499ed7a987c6868bb1006ce8d80b86d3670b1f6"
 
 inherit python_setuptools_build_meta useradd systemd ptest-python-pytest
