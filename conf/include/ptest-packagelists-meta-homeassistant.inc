@@ -52,6 +52,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-mistune \
     python3-pyegps \
     python3-pyfritzhome \
+    python3-pyswitchbot \
     python3-pytest-httpbin \
     python3-requirements-parser \
     python3-uart-devices \
@@ -205,7 +206,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-pyfronius \
     python3-pyserial-asyncio-fast \
     python3-pyspeex-noise \
-    python3-pyswitchbot \
     python3-pytest-rerunfailures \
     python3-python-gitlab \
     python3-python-google-drive-api \
