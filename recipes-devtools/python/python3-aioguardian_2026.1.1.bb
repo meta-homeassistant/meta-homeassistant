@@ -1,11 +1,11 @@
 SUMMARY = "A Python3 library for Elexa Guardian water valves and sensors"
 HOMEPAGE = "https://github.com/bachya/aioguardian"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=a91f9b07cce597b2a12f27ca09d89895"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=483e9bb16c37c4cca4752306cfba6f0a"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI += "file://0001-Update-poetry-core-dependency-to-allow-for-newer-ver.patch"
-SRC_URI[sha256sum] = "4e3e7890cf063f73957da872af9a1bbe2e0fa3d7352cc21b5833903315bb4b10"
+SRC_URI[sha256sum] = "c0b722db2aff4c8e0053615d50d6e274b57f238e5bafd50e255fcd75ef94f567"
 
 inherit pypi python_poetry_core
 
