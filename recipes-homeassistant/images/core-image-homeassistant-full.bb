@@ -5,16 +5,21 @@ IMAGE_INSTALL = "\
     ${CORE_IMAGE_EXTRA_INSTALL} \
     python3-homeassistant \
     \
+    python3-homeassistant-3-day-blinds \
     python3-homeassistant-acaia \
     python3-homeassistant-accuweather \
     python3-homeassistant-acer-projector \
     python3-homeassistant-acmeda \
+    python3-homeassistant-acomax \
+    python3-homeassistant-actiontec \
     python3-homeassistant-adax \
     python3-homeassistant-adguard \
     python3-homeassistant-advantage-air \
     python3-homeassistant-aemet \
     python3-homeassistant-aftership \
     python3-homeassistant-agent-dvr \
+    python3-homeassistant-ai-task \
+    python3-homeassistant-air-quality \
     python3-homeassistant-airgradient \
     python3-homeassistant-airly \
     python3-homeassistant-airnow \
@@ -29,7 +34,10 @@ IMAGE_INSTALL = "\
     python3-homeassistant-airzone \
     python3-homeassistant-airzone-cloud \
     python3-homeassistant-aladdin-connect \
+    python3-homeassistant-alarm-control-panel \
     python3-homeassistant-alarmdecoder \
+    python3-homeassistant-alert \
+    python3-homeassistant-alexa \
     python3-homeassistant-alpha-vantage \
     python3-homeassistant-altruist \
     python3-homeassistant-amazon-polly \
@@ -37,7 +45,9 @@ IMAGE_INSTALL = "\
     python3-homeassistant-ambient-network \
     python3-homeassistant-ambient-station \
     python3-homeassistant-amcrest \
+    python3-homeassistant-amp-motorization \
     python3-homeassistant-ampio \
+    python3-homeassistant-analytics \
     python3-homeassistant-analytics-insights \
     python3-homeassistant-android-ip-webcam \
     python3-homeassistant-androidtv \
@@ -46,10 +56,15 @@ IMAGE_INSTALL = "\
     python3-homeassistant-anova \
     python3-homeassistant-anthemav \
     python3-homeassistant-anthropic \
+    python3-homeassistant-anwb-energie \
     python3-homeassistant-aosmith \
     python3-homeassistant-apache-kafka \
     python3-homeassistant-apcupsd \
+    python3-homeassistant-api \
+    python3-homeassistant-apollo-automation \
+    python3-homeassistant-appalachianpower \
     python3-homeassistant-apple-tv \
+    python3-homeassistant-application-credentials \
     python3-homeassistant-aprilaire \
     python3-homeassistant-aprs \
     python3-homeassistant-apsystems \
@@ -57,19 +72,27 @@ IMAGE_INSTALL = "\
     python3-homeassistant-aquostv \
     python3-homeassistant-aranet \
     python3-homeassistant-arcam-fmj \
+    python3-homeassistant-arest \
     python3-homeassistant-arris-tg2492lg \
+    python3-homeassistant-artsound \
     python3-homeassistant-aruba \
     python3-homeassistant-arve \
+    python3-homeassistant-arwn \
     python3-homeassistant-aseko-pool-live \
     python3-homeassistant-assist-pipeline \
+    python3-homeassistant-assist-satellite \
     python3-homeassistant-asuswrt \
     python3-homeassistant-atag \
     python3-homeassistant-aten-pe \
+    python3-homeassistant-atlanticcityelectric \
     python3-homeassistant-atome \
     python3-homeassistant-august \
+    python3-homeassistant-august-ble \
     python3-homeassistant-aurora-abb-powerone \
     python3-homeassistant-aussie-broadband \
     python3-homeassistant-autarco \
+    python3-homeassistant-auth \
+    python3-homeassistant-automation \
     python3-homeassistant-avea \
     python3-homeassistant-avion \
     python3-homeassistant-awair \
@@ -84,109 +107,166 @@ IMAGE_INSTALL = "\
     python3-homeassistant-backup \
     python3-homeassistant-baf \
     python3-homeassistant-baidu \
+    python3-homeassistant-balay \
     python3-homeassistant-balboa \
     python3-homeassistant-bang-olufsen \
+    python3-homeassistant-bauknecht \
+    python3-homeassistant-bayesian \
     python3-homeassistant-bbox \
     python3-homeassistant-beewi-smartclim \
+    python3-homeassistant-bge \
+    python3-homeassistant-binary-sensor \
     python3-homeassistant-bitcoin \
     python3-homeassistant-bizkaibus \
     python3-homeassistant-blackbird \
     python3-homeassistant-blebox \
     python3-homeassistant-blink \
     python3-homeassistant-blinksticklight \
+    python3-homeassistant-bliss-automation \
+    python3-homeassistant-bloc-blinds \
     python3-homeassistant-blockchain \
     python3-homeassistant-blue-current \
     python3-homeassistant-bluemaestro \
     python3-homeassistant-bluesound \
     python3-homeassistant-bluetooth \
-    python3-homeassistant-bluetooth-tracker \
+    python3-homeassistant-bluetooth-adapters \
+    python3-homeassistant-bluetooth-le-tracker \
     python3-homeassistant-bmw-connected-drive \
     python3-homeassistant-bond \
     python3-homeassistant-bosch-alarm \
     python3-homeassistant-bosch-shc \
+    python3-homeassistant-brands \
+    python3-homeassistant-brandt \
     python3-homeassistant-braviatv \
+    python3-homeassistant-brel-home \
     python3-homeassistant-bring \
     python3-homeassistant-broadlink \
     python3-homeassistant-brother \
     python3-homeassistant-brottsplatskartan \
+    python3-homeassistant-browser \
     python3-homeassistant-brunt \
     python3-homeassistant-bryant-evolution \
     python3-homeassistant-bsblan \
+    python3-homeassistant-bswitch \
     python3-homeassistant-bt-home-hub-5 \
     python3-homeassistant-bt-smarthub \
     python3-homeassistant-bthome \
+    python3-homeassistant-bticino \
+    python3-homeassistant-bubendorff \
     python3-homeassistant-buienradar \
+    python3-homeassistant-burbank-water-and-power \
+    python3-homeassistant-button \
     python3-homeassistant-caldav \
+    python3-homeassistant-calendar \
     python3-homeassistant-cambridge-audio \
     python3-homeassistant-camera \
     python3-homeassistant-canary \
     python3-homeassistant-cast \
     python3-homeassistant-ccm15 \
+    python3-homeassistant-cert-expiry \
     python3-homeassistant-chacon-dio \
     python3-homeassistant-channels \
     python3-homeassistant-cisco-ios \
     python3-homeassistant-cisco-mobility-express \
     python3-homeassistant-cisco-webex-teams \
     python3-homeassistant-clementine \
+    python3-homeassistant-clickatell \
+    python3-homeassistant-clicksend \
+    python3-homeassistant-clicksend-tts \
+    python3-homeassistant-climate \
     python3-homeassistant-cloud \
     python3-homeassistant-cloudflare \
+    python3-homeassistant-cloudflare-r2 \
     python3-homeassistant-cmus \
     python3-homeassistant-co2signal \
+    python3-homeassistant-coautilities \
     python3-homeassistant-coinbase \
     python3-homeassistant-color-extractor \
+    python3-homeassistant-comed \
+    python3-homeassistant-comed-hourly-pricing \
     python3-homeassistant-comelit \
     python3-homeassistant-comfoconnect \
     python3-homeassistant-command-line \
     python3-homeassistant-compensation \
     python3-homeassistant-concord232 \
+    python3-homeassistant-coned \
+    python3-homeassistant-config \
+    python3-homeassistant-configurator \
+    python3-homeassistant-constructa \
     python3-homeassistant-control4 \
     python3-homeassistant-conversation \
     python3-homeassistant-cookidoo \
     python3-homeassistant-coolmaster \
+    python3-homeassistant-cosori \
+    python3-homeassistant-counter \
+    python3-homeassistant-cover \
+    python3-homeassistant-cozytouch \
     python3-homeassistant-cppm-tracker \
     python3-homeassistant-cpuspeed \
+    python3-homeassistant-cribl \
     python3-homeassistant-crownstone \
-    python3-homeassistant-cups \
+    python3-homeassistant-currencylayer \
+    python3-homeassistant-dacia \
     python3-homeassistant-daikin \
     python3-homeassistant-danfoss-air \
     python3-homeassistant-datadog \
+    python3-homeassistant-date \
+    python3-homeassistant-datetime \
+    python3-homeassistant-ddwrt \
     python3-homeassistant-deako \
     python3-homeassistant-debugpy \
     python3-homeassistant-deconz \
-    python3-homeassistant-decora \
     python3-homeassistant-decora-wifi \
+    python3-homeassistant-decorquip \
+    python3-homeassistant-default-config \
     python3-homeassistant-delijn \
+    python3-homeassistant-delmarva \
     python3-homeassistant-deluge \
+    python3-homeassistant-demo \
+    python3-homeassistant-denon \
     python3-homeassistant-denonavr \
+    python3-homeassistant-derivative \
     python3-homeassistant-devialet \
+    python3-homeassistant-device-automation \
+    python3-homeassistant-device-sun-light-trigger \
+    python3-homeassistant-device-tracker \
     python3-homeassistant-devolo-home-control \
     python3-homeassistant-devolo-home-network \
     python3-homeassistant-dexcom \
     python3-homeassistant-dhcp \
+    python3-homeassistant-diagnostics \
+    python3-homeassistant-dialogflow \
+    python3-homeassistant-diaz \
+    python3-homeassistant-digital-loggers \
     python3-homeassistant-digital-ocean \
     python3-homeassistant-directv \
     python3-homeassistant-discogs \
     python3-homeassistant-discord \
     python3-homeassistant-discovergy \
-    python3-homeassistant-dlib-face-detect \
-    python3-homeassistant-dlib-face-identify \
     python3-homeassistant-dlink \
     python3-homeassistant-dlna-dmr \
     python3-homeassistant-dlna-dms \
     python3-homeassistant-dnsip \
-    python3-homeassistant-dominos \
     python3-homeassistant-doods \
     python3-homeassistant-doorbird \
+    python3-homeassistant-dooya \
     python3-homeassistant-dormakaba-dkey \
     python3-homeassistant-dovado \
+    python3-homeassistant-downloader \
+    python3-homeassistant-dremel-3d-printer \
     python3-homeassistant-drop-connect \
     python3-homeassistant-dsmr \
+    python3-homeassistant-dsmr-reader \
+    python3-homeassistant-dublin-bus-transport \
+    python3-homeassistant-duckdns \
     python3-homeassistant-duke-energy \
     python3-homeassistant-dunehd \
     python3-homeassistant-duotecno \
+    python3-homeassistant-duquesne-light \
     python3-homeassistant-dwd-weather-warnings \
     python3-homeassistant-dynalite \
     python3-homeassistant-eafm \
+    python3-homeassistant-eastron \
     python3-homeassistant-easyenergy \
     python3-homeassistant-ebox \
     python3-homeassistant-ebusd \
@@ -196,12 +276,12 @@ IMAGE_INSTALL = "\
     python3-homeassistant-econet \
     python3-homeassistant-ecovacs \
     python3-homeassistant-ecowitt \
-    python3-homeassistant-eddystone-temperature \
     python3-homeassistant-edimax \
     python3-homeassistant-edl21 \
     python3-homeassistant-efergy \
     python3-homeassistant-egardia \
     python3-homeassistant-eheimdigital \
+    python3-homeassistant-eight-sleep \
     python3-homeassistant-electrasmart \
     python3-homeassistant-electric-kiwi \
     python3-homeassistant-elevenlabs \
@@ -215,14 +295,18 @@ IMAGE_INSTALL = "\
     python3-homeassistant-emoncms \
     python3-homeassistant-emoncms-history \
     python3-homeassistant-emonitor \
+    python3-homeassistant-emulated-hue \
     python3-homeassistant-emulated-kasa \
     python3-homeassistant-emulated-roku \
     python3-homeassistant-energenie-power-sockets \
+    python3-homeassistant-energie-vanons \
+    python3-homeassistant-energy \
     python3-homeassistant-energyzero \
     python3-homeassistant-enigma2 \
     python3-homeassistant-enocean \
     python3-homeassistant-enphase-envoy \
     python3-homeassistant-entur-public-transport \
+    python3-homeassistant-environment-canada \
     python3-homeassistant-envisalink \
     python3-homeassistant-ephember \
     python3-homeassistant-epic-games-store \
@@ -230,23 +314,35 @@ IMAGE_INSTALL = "\
     python3-homeassistant-epson \
     python3-homeassistant-eq3btsmart \
     python3-homeassistant-escea \
+    python3-homeassistant-esera-onewire \
     python3-homeassistant-esphome \
     python3-homeassistant-etherscan \
     python3-homeassistant-eufy \
     python3-homeassistant-eufylife-ble \
+    python3-homeassistant-event \
+    python3-homeassistant-evergy \
     python3-homeassistant-everlights \
     python3-homeassistant-evil-genius-labs \
     python3-homeassistant-evohome \
     python3-homeassistant-ezviz \
     python3-homeassistant-faa-delays \
+    python3-homeassistant-facebook \
+    python3-homeassistant-fail2ban \
     python3-homeassistant-familyhub \
+    python3-homeassistant-fan \
     python3-homeassistant-fastdotcom \
     python3-homeassistant-feedreader \
     python3-homeassistant-ffmpeg \
+    python3-homeassistant-ffmpeg-motion \
+    python3-homeassistant-ffmpeg-noise \
     python3-homeassistant-fibaro \
     python3-homeassistant-fido \
     python3-homeassistant-file \
+    python3-homeassistant-file-upload \
+    python3-homeassistant-filesize \
+    python3-homeassistant-filter \
     python3-homeassistant-fints \
+    python3-homeassistant-fire-tv \
     python3-homeassistant-fireservicerota \
     python3-homeassistant-firmata \
     python3-homeassistant-fitbit \
@@ -254,21 +350,28 @@ IMAGE_INSTALL = "\
     python3-homeassistant-fixer \
     python3-homeassistant-fjaraskupan \
     python3-homeassistant-fleetgo \
+    python3-homeassistant-flexit \
     python3-homeassistant-flexit-bacnet \
+    python3-homeassistant-flexom \
     python3-homeassistant-flic \
-    python3-homeassistant-flick-electric \
     python3-homeassistant-flipr \
     python3-homeassistant-flo \
+    python3-homeassistant-flock \
     python3-homeassistant-flume \
+    python3-homeassistant-flux \
     python3-homeassistant-flux-led \
+    python3-homeassistant-folder \
     python3-homeassistant-folder-watcher \
     python3-homeassistant-foobot \
     python3-homeassistant-forecast-solar \
     python3-homeassistant-forked-daapd \
     python3-homeassistant-fortios \
     python3-homeassistant-foscam \
+    python3-homeassistant-foursquare \
+    python3-homeassistant-frankever \
     python3-homeassistant-free-mobile \
     python3-homeassistant-freebox \
+    python3-homeassistant-freedns \
     python3-homeassistant-freedompro \
     python3-homeassistant-fritz \
     python3-homeassistant-fritzbox \
@@ -276,19 +379,27 @@ IMAGE_INSTALL = "\
     python3-homeassistant-fronius \
     python3-homeassistant-frontend \
     python3-homeassistant-frontier-silicon \
+    python3-homeassistant-fujitsu-anywair \
     python3-homeassistant-fujitsu-fglair \
     python3-homeassistant-fully-kiosk \
     python3-homeassistant-futurenow \
     python3-homeassistant-fyta \
+    python3-homeassistant-gaggenau \
+    python3-homeassistant-garadget \
     python3-homeassistant-garages-amsterdam \
     python3-homeassistant-gardena-bluetooth \
+    python3-homeassistant-gaviota \
     python3-homeassistant-gc100 \
     python3-homeassistant-gdacs \
     python3-homeassistant-generic \
+    python3-homeassistant-generic-hygrostat \
+    python3-homeassistant-generic-thermostat \
     python3-homeassistant-geniushub \
     python3-homeassistant-geo-json-events \
+    python3-homeassistant-geo-location \
     python3-homeassistant-geo-rss-events \
     python3-homeassistant-geocaching \
+    python3-homeassistant-geofency \
     python3-homeassistant-geonetnz-quakes \
     python3-homeassistant-geonetnz-volcano \
     python3-homeassistant-gios \
@@ -301,6 +412,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-gogogate2 \
     python3-homeassistant-goodwe \
     python3-homeassistant-google \
+    python3-homeassistant-google-assistant \
     python3-homeassistant-google-assistant-sdk \
     python3-homeassistant-google-cloud \
     python3-homeassistant-google-drive \
@@ -313,87 +425,336 @@ IMAGE_INSTALL = "\
     python3-homeassistant-google-tasks \
     python3-homeassistant-google-translate \
     python3-homeassistant-google-travel-time \
+    python3-homeassistant-google-wifi \
     python3-homeassistant-govee-ble \
     python3-homeassistant-govee-light-local \
     python3-homeassistant-gpsd \
+    python3-homeassistant-gpslogger \
+    python3-homeassistant-graphite \
     python3-homeassistant-gree \
     python3-homeassistant-greeneye-monitor \
     python3-homeassistant-greenwave \
+    python3-homeassistant-group \
     python3-homeassistant-growatt-server \
-    python3-homeassistant-gstreamer \
     python3-homeassistant-gtfs \
     python3-homeassistant-guardian \
+    python3-homeassistant-hardkernel \
     python3-homeassistant-hardware \
+    python3-homeassistant-harvey \
+    python3-homeassistant-hassio \
+    python3-homeassistant-havana-shade \
+    python3-homeassistant-haveibeenpwned \
+    python3-homeassistant-hddtemp \
+    python3-homeassistant-heicko \
+    python3-homeassistant-hexaom \
+    python3-homeassistant-hi-kumo \
+    python3-homeassistant-history \
+    python3-homeassistant-history-stats \
+    python3-homeassistant-hitron-coda \
+    python3-homeassistant-home-plus-control \
+    python3-homeassistant-homeassistant \
+    python3-homeassistant-homeassistant-alerts \
+    python3-homeassistant-homeassistant-connect-zbt2 \
+    python3-homeassistant-homeassistant-green \
+    python3-homeassistant-homeassistant-sky-connect \
+    python3-homeassistant-homeassistant-yellow \
     python3-homeassistant-homekit \
+    python3-homeassistant-http \
     python3-homeassistant-hue \
+    python3-homeassistant-humidifier \
+    python3-homeassistant-hurrican-shutters-wholesale \
     python3-homeassistant-husqvarna-automower-ble \
     python3-homeassistant-ibeacon \
+    python3-homeassistant-image \
+    python3-homeassistant-image-processing \
     python3-homeassistant-image-upload \
+    python3-homeassistant-indianamichiganpower \
+    python3-homeassistant-input-boolean \
+    python3-homeassistant-input-button \
+    python3-homeassistant-input-datetime \
+    python3-homeassistant-input-number \
+    python3-homeassistant-input-select \
+    python3-homeassistant-input-text \
+    python3-homeassistant-inspired-shades \
+    python3-homeassistant-integration \
+    python3-homeassistant-intent \
+    python3-homeassistant-intent-script \
+    python3-homeassistant-ios \
     python3-homeassistant-ipp \
     python3-homeassistant-isal \
+    python3-homeassistant-ismartwindow \
+    python3-homeassistant-itunes \
+    python3-homeassistant-juicenet \
+    python3-homeassistant-kaiser-nienhaus \
+    python3-homeassistant-kankun \
+    python3-homeassistant-kentuckypower \
     python3-homeassistant-keyboard-remote \
+    python3-homeassistant-kitchen-sink \
+    python3-homeassistant-konnected-esphome \
+    python3-homeassistant-krispol \
     python3-homeassistant-kwb \
+    python3-homeassistant-labs \
+    python3-homeassistant-lannouncer \
+    python3-homeassistant-lawn-mower \
+    python3-homeassistant-legrand \
     python3-homeassistant-letpot \
+    python3-homeassistant-levoit \
+    python3-homeassistant-life360 \
+    python3-homeassistant-lifx-cloud \
+    python3-homeassistant-light \
+    python3-homeassistant-linak \
+    python3-homeassistant-linkedgo \
+    python3-homeassistant-linksys-smart \
+    python3-homeassistant-linx \
+    python3-homeassistant-llamalab-automate \
     python3-homeassistant-local-calendar \
+    python3-homeassistant-local-file \
+    python3-homeassistant-local-ip \
     python3-homeassistant-local-todo \
+    python3-homeassistant-locative \
+    python3-homeassistant-lock \
+    python3-homeassistant-logbook \
+    python3-homeassistant-logentries \
+    python3-homeassistant-logger \
+    python3-homeassistant-london-air \
+    python3-homeassistant-lovelace \
     python3-homeassistant-luftdaten \
+    python3-homeassistant-luxaflex \
+    python3-homeassistant-madeco \
+    python3-homeassistant-manual \
+    python3-homeassistant-manual-mqtt \
+    python3-homeassistant-marantz \
+    python3-homeassistant-martec \
     python3-homeassistant-matter \
+    python3-homeassistant-maytag \
+    python3-homeassistant-mazda \
     python3-homeassistant-mcp \
+    python3-homeassistant-mcp-server \
+    python3-homeassistant-media-player \
+    python3-homeassistant-media-source \
+    python3-homeassistant-meraki \
     python3-homeassistant-met \
+    python3-homeassistant-microsoft-face \
+    python3-homeassistant-microsoft-face-detect \
+    python3-homeassistant-microsoft-face-identify \
+    python3-homeassistant-mijndomein-energie \
+    python3-homeassistant-min-max \
+    python3-homeassistant-mini-connected \
+    python3-homeassistant-mjpeg \
     python3-homeassistant-mobile-app \
     python3-homeassistant-modbus \
+    python3-homeassistant-mold-indicator \
+    python3-homeassistant-monessen \
+    python3-homeassistant-moon \
     python3-homeassistant-mqtt \
+    python3-homeassistant-mqtt-eventstream \
+    python3-homeassistant-mqtt-json \
+    python3-homeassistant-mqtt-room \
+    python3-homeassistant-mqtt-statestream \
+    python3-homeassistant-my \
+    python3-homeassistant-myq \
     python3-homeassistant-namecheapdns \
+    python3-homeassistant-national-grid-us \
+    python3-homeassistant-neff \
+    python3-homeassistant-neo \
     python3-homeassistant-network \
+    python3-homeassistant-nexity \
     python3-homeassistant-nmap-tracker \
+    python3-homeassistant-no-ip \
     python3-homeassistant-norway-air \
+    python3-homeassistant-notify \
+    python3-homeassistant-number \
+    python3-homeassistant-nutrichef \
     python3-homeassistant-octoprint \
+    python3-homeassistant-ogemray \
     python3-homeassistant-ohmconnect \
+    python3-homeassistant-onboarding \
+    python3-homeassistant-oncue \
+    python3-homeassistant-openai-conversation \
+    python3-homeassistant-openalpr-cloud \
+    python3-homeassistant-openhardwaremonitor \
+    python3-homeassistant-oru-opower \
     python3-homeassistant-otp \
     python3-homeassistant-owntracks \
-    python3-homeassistant-pandora \
+    python3-homeassistant-panel-custom \
+    python3-homeassistant-pcs-lighting \
     python3-homeassistant-peblar \
     python3-homeassistant-peco \
+    python3-homeassistant-peco-opower \
+    python3-homeassistant-pepco \
+    python3-homeassistant-persistent-notification \
+    python3-homeassistant-person \
+    python3-homeassistant-pge \
+    python3-homeassistant-picotts \
+    python3-homeassistant-pinecil \
+    python3-homeassistant-ping \
+    python3-homeassistant-pioneer \
+    python3-homeassistant-piper \
+    python3-homeassistant-pitsos \
+    python3-homeassistant-plant \
+    python3-homeassistant-plum-lightpad \
+    python3-homeassistant-portlandgeneral \
     python3-homeassistant-private-ble-device \
+    python3-homeassistant-profilo \
+    python3-homeassistant-proximity \
     python3-homeassistant-proxy \
+    python3-homeassistant-pse \
+    python3-homeassistant-psoklahoma \
     python3-homeassistant-pulseaudio-loopback \
+    python3-homeassistant-push \
+    python3-homeassistant-pushsafer \
+    python3-homeassistant-quadrafire \
     python3-homeassistant-qwikswitch \
     python3-homeassistant-radio-browser \
+    python3-homeassistant-random \
+    python3-homeassistant-raspberry-pi \
+    python3-homeassistant-raven-rock-mfg \
     python3-homeassistant-recorder \
+    python3-homeassistant-recovery-mode \
+    python3-homeassistant-remote \
+    python3-homeassistant-remote-calendar \
+    python3-homeassistant-repairs \
+    python3-homeassistant-rest \
+    python3-homeassistant-rest-command \
+    python3-homeassistant-rexel \
+    python3-homeassistant-rhasspy \
     python3-homeassistant-route53 \
+    python3-homeassistant-rss-feed-template \
+    python3-homeassistant-rtorrent \
     python3-homeassistant-ruuvi-gateway \
+    python3-homeassistant-samsam \
+    python3-homeassistant-scene \
+    python3-homeassistant-schedule \
+    python3-homeassistant-scl \
     python3-homeassistant-scrape \
+    python3-homeassistant-screenaway \
+    python3-homeassistant-script \
+    python3-homeassistant-search \
+    python3-homeassistant-select \
+    python3-homeassistant-sense \
+    python3-homeassistant-sensor \
+    python3-homeassistant-sensorblue \
     python3-homeassistant-sentry \
+    python3-homeassistant-serial \
     python3-homeassistant-seven-segments \
+    python3-homeassistant-sftp-storage \
+    python3-homeassistant-shell-command \
     python3-homeassistant-shelly \
+    python3-homeassistant-shopping-list \
+    python3-homeassistant-siemens \
+    python3-homeassistant-sigfox \
     python3-homeassistant-simplisafe \
+    python3-homeassistant-simply-automated \
+    python3-homeassistant-simu \
+    python3-homeassistant-siren \
+    python3-homeassistant-sleep-as-android \
+    python3-homeassistant-smart-blinds \
+    python3-homeassistant-smart-home \
+    python3-homeassistant-smart-rollos \
+    python3-homeassistant-smarther \
     python3-homeassistant-smartthings \
+    python3-homeassistant-smtp \
+    python3-homeassistant-smud \
+    python3-homeassistant-snmp \
+    python3-homeassistant-somfy \
     python3-homeassistant-sony-projector \
+    python3-homeassistant-spaceapi \
     python3-homeassistant-speedtestdotnet \
+    python3-homeassistant-spider \
     python3-homeassistant-spotify \
     python3-homeassistant-sql \
     python3-homeassistant-ssdp \
     python3-homeassistant-startca \
+    python3-homeassistant-statistics \
     python3-homeassistant-steam-online \
     python3-homeassistant-stream \
+    python3-homeassistant-stt \
+    python3-homeassistant-sun \
+    python3-homeassistant-sunweg \
+    python3-homeassistant-supervisord \
+    python3-homeassistant-swepco \
+    python3-homeassistant-swisscom \
+    python3-homeassistant-switch \
+    python3-homeassistant-switch-as-x \
     python3-homeassistant-switchbot \
+    python3-homeassistant-symfonisk \
+    python3-homeassistant-synology-chat \
+    python3-homeassistant-syslog \
+    python3-homeassistant-system-health \
+    python3-homeassistant-system-log \
     python3-homeassistant-systemmonitor \
+    python3-homeassistant-tag \
+    python3-homeassistant-tcp \
     python3-homeassistant-ted5000 \
+    python3-homeassistant-telegram \
+    python3-homeassistant-telnet \
+    python3-homeassistant-template \
+    python3-homeassistant-text \
+    python3-homeassistant-thermador \
+    python3-homeassistant-thermoplus \
+    python3-homeassistant-thomson \
+    python3-homeassistant-threshold \
     python3-homeassistant-tibber \
+    python3-homeassistant-time \
+    python3-homeassistant-time-date \
+    python3-homeassistant-timer \
+    python3-homeassistant-tod \
+    python3-homeassistant-todo \
+    python3-homeassistant-tomato \
+    python3-homeassistant-torque \
+    python3-homeassistant-tplink-tapo \
+    python3-homeassistant-trace \
     python3-homeassistant-trafikverket-camera \
     python3-homeassistant-trafikverket-ferry \
     python3-homeassistant-trafikverket-train \
     python3-homeassistant-trafikverket-weatherstation \
     python3-homeassistant-trend \
     python3-homeassistant-tts \
+    python3-homeassistant-twilio-call \
+    python3-homeassistant-twilio-sms \
+    python3-homeassistant-ubiwizz \
+    python3-homeassistant-ublockout \
+    python3-homeassistant-uk-transport \
+    python3-homeassistant-ultraloq \
+    python3-homeassistant-universal \
+    python3-homeassistant-update \
     python3-homeassistant-upnp \
+    python3-homeassistant-uprise-smart-shades \
+    python3-homeassistant-uptime \
+    python3-homeassistant-usage-prediction \
     python3-homeassistant-usb \
     python3-homeassistant-utility-meter \
+    python3-homeassistant-vacuum \
+    python3-homeassistant-vagner-pool \
+    python3-homeassistant-valve \
+    python3-homeassistant-vermont-castings \
     python3-homeassistant-vlc \
+    python3-homeassistant-w800rf32 \
+    python3-homeassistant-wake-word \
+    python3-homeassistant-water-heater \
+    python3-homeassistant-weather \
+    python3-homeassistant-web-rtc \
+    python3-homeassistant-webhook \
+    python3-homeassistant-websocket-api \
+    python3-homeassistant-whisper \
+    python3-homeassistant-wirelesstag \
+    python3-homeassistant-worldclock \
+    python3-homeassistant-worldtidesinfo \
+    python3-homeassistant-worxlandroid \
+    python3-homeassistant-x10 \
+    python3-homeassistant-xiaomi \
+    python3-homeassistant-yale \
+    python3-homeassistant-yalexs-ble \
+    python3-homeassistant-yandextts \
     python3-homeassistant-zabbix \
+    python3-homeassistant-zbox-hub \
+    python3-homeassistant-zengge \
     python3-homeassistant-zeroconf \
     python3-homeassistant-zestimate \
     python3-homeassistant-zha \
+    python3-homeassistant-zodiac \
+    python3-homeassistant-zondergas \
+    python3-homeassistant-zone \
     python3-homeassistant-zoneminder \
     python3-homeassistant-zwave-js \
     python3-homeassistant-zwave-me \
