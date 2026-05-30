@@ -11,4 +11,3 @@ inherit pypi setuptools3
 RDEPENDS:${PN} += "python3-aiohttp"
 
 PYPI_PACKAGE = "zabbix_utils"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

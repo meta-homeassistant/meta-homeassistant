@@ -15,4 +15,3 @@ RDEPENDS:${PN} += "\
 "
 
 PYPI_PACKAGE = "grpc_google_iam_v1"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

@@ -9,6 +9,5 @@ SRC_URI[sha256sum] = "de8c89731034dc7f50814c2f8b94640324462cf43ef820ae914c98fa0d
 inherit pypi python_poetry_core ptest-python-pytest
 
 PYPI_PACKAGE = "zm_py"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} = "python3-requests"

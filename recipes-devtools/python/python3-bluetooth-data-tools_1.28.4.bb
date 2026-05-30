@@ -7,7 +7,6 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "0617a879c30e0410c3506e263ee9e9bd51b06d64db13b4ad0bfd765f794b756f"
 
 PYPI_PACKAGE = "bluetooth_data_tools"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} = "\
     python3-core (>=3.10) \

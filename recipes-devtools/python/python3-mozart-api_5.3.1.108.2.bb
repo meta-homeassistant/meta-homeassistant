@@ -9,7 +9,6 @@ SRC_URI[sha256sum] = "8a55121a07389ba88c054b9223baadedce03004f1c38f4f32c6790e094
 inherit pypi python_poetry_core
 
 PYPI_PACKAGE = "mozart_api"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} = "\
     python3-urllib3 (>= 1.25.3) \

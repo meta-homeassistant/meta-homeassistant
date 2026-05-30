@@ -14,4 +14,3 @@ RDEPENDS:${PN} += "\
 "
 
 PYPI_PACKAGE = "bthomehub5-devicelist"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

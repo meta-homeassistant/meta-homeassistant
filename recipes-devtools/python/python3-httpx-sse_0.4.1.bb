@@ -10,4 +10,3 @@ SRC_URI[sha256sum] = "8f44d34414bc7b21bf3602713005c5df4917884f76072479b21f68befa
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 PYPI_PACKAGE = "httpx_sse"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

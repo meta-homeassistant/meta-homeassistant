@@ -13,4 +13,3 @@ inherit pypi python_setuptools_build_meta
 SRC_URI[sha256sum] = "b386ff00fad76e29fa145a8af472cde9e1275c2716ef5c350e7a143b8d97f507"
 
 PYPI_PACKAGE = "pymicro_vad"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

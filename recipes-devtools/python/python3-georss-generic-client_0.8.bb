@@ -11,4 +11,3 @@ inherit pypi setuptools3
 RDEPENDS:${PN} += "python3-georss-client (>=0.17)"
 
 PYPI_PACKAGE = "georss_generic_client"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

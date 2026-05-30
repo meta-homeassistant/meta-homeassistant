@@ -16,4 +16,3 @@ RDEPENDS:${PN} += "\
 "
 
 PYPI_PACKAGE = "gassist_text"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

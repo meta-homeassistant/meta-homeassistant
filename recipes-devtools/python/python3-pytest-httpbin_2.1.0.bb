@@ -18,4 +18,3 @@ RDEPENDS:${PN}-ptest = "\
 "
 
 PYPI_PACKAGE = "pytest_httpbin"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

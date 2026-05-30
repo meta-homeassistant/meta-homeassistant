@@ -15,4 +15,3 @@ RDEPENDS:${PN} = "\
 "
 
 PYPI_PACKAGE = "pydantic_settings"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

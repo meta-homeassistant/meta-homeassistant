@@ -17,4 +17,3 @@ RDEPENDS:${PN}-ptest += "\
 "
 
 PYPI_PACKAGE = "elkm1_lib"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

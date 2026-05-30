@@ -19,4 +19,3 @@ RDEPENDS:${PN} = "\
 "
 
 PYPI_PACKAGE = "evohome_async"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

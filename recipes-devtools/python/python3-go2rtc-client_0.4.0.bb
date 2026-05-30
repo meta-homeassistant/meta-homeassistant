@@ -10,7 +10,6 @@ SRC_URI[sha256sum] = "9eff2630f8c9953a56d1aa8eb1eceb71d60c61c631aaadc3f8dc122831
 inherit pypi python_hatchling
 
 PYPI_PACKAGE = "go2rtc_client"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 RDEPENDS:${PN} = "\
     python3-aiohttp \
     python3-awesomeversion \

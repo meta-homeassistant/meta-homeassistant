@@ -9,4 +9,3 @@ SRC_URI[sha256sum] = "4e6ab6571e40cc086d788523cf9e018f618d07f9050f822ff409a4dfe1
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 PYPI_PACKAGE = "fake_useragent"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

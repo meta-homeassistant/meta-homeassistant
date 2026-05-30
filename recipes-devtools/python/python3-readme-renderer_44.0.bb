@@ -9,7 +9,6 @@ SRC_URI[sha256sum] = "8712034eabbfa6805cacf1402b4eeb2a73028f72d1166d6f5cb7f9c047
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 PYPI_PACKAGE = "readme_renderer"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} = "\
     python3-docutils (>=0.21.2) \

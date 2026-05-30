@@ -9,7 +9,6 @@ inherit pypi setuptools3 ptest-python-pytest
 SRC_URI[sha256sum] = "ccacf9cb84b64939ea15f859a146af1f662a6b1d68175754a07315e305fb1403"
 
 PYPI_PACKAGE = "aiohttp_cors"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=1.1) \

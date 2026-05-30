@@ -7,7 +7,6 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 inherit pypi python_poetry_core cython
 
 PYPI_PACKAGE = "fnv_hash_fast"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 SRC_URI[sha256sum] = "a09feefad2c827192dc4306826df3ffb7c6288f25ab7976d4588fdae9cbb7661"
 

@@ -11,7 +11,6 @@ require ${BPN}-crates.inc
 inherit pypi python_maturin cargo-update-recipe-crates
 
 PYPI_PACKAGE = "hf_xet"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 # The 1.2.0 sdist ships an empty hf_xet/python/ tree, so maturin fails when
 # python-source points there. Drop this key to build the extension module.

@@ -9,7 +9,6 @@ SRC_URI[sha256sum] = "d96396f25b0d12513af45d1191c3310d54b68b939b23b712ae6cf7d536
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 PYPI_PACKAGE = "bluecurrent_api"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} = "\
     python3-websockets (>=15.0) \

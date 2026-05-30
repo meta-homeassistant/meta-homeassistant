@@ -15,4 +15,3 @@ RDEPENDS:${PN} += "\
 "
 
 PYPI_PACKAGE = "opentelemetry_sdk"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

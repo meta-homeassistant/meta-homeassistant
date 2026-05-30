@@ -11,4 +11,3 @@ inherit pypi python_setuptools_build_meta ptest-python-pytest
 RDEPENDS:${PN} = "python3-regex (>=2024.11.6)"
 
 PYPI_PACKAGE = "sentence_stream"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

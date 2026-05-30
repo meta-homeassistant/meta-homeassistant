@@ -11,7 +11,6 @@ PYPI_SRC_URI = "https://github.com/home-assistant/frontend/releases/download/${P
 inherit pypi python_setuptools_build_meta
 
 PYPI_PACKAGE = "home_assistant_frontend"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 SRC_URI += "file://0001-relax-build-deps.patch"
 SRC_URI[sha256sum] = "6110426f160116a3f2c6798cc1b25b3e7d74ffb296eacc94731c9fe691f8f3b4"

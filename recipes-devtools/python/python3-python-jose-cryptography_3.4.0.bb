@@ -11,7 +11,6 @@ DEPENDS += "\
 "
 
 PYPI_PACKAGE = "python-jose"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 SRC_URI[sha256sum] = "9a9a40f418ced8ecaf7e3b28d69887ceaa76adad3bcaa6dae0d9e596fec1d680"
 

@@ -11,4 +11,3 @@ inherit pypi setuptools3
 RDEPENDS:${PN} += "python3-requests (>=2.0)"
 
 PYPI_PACKAGE = "python-etherscan-api"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

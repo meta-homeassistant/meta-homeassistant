@@ -17,4 +17,3 @@ RDEPENDS:${PN} += "\
 "
 
 PYPI_PACKAGE = "blebox_uniapi"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

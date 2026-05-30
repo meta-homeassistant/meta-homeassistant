@@ -11,4 +11,3 @@ inherit pypi setuptools3
 RDEPENDS:${PN} += "python3-pyusb (>=1.0.0)"
 
 PYPI_PACKAGE = "BlinkStick"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

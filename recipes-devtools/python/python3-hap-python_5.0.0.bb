@@ -28,4 +28,3 @@ RDEPENDS:${PN}-ptest += "\
 "
 
 PYPI_PACKAGE = "hap_python"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

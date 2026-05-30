@@ -13,4 +13,3 @@ PYPI_PACKAGE = "opentelemetry_api"
 RDEPENDS:${PN} += "\
 	python3-typing-extensions (>=4.5.0) \
 "
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

@@ -9,7 +9,6 @@ SRC_URI[sha256sum] = "d2e7b4f3ea84b917ffc59c04fe9e4893eccbb00bcde74efa82aad9dba2
 inherit pypi python_poetry_core
 
 PYPI_PACKAGE = "yalexs_ble"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} = "\
     python3-bleak (>=0.19.0) \

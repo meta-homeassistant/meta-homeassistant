@@ -16,4 +16,3 @@ RDEPENDS:${PN} = "\
 "
 
 PYPI_PACKAGE = "home_assistant_bluetooth"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

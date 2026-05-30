@@ -13,4 +13,3 @@ RDEPENDS:${PN} = "\
 "
 
 PYPI_PACKAGE = "sse_starlette"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

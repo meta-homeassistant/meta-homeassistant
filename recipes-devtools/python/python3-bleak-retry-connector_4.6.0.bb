@@ -9,7 +9,6 @@ SRC_URI[sha256sum] = "0645ca814fe9e0f2e0716ffdae5e54de25de75de6197145a1784f20f58
 inherit pypi python_poetry_core
 
 PYPI_PACKAGE = "bleak_retry_connector"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} = "\
     python3-bleak (>=0.21.0) \

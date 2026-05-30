@@ -12,4 +12,3 @@ RDEPENDS:${PN} = "\
 "
 
 PYPI_PACKAGE = "http_snapshot"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

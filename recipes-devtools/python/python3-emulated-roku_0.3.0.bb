@@ -11,4 +11,3 @@ inherit pypi setuptools3
 RDEPENDS:${PN} += "python3-aiohttp (>=3)"
 
 PYPI_PACKAGE = "emulated_roku"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

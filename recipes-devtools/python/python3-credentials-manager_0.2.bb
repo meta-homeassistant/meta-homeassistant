@@ -11,4 +11,3 @@ inherit pypi setuptools3
 RDEPENDS:${PN} += "python3-keyring"
 
 PYPI_PACKAGE = "credentials_manager"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

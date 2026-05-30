@@ -14,4 +14,3 @@ RDEPENDS:${PN} = "\
 "
 
 PYPI_PACKAGE = "standard_aifc"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

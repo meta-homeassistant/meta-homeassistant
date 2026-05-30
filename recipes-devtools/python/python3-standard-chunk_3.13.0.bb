@@ -9,4 +9,3 @@ SRC_URI[sha256sum] = "4ac345d37d7e686d2755e01836b8d98eda0d1a3ee90375e597ae43aaf0
 inherit pypi python_setuptools_build_meta
 
 PYPI_PACKAGE = "standard_chunk"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

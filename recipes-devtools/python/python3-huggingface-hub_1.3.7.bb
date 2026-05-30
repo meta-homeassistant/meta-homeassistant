@@ -38,4 +38,3 @@ RDEPENDS:${PN}-ptest += " \
 "
 
 PYPI_PACKAGE = "huggingface_hub"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

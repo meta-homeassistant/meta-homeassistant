@@ -11,4 +11,3 @@ inherit pypi setuptools3 ptest-python-pytest
 RDEPENDS:${PN}-ptest = "python3-mock"
 
 PYPI_PACKAGE = "file_read_backwards"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

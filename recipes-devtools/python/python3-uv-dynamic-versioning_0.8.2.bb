@@ -18,6 +18,5 @@ RDEPENDS:${PN} = "\
 "
 
 PYPI_PACKAGE = "uv_dynamic_versioning"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 BBCLASSEXTEND = "native nativesdk"

@@ -9,5 +9,4 @@ SRC_URI[sha256sum] = "f64ff778cd06cad3e64b09aa4d474766bf1eba22dafb86cd2e2cc2d1d0
 inherit pypi python_setuptools_build_meta
 
 PYPI_PACKAGE = "aioairzone_cloud"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 RDEPENDS:${PN} = "python3-aiohttp"

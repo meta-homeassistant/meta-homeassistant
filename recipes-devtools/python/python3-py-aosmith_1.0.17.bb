@@ -9,7 +9,6 @@ SRC_URI[sha256sum] = "4faa3ace10a588312d30d40e0b44dbf9be05bdc9c8d2c8f9960c65735a
 inherit pypi python_poetry_core
 
 PYPI_PACKAGE = "py_aosmith"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>= 3.8.6) \

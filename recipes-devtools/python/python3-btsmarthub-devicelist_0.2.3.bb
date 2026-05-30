@@ -9,4 +9,3 @@ SRC_URI[sha256sum] = "ad3c155c06313d760d55560297b7288771989884efbd9f33bc2713fcab
 inherit pypi setuptools3
 
 PYPI_PACKAGE = "btsmarthub_devicelist"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

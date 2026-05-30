@@ -15,4 +15,3 @@ RDEPENDS:${PN} = "\
 "
 
 PYPI_PACKAGE = "ayla_iot_unofficial"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

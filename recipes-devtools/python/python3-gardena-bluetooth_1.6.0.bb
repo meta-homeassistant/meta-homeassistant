@@ -14,4 +14,3 @@ RDEPENDS:${PN} = "\
 "
 
 PYPI_PACKAGE = "gardena_bluetooth"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"

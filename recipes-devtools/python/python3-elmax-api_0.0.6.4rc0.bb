@@ -18,4 +18,3 @@ RDEPENDS:${PN} += "\
 FILES:${PN}-dbg += "/usr/requirements.txt"
 
 PYPI_PACKAGE = "elmax_api"
-UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
