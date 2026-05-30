@@ -8,12 +8,22 @@ DEPENDS += "\
     python3-setuptools-git-versioning-native \
 "
 
-SRC_URI += "file://0001-Allow-setuptools-git-versioning-3.patch"
-SRC_URI[sha256sum] = "63f9f06e864f58fd4b2c6c0b0ef00b126e6711faf6ccba4ec9c610f0f51c8d3e"
+SRC_URI += "\
+    file://0001-Allow-setuptools-git-versioning-3.patch \
+    file://run-ptest \
+"
+SRC_URI[sha256sum] = "a34411c58e17c9910a491da6dc06efaeef80378b5c6d1f32c92ec6dd75d5d02b"
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "python3-zigpy (>=0.70.0)"
+
+RDEPENDS:${PN}-ptest:append = " \
+    python3-pytest-asyncio \
+    python3-asynctest \
+    python3-statistics \
+    python3-sqlite3 \
+"
 
 PYPI_PACKAGE = "zigpy_xbee"
 UPSTREAM_CHECK_PYPI_PACKAGE = "${PYPI_PACKAGE}"
