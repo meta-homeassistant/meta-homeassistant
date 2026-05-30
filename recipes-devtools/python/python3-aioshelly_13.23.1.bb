@@ -8,13 +8,13 @@ inherit python_setuptools_build_meta ptest-python-pytest
 
 SRC_URI[sha256sum] = "f3296bfbc3f908c645863e6f5dbb06444f44d89e7e95ab85c1c464fce9490b75"
 SRC_URI = "git://github.com/home-assistant-libs/aioshelly;protocol=https;tag=${PV};branch=main"
-SRCREV = "38d1bddabe3ba327c41d502322700300a087f815"
+SRCREV = "cfe9f67327ca817b1c59db3e88278ef62a46124a"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.11.1) \
     python3-bleak-retry-connector \
-    python3-bluetooth-data-tools (>=1.19.0) \
-    python3-habluetooth (>=3.22.0) \
+    python3-bluetooth-data-tools (>=1.28.0) \
+    python3-habluetooth (>=3.42.0) \
     python3-orjson (>=3.8.1) \
     python3-yarl \
     python3-zeroconf \
