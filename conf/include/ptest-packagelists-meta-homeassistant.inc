@@ -244,6 +244,7 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-voluptuous-serialize \
     python3-wirelesstagpy \
     python3-x-wr-timezone \
+    python3-xandikos \
     python3-zha \
     python3-zha-quirks \
     python3-zigpy \
