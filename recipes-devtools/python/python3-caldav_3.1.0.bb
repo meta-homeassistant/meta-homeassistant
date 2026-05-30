@@ -26,6 +26,7 @@ RDEPENDS:${PN} = "\
 "
 
 RDEPENDS:${PN}-ptest += "\
+    bash \
     python3-vobject \
     python3-pytest-asyncio \
     python3-coverage \
