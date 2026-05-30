@@ -1,0 +1,40 @@
+From 9779bd87835c745b64857ec9db5f89632549a9d2 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Wed, 8 Apr 2026 00:04:07 +0200
+Subject: [PATCH] remove broken nonfunctional requirement
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ setup.py | 14 ++++++--------
+ 1 file changed, 6 insertions(+), 8 deletions(-)
+
+diff --git a/setup.py b/setup.py
+index dadc947..a16cc18 100644
+--- a/setup.py
++++ b/setup.py
+@@ -1,18 +1,16 @@
+ import pathlib
+ 
+-import pkg_resources
+ from setuptools import setup
+ 
+-with pathlib.Path("requirements.txt").open() as requirements_txt:
+-    install_requires = [
+-        str(requirement)
+-        for requirement in pkg_resources.parse_requirements(requirements_txt)
+-    ]
+-
+ setup(
+     name="Adax-local",
+     packages=["adax_local"],
+-    install_requires=install_requires,
++    install_requires=[
++    "aiohttp>=3.0.6",
++    "async_timeout>=1.4.0",
++    "bleak",
++    "bleak-retry-connector>=4.0.0",
++    ],
+     version="0.3.0",
+     description="A python3 library to communicate with Adax",
+     python_requires=">=3.10.0",
