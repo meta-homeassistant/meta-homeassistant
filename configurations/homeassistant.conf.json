@@ -1,0 +1,102 @@
+{
+    "description": "HomeAssistant",
+    "sources": {
+        "bitbake": {
+            "git-remote": {
+                "uri": "https://git.openembedded.org/bitbake",
+                "branch": "master",
+                "rev": "master"
+            }
+        },
+        "openembedded-core": {
+            "git-remote": {
+                "uri": "https://github.com/Gerry546/openembedded-core.git",
+                "branch": "wrynose",
+                "rev": "e835a6755ee35ab384c998e516da51b7c2ac8897"
+            }
+        },
+        "meta-yocto": {
+            "git-remote": {
+                "uri": "https://git.yoctoproject.org/meta-yocto",
+                "branch": "wrynose",
+                "rev": "8251bdad5fda780a000fb41e6eda82eadf0fa39e"
+            }
+        },
+        "yocto-docs": {
+            "git-remote": {
+                "uri": "https://git.yoctoproject.org/yocto-docs",
+                "branch": "wrynose",
+                "rev": "7ac955621b36a221126cd40f12c41fa98c213a24"
+            }
+        },
+        "meta-openembedded": {
+            "git-remote": {
+                "uri": "https://github.com/Gerry546/meta-openembedded.git",
+                "branch": "wrynose",
+                "rev": "9af4488d46cb4fd4c0d2d64820c86225ebd6ac71"
+            }
+        },
+        "meta-virtualization": {
+            "git-remote": {
+                "uri": "https://git.yoctoproject.org/meta-virtualization",
+                "branch": "wrynose",
+                "rev": "959a211fbba059689a1c3a1b24fe0abb9224281a"
+            }
+        },
+        "meta-python-ai": {
+            "git-remote": {
+                "uri": "https://github.com/zboszor/meta-python-ai.git",
+                "branch": "wrynose",
+                "rev": "c344fdb2223fedc2252aef7389f8bd5e598b8bf6"
+            }
+        },
+        "meta-sca": {
+            "git-remote": {
+                "uri": "https://github.com/priv-kweihmann/meta-sca.git",
+                "branch": "wrynose",
+                "rev": "8ed89e10b2efd9a976bcce998eb48f55ac149954"
+            }
+        },
+        "meta-homeassistant": {
+            "local": {
+                "path": "../../.."
+            }
+        },
+        "meta-clang-revival": {
+            "git-remote": {
+                "uri": "https://github.com/zboszor/meta-clang-revival.git",
+                "branch": "wrynose",
+                "rev": "0bbbfba16d8c497717d315aeae1ee40f89e3cfc2"
+            }
+        }
+    },
+    "bitbake-setup": {
+        "configurations": [
+            {
+                "name": "homeassistant-x86",
+                "description": "HomeAssistant X86",
+                "bb-layers": [
+                    "meta-clang-revival",
+                    "meta-homeassistant",
+                    "meta-openembedded/meta-filesystems",
+                    "meta-openembedded/meta-multimedia",
+                    "meta-openembedded/meta-networking",
+                    "meta-openembedded/meta-oe",
+                    "meta-openembedded/meta-python",
+                    "meta-python-ai",
+                    "meta-sca",
+                    "meta-virtualization",
+                    "meta-yocto/meta-yocto-bsp",
+                    "openembedded-core/meta"
+                ],
+                "setup-dir-name": "homeassistant-x86",
+                "oe-fragments": [
+                    "core/yocto/root-login-with-empty-password",
+                    "distro/homeassistant",
+                    "machine/qemux86-64"
+                ]
+            }
+        ]
+    },
+    "version": "1.0"
+}

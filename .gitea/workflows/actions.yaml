@@ -1,0 +1,41 @@
+name: Gitea HomeAssistant Actions
+run-name: ${{ gitea.actor }} is building the HomeAssistant project
+on:
+  push:
+
+jobs:
+  HomeAssistant:
+    runs-on: yocto-builder
+    env:
+      RUNNER_TOOL_CACHE: /toolcache # Runner Tool Cache
+    container:
+      volumes:
+          - /cache/:/cache/
+          - /dev/kvm:/dev/kvm/
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Build
+        shell: bash
+        run: |
+          echo "Cloning bitbake"
+          git clone https://git.openembedded.org/bitbake sources/bitbake
+          echo "Creating shared site.conf"
+          mkdir -p bitbake-builds
+          cat <<'EOF' > bitbake-builds/site.conf
+          DL_DIR ?= "/cache/downloads/"
+          SSTATE_DIR ?= "/cache/sstate-cache"
+          BB_HASHSERVE_DB_DIR ?= "${SSTATE_DIR}"
+          EOF
+          echo "Initializing Yocto build directory"
+          sources/bitbake/bin/bitbake-setup \
+            init \
+            --non-interactive \
+            configurations/homeassistant.conf.json homeassistant-x86 \
+            --source-overrides configurations/dev-forks.json
+          echo "Sourcing environment"
+          source bitbake-builds/homeassistant-x86/build/init-build-env
+          echo "Starting build"
+          bitbake core-image-homeassistant-full |& tee "${{ gitea.workspace }}/build.log"

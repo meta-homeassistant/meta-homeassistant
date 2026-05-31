@@ -1,0 +1,12 @@
+{
+    "description": "Development Forks",
+    "sources": {
+        "meta-python-ai":{
+            "git-remote": {
+                "uri": "https://github.com/Gerry546/meta-python-ai.git",
+                "branch": "wrynose",
+                "rev": "f92b4138a35cac2cdfdcf06b4406036d4b84fa8a"
+            }
+        }
+    }
+}
