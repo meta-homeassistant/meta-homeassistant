@@ -768,3 +768,8 @@ LICENSE = "MIT"
 IMAGE_ROOTFS_EXTRA_SPACE = "102400"
 
 inherit core-image
+
+# Qemu Settings
+###############################################################################
+QB_MEM ?= "-m 4G"
+QB_SMP = "-smp 12"
