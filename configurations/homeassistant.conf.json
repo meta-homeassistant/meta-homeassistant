@@ -10,9 +10,9 @@
         },
         "openembedded-core": {
             "git-remote": {
-                "uri": "https://github.com/Gerry546/openembedded-core.git",
+                "uri": "https://git.openembedded.org/openembedded-core",
                 "branch": "wrynose",
-                "rev": "e835a6755ee35ab384c998e516da51b7c2ac8897"
+                "rev": "06dd66e6220e5ce4ed4b9af4d8231ae5f0a8ce80"
             }
         },
         "meta-yocto": {
@@ -31,7 +31,7 @@
         },
         "meta-openembedded": {
             "git-remote": {
-                "uri": "https://github.com/Gerry546/meta-openembedded.git",
+                "uri": "https://git.openembedded.org/meta-openembedded",
                 "branch": "wrynose",
                 "rev": "9af4488d46cb4fd4c0d2d64820c86225ebd6ac71"
             }
@@ -47,7 +47,7 @@
             "git-remote": {
                 "uri": "https://github.com/zboszor/meta-python-ai.git",
                 "branch": "wrynose",
-                "rev": "c344fdb2223fedc2252aef7389f8bd5e598b8bf6"
+                "rev": "38ae2eafb0a9276bd86e95342bdeebcbf82dca8a"
             }
         },
         "meta-sca": {
