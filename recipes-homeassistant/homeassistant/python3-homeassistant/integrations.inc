@@ -732,6 +732,7 @@ INTEGRATIONS = "\
     ${PN}-volvooncall \
     ${PN}-w800rf32 \
     ${PN}-wake-word \
+    ${PN}-wakeonlan \
     ${PN}-water-heater \
     ${PN}-weather \
     ${PN}-web-rtc \
@@ -3464,6 +3465,11 @@ RDEPENDS:${PN}-w800rf32 = "\
 
 ALLOW_EMPTY:${PN}-wake-word = "1"
 
+ALLOW_EMPTY:${PN}-wakeonlan = "1"
+RDEPENDS:${PN}-wakeonlan = "\
+    python3-wakeonlan (>=3.1.0) \
+"
+
 ALLOW_EMPTY:${PN}-water-heater = "1"
 
 ALLOW_EMPTY:${PN}-weather = "1"
@@ -3496,7 +3502,6 @@ RDEPENDS:${PN}-yale = "\
     python3-yalexs (>=9.2.0) \
     python3-yalexs-ble (>=3.2.7) \
 "
-
 ALLOW_EMPTY:${PN}-yalexs-ble = "1"
 RDEPENDS:${PN}-yalexs-ble = "\
     python3-yalexs-ble (>=3.2.7) \

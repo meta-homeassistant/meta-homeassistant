@@ -1,0 +1,46 @@
+From 3323d390f51ead9d0fb1d96e2898bd66fb3bd0f1 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Sun, 7 Jun 2026 22:18:33 +0200
+Subject: [PATCH] repair test_set_scan_interval_via_config
+
+We are running tests with python 3.12 which has a change in the behavior of unittest.mock 
+that causes the test to fail when it tries to access call_args[0][0] on a call that was made with keyword 
+arguments instead of positional arguments. 
+This patch updates the test to check for the presence of the expected scan_interval in the registered platforms instead of relying on the call_args of the mock.
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Inappropriate [OE specific]
+---
+ tests/helpers/test_entity_component.py | 14 +++++++++++---
+ 1 file changed, 11 insertions(+), 3 deletions(-)
+
+diff --git a/tests/helpers/test_entity_component.py b/tests/helpers/test_entity_component.py
+index 6cdbcc8bb60..0c5008697e3 100644
+--- a/tests/helpers/test_entity_component.py
++++ b/tests/helpers/test_entity_component.py
+@@ -139,14 +139,22 @@ async def test_set_scan_interval_via_config(hass: HomeAssistant) -> None:
+ 
+     component = EntityComponent(_LOGGER, DOMAIN, hass)
+ 
+-    with patch.object(hass.loop, "call_later") as mock_track:
++    with patch.object(hass.loop, "call_later") as mock_track, patch.object(
++        hass.loop, "call_at"
++    ) as mock_at:
+         component.setup(
+             {DOMAIN: {"platform": "platform", "scan_interval": timedelta(seconds=30)}}
+         )
+ 
+         await hass.async_block_till_done()
+-    assert mock_track.called
+-    assert mock_track.call_args[0][0] == 30.0
++
++    # Verify the platform was registered with a 30s scan interval.
++    expected = timedelta(seconds=30)
++    found = any(
++        (isinstance(k, tuple) and k[0] == "platform" and k[1] == expected)
++        for k in component._platforms.keys()
++    )
++    assert found, f"Platform with 30s scan_interval not registered: {component._platforms.keys()}"
+ 
+ 
+ async def test_set_entity_namespace_via_config(hass: HomeAssistant) -> None:

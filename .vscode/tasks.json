@@ -21,7 +21,7 @@
         {
             "label": "Test HomeAssistant Basic Tests",
             "type": "shell",
-            "command": "clear && bash ${cwd}/tests/test-basic-homeassistant.sh",
+            "command": "clear && bash ${cwd}/tests/test-basic-homeassistant.sh --source",
             "problemMatcher": []
         },
         {

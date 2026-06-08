@@ -1,0 +1,10 @@
+{
+    "description": "Source override file for when running in Gitea CI",
+    "sources": {
+        "meta-homeassistant": {
+            "local": {
+                "path": "/workspace/tom/meta-homeassistant"
+            }
+        }
+    }
+}

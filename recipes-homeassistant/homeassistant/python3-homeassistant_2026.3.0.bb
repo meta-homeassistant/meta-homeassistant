@@ -14,6 +14,9 @@ SRC_URI = "git://github.com/home-assistant/core.git;protocol=https;branch=master
            file://homeassistant.service \
            file://run-ptest-sample \
            file://0001-Relax-setuptools.patch \
+           file://0002-skip-unsupported-installation-method-test.patch \
+           file://0003-repair-test_set_scan_interval_via_config.patch \
+           file://0004-repair-test_platform_warn_slow_setup.patch \
            "
 SRCREV = "2f9faa53a110f6acaf3b0e2216573bdf2a957388"
 
@@ -136,8 +139,6 @@ RDEPENDS:${PN}-ptest = "\
     \
     bash \
     tzdata \
-    \
-    python3-pytest-rerunfailures \
 "
 
 do_install_ptest() {

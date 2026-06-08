@@ -1,4 +1,4 @@
-PACKAGECONFIG ?= "${@bb.utils.contains('DISTRO_FEATURES', 'ptest', 'integration-tests', '', d)}"
+PACKAGECONFIG ?= ""
 PACKAGECONFIG[integration-tests] = ",,,"
 
 COMPONENT_TEST_PACKAGES_FLAKY = ""
