@@ -94,8 +94,7 @@ jobs:
           sources/bitbake/bin/bitbake-setup \
             init \
             --non-interactive \
-            configurations/homeassistant.conf.json homeassistant-x86 \
-            --source-overrides configurations/dev-forks.json
+            configurations/homeassistant.conf.json homeassistant-x86
           echo "Sourcing environment"
           source bitbake-builds/homeassistant-x86/build/init-build-env
           echo "Starting build"
