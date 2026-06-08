@@ -11,3 +11,6 @@ meta-raspberrypi/
 meta-swupdate-boards/
 meta-swupdate/
 poky/
+
+**/bitbake-builds/
+ptest-run.log

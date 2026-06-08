@@ -1,0 +1,41 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Bitbake Setup - Init HomeAssistant",
+            "type": "shell",
+            "command": "clear && ${cwd}/sources/bitbake/bin/bitbake-setup init ${cwd}/configurations/homeassistant.conf.json homeassistant-x86",
+            "group": "none",
+            "problemMatcher": []
+        },
+        {
+            "label": "Build HomeAssistant Target",
+            "type": "shell",
+            "command": "clear && source ${cwd}/bitbake-builds/homeassistant-x86/build/init-build-env && bitbake core-image-homeassistant-full",
+        },
+        {
+            "label": "Run HomeAssistant QEMU Image",
+            "type": "shell",
+            "command": "clear && source ${cwd}/bitbake-builds/homeassistant-x86/build/init-build-env && runqemu core-image-homeassistant-full snapshot slirp kvm nographic",
+        },
+        {
+            "label": "Test HomeAssistant Basic Tests",
+            "type": "shell",
+            "command": "clear && bash ${cwd}/tests/test-basic-homeassistant.sh",
+            "problemMatcher": []
+        },
+        {
+            "label": "Test Plain Pytest Tests",
+            "type": "shell",
+            "command": "clear && bash ${cwd}/tests/test-pytest-plain.sh ${input:package-name}",
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "id": "package-name",
+            "type": "promptString",
+            "description": "Enter the name of the package to test (e.g. 'python3-homeassistant')"
+        }
+    ]
+}
