@@ -1,0 +1,75 @@
+name: Set GitHub commit status
+description: "Composite action to set a GitHub commit status (pending/success/failure)."
+inputs:
+  status-token:
+    description: 'GitHub token for statuses (optional)'
+    required: false
+  github-status-context:
+    description: 'Status context (e.g. gitea/homeassistant-build)'
+    required: true
+  github-status-repository:
+    description: 'Repository owner/name to update (e.g. owner/repo)'
+    required: true
+  sha:
+    description: 'Commit SHA to set the status for'
+    required: true
+  state:
+    description: 'Status state to set: pending, success, or failure'
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Set commit status
+      shell: bash
+      run: |
+        # Export inputs into environment variables the Python snippet can read
+        export STATUS_TOKEN="${{ inputs.status-token }}"
+        export GITHUB_STATUS_REPOSITORY="${{ inputs.github-status-repository }}"
+        export GITHUB_STATUS_CONTEXT="${{ inputs.github-status-context }}"
+        export GIT_COMMIT_SHA="${{ inputs.sha }}"
+        export STATUS_STATE="${{ inputs.state }}"
+
+        if [[ -z "${STATUS_TOKEN}" ]]; then
+          echo "STATUS_TOKEN is not configured; skipping GitHub status update."
+          exit 0
+        fi
+
+        payload_file="$(mktemp)"
+        printf '%s' "{\"state\": \"${STATUS_STATE}\", \"context\": \"${GITHUB_STATUS_CONTEXT}\", \"description\": \"HomeAssistant build is running on Gitea\"}" > "${payload_file}"
+
+        script_file="$(mktemp --suffix=.py)"
+        printf '%s\n' \
+          "import sys, os, pathlib, urllib.request, urllib.error" \
+          "payload = pathlib.Path(sys.argv[1]).read_bytes()" \
+          "url = f\"https://api.github.com/repos/{os.environ.get('GITHUB_STATUS_REPOSITORY')}/statuses/{os.environ.get('GIT_COMMIT_SHA')}\"" \
+          "request = urllib.request.Request(" \
+          "    url=url," \
+          "    data=payload," \
+          "    headers={" \
+          "        \"Accept\": \"application/vnd.github+json\"," \
+          "        \"Authorization\": f\"Bearer {os.environ.get('STATUS_TOKEN')}\"," \
+          "        \"X-GitHub-Api-Version\": \"2022-11-28\"," \
+          "        \"Content-Type\": \"application/json\"," \
+          "    }," \
+          "    method=\"POST\"," \
+          ")" \
+          "try:" \
+          "    with urllib.request.urlopen(request) as response:" \
+          "        print(response.read().decode())" \
+          "except urllib.error.HTTPError as exc:" \
+          "    print(exc.read().decode(), file=sys.stderr)" \
+          "    raise" > "$script_file"
+
+        for attempt in $(seq 1 12); do
+          if python3 "$script_file" "${payload_file}"; then
+            rm -f "${payload_file}" "$script_file"
+            exit 0
+          fi
+
+          echo "GitHub commit status update failed on attempt ${attempt}; retrying."
+          sleep 10
+        done
+
+        rm -f "${payload_file}" "$script_file"
+        exit 1
+
