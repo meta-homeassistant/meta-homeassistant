@@ -17,7 +17,7 @@ fi
 
 # Enable the testing fragment, build the image, and disable the fragment again.
 bitbake-config-build enable-fragment homeassistant/enable-testing-base
-bibbake-config-build enable-fragment homeassistant/add-homeassistant-image-test-deps
+bitbake-config-build enable-fragment homeassistant/add-homeassistant-image-test-deps
 bitbake core-image-homeassistant-full
 bitbake-config-build disable-fragment homeassistant/enable-testing-base
 bitbake-config-build disable-fragment homeassistant/add-homeassistant-image-test-deps

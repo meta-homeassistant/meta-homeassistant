@@ -4,22 +4,113 @@ on:
   push:
 
 jobs:
-  Build:
+  Detect-Changes:
     runs-on: yocto-builder
+    outputs:
+      mode: ${{ steps.detect.outputs.mode }}
+      packages: ${{ steps.detect.outputs.packages }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Detect change type
+        id: detect
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git fetch --unshallow 2>/dev/null || true
+          git fetch --all --tags
+
+          BASE="$(git rev-parse HEAD)"
+          PARENT="$(git rev-parse HEAD~1 2>/dev/null || true)"
+
+          if [ -z "$PARENT" ]; then
+            echo "⚠️ No parent commit found -> treating as full build"
+            CHANGED=$(git ls-files)
+          else
+            CHANGED=$(git diff --name-only "$PARENT" "$BASE")
+          fi
+
+          CHANGED=$(echo "$CHANGED" | grep -v '^sources/' || true)
+
+          echo ""
+          echo "=============================="
+          echo "📦 CHANGED FILES"
+          echo "=============================="
+          echo "$CHANGED"
+          echo "=============================="
+          echo ""
+
+          MODE="skip"
+          PACKAGES=""
+          REASON=""
+
+          if echo "$CHANGED" | grep -qE \
+            '^(recipes-homeassistant/|conf/|classes/|.gitea/|.github/|.*\.wks|.*\.bbclass)'; then
+
+            MODE="full"
+            REASON="Full build triggered (homeassistant/core/config/CI/class/image change)"
+
+          elif echo "$CHANGED" | grep -q '^recipes-devtools/'; then
+
+            MODE="packages"
+            REASON="Only non-homeassistant python recipes changed → per-package testing"
+
+            echo "🔎 Detected recipes-devtools changes"
+
+            # collect .bb / .bbappend packages
+            while read -r f; do
+              pkg=$(basename "$f")
+              pkg="${pkg%%_*}"
+              PACKAGES="$PACKAGES,$pkg"
+            done <<< "$(echo "$CHANGED" | grep -E '^recipes-devtools/.*\.(bb|bbappend)$' || true)"
+
+            # include affected recipe folders (patches/files)
+            while read -r f; do
+              pkg=$(echo "$f" | cut -d/ -f3)
+              PACKAGES="$PACKAGES,$pkg"
+            done <<< "$(echo "$CHANGED" | grep -E '^recipes-devtools/' || true)"
+
+            PACKAGES=$(echo "$PACKAGES" | tr ',' '\n' | sort -u | tr '\n' ',' | sed 's/^,//;s/,$//')
+
+            echo "📦 Affected packages: $PACKAGES"
+          fi
+
+          if [ -z "$REASON" ]; then
+            REASON="No matching rules → skip or default full depending on policy"
+            MODE="skip"
+          fi
+
+          echo ""
+          echo "=============================="
+          echo "🧠 DECISION RESULT"
+          echo "=============================="
+          echo "MODE    : $MODE"
+          echo "REASON  : $REASON"
+          echo "PACKAGES: ${PACKAGES:-none}"
+          echo "=============================="
+          echo ""
+
+          echo "mode=$MODE" >> "$GITHUB_OUTPUT"
+          echo "packages=$PACKAGES" >> "$GITHUB_OUTPUT"
+
+  Package-Tests:
+    runs-on: yocto-builder
+    needs: Detect-Changes
+    if: needs.Detect-Changes.outputs.mode == 'packages'
     env:
       GITHUB_STATUS_CONTEXT: gitea/homeassistant-build
       GITHUB_STATUS_REPOSITORY: meta-homeassistant/meta-homeassistant
-      RUNNER_TOOL_CACHE: /toolcache # Runner Tool Cache
+      RUNNER_TOOL_CACHE: /toolcache
     container:
       volumes:
-          - /cache/:/cache/
-          - /dev/kvm:/dev/kvm/
+        - /cache/:/cache/
+        - /dev/kvm:/dev/kvm/
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v4
-        with:
-          submodules: recursive
-      - name: Set GitHub status to pending
+      - uses: actions/checkout@v4
+
+      - name: Pending status
         uses: ./.gitea/actions/github-status
         with:
           status-token: ${{ secrets.STATUS_TOKEN }}
@@ -27,23 +118,33 @@ jobs:
           github-status-repository: ${{ env.GITHUB_STATUS_REPOSITORY }}
           sha: ${{ gitea.sha }}
           state: pending
-      - name: Build HA
+
+      - name: Run package tests
         shell: bash
         run: |
-          echo "Cloning bitbake"
+          set -euo pipefail
+
           git clone https://git.openembedded.org/bitbake sources/bitbake
-          echo "Initializing Yocto build directory"
+
           sources/bitbake/bin/bitbake-setup \
             --setting default top-dir-prefix /cache/builddir/ \
             init \
             --non-interactive \
             configurations/homeassistant.conf.json homeassistant-x86 \
             --source-overrides ${{ gitea.workspace }}/configurations/gitea-ci.json
-          echo "Sourcing environment"
+
+          set +u
           source /cache/builddir/bitbake-builds/homeassistant-x86/build/init-build-env
-          echo "Starting build"
-          bitbake core-image-homeassistant-full |& tee "${{ gitea.workspace }}/build.log"
-      - name: Set GitHub status to success
+          set +u
+
+          IFS=',' read -ra PKGS <<< "${{ needs.Detect-Changes.outputs.packages }}"
+
+          for p in "${PKGS[@]}"; do
+            echo "Testing $p"
+            bash tests/test-single-layer-packages.sh "$p"
+          done
+
+      - name: Success
         if: success()
         uses: ./.gitea/actions/github-status
         with:
@@ -52,7 +153,74 @@ jobs:
           github-status-repository: ${{ env.GITHUB_STATUS_REPOSITORY }}
           sha: ${{ gitea.sha }}
           state: success
-      - name: Set GitHub status to failure
+
+      - name: Failure
+        if: failure()
+        uses: ./.gitea/actions/github-status
+        with:
+          status-token: ${{ secrets.STATUS_TOKEN }}
+          github-status-context: ${{ env.GITHUB_STATUS_CONTEXT }}
+          github-status-repository: ${{ env.GITHUB_STATUS_REPOSITORY }}
+          sha: ${{ gitea.sha }}
+          state: failure
+
+  Build:
+    runs-on: yocto-builder
+    needs: Detect-Changes
+    if: needs.Detect-Changes.outputs.mode == 'full'
+    env:
+      GITHUB_STATUS_CONTEXT: gitea/homeassistant-build
+      GITHUB_STATUS_REPOSITORY: meta-homeassistant/meta-homeassistant
+      RUNNER_TOOL_CACHE: /toolcache
+    container:
+      volumes:
+        - /cache/:/cache/
+        - /dev/kvm:/dev/kvm/
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pending
+        uses: ./.gitea/actions/github-status
+        with:
+          status-token: ${{ secrets.STATUS_TOKEN }}
+          github-status-context: ${{ env.GITHUB_STATUS_CONTEXT }}
+          github-status-repository: ${{ env.GITHUB_STATUS_REPOSITORY }}
+          sha: ${{ gitea.sha }}
+          state: pending
+
+      - name: Build HA
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git clone https://git.openembedded.org/bitbake sources/bitbake
+
+          sources/bitbake/bin/bitbake-setup \
+            --setting default top-dir-prefix /cache/builddir/ \
+            init \
+            --non-interactive \
+            configurations/homeassistant.conf.json homeassistant-x86 \
+            --source-overrides ${{ gitea.workspace }}/configurations/gitea-ci.json
+
+          echo "Sourcing environment"
+          set +u
+          source /cache/builddir/bitbake-builds/homeassistant-x86/build/init-build-env
+          set -u
+
+          echo "Starting build"
+          bitbake core-image-homeassistant-full
+
+      - name: Success
+        if: success()
+        uses: ./.gitea/actions/github-status
+        with:
+          status-token: ${{ secrets.STATUS_TOKEN }}
+          github-status-context: ${{ env.GITHUB_STATUS_CONTEXT }}
+          github-status-repository: ${{ env.GITHUB_STATUS_REPOSITORY }}
+          sha: ${{ gitea.sha }}
+          state: success
+
+      - name: Failure
         if: failure()
         uses: ./.gitea/actions/github-status
         with:
@@ -64,21 +232,22 @@ jobs:
 
   Basic-Test:
     runs-on: yocto-builder
-    needs: Build
+    needs:
+      - Detect-Changes
+      - Build
+    if: needs.Detect-Changes.outputs.mode == 'full'
     env:
       GITHUB_STATUS_CONTEXT: gitea/homeassistant-basic-test
       GITHUB_STATUS_REPOSITORY: meta-homeassistant/meta-homeassistant
-      RUNNER_TOOL_CACHE: /toolcache # Runner Tool Cache
+      RUNNER_TOOL_CACHE: /toolcache
     container:
       volumes:
-          - /cache/:/cache/
-          - /dev/kvm:/dev/kvm/
+        - /cache/:/cache/
+        - /dev/kvm:/dev/kvm/
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v4
-        with:
-          submodules: recursive
-      - name: Set GitHub status to pending
+      - uses: actions/checkout@v4
+
+      - name: Pending
         uses: ./.gitea/actions/github-status
         with:
           status-token: ${{ secrets.STATUS_TOKEN }}
@@ -86,15 +255,21 @@ jobs:
           github-status-repository: ${{ env.GITHUB_STATUS_REPOSITORY }}
           sha: ${{ gitea.sha }}
           state: pending
-      - name: Basic test HA
+
+      - name: Basic test
         shell: bash
         run: |
-          echo "Cloning bitbake"
+          set -euo pipefail
+
           git clone https://git.openembedded.org/bitbake sources/bitbake
-          echo "Building and testing"
+
+          set +u
           source /cache/builddir/bitbake-builds/homeassistant-x86/build/init-build-env
+          set -u
+
           bash ${{ gitea.workspace }}/tests/test-basic-homeassistant.sh
-      - name: Set GitHub status to success
+
+      - name: Success
         if: success()
         uses: ./.gitea/actions/github-status
         with:
@@ -103,7 +278,8 @@ jobs:
           github-status-repository: ${{ env.GITHUB_STATUS_REPOSITORY }}
           sha: ${{ gitea.sha }}
           state: success
-      - name: Set GitHub status to failure
+
+      - name: Failure
         if: failure()
         uses: ./.gitea/actions/github-status
         with:
