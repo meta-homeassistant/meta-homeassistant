@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+# This tests all layer packages which are in ptest-packagelists-meta-homeassistant.inc and enabled
+
 set -euo pipefail
 
 # If --source is passed as the first argument, source the Yocto environment before running the test.
@@ -17,7 +20,5 @@ fi
 
 # Enable the testing fragment, build the image, and disable the fragment again.
 bitbake-config-build enable-fragment homeassistant/enable-testing-base
-bibbake-config-build enable-fragment homeassistant/add-homeassistant-image-test-deps
-bitbake core-image-homeassistant-full
+bitbake meta-homeassistant-image-ptest-all
 bitbake-config-build disable-fragment homeassistant/enable-testing-base
-bitbake-config-build disable-fragment homeassistant/add-homeassistant-image-test-deps

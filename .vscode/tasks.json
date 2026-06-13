@@ -11,23 +11,41 @@
         {
             "label": "Build HomeAssistant Target",
             "type": "shell",
+            "group": "build",
             "command": "clear && source ${cwd}/bitbake-builds/homeassistant-x86/build/init-build-env && bitbake core-image-homeassistant-full",
         },
         {
             "label": "Run HomeAssistant QEMU Image",
             "type": "shell",
+            "group": "test",
             "command": "clear && source ${cwd}/bitbake-builds/homeassistant-x86/build/init-build-env && runqemu core-image-homeassistant-full snapshot slirp kvm nographic",
         },
         {
             "label": "Test HomeAssistant Basic Tests",
             "type": "shell",
             "command": "clear && bash ${cwd}/tests/test-basic-homeassistant.sh --source",
+            "group": "test",
+            "problemMatcher": []
+        },
+        {
+            "label": "Test HomeAssistant Layer - All Packages",
+            "type": "shell",
+            "command": "clear && bash ${cwd}/tests/test-all-layer-packages.sh --source",
+            "group": "test",
+            "problemMatcher": []
+        },
+        {
+            "label": "Test HomeAssistant Layer - Single Package",
+            "type": "shell",
+            "command": "clear && bash ${cwd}/tests/test-single-layer-packages.sh --source ${input:package-name}",
+            "group": "test",
             "problemMatcher": []
         },
         {
             "label": "Test Plain Pytest Tests",
             "type": "shell",
             "command": "clear && bash ${cwd}/tests/test-pytest-plain.sh ${input:package-name}",
+            "group": "test",
             "problemMatcher": []
         }
     ],
