@@ -47,7 +47,7 @@ jobs:
           REASON=""
 
           if echo "$CHANGED" | grep -qE \
-            '^(recipes-homeassistant/|conf/|classes/|.gitea/|.github/|.*\.wks|.*\.bbclass)'; then
+            '^(recipes-homeassistant/|conf/|classes/|.gitea/|.github/|.*\.wks|.*\.bbclass|.*\.conf.json)'; then
 
             MODE="full"
             REASON="Full build triggered (homeassistant/core/config/CI/class/image change)"

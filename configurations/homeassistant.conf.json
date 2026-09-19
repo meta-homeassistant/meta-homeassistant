@@ -8,46 +8,30 @@
                 "rev": "master"
             }
         },
-        "openembedded-core": {
+        "meta-clang-revival": {
             "git-remote": {
-                "uri": "https://git.openembedded.org/openembedded-core",
+                "uri": "https://github.com/zboszor/meta-clang-revival.git",
                 "branch": "wrynose",
-                "rev": "06dd66e6220e5ce4ed4b9af4d8231ae5f0a8ce80"
+                "rev": "ceaf58830874341c68dce596a8648aca0e335a58"
             }
         },
-        "meta-yocto": {
-            "git-remote": {
-                "uri": "https://git.yoctoproject.org/meta-yocto",
-                "branch": "wrynose",
-                "rev": "8251bdad5fda780a000fb41e6eda82eadf0fa39e"
-            }
-        },
-        "yocto-docs": {
-            "git-remote": {
-                "uri": "https://git.yoctoproject.org/yocto-docs",
-                "branch": "wrynose",
-                "rev": "7ac955621b36a221126cd40f12c41fa98c213a24"
+        "meta-homeassistant": {
+            "local": {
+                "path": "../../.."
             }
         },
         "meta-openembedded": {
             "git-remote": {
                 "uri": "https://git.openembedded.org/meta-openembedded",
                 "branch": "wrynose",
-                "rev": "9af4488d46cb4fd4c0d2d64820c86225ebd6ac71"
-            }
-        },
-        "meta-virtualization": {
-            "git-remote": {
-                "uri": "https://git.yoctoproject.org/meta-virtualization",
-                "branch": "wrynose",
-                "rev": "959a211fbba059689a1c3a1b24fe0abb9224281a"
+                "rev": "47d7dbdd10890bbd429bc0cccbe14435c37e5af1"
             }
         },
         "meta-python-ai": {
             "git-remote": {
                 "uri": "https://github.com/zboszor/meta-python-ai.git",
                 "branch": "wrynose",
-                "rev": "38ae2eafb0a9276bd86e95342bdeebcbf82dca8a"
+                "rev": "5197577c5cd7e2e5417778c65609390fd543dc6a"
             }
         },
         "meta-sca": {
@@ -57,16 +41,32 @@
                 "rev": "8ed89e10b2efd9a976bcce998eb48f55ac149954"
             }
         },
-        "meta-homeassistant": {
-            "local": {
-                "path": "../../.."
+        "meta-virtualization": {
+            "git-remote": {
+                "uri": "https://git.yoctoproject.org/meta-virtualization",
+                "branch": "wrynose",
+                "rev": "70a5d5a65d7237cfe978961fa4d8765c895cddc8"
             }
         },
-        "meta-clang-revival": {
+        "meta-yocto": {
             "git-remote": {
-                "uri": "https://github.com/zboszor/meta-clang-revival.git",
+                "uri": "https://git.yoctoproject.org/meta-yocto",
                 "branch": "wrynose",
-                "rev": "0bbbfba16d8c497717d315aeae1ee40f89e3cfc2"
+                "rev": "ddeeba423ff0565b8f1192f16072b5993d5ea6a0"
+            }
+        },
+        "openembedded-core": {
+            "git-remote": {
+                "uri": "https://git.openembedded.org/openembedded-core",
+                "branch": "wrynose",
+                "rev": "883075157987ca300af59185b903d6d1977234c3"
+            }
+        },
+        "yocto-docs": {
+            "git-remote": {
+                "uri": "https://git.yoctoproject.org/yocto-docs",
+                "branch": "wrynose",
+                "rev": "wrynose"
             }
         }
     },
