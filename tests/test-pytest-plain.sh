@@ -12,13 +12,21 @@ if [ $# -ge 2 ]; then
     MACHINE="$2"
 fi
 
-# Resolve workspace root (script lives in tests/)
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+# Resolve the caller's workspace root for generated logs.
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT="$(pwd)"
+
+INIT_SCRIPT="${SCRIPT_DIR}/../bitbake-builds/homeassistant-x86/build/init-build-env"
+if [ ! -f "$INIT_SCRIPT" ]; then
+    INIT_SCRIPT="${SCRIPT_DIR}/../../../bitbake-builds/homeassistant-x86/build/init-build-env"
+fi
+BUILD_ROOT="$(cd "$(dirname "$INIT_SCRIPT")" && pwd)"
 
 LOG_FILE="${ROOT}/ptest-run.log"
-QEMU_PID_FILE="ptest-qemu.pid"
+QEMU_LOG_FILE="${ROOT}/qemu.log"
+QEMU_PID_FILE="${ROOT}/ptest-qemu.pid"
 
-QEMU_CONF="${ROOT}/bitbake-builds/homeassistant-x86/build/tmp/deploy/images/${MACHINE}/core-image-homeassistant-full-qemux86-64-1.0.0.qemuboot.conf"
+QEMU_CONF="${BUILD_ROOT}/tmp/deploy/images/${MACHINE}/core-image-homeassistant-full-qemux86-64-1.0.0.qemuboot.conf"
 
 SSH_USER="root"
 SSH_PORT=2222
@@ -35,7 +43,7 @@ trap cleanup EXIT
 
 # 1. Temporarily disable 'set -u' to avoid unbound variable error, then source Yocto environment and cd to workspace root
 set +u
-source bitbake-builds/homeassistant-x86/build/init-build-env
+source "$INIT_SCRIPT"
 set -u
 cd "$ROOT"
 
@@ -47,8 +55,8 @@ if [ ! -f "$QEMU_CONF" ]; then
     exit 1
 fi
 # 2. Start QEMU with runqemu in the background, log output to qemu.log
-echo "Launching QEMU (headless) and logging to $LOG_FILE..." | tee -a "$LOG_FILE"
-runqemu "$QEMU_CONF" slirp kvm nographic snapshot >>"$LOG_FILE" 2>&1 &
+echo "Launching QEMU (headless) and logging to $QEMU_LOG_FILE..." | tee -a "$LOG_FILE"
+runqemu "$QEMU_CONF" slirp kvm nographic snapshot > >(tee -a "$QEMU_LOG_FILE") 2>&1 &
 QEMU_TERM_PID=$!
 echo $QEMU_TERM_PID > "$QEMU_PID_FILE"
 
@@ -68,8 +76,8 @@ echo "Changing to ptest dir: $PTEST_DIR and preparing run-ptest" | tee -a "$LOG_
 
 # Run commands on target: back up `run-ptest`, remove `--automake` in-place, make executable, run it in-place; capture all output
 set +e
-ssh $SSH_OPTS $SSH_USER@localhost "cd \"$PTEST_DIR\" && if [ -f run-ptest ]; then cp run-ptest run-ptest.bak && sed -i 's/--automake//g' run-ptest && chmod +x run-ptest && ./run-ptest; else echo 'ERROR: run-ptest not found in $PTEST_DIR' >&2; fi" >>"$LOG_FILE" 2>&1
-PTEST_EXIT=$?
+ssh $SSH_OPTS $SSH_USER@localhost "cd \"$PTEST_DIR\" && if [ -f run-ptest ]; then cp run-ptest run-ptest.bak && sed -i 's/--automake//g' run-ptest && chmod +x run-ptest && ./run-ptest; else echo 'ERROR: run-ptest not found in $PTEST_DIR' >&2; exit 1; fi" 2>&1 | tee -a "$LOG_FILE"
+PTEST_EXIT=${PIPESTATUS[0]}
 set -e
 
 echo "run-ptest exit code: $PTEST_EXIT" | tee -a "$LOG_FILE"
