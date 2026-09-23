@@ -176,6 +176,10 @@ jobs:
       volumes:
         - /cache/:/cache/
         - /dev/kvm:/dev/kvm/
+    strategy:
+      matrix:
+        configuration:
+          - homeassistant-x86
     steps:
       - uses: actions/checkout@v4
 
@@ -195,16 +199,27 @@ jobs:
 
           git clone https://git.openembedded.org/bitbake sources/bitbake
 
-          sources/bitbake/bin/bitbake-setup \
-            --setting default top-dir-prefix /cache/builddir/ \
-            init \
-            --non-interactive \
-            configurations/homeassistant.conf.json homeassistant-x86 \
-            --source-overrides ${{ gitea.workspace }}/configurations/gitea-ci.json
+          SETUP_DIR="/cache/builddir/bitbake-builds/${{ matrix.configuration }}"
+          if [ -d "$SETUP_DIR/layers" ]; then
+            echo "Updating existing Yocto build directory"
+            sources/bitbake/bin/bitbake-setup \
+              --setting default top-dir-prefix /cache/builddir/ \
+              update \
+              --setup-dir "$SETUP_DIR" \
+              --update-bb-conf yes
+          else
+            echo "Initializing Yocto build directory"
+            sources/bitbake/bin/bitbake-setup \
+              --setting default top-dir-prefix /cache/builddir/ \
+              init \
+              --non-interactive \
+              configurations/homeassistant.conf.json ${{ matrix.configuration }} \
+              --source-overrides ${{ gitea.workspace }}/configurations/gitea-ci.json
+          fi
 
           echo "Sourcing environment"
           set +u
-          source /cache/builddir/bitbake-builds/homeassistant-x86/build/init-build-env
+          source /cache/builddir/bitbake-builds/${{ matrix.configuration }}/build/init-build-env
           set -u
 
           echo "Starting build"
