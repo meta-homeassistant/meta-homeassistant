@@ -93,6 +93,7 @@
                 "oe-fragments": [
                     "core/yocto/root-login-with-empty-password",
                     "distro/homeassistant",
+                    "homeassistant/licenses/commercial",
                     "machine/qemux86-64"
                 ]
             }
