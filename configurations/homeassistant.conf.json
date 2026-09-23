@@ -12,7 +12,7 @@
             "git-remote": {
                 "uri": "https://github.com/zboszor/meta-clang-revival.git",
                 "branch": "wrynose",
-                "rev": "ceaf58830874341c68dce596a8648aca0e335a58"
+                "rev": "wrynose"
             }
         },
         "meta-homeassistant": {
@@ -31,28 +31,28 @@
             "git-remote": {
                 "uri": "https://github.com/zboszor/meta-python-ai.git",
                 "branch": "wrynose",
-                "rev": "5197577c5cd7e2e5417778c65609390fd543dc6a"
+                "rev": "wrynose"
             }
         },
         "meta-sca": {
             "git-remote": {
                 "uri": "https://github.com/priv-kweihmann/meta-sca.git",
                 "branch": "wrynose",
-                "rev": "8ed89e10b2efd9a976bcce998eb48f55ac149954"
+                "rev": "wrynose"
             }
         },
         "meta-virtualization": {
             "git-remote": {
                 "uri": "https://git.yoctoproject.org/meta-virtualization",
                 "branch": "wrynose",
-                "rev": "70a5d5a65d7237cfe978961fa4d8765c895cddc8"
+                "rev": "wrynose"
             }
         },
         "meta-yocto": {
             "git-remote": {
                 "uri": "https://git.yoctoproject.org/meta-yocto",
                 "branch": "wrynose",
-                "rev": "ddeeba423ff0565b8f1192f16072b5993d5ea6a0"
+                "rev": "wrynose"
             }
         },
         "openembedded-core": {
