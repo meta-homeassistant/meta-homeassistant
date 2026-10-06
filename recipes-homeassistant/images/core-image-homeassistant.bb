@@ -10,3 +10,5 @@ LICENSE = "MIT"
 IMAGE_ROOTFS_EXTRA_SPACE = "102400"
 
 inherit core-image
+
+IMAGE_FSTYPES = "ext4.zst"
