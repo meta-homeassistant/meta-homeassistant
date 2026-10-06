@@ -59,7 +59,7 @@
             "git-remote": {
                 "uri": "https://git.openembedded.org/openembedded-core",
                 "branch": "wrynose",
-                "rev": "883075157987ca300af59185b903d6d1977234c3"
+                "rev": "0f03c732a0a2d0506b41b1abe60b3f368b2300dc"
             }
         },
         "yocto-docs": {
