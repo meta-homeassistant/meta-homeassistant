@@ -14,3 +14,4 @@ poky/
 
 **/bitbake-builds/
 ptest-run.log
+qemu.log

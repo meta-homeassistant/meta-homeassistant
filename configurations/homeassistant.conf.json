@@ -8,53 +8,11 @@
                 "rev": "master"
             }
         },
-        "openembedded-core": {
+        "meta-clang-revival": {
             "git-remote": {
-                "uri": "https://git.openembedded.org/openembedded-core",
+                "uri": "https://github.com/zboszor/meta-clang-revival.git",
                 "branch": "wrynose",
-                "rev": "06dd66e6220e5ce4ed4b9af4d8231ae5f0a8ce80"
-            }
-        },
-        "meta-yocto": {
-            "git-remote": {
-                "uri": "https://git.yoctoproject.org/meta-yocto",
-                "branch": "wrynose",
-                "rev": "8251bdad5fda780a000fb41e6eda82eadf0fa39e"
-            }
-        },
-        "yocto-docs": {
-            "git-remote": {
-                "uri": "https://git.yoctoproject.org/yocto-docs",
-                "branch": "wrynose",
-                "rev": "7ac955621b36a221126cd40f12c41fa98c213a24"
-            }
-        },
-        "meta-openembedded": {
-            "git-remote": {
-                "uri": "https://git.openembedded.org/meta-openembedded",
-                "branch": "wrynose",
-                "rev": "9af4488d46cb4fd4c0d2d64820c86225ebd6ac71"
-            }
-        },
-        "meta-virtualization": {
-            "git-remote": {
-                "uri": "https://git.yoctoproject.org/meta-virtualization",
-                "branch": "wrynose",
-                "rev": "959a211fbba059689a1c3a1b24fe0abb9224281a"
-            }
-        },
-        "meta-python-ai": {
-            "git-remote": {
-                "uri": "https://github.com/zboszor/meta-python-ai.git",
-                "branch": "wrynose",
-                "rev": "38ae2eafb0a9276bd86e95342bdeebcbf82dca8a"
-            }
-        },
-        "meta-sca": {
-            "git-remote": {
-                "uri": "https://github.com/priv-kweihmann/meta-sca.git",
-                "branch": "wrynose",
-                "rev": "8ed89e10b2efd9a976bcce998eb48f55ac149954"
+                "rev": "wrynose"
             }
         },
         "meta-homeassistant": {
@@ -62,11 +20,53 @@
                 "path": "../../.."
             }
         },
-        "meta-clang-revival": {
+        "meta-openembedded": {
             "git-remote": {
-                "uri": "https://github.com/zboszor/meta-clang-revival.git",
+                "uri": "https://git.openembedded.org/meta-openembedded",
                 "branch": "wrynose",
-                "rev": "0bbbfba16d8c497717d315aeae1ee40f89e3cfc2"
+                "rev": "47d7dbdd10890bbd429bc0cccbe14435c37e5af1"
+            }
+        },
+        "meta-python-ai": {
+            "git-remote": {
+                "uri": "https://github.com/zboszor/meta-python-ai.git",
+                "branch": "wrynose",
+                "rev": "wrynose"
+            }
+        },
+        "meta-sca": {
+            "git-remote": {
+                "uri": "https://github.com/priv-kweihmann/meta-sca.git",
+                "branch": "wrynose",
+                "rev": "wrynose"
+            }
+        },
+        "meta-virtualization": {
+            "git-remote": {
+                "uri": "https://git.yoctoproject.org/meta-virtualization",
+                "branch": "wrynose",
+                "rev": "wrynose"
+            }
+        },
+        "meta-yocto": {
+            "git-remote": {
+                "uri": "https://git.yoctoproject.org/meta-yocto",
+                "branch": "wrynose",
+                "rev": "wrynose"
+            }
+        },
+        "openembedded-core": {
+            "git-remote": {
+                "uri": "https://git.openembedded.org/openembedded-core",
+                "branch": "wrynose",
+                "rev": "0f03c732a0a2d0506b41b1abe60b3f368b2300dc"
+            }
+        },
+        "yocto-docs": {
+            "git-remote": {
+                "uri": "https://git.yoctoproject.org/yocto-docs",
+                "branch": "wrynose",
+                "rev": "wrynose"
             }
         }
     },
@@ -93,6 +93,7 @@
                 "oe-fragments": [
                     "core/yocto/root-login-with-empty-password",
                     "distro/homeassistant",
+                    "homeassistant/licenses/commercial",
                     "machine/qemux86-64"
                 ]
             }

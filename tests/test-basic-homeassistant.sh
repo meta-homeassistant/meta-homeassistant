@@ -11,7 +11,12 @@ fi
 
 if [ "$SOURCE" = "yes" ]; then
     set +u
-    source "$(dirname "${BASH_SOURCE[0]}")/../bitbake-builds/homeassistant-x86/build/init-build-env"
+    TEST_DIR="$(dirname "${BASH_SOURCE[0]}")"
+    INIT_SCRIPT="${TEST_DIR}/../bitbake-builds/homeassistant-x86/build/init-build-env"
+    if [ ! -f "$INIT_SCRIPT" ]; then
+        INIT_SCRIPT="${TEST_DIR}/../../../bitbake-builds/homeassistant-x86/build/init-build-env"
+    fi
+    source "$INIT_SCRIPT"
     set -u
 fi
 

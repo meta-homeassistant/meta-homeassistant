@@ -25,6 +25,8 @@ IMAGE_ROOTFS_EXTRA_SPACE = "102400"
 
 inherit core-image
 
+IMAGE_FSTYPES = "ext4.zst"
+
 # Ensure the testimage machinery (runqemu) is given an image link
 # name that contains "-image-" (hyphens on both sides) so runqemu's
 # filename checks accept it. Include MACHINE to guarantee the
