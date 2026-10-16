@@ -127,7 +127,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-click-log \
     python3-coinbase \
     python3-coinbase-advanced-py \
-    python3-construct \
     python3-construct-typing \
     python3-cronsim \
     python3-crownstone-cloud \
@@ -189,7 +188,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-isodate \
     python3-josepy \
     python3-jsonpickle \
-    python3-keyring \
     python3-libpass \
     python3-locationsharinglib \
     python3-mashumaro \
@@ -226,9 +224,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-python-jose-cryptography \
     python3-python-memcached \    
     python3-pyyaml-ft \
-    python3-readme-renderer \
-    python3-rfc3986 \
-    python3-secretstorage \
     python3-securesystemslib \
     python3-segno \
     python3-sentence-stream \
@@ -245,7 +240,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-unicode-rbnf \
     python3-universal-silabs-flasher \
     python3-usb-devices \
-    python3-uv-dynamic-versioning \
     python3-voluptuous-openapi \
     python3-voluptuous-serialize \
     python3-wirelesstagpy \
