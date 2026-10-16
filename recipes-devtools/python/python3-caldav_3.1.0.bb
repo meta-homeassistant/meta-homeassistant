@@ -1,6 +1,6 @@
 SUMMARY = "CalDAV (RFC4791) client library"
 HOMEPAGE = "https://github.com/python-caldav/caldav"
-LICENSE = "Apache-2.0 & GPL-3.0-only"
+LICENSE = "Apache-2.0 AND GPL-3.0-only"
 LIC_FILES_CHKSUM = "\
     file://COPYING.APACHE;md5=3b83ef96387f14655fc854ddc3c6bd57 \
     file://COPYING.GPL;md5=d32239bcb673463ab874e80d47fae504 \

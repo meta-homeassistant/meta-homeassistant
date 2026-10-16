@@ -1,7 +1,7 @@
 SUMMARY = "Control Sharp Aquos SmartTVs through the IP interface."
 HOMEPAGE = "https://github.com/jmoore987/sharp_aquos_rc"
-LICENSE = "CLOSED"
-LIC_FILES_CHKSUM = ""
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=e9703d169911cdb29305f88411c78717"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "956609d9a253d4b62d2ccc0857a8ed5a53947fe0f5131d6b53aea4dbe258ee3b"

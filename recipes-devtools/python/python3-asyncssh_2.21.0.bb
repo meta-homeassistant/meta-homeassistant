@@ -1,6 +1,6 @@
 SUMMARY = "AsyncSSH: Asynchronous SSHv2 client and server library"
 HOMEPAGE = "http://asyncssh.timeheart.net"
-LICENSE = "EPL-2.0 & GPL-2.0-or-later"
+LICENSE = "EPL-2.0 AND GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://COPYRIGHT;md5=a3d68919d4bc3d853512d45cbd1cc345 \
                     file://LICENSE;md5=d9fc0efef5228704e7f5b37f27192723"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"

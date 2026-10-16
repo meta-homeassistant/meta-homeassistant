@@ -1,6 +1,6 @@
 SUMMARY = "Python client for flipr API"
 HOMEPAGE = "https://github.com/cnico/flipr-api"
-LICENSE = "CLOSED"
+LICENSE = "GPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f4eda51018051de136d3b3742e9a7a40"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 

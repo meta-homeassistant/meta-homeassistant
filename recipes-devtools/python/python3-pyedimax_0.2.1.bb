@@ -1,6 +1,6 @@
 SUMMARY = "Interface with Edimax Smart Plugs"
 HOMEPAGE = "https://github.com/andreipop2005/pyedimax"
-LICENSE = "CLOSED"
+LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=8;endline=8;md5=8227180126797a0148f94f483f3e1489"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 

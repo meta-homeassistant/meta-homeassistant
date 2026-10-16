@@ -1,6 +1,6 @@
 SUMMARY = "HTTP Request and Response Service"
 HOMEPAGE = "https://github.com/psf/httpbin"
-LICENSE = "ISC & MIT"
+LICENSE = "ISC AND MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=93a3b190099e50096ce1e4b4d2f83059 \
                     file://LICENSE.ISC;md5=0b1d7a7639cdb11cdcf50ff2fc5a5b3b \
                     file://LICENSE.MIT;md5=138d4be72f7275b6866098981c67dde4"

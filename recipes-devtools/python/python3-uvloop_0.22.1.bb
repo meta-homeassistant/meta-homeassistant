@@ -1,6 +1,6 @@
 SUMMARY = "Fast implementation of asyncio event loop on top of libuv"
 HOMEPAGE = "https://github.com/MagicStack/uvloop"
-LICENSE = "Apache-2.0 & MIT"
+LICENSE = "Apache-2.0 AND MIT"
 LIC_FILES_CHKSUM = "file://LICENSE-APACHE;md5=bb92739ddad0a2811957bd98bdb90474 \
                     file://LICENSE-MIT;md5=489c8bc34154e4b59f5c58e664f7d70f \
                     file://vendor/libuv/LICENSE;md5=74b6f2f7818a4e3a80d03556f71b129b \

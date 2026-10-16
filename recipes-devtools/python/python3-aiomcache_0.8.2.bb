@@ -1,6 +1,6 @@
 SUMMARY = "Minimal pure python memcached client"
 HOMEPAGE = "https://github.com/aio-libs/aiomcache/"
-LICENSE = "BSD-2-Clause & BSD-3-Clause"
+LICENSE = "BSD-2-Clause AND BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=6fef79088f61f537b76a803b9ffcb726"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 

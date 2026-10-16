@@ -1,6 +1,6 @@
 SUMMARY = "WSGI (PEP 333) Reference Library"
 HOMEPAGE = "http://cheeseshop.python.org/pypi/wsgiref"
-LICENSE = "PSF-2.0 | ZPL-2.1"
+LICENSE = "PSF-2.0 OR ZPL-2.1"
 LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=8;endline=8;md5=d933a991eaea0e21162565f1736b2fa2"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 

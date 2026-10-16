@@ -1,6 +1,6 @@
 SUMMARY = "Official Python lib for Crownstone: Crownstone Unified System Bridge, or Crownstone USB implementation."
 HOMEPAGE = "https://github.com/crownstone/crownstone-lib-python-uart"
-LICENSE = "Apache-2.0 & LGPL-3.0-only & MIT"
+LICENSE = "Apache-2.0 AND LGPL-3.0-only AND MIT"
 LIC_FILES_CHKSUM = "\
     file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302 \
     file://${COMMON_LICENSE_DIR}/LGPL-3.0-only;md5=bfccfe952269fff2b407dd11f2f3083b \

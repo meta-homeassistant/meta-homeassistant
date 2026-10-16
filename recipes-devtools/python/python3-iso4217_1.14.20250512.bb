@@ -1,6 +1,6 @@
 SUMMARY = "ISO 4217 currency data package for Python"
 HOMEPAGE = "https://github.com/dahlia/iso4217"
-LICENSE = "PD"
+LICENSE = "LicenseRef-PD"
 LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=8;endline=8;md5=fcf18a5a416a5c26c83143d78b7608b5"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
