@@ -18,4 +18,4 @@ RDEPENDS:${PN} += "\
     python3-pyserial (>=3.4) \
 "
 
-PYPI_PACKAGE = "crownstone-uart"
+PYPI_PACKAGE_SDIST = "crownstone-uart"

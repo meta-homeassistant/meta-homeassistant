@@ -9,7 +9,6 @@ SRC_URI[sha256sum] = "abd99bf1ac9c9d675d84151101db4883a97e9958755708804c55abd30d
 
 inherit pypi python_hatchling ptest-python-pytest
 
-PYPI_PACKAGE = "icalendar_searcher"
 RDEPENDS:${PN} = "\
     python3-icalendar (>=6.0) \
     python3-recurring-ical-events (>=3.8.0) \

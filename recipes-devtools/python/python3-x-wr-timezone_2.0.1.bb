@@ -13,5 +13,3 @@ RDEPENDS:${PN} += "\
     python3-icalendar (>=6.1.0) \
     python3-tzdata \
 "
-
-PYPI_PACKAGE = "x_wr_timezone"

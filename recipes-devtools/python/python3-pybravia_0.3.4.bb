@@ -7,5 +7,4 @@ SRC_URI[sha256sum] = "7bd4ede038d85c44cc0c74eb80353d18c34f29dc0bbcd1a3ea4a362996
 
 inherit pypi python_poetry_core
 
-PYPI_PACKAGE = "pybravia"
 RDEPENDS:${PN} = "python3-aiohttp"

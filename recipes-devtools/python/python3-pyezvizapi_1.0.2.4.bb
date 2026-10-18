@@ -13,5 +13,3 @@ DEPENDS = "python3-requests-native"
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-paho-mqtt python3-pandas python3-pycryptodome python3-requests python3-xmltodict"
-
-PYPI_PACKAGE = "pyezvizapi"

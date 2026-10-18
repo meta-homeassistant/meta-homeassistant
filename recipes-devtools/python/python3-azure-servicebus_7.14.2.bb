@@ -13,5 +13,3 @@ RDEPENDS:${PN} += "\
     python3-isodate (>=0.6.0) \
     python3-typing-extensions (>=4.6.0) \
 "
-
-PYPI_PACKAGE = "azure_servicebus"

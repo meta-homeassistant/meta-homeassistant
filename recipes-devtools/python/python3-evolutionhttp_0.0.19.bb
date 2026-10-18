@@ -8,5 +8,3 @@ DEPENDS = "python3-hatchling-native"
 SRC_URI[sha256sum] = "561598864ad95540eed48e996536654d484d7e999adbdb446012e84fbc417753"
 
 inherit pypi python_hatchling ptest-python-pytest
-
-PYPI_PACKAGE = "evolutionhttp"

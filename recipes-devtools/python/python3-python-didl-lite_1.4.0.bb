@@ -11,3 +11,5 @@ SRC_URI[sha256sum] = "54585ad41bee6d34f00adbdaa3e00a56547c7b6930b6d4280b887437e6
 RDEPENDS:${PN} = "\
 	python3-defusedxml (>=0.6.0) \
 "
+
+PYPI_PACKAGE_SDIST = "python-didl-lite"

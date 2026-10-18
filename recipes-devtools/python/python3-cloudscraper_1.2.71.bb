@@ -12,5 +12,3 @@ RDEPENDS:${PN} += "\
     python3-requests (>=2.9.2) \
     python3-requests-toolbelt (>=0.9.1) \
 "
-
-PYPI_PACKAGE = "cloudscraper"

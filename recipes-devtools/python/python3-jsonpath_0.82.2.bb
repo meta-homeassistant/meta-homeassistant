@@ -7,5 +7,3 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "d87ef2bcbcded68ee96bc34c1809b69457ecec9b0c4dd471658a12bd391002d1"
 
 inherit pypi setuptools3
-
-PYPI_PACKAGE = "jsonpath"

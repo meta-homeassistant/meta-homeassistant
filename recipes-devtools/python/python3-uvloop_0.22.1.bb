@@ -11,7 +11,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI += "file://0001-Fix-compilation.patch"
 SRC_URI[sha256sum] = "6c84bae345b9147082b17371e3dd5d42775bddce91f885499017f4607fdaf39f"
 
-DEPENDS += "libuv"
+DEPENDS += "libuv python3-wheel-native"
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest cython
 
@@ -27,5 +27,3 @@ do_install_ptest:append() {
 	install ${S}/mypy.ini ${D}${PTEST_PATH}/
 	install ${S}/.flake8 ${D}${PTEST_PATH}/
 }
-
-PYPI_PACKAGE = "uvloop"

@@ -23,5 +23,3 @@ RDEPENDS:${PN}-ptest += "\
     python3-libusb1 \
     python3-pycryptodome \
 "
-
-PYPI_PACKAGE = "adb_shell"

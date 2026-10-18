@@ -13,7 +13,6 @@ DEPENDS += "python3-setuptools-scm-native python3-hatch-vcs-native"
 
 inherit pypi python_hatchling ptest-python-pytest
 
-PYPI_PACKAGE = "caldav"
 RDEPENDS:${PN} = "\
     python3-lxml \
     python3-niquests \

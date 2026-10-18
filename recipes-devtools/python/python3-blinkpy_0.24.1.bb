@@ -7,6 +7,8 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI += "file://0001-relax-build-tool-req.patch"
 SRC_URI[sha256sum] = "07ae4fc576b537d88b9394bbc9ff460f808fd40b7c39818508dd3a9e1923b398"
 
+DEPENDS += "python3-wheel-native"
+
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} = " \
@@ -24,5 +26,3 @@ RDEPENDS:${PN}-ptest:append = "\
     python3-pytest-timeout \
     python3-pytest-asyncio \
 "
-
-PYPI_PACKAGE = "blinkpy"

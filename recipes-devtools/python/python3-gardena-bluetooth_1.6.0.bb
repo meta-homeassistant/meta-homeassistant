@@ -12,5 +12,3 @@ RDEPENDS:${PN} = "\
     python3-bleak-retry-connector (>=3.0.2) \
     python3-tzlocal (>=5.0.1) \
 "
-
-PYPI_PACKAGE = "gardena_bluetooth"

@@ -11,7 +11,6 @@ SRC_URI[sha256sum] = "5b53e5989289d97fa42ed7fde1b4bad80985f15dba8c774c043b395a90
 
 inherit pypi python_hatchling ptest-python-pytest
 
-PYPI_PACKAGE = "securesystemslib"
 
 PACKAGES += "\
     ${PN}-crypto \

@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "d4ea1952689ec7e331f9d4ebc9adb15f1d01c2c9dcfabb72e752c9869a
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-colorzero"
-
-PYPI_PACKAGE = "gpiozero"

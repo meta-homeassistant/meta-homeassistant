@@ -7,5 +7,3 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "b79bd200a88c87c9a9d446c990ae71c5a626d1f3730174e6d570157ff1d896cf"
 
 inherit pypi setuptools3
-
-PYPI_PACKAGE = "face_recognition_models"

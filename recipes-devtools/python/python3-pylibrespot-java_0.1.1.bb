@@ -10,4 +10,4 @@ DEPENDS = "python3-aiohttp-native"
 
 inherit pypi setuptools3
 
-
+PYPI_PACKAGE_SDIST = "pylibrespot-java"

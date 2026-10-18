@@ -23,5 +23,3 @@ RDEPENDS:${PN}-ptest += "\
 "
 
 PTEST_PYTEST_DIR = "test"
-
-PYPI_PACKAGE = "pytibber"

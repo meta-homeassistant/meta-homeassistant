@@ -11,5 +11,3 @@ inherit pypi python_setuptools_build_meta
 RDEPENDS:${PN} += "\
 	python3-zeroconf \
 "
-
-PYPI_PACKAGE = "pydeako"

@@ -8,8 +8,6 @@ SRC_URI[sha256sum] = "468207e568686a3f749cf0ae78f3e20a549a4197616d65286d207f726b
 
 inherit pypi python_poetry_core
 
-PYPI_PACKAGE = "adguardhome"
-
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.0.0) \
     python3-core (>=3.11) \

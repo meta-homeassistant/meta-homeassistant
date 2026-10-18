@@ -22,5 +22,3 @@ do_install:append() {
     rm -rf ${D}${libdir}/${PYTHON_DIR}/site-packages/tests/__init__.pyd
     rm -rf ${D}${libdir}/${PYTHON_DIR}/site-packages/tests/__init__.py
 }
-
-PYPI_PACKAGE = "pizzapi"

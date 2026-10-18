@@ -14,5 +14,3 @@ inherit pypi python_maturin cargo-update-recipe-crates
 RDEPENDS:${PN}:append = " \
     python3-huggingface-hub \
 "
-
-PYPI_PACKAGE = "tokenizers"

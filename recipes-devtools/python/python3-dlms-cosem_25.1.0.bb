@@ -21,4 +21,4 @@ RDEPENDS:${PN} += "\
 
 RDEPENDS:${PN}-ptest += "python3-pytest python3-pytest-cov python3-pytest-sugar"
 
-PYPI_PACKAGE = "dlms-cosem"
+PYPI_PACKAGE_SDIST = "dlms-cosem"

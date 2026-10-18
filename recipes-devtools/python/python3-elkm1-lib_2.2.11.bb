@@ -15,5 +15,3 @@ RDEPENDS:${PN}-ptest += "\
     python3-asyncio \
     python3-attrs \
 "
-
-PYPI_PACKAGE = "elkm1_lib"

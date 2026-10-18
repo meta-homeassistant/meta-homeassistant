@@ -10,5 +10,4 @@ inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-netaddr python3-requests"
 
-PYPI_PACKAGE = "pybbox"
 PYPI_PACKAGE_EXT = "zip"

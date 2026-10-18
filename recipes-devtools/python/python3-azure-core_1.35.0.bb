@@ -17,5 +17,3 @@ RDEPENDS:${PN} += "\
     python3-six (>=1.11.0) \
     python3-typing-extensions (>=4.6.0) \
 "
-
-PYPI_PACKAGE = "azure_core"

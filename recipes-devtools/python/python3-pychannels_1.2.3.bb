@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "5142d61daeef3a3db5c61267d810c7dc0597a074fc88e26c634a352a61
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-requests (>=2.0)"
-
-PYPI_PACKAGE = "pychannels"

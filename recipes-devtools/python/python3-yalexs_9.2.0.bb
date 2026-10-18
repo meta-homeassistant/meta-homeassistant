@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "637f19b7cbf30331ad9b36045a36e0ee14f7758736bfd5b893c3278b83
 
 inherit pypi python_poetry_core
 
-PYPI_PACKAGE = "yalexs"
 
 RDEPENDS:${PN} = "\
     python3-ciso8601 (>=2.1.3) \

@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "f25b410abd9554f5be818a924b3fe9d99276481b78900ebf4a7f20e2d6
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-aiohttp"
-
-PYPI_PACKAGE = "pyeverlights"

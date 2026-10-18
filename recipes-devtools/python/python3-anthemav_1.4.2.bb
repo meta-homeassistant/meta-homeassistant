@@ -7,5 +7,3 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "37cc503c22aa97fb4159a04996066f862848e366926748befa9e4631904a909f"
 
 inherit pypi setuptools3
-
-PYPI_PACKAGE = "anthemav"

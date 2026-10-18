@@ -16,5 +16,3 @@ RDEPENDS:${PN} += "\
 "
 
 FILES:${PN}-dbg += "/usr/requirements.txt"
-
-PYPI_PACKAGE = "elmax_api"

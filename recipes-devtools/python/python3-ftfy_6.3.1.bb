@@ -9,5 +9,4 @@ SRC_URI[sha256sum] = "9b3c3d90f84fb267fe64d375a07b7f8912d817cf86009ae134aa03e181
 
 inherit pypi python_hatchling ptest-python-pytest
 
-PYPI_PACKAGE = "ftfy"
 RDEPENDS:${PN} = "python3-wcwidth"

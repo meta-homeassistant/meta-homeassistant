@@ -7,5 +7,3 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "7ba77c6d18a591560761c90eddc873aa746fd99375a772bbe36298d064db2fbd"
 
 inherit pypi setuptools3 ptest-python-pytest
-
-PYPI_PACKAGE = "dynalite_devices"

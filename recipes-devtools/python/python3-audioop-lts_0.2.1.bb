@@ -7,5 +7,3 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "e81268da0baa880431b68b1308ab7257eb33f356e57a5f9b1f915dfb13dd1387"
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
-
-PYPI_PACKAGE = "audioop_lts"

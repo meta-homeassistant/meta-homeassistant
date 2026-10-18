@@ -8,7 +8,7 @@ SRC_URI[sha256sum] = "e704627dc7b9c0a50c67ae90f1d320b14f99f2b2fc9bf1ef0461b141dc
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-DEPENDS += "python3-setuptools-scm-native"
+DEPENDS += "python3-setuptools-scm-native python3-wheel-native"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp \
@@ -18,5 +18,3 @@ RDEPENDS:${PN}-ptest:append = "\
     python3-pytest-asyncio \
     python3-requests \
 "
-
-PYPI_PACKAGE = "brunt"

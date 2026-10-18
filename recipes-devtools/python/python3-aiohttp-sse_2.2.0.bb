@@ -7,9 +7,9 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI += "file://0001-make-python-3.14-compatible.patch"
 SRC_URI[sha256sum] = "a48dd5774031d3f41a29e159ebdbb93e89c8f37c1e9e83e196296be51885a5c2"
 
-inherit pypi python_setuptools_build_meta ptest-python-pytest
+DEPENDS += "python3-wheel-native"
 
-PYPI_PACKAGE = "aiohttp-sse"
+inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.0) \
@@ -22,3 +22,5 @@ RDEPENDS:${PN}-ptest:append = "\
 do_install_ptest:append() {
     install ${S}/pyproject.toml ${D}${PTEST_PATH}/
 }
+
+PYPI_PACKAGE_SDIST = "aiohttp-sse"

@@ -6,6 +6,6 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "e20d9a6ce4a603cd303a3d0246f031f08cd307da17125ec3faa75d674c55b3cc"
 
-inherit pypi python_setuptools_build_meta ptest-python-pytest
+DEPENDS += "python3-wheel-native"
 
-PYPI_PACKAGE = "goodwe"
+inherit pypi python_setuptools_build_meta ptest-python-pytest

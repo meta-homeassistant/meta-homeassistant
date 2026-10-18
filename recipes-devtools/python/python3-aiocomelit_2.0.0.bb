@@ -8,8 +8,6 @@ SRC_URI[sha256sum] = "ae12c2ddd4e6f53d08be5821d1199b068012f01121ac65668369db388e
 
 inherit pypi python_poetry_core
 
-PYPI_PACKAGE = "aiocomelit"
-
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.12.7) \
     python3-colorlog \

@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "e8311886e202a6ad1c988051a6f14e348131bf74040c43bdc3c817517e
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-protobuf python3-pycryptodome python3-requests"
-
-PYPI_PACKAGE = "lakeside"

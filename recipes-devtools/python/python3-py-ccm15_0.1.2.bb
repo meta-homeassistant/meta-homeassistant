@@ -13,5 +13,3 @@ RDEPENDS:${PN} += "\
 	python3-xmltodict (>=0.13.0) \
 	python3-aiohttp (>=3.8.5) \
 "
-
-PYPI_PACKAGE = "py_ccm15"

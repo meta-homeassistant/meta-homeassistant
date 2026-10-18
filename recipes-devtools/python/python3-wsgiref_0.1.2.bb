@@ -9,5 +9,4 @@ SRC_URI[sha256sum] = "c7e610c800957046c04c8014aab8cce8f0b9f0495c8cd349e57c1f7cab
 
 inherit pypi setuptools3
 
-PYPI_PACKAGE = "wsgiref"
 PYPI_PACKAGE_EXT = "zip"

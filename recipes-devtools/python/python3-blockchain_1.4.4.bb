@@ -10,6 +10,5 @@ inherit pypi setuptools3 ptest-python-pytest
 
 RDEPENDS:${PN} += "python3-enum-compat python3-future"
 
-PYPI_PACKAGE = "blockchain"
 
 PTEST_PYTEST_DIR = "test"

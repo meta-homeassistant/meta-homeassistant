@@ -36,5 +36,3 @@ RDEPENDS:${PN}-ptest += " \
     python3-fastapi \
     python3-jedi \
 "
-
-PYPI_PACKAGE = "huggingface_hub"

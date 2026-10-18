@@ -18,5 +18,3 @@ RDEPENDS:${PN} += " \
 	python3-tenacity (>=8.3.0) \
 	python3-zeroconf (>=0.70.0) \
 "
-
-PYPI_PACKAGE = "devolo_plc_api"

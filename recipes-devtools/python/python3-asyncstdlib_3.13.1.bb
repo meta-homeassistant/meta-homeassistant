@@ -8,6 +8,5 @@ SRC_URI[sha256sum] = "f47564b9a3566f8f9172631d88c75fe074b0ce2127963b7265d310df9a
 
 inherit pypi python_flit_core ptest-python-pytest
 
-PYPI_PACKAGE = "asyncstdlib"
 
 PTEST_PYTEST_DIR = "unittests"

@@ -8,5 +8,3 @@ SRC_URI[sha256sum] = "f97fe2b8efad2da97580199d54f8556c8007053870c462d10b9eaa8151
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-aiohttp python3-requests"
-
-PYPI_PACKAGE = "alpha_vantage"

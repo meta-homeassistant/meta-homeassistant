@@ -8,5 +8,4 @@ SRC_URI[sha256sum] = "ae2dad8e3db052b3fd0296ce8d542d7f04a911f23f2d82f2777021815e
 
 inherit pypi python_poetry_core
 
-PYPI_PACKAGE = "pytest_aiohttp_client"
 RDEPENDS:${PN} = "python3-aiohttp python3-pytest"

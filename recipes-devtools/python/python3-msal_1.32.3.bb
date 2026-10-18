@@ -13,5 +13,3 @@ RDEPENDS:${PN} += "\
     python3-cryptography (>=2.5) \
     python3-requests (>2.0.0) \
 "
-
-PYPI_PACKAGE = "msal"

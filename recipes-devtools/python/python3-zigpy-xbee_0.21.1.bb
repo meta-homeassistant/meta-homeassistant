@@ -24,5 +24,3 @@ RDEPENDS:${PN}-ptest:append = " \
     python3-statistics \
     python3-sqlite3 \
 "
-
-PYPI_PACKAGE = "zigpy_xbee"

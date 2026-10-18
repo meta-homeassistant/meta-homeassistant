@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "c9520b613731060ae2244631a907e966497bb2c06d2ddc0bc0c02e20c4
 
 inherit pypi python_poetry_core
 
-PYPI_PACKAGE = "bthome_ble"
 
 RDEPENDS:${PN} += " \
     python3-bluetooth-sensor-state-data (>=1.6.1) \

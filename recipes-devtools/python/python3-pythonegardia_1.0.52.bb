@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "22afcebe634e67de44a3eaf05c594b6c8a2a81c64ef87288f65c44b7fc
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-requests (>=2.0)"
-
-PYPI_PACKAGE = "pythonegardia"

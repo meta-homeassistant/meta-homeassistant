@@ -7,6 +7,8 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI = "git://github.com/home-assistant-libs/python-supervisor-client;protocol=https;tag=${PV};branch=main"
 SRCREV = "2dd74d0d573dad26938f6d4138fb26cb2db06cb0"
 
+DEPENDS += "python3-wheel-native"
+
 inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} = "\

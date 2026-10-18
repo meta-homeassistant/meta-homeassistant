@@ -21,5 +21,3 @@ do_install:append() {
     rm -rf ${D}${libdir}/${PYTHON_DIR}/site-packages/bluepy
     rm -rf ${D}${libdir}/${PYTHON_DIR}/site-packages/csrmesh
 }
-
-PYPI_PACKAGE = "avion"

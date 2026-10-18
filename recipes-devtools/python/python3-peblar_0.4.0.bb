@@ -18,7 +18,6 @@ RDEPENDS:${PN} += "\
     python3-yarl (>=1.6.0) \
 "
 
-PYPI_PACKAGE = "peblar"
 
 RDEPENDS:${PN}-ptest += "\
     python3-coverage \

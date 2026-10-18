@@ -10,4 +10,4 @@ inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-requests"
 
-PYPI_PACKAGE = "growattServer"
+PYPI_PACKAGE_SDIST = "growattServer"

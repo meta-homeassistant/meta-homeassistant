@@ -13,5 +13,3 @@ RDEPENDS:${PN} += "\
     python3-async-timeout (>=4.0.0) \
     python3-pytz (>=2020.1) \
 "
-
-PYPI_PACKAGE = "pydelijn"

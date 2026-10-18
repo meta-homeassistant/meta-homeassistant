@@ -20,5 +20,3 @@ RDEPENDS:${PN}-ptest += "\
 	python3-pytest-asyncio \
 	python3-simplejson \
 " 
-
-PYPI_PACKAGE = "structlog"

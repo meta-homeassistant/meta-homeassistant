@@ -12,5 +12,3 @@ RDEPENDS:${PN} += "\
     python3-async-timeout \
     ffmpeg \
 "
-
-PYPI_PACKAGE = "ha_ffmpeg"

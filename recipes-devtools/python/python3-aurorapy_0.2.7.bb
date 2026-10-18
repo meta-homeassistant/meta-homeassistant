@@ -15,5 +15,3 @@ RDEPENDS:${PN}-ptest:append = "\
 "
 
 PTEST_PYTEST_DIR = "test"
-
-PYPI_PACKAGE = "aurorapy"

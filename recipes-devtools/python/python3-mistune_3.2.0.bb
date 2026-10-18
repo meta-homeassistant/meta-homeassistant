@@ -12,5 +12,3 @@ RDEPENDS:${PN}-ptest = "\
     ${PN} \
     python3-pytest-cov \
 "
-
-PYPI_PACKAGE = "mistune"

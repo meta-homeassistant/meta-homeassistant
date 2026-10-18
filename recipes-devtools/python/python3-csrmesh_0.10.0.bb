@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "4fa11356b1231686762f013717c3af2dd2bd63d66fc01937de8e5d4f4a
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "bluepy python3-pycryptodomex"
-
-PYPI_PACKAGE = "csrmesh"

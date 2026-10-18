@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "079cb0c95bdd669c4643e2f7494de13b0b6029d5cdbe2d74d5d3c3386b
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-pillow"
-
-PYPI_PACKAGE = "colorthief"

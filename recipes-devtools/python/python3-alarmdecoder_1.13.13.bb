@@ -17,7 +17,6 @@ DEPENDS += "python3-setuptools-scm-native"
 
 RDEPENDS:${PN} += "python3-pyserial (>=2.7)"
 
-PYPI_PACKAGE = "alarmdecoder"
 
 PTEST_PYTEST_DIR = "test"
 

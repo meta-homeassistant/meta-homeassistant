@@ -7,5 +7,3 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "ffb93f53d3bc42ca3767a0868cd76f7f93b71932e8a392966ea0505cdd224d9b"
 
 inherit pypi python_setuptools_build_meta
-
-PYPI_PACKAGE = "flexit_bacnet"

@@ -15,5 +15,3 @@ RDEPENDS:${PN} += "\
     python3-proto-plus (>=1.25.0) \
     python3-protobuf (>=3.20.0) \
 "
-
-PYPI_PACKAGE = "google_geo_type"

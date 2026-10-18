@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "ed8fc096811f4763e1907dce29c35895d6d5936c4d0400fe843a91133d
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-pyyaml"
-
-PYPI_PACKAGE = "oyaml"

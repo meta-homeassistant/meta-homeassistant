@@ -8,5 +8,3 @@ DEPENDS = "python3-hatchling-native"
 SRC_URI[sha256sum] = "78d78dfa6b693f363aa74895a3fa2dd1e2f36bf69e24fef43f1347c7bfcc5686"
 
 inherit pypi python_hatchling
-
-PYPI_PACKAGE = "genie_partner_sdk"

@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "64f76ce90ae3e8ef5d1ede0f8d3b50ce26bcce71dd8ae5e82b1cd2d4a5
 inherit pypi setuptools3 ptest-python-pytest
 
 RDEPENDS:${PN} += "python3-sgmllib3k"
-
-PYPI_PACKAGE = "feedparser"

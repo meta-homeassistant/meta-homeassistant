@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "3b54ad33a60fc7a050945dc5b9bd006d6039a5944f31e45b8ebc66ddf3
 inherit pypi python_poetry_core
 
 RDEPENDS:${PN} += "python3-aiohttp"
-
-PYPI_PACKAGE = "aioeafm"

@@ -10,5 +10,3 @@ SRC_URI[sha256sum] = "f29ba443f158bb47913ac21f098306a9749ed459a2290540ff1f86baac
 inherit pypi python_poetry_core
 
 RDEPENDS:${PN} += "python3-pydantic (>=0.32.2)"
-
-PYPI_PACKAGE = "examples"

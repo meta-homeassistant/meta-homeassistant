@@ -15,5 +15,3 @@ RDEPENDS:${PN} += "\
     python3-pyserial \
     python3-flask \
 "
-
-PYPI_PACKAGE = "concord232"

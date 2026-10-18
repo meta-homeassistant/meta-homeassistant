@@ -12,5 +12,3 @@ RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.0.0) \
     python3-yarl (>=1.6.0) \
 "
-
-PYPI_PACKAGE = "odp_amsterdam"

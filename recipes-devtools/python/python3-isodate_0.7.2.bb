@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "4cd1aa0f43ca76f4a6c6c0292a85f40b35ec2e43e315b59f06e6d32171
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 DEPENDS += "python3-setuptools-scm-native"
-
-PYPI_PACKAGE = "isodate"

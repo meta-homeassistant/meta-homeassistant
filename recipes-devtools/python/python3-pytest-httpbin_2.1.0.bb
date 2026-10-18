@@ -16,5 +16,3 @@ RDEPENDS:${PN}-ptest = "\
     python3-httpbin \
     ${PN} \
 "
-
-PYPI_PACKAGE = "pytest_httpbin"

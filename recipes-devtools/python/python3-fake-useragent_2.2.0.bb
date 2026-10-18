@@ -7,5 +7,3 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "4e6ab6571e40cc086d788523cf9e018f618d07f9050f822ff409a4dfe17c16b2"
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
-
-PYPI_PACKAGE = "fake_useragent"

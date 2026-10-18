@@ -10,7 +10,6 @@ SRC_URI[sha256sum] = "632148698261c8684ea2d2b624cdea845b402b1fe91736e89df886408c
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-PYPI_PACKAGE = "httpbin"
 
 RDEPENDS:${PN} = "\
     python3-brotlicffi \

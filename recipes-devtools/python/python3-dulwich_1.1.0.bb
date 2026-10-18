@@ -12,7 +12,6 @@ DEPENDS += "\
     python3-setuptools-rust-native \
 "
 
-PYPI_PACKAGE = "dulwich"
 RDEPENDS:${PN} = "\
     python3-urllib3 (>=2.2.2) \
 "

@@ -9,7 +9,6 @@ SRC_URI[sha256sum] = "edd2150fee0c898b6c8c03398faecc95b8943764390e92ba6d453466e1
 
 inherit pypi python_hatchling
 
-PYPI_PACKAGE = "dwdwfsapi"
 RDEPENDS:${PN} = "\
     python3-requests (>=2.31.0) \
     python3-urllib3 (>=1.26.5) \

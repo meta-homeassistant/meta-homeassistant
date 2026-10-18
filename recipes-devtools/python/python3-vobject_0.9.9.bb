@@ -13,5 +13,3 @@ RDEPENDS:${PN} += "\
     python3-six \
     python3-dateutil (>=2.7.0) \
 "
-
-PYPI_PACKAGE = "vobject"

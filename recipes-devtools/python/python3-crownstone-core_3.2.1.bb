@@ -14,4 +14,4 @@ inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-pyaes (>=1.6)"
 
-PYPI_PACKAGE = "crownstone-core"
+PYPI_PACKAGE_SDIST = "crownstone-core"

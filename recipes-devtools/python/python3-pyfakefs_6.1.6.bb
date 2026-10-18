@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "dcdfc09b13f3fd464142e20ef6154639bd26fb0890572c5dd869339a08
 
 inherit pypi python_setuptools_build_meta
 
-PYPI_PACKAGE = "pyfakefs"
 
 RDEPENDS:${PN} = "\
     python3-pandas (>=2.3.3) \

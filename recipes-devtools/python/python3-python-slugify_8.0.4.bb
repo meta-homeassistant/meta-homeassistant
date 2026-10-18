@@ -4,8 +4,6 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7946d011d653bfcfbb24480377867128"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-PYPI_PACKAGE = "python-slugify"
-
 inherit setuptools3 pypi
 
 SRC_URI[sha256sum] = "59202371d1d05b54a9e7720c5e038f928f45daaffe41dd10822f3907b937c856"
@@ -13,3 +11,5 @@ SRC_URI[sha256sum] = "59202371d1d05b54a9e7720c5e038f928f45daaffe41dd10822f3907b9
 RDEPENDS:${PN} = "\
     python3-text-unidecode (>=1.3) \
 "
+
+PYPI_PACKAGE_SDIST = "python-slugify"

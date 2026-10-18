@@ -9,5 +9,4 @@ SRC_URI[sha256sum] = "450fe13bb8d86a8f4e7d7b5fafce7791181ca3e7c92e15bbc45dfb2586
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-PYPI_PACKAGE = "asyncssh"
 RDEPENDS:${PN} = "python3-cryptography python3-typing-extensions"

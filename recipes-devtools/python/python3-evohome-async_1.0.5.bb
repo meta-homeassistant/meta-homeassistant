@@ -17,5 +17,3 @@ RDEPENDS:${PN} = "\
     python3-debugpy (>=1.8.9) \
     python3-credentials-manager \
 "
-
-PYPI_PACKAGE = "evohome_async"

@@ -8,5 +8,3 @@ DEPENDS = "python3-hatchling-native"
 SRC_URI[sha256sum] = "0ccff30c5a13620696fa8d9862fe1b0c08dae62c1a6c805f149ed87a9e05cb07"
 
 inherit pypi python_hatchling
-
-PYPI_PACKAGE = "aiopulse"

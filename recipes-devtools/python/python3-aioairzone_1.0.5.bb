@@ -6,7 +6,8 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "01bb44e8aab9ad09f13e1e0af5cb4bc8f6a8ff9c27a11e83e5260a32c62f0f27"
 
+DEPENDS += "python3-wheel-native"
+
 inherit pypi python_setuptools_build_meta
 
-PYPI_PACKAGE = "aioairzone"
 RDEPENDS:${PN} = "python3-aiohttp"

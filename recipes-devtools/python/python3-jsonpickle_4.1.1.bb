@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "f86e18f13e2b96c1c1eede0b7b90095bbb61d99fedc14813c44dc2f361
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 DEPENDS += "python3-setuptools-scm-native"
-
-PYPI_PACKAGE = "jsonpickle"

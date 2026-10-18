@@ -6,6 +6,8 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "62423895b866f95b5ed8d88335295a37cc5403af64cb7cb0e234f88adc2dff94"
 
+DEPENDS = "python3-wheel-native"
+
 inherit pypi python_setuptools_build_meta cython
 
 #PACKAGECONFIG ?= "all gssapi lz4 snappy zstd"
@@ -20,5 +22,3 @@ RDEPENDS:${PN} += "\
     python3-packaging \
     python3-typing-extensions (>=4.10.0) \
 "
-
-PYPI_PACKAGE = "aiokafka"

@@ -16,5 +16,3 @@ RDEPENDS:${PN} += "\
 	python3-iso4217 (>=1.2.20150619) \
 	python3-types-pytz \
 "
-
-PYPI_PACKAGE = "pyefergy"

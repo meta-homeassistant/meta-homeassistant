@@ -12,5 +12,3 @@ RDEPENDS:${PN} += "\
     python3-inflect \
     python3-requests \
 "
-
-PYPI_PACKAGE = "decora_wifi"

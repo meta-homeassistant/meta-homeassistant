@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "8f330cd87425adbc9bb37a32ebb14a7e4bad18afc8ffe5a22c4a5f0ad5
 
 inherit pypi python_hatchling
 
-PYPI_PACKAGE = "pyblu"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.10.8) \

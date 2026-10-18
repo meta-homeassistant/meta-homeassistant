@@ -7,7 +7,6 @@ SRC_URI[sha256sum] = "2970a8c0e59643b830606d8d7d2f12ced24f73be572016b7d0356f5479
 
 inherit pypi python_poetry_core
 
-PYPI_PACKAGE = "amberelectric"
 RDEPENDS:${PN} = "\
     python3-aenum (>=3.1.11) \
     python3-dateutil (>=2.8.2) \

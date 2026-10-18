@@ -6,6 +6,5 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit python_poetry_core pypi cython
 
-PYPI_PACKAGE = "ulid_transform"
 
 SRC_URI[sha256sum] = "cef07d688483e7573b835423f242d0d6700d92429abc438c0941de61eacdf215"

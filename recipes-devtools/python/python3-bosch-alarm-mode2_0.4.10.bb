@@ -8,5 +8,3 @@ DEPENDS = "python3-hatch-vcs-native python3-hatchling-native"
 SRC_URI[sha256sum] = "c35815b1fc713e356db2943e07330eff0f2b773c122567b1b6f4ab064852bb4a"
 
 inherit pypi python_hatchling
-
-PYPI_PACKAGE = "bosch_alarm_mode2"

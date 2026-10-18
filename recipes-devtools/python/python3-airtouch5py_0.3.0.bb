@@ -11,5 +11,3 @@ RDEPENDS:${PN} = "\
     python3-bitarray (>=3.4.2) \
     python3-crc (>=7.1.0) \
 "
-
-PYPI_PACKAGE = "airtouch5py"

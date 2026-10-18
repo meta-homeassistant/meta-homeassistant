@@ -8,6 +8,6 @@ SRC_URI[sha256sum] = "570cd9e50db83bc1629152d4d0b7558d6451bb1bfd5dfc2e935d96fc2f
 
 inherit pypi python_setuptools_build_meta
 
-PYPI_PACKAGE = "asyncio"
+PYPI_PACKAGE_SDIST = "asyncio"
 
 BBCLASSEXTEND = "native nativesdk"

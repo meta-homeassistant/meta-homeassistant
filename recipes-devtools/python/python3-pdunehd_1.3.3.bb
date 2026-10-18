@@ -7,5 +7,3 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "dcf0218c715f8e9a3e28384ebf28452b1df20a803c4540a65e787432bad6bdb7"
 
 inherit pypi setuptools3
-
-PYPI_PACKAGE = "pdunehd"

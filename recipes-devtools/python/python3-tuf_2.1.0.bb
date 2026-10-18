@@ -13,7 +13,6 @@ SRC_URI[sha256sum] = "dbfe18fbdeba6d76144931db88b76e473fa40c431b60d25b455a9adbb0
 
 inherit pypi python_hatchling ptest-python-pytest
 
-PYPI_PACKAGE = "tuf"
 
 RDEPENDS:${PN} = "\
     python3-requests \

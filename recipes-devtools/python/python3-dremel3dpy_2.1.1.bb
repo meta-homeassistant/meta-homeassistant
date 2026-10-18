@@ -24,5 +24,3 @@ RDEPENDS:${PN} += "\
     python3-validators (>=0.0) \
     python3-yarl (>=1.0) \
 "
-
-PYPI_PACKAGE = "dremel3dpy"

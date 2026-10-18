@@ -27,5 +27,3 @@ RDEPENDS:${PN}-ptest += "\
     python3-parse \
     python3-pytest-asyncio \
 "
-
-PYPI_PACKAGE = "gql"

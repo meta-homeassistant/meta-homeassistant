@@ -11,5 +11,3 @@ RDEPENDS:${PN} += "\
     python3-aiohttp \
     python3-async-timeout \
 "
-
-PYPI_PACKAGE = "asmog"

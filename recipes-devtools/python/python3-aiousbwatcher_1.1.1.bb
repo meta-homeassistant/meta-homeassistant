@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "3a22a47b8dd1ca078bf8fbc3139cd16b7dabb11b901a1a96620246794b
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-PYPI_PACKAGE = "aiousbwatcher"
 RDEPENDS:${PN} = "python3-asyncinotify (>=4.2.0)"
 
 RDEPENDS:${PN}-ptest += "\

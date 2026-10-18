@@ -7,5 +7,3 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "5df5a2417289b8422380dbd73d874692b31b8a054feb5e630c20ba094c597f39"
 
 inherit pypi setuptools3
-
-PYPI_PACKAGE = "meteocalc"

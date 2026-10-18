@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "7720d148f5eeb6cc5153c0c5499dd31f57fa674389ad74694a5cd98e5a
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-protobuf (>=3.20.3)"
-
-PYPI_PACKAGE = "pycomfoconnect"

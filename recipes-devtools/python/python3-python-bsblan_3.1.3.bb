@@ -9,7 +9,6 @@ SRC_URI[sha256sum] = "b6167aedfc69e5922c942e6d684627186301ab5bcd2644d4493278a81a
 
 inherit pypi python_hatchling
 
-PYPI_PACKAGE = "python_bsblan"
 
 RDEPENDS:${PN} += " \
     python3-aiohttp (>=3.8.1) \

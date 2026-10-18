@@ -11,5 +11,3 @@ inherit pypi python_poetry_core
 RDEPENDS:${PN} += "\
     python3-core (>=3.9) \
 "
-
-PYPI_PACKAGE = "async_interrupt"

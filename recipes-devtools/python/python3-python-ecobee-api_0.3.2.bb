@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "20d9b4637ce2b61f6dec33829e36c5d7c7629830cedf4cc4bf61d5737f
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-requests (>=2.25)"
-
-PYPI_PACKAGE = "python_ecobee_api"

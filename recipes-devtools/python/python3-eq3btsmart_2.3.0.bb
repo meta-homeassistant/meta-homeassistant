@@ -13,5 +13,3 @@ RDEPENDS:${PN} += "\
 	python3-bleak-retry-connector \
 	python3-construct-typing \
 "
-
-PYPI_PACKAGE = "eq3btsmart"

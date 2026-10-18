@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "23ee51b75abbcc43d926272773aae4f39f93aceb75ed56852d0bf618f9
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-pytest python3-vcrpy"
-
-PYPI_PACKAGE = "pytest-vcr"

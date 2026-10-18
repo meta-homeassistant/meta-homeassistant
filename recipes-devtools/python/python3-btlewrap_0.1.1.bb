@@ -10,5 +10,3 @@ inherit pypi setuptools3
 PACKAGECONFIG[bluepy] = ",,,bluepy"
 PACKAGECONFIG[pygatt] = ",,,python3-pygatt"
 PACKAGECONFIG[testing] = ",,,python3-pytest"
-
-PYPI_PACKAGE = "btlewrap"

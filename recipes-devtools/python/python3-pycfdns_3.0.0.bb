@@ -11,5 +11,3 @@ inherit pypi python_poetry_core
 RDEPENDS:${PN} = "\
     python3-aiohttp \
 "
-
-PYPI_PACKAGE = "pycfdns"

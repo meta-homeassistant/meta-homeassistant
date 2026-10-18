@@ -10,5 +10,5 @@ inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-aiohttp python3-async-timeout python3-pillow"
 
-PYPI_PACKAGE = "python-family-hub-local"
+PYPI_PACKAGE_SDIST = "python-family-hub-local"
 PYPI_PACKAGE_EXT = "zip"

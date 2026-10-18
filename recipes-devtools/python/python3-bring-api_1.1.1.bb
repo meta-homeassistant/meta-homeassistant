@@ -7,6 +7,8 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI = "git://github.com/miaucl/bring-api;protocol=https;tag=${PV};branch=main"
 SRCREV = "56c43c45bd790eafa1a2255827916155d1c2be3e"
 
+DEPENDS += "python3-wheel-native"
+
 inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} = "\

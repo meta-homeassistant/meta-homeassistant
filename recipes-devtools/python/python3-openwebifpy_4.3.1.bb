@@ -9,5 +9,4 @@ SRC_URI[sha256sum] = "15aca7253f9b47ade72302c4c178d38f03d7677439fd7fb3a71d204c0d
 
 inherit pypi python_hatchling ptest-python-pytest
 
-PYPI_PACKAGE = "openwebifpy"
 RDEPENDS:${PN} = "python3-aiohttp python3-yarl"

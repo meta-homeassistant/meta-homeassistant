@@ -13,5 +13,3 @@ RDEPENDS:${PN} += "\
 	python3-ical (>=11.0.0) \
 	python3-pydantic (>=2.10.4) \
 "
-
-PYPI_PACKAGE = "gcal_sync"

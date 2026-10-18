@@ -7,5 +7,3 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "40eac5b8c7ab683d7a09100f5e22c55e012695741603e2c798644cdef9013ab2"
 
 inherit pypi setuptools3
-
-PYPI_PACKAGE = "auroranoaa"

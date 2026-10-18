@@ -16,5 +16,3 @@ RDEPENDS:${PN} += "\
     python3-reverse-geocode (>=1.6.5) \
     python3-yarl \
 "
-
-PYPI_PACKAGE = "geocachingapi"

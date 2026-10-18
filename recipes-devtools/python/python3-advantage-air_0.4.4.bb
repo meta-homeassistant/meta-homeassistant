@@ -12,5 +12,3 @@ RDEPENDS:${PN} += "\
     python3-aiohttp \
     python3-core (>=3.6) \
 "
-
-PYPI_PACKAGE = "advantage_air"

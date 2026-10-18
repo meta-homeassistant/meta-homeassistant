@@ -14,5 +14,3 @@ RDEPENDS:${PN} += "\
     python3-async-timeout (>=1.4.0) \
     python3-bleak \
 "
-
-PYPI_PACKAGE = "adax_local"

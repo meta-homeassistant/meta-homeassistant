@@ -7,5 +7,3 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "8c57aa32ee7456d3cc68c95c4530bc571646defac01895cfc73545449894a63c"
 
 inherit pypi setuptools3 ptest-python-pytest
-
-PYPI_PACKAGE = "uuid7"

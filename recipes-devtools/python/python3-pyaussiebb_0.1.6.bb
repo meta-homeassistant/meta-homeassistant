@@ -17,5 +17,3 @@ RDePENDS:${PN} = "\
 	python3-aiohttp \
 	python3-pydantic \
 "
-
-PYPI_PACKAGE = "pyaussiebb"

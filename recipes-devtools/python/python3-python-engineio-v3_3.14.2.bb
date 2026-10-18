@@ -14,4 +14,4 @@ PACKAGECONFIG[client] = ",,,python3-requests python3-websocket-client"
 
 RDEPENDS:${PN} += "python3-six (>=1.9.0)"
 
-PYPI_PACKAGE = "python-engineio-v3"
+PYPI_PACKAGE_SDIST = "python-engineio-v3"

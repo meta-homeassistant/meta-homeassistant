@@ -12,5 +12,3 @@ RDEPENDS:${PN} += "\
     python3-aiohttp (>=3.0.6) \
     python3-async-timeout (>=3.0.0) \
 "
-
-PYPI_PACKAGE = "airthings_cloud"

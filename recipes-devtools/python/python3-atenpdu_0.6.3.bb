@@ -12,5 +12,3 @@ RDEPENDS:${PN} = "\
     python3-async-timeout (>=4.0.2) \
     python3-pysnmp (>=6.2.5) \
 "
-
-PYPI_PACKAGE = "atenpdu"

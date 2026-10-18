@@ -7,6 +7,8 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI += "file://0001-Make-PEP517-compliant.patch"
 SRC_URI[sha256sum] = "4a25944fd82edcc353f2b2b08aecd6b5fc053d18c956b4d58addc51d598209e6"
 
+DEPENDS = "python3-wheel-native"
+
 inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} += "\
@@ -24,5 +26,3 @@ RDEPENDS:${PN} += "\
     python3-tinytag (>=1.10.0) \
     python3-zeroconf (>=0.129.0) \
 "
-
-PYPI_PACKAGE = "pyatv"

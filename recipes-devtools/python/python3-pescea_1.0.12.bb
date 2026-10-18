@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "231e36d16fb22a215cbed5fc7cac204115c2cb58b5c9a0b59e31a9e981
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-async-timeout"
-
-PYPI_PACKAGE = "pescea"

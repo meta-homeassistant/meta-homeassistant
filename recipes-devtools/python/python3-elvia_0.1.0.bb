@@ -12,5 +12,3 @@ RDEPENDS:${PN} += "\
     python3-aiohttp (>=3.8) \
     python3-typing-extensions (>=3.10) \
 "
-
-PYPI_PACKAGE = "elvia"

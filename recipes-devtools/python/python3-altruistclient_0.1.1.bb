@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "d4f786bcebaf42c411ef1ddb1a226f935b38147c4ff9275ed3622e37ca
 
 inherit pypi python_poetry_core
 
-PYPI_PACKAGE = "altruistclient"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.11.0) \

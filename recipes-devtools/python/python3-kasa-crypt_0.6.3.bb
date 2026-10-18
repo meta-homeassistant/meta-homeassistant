@@ -7,5 +7,3 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "2de6de01b6c16435233e8da2541a2ebfa8d7725f1a307dc9d6057f08dedc2bbb"
 
 inherit pypi python_poetry_core cython
-
-PYPI_PACKAGE = "kasa_crypt"

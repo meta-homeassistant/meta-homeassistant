@@ -7,6 +7,8 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI += "file://0001-Remove-poetryversion-req.patch"
 SRC_URI[sha256sum] = "5898835815160101710769072083850f7e4d638236aa7f5240316e594d6a38ad"
 
+DEPENDS = "python3-wheel-native"
+
 inherit pypi python_poetry_core
 
 RDEPENDS:${PN} = "\
@@ -16,5 +18,3 @@ RDEPENDS:${PN} = "\
     python3-pygments (>=2.15.0) \
     python3-pysmb (>=1.2.6) \
 "
-
-PYPI_PACKAGE = "pyairvisual"

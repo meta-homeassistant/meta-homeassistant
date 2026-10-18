@@ -6,10 +6,12 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "8b45d7aa884a639a5622370e094c5441dc7f1524aa8139d3696703c672188cc9"
 
+DEPENDS = "python3-wheel-native"
+
 inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} += "\
     python3-pyserial (>=3.1) \
 "
 
-PYPI_PACKAGE = "pyW800rf32"
+PYPI_PACKAGE_SDIST = "pyW800rf32"

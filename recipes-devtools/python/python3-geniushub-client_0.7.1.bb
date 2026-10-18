@@ -11,4 +11,4 @@ inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-aiohttp (>=3.7.4)"
 
-PYPI_PACKAGE = "geniushub-client"
+PYPI_PACKAGE_SDIST = "geniushub-client"

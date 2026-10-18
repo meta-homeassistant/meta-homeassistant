@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "e3ec9b8d33232ac06a8bb32192a197d48d381be8f9ecd2f64aad36c605
 
 inherit pypi python_setuptools_build_meta
 
-PYPI_PACKAGE = "python_matter_server"
 
 RDEPENDS:${PN} += "\
     python3-aiohttp \

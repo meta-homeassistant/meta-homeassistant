@@ -11,4 +11,4 @@ inherit pypi setuptools3
 PACKAGECONFIG ?= "png"
 PACKAGECONFIG[png] = ",,,python3-pypng"
 
-PYPI_PACKAGE = "PyQRCode"
+PYPI_PACKAGE_SDIST = "PyQRCode"

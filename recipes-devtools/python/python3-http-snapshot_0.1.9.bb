@@ -10,5 +10,3 @@ inherit pypi python_setuptools_build_meta
 RDEPENDS:${PN} = "\
 	python3-inline-snapshot \
 "
-
-PYPI_PACKAGE = "http_snapshot"

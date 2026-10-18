@@ -33,5 +33,4 @@ RDEPENDS:${PN} += "\
     python3-tqdm \
 "
 
-PYPI_PACKAGE = "pysmb"
 PYPI_PACKAGE_EXT = "zip"

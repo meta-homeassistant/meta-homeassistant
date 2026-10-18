@@ -8,5 +8,3 @@ SRC_URI[sha256sum] = "af34edada840e6798e8f1aad063669dc3358075b19bd1662cdafc5e3c3
 inherit pypi setuptools3 ptest-python-pytest
 
 RDEPENDS:${PN} = "python3-dnspython python3-pyasn1 python3-pyasn1-modules"
-
-PYPI_PACKAGE = "sleekxmppfs"

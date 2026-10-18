@@ -6,6 +6,8 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "541b1bfaf469b27ea6720becb60796652f4ae872986c3cb5f75764d3e61d088f"
 
+DEPENDS = "python3-wheel-native"
+
 inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} = "\
@@ -13,5 +15,3 @@ RDEPENDS:${PN} = "\
     python3-requests (>=2.31.0) \
     python3-ujson (>=5.8.0) \
 "
-
-PYPI_PACKAGE = "ayla_iot_unofficial"

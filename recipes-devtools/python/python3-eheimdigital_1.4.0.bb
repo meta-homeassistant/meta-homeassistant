@@ -12,5 +12,3 @@ RDEPENDS:${PN} += "\
 	python3-aiohttp \
 	python3-yarl \
 "
-
-PYPI_PACKAGE = "eheimdigital"

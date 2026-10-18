@@ -14,5 +14,3 @@ RDEPENDS:${PN} += "python3-netifaces python3-pycryptodome"
 RDEPENDS:${PN}-ptest:append = " \
     python3-pytest-asyncio \
 "
-
-PYPI_PACKAGE = "greeclimate"

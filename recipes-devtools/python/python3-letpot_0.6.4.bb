@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "9ecff9dda23bd65cff67fb83d4fbca2ea13cfe64257a1734925e62ac7c
 
 inherit pypi python_poetry_core
 
-PYPI_PACKAGE = "letpot"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp \

@@ -15,11 +15,9 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 require ${BPN}-crates.inc
 
-DEPENDS = "python3-maturin-native"
+DEPENDS = "zstd"
 SRC_URI[sha256sum] = "e3b21b7e80024c95ff339fcd147ac6fc3dd98d3613c9d45d3a1f4fd1057f127b"
 
-inherit pypi python_maturin cargo-update-recipe-crates
-
-PYPI_PACKAGE = "uv"
+inherit pypi python_maturin cargo-update-recipe-crates pkgconfig
 
 INSANE_SKIP:${PN} = "already-stripped"

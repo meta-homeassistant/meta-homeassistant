@@ -9,7 +9,6 @@ SRC_URI[sha256sum] = "44c6deb563c4522dba206fba2e2bb93d3b04113c40191851ba3a241d82
 
 inherit pypi python_hatchling ptest-python-pytest
 
-PYPI_PACKAGE = "datadog"
 RDEPENDS:${PN} = "\
     python3-requests (>=2.6.0) \
 "

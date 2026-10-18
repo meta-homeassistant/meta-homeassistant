@@ -9,5 +9,3 @@ DEPENDS = "python3-hatchling-native"
 SRC_URI[sha256sum] = "7830b9323d9ba96a841ad698a8dec1d43a2b0b7f1c855c76772e7972c1c6d959"
 
 inherit pypi python_hatchling ptest-python-pytest
-
-PYPI_PACKAGE = "libpass"

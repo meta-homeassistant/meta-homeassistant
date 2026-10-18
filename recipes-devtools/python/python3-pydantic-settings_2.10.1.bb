@@ -13,5 +13,3 @@ RDEPENDS:${PN} = "\
 	python3-python-dotenv (>=0.21.0) \
 	python3-typing-extensions (>=0.4.0) \
 "
-
-PYPI_PACKAGE = "pydantic_settings"

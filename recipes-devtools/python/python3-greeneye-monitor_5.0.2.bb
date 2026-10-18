@@ -12,5 +12,3 @@ RDEPENDS:${PN} = "\
 	python3-aiohttp (>=3.8.5) \
 	python3-siobrultech-protocols (>=0.13) \
 "
-
-PYPI_PACKAGE = "greeneye_monitor"

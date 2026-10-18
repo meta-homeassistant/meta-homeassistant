@@ -42,6 +42,3 @@ do_install_ptest:append() {
 	# The following items are added as tests need these files
     install ${S}/README.md ${D}${PTEST_PATH}/
 }
-
-
-PYPI_PACKAGE = "anthropic"

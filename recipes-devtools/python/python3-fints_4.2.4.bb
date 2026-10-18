@@ -15,5 +15,3 @@ RDEPENDS:${PN} += "\
 	python3-requests \
 	python3-sepaxml (>=2.1) \
 "
-
-PYPI_PACKAGE = "fints"

@@ -10,4 +10,4 @@ inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-requests (>=2.0)"
 
-PYPI_PACKAGE = "python-blockchain-api"
+PYPI_PACKAGE_SDIST = "python-blockchain-api"

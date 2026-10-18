@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "f4c193b5e8acb0912b06ac5b16321908dd0843d75049c091487322284a
 
 inherit pypi python_hatchling ptest-python-pytest
 
-PYPI_PACKAGE = "opentelemetry_api"
 
 RDEPENDS:${PN} += "\
 	python3-typing-extensions (>=4.5.0) \

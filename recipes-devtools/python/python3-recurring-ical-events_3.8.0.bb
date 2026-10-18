@@ -18,5 +18,3 @@ RDEPENDS:${PN} += "\
     python3-x-wr-timezone (>=1.0.0) \
     python3-tzdata \
 "
-
-PYPI_PACKAGE = "recurring_ical_events"

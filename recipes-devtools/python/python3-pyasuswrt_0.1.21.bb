@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "ffee28f789512eea42ce182ba6a89fa2f5a31a423daf4fdcf6bad48a81
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-aiohttp (>=3.7.4)"
-
-PYPI_PACKAGE = "pyasuswrt"

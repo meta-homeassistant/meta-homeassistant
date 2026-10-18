@@ -10,4 +10,4 @@ inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-protobuf"
 
-PYPI_PACKAGE = "python-clementine-remote"
+PYPI_PACKAGE_SDIST = "python-clementine-remote"

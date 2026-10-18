@@ -7,5 +7,3 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "7dd84bdf48269b996fde26c38dc93b90fe804c7c44511b858335f918a46337af"
 
 inherit pypi setuptools3
-
-PYPI_PACKAGE = "pydoods"

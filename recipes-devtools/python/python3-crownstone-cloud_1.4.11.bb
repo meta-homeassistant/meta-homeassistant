@@ -14,5 +14,3 @@ RDEPENDS:${PN} += "\
     python3-aiohttp (>=3.7) \
     python3-certifi \
 "
-
-PYPI_PACKAGE = "crownstone_cloud"

@@ -12,5 +12,3 @@ DEPENDS = "python3-cffi-native"
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-cffi"
-
-PYPI_PACKAGE = "brotlicffi"

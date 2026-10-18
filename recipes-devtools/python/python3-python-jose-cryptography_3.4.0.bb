@@ -10,7 +10,6 @@ DEPENDS += "\
     python3-pytest-runner-native \
 "
 
-PYPI_PACKAGE = "python-jose"
 
 SRC_URI[sha256sum] = "9a9a40f418ced8ecaf7e3b28d69887ceaa76adad3bcaa6dae0d9e596fec1d680"
 

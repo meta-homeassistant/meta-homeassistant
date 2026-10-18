@@ -8,4 +8,4 @@ SRC_URI[sha256sum] = "122012db6eac9cedf8e52b7b044a05bf87cba54a0a87ff89c47c0b49da
 
 inherit pypi setuptools3
 
-PYPI_PACKAGE = "python-fullykiosk"
+PYPI_PACKAGE_SDIST = "python-fullykiosk"

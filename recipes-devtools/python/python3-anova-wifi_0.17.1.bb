@@ -7,6 +7,5 @@ SRC_URI[sha256sum] = "3db6d68214d8ad17268f4fc774b14490410a83671173c89d8e1e2705d2
 
 inherit pypi python_poetry_core
 
-PYPI_PACKAGE = "anova_wifi"
 
 RDEPENDS:${PN} = "python3-aiohttp (>=3.9.3)"

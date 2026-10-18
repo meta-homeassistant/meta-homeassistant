@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "cae041b40502600b8a633f43c257695d0222a94efa1e5110a7ec7ada78
 
 inherit pypi python_flit_core
 
-PYPI_PACKAGE = "sigstore_protobuf_specs"
 
 RDEPENDS:${PN} = "\
     python3-betterproto (=2.0.0b6) \

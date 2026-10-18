@@ -6,7 +6,10 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "de54afbd02250690f6565f229340d93a3a869929fea5fb4b2e121d0076b555f8"
 
-DEPENDS = "python3-aio-georss-client-native"
+DEPENDS = "\
+    python3-aio-georss-client-native \
+    python3-wheel-native \
+"
 
 inherit pypi setuptools3
 
@@ -14,5 +17,3 @@ RDEPENDS:${PN} += "\
     python3-dateutil (>=2.9.0) \
     python3-aio-georss-client \
 "
-
-PYPI_PACKAGE = "aio_georss_gdacs"

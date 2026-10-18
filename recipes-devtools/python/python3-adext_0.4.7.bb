@@ -11,5 +11,3 @@ inherit pypi setuptools3 ptest-python-pytest
 DEPENDS += "python3-setuptools-scm-native"
 
 RDEPENDS:${PN} += "python3-alarmdecoder"
-
-PYPI_PACKAGE = "adext"

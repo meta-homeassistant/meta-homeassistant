@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "dcb98c34aad7da34b22da8b6f7c6f9d5e1954725b9654d17c9f127badc
 
 inherit pypi python_poetry_core cython
 
-PYPI_PACKAGE = "bleak_esphome"
 
 RDEPENDS:${PN} += " \
     python3-aioesphomeapi (>=44.3.1) \

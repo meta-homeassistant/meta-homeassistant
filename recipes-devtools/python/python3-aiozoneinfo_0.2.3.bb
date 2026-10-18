@@ -8,5 +8,4 @@ SRC_URI[sha256sum] = "987ce2a7d5141f3f4c2e9d50606310d0bf60d688ad9f087aa7267433ba
 
 inherit pypi python_poetry_core
 
-PYPI_PACKAGE = "aiozoneinfo"
 RDEPENDS:${PN} = "python3-tzdata (>= 2024.1)"

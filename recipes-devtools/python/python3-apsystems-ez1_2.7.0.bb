@@ -7,5 +7,4 @@ SRC_URI[sha256sum] = "6d97959d487bce657bf4b296837197df09537eb406ad2f629d6063cf25
 
 inherit pypi python_poetry_core
 
-PYPI_PACKAGE = "apsystems_ez1"
 RDEPENDS:${PN} = "python3-aiohttp"

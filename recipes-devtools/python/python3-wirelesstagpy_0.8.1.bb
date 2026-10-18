@@ -13,5 +13,3 @@ SRC_URI[sha256sum] = "025f897c46f54b76b3fb0ca861f4176389edca96f0d49131732e2796c0
 inherit pypi setuptools3 ptest-python-pytest
 
 RDEPENDS:${PN} += "python3-requests (>=2.18.4)"
-
-PYPI_PACKAGE = "wirelesstagpy"

@@ -12,7 +12,6 @@ SRC_URI:append = " \
     file://run-ptest \
 "
 
-PYPI_PACKAGE = "aioairq"
 RDEPENDS:${PN} = "\
     python3-aiohttp \
     python3-pycryptodome \

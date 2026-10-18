@@ -13,5 +13,3 @@ RDEPENDS:${PN} += "\
     python3-grpcio \
     python3-protobuf (>=6.31.1) \
 "
-
-PYPI_PACKAGE = "grpcio_status"

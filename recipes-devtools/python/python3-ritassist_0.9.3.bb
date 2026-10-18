@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "d4908a59bfb799d4189cbdb9d0c97e905931e95025042ec52fa5dc4254
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-ciso8601 python3-geopy python3-requests python3-sseclient"
-
-PYPI_PACKAGE = "ritassist"

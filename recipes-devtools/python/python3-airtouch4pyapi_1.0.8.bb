@@ -8,5 +8,3 @@ SRC_URI[sha256sum] = "fdb3d17a467f0ef34a9ce7e04e38de41ba661ff65c1523fe1e406c8cbe
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-numpy"
-
-PYPI_PACKAGE = "airtouch4pyapi"

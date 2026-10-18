@@ -6,6 +6,6 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "96b6058eeac4c7598b5dcc3d4a9afc22f7d92397db56862dd905f9fe8a7a9aa1"
 
-inherit pypi python_setuptools_build_meta
+DEPENDS = "python3-wheel-native"
 
-PYPI_PACKAGE = "dropmqttapi"
+inherit pypi python_setuptools_build_meta

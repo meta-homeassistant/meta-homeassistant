@@ -8,4 +8,4 @@ SRC_URI[sha256sum] = "b61b8098951ccd3a4acbfc99b95a866372b77f28a6c363d6feb1a2ca2e
 
 inherit pypi setuptools3
 
-PYPI_PACKAGE = "python-gc100"
+PYPI_PACKAGE_SDIST = "python-gc100"

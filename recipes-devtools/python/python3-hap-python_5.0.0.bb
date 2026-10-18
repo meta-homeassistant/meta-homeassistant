@@ -26,5 +26,3 @@ RDEPENDS:${PN}-ptest += "\
     python3-pytest-timeout \
     python3-pyqrcode \
 "
-
-PYPI_PACKAGE = "hap_python"

@@ -17,5 +17,3 @@ RDEPENDS:${PN}-ptest += "\
     python3-pytest-asyncio \
 	python3-pytest-httpx \
 "
-
-PYPI_PACKAGE = "aioruuvigateway"

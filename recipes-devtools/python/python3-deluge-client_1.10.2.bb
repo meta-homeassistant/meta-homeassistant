@@ -8,4 +8,4 @@ SRC_URI[sha256sum] = "3881aee3c4e0ca9dd8a56b710047b837e1d087a83e421636a074771f92
 
 inherit pypi setuptools3
 
-PYPI_PACKAGE = "deluge-client"
+PYPI_PACKAGE_SDIST = "deluge-client"

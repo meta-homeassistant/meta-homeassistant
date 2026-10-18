@@ -9,11 +9,11 @@ SRC_URI += "file://0001-make-PEP-517-compatible.patch \
            "
 SRC_URI[sha256sum] = "967d003c81de4e8b7a143147f7e6872c2edccaed6ac6cc9c2719944d7b06526d"
 
+DEPENDS += "python3-wheel-native"
+
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "\
     python3-aiohttp (>=3.8.5) \
     python3-jmespath (>=1.0.0) \
 "
-
-PYPI_PACKAGE = "blebox_uniapi"

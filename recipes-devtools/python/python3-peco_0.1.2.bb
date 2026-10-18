@@ -12,5 +12,3 @@ RDEPENDS:${PN} += "\
     python3-aiohttp (>=3.9.5) \
     python3-pydantic (>=1.8) \
 "
-
-PYPI_PACKAGE = "peco"

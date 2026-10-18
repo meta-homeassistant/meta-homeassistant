@@ -7,5 +7,3 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "71100c5555a5cde1b312663499b9e57e0fdf9ab2f3ab877b16b18aabfe5e5d8a"
 
 inherit pypi setuptools3
-
-PYPI_PACKAGE = "pydanfossair"
