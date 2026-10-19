@@ -23,28 +23,28 @@
         {
             "label": "Test HomeAssistant Basic Tests",
             "type": "shell",
-            "command": "clear && bash ${cwd}/tests/test-basic-homeassistant.sh --source",
+            "command": "clear && bash ${cwd}/tests/image/test-basic-homeassistant.sh --source",
             "group": "test",
             "problemMatcher": []
         },
         {
             "label": "Test HomeAssistant Layer - All Packages",
             "type": "shell",
-            "command": "clear && bash ${cwd}/tests/test-all-layer-packages.sh --source",
+            "command": "clear && bash ${cwd}/tests/image/test-all-layer-packages.sh --source",
             "group": "test",
             "problemMatcher": []
         },
         {
             "label": "Test HomeAssistant Layer - Single Package",
             "type": "shell",
-            "command": "clear && bash ${cwd}/tests/test-single-layer-packages.sh --source ${input:package-name}",
+            "command": "clear && bash ${cwd}/tests/image/test-single-layer-packages.sh --source ${input:package-name}",
             "group": "test",
             "problemMatcher": []
         },
         {
             "label": "Test Plain Pytest Tests",
             "type": "shell",
-            "command": "clear && bash ${cwd}/tests/test-pytest-plain.sh --wrapper homeassistant-x86 --target core-image-homeassistant-full --package ${input:package-name}",
+            "command": "clear && bash ${cwd}/tests/image/test-pytest-plain.sh --wrapper homeassistant-x86 --target core-image-homeassistant-full --package ${input:package-name}",
             "group": "test",
             "problemMatcher": []
         }

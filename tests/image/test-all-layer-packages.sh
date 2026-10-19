@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# This tests a single layer packages which are in ptest-packagelists-meta-homeassistant.inc and enabled
+# This tests all layer packages which are in ptest-packagelists-meta-homeassistant.inc and enabled
 
 set -euo pipefail
 
@@ -11,21 +11,14 @@ if [ "$#" -ge 1 ] && [ "$1" = "--source" ]; then
     shift
 fi
 
-# Get the recipe name from the second parameter
-RECIPE_NAME="${1:-}"
-if [ -z "$RECIPE_NAME" ]; then
-    echo "Error: recipe name is required as a parameter"
-    echo "Usage: $0 [--source] <recipe-name>"
-    exit 1
-fi
 
 if [ "$SOURCE" = "yes" ]; then
     set +u
-    source "$(dirname "${BASH_SOURCE[0]}")/../bitbake-builds/homeassistant-x86/build/init-build-env"
+    source "$(dirname "${BASH_SOURCE[0]}")/../../bitbake-builds/homeassistant-x86/build/init-build-env"
     set -u
 fi
 
 # Enable the testing fragment, build the image, and disable the fragment again.
 bitbake-config-build enable-fragment homeassistant/enable-testing-base
-bitbake "meta-homeassistant-image-ptest-${RECIPE_NAME}"
+bitbake meta-homeassistant-image-ptest-all
 bitbake-config-build disable-fragment homeassistant/enable-testing-base

@@ -3,7 +3,7 @@ set -euo pipefail
 
 usage() {
     cat <<'EOF'
-Usage: tests/test-pytest-plain.sh --wrapper <wrapper> --target <image>
+Usage: tests/image/test-pytest-plain.sh --wrapper <wrapper> --target <image>
                                  (--package <package> | --ptest-dir <guest-path>)
                                  [--setup-dir <path>] [--machine <machine>]
                                  [--ssh-user <user>] [--ssh-port <port>]
@@ -11,12 +11,12 @@ Usage: tests/test-pytest-plain.sh --wrapper <wrapper> --target <image>
                                  [--runqemu-arg <arg>...]
 
 Legacy layer-local form remains available:
-    tests/test-pytest-plain.sh <package> [machine]
+    tests/image/test-pytest-plain.sh <package> [machine]
 EOF
 }
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LAYER_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+LAYER_ROOT="$(cd "${SCRIPT_DIR}/../.." && pwd)"
 WRAPPER=""
 TARGET=""
 PACKAGE=""
