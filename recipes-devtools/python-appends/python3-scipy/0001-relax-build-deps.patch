@@ -1,0 +1,32 @@
+From 570247b80c685644ebe47f17650b7ded28a7bdd2 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Sat, 17 Oct 2026 21:54:52 +0200
+Subject: [PATCH] relax build deps
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+
+Upstream-Status: Inappropriate [oe specific]
+---
+ pyproject.toml | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index e65b98e..cb2f379 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -20,13 +20,13 @@ requires = [
+     # The upper bound on meson-python is pre-emptive only; 0.18.0
+     # is working at the time of writing, and chance of breakage
+     # in 0.19/0.20 is low
+-    "meson-python>=0.15.0,<0.21.0",
++    "meson-python>=0.15.0",
+     # We need at least Cython 3.1.0 for free-threaded CPython;
+     # for other CPython versions, the regular pre-emptive
+     # Cython version bounds policy applies
+     "Cython>=3.0.8,<3.3.0",
+     # The upper bound on pybind11 is pre-emptive only
+-    "pybind11>=2.13.2,<3.1.0",
++    "pybind11>=2.13.2",
+     # The upper bound on pythran is pre-emptive only;
+     "pythran>=0.14.0,<0.19.0",
+ 
