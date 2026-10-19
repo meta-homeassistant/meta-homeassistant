@@ -44,8 +44,22 @@
         {
             "label": "Test Plain Pytest Tests",
             "type": "shell",
-            "command": "clear && bash ${cwd}/tests/image/test-pytest-plain.sh --wrapper homeassistant-x86 --target core-image-homeassistant-full --package ${input:package-name}",
+            "command": "clear && bash ${cwd}/tests/image/test-pytest-plain.sh --wrapper homeassistant-x86 --target core-image-homeassistant-full --package ${input:package-name} --no-default-runqemu-args --runqemu-arg slirp --runqemu-arg snapshot --runqemu-arg nographic",
             "group": "test",
+            "problemMatcher": []
+        },
+        {
+            "label": "Test HomeAssistant Offline Unit Tests",
+            "type": "shell",
+            "command": "\"${cwd}/.venv/bin/python\" -m unittest discover -s \"${cwd}/tests/unit\" -t \"${cwd}\"",
+            "group": "test",
+            "problemMatcher": []
+        },
+        {
+            "label": "Upgrade Home Assistant Release",
+            "type": "shell",
+            "command": "${workspaceFolder}/.venv/bin/python ${workspaceFolder}/scripts/upgrade_homeassistant.py --release ${input:ha-release} --layer-dir ${workspaceFolder} --setup-dir ${workspaceFolder}/bitbake-builds/homeassistant-x86 --wrapper homeassistant-x86 --target core-image-homeassistant-full --core-ptest-target core-image-homeassistant-full",
+            "group": "build",
             "problemMatcher": []
         }
     ],
@@ -54,6 +68,11 @@
             "id": "package-name",
             "type": "promptString",
             "description": "Enter the name of the package to test (e.g. 'python3-homeassistant')"
+        },
+        {
+            "id": "ha-release",
+            "type": "promptString",
+            "description": "Home Assistant Core release tag (for example 2026.3.1)"
         }
     ]
 }

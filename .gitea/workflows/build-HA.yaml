@@ -40,8 +40,9 @@ jobs:
       - name: Test CI scripts
         shell: bash
         run: |
-          python3 tests/scripts/test-ci-validation.py
-          python3 tests/scripts/test-github-status.py
+          python3 -m unittest \
+            tests.unit.test_ci_validation \
+            tests.unit.test_github_status
 
       - name: Plan and validate image
         shell: bash

@@ -79,7 +79,7 @@ class ValidationTests(unittest.TestCase):
         self.assertEqual(self.decision()["mode"], "skip")
 
     def test_unknown_and_test_paths_fail_closed(self):
-        for name in ("tests/image/test-pytest-plain.sh", "tests/scripts/test-ci-validation.py",
+        for name in ("tests/image/test-pytest-plain.sh", "tests/unit/test_ci_validation.py",
                      "dynamic-layers/x/test.bbappend",
                      "recipes-support/test.bbappend", "sources/bitbake", "unknown-file"):
             with self.subTest(path=name):
