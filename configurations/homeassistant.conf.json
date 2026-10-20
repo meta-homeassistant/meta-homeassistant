@@ -24,7 +24,7 @@
             "git-remote": {
                 "uri": "https://git.openembedded.org/meta-openembedded",
                 "branch": "wrynose",
-                "rev": "47d7dbdd10890bbd429bc0cccbe14435c37e5af1"
+                "rev": "f28a144aa0a0ae05ca2ee91e1aef6aa05f6a12db"
             }
         },
         "meta-python-ai": {
@@ -59,7 +59,7 @@
             "git-remote": {
                 "uri": "https://git.openembedded.org/openembedded-core",
                 "branch": "wrynose",
-                "rev": "0f03c732a0a2d0506b41b1abe60b3f368b2300dc"
+                "rev": "636e5d3b12d54951c13d57346648bc29a0e6b24e"
             }
         },
         "yocto-docs": {

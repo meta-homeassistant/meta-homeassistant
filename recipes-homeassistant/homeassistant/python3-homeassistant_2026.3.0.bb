@@ -139,6 +139,8 @@ RDEPENDS:${PN}-ptest = "\
     \
     bash \
     tzdata \
+    \
+    ${@bb.utils.contains('PACKAGECONFIG', 'integration-tests', 'python3-pytest-rerunfailures', '', d)} \
 "
 
 do_install_ptest() {
