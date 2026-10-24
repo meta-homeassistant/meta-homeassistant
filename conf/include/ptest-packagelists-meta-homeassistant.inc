@@ -33,6 +33,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-audioop-lts \
     python3-aurorapy \
     python3-automower-ble \
+    python3-axis \
     python3-bellows \
     python3-blinkpy \
     python3-bluecurrent-api \
@@ -97,7 +98,6 @@ PTEST_CURRENTLY_FAILS_META_HOMEASSISTANT = "\
     python3-aioconsole \
     python3-aiohttp-asyncmdnsresolver \
     python3-asyncstdlib \
-    python3-axis \
     python3-bimmer-connected \
     python3-bring-api \
     python3-pydaikin \
