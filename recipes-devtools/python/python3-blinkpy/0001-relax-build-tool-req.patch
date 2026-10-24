@@ -1,4 +1,4 @@
-From dd9325626dc8f2e16a2037d67e07b0e285052c0b Mon Sep 17 00:00:00 2001
+From d2eb90147be48e86d73bd52e1d3187fba2223c45 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Thu, 24 Jul 2025 19:05:53 +0200
 Subject: [PATCH] relax build tool req
@@ -10,7 +10,7 @@ Upstream-Status: Pending
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index 5763356..49bbdd2 100644
+index cadfb35..d6687be 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@
