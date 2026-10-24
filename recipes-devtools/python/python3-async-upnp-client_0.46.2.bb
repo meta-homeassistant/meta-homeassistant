@@ -7,7 +7,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 inherit python_setuptools_build_meta ptest-python-pytest
 
 SRC_URI = "git://github.com/StevenLooman/async_upnp_client.git;protocol=https;tag=${PV};branch=development"
-SRCREV = "2c2b9519a5bd208eb29bf3cbf05841fd3560c0e6"
+SRCREV = "7d76386da28c95178a3502cbb517063c99854da5"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.9.1) \
