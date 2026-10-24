@@ -40,6 +40,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-btsocket \
     python3-cookidoo-api \
     python3-crccheck \
+    python3-ddt \
     python3-denonavr \
     python3-doorbirdpy \
     python3-dsmr-parser \
