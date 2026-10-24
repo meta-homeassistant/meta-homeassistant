@@ -47,6 +47,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-denonavr \
     python3-doorbirdpy \
     python3-dsmr-parser \
+    python3-eheimdigital \
     python3-emoji \
     python3-fastuuid \
     python3-fjaraskupan \
@@ -151,7 +152,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-docker-py \
     python3-dulwich \
     python3-dynalite-devices \
-    python3-eheimdigital \
     python3-elkm1-lib \
     python3-elmax-api \
     python3-elvia \
