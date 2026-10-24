@@ -1,0 +1,25 @@
+From 309d678973c36526473967098af7e98c9b2a565f Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Sat, 24 Oct 2026 23:46:48 +0200
+Subject: [PATCH] Removes the unused event_loop fixture parameter from
+ api_mock_fixture.
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ tests/protocols/companion/test_companion_interface.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tests/protocols/companion/test_companion_interface.py b/tests/protocols/companion/test_companion_interface.py
+index 84b85dc..08ff9e6 100644
+--- a/tests/protocols/companion/test_companion_interface.py
++++ b/tests/protocols/companion/test_companion_interface.py
+@@ -25,7 +25,7 @@ class CompanionCoreMock:
+ 
+ 
+ @pytest.fixture(name="api_mock")
+-def api_mock_fixture(event_loop):
++def api_mock_fixture():
+     yield CompanionApiMock()
+ 
+ 
