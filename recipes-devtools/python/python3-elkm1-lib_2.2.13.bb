@@ -4,14 +4,19 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENCE;md5=34a0716df7fee7be0603abfdd3bf023c"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-DEPENDS = "python3-hatchling-native"
-SRC_URI[sha256sum] = "79aa1f71b9a7fe08c1dd012df3c8c52de0ad529b2dc62ceea0a28fd21973bae7"
+SRC_URI[sha256sum] = "5e7dbb7bf0951a39b013b3b87a4ae4edc879af47b7f75397fd2d32970566ab92"
 
 inherit pypi python_hatchling ptest-python-pytest
 
 RDEPENDS:${PN} += "python3-pyserial-asyncio-fast (>=0.11)"
 
 RDEPENDS:${PN}-ptest += "\
-    python3-asyncio \
     python3-attrs \
+    python3-pytest-asyncio \
 "
+
+PTEST_PYTEST_DIR = "test"
+
+do_install_ptest:append() {
+    install ${S}/pyproject.toml ${D}${PTEST_PATH}/
+}
