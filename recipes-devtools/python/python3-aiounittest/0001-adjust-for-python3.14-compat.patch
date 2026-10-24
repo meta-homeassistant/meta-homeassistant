@@ -1,0 +1,28 @@
+From 40ab31b117f45e540c556d86bd6b41998718eafe Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Sat, 24 Oct 2026 17:15:55 +0200
+Subject: [PATCH] adjust for python3.14 compat
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ tests/test_asynctestcase_get_event_loop.py | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/tests/test_asynctestcase_get_event_loop.py b/tests/test_asynctestcase_get_event_loop.py
+index 91736ef..10b0b85 100644
+--- a/tests/test_asynctestcase_get_event_loop.py
++++ b/tests/test_asynctestcase_get_event_loop.py
+@@ -27,7 +27,11 @@ async def async_nested_exc():
+ class TestAsyncCaseWithCustomLoop(aiounittest.AsyncTestCase):
+ 
+     def get_event_loop(self):
+-        self.my_loop = asyncio.get_event_loop()
++        try:
++            self.my_loop = asyncio.get_event_loop()
++        except RuntimeError:
++            self.my_loop = asyncio.new_event_loop()
++            asyncio.set_event_loop(self.my_loop)
+         return self.my_loop
+ 
+     async def test_await_async_add(self):

@@ -17,6 +17,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-aiorun \
     python3-aioruuvigateway \
     python3-aioshelly \
+    python3-aiounittest \
     python3-aiousbwatcher \
     python3-airos \
     python3-alarmdecoder \
