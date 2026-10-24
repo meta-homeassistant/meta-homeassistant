@@ -58,6 +58,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-ical \
     python3-icalendar-searcher \
     python3-looptime \
+    python3-matter-python-client \
     python3-mcp \
     python3-mistune \
     python3-openapi-schema-validator \
