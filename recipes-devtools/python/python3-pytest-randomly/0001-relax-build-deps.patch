@@ -1,0 +1,23 @@
+From 6893d80302e642c7d09279be7a57a17639743bdf Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Sun, 25 Oct 2026 00:10:20 +0200
+Subject: [PATCH] relax build deps
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ pyproject.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index 01ea82b..8b51b83 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,6 +1,6 @@
+ [build-system]
+ build-backend = "uv_build"
+-requires = ["uv-build>=0.12.1,<0.13"]
++requires = ["uv-build>=0.12.1"]
+ 
+ [project]
+ name = "pytest-randomly"
