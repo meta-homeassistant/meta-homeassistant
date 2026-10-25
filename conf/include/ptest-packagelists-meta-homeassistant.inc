@@ -69,6 +69,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-pytibber \
     python3-requirements-parser \
     python3-securetar \
+    python3-serialx \
     python3-uart-devices \
     python3-uuid7 \
     python3-wassima \
