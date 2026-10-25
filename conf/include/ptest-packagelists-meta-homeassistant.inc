@@ -64,6 +64,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-openapi-schema-validator \
     python3-pyegps \
     python3-pyfritzhome \
+    python3-pylint-per-file-ignores \
     python3-pyswitchbot \
     python3-pytest-datadir \
     python3-pytest-fixture-classes \
