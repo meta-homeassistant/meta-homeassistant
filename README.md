@@ -1,141 +1,98 @@
-This README file contains information on the contents of the
-homeassistant layer. It contains recipes to run https://home-assistant.io/
-on a OE target.
+# Meta-Homeassistant
 
-If you need help or like to discuss a topic please join the [`#meta-homeassistant:matrix.org`](https://matrix.to/#/#meta-homeassistant:matrix.org) room on [matrix.org](https://matrix.org/).
+This layer adds the software recipes and image definitions needed to build [Home Assistant](https://www.home-assistant.io/) for an OpenEmbedded/Yocto Linux system. It is not a prebuilt operating system: you use a Yocto build to combine this layer with the selected machine, distro, and other required layers.
 
-Please see the corresponding sections below for details.
+For help or discussion, join the [`#meta-homeassistant:matrix.org`](https://matrix.to/#/#meta-homeassistant:matrix.org) room.
 
-# Quickstart (manual)
+## Documentation
 
-```sh
+- [Build setup](docs/build-setup.md): set up a build with the recommended `bitbake-setup` workflow.
+- [Testing](docs/testing.md): run image checks and packaged tests (ptests).
+- [Core upgrade workflow](docs/core-upgrade.md): update and validate the recipe for a specific Home Assistant Core release.
 
-mkdir layers/
-git clone https://git.openembedded.org/bitbake ./layers/bitbake
-git clone https://git.openembedded.org/openembedded-core ./layers/openembedded-core
-git clone https://git.yoctoproject.org/meta-yocto ./layers/meta-yocto
+## Quick start
 
-git clone https://github.com/openembedded/meta-openembedded.git ./layers/meta-openembedded
-git clone https://github.com/meta-homeassistant/meta-homeassistant.git ./layers/meta-homeassistant
-git clone https://github.com/zboszor/meta-python-ai.git ./layers/meta-python-ai
-git clone https://github.com/priv-kweihmann/meta-sca.git ./layers/meta-sca
-git clone https://git.yoctoproject.org/meta-virtualization ./layers/meta-virtualization
-
-. ./oe-init-build-env
-
-bitbake-layers add-layer ../meta-openembedded/meta-oe
-bitbake-layers add-layer ../meta-openembedded/meta-python
-bitbake-layers add-layer ../meta-openembedded/meta-networking
-bitbake-layers add-layer ../meta-openembedded/meta-multimedia
-bitbake-layers add-layer ../meta-openembedded/meta-filesystems
-bitbake-layers add-layer ../meta-python-ai
-bitbake-layers add-layer ../meta-clang-revival
-bitbake-layers add-layer ../meta-sca
-bitbake-layers add-layer ../meta-virtualization
-bitbake-layers add-layer ../meta-homeassistant
-
-bitbake core-image-homeassistant
-
-runqemu nographic
-
-```
-
-You should now be able to access Home Assistant via web browser usually under the address: http://192.168.7.2:8123
-
-# Using [kas](https://github.com/siemens/kas)
-
-The project provides files to quickly get started using [kas](https://github.com/siemens/kas).
-
-The two main entry points are `kas/homeassistant-main.yml` and `kas/homeassistant-main-full.yml`.
-
-To build against latest Yocto master use:
+Install the [Yocto host build requirements](https://docs.yoctoproject.org/ref-manual/system-requirements.html)
+and make sure the BitBake checkout is available at `sources/bitbake`. From
+the root of this layer checkout, initialize the supplied x86 build:
 
 ```sh
-kas build kas/homeassistant-main.yml
+sources/bitbake/bin/bitbake-setup init \
+    configurations/homeassistant.conf.json homeassistant-x86
 ```
 
-## Updating lock file
-
-The dependencies are locked to a given version. In order to update the layers run:
+Then build the full Home Assistant image for QEMU:
 
 ```sh
-kas lock --update kas/homeassistant-main.yml
+source bitbake-builds/homeassistant-x86/build/init-build-env
+bitbake core-image-homeassistant-full
 ```
 
-# Dependencies
+See [Build setup](docs/build-setup.md) for details, including how to start
+the image in QEMU. The kas-based setup is deprecated; existing kas
+configurations remain available for legacy builds.
 
-```sh
-URI: https://git.yoctoproject.org/git/poky
-branch: master
-revision: HEAD
+## Automation and testing
 
-URI: https://github.com/openembedded/meta-openembedded
-branch: master
-revision: HEAD
+Choose the task set for the checkout that owns the build:
 
-URI: https://github.com/zboszor/meta-python-ai
-branch: master
-revision: HEAD
+- For a standalone layer build, use the task shortcuts in the layer's
+  `.vscode/tasks.json` or run the scripts below from the layer root.
+- When the layer is included in another Yocto project, use that project's
+  test runner and build tasks. Its helper supplies machine-specific QEMU
+  settings, such as WIC and OVMF for x86 UEFI. The [testing guide](docs/testing.md)
+  lists the corresponding integrated-project tasks and commands.
 
-URI: https://github.com/zboszor/meta-clang-revival
-branch: main
-revision: HEAD
+### Standalone layer commands
 
-URI: https://github.com/priv-kweihmann/meta-sca
-branch: master
-revision: HEAD
+| Goal | Command |
+|---|---|
+| Initialize the supplied build | VS Code task `Bitbake Setup - Init HomeAssistant` |
+| Build the full image | VS Code task `Build HomeAssistant Target` |
+| Run the full image in QEMU | VS Code task `Run HomeAssistant QEMU Image` |
+| Run base image checks | `bash tests/image/test-basic-homeassistant.sh --source` |
+| Test one listed dependency's ptest | `bash tests/image/test-single-layer-packages.sh --source python3-accuweather` |
+| Test all listed dependency ptests | `bash tests/image/test-all-layer-packages.sh --source` |
+| Run the Core upgrade workflow | VS Code task `Upgrade Home Assistant Release`; see [Core upgrade workflow](docs/core-upgrade.md) for the command-line form. |
 
-URI: https://git.yoctoproject.org/meta-virtualization
-branch: master
-revision: HEAD
-```
+The layer's `Test Plain Pytest Tests` task and
+[`tests/image/test-pytest-plain.sh`](tests/image/test-pytest-plain.sh) run a
+package ptest over SSH in an existing image. See
+[testing](docs/testing.md#run-home-assistant-cores-ptest) for image setup and
+the invocation.
 
-Why are these needed?
+[`scripts/upgrade_homeassistant.py`](docs/core-upgrade.md) is the supported
+release-upgrade workflow. It compares a selected Core release with layer
+metadata and writes a report for review; it does not automatically edit
+integration metadata. `scripts/integration_inventory.py` provides the
+comparison used by the workflow. The CI validator and status action run in
+the repository's Gitea workflow, not as general local build commands.
 
-- [meta-oe](https://github.com/openembedded/meta-openembedded/tree/master/meta-oe) : contains meta-python
-- [meta-python](https://github.com/openembedded/meta-openembedded/tree/master/meta-python) : contains many of the required python3 packages
-- [meta-networking](https://github.com/openembedded/meta-openembedded/tree/master/meta-networking) : contains several networking oriented python3 packages
-- [meta-multimedia](https://github.com/openembedded/meta-openembedded/tree/master/meta-multimedia) : contains several multimedia recipes for integrations.
-- [meta-filesystems](https://github.com/openembedded/meta-openembedded/tree/master/meta-filesystems) : contains needed recipes for filesystem related integrations
-- [meta-python-ai](https://github.com/zboszor/meta-python-ai) : contains several python recipes needed (such as python3-scipy)
-- [meta-clang-revival](https://github.com/zboszor/meta-clang-revival) : needed for meta-python-ai.
-- [meta-virtualization](https://git.yoctoproject.org/meta-virtualization) : needed for meta-python-ai.
-- [meta-sca](https://github.com/priv-kweihmann/meta-sca) : has several `native` packages which are needed for compiling integrations.
+`scripts/` contains maintenance and CI tools, `tests/image/` contains
+image/QEMU test helpers, and `tests/unit/` contains all offline Python unit
+tests. The [testing guide](docs/testing.md) maps these files to their purpose
+and explains which helpers are suitable when this layer is embedded in
+another project.
 
-Note: HomeAssistant regularly uses the very latest versions of python packages in their builds. This also means that from a Yocto/OE perspective the team is forced to keep track of master as the very latest pushes to the dependency layers are often required for succesfull builds and satisfying dependency requirements. Therefore this repository tracks the upstream master branch and currently no older releases of Yocto are specifically supported.
+## Layer structure
 
-# Build configuration
+- `recipes-homeassistant/`: Home Assistant Core, integration, and image recipes.
+- `recipes-devtools/`: Python library recipes required by Home Assistant and its integrations.
+- `recipes-support/`: supporting software recipes used by this layer.
+- `conf/`: layer, distro, and machine configuration, plus build fragments.
+- `classes/`: BitBake classes shared by recipes in this layer.
+- `dynamic-layers/`: optional recipe extensions activated when other layers are present.
+- `configurations/`: `bitbake-setup` build configurations.
+- `kas/`: deprecated build configurations retained for existing users.
+- `docs/`: build setup, testing, and Core upgrade guides.
+- `scripts/`: Core upgrade, component-metadata, and CI tools.
+- `tests/image/`: image runtime and package-ptest helpers.
+- `tests/unit/`: offline Python unit tests for layer tools and CI helpers.
+- `.vscode/tasks.json`: standalone-layer build and test task shortcuts.
 
-Home Assistant requires specific versions of some of its python dependencies. The recipe makes sure those dependencies are satisfied at root filesystem generation time but that doesn't give any gurantees that `bitbake` will pick a version that satisfies the version restriction in `RDEPENDS`. In order for the build to select the right versions, your distro file should include the version selection in `conf/distro/include/ha-versions.inc` when you are building `python3-homeassistant`. A sample distro (that can also be used as such, is provided - see `homeassistant.conf`).
+## Contributing
 
-Also to note is that packages in HomeAssistant update very rapidly. This means that, in order to properly build this, the project is up to date with the layer branches on which this layer depends.
-All missing recipes are backported into this layer to ensure functionality from meta-openembedded and poky.
-
-# Configuring HA
-
-Note that with `python3-homeassistant.bb` only the critical components are directly installed via `RDEPENDS`.
-Any optional component is installed via `RRECOMMENDS`.
-So if you are missing something you can enforce it by specifically adding it to an `IMAGE_INSTALL`.
-
-# Layer structure
-
-The layer is structured in the following way:
-
-- kas: contains all kas configuration.
-- recipes-homeassistant/homeassistant: contains the core recipe needed to run homeassistant via Yocto
-- recipes-homeassistant/images: contains sample images to build
-- recipes-devtools: contains all Yocto python recipes which are needed for all the supported integrations.
-- recipes-support: contains append files needed for particular integrations.
-- scripts: convenience scripts for easier upgrades between versions.
-
-# Testing
-
-Ptest support is provided for homeassistant and all currently supported integrations. The list can be seen in `integrations-test.inc`.
-Homeassistant is tested with qemux86-64 architecture to see if all ptest pass before upgrading versions.
-
-# Contributing
-
-Please submit any patches against meta-homeassistant as Pull Requests on Github.
+Please submit patches as pull requests on GitHub.
 
 ## Maintainers
 
