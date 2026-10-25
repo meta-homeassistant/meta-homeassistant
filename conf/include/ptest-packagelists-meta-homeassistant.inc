@@ -65,6 +65,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-pyegps \
     python3-pyfritzhome \
     python3-pyswitchbot \
+    python3-pytest-datadir \
     python3-pytest-httpbin \
     python3-pytibber \
     python3-requirements-parser \
