@@ -1,0 +1,170 @@
+From 94cf8cce01981e9e07d08d1d7be965d84aaf9f6f Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Mon, 26 Oct 2026 19:08:09 +0100
+Subject: [PATCH] Fix homeassistant ptest timer cleanup
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ homeassistant/components/brands/__init__.py |  4 +++-
+ homeassistant/components/sun/__init__.py    |  1 +
+ tests/conftest.py                           | 20 +++++++++++---------
+ tests/helpers/test_debounce.py              |  7 +++++++
+ tests/helpers/test_update_coordinator.py    |  2 ++
+ 5 files changed, 24 insertions(+), 10 deletions(-)
+
+diff --git a/homeassistant/components/brands/__init__.py b/homeassistant/components/brands/__init__.py
+index 0cfe254904f..e6cf7b9112f 100644
+--- a/homeassistant/components/brands/__init__.py
++++ b/homeassistant/components/brands/__init__.py
+@@ -52,7 +52,9 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
+         """Rotate the access token."""
+         access_tokens.append(hex(_RND.getrandbits(256))[2:])
+ 
+-    async_track_time_interval(hass, _rotate_token, TOKEN_CHANGE_INTERVAL)
++    async_track_time_interval(
++        hass, _rotate_token, TOKEN_CHANGE_INTERVAL, cancel_on_shutdown=True
++    )
+ 
+     hass.http.register_view(BrandsIntegrationView(hass))
+     hass.http.register_view(BrandsHardwareView(hass))
+diff --git a/homeassistant/components/sun/__init__.py b/homeassistant/components/sun/__init__.py
+index 0faa1db379d..182aa31206b 100644
+--- a/homeassistant/components/sun/__init__.py
++++ b/homeassistant/components/sun/__init__.py
+@@ -54,6 +54,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: SunConfigEntry) -> bool:
+     """Set up from a config entry."""
+     sun = Sun(hass)
+     component = EntityComponent[Sun](_LOGGER, DOMAIN, hass)
++    component.register_shutdown()
+     await component.async_add_entities([sun])
+     entry.runtime_data = sun
+     entry.async_on_unload(sun.remove_listeners)
+diff --git a/tests/conftest.py b/tests/conftest.py
+index 87973ce23d9..c531c0bd07d 100644
+--- a/tests/conftest.py
++++ b/tests/conftest.py
+@@ -333,24 +333,24 @@ def long_repr_strings() -> Generator[None]:
+         arepr.maxother = original_maxother
+ 
+ 
+-@pytest.fixture(autouse=True)
+-def enable_event_loop_debug() -> None:
++@pytest_asyncio.fixture(autouse=True, loop_scope="function")
++async def enable_event_loop_debug() -> None:
+     """Enable event loop debug mode."""
+-    asyncio.get_event_loop().set_debug(True)
++    asyncio.get_running_loop().set_debug(True)
+ 
+ 
+-@pytest.fixture(autouse=True)
+-def verify_cleanup(
++@pytest_asyncio.fixture(autouse=True, loop_scope="function")
++async def verify_cleanup(
+     expected_lingering_tasks: bool,
+     expected_lingering_timers: bool,
+-) -> Generator[None]:
++) -> AsyncGenerator[None]:
+     """Verify that the test has cleaned up resources correctly."""
+-    event_loop = asyncio.get_event_loop()
++    event_loop = asyncio.get_running_loop()
+     threads_before = frozenset(threading.enumerate())
+     tasks_before = asyncio.all_tasks(event_loop)
+     yield
+ 
+-    event_loop.run_until_complete(event_loop.shutdown_default_executor())
++    await event_loop.shutdown_default_executor()
+ 
+     if len(INSTANCES) >= 2:
+         count = len(INSTANCES)
+@@ -361,6 +361,8 @@ def verify_cleanup(
+     # Warn and clean-up lingering tasks and timers
+     # before moving on to the next test.
+     tasks = asyncio.all_tasks(event_loop) - tasks_before
++    if current_task := asyncio.current_task(event_loop):
++        tasks.discard(current_task)
+     for task in tasks:
+         if expected_lingering_tasks:
+             _LOGGER.warning("Lingering task after test %r", task)
+@@ -368,7 +370,7 @@ def verify_cleanup(
+             pytest.fail(f"Lingering task after test {task!r}")
+         task.cancel()
+     if tasks:
+-        event_loop.run_until_complete(asyncio.wait(tasks))
++        await asyncio.wait(tasks)
+ 
+     for handle in get_scheduled_timer_handles(event_loop):
+         if not handle.cancelled():
+diff --git a/tests/helpers/test_debounce.py b/tests/helpers/test_debounce.py
+index 55c03aa630a..612d3a8692c 100644
+--- a/tests/helpers/test_debounce.py
++++ b/tests/helpers/test_debounce.py
+@@ -69,6 +69,7 @@ async def test_immediate_works(hass: HomeAssistant) -> None:
+     assert debouncer._execute_at_end_of_timer is True
+     debouncer._execute_lock.release()
+     assert debouncer._job.target == debouncer.function
++    debouncer.async_shutdown()
+ 
+ 
+ async def test_immediate_works_with_schedule_call(hass: HomeAssistant) -> None:
+@@ -127,6 +128,7 @@ async def test_immediate_works_with_schedule_call(hass: HomeAssistant) -> None:
+     assert debouncer._execute_at_end_of_timer is True
+     debouncer._execute_lock.release()
+     assert debouncer._job.target == debouncer.function
++    debouncer.async_shutdown()
+ 
+ 
+ async def test_immediate_works_with_callback_function(hass: HomeAssistant) -> None:
+@@ -233,6 +235,7 @@ async def test_immediate_works_with_passed_callback_function_raises(
+     assert debouncer._execute_at_end_of_timer is True
+     debouncer._execute_lock.release()
+     assert debouncer._job.target == debouncer.function
++    debouncer.async_shutdown()
+ 
+ 
+ async def test_immediate_works_with_passed_coroutine_raises(
+@@ -296,6 +299,7 @@ async def test_immediate_works_with_passed_coroutine_raises(
+     assert debouncer._execute_at_end_of_timer is True
+     debouncer._execute_lock.release()
+     assert debouncer._job.target == debouncer.function
++    debouncer.async_shutdown()
+ 
+ 
+ async def test_not_immediate_works(hass: HomeAssistant) -> None:
+@@ -347,6 +351,7 @@ async def test_not_immediate_works(hass: HomeAssistant) -> None:
+     assert debouncer._execute_at_end_of_timer is True
+     debouncer._execute_lock.release()
+     assert debouncer._job.target == debouncer.function
++    debouncer.async_shutdown()
+ 
+ 
+ async def test_not_immediate_works_schedule_call(hass: HomeAssistant) -> None:
+@@ -402,6 +407,7 @@ async def test_not_immediate_works_schedule_call(hass: HomeAssistant) -> None:
+     assert debouncer._execute_at_end_of_timer is True
+     debouncer._execute_lock.release()
+     assert debouncer._job.target == debouncer.function
++    debouncer.async_shutdown()
+ 
+ 
+ async def test_immediate_works_with_function_swapped(hass: HomeAssistant) -> None:
+@@ -464,6 +470,7 @@ async def test_immediate_works_with_function_swapped(hass: HomeAssistant) -> Non
+     assert debouncer._execute_at_end_of_timer is True
+     debouncer._execute_lock.release()
+     assert debouncer._job.target == debouncer.function
++    debouncer.async_shutdown()
+ 
+ 
+ async def test_shutdown(hass: HomeAssistant, caplog: pytest.LogCaptureFixture) -> None:
+diff --git a/tests/helpers/test_update_coordinator.py b/tests/helpers/test_update_coordinator.py
+index 77a3c90ee0e..1127d5cc646 100644
+--- a/tests/helpers/test_update_coordinator.py
++++ b/tests/helpers/test_update_coordinator.py
+@@ -577,6 +577,8 @@ async def test_update_locks(
+ 
+     # Unblock queued update
+     block.set()
++    await hass.async_block_till_done()
++    await crd.async_shutdown()
+ 
+ 
+ async def test_refresh_recover(

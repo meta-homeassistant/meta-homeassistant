@@ -17,8 +17,11 @@ SRC_URI = "git://github.com/home-assistant/core.git;protocol=https;branch=master
            file://0002-skip-unsupported-installation-method-test.patch \
            file://0003-repair-test_set_scan_interval_via_config.patch \
            file://0004-repair-test_platform_warn_slow_setup.patch \
+           file://0005-Stabilize-corrupt-storage-JSON-assertion.patch \
+           file://0006-Fix-homeassistant-ptest-timer-cleanup.patch \
+           file://0001-disable-flaky-test.patch \
            "
-SRCREV = "2f9faa53a110f6acaf3b0e2216573bdf2a957388"
+SRCREV = "f552b8221f0008a3298c8a73bff21a8330b55f9c"
 
 inherit python_setuptools_build_meta useradd systemd ptest-python-pytest
 
@@ -55,91 +58,91 @@ do_install:append () {
 # Home Assistant core
 # Home Assistant contains thousands of integrations.
 # at https://www.home-assistant.io/integrations/
-require recipes-homeassistant/homeassistant/python3-homeassistant/integrations.inc
-require recipes-homeassistant/homeassistant/python3-homeassistant/integrations-tests.inc
-
+require ${THISDIR}/python3-homeassistant/integrations.inc
+require ${THISDIR}/python3-homeassistant/integrations-tests.inc
 RDEPENDS:${PN} += "\
     python3-aiodns (>=4.0.0) \
+    python3-aiogithubapi (>=26.0.0) \
     python3-aiohasupervisor (>=0.3.3) \
-    python3-aiohttp (>=3.12.15) \
-    python3-aiohttp-cors (=0.8.1) \
-    python3-aiohttp-fast-zlib (=0.3.0) \
-    python3-aiohttp-asyncmdnsresolver (=0.1.1) \
-    python3-aiozoneinfo (=0.2.3) \
-    python3-annotatedyaml (>=0.4.5) \
-    python3-astral (=2.2) \
-    python3-async-interrupt (=1.2.2) \
-    python3-attrs (>=25.3.0) \
-    python3-atomicwrites-homeassistant (=1.4.1) \
-    python3-audioop-lts (=0.2.1) \
-    python3-awesomeversion (>=25.5.0) \
-    python3-bcrypt (>=4.3.0) \
+    python3-aiohttp (>=3.13.3) \
+    python3-aiohttp-asyncmdnsresolver (>=0.1.1) \
+    python3-aiohttp-cors (>=0.8.1) \
+    python3-aiohttp-fast-zlib (>=0.3.0) \
+    python3-aiozoneinfo (>=0.2.3) \
+    python3-annotatedyaml (>=1.0.2) \
+    python3-astral (>=2.2) \
+    python3-async-interrupt (>=1.2.2) \
+    python3-atomicwrites-homeassistant (>=1.4.1) \
+    python3-attrs (>=25.4.0) \
+    python3-audioop-lts (>=0.2.1) \
+    python3-awesomeversion (>=25.8.0) \
+    python3-bcrypt (>=5.0.0) \
     python3-certifi (>=2021.5.30) \
-    python3-ciso8601 (>=2.3.2) \
+    python3-ciso8601 (>=2.3.3) \
+    python3-core (>=3.14.2) \
     python3-cronsim (>=2.7) \
+    python3-cryptography (>=46.0.5) \
     python3-fnv-hash-fast (>=1.6.0) \
     python3-hass-nabucasa (>=1.15.0) \
-    python3-httpx (>=0.28.1) \
     python3-home-assistant-bluetooth (>=1.13.1) \
-    python3-ifaddr (=0.2.0) \
+    python3-httpx (>=0.28.1) \
+    python3-ifaddr (>=0.2.0) \
     python3-jinja2 (>=3.1.6) \
     python3-lru-dict (>=1.3.0) \
-    python3-pyjwt (>=2.10.1) \
-    python3-cryptography (>=45.0.3) \
-    python3-pillow (>=12.1.1) \
-    python3-propcache (>=0.3.2) \
-    python3-pyopenssl (>=25.3.0) \
     python3-orjson (>=3.11.5) \
     python3-packaging (>=23.1) \
-    python3-psutil-home-assistant (=0.0.1) \
-    python3-python-slugify (=8.0.4) \
-    python3-pyyaml (>=6.0.2) \
-    python3-requests (>=2.32.4) \
-    python3-securetar (=2026.2.0) \
+    python3-pillow (>=12.1.1) \
+    python3-propcache (>=0.4.1) \
+    python3-psutil-home-assistant (>=0.0.1) \
+    python3-pyjwt (>=2.10.1) \
+    python3-pyopenssl (>=25.3.0) \
+    python3-python-slugify (>=8.0.4) \
+    python3-pyyaml (>=6.0.3) \
+    python3-requests (>=2.32.5) \
+    python3-securetar (>=2026.2.0) \
     python3-sqlalchemy (>=2.0.41) \
-    python3-standard-aifc (=3.13.0) \
-    python3-standard-telnetlib (=3.13.0) \
+    python3-standard-aifc (>=3.13.0) \
+    python3-standard-telnetlib (>=3.13.0) \
+    python3-statistics \
     python3-typing-extensions (>=4.15.0) \
     python3-ulid-transform (>=1.5.2) \
     python3-urllib3 (>=2.0) \
-    python3-voluptuous (=0.15.2) \
-    python3-voluptuous-serialize (=2.7.0) \
-    python3-voluptuous-openapi (>=0.2.0) \
-    python3-yarl (>=1.20.1) \
-    python3-webrtc-models (>=0.3.0) \
-    python3-zeroconf (>=0.148.0) \
     python3-uv (>=0.10.6) \
-    python3-statistics \
-    python3-core (>=3.13.0) \
+    python3-voluptuous (>=0.15.2) \
+    python3-voluptuous-openapi (>=0.2.0) \
+    python3-voluptuous-serialize (>=2.7.0) \
+    python3-webrtc-models (>=0.3.0) \
+    python3-yarl (>=1.22.0) \
+    python3-zeroconf (>=0.148.0) \
 "
 
 RDEPENDS:${PN}-ptest = "\
-    python3-astroid (>=3.3.11) \
-    python3-coverage (>=7.10.0) \
+    python3-astroid (>=4.0.4) \
+    python3-coverage (>=7.10.6) \
     python3-freezegun (>=1.5.2) \
-    python3-go2rtc-client (>=0.4.0) \
+    python3-go2rtc-client \
     python3-license-expression (>=30.4.3) \
     python3-mock-open (>=1.4.0) \
-    python3-pydantic (>=2.11.7) \
-    python3-pylint (>=3.3.8) \
+    python3-pydantic (>=2.12.2) \
+    python3-pylint (>=4.0.5) \
+    python3-pylint-per-file-ignores (>=1.4.0) \
     python3-pytest-aiohttp (>=1.1.0) \
-    python3-pytest-asyncio (>=1.1.0) \
-    python3-pytest-cov (>=6.2.1) \
+    python3-pytest-asyncio (>=1.3.0) \
+    python3-pytest-cov (>=7.0.0) \
     python3-pytest-freezer (>=0.4.9) \
+    python3-pytest-picked (>=0.5.1) \
     python3-pytest-socket (>=0.7.0) \
     python3-pytest-sugar (>=1.0.0) \
     python3-pytest-timeout (>=2.4.0) \
     python3-pytest-unordered (>=0.7.0) \
-    python3-pytest-picked (>=0.5.1) \
     python3-pytest-xdist (>=3.8.0) \
     python3-requests-mock (>=1.12.1) \
     python3-respx (>=0.22.0) \
-    python3-syrupy (>=4.9.1) \
+    python3-syrupy (>=5.0.0) \
     python3-tqdm (>=4.67.1) \
-    \
+    python3-wakeonlan (>=3.1.0) \
     bash \
     tzdata \
-    \
     ${@bb.utils.contains('PACKAGECONFIG', 'integration-tests', 'python3-pytest-rerunfailures', '', d)} \
 "
 

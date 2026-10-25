@@ -1,11 +1,11 @@
-From 3323d390f51ead9d0fb1d96e2898bd66fb3bd0f1 Mon Sep 17 00:00:00 2001
+From b24a1ac0ea3f1bb0c7d7413d59e0f98e370cf97f Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Sun, 7 Jun 2026 22:18:33 +0200
 Subject: [PATCH] repair test_set_scan_interval_via_config
 
-We are running tests with python 3.12 which has a change in the behavior of unittest.mock 
-that causes the test to fail when it tries to access call_args[0][0] on a call that was made with keyword 
-arguments instead of positional arguments. 
+We are running tests with python 3.12 which has a change in the behavior of unittest.mock
+that causes the test to fail when it tries to access call_args[0][0] on a call that was made with keyword
+arguments instead of positional arguments.
 This patch updates the test to check for the presence of the expected scan_interval in the registered platforms instead of relying on the call_args of the mock.
 
 Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
