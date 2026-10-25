@@ -67,6 +67,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-mistune \
     python3-openapi-schema-validator \
     python3-pyatv \
+    python3-pydexcom \
     python3-pyegps \
     python3-pyfritzhome \
     python3-pylint-per-file-ignores \
@@ -222,7 +223,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-pyaussiebb \
     python3-pydantic-settings \
     python3-pydeconz \
-    python3-pydexcom \
     python3-pyemoncms \
     python3-pyfibaro \
     python3-pyflume \
