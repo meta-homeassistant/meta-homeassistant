@@ -1,0 +1,25 @@
+From: Copilot <223556219+Copilot@users.noreply.github.com>
+Subject: [PATCH] Support ClientResponse stream_writer argument
+
+aiohttp 3.14 requires a stream writer when constructing ClientResponse.
+Mock its output size for completed requests, while retaining compatibility
+with older aiohttp versions that do not accept this argument.
+
+Upstream-Status: Pending
+Signed-off-by: Copilot <223556219+Copilot@users.noreply.github.com>
+---
+ aioresponses/core.py | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/aioresponses/core.py b/aioresponses/core.py
+--- a/aioresponses/core.py
++++ b/aioresponses/core.py
+@@ -188,6 +188,8 @@ class RequestMatch(object):
+         kwargs['traces'] = []
+         kwargs['loop'] = loop
+         kwargs['session'] = None
++        if 'stream_writer' in inspect.signature(ClientResponse).parameters:
++            kwargs['stream_writer'] = Mock(output_size=0)
+ 
+         # We need to initialize headers manually
+         _headers = CIMultiDict({hdrs.CONTENT_TYPE: content_type})
