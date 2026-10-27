@@ -9,3 +9,5 @@ SRC_URI[sha256sum] = "3970f8570ac54491237bcdb3d8ab5e3eef6c057df29f8c3d1151a51a9c
 inherit pypi setuptools3 ptest-python-pytest
 
 RDEPENDS:${PN} += "python3-click"
+
+PYPI_PACKAGE_SDIST = "click-log"

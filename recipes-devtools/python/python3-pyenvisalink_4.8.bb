@@ -7,5 +7,3 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "22060e947d2662a8512d33b731c040b2d0a1a98587424c2e3953cbf2029d713a"
 
 inherit pypi setuptools3
-
-PYPI_PACKAGE = "pyenvisalink"

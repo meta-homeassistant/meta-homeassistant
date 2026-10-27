@@ -24,5 +24,3 @@ RDEPENDS:${PN}-ptest += "\
     python3-pytest-cov \
     python3-aresponses \
 "
-
-PYPI_PACKAGE = "pydaikin"

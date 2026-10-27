@@ -8,5 +8,4 @@ SRC_URI[sha256sum] = "078654bd258af18558665ec62f4bc19d15b12c99c883fd55328192b415
 
 inherit pypi python_poetry_core
 
-PYPI_PACKAGE = "electrickiwi_api"
 RDEPENDS:${PN} = "python3-aiohttp (>=3.8.1)"

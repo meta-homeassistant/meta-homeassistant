@@ -10,7 +10,6 @@ DEPENDS += "python3-poetry-dynamic-versioning-native"
 
 inherit pypi python_poetry_core
 
-PYPI_PACKAGE = "webexpythonsdk"
 
 RDEPENDS:${PN} = "\
     python3-requests (>=2.32.3) \

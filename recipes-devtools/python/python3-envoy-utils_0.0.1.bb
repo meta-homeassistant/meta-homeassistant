@@ -8,5 +8,3 @@ SRC_URI[sha256sum] = "0cc435b2b9a8c2a664530c85bfd108e4bd7500079aa1bb93a69628314d
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-zeroconf"
-
-PYPI_PACKAGE = "envoy_utils"

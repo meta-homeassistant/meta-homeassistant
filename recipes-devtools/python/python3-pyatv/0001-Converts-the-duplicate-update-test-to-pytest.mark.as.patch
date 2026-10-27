@@ -1,0 +1,44 @@
+From 8eb7c981c5cf024648ae4bde8de796908f41bf37 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Sat, 24 Oct 2026 23:45:52 +0200
+Subject: [PATCH] Converts the duplicate-update test to pytest.mark.asyncio,
+ awaits its coroutine directly, and yields once so scheduled callbacks run
+ before asserting.
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ tests/core/test_core.py | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/tests/core/test_core.py b/tests/core/test_core.py
+index aacd5d2..a116d65 100644
+--- a/tests/core/test_core.py
++++ b/tests/core/test_core.py
+@@ -1,5 +1,6 @@
+ """Unit tests for pyatv.core."""
+ 
++import asyncio
+ from unittest.mock import ANY, MagicMock
+ 
+ import pytest
+@@ -39,7 +40,8 @@ class PushUpdaterDummy(AbstractPushUpdater):
+ 
+ 
+ @pytest.mark.parametrize("updates", [1, 2, 3])
+-def test_post_ignore_duplicate_update(event_loop, state_dispatcher, updates):
++@pytest.mark.asyncio
++async def test_post_ignore_duplicate_update(state_dispatcher, updates):
+     listener = MagicMock()
+     playing = Playing()
+ 
+@@ -55,7 +57,8 @@ def test_post_ignore_duplicate_update(event_loop, state_dispatcher, updates):
+         for _ in range(repeats):
+             updater.post_update(playing)
+ 
+-    event_loop.run_until_complete(_post_updates(updates))
++    await _post_updates(updates)
++    await asyncio.sleep(0)
+ 
+     assert listener.playstatus_update.call_count == 1
+     listener.playstatus_update.assert_called_once_with(ANY, playing)

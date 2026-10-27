@@ -9,7 +9,6 @@ SRC_URI += "file://CVE-2026-32597.patch"
 
 SRC_URI[sha256sum] = "3cc5772eb20009233caf06e9d8a0577824723b44e6648ee0a2aedb6cf9381953"
 
-PYPI_PACKAGE = "pyjwt"
 CVE_STATUS[CVE-2025-45768] = "disputed: vulnerability can be avoided if the library is used correctly"
 
 inherit pypi python_setuptools_build_meta

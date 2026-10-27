@@ -13,9 +13,12 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-aioecowitt \
     python3-aioesphomeapi \
     python3-aiohasupervisor \
+    python3-aiohttp-retry \
+    python3-aiointercept \
     python3-aiorun \
     python3-aioruuvigateway \
     python3-aioshelly \
+    python3-aiounittest \
     python3-aiousbwatcher \
     python3-airos \
     python3-alarmdecoder \
@@ -30,6 +33,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-audioop-lts \
     python3-aurorapy \
     python3-automower-ble \
+    python3-axis \
     python3-bellows \
     python3-blinkpy \
     python3-bluecurrent-api \
@@ -38,10 +42,15 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-btsocket \
     python3-cookidoo-api \
     python3-crccheck \
+    python3-ddt \
+    python3-deepdiff \
     python3-denonavr \
     python3-doorbirdpy \
     python3-dsmr-parser \
+    python3-eheimdigital \
+    python3-elkm1-lib \
     python3-emoji \
+    python3-evohome-async \
     python3-fastuuid \
     python3-fjaraskupan \
     python3-gios \
@@ -53,16 +62,24 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-ical \
     python3-icalendar-searcher \
     python3-looptime \
+    python3-matter-python-client \
     python3-mcp \
     python3-mistune \
     python3-openapi-schema-validator \
+    python3-pyatv \
+    python3-pydexcom \
     python3-pyegps \
     python3-pyfritzhome \
+    python3-pylint-per-file-ignores \
     python3-pyswitchbot \
+    python3-pytest-datadir \
+    python3-pytest-fixture-classes \
     python3-pytest-httpbin \
+    python3-python-bsblan \
     python3-pytibber \
     python3-requirements-parser \
     python3-securetar \
+    python3-serialx \
     python3-uart-devices \
     python3-uuid7 \
     python3-wassima \
@@ -87,7 +104,6 @@ PTEST_CURRENTLY_FAILS_META_HOMEASSISTANT = "\
     python3-aioconsole \
     python3-aiohttp-asyncmdnsresolver \
     python3-asyncstdlib \
-    python3-axis \
     python3-bimmer-connected \
     python3-bring-api \
     python3-pydaikin \
@@ -127,7 +143,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-click-log \
     python3-coinbase \
     python3-coinbase-advanced-py \
-    python3-construct \
     python3-construct-typing \
     python3-cronsim \
     python3-crownstone-cloud \
@@ -142,13 +157,10 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-docker-py \
     python3-dulwich \
     python3-dynalite-devices \
-    python3-eheimdigital \
-    python3-elkm1-lib \
     python3-elmax-api \
     python3-elvia \
     python3-enturclient \
     python3-eq3btsmart \
-    python3-evohome-async \
     python3-evolutionhttp \
     python3-face-recognition \
     python3-fake-useragent \
@@ -189,7 +201,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-isodate \
     python3-josepy \
     python3-jsonpickle \
-    python3-keyring \
     python3-libpass \
     python3-locationsharinglib \
     python3-mashumaro \
@@ -213,7 +224,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-pyaussiebb \
     python3-pydantic-settings \
     python3-pydeconz \
-    python3-pydexcom \
     python3-pyemoncms \
     python3-pyfibaro \
     python3-pyflume \
@@ -226,9 +236,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-python-jose-cryptography \
     python3-python-memcached \    
     python3-pyyaml-ft \
-    python3-readme-renderer \
-    python3-rfc3986 \
-    python3-secretstorage \
     python3-securesystemslib \
     python3-segno \
     python3-sentence-stream \
@@ -245,7 +252,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-unicode-rbnf \
     python3-universal-silabs-flasher \
     python3-usb-devices \
-    python3-uv-dynamic-versioning \
     python3-voluptuous-openapi \
     python3-voluptuous-serialize \
     python3-wirelesstagpy \

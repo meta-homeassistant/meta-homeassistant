@@ -22,5 +22,3 @@ RDEPENDS:${PN}-ptest:append = "\
 	python3-pytest-timeout \
 	python3-syrupy \
 "
-
-PYPI_PACKAGE = "gios"

@@ -727,7 +727,6 @@ IMAGE_INSTALL:append = "\
     python3-homeassistant-vlc \
     python3-homeassistant-w800rf32 \
     python3-homeassistant-wake-word \
-    python3-homeassistant-wakeonlan \
     python3-homeassistant-water-heater \
     python3-homeassistant-weather \
     python3-homeassistant-web-rtc \

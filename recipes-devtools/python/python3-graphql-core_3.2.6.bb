@@ -10,5 +10,3 @@ SRC_URI[sha256sum] = "c08eec22f9e40f0bd61d805907e3b3b1b9a320bc606e23dc145eebca07
 inherit pypi python_poetry_core ptest-python-pytest
 
 RDEPENDS:${PN} = "python3-typing-extensions"
-
-PYPI_PACKAGE = "graphql_core"

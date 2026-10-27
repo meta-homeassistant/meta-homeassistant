@@ -6,10 +6,10 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "7b5dd4a34019fd642984e3231134fa4885b01593be24a422bab037bc084d9857"
 
+DEPENDS = "python3-wheel-native"
+
 inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} = " \
 	python3-aiohttp \
 "
-
-PYPI_PACKAGE = "bizkaibus"

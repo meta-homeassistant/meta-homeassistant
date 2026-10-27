@@ -12,3 +12,5 @@ PACKAGECONFIG ?= "async"
 PACKAGECONFIG[async] = ",,,python3-aiofiles"
 
 PTEST_PYTEST_DIR = "test_async"
+
+PYPI_PACKAGE_SDIST = "pure-python-adb"

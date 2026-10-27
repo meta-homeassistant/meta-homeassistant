@@ -15,5 +15,3 @@ RDEPENDS:${PN} += "\
     python3-msal-extensions (>=1.2.0) \
     python3-typing-extensions (>=4.0.0) \
 "
-
-PYPI_PACKAGE = "azure_identity"

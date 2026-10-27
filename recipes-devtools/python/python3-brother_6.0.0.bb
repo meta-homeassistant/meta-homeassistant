@@ -12,5 +12,3 @@ RDEPENDS:${PN} += "\
     python3-dacite (>=1.7.0) \
     python3-pysnmp (>=7.1.6) \
 "
-
-PYPI_PACKAGE = "brother"

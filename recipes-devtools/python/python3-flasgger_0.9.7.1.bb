@@ -30,7 +30,6 @@ RDEPENDS:${PN}-ptest += "\
     python3-flask-restful \
 "
 
-PYPI_PACKAGE = "flasgger"
 
 do_install_ptest:append() {
     cp -rf ${S}/examples ${D}${PTEST_PATH}/

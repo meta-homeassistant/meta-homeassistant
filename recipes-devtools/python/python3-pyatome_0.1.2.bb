@@ -12,6 +12,7 @@ inherit pypi python_setuptools_build_meta
 DEPENDS += "\
     python3-requests-native \
     python3-charset-normalizer-native \
+    python3-wheel-native \
 "
 
 RDEPENDS:${PN} += "\
@@ -20,4 +21,4 @@ RDEPENDS:${PN} += "\
     python3-simplejson \
 "
 
-PYPI_PACKAGE = "pyAtome"
+PYPI_PACKAGE_SDIST = "pyAtome"

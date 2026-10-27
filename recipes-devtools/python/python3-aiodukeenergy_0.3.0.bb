@@ -8,5 +8,4 @@ SRC_URI[sha256sum] = "d78dfed4c582d43a08bd1f059d31b038d0bbe45be54744e562dc550561
 
 inherit pypi python_poetry_core
 
-PYPI_PACKAGE = "aiodukeenergy"
 RDEPENDS:${PN} = "python3-aiohttp (>=3.9.0) python3-yarl (>=1.9.0)"

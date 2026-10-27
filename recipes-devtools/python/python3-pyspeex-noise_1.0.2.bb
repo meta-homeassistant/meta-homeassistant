@@ -11,5 +11,3 @@ inherit pypi python_setuptools_build_meta ptest-python-pytest
 DEPENDS += "\
     python3-pybind11-native \
 "
-
-PYPI_PACKAGE = "pyspeex_noise"

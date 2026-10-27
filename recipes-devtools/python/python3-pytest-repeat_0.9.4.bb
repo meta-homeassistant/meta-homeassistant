@@ -9,5 +9,4 @@ SRC_URI[sha256sum] = "d92ac14dfaa6ffcfe6917e5d16f0c9bc82380c135b03c2a5f412d2637f
 
 inherit pypi python_hatchling
 
-PYPI_PACKAGE = "pytest_repeat"
 RDEPENDS:${PN} = "python3-pytest"

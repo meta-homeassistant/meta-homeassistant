@@ -6,6 +6,8 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "c73956e78afb98ccc4cd99945dd7bf6c8c3ab1510b278d6df26574fa2240d675"
 
+DEPENDS += "python3-wheel-native"
+
 inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} += " \
@@ -16,5 +18,3 @@ RDEPENDS:${PN} += " \
 "
 
 BBCLASSEXTEND = "native nativesdk"
-
-PYPI_PACKAGE = "aio_georss_client"

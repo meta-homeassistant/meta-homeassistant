@@ -15,5 +15,3 @@ RDEPENDS:${PN} = "\
     python3-bluetooth-sensor-state-data \
     python3-cryptography \
 "
-
-PYPI_PACKAGE = "govee_ble"

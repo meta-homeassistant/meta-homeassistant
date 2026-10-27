@@ -1,6 +1,6 @@
 SUMMARY = "Open-source home automation platform running on Python 3."
 HOMEPAGE = "https://github.com/Cereal2nd/pyDuotecno"
-LICENSE = "Apache-2.0 & MIT"
+LICENSE = "Apache-2.0 AND MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 

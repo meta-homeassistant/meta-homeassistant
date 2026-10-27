@@ -10,4 +10,4 @@ inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-pyusb (>=1.0.0)"
 
-PYPI_PACKAGE = "BlinkStick"
+PYPI_PACKAGE_SDIST = "BlinkStick"

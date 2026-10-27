@@ -7,5 +7,3 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "c20d2568ab8728a0526b4c95952c6022433d462674abdfb0fd86b2e50ed3c097"
 
 inherit pypi setuptools3
-
-PYPI_PACKAGE = "aprslib"

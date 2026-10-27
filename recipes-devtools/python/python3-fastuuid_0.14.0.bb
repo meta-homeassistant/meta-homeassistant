@@ -17,5 +17,3 @@ RDEPENDS:${PN}-ptest:append = "\
     python3-uuid7 \
     python3-misc \
 "
-
-PYPI_PACKAGE = "fastuuid"

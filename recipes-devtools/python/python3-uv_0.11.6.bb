@@ -1,6 +1,6 @@
 SUMMARY = "An extremely fast Python package and project manager, written in Rust."
 HOMEPAGE = "https://pypi.org/project/uv/"
-LICENSE = "Apache-2.0 & BSD-2-Clause & MIT"
+LICENSE = "Apache-2.0 AND BSD-2-Clause AND MIT"
 LIC_FILES_CHKSUM = "file://LICENSE-APACHE;md5=86d3f3a95c324c9479bd8986968f4327 \
                     file://LICENSE-MIT;md5=45674e482567aa99fe883d3270b11184 \
                     file://crates/uv-build-frontend/src/pipreqs/LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e \
@@ -15,11 +15,9 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 require ${BPN}-crates.inc
 
-DEPENDS = "python3-maturin-native"
+DEPENDS = "zstd"
 SRC_URI[sha256sum] = "e3b21b7e80024c95ff339fcd147ac6fc3dd98d3613c9d45d3a1f4fd1057f127b"
 
-inherit pypi python_maturin cargo-update-recipe-crates
-
-PYPI_PACKAGE = "uv"
+inherit pypi python_maturin cargo-update-recipe-crates pkgconfig
 
 INSANE_SKIP:${PN} = "already-stripped"

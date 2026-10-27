@@ -16,5 +16,3 @@ RDEPENDS:${PN} += "\
     python3-six \
     python3-sqlalchemy (>=0.7.8) \
 "
-
-PYPI_PACKAGE = "pygtfs"

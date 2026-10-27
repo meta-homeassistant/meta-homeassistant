@@ -1,6 +1,6 @@
 SUMMARY = "Asynchronous Python library that listens to Crownstone SSE events."
 HOMEPAGE = "https://github.com/Crownstone-Community/crownstone-lib-python-sse"
-LICENSE = "LGPL-3.0-only & MIT & Apache-2.0"
+LICENSE = "LGPL-3.0-only AND MIT AND Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE-APACHE;md5=ee74614898feab20d6ab5bc151a9b20d \
                     file://LICENSE-LGPL;md5=e6a600fd5e1d9cbde2d983680233ad02 \
                     file://LICENSE-MIT;md5=417c5f11876a875e4b041c01250ab49d"
@@ -14,5 +14,3 @@ RDEPENDS:${PN} += "\
     python3-aiohttp (>=3.7) \
     python3-certifi \
 "
-
-PYPI_PACKAGE = "crownstone_sse"

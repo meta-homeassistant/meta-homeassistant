@@ -16,5 +16,3 @@ RDEPENDS:${PN} = "\
 	python3-requests \
 	python3-websocket-client \
 "
-
-PYPI_PACKAGE = "pyfireservicerota"

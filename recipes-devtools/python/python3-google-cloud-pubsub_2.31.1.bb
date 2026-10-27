@@ -22,5 +22,3 @@ RDEPENDS:${PN} += "\
     python3-proto-plus \
     python3-protobuf \
 "
-
-PYPI_PACKAGE = "google_cloud_pubsub"

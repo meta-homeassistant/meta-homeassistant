@@ -8,4 +8,4 @@ SRC_URI[sha256sum] = "3677daabed56a6f724451d585662253d8fb4e5569845aafa8bb0da36b1
 
 inherit pypi setuptools3
 
-PYPI_PACKAGE = "enum-compat"
+PYPI_PACKAGE_SDIST = "enum-compat"

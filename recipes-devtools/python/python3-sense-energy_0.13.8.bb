@@ -19,5 +19,3 @@ RDEPENDS:${PN} += "\
     python3-websocket-client \
     python3-websockets \
 "
-
-PYPI_PACKAGE = "sense_energy"

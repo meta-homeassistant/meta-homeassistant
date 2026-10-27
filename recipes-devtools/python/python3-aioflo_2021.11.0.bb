@@ -7,10 +7,10 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI += "file://0001-adjust-build-req.patch"
 SRC_URI[sha256sum] = "fc4e8a3749c59661acda2ee56397f8f8991492cbcdeaa773e66416d376f23d0f"
 
+DEPENDS += "python3-wheel-native"
+
 inherit pypi python_poetry_core
 
 RDEPENDS:${${PN} = "\
     python3-aiohttp (>=3.7.4) \
 "
-
-PYPI_PACKAGE = "aioflo"

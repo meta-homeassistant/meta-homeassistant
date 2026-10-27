@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "e7df7137170f3840630acd765590c0e51adce2fa78e7b9b24f97e50809
 
 inherit pypi python_poetry_core
 
-PYPI_PACKAGE = "aiobafi6"
 RDEPENDS:${PN} = "\
     python3-zeroconf (>=0.38) \
     python3-protobuf (>=3.20) \

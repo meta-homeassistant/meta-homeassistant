@@ -16,5 +16,3 @@ RDEPENDS:${PN} = "\
 RDEPENDS:${PN}-ptest += "\
     python3-anyio \
 "
-
-PYPI_PACKAGE = "aiomqtt"

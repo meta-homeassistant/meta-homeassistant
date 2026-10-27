@@ -14,5 +14,3 @@ RDEPENDS:${PN} += "\
 	python3-dateutil \
 	python3-tzdata \
 "
-
-PYPI_PACKAGE = "icalendar"

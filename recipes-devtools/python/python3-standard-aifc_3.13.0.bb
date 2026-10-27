@@ -12,5 +12,3 @@ RDEPENDS:${PN} = "\
     python3-audioop-lts \
     python3-standard-chunk \
 "
-
-PYPI_PACKAGE = "standard_aifc"

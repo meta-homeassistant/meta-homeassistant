@@ -31,5 +31,3 @@ RDEPENDS:${PN}-ptest += "\
     python3-vcrpy \
     python3-aiofiles \
 "
-
-PYPI_PACKAGE = "gql"

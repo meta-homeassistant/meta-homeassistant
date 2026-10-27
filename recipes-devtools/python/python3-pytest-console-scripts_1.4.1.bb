@@ -12,4 +12,4 @@ inherit pypi setuptools3 ptest-python-pytest
 
 RDEPENDS:${PN} += "python3-pytest"
 
-PYPI_PACKAGE = "pytest-console-scripts"
+PYPI_PACKAGE_SDIST = "pytest-console-scripts"

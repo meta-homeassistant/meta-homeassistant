@@ -7,6 +7,8 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI += "file://0001-relax-build-req.patch"
 SRC_URI[sha256sum] = "9bb9d0cdbc517b6a9751600c79094366d73d174d43b1b4f317f908d1c8b74c51"
 
+DEPENDS = "python3-wheel-native"
+
 inherit pypi python_setuptools_build_meta
 
-PYPI_PACKAGE = "dynalite-panel"
+PYPI_PACKAGE_SDIST = "dynalite-panel"

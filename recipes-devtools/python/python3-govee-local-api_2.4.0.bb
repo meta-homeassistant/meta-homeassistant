@@ -7,5 +7,3 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "9aeb104644718d702b9b5462aa990cb24d88c6b260aa23c4c8c8e5191c55c83f"
 
 inherit pypi python_poetry_core
-
-PYPI_PACKAGE = "govee_local_api"

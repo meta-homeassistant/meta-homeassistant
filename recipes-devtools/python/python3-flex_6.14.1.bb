@@ -18,5 +18,3 @@ RDEPENDS:${PN} += "\
     python3-click \
     python3-jsonpointer \
 "
-
-PYPI_PACKAGE = "flex"

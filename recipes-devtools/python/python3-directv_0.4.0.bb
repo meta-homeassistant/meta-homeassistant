@@ -12,5 +12,3 @@ RDEPENDS:${PN} += "\
     python3-aiohttp (>=3.6.2) \
     python3-yarl (>=1.4.2) \
 "
-
-PYPI_PACKAGE = "directv"

@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "fde831668806b22ddc330e1a0c973c54f7df9dd0ba31cb44eeb5759705
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-PYPI_PACKAGE = "denonavr"
 RDEPENDS:${PN} = "\
     python3-asyncstdlib (>=3.10.2) \
     python3-attrs (>=21.2.0) \

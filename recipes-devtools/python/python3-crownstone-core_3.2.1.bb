@@ -1,6 +1,6 @@
 SUMMARY = "This is the core of the python lib. It contains shared classes, definitions and utils. "
 HOMEPAGE = "https://github.com/crownstone/crownstone-lib-python-core"
-LICENSE = "LGPL-3.0-only & MIT & Apache-2.0"
+LICENSE = "LGPL-3.0-only AND MIT AND Apache-2.0"
 LIC_FILES_CHKSUM = "\
     file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302 \
     file://${COMMON_LICENSE_DIR}/LGPL-3.0-only;md5=bfccfe952269fff2b407dd11f2f3083b \
@@ -14,4 +14,4 @@ inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-pyaes (>=1.6)"
 
-PYPI_PACKAGE = "crownstone-core"
+PYPI_PACKAGE_SDIST = "crownstone-core"

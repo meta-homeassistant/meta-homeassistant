@@ -8,5 +8,3 @@ DEPENDS = "python3-hatchling-native"
 SRC_URI[sha256sum] = "583de4a309722b3315439bb31d64ba3eebada841f2e2cee23b99df001434c912"
 
 inherit pypi python_hatchling
-
-PYPI_PACKAGE = "docstring_parser"

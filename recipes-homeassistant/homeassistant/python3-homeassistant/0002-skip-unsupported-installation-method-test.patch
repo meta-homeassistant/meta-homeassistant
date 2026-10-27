@@ -1,4 +1,4 @@
-From 7f46fb32a74692d55e010fae2c9df1104c2e04ef Mon Sep 17 00:00:00 2001
+From 1d1b4459c55dde8b48ccd96f66767779f657df6f Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Sun, 7 Jun 2026 14:48:39 +0200
 Subject: [PATCH] skip unsupported installation method test

@@ -1,0 +1,34 @@
+From c361891592eef88ac9807a935aa14e7827ed0f44 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Sat, 24 Oct 2026 20:45:36 +0200
+Subject: [PATCH] repair test
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ tests/test_hub.py | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/tests/test_hub.py b/tests/test_hub.py
+index 43fb49c..f34e7fe 100644
+--- a/tests/test_hub.py
++++ b/tests/test_hub.py
+@@ -11,15 +11,15 @@ from eheimdigital.types import UsrDtaPacket
+ 
+ 
+ @pytest.mark.parametrize("fixture", ["usrdta_heater.json"])
+-def test_add_device(fixture: str) -> None:
++async def test_add_device(fixture: str) -> None:
+     """Tests adding a device."""
+     usrdta = UsrDtaPacket(
+         json.loads(
+             (Path(__file__).parent / "fixtures" / fixture).read_text(encoding="utf8")
+         )
+     )
+-    hub = EheimDigitalHub(Mock())
+-    hub.add_device(usrdta)
++    hub = EheimDigitalHub(session=Mock())
++    await hub.add_device(usrdta)
+     assert len(hub.devices) == 1
+     assert usrdta["from"] in hub.devices
+     assert (device := hub.devices[usrdta["from"]])

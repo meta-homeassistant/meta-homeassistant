@@ -7,6 +7,8 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI += "file://0001-relax-build-req.patch"
 SRC_URI[sha256sum] = "f1c25e8432f699da98a2503a3e6a79937aad076f4ca4b9c6361107558e9388bc"
 
+DEPENDS += "python3-wheel-native"
+
 inherit pypi python_setuptools_build_meta
 
-PYPI_PACKAGE = "py-dormakaba-dkey"
+PYPI_PACKAGE_SDIST = "py-dormakaba-dkey"

@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "d2f672163c58ce9bc1922ac71c88c0f6b999878b7c642fe3ba8ded275d
 
 inherit pypi python_hatchling ptest-python-pytest
 
-PYPI_PACKAGE = "niquests"
 
 RDEPENDS:${PN} += "\
 	python3-charset-normalizer \

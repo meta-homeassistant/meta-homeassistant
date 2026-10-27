@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "c9fa37e9f0150b62daadeb10d50717ab6106846b6457335b5af0fa9729
 
 inherit pypi python_poetry_core
 
-PYPI_PACKAGE = "pytrafikverket"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.9.2) \

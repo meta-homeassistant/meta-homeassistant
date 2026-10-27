@@ -1,0 +1,50 @@
+Subject: [PATCH] c_check: Ignore GCC configure diagnostics when parsing linker flags
+
+GCC's verbose output contains a "Configured with:" line that reports its own
+build configuration. Its configure command includes -linux, which c_check
+and f_check mistake for a library flag and write to CEXTRALIB/FEXTRALIB.
+Drop that diagnostic before collecting linker flags in both shell and Perl
+probe implementations.
+
+Upstream-Status: Pending
+---
+ c_check    | 1 +
+ c_check.pl | 1 +
+ f_check    | 1 +
+ f_check.pl | 1 +
+ 4 files changed, 4 insertions(+)
+
+diff --git a/c_check b/c_check
+--- a/c_check
++++ b/c_check
+@@ -430,6 +430,7 @@ linker_l=""
+ linker_a=""
+ 
+ link=`$compiler_name $flags -c ctest2.c -o ctest2.o 2>&1 && $compiler_name $flags $openmp -v ctest2.o -o ctest2 2>&1 && rm -f ctest2.o ctest2 ctest2.exe`
++link=`printf '%s\n' "$link" | sed '/^Configured with:/d'`
+ 
+ link=`echo "$link" | sed 's/\-Y[[:space:]]P\,/\-Y/g'`
+ 
+diff --git a/c_check.pl b/c_check.pl
+--- a/c_check.pl
++++ b/c_check.pl
+@@ -414,1 +414,2 @@
++    $link =~ s/^Configured with:.*\n//mg;
+     @flags = split(/[\s\,\n]/, $link);
+diff --git a/f_check b/f_check
+--- a/f_check
++++ b/f_check
+@@ -341,6 +341,7 @@ linker_L=""
+ linker_l=""
+ linker_a=""
+ 
++link=`printf '%s\n' "$link" | sed '/^Configured with:/d'`
+ if [ -n "$link" ]; then
+ 
+     link=`echo " $link" | sed 's/ \-Y[[:space:]]P\,/ \-Y/g'`
+diff --git a/f_check.pl b/f_check.pl
+--- a/f_check.pl
++++ b/f_check.pl
+@@ -333,1 +333,2 @@
++    $link =~ s/^Configured with:.*\n//mg;
+     @flags = split(/[\s\,\n]/, $link);

@@ -12,5 +12,3 @@ DEPENDS = "\
 "
 
 inherit pypi python_setuptools_build_meta
-
-PYPI_PACKAGE = "pyfreedompro"

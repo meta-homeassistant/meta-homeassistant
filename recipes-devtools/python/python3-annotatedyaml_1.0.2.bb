@@ -7,7 +7,6 @@ SRC_URI[sha256sum] = "f9a49952994ef1952ca17d27bb6478342eb1189d2c28e4c0ddbbb32065
 
 inherit pypi python_poetry_core cython
 
-PYPI_PACKAGE = "annotatedyaml"
 
 RDEPENDS:${PN} = "\
     python3-propcache (>=0.1) \

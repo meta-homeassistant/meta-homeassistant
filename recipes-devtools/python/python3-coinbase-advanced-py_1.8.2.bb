@@ -29,4 +29,4 @@ RDEPENDS:${PN}-ptest += "\
     python3-asynctest (>=0.13.0) \
 "
 
-PYPI_PACKAGE = "coinbase-advanced-py"
+PYPI_PACKAGE_SDIST = "coinbase-advanced-py"

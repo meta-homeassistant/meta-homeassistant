@@ -9,3 +9,5 @@ inherit pypi setuptools3 ptest-python-pytest
 SRC_URI[sha256sum] = "256a672106f16745445228d966240b77b55f46a096d20305901a57aa5d1f4c2f"
 
 PROVIDES = "python3-atomicwrites"
+
+PYPI_PACKAGE_SDIST = "atomicwrites-homeassistant"

@@ -1,6 +1,6 @@
 SUMMARY = "Faster zlib and gzip compatible compression and decompression by providing python bindings for the isa-l library."
 HOMEPAGE = "https://github.com/pycompression/python-isal"
-LICENSE = "CLOSED"
+LICENSE = "PSF-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=18130810ab035d8cac1d00602892f13d "
 
 DEPENDS = "python3-setuptools-scm-native nasm-native"

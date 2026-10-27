@@ -15,5 +15,3 @@ RDEPENDS:${PN} += "\
     python3-numpy \
     libsndfile1 \
 "
-
-PYPI_PACKAGE = "soundfile"

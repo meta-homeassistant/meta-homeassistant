@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "43b2466753d1e016d63e96836b4ec595c35c1341910893bdb739e42b46
 
 inherit pypi python_poetry_core
 
-PYPI_PACKAGE = "pysmartthings"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.0.0) \

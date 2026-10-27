@@ -16,5 +16,3 @@ RDEPENDS:${PN} += "\
     python3-websocket-client (>=0.58.0) \
     python3-zeroconf (>=0.38.0) \
 "
-
-PYPI_PACKAGE = "devolo_home_control_api"

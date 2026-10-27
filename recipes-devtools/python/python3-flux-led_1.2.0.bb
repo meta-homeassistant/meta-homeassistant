@@ -18,5 +18,3 @@ RDEPENDS:${PN} += "\
 RDEPENDS:${PN}-ptest += "\
     python3-pytest-asyncio \
 "
-
-PYPI_PACKAGE = "flux_led"

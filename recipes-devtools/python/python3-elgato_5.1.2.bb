@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "4ee180ee50dbefd20900ded2690f3b253133529e5a2842c458d115ae21
 
 inherit pypi python_poetry_core
 
-PYPI_PACKAGE = "elgato"
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.0.0) \
     python3-mashumaro (>=3.10) \

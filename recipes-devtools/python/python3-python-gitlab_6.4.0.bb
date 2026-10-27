@@ -12,4 +12,3 @@ RDEPENDS:${PN} += "\
     python3-requests (>=2.32.5) \
     python3-requests-toolbelt (>=1.0.0) \
 "
-PYPI_PACKAGE = "python_gitlab"

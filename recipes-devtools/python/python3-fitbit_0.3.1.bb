@@ -13,5 +13,3 @@ RDEPENDS:${PN} += "\
     python3-requests-oauthlib (>=0.7) \
     python3-setuptools \
 "
-
-PYPI_PACKAGE = "fitbit"

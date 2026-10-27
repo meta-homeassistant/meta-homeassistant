@@ -8,4 +8,4 @@ SRC_URI[sha256sum] = "5cad17bedfc3af57b399db0fed32771f18fc54bbd917e85546088607ac
 
 inherit pypi setuptools3
 
-PYPI_PACKAGE = "strict-rfc3339"
+PYPI_PACKAGE_SDIST = "strict-rfc3339"

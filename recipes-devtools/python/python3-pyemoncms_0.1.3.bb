@@ -6,8 +6,8 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "4a2323cacce64de833897d2659d1ba5aba2b03077db89c843f5620dd838dfdd3"
 
+DEPENDS += "python3-wheel-native"
+
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += " python3-aiohttp"
-
-PYPI_PACKAGE = "pyemoncms"

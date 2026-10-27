@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "6cd4cef6a1e839edc0ed36225302c156ae1e5b21a821f0a882e8b33358
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-requests python3-urllib3 python3-xmltodict"
-
-PYPI_PACKAGE = "greenwavereality"

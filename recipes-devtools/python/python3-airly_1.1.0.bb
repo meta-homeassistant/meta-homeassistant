@@ -6,6 +6,6 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "c4e290cf6e181b44594ed0bfc66adbd6c8bda7d6b89ac7fac1f1bd15cdb77570"
 
-inherit pypi python_setuptools_build_meta
+DEPENDS += "python3-wheel-native"
 
-PYPI_PACKAGE = "airly"
+inherit pypi python_setuptools_build_meta

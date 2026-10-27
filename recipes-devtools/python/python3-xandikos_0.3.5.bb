@@ -8,7 +8,6 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-PYPI_PACKAGE = "xandikos"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp \

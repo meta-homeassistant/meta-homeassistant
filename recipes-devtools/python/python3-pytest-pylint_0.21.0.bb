@@ -12,8 +12,9 @@ inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-pylint python3-pytest"
 
-PYPI_PACKAGE = "pytest-pylint"
 
 do_install_ptest:append() {
     install ${S}/pyproject.toml ${D}${PTEST_PATH}/
 }
+
+PYPI_PACKAGE_SDIST = "pytest-pylint"

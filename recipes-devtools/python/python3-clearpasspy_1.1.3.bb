@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "1c08bdcfb0d3e60d0f92bfab01250ad7cfed12ca2b59749c08e0c4f794
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-requests (>=2.21.0)"
-
-PYPI_PACKAGE = "clearpasspy"

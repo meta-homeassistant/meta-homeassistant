@@ -7,5 +7,3 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "6abc08b2ab23f9deac31ab4125cd5e12bf7936f83c63d95fa4eb413dc1caa260"
 
 inherit pypi setuptools3
-
-PYPI_PACKAGE = "pyfnip"

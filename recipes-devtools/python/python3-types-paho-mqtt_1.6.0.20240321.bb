@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "694eec160340f2a2b151237dcc3f107a63e1c4e5b8f9fcda0ba392049a
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-core"
-
-PYPI_PACKAGE = "types-paho-mqtt"

@@ -14,4 +14,4 @@ RDEPENDS:${PN} += "\
     python3-sleekxmppfs (>=1.4.1) \
 "
 
-PYPI_PACKAGE = "py-sucks"
+PYPI_PACKAGE_SDIST = "py-sucks"

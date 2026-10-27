@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "86d1075a034ce2671ab532db06e9204fe784cdd0c66ca7b8cc47a7527d
 
 inherit pypi python_flit_core ptest-python-pytest
 
-PYPI_PACKAGE = "aiorun"
 
 RDEPENDS:${PN}-ptest += "\
     python3-pytest-cov \

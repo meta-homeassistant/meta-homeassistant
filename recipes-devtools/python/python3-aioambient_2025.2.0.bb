@@ -17,5 +17,3 @@ RDEPENDS:${PN} += "\
     python3-websockets (>=11.0.1) \
     python3-yarl (>=1.9.2) \
 "
-
-PYPI_PACKAGE = "aioambient"

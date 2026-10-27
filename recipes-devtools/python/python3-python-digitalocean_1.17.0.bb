@@ -10,4 +10,4 @@ inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-jsonpickle python3-requests"
 
-PYPI_PACKAGE = "python-digitalocean"
+PYPI_PACKAGE_SDIST = "python-digitalocean"

@@ -28,6 +28,5 @@ RDEPENDS:${PN}-ptest += "\
     python3-pytest-asyncio \
 "
 
-PYPI_PACKAGE = "geopy"
 
 PTEST_PYTEST_DIR = "test"

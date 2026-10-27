@@ -13,5 +13,3 @@ RDEPENDS:${PN} += "\
 	python3-opentelemetry-semantic-conventions (>=0.59b0) \
 	python3-typing-extensions (>=4.5.0) \
 "
-
-PYPI_PACKAGE = "opentelemetry_sdk"

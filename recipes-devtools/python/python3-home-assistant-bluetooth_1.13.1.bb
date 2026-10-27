@@ -14,5 +14,3 @@ RDEPENDS:${PN} = "\
     python3-core (>=3.11) \
     python3-habluetooth (>=3.0) \
 "
-
-PYPI_PACKAGE = "home_assistant_bluetooth"

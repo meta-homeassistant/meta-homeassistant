@@ -12,5 +12,3 @@ RDEPENDS:${PN} += "\
     bluepy \
     python3-btlewrap (>=0.0.8) \
 "
-
-PYPI_PACKAGE = "beewi_smartclim"

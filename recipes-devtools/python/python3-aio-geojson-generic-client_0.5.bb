@@ -6,6 +6,8 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "2b6f999e99a3181d2dcf52e8a3a63a38203a8e282b5ab5875ab8a7d93b62d4a0"
 
+DEPENDS += "python3-wheel-native"
+
 inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} += " \
@@ -14,5 +16,3 @@ RDEPENDS:${PN} += " \
     python3-geojson (>=3.1.0) \
     python3-pytz (>=2019.01) \
 "
-
-PYPI_PACKAGE = "aio_geojson_generic_client"

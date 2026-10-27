@@ -12,5 +12,3 @@ RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.8) \
     python3-mashumaro (>=3.12) \
 "
-
-PYPI_PACKAGE = "python_google_drive_api"

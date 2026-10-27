@@ -11,8 +11,8 @@
         "meta-clang-revival": {
             "git-remote": {
                 "uri": "https://github.com/zboszor/meta-clang-revival.git",
-                "branch": "wrynose",
-                "rev": "wrynose"
+                "branch": "main",
+                "rev": "04e76d4be7e9e1cbf3958592d18b2cbf2e15d90e"
             }
         },
         "meta-homeassistant": {
@@ -23,50 +23,50 @@
         "meta-openembedded": {
             "git-remote": {
                 "uri": "https://git.openembedded.org/meta-openembedded",
-                "branch": "wrynose",
-                "rev": "f28a144aa0a0ae05ca2ee91e1aef6aa05f6a12db"
+                "branch": "master",
+                "rev": "533d0a63ac2a38e77746e32458e09461f12737b6"
             }
         },
         "meta-python-ai": {
             "git-remote": {
-                "uri": "https://github.com/zboszor/meta-python-ai.git",
-                "branch": "wrynose",
-                "rev": "wrynose"
+                "uri": "https://github.com/Gerry546/meta-python-ai.git",
+                "branch": "blacksail",
+                "rev": "aa7f5ba73e1f802bcd31c008c9c95d73893c4252"
             }
         },
         "meta-sca": {
             "git-remote": {
                 "uri": "https://github.com/priv-kweihmann/meta-sca.git",
-                "branch": "wrynose",
-                "rev": "wrynose"
+                "branch": "master",
+                "rev": "8a5361097fb775f4626a21138271e3564202c9d2"
             }
         },
         "meta-virtualization": {
             "git-remote": {
                 "uri": "https://git.yoctoproject.org/meta-virtualization",
-                "branch": "wrynose",
-                "rev": "wrynose"
+                "branch": "master",
+                "rev": "7b0154418de3350fd23a0bd868742f2b570b24d3"
             }
         },
         "meta-yocto": {
             "git-remote": {
                 "uri": "https://git.yoctoproject.org/meta-yocto",
-                "branch": "wrynose",
-                "rev": "wrynose"
+                "branch": "blacksail",
+                "rev": "d0119aa2eb77b985fcd33ac527d5c0287eb68e58"
             }
         },
         "openembedded-core": {
             "git-remote": {
                 "uri": "https://git.openembedded.org/openembedded-core",
-                "branch": "wrynose",
-                "rev": "636e5d3b12d54951c13d57346648bc29a0e6b24e"
+                "branch": "master",
+                "rev": "dd2ee1de4147f402ab25f8ad87137dd2004b494c"
             }
         },
         "yocto-docs": {
             "git-remote": {
                 "uri": "https://git.yoctoproject.org/yocto-docs",
-                "branch": "wrynose",
-                "rev": "wrynose"
+                "branch": "blacksail",
+                "rev": "blacksail"
             }
         }
     },

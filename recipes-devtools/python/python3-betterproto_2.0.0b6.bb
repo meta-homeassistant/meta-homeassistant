@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "720ae92697000f6fcf049c69267d957f0871654c8b0d7458906607685d
 
 inherit pypi python_poetry_core
 
-PYPI_PACKAGE = "betterproto"
 
 RDEPENDS:${PN} = "\
     python3-grpclib\

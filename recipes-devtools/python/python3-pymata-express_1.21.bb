@@ -10,4 +10,4 @@ inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-pyserial"
 
-PYPI_PACKAGE = "pymata-express"
+PYPI_PACKAGE_SDIST = "pymata-express"

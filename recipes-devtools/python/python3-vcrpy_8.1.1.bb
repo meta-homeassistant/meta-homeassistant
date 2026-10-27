@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "58e3053e33b423f3594031cb758c3f4d1df931307f1e67928e30cf352d
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-PYPI_PACKAGE = "vcrpy"
 RDEPENDS:${PN} = "\
     python3-pyyaml \
     python3-wrapt \

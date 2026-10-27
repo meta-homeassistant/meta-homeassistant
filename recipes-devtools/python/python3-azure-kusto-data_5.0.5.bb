@@ -21,4 +21,4 @@ RDEPENDS:${PN} += "\
     python3-requests (>=2.32.3) \
 "
 
-PYPI_PACKAGE = "azure-kusto-data"
+PYPI_PACKAGE_SDIST = "azure-kusto-data"

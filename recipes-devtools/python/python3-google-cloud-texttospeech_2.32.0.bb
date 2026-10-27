@@ -15,5 +15,3 @@ RDEPENDS:${PN} += "\
     python3-proto-plus (>=1.25.0) \
     python3-protobuf (>=3.20.2) \
 "
-
-PYPI_PACKAGE = "google_cloud_texttospeech"

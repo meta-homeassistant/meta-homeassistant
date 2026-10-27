@@ -10,5 +10,3 @@ inherit pypi python_poetry_core
 RDEPENDS:${PN} = "\
     python3-requests (>=2.32.3) \
 "
-
-PYPI_PACKAGE = "freesms"

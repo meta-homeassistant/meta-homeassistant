@@ -23,7 +23,6 @@ RDEPENDS:${PN}-ptest = "\
 	python3-pytest-mock \
 "
 
-PYPI_PACKAGE = "arcam_fmj"
 
 do_install_ptest:append() {
     install ${S}/pyproject.toml ${D}${PTEST_PATH}/

@@ -9,3 +9,4 @@ inherit pypi setuptools3
 SRC_URI[md5sum] = "53a0a6c5aef8f5eb5834e78e0fdf0499"
 SRC_URI[sha256sum] = "bad6603bb14d279193107714b288be206cac565dfa49aa5b105294dd5c4aab93"
 
+PYPI_PACKAGE_SDIST = "text-unidecode"

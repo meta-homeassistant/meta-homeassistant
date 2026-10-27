@@ -18,5 +18,3 @@ RDEPENDS:${PN} += "\
     python3-voluptuous (>=0.11.7) \
     python3-yarl (>=1.9.2) \
 "
-
-PYPI_PACKAGE = "aioguardian"

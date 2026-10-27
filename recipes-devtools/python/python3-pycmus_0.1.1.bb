@@ -14,5 +14,3 @@ RDEPENDS:${PN} += "\
     python3-pbr (>=1.6) \
     python3-six (>=1.9.0) \
 "
-
-PYPI_PACKAGE = "pycmus"

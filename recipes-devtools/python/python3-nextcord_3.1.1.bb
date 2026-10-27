@@ -17,5 +17,3 @@ RDEPENDS:${PN} += "\
 	python3-typing-extensions (>=4.2.0) \
 	python3-audioop-lts (>=0.2.1) \
 "
-
-PYPI_PACKAGE = "nextcord"

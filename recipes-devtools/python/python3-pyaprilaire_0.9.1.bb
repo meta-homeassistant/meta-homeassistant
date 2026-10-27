@@ -5,7 +5,8 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "3610747a4776799a0be3d0b73fa0811c96362e7f06fbc3a0e5c8f88f30739ce9"
 
+DEPENDS += "python3-wheel-native"
+
 inherit pypi python_setuptools_build_meta
 
-PYPI_PACKAGE = "pyaprilaire"
 RDEPENDS:${PN} = "python3-crc"

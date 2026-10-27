@@ -11,5 +11,3 @@ inherit pypi python_poetry_core
 RDEPENDS:${PN} += "\
     python3-aiohttp (>=3) \
 "
-
-PYPI_PACKAGE = "freebox_api"

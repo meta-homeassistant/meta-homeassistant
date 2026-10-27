@@ -26,4 +26,4 @@ do_install:append() {
     rm -rf ${D}${libdir}/${PYTHON_DIR}/site-packages/azure/kusto/__init__.py
 }
 
-PYPI_PACKAGE = "azure-kusto-ingest"
+PYPI_PACKAGE_SDIST = "azure-kusto-ingest"

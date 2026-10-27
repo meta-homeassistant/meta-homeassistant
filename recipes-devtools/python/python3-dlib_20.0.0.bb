@@ -17,6 +17,3 @@ inherit pypi cmake python_setuptools_build_meta
 EXTRA_OECMAKE += "\
     -DPYTHON_EXECUTABLE=${STAGING_BINDIR_NATIVE}/python3 \
 "
-
-PYPI_PACKAGE = "dlib"
-

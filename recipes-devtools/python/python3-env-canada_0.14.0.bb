@@ -17,5 +17,3 @@ RDEPENDS:${PN} += "\
 	python3-dateutil (>=2.9) \
 	python3-voluptuous (>=0.15.2) \
 "
-
-PYPI_PACKAGE = "env_canada"

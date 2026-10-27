@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "a067c7eea53036787ac47d9a8f43571c6cde3593ff3eea25ac52be58a6
 
 inherit pypi python_poetry_core
 
-PYPI_PACKAGE = "python_homeassistant_analytics"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.0.0) \

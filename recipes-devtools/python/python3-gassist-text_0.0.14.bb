@@ -14,5 +14,3 @@ RDEPENDS:${PN} += "\
 	python3-protobuf (>=3.20.0) \
 	python3-requests (>=2.20.0 ) \
 "
-
-PYPI_PACKAGE = "gassist_text"

@@ -5,6 +5,7 @@ After=network.target
 [Service]
 Type=simple
 User=@HOMEASSISTANT_USER@
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_RAW
 ExecStart=/usr/bin/hass --skip-pip -c "@HOMEASSISTANT_CONFIG_DIR@"
 Restart=on-failure
 

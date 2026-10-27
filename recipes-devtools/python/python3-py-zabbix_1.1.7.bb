@@ -7,5 +7,3 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "0176569e61b134a9e445d9086cdfe895583ffe938f34deea3a9cffa78011e459"
 
 inherit pypi setuptools3
-
-PYPI_PACKAGE = "py-zabbix"

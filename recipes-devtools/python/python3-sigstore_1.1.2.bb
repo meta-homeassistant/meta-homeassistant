@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "1252c34b6bf0f5c0680dffe36e1961bd23da9dd77838fc8ece35bcf87a
 
 inherit pypi python_flit_core
 
-PYPI_PACKAGE = "sigstore"
 
 RDEPENDS:${PN} = "\
     python3-appdirs (>=1.4) \

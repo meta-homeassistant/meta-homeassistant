@@ -12,7 +12,6 @@ SRC_URI[sha256sum] = "faf19801c3742ed5a05a8ce388e0d8fe1a07f8d095c82201eb904f5d27
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-PYPI_PACKAGE = "inflect"
 
 RDEPENDS:${PN} = "\
     python3-more-itertools (>=8.5.0) \

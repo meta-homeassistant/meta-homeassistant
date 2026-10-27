@@ -9,7 +9,6 @@ SRC_URI[sha256sum] = "e88e97837d031f0fb6982394218b6487de02eaa382ad273b8fca37791a
 
 inherit pypi python_setuptools_build_meta
 
-PYPI_PACKAGE = "miniaudio"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3) \

@@ -13,5 +13,3 @@ RDEPENDS:${PN} += "\
     python3-googleapis-common-protos (>=1.56.0) \
     python3-protobuf (>=3.20.2) \
 "
-
-PYPI_PACKAGE = "grpc_google_iam_v1"

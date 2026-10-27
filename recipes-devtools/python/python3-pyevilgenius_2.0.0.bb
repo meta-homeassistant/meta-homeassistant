@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "0dcf3bf5c6347650efd9bd3c13f37650439c181736fba34ae7228023ea
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-aiohttp python3-async-timeout"
-
-PYPI_PACKAGE = "pyevilgenius"

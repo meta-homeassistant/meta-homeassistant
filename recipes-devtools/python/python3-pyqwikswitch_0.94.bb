@@ -12,5 +12,3 @@ RDEPENDS:${PN} += "\
     python3-attrs \
     python3-requests \
 "
-
-PYPI_PACKAGE = "pyqwikswitch"

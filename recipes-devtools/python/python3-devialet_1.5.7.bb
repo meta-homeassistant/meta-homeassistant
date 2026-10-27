@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "75b3cc9eb42961a32820b1062d10c96312972f333eff85ff82ad8bc05e
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-aiohttp python3-async-upnp-client"
-
-PYPI_PACKAGE = "devialet"

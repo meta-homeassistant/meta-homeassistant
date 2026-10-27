@@ -1,4 +1,4 @@
-From 29e97b1136ffea6a246a1a92e44cc6df5cddb17b Mon Sep 17 00:00:00 2001
+From 5f1678f70a73645b65ad501fecba92ce673621bc Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Tue, 30 Dec 2025 15:52:03 +0100
 Subject: [PATCH] add compat for pytest asyncio

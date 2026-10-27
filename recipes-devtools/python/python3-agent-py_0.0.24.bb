@@ -10,4 +10,4 @@ inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-aiohttp"
 
-PYPI_PACKAGE = "agent-py"
+PYPI_PACKAGE_SDIST = "agent-py"

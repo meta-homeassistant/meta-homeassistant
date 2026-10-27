@@ -13,5 +13,3 @@ RDEPENDS:${PN} += "\
     python3-async-timeout (>=3.0.0) \
     python3-pyserial-asyncio (>=0.4) \
 "
-
-PYPI_PACKAGE = "epson_projector"

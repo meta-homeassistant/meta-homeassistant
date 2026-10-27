@@ -12,5 +12,3 @@ RDEPENDS:${PN} += "\
     python3-icmplib (>=3.0.0) \
     python3-requests (>=2.0) \
 "
-
-PYPI_PACKAGE = "fastdotcom"

@@ -7,9 +7,10 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI += "file://0001-relax-build-req.patch"
 SRC_URI[sha256sum] = "bb6cdcb1c92a5b30b809b7a2b538986ea81e70e3828918c4bcf0bb50e2ecb0e6"
 
+DEPENDS += "python3-wheel-native"
+
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-PYPI_PACKAGE = "pydeconz"
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.11.14) \
     python3-orjson (>=3.10.15) \

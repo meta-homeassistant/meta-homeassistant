@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "b092a871b60f6a8f07f17950dc9f7098c8fe7d715b049bd4c24ee3752b
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-cryptography (>=2.8)"
-
-PYPI_PACKAGE = "noiseprotocol"

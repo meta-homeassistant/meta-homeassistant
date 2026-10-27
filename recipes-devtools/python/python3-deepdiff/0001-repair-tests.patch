@@ -1,0 +1,56 @@
+From 1dcc64a66157aacc456e505008417216ae8d3d0d Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Sat, 24 Oct 2026 20:17:31 +0200
+Subject: [PATCH] repair tests
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ tests/test_command.py | 12 ++++++++++--
+ tests/test_delta.py   |  3 ++-
+ 2 files changed, 12 insertions(+), 3 deletions(-)
+
+diff --git a/tests/test_command.py b/tests/test_command.py
+index 894b1ac..d3012ae 100644
+--- a/tests/test_command.py
++++ b/tests/test_command.py
+@@ -12,7 +12,10 @@ class TestCommands:
+ 
+     @pytest.mark.parametrize('t1, t2, expected_in_stdout, expected_exit_code', [
+         ('t1.json', 't2.json', '"dictionary_item_added": [\n    "root[0]', 0),
+-        ('t1_corrupt.json', 't2.json', "Expecting property name enclosed in double quotes", 1),
++        ('t1_corrupt.json', 't2.json', (
++            "Expecting property name enclosed in double quotes",
++            "Illegal trailing comma before end of object",
++        ), 1),
+         ('t1.json', 't2_json.csv', '"old_value": "value2"', 0),
+         ('t2_json.csv', 't1.json', '"old_value": "value3"', 0),
+         ('t1.csv', 't2.csv', '"new_value": "James"', 0),
+@@ -26,7 +29,12 @@ class TestCommands:
+         runner = CliRunner()
+         result = runner.invoke(diff, [t1, t2])
+         assert result.exit_code == expected_exit_code
+-        assert expected_in_stdout in result.output
++        expected_messages = (
++            expected_in_stdout
++            if isinstance(expected_in_stdout, tuple)
++            else (expected_in_stdout,)
++        )
++        assert any(message in result.output for message in expected_messages)
+ 
+     def test_cli_cant_find_file(self):
+         runner = CliRunner()
+diff --git a/tests/test_delta.py b/tests/test_delta.py
+index d3a614d..c45cbc7 100644
+--- a/tests/test_delta.py
++++ b/tests/test_delta.py
+@@ -193,7 +193,8 @@ class TestBasicsOfDelta:
+             delta._simple_set_elem_value(
+                 obj={}, elem={1}, value=None, action=GET, path_for_err_reporting='mypath')
+         assert str(excinfo.value) in {"Failed to set mypath due to unhashable type: 'set'",
+-                                      "Failed to set mypath due to 'set' objects are unhashable"}
++                                      "Failed to set mypath due to 'set' objects are unhashable",
++                                      "Failed to set mypath due to cannot use 'set' as a dict key (unhashable type: 'set')"}
+ 
+     def test_simple_delete_elem(self):
+         delta = Delta({}, raise_errors=True)

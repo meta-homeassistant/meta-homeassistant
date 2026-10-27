@@ -11,4 +11,3 @@ inherit pypi setuptools3
 RDEPENDS:${PN} += "\
     python3-httpx \
 "
-PYPI_PACKAGE = "respx"

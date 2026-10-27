@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "67a01cfdb91bb3ee81ec3a2eeacab42f0887b606463877bc08c636e873
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-future"
-
-PYPI_PACKAGE = "ahocorapy"

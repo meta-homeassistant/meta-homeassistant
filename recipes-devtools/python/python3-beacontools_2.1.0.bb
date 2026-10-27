@@ -12,5 +12,3 @@ RDEPENDS:${PN} += "\
     python3-ahocorapy (>=1.6.1) \
     python3-construct (>=2.9.52) \
 "
-
-PYPI_PACKAGE = "beacontools"

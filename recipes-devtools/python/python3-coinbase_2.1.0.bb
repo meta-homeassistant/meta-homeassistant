@@ -13,5 +13,3 @@ RDEPENDS:${PN} += "\
     python3-requests (>=2.5) \
     python3-six (>=1.9) \
 "
-
-PYPI_PACKAGE = "coinbase"

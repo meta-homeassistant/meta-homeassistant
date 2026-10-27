@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "b1685d13ab86727b094ce5fd737f48f925b4b16d309bff51b0f1df3d64
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-georss-client (>=0.17)"
-
-PYPI_PACKAGE = "georss_generic_client"

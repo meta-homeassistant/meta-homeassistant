@@ -12,4 +12,4 @@ inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-aiohttp (>=3.8.1)"
 
-PYPI_PACKAGE = "fivem-api"
+PYPI_PACKAGE_SDIST = "fivem-api"

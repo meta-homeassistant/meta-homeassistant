@@ -7,5 +7,3 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "f85d98763cff5719d812e5df8209cd50315a2d72d287518a017fd1b543729176"
 
 inherit pypi setuptools3
-
-PYPI_PACKAGE = "bt_proximity"

@@ -13,4 +13,4 @@ RDEPENDS:${PN} += "\
     python3-typing-extensions (>=4.6.0) \
 "
 
-PYPI_PACKAGE = "construct-typing"
+PYPI_PACKAGE_SDIST = "construct-typing"

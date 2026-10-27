@@ -11,5 +11,3 @@ inherit pypi python_poetry_core
 RDEPENDS:${PN} = "\
     python3-httpx (>=0.23) \
 "
-
-PYPI_PACKAGE = "glances_api"

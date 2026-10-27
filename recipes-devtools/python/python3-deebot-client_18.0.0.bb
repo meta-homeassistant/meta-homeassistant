@@ -8,7 +8,7 @@ SRC_URI[sha256sum] = "9e2f4315f75046584fb340485b5b1d541667b9791e48545162dad13c90
 
 require ${BPN}-crates.inc
 
-inherit pypi python_maturin cargo-update-recipe-crates
+inherit pypi python_maturin cargo-update-recipe-crates pkgconfig
 
 RDEPENDS:${PN} += "\
 	python3-aiohttp (>=3.10) \
@@ -16,4 +16,3 @@ RDEPENDS:${PN} += "\
 	python3-cachetools (>=5.0.0) \
 	python3-defusedxml (>=0.7.1) \
 "
-PYPI_PACKAGE = "deebot_client"

@@ -7,5 +7,3 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "4a1411613ad42fdd307308726ad1ca237c97ce49ede2af1c95efaea85a51bf50"
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
-
-PYPI_PACKAGE = "py_canary"

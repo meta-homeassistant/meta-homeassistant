@@ -16,5 +16,3 @@ do_install:append() {
     rm -rf ${D}${libdir}/${PYTHON_DIR}/site-packages/tests/__pycache__/__init__.cpython*
     rm -rf ${D}${libdir}/${PYTHON_DIR}/site-packages/tests/__init__.py
 }
-
-PYPI_PACKAGE = "fortiosapi"

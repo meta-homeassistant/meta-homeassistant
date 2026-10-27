@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "84e50de1c038a4a562a08adf24cd3618e9d974345cef16cdb6f1dfa03d
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-aiohttp python3-docopt python3-pyyaml"
-
-PYPI_PACKAGE = "eliqonline"

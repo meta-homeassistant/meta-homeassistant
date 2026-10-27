@@ -6,6 +6,8 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "71ddd88fabe7a4ea08835fa0a27dc6f36c5daa9713c62bdb36540fc3cd6a2a81"
 
+DEPENDS += "python3-wheel-native"
+
 inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} = "\
@@ -14,5 +16,3 @@ RDEPENDS:${PN} = "\
     python3-requests (>=2.31.0) \
     python3-dateutil (>=2.9.0) \
 "
-
-PYPI_PACKAGE = "georss_client"

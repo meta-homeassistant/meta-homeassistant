@@ -13,5 +13,3 @@ RDEPENDS:${PN} += "\
     python3-aiohttp (>=3.7.0) \
     python3-xmltodict (>=0.12.0) \
 "
-
-PYPI_PACKAGE = "aioemonitor"

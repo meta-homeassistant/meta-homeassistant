@@ -13,3 +13,5 @@ RDEPENDS:${PN} += "\
     python3-six \
     python3-oauthlib \
 "
+
+PYPI_PACKAGE_SDIST = "discogs-client"

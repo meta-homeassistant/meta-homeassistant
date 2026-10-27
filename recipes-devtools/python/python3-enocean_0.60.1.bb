@@ -13,5 +13,3 @@ RDEPENDS:${PN} += "\
     python3-enum-compat (>=0.0.2) \
     python3-pyserial (>=3.0) \
 "
-
-PYPI_PACKAGE = "enocean"

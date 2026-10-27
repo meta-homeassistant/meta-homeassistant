@@ -14,5 +14,3 @@ RDEPENDS:${PN} += "\
     python3-websocket-client \
     python3-xmltodict \
 "
-
-PYPI_PACKAGE = "pycontrol4"

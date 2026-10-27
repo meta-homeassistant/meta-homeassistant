@@ -8,6 +8,5 @@ SRC_URI[sha256sum] = "243333696bf1659a558eb999c23add82c41ffc2f2d04a56fae13b61b53
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-PYPI_PACKAGE = "standard_telnetlib"
 
 BBCLASSEXTEND = "native nativesdk"

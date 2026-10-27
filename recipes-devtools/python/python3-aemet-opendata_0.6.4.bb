@@ -6,9 +6,9 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "0088fa57054fc54470befa1298eef008d0a5bda828691b90bbf6cff545490213"
 
-inherit pypi python_setuptools_build_meta
+DEPENDS += "python3-wheel-native"
 
-PYPI_PACKAGE = "aemet_opendata"
+inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} = "\
     python3-aiohttp \

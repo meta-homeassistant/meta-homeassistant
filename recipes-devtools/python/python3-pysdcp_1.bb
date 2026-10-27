@@ -8,4 +8,4 @@ SRC_URI[sha256sum] = "951fe67e7925c88f794b3934c0decf92836a5c9186e1adb2fa11046335
 
 inherit pypi setuptools3
 
-PYPI_PACKAGE = "pySDCP"
+PYPI_PACKAGE_SDIST = "pySDCP"

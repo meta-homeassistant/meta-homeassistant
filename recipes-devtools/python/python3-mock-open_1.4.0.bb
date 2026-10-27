@@ -8,4 +8,4 @@ SRC_URI[sha256sum] = "c3ecb6b8c32a5899a4f5bf4495083b598b520c698bba00e1ce2ace6e9c
 
 inherit pypi setuptools3
 
-PYPI_PACKAGE = "mock-open"
+PYPI_PACKAGE_SDIST = "mock-open"

@@ -11,5 +11,3 @@ inherit pypi python_flit_core
 RDEPENDS:${PN} = "\
 	python3-pyasn1 (>=0.4.8) \
 "
-
-PYPI_PACKAGE = "pysnmp"

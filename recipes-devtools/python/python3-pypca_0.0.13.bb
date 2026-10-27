@@ -11,5 +11,3 @@ DEPENDS = "python3-pyserial-native"
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-colorlog python3-pyserial"
-
-PYPI_PACKAGE = "pypca"

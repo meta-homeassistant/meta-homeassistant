@@ -18,4 +18,4 @@ RDEPENDS:${PN}-ptest += "\
     python3-pytest-localserver \
 "
 
-PYPI_PACKAGE = "google-auth-httplib2"
+PYPI_PACKAGE_SDIST = "google-auth-httplib2"

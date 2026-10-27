@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "9dcf0a0d277ba591c7e6e1e2ab202c9cd02b6d7e80fd87c8016cf8e4c8
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-aiohttp (>=3)"
-
-PYPI_PACKAGE = "emulated_roku"

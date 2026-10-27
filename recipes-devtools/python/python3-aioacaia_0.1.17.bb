@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "24a2773f0649730e022e9628345f3310911faab1d616534f5e448c1758
 inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} = "python3-bleak (>=0.20.2)"
-
-PYPI_PACKAGE = "aioacaia"

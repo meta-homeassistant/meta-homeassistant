@@ -25,5 +25,3 @@ RDEPENDS:${PN} = "\
 	python3-pygments (>=2.6.1) \
 	python3-typing-extensions (>=3.7.4.3) \
 "
-
-PYPI_PACKAGE = "enum_tools"

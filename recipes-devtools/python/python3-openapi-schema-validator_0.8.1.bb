@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "4c57266ce8cbfa37bb4eb4d62cdb7d19356c3a468e3535743c4562863e
 
 inherit pypi python_poetry_core ptest-python-pytest
 
-PYPI_PACKAGE = "openapi_schema_validator"
 RDEPENDS:${PN} = "\
     python3-jsonschema (>=4.19.1) \
     python3-rfc3339-validator \

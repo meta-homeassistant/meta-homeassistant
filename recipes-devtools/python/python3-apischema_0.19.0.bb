@@ -7,6 +7,6 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI += "file://0001-Relax-build-req.patch"
 SRC_URI[sha256sum] = "08a72728b9bc90976b08a3f219f99846fb2f0218cf3dfe2019c5a52fbe1cf1b4"
 
-inherit pypi python_setuptools_build_meta
+DEPENDS += "python3-wheel-native"
 
-PYPI_PACKAGE = "apischema"
+inherit pypi python_setuptools_build_meta

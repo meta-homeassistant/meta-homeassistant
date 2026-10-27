@@ -15,5 +15,3 @@ RDEPENDS:${PN} += "\
     python3-face-recognition-models (>=0.3.0) \
     python3-numpy \
 "
-
-PYPI_PACKAGE = "face_recognition"

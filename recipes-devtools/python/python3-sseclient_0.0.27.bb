@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "b2fe534dcb33b1d3faad13d60c5a7c718e28f85987f2a034ecf5ec2799
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-requests (>=2.9) python3-six"
-
-PYPI_PACKAGE = "sseclient"

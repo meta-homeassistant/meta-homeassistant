@@ -7,6 +7,8 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 PYPI_SRC_URI = "git://github.com/jafar-atili/pyElectra;protocol=https;branch=main"
 SRCREV = "e5cf8af7bc8f8a42d7b43883ec4264d7253994bc"
 
+DEPENDS = "python3-wheel-native"
+
 inherit pypi python_setuptools_build_meta
 
 S = "${UNPACKDIR}/python3-pyelectra-${PV}"

@@ -14,5 +14,3 @@ RDEPENDS:${PN} += "\
     python3-requests (>=2.22) \
     python3-zeroconf (>=0.28.0) \
 "
-
-PYPI_PACKAGE = "boschshcpy"

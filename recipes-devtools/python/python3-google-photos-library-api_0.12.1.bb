@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "bcbf8b5478e698939df0990045e31c02148fd462056f3e8c22590fa032
 inherit pypi setuptools3 ptest-python-pytest
 
 RDEPENDS:${PN} += "python3-aiohttp python3-google-api-python-client python3-google-auth python3-mashumaro"
-
-PYPI_PACKAGE = "google_photos_library_api"

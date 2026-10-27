@@ -1,0 +1,23 @@
+From 6db787b4e72ad8b67062b61daab7adcd577c1c59 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Sat, 24 Oct 2026 23:47:29 +0200
+Subject: [PATCH] Removes the unused event_loop fixture parameter from
+ protocol_mock_fixture.
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ tests/protocols/mrp/conftest.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tests/protocols/mrp/conftest.py b/tests/protocols/mrp/conftest.py
+index bfb13ab..f6a3b15 100644
+--- a/tests/protocols/mrp/conftest.py
++++ b/tests/protocols/mrp/conftest.py
+@@ -24,5 +24,5 @@ class MrpProtocolMock(MessageDispatcher[int, protobuf.ProtocolMessage]):
+ 
+ 
+ @pytest.fixture(name="protocol_mock")
+-def protocol_mock_fixture(event_loop):
++def protocol_mock_fixture():
+     yield MrpProtocolMock()

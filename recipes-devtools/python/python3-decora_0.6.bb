@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "921194aaa0e58c55f3d743174723808ec4c18756bf83637de3efa8293f
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "bluepy"
-
-PYPI_PACKAGE = "decora"

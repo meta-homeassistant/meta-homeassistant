@@ -1,6 +1,6 @@
 SUMMARY = "Python Git Library"
 HOMEPAGE = "https://www.dulwich.io/"
-LICENSE = "Apache-2.0 | GPL-2.0-or-later"
+LICENSE = "Apache-2.0 OR GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d45757cfddbd32c1cd3132cf3b444d4f"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
@@ -12,7 +12,6 @@ DEPENDS += "\
     python3-setuptools-rust-native \
 "
 
-PYPI_PACKAGE = "dulwich"
 RDEPENDS:${PN} = "\
     python3-urllib3 (>=2.2.2) \
 "

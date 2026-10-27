@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "9e030577e044de129e69e1845f8c47a730c8aed1850ec4b0c416eb7386
 inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} = "python3-aiohttp"
-
-PYPI_PACKAGE = "faadelays"

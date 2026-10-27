@@ -11,5 +11,3 @@ inherit pypi python_setuptools_build_meta ptest-python-pytest
 RDEPENDS:${PN} += "\
     python3-asyncssh \
 "
-
-PYPI_PACKAGE = "aioasuswrt"

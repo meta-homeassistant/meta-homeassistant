@@ -6,6 +6,8 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "210dbb715a46a0cad25e2f7b5d5f38c44b2090618b2f46be97c36198df82283f"
 
+DEPENDS += "python3-wheel-native"
+
 inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} = "\
@@ -13,5 +15,3 @@ RDEPENDS:${PN} = "\
     python3-gql \
     python3-apischema \
 "
-
-PYPI_PACKAGE = "aioaseko"

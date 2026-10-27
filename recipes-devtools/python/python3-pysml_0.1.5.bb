@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "753eba9b8be2006d16d6cf276dd2fdf4b0005cb4f0f537dc26458e9f11
 
 inherit pypi python_poetry_core
 
-PYPI_PACKAGE = "pysml"
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.8.4) \
     python3-pyserial-asyncio-fast (>=0.16) \

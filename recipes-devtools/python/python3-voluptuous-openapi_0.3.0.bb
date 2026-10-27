@@ -10,6 +10,5 @@ inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "python3-voluptuous"
 
-PYPI_PACKAGE = "voluptuous_openapi"
 
 RDEPENDS:${PN}-ptest += "python3-openapi-schema-validator"

@@ -13,4 +13,4 @@ RDEPENDS:${PN} += "\
     python3-requests \
 "
 
-PYPI_PACKAGE = "bthomehub5-devicelist"
+PYPI_PACKAGE_SDIST = "bthomehub5-devicelist"

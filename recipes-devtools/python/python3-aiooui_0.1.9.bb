@@ -7,7 +7,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 DEPENDS = "\
     python3-aiohttp-native \
     python3-requests-native \
-    python3-charset-normalizer-native \
+    python3-wheel-native \
 "
 
 SRC_URI[sha256sum] = "e8c8bc59ab352419e0747628b4cce7c4e04d492574c1971e223401126389c5d8"

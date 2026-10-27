@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "d61383c12730a97751c5c38ceca18ec826e9f649fd49681e9337706aa7
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-defusedxml"
-
-PYPI_PACKAGE = "libpyfoscamcgi"

@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "203e58a548e2a3af310a1b3a6614d0056f7de64a9b9b0b0049124a4356
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-cryptography (>=3.2)"
-
-PYPI_PACKAGE = "broadlink"

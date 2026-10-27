@@ -25,5 +25,3 @@ SRC_URI[sha256sum] = "6c43d229783dd9f7c7ced80ba4cc71590d06e20a13188843d94e9627e2
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-aiohttp"
-
-PYPI_PACKAGE = "pyatag"

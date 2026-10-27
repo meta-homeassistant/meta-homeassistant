@@ -12,5 +12,3 @@ RDEPENDS:${PN} += "\
     python3-azure-core (>=1.27.0) \
     python3-typing-extensions (>=4.0.1) \
 "
-
-PYPI_PACKAGE = "azure_eventhub"

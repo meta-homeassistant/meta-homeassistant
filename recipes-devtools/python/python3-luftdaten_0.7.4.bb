@@ -8,5 +8,4 @@ SRC_URI[sha256sum] = "08f6f352e794a104eb9ceea9416f229bc68fceb895ed6a9096ba126f93
 
 inherit pypi python_poetry_core
 
-PYPI_PACKAGE = "luftdaten"
 RDEPENDS:${PN} = "python3-httpx (>=0.23)"

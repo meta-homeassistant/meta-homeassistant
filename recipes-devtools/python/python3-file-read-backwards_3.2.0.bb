@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "5478d305ebaeaae8fe3c6585a24dfc3262170224450acc9321398f0d26
 inherit pypi setuptools3 ptest-python-pytest
 
 RDEPENDS:${PN}-ptest = "python3-mock"
-
-PYPI_PACKAGE = "file_read_backwards"

@@ -9,3 +9,5 @@ SRC_URI[sha256sum] = "bf534e9703fc2ad06c422ab06f1d72f29f2500112e10974d86f476906c
 DEPENDS += "python3-aiohttp-native"
 
 inherit pypi setuptools3
+
+PYPI_PACKAGE_SDIST = "pyforked-daapd"

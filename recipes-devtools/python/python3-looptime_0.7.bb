@@ -17,5 +17,3 @@ RDEPENDS:${PN} = "\
     python3-pytest-cov \
     python3-pytest-mock \
 "
-
-PYPI_PACKAGE = "looptime"

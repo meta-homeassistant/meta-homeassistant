@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "45c8cd982c85cd4faae573ddff6920de7eec735336db6973f26a765ae7
 
 inherit pypi python_maturin ptest-python-pytest cargo-update-recipe-crates
 
-PYPI_PACKAGE = "deptry"
 
 require ${BPN}-crates.inc
 

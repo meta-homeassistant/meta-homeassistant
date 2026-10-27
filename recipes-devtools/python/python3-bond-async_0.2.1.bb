@@ -12,5 +12,3 @@ RDEPENDS:${PN} += "\
     python3-aiohttp (>=3.6.1) \
     python3-orjson (>=3.8.7) \
 "
-
-PYPI_PACKAGE = "bond_async"

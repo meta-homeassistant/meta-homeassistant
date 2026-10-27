@@ -1,6 +1,6 @@
 SUMMARY = "Structured logging for Python"
 HOMEPAGE = "https://github.com/hynek/structlog"
-LICENSE = "Apache-2.0 | MIT"
+LICENSE = "Apache-2.0 OR MIT"
 LIC_FILES_CHKSUM = "file://LICENSE-APACHE;md5=2ee41112a44fe7014dce33e26468ba93 \
                     file://LICENSE-MIT;md5=0473cdcf9c6ed3f81c08d886870daea5"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
@@ -20,5 +20,3 @@ RDEPENDS:${PN}-ptest += "\
 	python3-pytest-asyncio \
 	python3-simplejson \
 " 
-
-PYPI_PACKAGE = "structlog"

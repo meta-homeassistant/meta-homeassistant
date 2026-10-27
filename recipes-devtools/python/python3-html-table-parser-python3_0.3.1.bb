@@ -7,5 +7,3 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "8e33c436c1011501b8d3ef95114587580e8e923ff59ee04903646654608369f4"
 
 inherit pypi python_poetry_core
-
-PYPI_PACKAGE = "html_table_parser_python3"

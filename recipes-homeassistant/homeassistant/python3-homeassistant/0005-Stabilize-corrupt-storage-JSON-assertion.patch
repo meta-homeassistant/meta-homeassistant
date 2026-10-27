@@ -1,0 +1,28 @@
+From 2a3ef19a1a17791ca5dde509bbf77bcfa27a0e55 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Mon, 26 Oct 2026 19:07:22 +0100
+Subject: [PATCH] Stabilize corrupt storage JSON assertion
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ tests/helpers/test_storage.py | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/tests/helpers/test_storage.py b/tests/helpers/test_storage.py
+index e3f5ddf60ea..1fb6615fa3a 100644
+--- a/tests/helpers/test_storage.py
++++ b/tests/helpers/test_storage.py
+@@ -890,10 +890,8 @@ async def test_loading_corrupt_core_file(
+         assert issue_entry.is_fixable is True
+         assert issue_entry.translation_placeholders["storage_key"] == storage_key
+         assert issue_entry.issue_domain == HOMEASSISTANT_DOMAIN
+-        assert (
+-            "unexpected character: line 1 column 1 (char 0)"
+-            in issue_entry.translation_placeholders["error"]
+-        )
++        error_message = issue_entry.translation_placeholders["error"]
++        assert "line 1 column 1 (char 0)" in error_message
+ 
+         files = await hass.async_add_executor_job(
+             os.listdir, os.path.join(tmp_storage, ".storage")

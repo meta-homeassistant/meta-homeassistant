@@ -17,4 +17,4 @@ RDEPENDS:${PN} += "\
     python3-six (>=1.9.0) \
 "
 
-PYPI_PACKAGE = "python-socketio-v4"
+PYPI_PACKAGE_SDIST = "python-socketio-v4"

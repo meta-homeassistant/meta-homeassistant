@@ -12,5 +12,3 @@ RDEPENDS:${PN} += "\
     python3-aiohttp (>=3.10.0) \
     python3-async-timeout \
 "
-
-PYPI_PACKAGE = "foobot_async"

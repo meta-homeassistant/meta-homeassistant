@@ -6,6 +6,8 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "d609abcad18113e3050c1684129d3d93a40102289ac083dc6f3462906db8ac04"
 
+DEPENDS += "python3-wheel-native"
+
 inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} += " \
@@ -13,5 +15,3 @@ RDEPENDS:${PN} += " \
     python3-aiohttp (>=3.7.4) \
     python3-pytz (>=2019.01) \
 "
-
-PYPI_PACKAGE = "aio_geojson_geonetnz_volcano"

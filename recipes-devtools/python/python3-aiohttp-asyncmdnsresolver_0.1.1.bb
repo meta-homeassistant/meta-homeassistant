@@ -8,8 +8,6 @@ SRC_URI[sha256sum] = "8c65d4b08b42c8a260717a2766bd5967a1d437cee852a9b21f3928b517
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-PYPI_PACKAGE = "aiohttp_asyncmdnsresolver"
-
 RDEPENDS:${PN} = "\
     python3-aiodns (>=3.2.0) \
     python3-aiohttp (>=3.10.0) \

@@ -13,5 +13,3 @@ RDEPENDS:${PN} = "\
     python3-aiohttp \
     python3-mashumaro (>=3.13) \
 "
-
-PYPI_PACKAGE = "fyta_cli"

@@ -12,5 +12,3 @@ RDEPENDS:${PN} = "\
     python3-core (>=3.7) \
     python3-propcache (>=0.0.0) \
 "
-
-PYPI_PACKAGE = "cached_ipaddress"

@@ -14,5 +14,3 @@ RDEPENDS:${PN} += "\
     python3-orjson (>=2.0.1) \
     python3-yarl (>=1.9.4) \
 "
-
-PYPI_PACKAGE = "asyncarve"
