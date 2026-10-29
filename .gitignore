@@ -16,3 +16,4 @@ poky/
 ptest-run.log
 qemu.log
 *.pyc
+test-logs/*
