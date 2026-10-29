@@ -13,4 +13,5 @@ RDEPENDS:${PN} += "\
     python3-aiohttp (>=3.0.6) \
     python3-async-timeout (>=1.4.0) \
     python3-bleak \
+    python3-bleak-retry-connector (>=4.0.0) \
 "
