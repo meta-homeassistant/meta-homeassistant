@@ -9,6 +9,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-accuweather \
     python3-adext \
     python3-aioapcaccess \
+    python3-aioasuswrt \
     python3-aiodiscover \
     python3-aioecowitt \
     python3-aioesphomeapi \
@@ -113,7 +114,6 @@ PTEST_CURRENTLY_FAILS_META_HOMEASSISTANT = "\
 #e
 PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-adb-shell \
-    python3-aioasuswrt \
     python3-aioazuredevops \
     python3-aiohttp-cors  \
     python3-aiohttp-isal \
