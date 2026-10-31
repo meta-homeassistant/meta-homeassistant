@@ -14,6 +14,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-aioecowitt \
     python3-aioesphomeapi \
     python3-aiohasupervisor \
+    python3-aiohttp-asyncmdnsresolver \
     python3-aiohttp-retry \
     python3-aiointercept \
     python3-aiorun \
@@ -103,7 +104,6 @@ PTESTS_NEEDS_ETHERNET_META_HOMEASSISTANT = "\
 
 PTEST_CURRENTLY_FAILS_META_HOMEASSISTANT = "\
     python3-aioconsole \
-    python3-aiohttp-asyncmdnsresolver \
     python3-asyncstdlib \
     python3-bimmer-connected \
     python3-bring-api \
