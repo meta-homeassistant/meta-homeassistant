@@ -8,4 +8,4 @@ SRC_URI[sha256sum] = "5536d3ba33d84f7c138fec1709d5349abfa0134a2d3706d9a84ded4dbc
 
 inherit pypi setuptools3
 
-RDEPENDS:${PN} += "python3-keyring"
+RDEPENDS:${PN} += "python3-keyring (>=21.1.1)"
