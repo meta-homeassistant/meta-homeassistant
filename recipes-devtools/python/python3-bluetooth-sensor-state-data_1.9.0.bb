@@ -8,9 +8,8 @@ SRC_URI[sha256sum] = "d289b86e4a65a5bccce6310f686d6f3e4ac4a2c56a13c2fccb475a6894
 
 inherit pypi python_poetry_core
 
-
 RDEPENDS:${PN} = "\
-    python3-sensor-state-data (>=2.0) \
     python3-bluetooth-data-tools (>=1.28.0) \
     python3-habluetooth (>=3.42.0) \
+    python3-sensor-state-data (>=2.0) \
 "
