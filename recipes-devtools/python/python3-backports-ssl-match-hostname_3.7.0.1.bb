@@ -7,3 +7,5 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "bb82e60f9fbf4c080eabd957c39f0641f0fc247d9a16e31e26d594d8f42b9fd2"
 
 inherit pypi setuptools3
+
+PYPI_PACKAGE_SDIST = "backports.ssl_match_hostname"
