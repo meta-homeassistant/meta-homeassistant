@@ -8,12 +8,11 @@ SRC_URI[sha256sum] = "dcb98c34aad7da34b22da8b6f7c6f9d5e1954725b9654d17c9f127badc
 
 inherit pypi python_poetry_core cython
 
-
-RDEPENDS:${PN} += " \
+RDEPENDS:${PN} += "\
     python3-aioesphomeapi (>=44.3.1) \
     python3-bleak (>=1) \
+    python3-bleak-retry-connector (>=3.8.0) \
     python3-bluetooth-data-tools (>=1.18.0) \
     python3-habluetooth (>=5.7.0) \
     python3-lru-dict (>=1.2.0) \
-    python3-bleak-retry-connector (>=3.8.0) \
 "
