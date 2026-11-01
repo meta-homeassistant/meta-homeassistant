@@ -10,17 +10,17 @@ SRCREV = "719a481597aa1820db66abbeb8694a9ff6e7b212"
 inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "\
-	python3-aiohttp \
-	python3-aiofiles \
-	python3-isodate \
+    python3-aiofiles (>=24.1.0) \
+    python3-aiohttp (>=3.12) \
+    python3-isodate (>=0.7.2) \
 "
 
-RDEPENDS:${PN}-ptest:append = "\
-	python3-pytest-cov \
-	python3-pytest-asyncio \
-	python3-python-dotenv \
-	python3-aioresponses \
-	python3-tests \
+RDEPENDS:${PN}-ptest:append = " \
+    python3-aioresponses \
+    python3-pytest-asyncio \
+    python3-pytest-cov \
+    python3-python-dotenv \
+    python3-tests \
 "
 
 do_install_ptest:append() {
