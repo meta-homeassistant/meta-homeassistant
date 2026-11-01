@@ -42,6 +42,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-bluetooth-adapters \
     python3-bluetooth-auto-recovery \
     python3-btsocket \
+    python3-ciso8601 \
     python3-cookidoo-api \
     python3-crccheck \
     python3-ddt \
@@ -139,7 +140,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-buienradar \
     python3-caldav \
     python3-ciscomobilityexpress \
-    python3-ciso8601 \
     python3-click-log \
     python3-coinbase \
     python3-coinbase-advanced-py \
