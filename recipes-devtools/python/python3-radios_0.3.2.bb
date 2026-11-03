@@ -17,6 +17,5 @@ RDEPENDS:${PN} = "\
     python3-mashumaro (>= 3.10) \
     python3-orjson (>=3.9.8) \
     python3-pycountry (>=24.0.0) \
-    python3-core (>=3.11) \
     python3-yarl (>=1.6.0) \
 "
