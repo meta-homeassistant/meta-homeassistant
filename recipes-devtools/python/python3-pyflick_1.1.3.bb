@@ -10,6 +10,6 @@ inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} += "\
     python3-aiohttp (>=3.11.10) \
+    python3-dateutil (>=2.9.0.post0) \
     python3-json-api-doc (>=0.15.0) \
-    python3-dateutil (>=2.9.0) \
 "
