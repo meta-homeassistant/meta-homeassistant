@@ -9,3 +9,5 @@ SRC_URI[sha256sum] = "4e5239d86abdb7cdf33633402d2724008b6e6dc41d20c0054bf5fbe5c9
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "python3-mutagen (>=1.36.2)"
+
+PYPI_PACKAGE_SDIST = "gstreamer-player"
