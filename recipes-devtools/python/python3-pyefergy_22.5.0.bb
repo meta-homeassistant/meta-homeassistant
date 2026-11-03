@@ -11,8 +11,8 @@ DEPENDS = "python3-poetry-dynamic-versioning-native"
 inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} += "\
-	python3-aiohttp (>=3.6.1) \
-	python3-codecov \
-	python3-iso4217 (>=1.2.20150619) \
-	python3-types-pytz \
+    python3-aiohttp (>=3.6.1) \
+    python3-codecov (>=2.1.13) \
+    python3-iso4217 (>=1.2.20150619) \
+    python3-types-pytz (>=2021.3.1) \
 "
