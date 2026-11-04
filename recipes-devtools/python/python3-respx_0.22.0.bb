@@ -8,6 +8,4 @@ SRC_URI[sha256sum] = "3c8924caa2a50bd71aefc07aa812f2466ff489f1848c96e954a5362d17
 
 inherit pypi setuptools3
 
-RDEPENDS:${PN} += "\
-    python3-httpx \
-"
+RDEPENDS:${PN} += "python3-httpx (>=0.25.0)"
