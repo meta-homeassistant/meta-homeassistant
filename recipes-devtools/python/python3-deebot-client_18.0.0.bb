@@ -11,8 +11,9 @@ require ${BPN}-crates.inc
 inherit pypi python_maturin cargo-update-recipe-crates pkgconfig
 
 RDEPENDS:${PN} += "\
-	python3-aiohttp (>=3.10) \
-	python3-aiomqtt (>=2.0.0) \
-	python3-cachetools (>=5.0.0) \
-	python3-defusedxml (>=0.7.1) \
+    python3-aiohttp (>=3.13.3) \
+    python3-aiomqtt (>=2.5.0) \
+    python3-cachetools (>=5.0.0) \
+    python3-defusedxml (>=0.7.1) \
+    python3-orjson (>=3.11.3) \
 "
