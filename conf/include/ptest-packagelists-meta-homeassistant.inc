@@ -71,6 +71,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-fronius-solarapi \
     python3-frozendict \
     python3-gazetteer-matcher \
+    python3-getmac \
     python3-gios \
     python3-googlewifiapi \
     python3-gql \
@@ -218,7 +219,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-gcal-sync \
     python3-geocachingapi \
     python3-geopy \
-    python3-getmac \
     python3-goodwe \
     python3-google-auth-httplib2 \
     python3-google-cloud-pubsub \
