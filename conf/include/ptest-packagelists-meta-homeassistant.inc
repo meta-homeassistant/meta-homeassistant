@@ -56,6 +56,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-emoji \
     python3-evohome-async \
     python3-fastuuid \
+    python3-fints \
     python3-fjaraskupan \
     python3-gios \
     python3-gql \
@@ -166,7 +167,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-fake-useragent \
     python3-feedparser \
     python3-file-read-backwards \
-    python3-fints \
     python3-fixerio \
     python3-flasgger \
     python3-flux-led \
