@@ -59,6 +59,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-fints \
     python3-fjaraskupan \
     python3-getmac \
+    python3-geopy \
     python3-gios \
     python3-gql \
     python3-greeclimate \
@@ -178,7 +179,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-gassist-text \
     python3-gcal-sync \
     python3-geocachingapi \
-    python3-geopy \
     python3-goodwe \
     python3-google-auth-httplib2 \
     python3-google-cloud-pubsub \
