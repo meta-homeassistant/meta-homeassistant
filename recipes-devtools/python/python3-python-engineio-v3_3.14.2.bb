@@ -10,7 +10,7 @@ inherit pypi setuptools3
 
 PACKAGECONFIG ?= "asyncio-client client"
 PACKAGECONFIG[asyncio-client] = ",,,python3-aiohttp"
-PACKAGECONFIG[client] = ",,,python3-requests python3-websocket-client"
+PACKAGECONFIG[client] = ",,,python3-requests (>=2.21.0) python3-websocket-client (>=0.54.0)"
 
 RDEPENDS:${PN} += "python3-six (>=1.9.0)"
 
