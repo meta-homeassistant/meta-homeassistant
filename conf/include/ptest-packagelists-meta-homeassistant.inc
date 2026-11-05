@@ -48,6 +48,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-ddt \
     python3-deepdiff \
     python3-denonavr \
+    python3-dlms-cosem \
     python3-doorbirdpy \
     python3-dsmr-parser \
     python3-eheimdigital \
@@ -153,7 +154,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-devolo-home-control-api \
     python3-devolo-plc-api \
     python3-dio-chacon-wifi-api \
-    python3-dlms-cosem \
     python3-docker-py \
     python3-dulwich \
     python3-dynalite-devices \
