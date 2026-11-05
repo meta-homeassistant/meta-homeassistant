@@ -9,7 +9,7 @@ SRC_URI[sha256sum] = "6b32eab62d2f11af9d2322a0d120054a38b9eb9380383a427a68155cf3
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-RDEPENDS:${PN} = "\
+RDEPENDS:${PN}-ptest += "\
     python3-async-timeout \
     python3-codecov \
     python3-coverage \
