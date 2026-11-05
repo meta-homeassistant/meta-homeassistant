@@ -11,8 +11,8 @@ DEPENDS += "python3-wheel-native"
 inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} = "\
-    python3-haversine (>=2.8.1) \
-    python3-xmltodict (>=0.14.2) \
-    python3-requests (>=2.31.0) \
     python3-dateutil (>=2.9.0) \
+    python3-haversine (>=2.8.1) \
+    python3-requests (>=2.31.0) \
+    python3-xmltodict (>=0.14.2) \
 "
