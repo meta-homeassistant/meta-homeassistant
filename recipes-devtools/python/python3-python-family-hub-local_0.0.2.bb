@@ -8,7 +8,11 @@ SRC_URI[sha256sum] = "6db38195427883e1ce7098a1101033de5b0747d1a7d3bcfcb2dd781511
 
 inherit pypi setuptools3
 
-RDEPENDS:${PN} += "python3-aiohttp python3-async-timeout python3-pillow"
+RDEPENDS:${PN} += "\
+    python3-aiohttp \
+    python3-async-timeout \
+    python3-pillow \
+"
 
 PYPI_PACKAGE_SDIST = "python-family-hub-local"
 PYPI_PACKAGE_EXT = "zip"
