@@ -80,6 +80,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-openapi-schema-validator \
     python3-pizzapi \
     python3-pyatv \
+    python3-pydeconz \
     python3-pydexcom \
     python3-pyegps \
     python3-pyfritzhome \
@@ -225,7 +226,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-pyaes \
     python3-pyaussiebb \
     python3-pydantic-settings \
-    python3-pydeconz \
     python3-pyemoncms \
     python3-pyfibaro \
     python3-pyflume \
