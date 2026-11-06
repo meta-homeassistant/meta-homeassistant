@@ -4,6 +4,7 @@ Date: Fri, 6 Nov 2026 21:11:48 +0100
 Subject: [PATCH] Make tests compatible with current pytest-asyncio
 
 Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
 ---
  tests/test_device.py    | 16 ++++++++++------
  tests/test_deviceapi.py |  1 +

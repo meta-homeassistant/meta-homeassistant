@@ -4,6 +4,7 @@ Date: Fri, 6 Nov 2026 21:11:15 +0100
 Subject: [PATCH] Fix synchronous connections without a current event loop
 
 Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
 ---
  devolo_plc_api/device.py | 5 ++++-
  1 file changed, 4 insertions(+), 1 deletion(-)
