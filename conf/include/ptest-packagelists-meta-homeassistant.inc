@@ -69,6 +69,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-foobot-async \
     python3-fronius-modbus \
     python3-fronius-solarapi \
+    python3-frozendict \
     python3-gazetteer-matcher \
     python3-gios \
     python3-googlewifiapi \
@@ -211,7 +212,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-fixerio \
     python3-flasgger \
     python3-fortiosapi \
-    python3-frozendict \
     python3-ftfy \
     python3-fyta-cli \
     python3-gassist-text \
