@@ -104,6 +104,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-pytest-fixture-classes \
     python3-pytest-httpbin \
     python3-python-bsblan \
+    python3-python-didl-lite \
     python3-python-google-maps-routing-api \
     python3-python-swisscom-internet-box \
     python3-pytibber \
