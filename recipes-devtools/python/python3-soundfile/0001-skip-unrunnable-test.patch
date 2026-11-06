@@ -1,0 +1,23 @@
+From 5f4196e3612769aaf0521788101ec855e0719d54 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Fri, 6 Nov 2026 23:39:58 +0100
+Subject: [PATCH] skip unrunnable test
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ tests/test_soundfile.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/tests/test_soundfile.py b/tests/test_soundfile.py
+index 65fde92..e181c97 100644
+--- a/tests/test_soundfile.py
++++ b/tests/test_soundfile.py
+@@ -298,6 +298,7 @@ def test_write_with_unknown_extension(filename):
+     assert "file extension" in str(excinfo.value)
+ 
+ 
++@pytest.mark.skip(reason="MP3 encoding is not available in the linked libsndfile")
+ def test_write_mp3_compression():
+     sr = 44100
+     sf.write(filename_mp3, data_stereo, sr, format='MP3', subtype='MPEG_LAYER_III',

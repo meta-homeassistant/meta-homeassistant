@@ -92,6 +92,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-requirements-parser \
     python3-securetar \
     python3-serialx \
+    python3-soundfile \
     python3-uart-devices \
     python3-uuid7 \
     python3-wassima \
@@ -243,7 +244,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-simple-websocket \
     python3-siobrultech-protocols \
     python3-sleekxmppfs \
-    python3-soundfile \
     python3-sse-starlette \
     python3-standard-aifc \
     python3-standard-telnetlib \
