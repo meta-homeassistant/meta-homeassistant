@@ -53,6 +53,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-ddt \
     python3-deepdiff \
     python3-denonavr \
+    python3-docstring-parser \
     python3-doorbirdpy \
     python3-dsmr-parser \
     python3-eheimdigital \
