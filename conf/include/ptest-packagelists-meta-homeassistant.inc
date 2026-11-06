@@ -219,7 +219,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-openwebifpy \
     python3-peblar \
     python3-psutil-home-assistant \
-    python3-pure-pcapy3 \
     python3-pure-python-adb \
     python3-py-canary \
     python3-py-ccm15 \
