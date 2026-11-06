@@ -59,8 +59,8 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-fints \
     python3-fjaraskupan \
     python3-frozendict \
-    python3-getmac \
     python3-geopy \
+    python3-getmac \
     python3-gios \
     python3-gql \
     python3-greeclimate \
