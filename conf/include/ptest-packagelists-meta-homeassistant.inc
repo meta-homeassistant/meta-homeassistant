@@ -87,6 +87,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-mistune \
     python3-modbus-connection \
     python3-openapi-schema-validator \
+    python3-openwebifpy \
     python3-probatio \
     python3-pyatv \
     python3-pydexcom \
@@ -241,7 +242,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-mutagen \
     python3-niquests \
     python3-oauth2client \
-    python3-openwebifpy \
     python3-peblar \
     python3-pizzapi \
     python3-psutil-home-assistant \
