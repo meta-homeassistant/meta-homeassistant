@@ -13,11 +13,12 @@ SRC_URI = "\
     file://0001-Allow-setuptools-git-versioning-3.patch \
     file://run-ptest \
 "
-SRCREV = "2e721867bf69e0b9967252d43bf29dc725c32058"
+SRCREV = "e5040e816186df0e0408c8d41d928d385069f666"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "\
+    python3-zha \
     python3-zigpy (>=1.2.1) \
 "
 
