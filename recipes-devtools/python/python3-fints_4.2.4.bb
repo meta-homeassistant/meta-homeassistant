@@ -9,13 +9,9 @@ SRC_URI[sha256sum] = "9ce2adc84a34d61fca89d695aafffd7b07f537c4c16015139a29c3706c
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "\
-    python3-bleach \
-    python3-enum-tools (>=0.12.0) \
-    python3-mt-940 \
-    python3-requests \
-    python3-sepaxml (>=2.1) \
-"
-
-RDEPENDS:${PN}-ptest += "\
-    python3-pytest-mock \
+	python3-bleach \
+	python3-enum-tools \
+	python3-mt-940 \
+	python3-requests \
+	python3-sepaxml (>=2.1) \
 "

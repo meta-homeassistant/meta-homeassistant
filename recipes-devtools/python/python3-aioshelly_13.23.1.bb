@@ -11,19 +11,19 @@ SRCREV = "cfe9f67327ca817b1c59db3e88278ef62a46124a"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.11.1) \
-    python3-bleak-retry-connector (>=3.0.0) \
+    python3-bleak-retry-connector \
     python3-bluetooth-data-tools (>=1.28.0) \
     python3-habluetooth (>=3.42.0) \
     python3-orjson (>=3.8.1) \
     python3-yarl \
-    python3-zeroconf (>=0.148.0) \
+    python3-zeroconf \
 "
 
 RDEPENDS:${PN}-ptest:append = " \
-    python3-aioresponses \
     python3-pytest-asyncio \
     python3-pytest-cov \
     python3-requests \
+    python3-aioresponses \
 "
 
 do_install_ptest:append() {

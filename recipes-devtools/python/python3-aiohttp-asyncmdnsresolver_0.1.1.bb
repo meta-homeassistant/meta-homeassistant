@@ -11,7 +11,7 @@ inherit pypi python_setuptools_build_meta ptest-python-pytest
 RDEPENDS:${PN} = "\
     python3-aiodns (>=3.2.0) \
     python3-aiohttp (>=3.10.0) \
-    python3-zeroconf (>=0.142.0) \
+    python3-zeroconf (>=0.124.0) \
 "
 
 RDEPENDS:${PN}-ptest += "\

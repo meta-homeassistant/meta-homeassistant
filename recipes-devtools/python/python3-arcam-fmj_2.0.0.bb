@@ -9,17 +9,18 @@ SRC_URI[sha256sum] = "c415446486ec9231fcf822626bc2822736797b92bf10399e8e1bc91f7e
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-RDEPENDS:${PN}:append = " \
-    python3-attrs (>=18.1)\
+RDEPENDS:${PN} = "\
+	python3-attrs \
 "
 
-RDEPENDS:${PN}-ptest:append = " \
-    python3-aiohttp \
-    python3-defusedxml \
-    python3-pytest-aiohttp \
-    python3-pytest-asyncio \
-    python3-pytest-cov \
-    python3-pytest-mock \
+RDEPENDS:${PN}-ptest = "\
+	${PN} \
+	python3-aiohttp \
+	python3-defusedxml \
+	python3-pytest-aiohttp \
+	python3-pytest-asyncio \
+	python3-pytest-cov \
+	python3-pytest-mock \
 "
 
 

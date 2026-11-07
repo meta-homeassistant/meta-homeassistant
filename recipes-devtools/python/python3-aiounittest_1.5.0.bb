@@ -11,5 +11,7 @@ SRC_URI[sha256sum] = "3c20ab00909419749061a4cb1a2755f034d10c1f6455adb1f03d7c16de
 inherit pypi setuptools3 ptest-python-pytest
 
 RDEPENDS:${PN} = "\
+    python3-asyncio \
+    python3-unittest \
     python3-wrapt \
 "

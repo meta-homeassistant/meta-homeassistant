@@ -19,7 +19,7 @@ RDEPENDS:${PN} += "\
     python3-urllib3 \
 "
 
-RDEPENDS:${PN}-ptest:append = " \
+RDEPENDS:${PN}-ptest:append = "\
     python3-mock \
     python3-responses \
 "

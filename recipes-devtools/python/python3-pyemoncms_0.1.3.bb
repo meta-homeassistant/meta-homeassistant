@@ -10,13 +10,4 @@ DEPENDS += "python3-wheel-native"
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-RDEPENDS:${PN} += "python3-aiohttp"
-
-RDEPENDS:${PN}-ptest += "\
-    python3-pytest-aiohttp \
-    python3-pytest-asyncio \
-"
-
-do_install_ptest:append() {
-    install ${S}/pyproject.toml ${D}${PTEST_PATH}/
-}
+RDEPENDS:${PN} += " python3-aiohttp"

@@ -9,18 +9,18 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit pypi python_poetry_core
 
-RDEPENDS:${PN} += "\
-    bash \
-    python3-aiohttp \
-    python3-click \
+RDEPENDS:${PN} += " \
     python3-fastuuid \
     python3-httpx \
-    python3-importlib-metadata \
-    python3-jinja2 \
-    python3-jsonschema \
     python3-openai \
-    python3-pydantic \
     python3-python-dotenv \
     python3-tiktoken \
+    python3-importlib-metadata \
     python3-tokenizers \
+    python3-click \
+    python3-jinja2 \
+    python3-aiohttp \
+    python3-pydantic \
+    python3-jsonschema \
+    bash \
 "

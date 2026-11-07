@@ -1,3 +1,0 @@
-#!/bin/sh
-ulimit -n 4096 || exit 1
-exec pytest --automake

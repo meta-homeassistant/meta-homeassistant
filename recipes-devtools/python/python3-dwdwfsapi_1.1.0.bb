@@ -4,6 +4,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=59dad0a820704df21a33ed50d9c0ce6d"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
+DEPENDS = "python3-hatchling-native"
 SRC_URI[sha256sum] = "edd2150fee0c898b6c8c03398faecc95b8943764390e92ba6d453466e1cddab9"
 
 inherit pypi python_hatchling

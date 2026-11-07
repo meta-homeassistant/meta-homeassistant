@@ -12,13 +12,13 @@ SRCREV = "8de97bfa8ffe3efa2f6d1ec30bb95187d13ab37a"
 inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "\
-    python3-aiohttp (>=3.8.1) \
-    python3-urllib3 (>=1.26.14) \
-    python3-xmltodict (>=0.12.0) \
+	python3-aiohttp \
+	python3-urllib3 \
+	python3-xmltodict \
 "
 
 RDEPENDS:${PN}-ptest += "\
-    python3-pytest-asyncio \
-    python3-pytest-cov \
-    python3-tests \
+	python3-pytest-asyncio \
+	python3-pytest-cov \
+	python3-tests \
 "

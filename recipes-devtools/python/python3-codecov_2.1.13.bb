@@ -9,6 +9,6 @@ inherit pypi setuptools3
 SRC_URI[sha256sum] = "2362b685633caeaf45b9951a9b76ce359cd3581dd515b430c6c3f5dfb4d92a8c"
 
 RDEPENDS:${PN} = "\
-    python3-coverage \
     python3-requests (>=2.7.9) \
+    python3-coverage \
 "

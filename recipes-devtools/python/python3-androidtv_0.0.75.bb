@@ -13,14 +13,11 @@ SRCREV = "343b74ea7bb3d159f8a715190b4b9d8c00c2c0fd"
 inherit setuptools3 ptest-python-pytest
 
 PACKAGECONFIG ?= "async usb"
-PACKAGECONFIG[async] = ",,,python3-aiofiles (>=0.4.0) python3-async-timeout (>=0.3.0)"
+PACKAGECONFIG[async] = ",,,python3-aiofiles python3-async-timeout"
 PACKAGECONFIG[usb] = ",,,python3-adb-shell"
 
 RDEPENDS:${PN} += "\
-    python3-adb-shell (>=0.4.0) \
-    python3-pure-python-adb (>=0.3.0.dev0)\
-"
-
-RDEPENDS:${PN}-ptest:append = " \
+    python3-adb-shell \
+    python3-pure-python-adb \
     git \
 "

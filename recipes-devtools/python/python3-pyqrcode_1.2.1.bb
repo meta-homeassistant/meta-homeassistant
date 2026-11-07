@@ -9,6 +9,6 @@ SRC_URI[sha256sum] = "fdbf7634733e56b72e27f9bce46e4550b75a3a2c420414035cae9d9d26
 inherit pypi setuptools3
 
 PACKAGECONFIG ?= "png"
-PACKAGECONFIG[png] = ",,,python3-pypng (>=0.0.13)"
+PACKAGECONFIG[png] = ",,,python3-pypng"
 
 PYPI_PACKAGE_SDIST = "PyQRCode"

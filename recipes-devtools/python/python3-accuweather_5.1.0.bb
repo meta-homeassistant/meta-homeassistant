@@ -11,8 +11,7 @@ inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "\
     python3-aiohttp (>=3.9.4) \
-    python3-orjson (>=3.8.1) \
-    python3-yarl \
+    python3-orjson \
 "
 
 RDEPENDS:${PN}-ptest += "\

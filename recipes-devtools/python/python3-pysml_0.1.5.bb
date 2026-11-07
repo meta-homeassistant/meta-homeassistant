@@ -10,6 +10,6 @@ inherit pypi python_poetry_core
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.8.4) \
-    python3-bitstring (>=3.1) \
     python3-pyserial-asyncio-fast (>=0.16) \
+    python3-bitstring (>=3.1) \
 "

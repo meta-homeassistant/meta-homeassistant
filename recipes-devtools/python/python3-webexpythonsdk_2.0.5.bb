@@ -10,8 +10,9 @@ DEPENDS += "python3-poetry-dynamic-versioning-native"
 
 inherit pypi python_poetry_core
 
+
 RDEPENDS:${PN} = "\
-    python3-pyjwt (>=2.8.0) \
     python3-requests (>=2.32.3) \
     python3-requests-toolbelt (>=1.0.0) \
+    python3-pyjwt (>=2.8.0) \
 "

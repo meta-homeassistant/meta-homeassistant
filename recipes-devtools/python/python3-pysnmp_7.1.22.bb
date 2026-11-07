@@ -9,5 +9,5 @@ SRC_URI[sha256sum] = "37ac595c7f0c1c00514505939b4dcf5b4fd5a9ffe51b0349f60bb640c1
 inherit pypi python_flit_core
 
 RDEPENDS:${PN} = "\
-    python3-pyasn1 (>=0.4.8) \
+	python3-pyasn1 (>=0.4.8) \
 "

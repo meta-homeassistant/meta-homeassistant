@@ -1,0 +1,23 @@
+From 3b24b56e5e4d167d10554f9e49795f8e9b1bdc6c Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Mon, 8 Sep 2025 00:43:11 +0200
+Subject: [PATCH] remove deprecated call
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ setup.py | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index 56137ee..673032e 100644
+--- a/setup.py
++++ b/setup.py
+@@ -137,7 +137,6 @@ setup(
+         'mock',
+         'pytest',
+     ],
+-    setup_requires=["pytest-runner"],
+ 
+     # setup.py publish support.
+     cmdclass={

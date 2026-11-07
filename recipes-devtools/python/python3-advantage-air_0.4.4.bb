@@ -10,4 +10,5 @@ inherit pypi setuptools3
 
 RDEPENDS:${PN} += "\
     python3-aiohttp \
+    python3-core (>=3.6) \
 "

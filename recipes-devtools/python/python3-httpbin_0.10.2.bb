@@ -10,12 +10,12 @@ SRC_URI[sha256sum] = "632148698261c8684ea2d2b624cdea845b402b1fe91736e89df886408c
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
+
 RDEPENDS:${PN} = "\
     python3-brotlicffi \
     python3-decorator \
     python3-flasgger \
-    python3-flask (>=2.2.4) \
-    python3-greenlet (>=3.0.0a1) \
+    python3-greenlet \
     python3-six \
-    python3-werkzeug (>=2.2.2) \
+    python3-werkzeug \
 "

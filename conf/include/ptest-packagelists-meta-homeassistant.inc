@@ -9,12 +9,10 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-accuweather \
     python3-adext \
     python3-aioapcaccess \
-    python3-aioasuswrt \
     python3-aiodiscover \
     python3-aioecowitt \
     python3-aioesphomeapi \
     python3-aiohasupervisor \
-    python3-aiohttp-asyncmdnsresolver \
     python3-aiohttp-retry \
     python3-aiointercept \
     python3-aiorun \
@@ -42,36 +40,23 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-bluetooth-adapters \
     python3-bluetooth-auto-recovery \
     python3-btsocket \
-    python3-ciso8601 \
     python3-cookidoo-api \
     python3-crccheck \
     python3-ddt \
     python3-deepdiff \
     python3-denonavr \
-    python3-devolo-plc-api \
-    python3-dlms-cosem \
-    python3-docstring-parser \
     python3-doorbirdpy \
     python3-dsmr-parser \
     python3-eheimdigital \
     python3-elkm1-lib \
     python3-emoji \
     python3-evohome-async \
-    python3-evolutionhttp \
     python3-fastuuid \
-    python3-fints \
     python3-fjaraskupan \
-    python3-flux-led \
-    python3-foobot-async \
-    python3-frozendict \
-    python3-geopy \
-    python3-getmac \
     python3-gios \
     python3-gql \
     python3-greeclimate \
-    python3-habluetooth \
     python3-hass-nabucasa \
-    python3-hassil \
     python3-home-assistant-intents \
     python3-httpbin \
     python3-ical \
@@ -81,14 +66,9 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-mcp \
     python3-mistune \
     python3-openapi-schema-validator \
-    python3-openwebifpy \
-    python3-pizzapi \
     python3-pyatv \
-    python3-pyblackbird \
-    python3-pydeconz \
     python3-pydexcom \
     python3-pyegps \
-    python3-pyemoncms \
     python3-pyfritzhome \
     python3-pylint-per-file-ignores \
     python3-pyswitchbot \
@@ -96,12 +76,10 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-pytest-fixture-classes \
     python3-pytest-httpbin \
     python3-python-bsblan \
-    python3-python-didl-lite \
     python3-pytibber \
     python3-requirements-parser \
     python3-securetar \
     python3-serialx \
-    python3-soundfile \
     python3-uart-devices \
     python3-uuid7 \
     python3-wassima \
@@ -124,6 +102,7 @@ PTESTS_NEEDS_ETHERNET_META_HOMEASSISTANT = "\
 
 PTEST_CURRENTLY_FAILS_META_HOMEASSISTANT = "\
     python3-aioconsole \
+    python3-aiohttp-asyncmdnsresolver \
     python3-asyncstdlib \
     python3-bimmer-connected \
     python3-bring-api \
@@ -134,6 +113,7 @@ PTEST_CURRENTLY_FAILS_META_HOMEASSISTANT = "\
 #e
 PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-adb-shell \
+    python3-aioasuswrt \
     python3-aioazuredevops \
     python3-aiohttp-cors  \
     python3-aiohttp-isal \
@@ -159,6 +139,7 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-buienradar \
     python3-caldav \
     python3-ciscomobilityexpress \
+    python3-ciso8601 \
     python3-click-log \
     python3-coinbase \
     python3-coinbase-advanced-py \
@@ -170,7 +151,9 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-datadog \
     python3-deptry \
     python3-devolo-home-control-api \
+    python3-devolo-plc-api \
     python3-dio-chacon-wifi-api \
+    python3-dlms-cosem \
     python3-docker-py \
     python3-dulwich \
     python3-dynalite-devices \
@@ -178,18 +161,24 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-elvia \
     python3-enturclient \
     python3-eq3btsmart \
+    python3-evolutionhttp \
     python3-face-recognition \
     python3-fake-useragent \
     python3-feedparser \
     python3-file-read-backwards \
+    python3-fints \
     python3-fixerio \
     python3-flasgger \
+    python3-flux-led \
     python3-fortiosapi \
+    python3-frozendict \
     python3-ftfy \
     python3-fyta-cli \
     python3-gassist-text \
     python3-gcal-sync \
     python3-geocachingapi \
+    python3-geopy \
+    python3-getmac \
     python3-goodwe \
     python3-google-auth-httplib2 \
     python3-google-cloud-pubsub \
@@ -200,7 +189,9 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-google-photos-library-api \
     python3-graphql-core \
     python3-ha-silabs-firmware-client \
+    python3-habluetooth \
     python3-hap-python \
+    python3-hassil \
     python3-home-assistant-bluetooth \
     python3-homeassistant \
     python3-httpx-sse \
@@ -221,14 +212,19 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-opentelemetry-api \
     python3-opentelemetry-sdk \
     python3-opentelemetry-semantic-conventions \
+    python3-openwebifpy \
     python3-peblar \
+    python3-pizzapi \
     python3-psutil-home-assistant \
+    python3-pure-pcapy3 \
     python3-pure-python-adb \
     python3-py-canary \
     python3-py-ccm15 \
     python3-pyaes \
     python3-pyaussiebb \
     python3-pydantic-settings \
+    python3-pydeconz \
+    python3-pyemoncms \
     python3-pyfibaro \
     python3-pyflume \
     python3-pyfronius \
@@ -246,6 +242,7 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-simple-websocket \
     python3-siobrultech-protocols \
     python3-sleekxmppfs \
+    python3-soundfile \
     python3-sse-starlette \
     python3-standard-aifc \
     python3-standard-telnetlib \

@@ -9,5 +9,6 @@ SRC_URI[sha256sum] = "75cc3b782fc5e52bea27ff51f736ccbeabcee187de02c53a092a1b44be
 inherit pypi python_poetry_core cython
 
 RDEPENDS:${PN} = "\
+    python3-core (>=3.7) \
     python3-propcache (>=0.0.0) \
 "

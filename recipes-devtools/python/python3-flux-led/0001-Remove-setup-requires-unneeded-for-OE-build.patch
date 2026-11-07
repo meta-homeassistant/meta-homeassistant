@@ -1,0 +1,22 @@
+From ad919fc1d4e4c6672f0ad66f401386da3ef9581f Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Fri, 2 Jan 2026 19:05:22 +0100
+Subject: [PATCH] Remove setup requires, unneeded for OE build
+
+Upstream-Status: Inappropriate [oe-specific]
+---
+ setup.py | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index 17f506b..ca2d49c 100644
+--- a/setup.py
++++ b/setup.py
+@@ -79,7 +79,6 @@ setup(
+         "Topic :: Software Development :: Libraries :: Python Modules",
+     ],
+     python_requires=">=3.9",
+-    setup_requires=setup_requirements,
+     tests_require=test_requirements,
+     extras_require=extra_requirements,
+     entry_points={"console_scripts": ["flux_led = flux_led.fluxled:main"]},

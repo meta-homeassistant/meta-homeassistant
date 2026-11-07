@@ -23,7 +23,7 @@ LICENSE = "MIT"
 # 100 MiB of additional storage for config and runtime data
 IMAGE_ROOTFS_EXTRA_SPACE = "102400"
 
-inherit core-image nospdx
+inherit core-image
 
 IMAGE_FSTYPES = "ext4.zst"
 

@@ -9,8 +9,5 @@ SRC_URI[sha256sum] = "d7f555e4ff99c54cd5178005daf83ea35f80325273eaad5baacba8781e
 inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} += "\
-    python3-defusedxml (>=0.7.1) \
-    python3-dicttoxml (>=1.7.4) \
-    python3-httpx (>=0.18.0) \
-    python3-pycryptodome (>=3.9.8) \
+    python3-dicttoxml \
 "

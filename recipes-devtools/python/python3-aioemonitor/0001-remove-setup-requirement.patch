@@ -1,0 +1,23 @@
+From 5d59e55be014a614ff17ab0b17b879fbf13d818c Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Sat, 27 Sep 2025 01:38:20 +0200
+Subject: [PATCH] remove setup requirement
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ setup.py | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index 424a5da..edf996d 100644
+--- a/setup.py
++++ b/setup.py
+@@ -9,7 +9,6 @@ with open("README.md") as readme_file:
+     readme = readme_file.read()
+ 
+ setup_requirements = [
+-    "pytest-runner>=5.2",
+ ]
+ 
+ test_requirements = [
