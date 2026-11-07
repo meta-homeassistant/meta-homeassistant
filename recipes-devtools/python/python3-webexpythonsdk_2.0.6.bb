@@ -4,7 +4,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=54292234461e96a39f4005148a3fb016"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "3796c163aa99b845c7c63fd1d4760bbf00f3449cb487a128356c052f526697ae"
+SRC_URI[sha256sum] = "f28f5bfbc460208a7704f3adef3d79a4d0d6501ed60638d7ce7e83972346c4a2"
 
 DEPENDS += "python3-poetry-dynamic-versioning-native"
 
