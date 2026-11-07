@@ -63,7 +63,6 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-icalendar-searcher \
     python3-looptime \
     python3-matter-python-client \
-    python3-mcp \
     python3-mistune \
     python3-openapi-schema-validator \
     python3-pyatv \
@@ -100,12 +99,16 @@ PTESTS_NEEDS_ETHERNET_META_HOMEASSISTANT = "\
     python3-vcrpy \
 "
 
+# python3-mcp: since 2.x the test suite imports logfire, blockbuster
+# and the mcp-example-stories workspace package from its conftest.py, none of
+# which are packaged.
 PTEST_CURRENTLY_FAILS_META_HOMEASSISTANT = "\
     python3-aioconsole \
     python3-aiohttp-asyncmdnsresolver \
     python3-asyncstdlib \
     python3-bimmer-connected \
     python3-bring-api \
+    python3-mcp \
     python3-pydaikin \
     python3-pytest-console-scripts \
 "
