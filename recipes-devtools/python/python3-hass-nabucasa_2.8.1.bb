@@ -6,8 +6,8 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
-SRC_URI = "git://github.com/NabuCasa/hass-nabucasa.git;protocol=https;branch=main"
-SRCREV = "74ad7069e8c382117f7aebb3736650794fae4cf9"
+SRC_URI = "git://github.com/NabuCasa/hass-nabucasa.git;protocol=https;branch=main;tag=${PV}"
+SRCREV = "6243a1771258c4a53d6e16c235f5586dfd970394"
 
 RDEPENDS:${PN} = "\
     python3-acme (>=5.3.1) \
@@ -30,6 +30,7 @@ RDEPENDS:${PN} = "\
 "
 
 RDEPENDS:${PN}-ptest += "\
+    python3-botocore \
     python3-freezegun \
     python3-pytest-aiohttp \
     python3-pytest-asyncio \
@@ -42,4 +43,12 @@ RDEPENDS:${PN}-ptest += "\
 
 do_install_ptest:append() {
     install ${S}/pyproject.toml ${D}${PTEST_PATH}/
+    # pytest >= 9.1 shortens long string parameter IDs, which then no longer
+    # match the names stored in the snapshot files; keep the old IDs.
+    sed -i '/^\[tool\.pytest\.ini_options\]/a parametrize_long_str_id_strategy = "legacy"' \
+        ${D}${PTEST_PATH}/pyproject.toml
+    # The suite keeps more files open than the default limit of 1024
+    # ("Too many open files"); upstream CI runs with a higher limit.
+    printf '#!/bin/sh\nulimit -n 65536\npytest --automake\n' > ${D}${PTEST_PATH}/run-ptest
+    chmod 0755 ${D}${PTEST_PATH}/run-ptest
 }
