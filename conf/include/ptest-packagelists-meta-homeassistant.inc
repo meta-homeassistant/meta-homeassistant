@@ -60,6 +60,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-fastuuid \
     python3-fints \
     python3-fjaraskupan \
+    python3-foobot-async \
     python3-frozendict \
     python3-geopy \
     python3-getmac \
