@@ -4,7 +4,7 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "e9b5fdf723bdc3e01ccd2895760e2dbc89eb70ac71032be45df2da94c9acf169"
+SRC_URI[sha256sum] = "d2eb2cdbfe10d1f866eaa02ea592dcbf762b161601daf320ead39f830fe11e2a"
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
