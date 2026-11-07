@@ -7,8 +7,8 @@ Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
 
 Upstream-Status: Inappropriate [oe specific]
 ---
- pyproject.toml | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ pyproject.toml | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
 index e65b98e..cb2f379 100644
@@ -23,7 +23,8 @@ index e65b98e..cb2f379 100644
      # We need at least Cython 3.1.0 for free-threaded CPython;
      # for other CPython versions, the regular pre-emptive
      # Cython version bounds policy applies
-     "Cython>=3.0.8,<3.3.0",
+-    "Cython>=3.0.8,<3.3.0",
++    "Cython>=3.0.8",
      # The upper bound on pybind11 is pre-emptive only
 -    "pybind11>=2.13.2,<3.1.0",
 +    "pybind11>=2.13.2",
