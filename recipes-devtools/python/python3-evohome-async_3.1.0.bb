@@ -6,19 +6,22 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit pypi python_hatchling ptest-python-pytest
 
+DEPENDS += "python3-hatch-vcs-native"
+
 SRC_URI += "file://0001-fix-compilation.patch"
-SRC_URI[sha256sum] = "d8aaffaff448dbb32686f7e936de6c3d2d5e42e736ab88b89928bfcefca59d1a"
+SRC_URI[sha256sum] = "73187523149a2bdcb452bda181bd424cd8ca29a660bf080eb037f54a766486bc"
 
 RDEPENDS:${PN} += "\
-    python3-aiohttp (>=3.11.12) \
+    python3-aiohttp (>=3.14.5) \
     python3-aiozoneinfo (>=0.2.3) \
-    python3-voluptuous (>=0.15.2) \
+    python3-probatio (>=0.13.0) \
 "
 
 RDEPENDS:${PN}-ptest += "\
     python3-aiofiles (>=24.1.0) \
     python3-aioresponses \
     python3-debugpy (>=1.8.9) \
+    python3-keyring (>=25.7.0) \
     python3-pytest-asyncio \
     python3-pytest-cov \
     python3-pytest-freezer \

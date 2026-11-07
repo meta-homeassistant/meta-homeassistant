@@ -1,21 +1,24 @@
-From bfdff227792ef61473be60459846caa06ccb7aa4 Mon Sep 17 00:00:00 2001
-From: Tom Geelen <t.f.g.geelen@gmail.com>
-Date: Sat, 27 Sep 2025 21:31:02 +0200
+From 1f67b7f444786d8b0a41f20bb3cb758ea796a665 Mon Sep 17 00:00:00 2001
+From: Thomas Roos <thomas@roosesweb.de>
+Date: Sat, 7 Nov 2026 09:25:51 +0100
 Subject: [PATCH] fix compilation
 
-Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+The sdist has a flat layout, while pyproject.toml still points the wheel
+build at src/.
+
 Upstream-Status: Pending
+Signed-off-by: Thomas Roos <thomas@roosesweb.de>
 ---
  pyproject.toml | 8 ++++----
  1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index 56dc993..1d7f8f1 100644
+index f7a10af..9e7b583 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
-@@ -45,13 +45,13 @@ requires = ["hatchling"]
- build-backend = "hatchling.build"
+@@ -78,10 +78,10 @@ build-backend = "hatchling.build"
  
+ #
  [tool.hatch.build]
 -sources = ["src"]
 +sources = ["."]
@@ -25,15 +28,22 @@ index 56dc993..1d7f8f1 100644
 +packages = ["evohomeasync", "evohomeasync2", "_evohome", "evohome_cli"]
  
  [tool.hatch.version]
--path = "src/_evohome/__init__.py"
-+path = "_evohome/__init__.py"
+ source = "vcs"
+@@ -90,7 +90,7 @@ source = "vcs"
+ fallback_version = "0.0.0"
+ 
+ [tool.hatch.build.hooks.vcs]
+-version-file = "src/_evohome/_version.py"
++version-file = "_evohome/_version.py"
  
  
  #
-@@ -73,6 +73,6 @@ python_version = "3.13"
+@@ -102,7 +102,7 @@ python_version = "3.14"  # HA stable requires 3.14; see also: 'requires-python',
+ strict = true
  
  exclude = ["docs", "tests/tests_cc"]
 -files = ["src", "tests"]
 +files = ["evohomeasync", "evohomeasync2", "_evohome", "evohome_cli", "tests"]
  
- no_implicit_optional = true
+ # beyond strict
+ disallow_any_unimported = true
