@@ -15,9 +15,13 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-aiohasupervisor \
     python3-aiohttp-retry \
     python3-aiointercept \
+    python3-aioipp \
     python3-aiorun \
     python3-aioruuvigateway \
     python3-aioshelly \
+    python3-aiosmtpd \
+    python3-aiosmtplib \
+    python3-aiospinel \
     python3-aiounittest \
     python3-aiousbwatcher \
     python3-airos \
@@ -28,8 +32,11 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-arcam-fmj \
     python3-aresponses \
     python3-arris-tg2492lg \
+    python3-arwn-client \
+    python3-ast-serialize \
     python3-asusrouter \
     python3-async-upnp-client \
+    python3-atpublic \
     python3-audioop-lts \
     python3-aurorapy \
     python3-automower-ble \
@@ -39,6 +46,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-bluecurrent-api \
     python3-bluetooth-adapters \
     python3-bluetooth-auto-recovery \
+    python3-broadlink-async \
     python3-btsocket \
     python3-cookidoo-api \
     python3-crccheck \
@@ -50,41 +58,62 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-eheimdigital \
     python3-elkm1-lib \
     python3-emoji \
+    python3-enocean-async \
     python3-evohome-async \
     python3-fastuuid \
     python3-fjaraskupan \
+    python3-flexit-modbus \
+    python3-fronius-modbus \
+    python3-fronius-solarapi \
+    python3-gazetteer-matcher \
     python3-gios \
+    python3-googlewifiapi \
     python3-gql \
     python3-greeclimate \
     python3-hass-nabucasa \
     python3-home-assistant-intents \
+    python3-homekit-audio-proxy \
     python3-httpbin \
     python3-ical \
     python3-icalendar-searcher \
+    python3-infrared-protocols \
+    python3-jsonpath-python \
     python3-looptime \
+    python3-matter-ble-proxy \
     python3-matter-python-client \
+    python3-mcp-types \
     python3-mistune \
+    python3-modbus-connection \
     python3-openapi-schema-validator \
+    python3-probatio \
     python3-pyatv \
     python3-pydexcom \
     python3-pyegps \
     python3-pyfritzhome \
+    python3-pygbl \
+    python3-pygithub \
     python3-pylint-per-file-ignores \
+    python3-pylondonair \
     python3-pyswitchbot \
     python3-pytest-datadir \
     python3-pytest-fixture-classes \
     python3-pytest-httpbin \
     python3-python-bsblan \
+    python3-python-google-maps-routing-api \
+    python3-python-swisscom-internet-box \
     python3-pytibber \
     python3-requirements-parser \
+    python3-rf-protocols \
     python3-securetar \
     python3-serialx \
+    python3-tmodbus \
     python3-uart-devices \
     python3-uuid7 \
     python3-wassima \
     python3-zigpy-deconz \
     python3-zigpy-xbee \
     python3-zigpy-zigate \
+    python3-zigpy-ziggurat \
     python3-zigpy-znp \
 "
 
