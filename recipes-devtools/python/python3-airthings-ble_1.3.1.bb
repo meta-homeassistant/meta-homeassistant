@@ -6,10 +6,8 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit python_poetry_core ptest-python-pytest
 
-SRC_URI = "\
-    git://github.com/Airthings/airthings-ble;protocol=https;branch=main; \
-"
-SRCREV = "47fd2e97854eb9c67c168954c79b3b59c2fb6531"
+SRC_URI = "git://github.com/Airthings/airthings-ble;protocol=https;branch=release/1.3;tag=${PV}"
+SRCREV = "88464cfb86b46925746e3e3288d77c553c673468"
 
 RDEPENDS:${PN}-ptest = "\
     python3-pytest-asyncio \
