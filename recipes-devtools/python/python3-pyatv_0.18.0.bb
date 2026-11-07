@@ -9,7 +9,7 @@ SRC_URI += "file://0001-Converts-the-duplicate-update-test-to-pytest.mark.as.pat
            file://0003-Removes-the-unused-event_loop-fixture-parameter-from.patch \
            file://0004-Removes-the-unused-event_loop-fixture-parameter-from.patch \
            "
-SRC_URI[sha256sum] = "3408bfb442d1676ee4cde4d71d7715d3083e577a088be2ce9d96b86d0e0adec5"
+SRC_URI[sha256sum] = "f650807f6d5c15460677152d38c97e83d22ddfe2113d63689e71d9a27b616c35"
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 

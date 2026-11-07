@@ -1,4 +1,4 @@
-From 6db787b4e72ad8b67062b61daab7adcd577c1c59 Mon Sep 17 00:00:00 2001
+From 543a227a99d5e9c7dd35ab80a0bc882afa30a209 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Sat, 24 Oct 2026 23:47:29 +0200
 Subject: [PATCH] Removes the unused event_loop fixture parameter from
