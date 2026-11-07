@@ -1,0 +1,9 @@
+#!/bin/sh
+# Upstream's CI runs this smoke test against the installed extension. It
+# reports through its exit status, so run it directly rather than via pytest.
+if python3 test_ast_serialize.py; then
+    echo "PASS: test_ast_serialize"
+else
+    echo "FAIL: test_ast_serialize"
+    exit 1
+fi
