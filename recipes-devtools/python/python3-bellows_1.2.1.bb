@@ -8,26 +8,27 @@ DEPENDS += "\
     python3-setuptools-git-versioning-native \
 "
 
-SRC_URI = "git://github.com/zigpy/bellows.git;protocol=https;branch=dev \
+SRC_URI = "git://github.com/zigpy/bellows.git;protocol=https;branch=dev;tag=${PV} \
            file://0001-Relax-gitversioning-version.patch \
            file://run-ptest \
 "
-SRCREV = "0d5b1b7be8c62595f7af607878d448954168177e"
+SRCREV = "6210ab5c0109f17dc55bda8c90de39b8d6a24197"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} = "\
     python3-click \
     python3-click-log (>=0.2.1) \
+    python3-serialx \
     python3-voluptuous \
     python3-zigpy (>=0.87.0) \
 "
 
 RDEPENDS:${PN}-ptest += "\
     python3-pytest-asyncio \
-    python3-pytest-timeout \
-    python3-pytest-mock \
     python3-pytest-cov \
+    python3-pytest-mock \
+    python3-pytest-timeout \
     python3-statistics \
 "
 
