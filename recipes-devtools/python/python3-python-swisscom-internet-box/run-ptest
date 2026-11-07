@@ -1,0 +1,8 @@
+#!/bin/sh
+# Upstream has no tests (tests/ only holds an empty __init__.py), so this
+# checks that every module imports with the packaged dependencies.
+if python3 -c "import swisscom_internet_box, swisscom_internet_box.client, swisscom_internet_box.exceptions, swisscom_internet_box.models"; then
+    echo "PASS: import swisscom_internet_box"
+else
+    echo "FAIL: import swisscom_internet_box"
+fi
