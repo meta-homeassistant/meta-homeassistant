@@ -12,25 +12,34 @@ SRC_URI = "git://github.com/zigpy/zha;protocol=https;tag=${PV};branch=dev \
            file://0001-Repair-test-event-loop.patch \
            file://0001-relax-build-requirement.patch \
            "
-SRCREV = "c1841332ab590362c6d004de326bbb3cbbe36e19"
+SRCREV = "c048c4a82cd0b227778d553fe570aabf1e0fc10e"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "\
-    python3-zigpy (>=1.1.1) \
-    python3-bellows (>=0.49.0) \
-    python3-zigpy-znp (>=0.14.3) \
-    python3-zigpy-deconz (>=0.25.5) \
-    python3-zigpy-xbee (>=0.21.1) \
-    python3-zigpy-zigate (>=0.13.4) \
-    python3-zha-quirks (>=1.0.1) \
-    python3-pyserial (>=3.5) \
-    python3-pyserial-asyncio-fast \
-    python3-looptime \
+    python3-zigpy-ziggurat (>=1.2.0) \
+    python3-attrs \
+    python3-frozendict \
+    python3-zigpy (>=2.4.1) \
+    python3-bellows (>=1.2.1) \
+    python3-zigpy-znp (>=1.1.1) \
+    python3-zigpy-deconz (>=1.1.1) \
+    python3-zigpy-xbee (>=0.22.0) \
+    python3-zigpy-zigate (>=0.14.0) \
+    python3-zha-quirks (>=2.4.0) \
     python3-statistics \
     python3-zoneinfo \
-    python3-freezegun \
     python3-tzdata \
+"
+
+# Test-only dependencies (upstream "testing" dependency group)
+RDEPENDS:${PN}-ptest += "\
+    python3-coloredlogs \
+    python3-freezegun \
+    python3-looptime \
+    python3-pytest-asyncio \
+    python3-pytest-timeout \
+    python3-python-slugify \
 "
 
 do_install_ptest:append() {
@@ -41,7 +50,9 @@ do_install:append() {
     # Drop host-build artifacts that can be picked up from contaminated source trees.
     rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/oe-workdir
     rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/build
-    # Remove conflicting test files
-    rm -rf ${D}${libdir}/${PYTHON_DIR}/site-packages/tools/__init__.py
-    rm -rf ${D}${libdir}/${PYTHON_DIR}/site-packages/tools/__pycache__/__init__.cpython-314.pyc
+    # The wheel also ships the repository's development scripts as a
+    # top-level "tools" package. zigpy and zha both do, so their files
+    # collide in the rootfs; nothing imports it at runtime.
+    # Submitted upstream: https://github.com/zigpy/zha/pull/1005
+    rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/tools
 }
