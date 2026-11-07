@@ -61,6 +61,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-fastuuid \
     python3-fints \
     python3-fjaraskupan \
+    python3-flux-led \
     python3-foobot-async \
     python3-frozendict \
     python3-geopy \
@@ -183,7 +184,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-file-read-backwards \
     python3-fixerio \
     python3-flasgger \
-    python3-flux-led \
     python3-fortiosapi \
     python3-ftfy \
     python3-fyta-cli \
