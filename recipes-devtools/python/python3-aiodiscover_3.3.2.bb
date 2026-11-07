@@ -5,9 +5,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=bb5cee7a63edfb80ada99f0db1e4ed62"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI = "\
-    git://github.com/bdraco/aiodiscover.git;protocol=https;branch=main \
+    git://github.com/bdraco/aiodiscover.git;protocol=https;branch=main;tag=v${PV} \
 "
-SRCREV = "60b1fc561e101d4c85f7d5b577c6af021ea6ed5d"
+SRCREV = "f01a702dce17a1b0ce5deb8d9ea2d6398516a816"
 
 inherit  python_poetry_core ptest-python-pytest
 
