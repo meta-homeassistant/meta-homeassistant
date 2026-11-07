@@ -7,7 +7,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI = "\
     git://github.com/Bluetooth-Devices/bluetooth-auto-recovery.git;protocol=https;tag=v${PV};branch=main \
 "
-SRCREV = "3c66df866ab973c234059cfc17a37c446c690905"
+SRCREV = "1cc791eddb460469f237ce3e9119da2b0ef199dc"
 
 inherit python_poetry_core ptest-python-pytest
 
