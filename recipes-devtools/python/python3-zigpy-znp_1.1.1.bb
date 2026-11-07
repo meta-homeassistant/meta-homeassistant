@@ -12,7 +12,7 @@ SRC_URI:append = "\
     file://0001-Allow-setuptools-git-versioning-3.patch \
     file://run-ptest \
 "
-SRC_URI[sha256sum] = "96235c7acdee241bddda0331343b2a4f69547292a5254725be60cb0e5fc92f4c"
+SRC_URI[sha256sum] = "95edd2eed8432f27d59177d292f8ef56d897c722885b757510ca2cdc1eca9250"
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
