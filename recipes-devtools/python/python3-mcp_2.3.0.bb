@@ -8,15 +8,16 @@ DEPENDS += "\
     python3-hatchling-native \
     python3-uv-dynamic-versioning-native \
 "
-SRC_URI[sha256sum] = "db6e2ef491eecc1a0d93711a76f28dec2e05999f93afd48795da1c1137142c66"
+SRC_URI[sha256sum] = "8b147a50441cf059dc88c684e0aeed3687f0aa0f39c6cde7b90330effd2b34d8"
 SRC_URI += " file://run-ptest"
 
 inherit pypi python_hatchling ptest-python-pytest
 
 RDEPENDS:${PN} = "\
+    python3-mcp-types \
+    python3-httpx2 \
+    python3-opentelemetry-api \
     python3-anyio (>=4.5) \
-    python3-httpx (>=0.27.1) \
-    python3-httpx-sse (>=0.4) \
     python3-pydantic (>=2.11.0) \
     python3-starlette (>=0.27) \
     python3-python-multipart (>=0.0.9) \
