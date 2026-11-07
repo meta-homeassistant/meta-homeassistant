@@ -1,0 +1,9 @@
+#!/bin/sh
+# The test suite is part of the installed package (aiosmtpd.tests); run it
+# from there with the upstream pytest configuration (see pytest.ini).
+#
+# test_unixsocket checks that the socket file is still there after the
+# server stopped. Since Python 3.13, asyncio removes it on close
+# (https://github.com/aio-libs/aiosmtpd/issues/403, open upstream).
+pytest --automake --pyargs aiosmtpd.tests \
+    -k "not (TestUnthreaded and test_unixsocket)"
