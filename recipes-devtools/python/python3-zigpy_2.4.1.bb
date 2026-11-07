@@ -12,11 +12,12 @@ SRC_URI = "git://github.com/zigpy/zigpy;protocol=https;tag=${PV};branch=dev \
            file://run-ptest \
            file://0001-relax-build-requirement.patch \
            "
-SRCREV = "7ff64c33ff4f15881b21284a51614bd9f3dca0ee"
+SRCREV = "10b68377bcbd9a8b15cbbfb506cebdc450704614"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} = "\
+    python3-serialx \
     python3-attrs \
     python3-aiohttp \
     python3-aiosqlite (>=0.20.0) \
@@ -24,7 +25,6 @@ RDEPENDS:${PN} = "\
     python3-cryptography \
     python3-voluptuous \
     python3-jsonschema \
-    python3-pyserial-asyncio-fast \
     python3-typing-extensions \
     python3-frozendict \
 "
@@ -47,4 +47,9 @@ do_install:append() {
     # Drop host-build artifacts that can be picked up from contaminated source trees.
     rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/oe-workdir
     rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/build
+    # The wheel also ships the repository's development scripts as a
+    # top-level "tools" package. zigpy and zha both do, so their files
+    # collide in the rootfs; nothing imports it at runtime.
+    # Submitted upstream: https://github.com/zigpy/zigpy/pull/1954
+    rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/tools
 }
