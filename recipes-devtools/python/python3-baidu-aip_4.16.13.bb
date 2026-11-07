@@ -16,3 +16,8 @@ WHL_PKG_URI = "53/18/823a605bcb66f1a6463d59e3230ba45ff292e3f932c999704d90632f73a
 
 SRC_URI[x86_64.sha256sum] = "63a3cd37e293574e056c33d9a9a1e5f32fa0938c7d47ac5d24eea36e79e9e3f6"
 SRC_URI[aarch64.sha256sum] = "63a3cd37e293574e056c33d9a9a1e5f32fa0938c7d47ac5d24eea36e79e9e3f6"
+
+# The wheel only declares requests, but aip/nlp.py, which aip/__init__.py
+# imports, also needs chardet ("No module named 'chardet'" when the baidu
+# TTS platform is loaded).
+RDEPENDS:${PN} += "python3-chardet python3-requests"
