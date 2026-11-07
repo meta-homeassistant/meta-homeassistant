@@ -4,8 +4,6 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f0c422eaa1f23d09f8203dc0af3e2d54"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "131bb8056daa3bc875608c631c678cda73922a2d4ba8aec373b19f18c17e7aa3"
+SRC_URI[sha256sum] = "043e0bd78d32888c0a9ca90fc788b38796843360c855a7262a532813133a0650"
 
 inherit pypi python_flit_core
-
-RDEPENDS:${PN} = "python3-typing-extensions"
