@@ -7,7 +7,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI = "git://github.com/compatech/python-airos;protocol=https;tag=v${PV};branch=main \
            file://0001-relax-build-requirement.patch \
            "
-SRCREV = "fbd3aed87fbc8c612538217b9140bdc29e5ccae1"
+SRCREV = "bbaa50c4f0faa7421fc6891d96f84931551a664e"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
