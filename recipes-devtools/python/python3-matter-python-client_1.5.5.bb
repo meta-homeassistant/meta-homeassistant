@@ -4,8 +4,8 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://../LICENSE;md5=034ed9796f7ed1e1e1e64267953217f7"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI = "git://github.com/matter-js/matterjs-server;protocol=https;tag=v${PV};nobranch=1"
-SRCREV = "63c77d9a28c01009e5307e8e0994261ab60fa6f0"
+SRC_URI = "git://github.com/matter-js/matterjs-server;protocol=https;tag=v${PV};nobranch=1;branch=main"
+SRCREV = "a7922e85f4b94a5db94a1dbee1a02c685c2ec71d"
 S = "${UNPACKDIR}/${BP}/python_client"
 
 inherit python_setuptools_build_meta ptest-python-pytest
