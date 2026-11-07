@@ -7,7 +7,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 inherit python_setuptools_build_meta ptest-python-pytest
 
 SRC_URI = "git://github.com/home-assistant-libs/aioshelly;protocol=https;tag=${PV};branch=main"
-SRCREV = "cfe9f67327ca817b1c59db3e88278ef62a46124a"
+SRCREV = "27fc08fddd0092419e742ff99bd2d0e9942f5593"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.11.1) \
