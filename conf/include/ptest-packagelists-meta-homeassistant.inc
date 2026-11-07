@@ -57,6 +57,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-elkm1-lib \
     python3-emoji \
     python3-evohome-async \
+    python3-evolutionhttp \
     python3-fastuuid \
     python3-fints \
     python3-fjaraskupan \
@@ -175,7 +176,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-elvia \
     python3-enturclient \
     python3-eq3btsmart \
-    python3-evolutionhttp \
     python3-face-recognition \
     python3-fake-useragent \
     python3-feedparser \
