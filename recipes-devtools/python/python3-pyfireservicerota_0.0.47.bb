@@ -11,8 +11,8 @@ DEPENDS = "python3-pdm-backend-native"
 inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} = "\
-	python3-pytz \
-	python3-oauthlib \
-	python3-requests \
-	python3-websocket-client \
+    python3-oauthlib \
+    python3-pytz \
+    python3-requests \
+    python3-websocket-client \
 "

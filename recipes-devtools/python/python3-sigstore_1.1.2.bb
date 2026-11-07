@@ -8,12 +8,11 @@ SRC_URI[sha256sum] = "1252c34b6bf0f5c0680dffe36e1961bd23da9dd77838fc8ece35bcf87a
 
 inherit pypi python_flit_core
 
-
 RDEPENDS:${PN} = "\
     python3-appdirs (>=1.4) \
     python3-cryptography (>=39) \
     python3-id (>=1.0.0) \
-    python3-pydantic (=1.10.7) \
+    python3-pydantic (>=1.10) \
     python3-pyjwt (>=2.1) \
     python3-pyopenssl (>=23.0.0) \
     python3-requests \

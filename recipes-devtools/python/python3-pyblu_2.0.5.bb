@@ -8,9 +8,7 @@ SRC_URI[sha256sum] = "8f330cd87425adbc9bb37a32ebb14a7e4bad18afc8ffe5a22c4a5f0ad5
 
 inherit pypi python_hatchling
 
-
 RDEPENDS:${PN} = "\
-    python3-aiohttp (>=3.10.8) \
-    python3-core (>=3.11) \
+    python3-aiohttp (>=3.11.11) \
     python3-lxml (>=5.0.0) \
 "

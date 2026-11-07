@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "02e53aae8ec5d151ab4aff8a688040109aab6e1229353997d353b97aeb
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-
 RDEPENDS:${PN} = "\
     python3-aiofiles (>=0.8) \
     python3-cryptography (>=3) \

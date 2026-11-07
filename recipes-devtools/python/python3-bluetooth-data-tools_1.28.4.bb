@@ -6,10 +6,6 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "0617a879c30e0410c3506e263ee9e9bd51b06d64db13b4ad0bfd765f794b756f"
 
-
-RDEPENDS:${PN} = "\
-    python3-core (>=3.10) \
-    python3-cryptography \
-"
-
 inherit pypi python_poetry_core cython
+
+RDEPENDS:${PN} = "python3-cryptography (>=41.0.3)"

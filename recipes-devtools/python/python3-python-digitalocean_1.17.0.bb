@@ -8,6 +8,9 @@ SRC_URI[sha256sum] = "107854fde1aafa21774e8053cf253b04173613c94531f75d5a039ad770
 
 inherit pypi setuptools3
 
-RDEPENDS:${PN} += "python3-jsonpickle python3-requests"
+RDEPENDS:${PN} += "\
+    python3-jsonpickle \
+    python3-requests \
+"
 
 PYPI_PACKAGE_SDIST = "python-digitalocean"

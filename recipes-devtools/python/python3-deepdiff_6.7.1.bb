@@ -9,12 +9,15 @@ SRC_URI[sha256sum] = "b367e6fa6caac1c9f500adc79ada1b5b1242c50d5f716a1a4362030197
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-PACKAGECONFIG[cli] = ",,,python3-click python3-pyyaml"
+PACKAGECONFIG[cli] = ",,,python3-click (>=8.1.3) python3-pyyaml (>=6.0.1)"
 PACKAGECONFIG[optimize] = ",,,python3-orjson"
 
-RDEPENDS:${PN} += "python3-ordered-set python3-statistics"
+RDEPENDS:${PN} += "\
+    python3-ordered-set (>=4.0.2) \
+    python3-statistics \
+"
 
-RDEPENDS:${PN}-ptest += " \
+RDEPENDS:${PN}-ptest:append = " \
     python3-click \
     python3-dateutil \
     python3-jsonpickle \

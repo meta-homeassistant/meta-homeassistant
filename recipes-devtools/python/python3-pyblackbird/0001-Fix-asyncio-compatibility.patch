@@ -1,0 +1,66 @@
+From: Copilot <223556219+Copilot@users.noreply.github.com>
+Subject: [PATCH] Fix asyncio compatibility with current Python
+
+Use the supported asynchronous lock syntax and remove loop parameters that
+were removed from asyncio primitives and wait_for. Give the synchronous test
+fixture its own loop rather than relying on an implicitly created one.
+
+Upstream-Status: Pending
+---
+diff --git a/pyblackbird/__init__.py b/pyblackbird/__init__.py
+--- a/pyblackbird/__init__.py
++++ b/pyblackbird/__init__.py
+@@ -275,7 +275,7 @@ async def get_async_blackbird(port_url, loop):
+     def locked_coro(coro):
+         @wraps(coro)
+         async def wrapper(*args, **kwargs):
+-            with (await lock):
++            async with lock:
+                 return (await coro(*args, **kwargs))
+         return wrapper
+ 
+@@ -319,8 +319,8 @@ async def get_async_blackbird(port_url, loop):
+             self._loop = loop
+             self._lock = asyncio.Lock()
+             self._transport = None
+-            self._connected = asyncio.Event(loop=loop)
+-            self.q = asyncio.Queue(loop=loop)
++            self._connected = asyncio.Event()
++            self.q = asyncio.Queue()
+ 
+         def connection_made(self, transport):
+             self._transport = transport
+@@ -334,15 +334,15 @@ async def get_async_blackbird(port_url, loop):
+             await self._connected.wait()
+             result = bytearray()
+             # Only one transaction at a time
+-            with (await self._lock):
++            async with self._lock:
+                 self._transport.serial.reset_output_buffer()
+                 self._transport.serial.reset_input_buffer()
+                 while not self.q.empty():
+                     self.q.get_nowait()
+                 self._transport.write(request)
+                 try:
+                     while True:
+-                        result += await asyncio.wait_for(self.q.get(), TIMEOUT, loop=self._loop)
++                        result += await asyncio.wait_for(self.q.get(), TIMEOUT)
+                         if len(result) > skip and result[-LEN_EOL:] == EOL:
+                             ret = bytes(result)
+                             _LOGGER.debug('Received "%s"', ret)
+diff --git a/tests/test_blackbird.py b/tests/test_blackbird.py
+--- a/tests/test_blackbird.py
++++ b/tests/test_blackbird.py
+@@ -92,8 +92,11 @@ class TestAsyncBlackbird(TestBlackbird):
+ 
+     def setUp(self):
+         self.responses = {}
+-        loop = asyncio.get_event_loop()
++        loop = asyncio.new_event_loop()
++        self.addCleanup(loop.close)
+         blackbird = loop.run_until_complete(get_async_blackbird(create_dummy_port(self.responses), loop))
++        self.addCleanup(lambda: loop.run_until_complete(asyncio.sleep(0)))
++        self.addCleanup(blackbird._protocol._transport.close)
+ 
+         # Dummy blackbird that converts async to sync
+         class DummyBlackbird():

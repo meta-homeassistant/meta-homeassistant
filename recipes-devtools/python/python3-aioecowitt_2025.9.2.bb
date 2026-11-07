@@ -10,14 +10,14 @@ SRCREV = "a9ed7e4ea2aceb8ecc2779f34b7c0f890ec57859"
 inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "\
-	python3-aiohttp (>=3) \
-	python3-meteocalc (>=1.1.0) \
+    python3-aiohttp (>=3) \
+    python3-meteocalc (>=1.1.0) \
 "
 
-RDEPENDS:${PN}-ptest:append = "\
-	python3-pytest-aiohttp \
-	python3-pytest-asyncio \
-	python3-pytest-timeout \
+RDEPENDS:${PN}-ptest:append = " \
+    python3-pytest-aiohttp (>=1.1.0) \
+    python3-pytest-asyncio (>=1.2.0) \
+    python3-pytest-timeout (>=2.4.0) \
 "
 
 do_install_ptest:append() {

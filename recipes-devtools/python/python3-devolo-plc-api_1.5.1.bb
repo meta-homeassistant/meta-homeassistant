@@ -4,17 +4,35 @@ LICENSE = "GPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
+SRC_URI += "file://0001-Fix-synchronous-connections-without-a-current-event-.patch \
+           file://0002-Make-tests-compatible-with-current-pytest-asyncio.patch \
+           "
 SRC_URI[sha256sum] = "44864710d76315b7e0bd9e37c0949804b2e31dde27a815b3b47d8c6a43892fec"
 
 DEPENDS += "python3-setuptools-scm-native"
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-RDEPENDS:${PN} += " \
-	python3-ifaddr (>=0.1.7) \
-	python3-httpx (>=0.21.0) \
-	python3-protobuf (>=4.22.0) \
-	python3-segno (>=1.5.2) \
-	python3-tenacity (>=8.3.0) \
-	python3-zeroconf (>=0.70.0) \
+RDEPENDS:${PN} += "\
+    python3-httpx (>=0.21.0) \
+    python3-ifaddr (>=0.1.7) \
+    python3-protobuf (>=4.22.0) \
+    python3-segno (>=1.5.2) \
+    python3-tenacity (>=8.3.0) \
+    python3-zeroconf (>=0.70.0) \
 "
+
+RDEPENDS:${PN}-ptest += "\
+    python3-pytest-asyncio \
+    python3-pytest-cov \
+    python3-pytest-httpx \
+    python3-syrupy \
+    python3-typing-extensions \
+"
+
+# The setuptools build creates oe-workdir/sysroot copies and a generated build/
+# tree containing python-sysconfigdata files with build-host TMPDIR/HOME
+# references; these are not runtime payload and trigger the buildpaths QA check.
+do_install:append() {
+    rm -rf -- ${D}${PYTHON_SITEPACKAGES_DIR}/oe-workdir ${D}${PYTHON_SITEPACKAGES_DIR}/build
+}

@@ -12,22 +12,22 @@ inherit setuptools3 ptest-python-pytest cython
 RDEPENDS:${PN} += "\
     python3-aiohappyeyeballs (>=2.3.0) \
     python3-async-interrupt (>=1.2.0) \
-    python3-protobuf (>=6) \
-    python3-tzlocal (>=5.0) \
-    python3-zeroconf (>=0.143.0) \
     python3-chacha20poly1305-reuseable (>=0.13.2) \
     python3-cryptography (>=43.0.0) \
     python3-noiseprotocol (>=0.3.1) \
+    python3-protobuf (>=6) \
+    python3-tzlocal (>=5.0) \
+    python3-zeroconf (>=0.143.0) \
 "
 
-RDEPENDS:${PN}-ptest:append = "\
-	python3-pytest-asyncio \
-    python3-pytest-codspeed \
+RDEPENDS:${PN}-ptest:append = " \
     python3-image \
+    python3-pytest-asyncio \
+    python3-pytest-codspeed \
     python3-pytest-cov \
     python3-pytest-timeout \
 "
 
 do_install_ptest:append() {
-	install ${S}/pyproject.toml ${D}${PTEST_PATH}/
+    install ${S}/pyproject.toml ${D}${PTEST_PATH}/
 }

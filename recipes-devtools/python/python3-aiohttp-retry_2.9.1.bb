@@ -11,7 +11,11 @@ SRCREV = "39b23915023dde0e0298b822de3d23960a5024e6"
 
 inherit ptest-python-pytest setuptools3
 
-RDEPENDS:${PN} += "python3-aiohttp"
+RDEPENDS:${PN} += "\
+    python3-aiohttp \
+    python3-yarl \
+"
+
 RDEPENDS:${PN}-ptest += "\
     python3-pytest-aiohttp \
     python3-pytest-asyncio \

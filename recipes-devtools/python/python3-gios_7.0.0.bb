@@ -10,15 +10,15 @@ SRCREV = "6b9bfd7a4721c334407e2b0d73db5ba70ac6f2f4"
 inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} = "\
-	python3-aiohttp (>=3.9.4) \
-	python3-dacite (>=1.7.0) \
-	python3-yarl \
+    python3-aiohttp (>=3.9.4) \
+    python3-dacite (>=1.7.0) \
+    python3-yarl \
 "
 
-RDEPENDS:${PN}-ptest:append = "\
-	python3-aioresponses \
-	python3-coverage \
-	python3-pytest-asyncio \
-	python3-pytest-timeout \
-	python3-syrupy \
+RDEPENDS:${PN}-ptest:append = " \
+    python3-aioresponses \
+    python3-coverage \
+    python3-pytest-asyncio \
+    python3-pytest-timeout \
+    python3-syrupy \
 "

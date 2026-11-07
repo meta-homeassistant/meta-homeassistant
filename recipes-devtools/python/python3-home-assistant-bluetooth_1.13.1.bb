@@ -6,11 +6,10 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRCREV = "d4fd8a5fcad393c10f6c7472d93e996f0a0c31ba"
 
-inherit pypi python_poetry_core ptest
+inherit pypi python_poetry_core
 
 SRC_URI[sha256sum] = "0ae0e2a8491cc762ee9e694b8bc7665f1e2b4618926f63969a23a2e3a48ce55e"
 
-RDEPENDS:${PN} = "\
-    python3-core (>=3.11) \
+RDEPENDS:${PN} = " \
     python3-habluetooth (>=3.0) \
 "

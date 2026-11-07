@@ -5,19 +5,18 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=bb5cee7a63edfb80ada99f0db1e4ed62"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI = "\
-    git://github.com/bdraco/aiodiscover.git;protocol=https;branch=main \
+    git://github.com/bdraco/aiodiscover.git;protocol=https;branch=main;tag=v${PV} \
 "
 SRCREV = "60b1fc561e101d4c85f7d5b577c6af021ea6ed5d"
 
 inherit  python_poetry_core ptest-python-pytest
 
 RDEPENDS:${PN} = "\
-    python3-async-timeout (>=4.0.1) \
-    python3-netifaces (>=0.11.0) \
     python3-aiodns (>=3.1.1) \
-    python3-ifaddr \
-    python3-pyroute2 (>=0.7.3) \
     python3-cached-ipaddress (>=0.2.0) \
+    python3-ifaddr \
+    python3-netifaces (>=0.11.0) \
+    python3-pyroute2 (>=0.7.3) \
 "
 
 RDEPENDS:${PN}-ptest:append = " \

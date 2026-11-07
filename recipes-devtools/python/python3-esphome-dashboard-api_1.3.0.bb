@@ -8,4 +8,7 @@ SRC_URI[sha256sum] = "798c9d92046c97b278207f10e400ecf19b0944e50dcfd316bcbadb407c
 
 inherit pypi python_setuptools_build_meta
 
-RDEPENDS:${PN} = "python3-aiohttp python3-orjson"
+RDEPENDS:${PN} = "\
+    python3-aiohttp \
+    python3-orjson \
+"

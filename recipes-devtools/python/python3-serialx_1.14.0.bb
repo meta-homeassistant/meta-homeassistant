@@ -11,7 +11,7 @@ DEPENDS = "python3-setuptools-scm-native"
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} = "\
-    python3-typing-extensions \
+    python3-typing-extensions (>=4.13.0) \
 "
 
 RDEPENDS:${PN}-ptest:append = " \

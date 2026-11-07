@@ -8,9 +8,12 @@ SRC_URI[sha256sum] = "9905d05f5eb866b20dadf1eb1763cf46b4109ff080f0964145c1e56254
 
 inherit pypi setuptools3 ptest-python-pytest
 
-RDEPENDS:${PN} += "python3-future python3-pyserial"
+RDEPENDS:${PN} += "\
+    python3-future (>=0.16.0) \
+    python3-pyserial (>=3.2.1) \
+"
 
-RDEPENDS:${PN}-ptest:append = "\
+RDEPENDS:${PN}-ptest:append = " \
     python3-six \
 "
 

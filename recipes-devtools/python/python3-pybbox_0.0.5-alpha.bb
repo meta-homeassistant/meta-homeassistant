@@ -8,6 +8,9 @@ SRC_URI[sha256sum] = "35bd556c38600127e9b2bd6872cbe2108478446a14704b5c32d012f415
 
 inherit pypi setuptools3
 
-RDEPENDS:${PN} += "python3-netaddr python3-requests"
+RDEPENDS:${PN} += "\
+    python3-netaddr \
+    python3-requests \
+"
 
 PYPI_PACKAGE_EXT = "zip"

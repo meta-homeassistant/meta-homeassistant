@@ -11,5 +11,4 @@ inherit pypi setuptools3
 RDEPENDS:${PN} += "\
     python3-dateutil (>=1.5) \
     python3-requests-oauthlib (>=0.7) \
-    python3-setuptools \
 "
