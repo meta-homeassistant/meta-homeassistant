@@ -4,7 +4,7 @@ LICENSE = "GPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "44864710d76315b7e0bd9e37c0949804b2e31dde27a815b3b47d8c6a43892fec"
+SRC_URI[sha256sum] = "da78188e3bc5688e46e01a8abb4f11f05e71f6a5b046f9cc2f1abe5afd8b3038"
 
 DEPENDS += "python3-setuptools-scm-native"
 
