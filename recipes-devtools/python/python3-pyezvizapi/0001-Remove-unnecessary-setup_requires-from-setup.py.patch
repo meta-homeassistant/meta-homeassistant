@@ -1,0 +1,26 @@
+From c1592f314438d430dca9e4f8bfe815ffd5fa1561 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Sun, 2 Nov 2025 00:12:30 +0100
+Subject: [PATCH] Remove unnecessary setup_requires from setup.py
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ setup.py | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/setup.py b/setup.py
+index 50d1d54..f1d4011 100644
+--- a/setup.py
++++ b/setup.py
+@@ -13,10 +13,6 @@ setuptools.setup(
+     long_description="Pilot your Ezviz cameras with this module. Please view readme on github",
+     url='https://github.com/RenierM26/pyEzvizApi/',
+     packages=setuptools.find_packages(),
+-    setup_requires=[
+-        'requests',
+-        'setuptools'
+-    ],
+     install_requires=[
+         'requests',
+         'pandas',

@@ -8,5 +8,5 @@ SRC_URI[sha256sum] = "22e6a1f0ff2836e14c33724213422d6351fe9513aafbbc5e0608cad9a2
 inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} = "\
-    python3-inline-snapshot (>=0.27.2) \
+	python3-inline-snapshot \
 "

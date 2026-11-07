@@ -8,4 +8,7 @@ SRC_URI[sha256sum] = "c13b60ebc8ace60ddb8d97a898675df84b6e91a8c6d6f983117633ee85
 
 inherit pypi python_poetry_core
 
-RDEPENDS:${PN} = "python3-scapy (>=2.5.0)"
+RDEPENDS:${PN} = "\
+    python3-core (>=3.10) \
+    python3-scapy (>=2.5.0) \
+"

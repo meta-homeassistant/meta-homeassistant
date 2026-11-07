@@ -8,4 +8,4 @@ SRC_URI[sha256sum] = "3282fe963fa5d4d3e47231b16d1d4d0f4523705e8199eeb99a22a1bc9f
 
 inherit pypi python_poetry_core
 
-RDEPENDS:${PN} = "python3-pytest (>=8.0.0)"
+RDEPENDS:${PN} = "python3-pytest"

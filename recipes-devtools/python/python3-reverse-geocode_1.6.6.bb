@@ -8,7 +8,4 @@ SRC_URI[sha256sum] = "14165815816cc639dd74eb660a74e464aeebcd1d0814de74a897d62071
 
 inherit pypi setuptools3
 
-RDEPENDS:${PN} += "\
-    python3-numpy \
-    python3-scipy \
-"
+RDEPENDS:${PN} += "python3-numpy python3-scipy"

@@ -10,9 +10,9 @@ SRC_URI[sha256sum] = "99c52ba2d6c282f1e0cbeba2225279eca581cf24b6a3c893929bacf877
 inherit pypi python_hatchling ptest-python-pytest
 
 RDEPENDS:${PN} += "\
-    python3-aiohttp (>=3.13.3) \
-    python3-multidict (>=6.0) \
-    python3-yarl (>=1.23.0) \
+    python3-aiohttp \
+    python3-multidict \
+    python3-yarl \
 "
 
 RDEPENDS:${PN}-ptest += "\
@@ -23,5 +23,6 @@ RDEPENDS:${PN}-ptest += "\
 "
 
 do_install_ptest:append() {
-    install ${S}/pyproject.toml ${D}${PTEST_PATH}/
+    # Keep the upstream pytest asyncio mode, since pyproject.toml is not installed.
+    printf '[pytest]\nasyncio_mode = auto\n' > ${D}${PTEST_PATH}/pytest.ini
 }

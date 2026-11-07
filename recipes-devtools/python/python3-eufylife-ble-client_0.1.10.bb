@@ -8,6 +8,7 @@ SRC_URI[sha256sum] = "85f52c1627e4c2be6a85833a3ad971a380001aef7aee9fde58247ec81a
 
 inherit pypi python_poetry_core
 
+
 RDEPENDS:${PN} = "\
     python3-bleak (>=0.19.0) \
     python3-bleak-retry-connector (>=2.3.0) \

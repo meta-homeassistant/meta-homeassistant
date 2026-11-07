@@ -4,9 +4,8 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5c1e4dcca80a6a841c085ded9c25b768"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
+SRC_URI += "file://0001-remove-setup-requirement.patch"
 SRC_URI[sha256sum] = "36f82bd7bfd3a52c1fcfe70c2c99db4ef28ec0a780e23f2ad8286a1f18f31b68"
-
-DEPENDS += "python3-pytest-runner-native"
 
 inherit pypi setuptools3
 

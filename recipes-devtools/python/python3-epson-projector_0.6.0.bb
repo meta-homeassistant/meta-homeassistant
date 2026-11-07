@@ -10,5 +10,6 @@ inherit pypi setuptools3
 
 RDEPENDS:${PN} += "\
     python3-aiohttp (>=3.3.0) \
-    python3-pyserial-asyncio-fast (>=0.16) \
+    python3-async-timeout (>=3.0.0) \
+    python3-pyserial-asyncio (>=0.4) \
 "

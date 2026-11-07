@@ -8,8 +8,4 @@ SRC_URI[sha256sum] = "293819382defdc43cf53a30abbda7ac84657f4ee4ccea9764143b065b7
 
 inherit pypi setuptools3
 
-RDEPENDS:${PN} += "\
-    python3-aiohttp \
-    python3-pyserial \
-    python3-websockets \
-"
+RDEPENDS:${PN} += "python3-aiohttp python3-pyserial python3-websockets"

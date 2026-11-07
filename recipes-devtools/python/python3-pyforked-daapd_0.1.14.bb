@@ -10,6 +10,4 @@ DEPENDS += "python3-aiohttp-native"
 
 inherit pypi setuptools3
 
-RDEPENDS:${PN} += "python3-aiohttp"
-
 PYPI_PACKAGE_SDIST = "pyforked-daapd"

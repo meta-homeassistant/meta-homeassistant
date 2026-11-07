@@ -8,7 +8,7 @@ SRC_URI[sha256sum] = "b1f7979abea4d409bd58d0d70762805306789114f2137f36897a8bbb2a
 
 inherit pypi python_hatchling ptest-python-pytest
 
-RDEPENDS:${PN} += "python3-typing-extensions (>=4.4.0)"
+RDEPENDS:${PN} += "python3-typing-extensions"
 
 RDEPENDS:${PN}-ptest += "\
     python3-pytest-asyncio \

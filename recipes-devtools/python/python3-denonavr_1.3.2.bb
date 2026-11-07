@@ -17,10 +17,11 @@ RDEPENDS:${PN} = "\
     python3-netifaces (>=0.11.0) \
 "
 
-RDEPENDS:${PN}-ptest += "\
+RDEPENDS:${PN}-ptest = "\
+    ${PN} \
     python3-pylint \
-    python3-pytest-asyncio \
     python3-pytest-cov \
-    python3-pytest-httpx \
     python3-pytest-timeout \
+    python3-pytest-asyncio \
+    python3-pytest-httpx \
 "

@@ -9,5 +9,3 @@ SRC_URI[sha256sum] = "1cbbf34d04b7768bf0de187363333a1c96294588e778f722a98ef60765
 DEPENDS = "python3-pytest-runner-native"
 
 inherit pypi setuptools3
-
-PYPI_PACKAGE_SDIST = "json-api-doc"
