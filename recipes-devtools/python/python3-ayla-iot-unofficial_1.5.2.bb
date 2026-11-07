@@ -4,7 +4,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=685dda0c92b16f886457366fc1c6a8b7"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "541b1bfaf469b27ea6720becb60796652f4ae872986c3cb5f75764d3e61d088f"
+SRC_URI[sha256sum] = "eab4447aa9cbbf6a4cfbba11154bb5dc3f69dea76cddbf8419979e774c76e8fb"
 
 DEPENDS = "python3-wheel-native"
 
