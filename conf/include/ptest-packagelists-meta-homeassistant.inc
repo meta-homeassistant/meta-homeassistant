@@ -83,6 +83,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-openwebifpy \
     python3-pizzapi \
     python3-pyatv \
+    python3-pyblackbird \
     python3-pydeconz \
     python3-pydexcom \
     python3-pyegps \
