@@ -13,7 +13,7 @@ SRC_URI = "\
     file://0001-Allow-setuptools-git-versioning-3.patch \
     file://run-ptest \
 "
-SRCREV = "d7d73ba0d1019b97490cecfe0fda391370ede7fc"
+SRCREV = "0a6de2196e0cd100dfc7c7f1e587f3e8c819086b"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
