@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=8a701d4d0c5ad6a64c5706b3e7b649f4"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI = "git://github.com/home-assistant-libs/aioecowitt;protocol=https;tag=${PV};branch=main"
-SRCREV = "a9ed7e4ea2aceb8ecc2779f34b7c0f890ec57859"
+SRCREV = "eb126cac964f9973c7e2d1a59f1a4d35841df438"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
