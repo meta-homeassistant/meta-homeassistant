@@ -1,0 +1,46 @@
+From 55f0ab46083a990e39d679ada76849f7458b5dbd Mon Sep 17 00:00:00 2001
+From: Thomas Roos <thomas@roosesweb.de>
+Date: Sat, 7 Nov 2026 04:01:51 +0100
+Subject: [PATCH] tests: make the coordinator mocks pass zigpy's type check
+
+zigpy 2.4 (b85807eb, "Split up BaseDevice into GreenPowerDevice and
+ZigbeeDevice") raises TypeError in ControllerApplication._device unless
+the coordinator is a ZigbeeDevice. test_rx, test_rx_nwk_0000 and
+test_rx_device_annce return plain MagicMocks from get_device, so they
+fail with "Coordinator <MagicMock ...> is not a Zigbee device".
+
+Upstream-Status: Submitted [https://github.com/zigpy/zigpy-xbee/pull/182]
+Signed-off-by: Thomas Roos <thomas@roosesweb.de>
+---
+ tests/test_application.py | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/tests/test_application.py b/tests/test_application.py
+index 3bf58f4..a0dc093 100644
+--- a/tests/test_application.py
++++ b/tests/test_application.py
+@@ -119,6 +119,8 @@ def _test_rx(
+ def test_rx(app):
+     """Test message receiving."""
+     device = mock.MagicMock()
++    # zigpy >= 2.4 requires the coordinator to be a ZigbeeDevice
++    device.__class__ = zigpy.device.ZigbeeDevice
+     _test_rx(app, device, 0x1234, data=b"\x01\x02\x03\x04")
+     assert device.packet_received.call_count == 1
+     packet = device.packet_received.call_args[0][0]
+@@ -135,6 +137,7 @@ def test_rx_nwk_0000(app):
+     """Test receiving self-addressed message."""
+     app._handle_reply = mock.MagicMock()
+     app.get_device = mock.MagicMock()
++    app.get_device.return_value.__class__ = zigpy.device.ZigbeeDevice
+     app.handle_rx(
+         b"\x01\x02\x03\x04\x05\x06\x07\x08",
+         0x0000,
+@@ -643,6 +646,7 @@ def test_rx_device_annce(app, ieee, nwk):
+     cluster_id = zdo_t.ZDOCmd.Device_annce
+     device = mock.MagicMock()
+     device.status = device.Status.NEW
++    device.__class__ = zigpy.device.ZigbeeDevice
+     device.zdo = zigpy.zdo.ZDO(None)
+     app.get_device = mock.MagicMock(return_value=device)
+     app.handle_join = mock.MagicMock()

@@ -8,11 +8,11 @@ DEPENDS += "\
     python3-setuptools-git-versioning-native \
 "
 
-SRC_URI += "\
-    file://0001-Allow-setuptools-git-versioning-3.patch \
-    file://run-ptest \
-"
-SRC_URI[sha256sum] = "a34411c58e17c9910a491da6dc06efaeef80378b5c6d1f32c92ec6dd75d5d02b"
+SRC_URI += "file://0001-Allow-setuptools-git-versioning-3.patch \
+           file://run-ptest \
+           file://0002-tests-make-the-coordinator-mocks-pass-zigpy-s-type-c.patch \
+           "
+SRC_URI[sha256sum] = "267648c49e5945cfbadd884e1d255cb87498f55a534bbb8f66ac457fea2dc422"
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
