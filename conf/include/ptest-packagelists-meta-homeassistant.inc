@@ -83,6 +83,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-pydeconz \
     python3-pydexcom \
     python3-pyegps \
+    python3-pyemoncms \
     python3-pyfritzhome \
     python3-pylint-per-file-ignores \
     python3-pyswitchbot \
@@ -226,7 +227,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-pyaes \
     python3-pyaussiebb \
     python3-pydantic-settings \
-    python3-pyemoncms \
     python3-pyfibaro \
     python3-pyflume \
     python3-pyfronius \
