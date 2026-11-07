@@ -9,19 +9,20 @@ DEPENDS += "\
 "
 
 SRC_URI += "file://0001-relax-build-requirement.patch"
-SRC_URI[sha256sum] = "bef3b8b1258b5c04052ff5ccef7e4090c1d44d9805ec2ff05254928af8f53e2f"
+SRC_URI[sha256sum] = "3153ce3096829fe231b73045ac834830d20a64fbf406609ecbac384f88281515"
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 
 RDEPENDS:${PN} = "\
     python3-aiohttp \
-    python3-bellows (>=0.42.0) \
-    python3-click (>=8.0.0) \
-    python3-coloredlogs \
+    python3-aiospinel (>=1.3.0) \
+    python3-bellows (>=0.49.0) \
+    python3-colorlog \
     python3-crc \
     python3-gpiod \
-    python3-pyserial-asyncio-fast \
+    python3-pygbl (>=1.0.0) \
+    python3-tqdm \
     python3-typing-extensions \
-    python3-zigpy (>=0.70.0) \
+    python3-zigpy (>=1.3.0) \
 "
