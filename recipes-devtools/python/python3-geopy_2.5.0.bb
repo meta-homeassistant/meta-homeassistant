@@ -4,9 +4,9 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b246754361f75980923b7feebfe71c15"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "50283d8e7ad07d89be5cb027338c6365a32044df3ae2556ad3f52f4840b3d0d1"
+SRC_URI[sha256sum] = "7b6c849f18108dcce4faa3d614e2801107b465f7b05fd3c1db9db12e225ae950"
 
-inherit pypi setuptools3 ptest-python-pytest
+inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 # Uncomment this line to enable all the optional features.
 #PACKAGECONFIG ?= "aiohttp dev dev-docs dev-lint dev-test requests timezone"
