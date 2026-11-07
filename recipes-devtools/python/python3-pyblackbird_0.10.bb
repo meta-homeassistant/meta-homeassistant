@@ -4,11 +4,10 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b987cde240fbe5031bde4e50f2e15390"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "22aefafec2cba93bbe43d60c2b8c065dc6876638eb38723dd4c6439a4d57da86"
+SRC_URI[sha256sum] = "26a7006dba114ae51a4024f9e83df197e75e581d474c67964c0181af9e3bd3ea"
 
-inherit pypi setuptools3
+inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} = "\
-    python3-pyserial (>=3.4) \
-    python3-pyserial-asyncio (>=0.4) \
+    python3-serialx \
 "
