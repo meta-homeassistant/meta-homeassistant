@@ -79,6 +79,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-mcp \
     python3-mistune \
     python3-openapi-schema-validator \
+    python3-openwebifpy \
     python3-pizzapi \
     python3-pyatv \
     python3-pydeconz \
@@ -219,7 +220,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-opentelemetry-api \
     python3-opentelemetry-sdk \
     python3-opentelemetry-semantic-conventions \
-    python3-openwebifpy \
     python3-peblar \
     python3-psutil-home-assistant \
     python3-pure-python-adb \
