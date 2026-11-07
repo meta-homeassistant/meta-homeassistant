@@ -65,6 +65,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-fjaraskupan \
     python3-flexit-modbus \
     python3-flux-led \
+    python3-foobot-async \
     python3-fronius-modbus \
     python3-fronius-solarapi \
     python3-gazetteer-matcher \

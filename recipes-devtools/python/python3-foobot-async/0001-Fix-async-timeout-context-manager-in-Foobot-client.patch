@@ -1,0 +1,26 @@
+From f04236ab934d3cc02ec9a457bccc2d580ff027ca Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Sat, 28 Nov 2026 11:02:29 +0100
+Subject: [PATCH] Fix async timeout context manager in Foobot client
+
+Use async with for async_timeout to restore API requests and fix the test suite.
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Pending
+---
+ foobot_async/__init__.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/foobot_async/__init__.py b/foobot_async/__init__.py
+index e6baa9d..17acda5 100644
+--- a/foobot_async/__init__.py
++++ b/foobot_async/__init__.py
+@@ -155,7 +155,7 @@ class FoobotClient():
+     async def _get(self, path, **kwargs):
+         if not hasattr(self, '_session'):
+             self._session = aiohttp.ClientSession()
+-        with async_timeout.timeout(self._timeout):
++        async with async_timeout.timeout(self._timeout):
+             resp = await self._session.get(
+                     path, headers=dict(self._headers, **kwargs))
+             resp_text = await resp.text()
