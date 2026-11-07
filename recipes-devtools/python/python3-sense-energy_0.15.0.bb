@@ -5,7 +5,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=a16ded088d7b140bcb0b8a7a23a87288"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "ad95fb674f6407116cedeedceba594d0d9e3daf3f80a3024815a13ea8789c8be"
+SRC_URI[sha256sum] = "c50f59c1467d4a0735e190fd54620203f88d85d637ed42c55bdc5511e961ca34"
 
 inherit pypi setuptools3
 
@@ -14,6 +14,7 @@ RDEPENDS:${PN} += "\
     python3-async-timeout (>=3.0.1) \
     python3-ciso8601 \
     python3-kasa-crypt (>=0.2.0) \
+    python3-msgpack \
     python3-orjson \
     python3-requests \
     python3-websocket-client \
