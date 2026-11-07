@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=a904c7a61349b66aabdf1e0870cfa3f4"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI = "git://github.com/miaucl/bring-api;protocol=https;tag=${PV};branch=main"
-SRCREV = "56c43c45bd790eafa1a2255827916155d1c2be3e"
+SRCREV = "b91429d766ae3c6a165af819250671ad6ea07b7f"
 
 DEPENDS += "python3-wheel-native"
 
