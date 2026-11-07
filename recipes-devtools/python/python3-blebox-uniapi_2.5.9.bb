@@ -7,7 +7,7 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI += "file://0001-make-PEP-517-compatible.patch \
            file://0002-fix-compilation.patch \
            "
-SRC_URI[sha256sum] = "967d003c81de4e8b7a143147f7e6872c2edccaed6ac6cc9c2719944d7b06526d"
+SRC_URI[sha256sum] = "601f3742b9ea5e1c17a14fd191269ca765040cc9fe1758ecc3f9a23544fca8e2"
 
 DEPENDS += "python3-wheel-native"
 
