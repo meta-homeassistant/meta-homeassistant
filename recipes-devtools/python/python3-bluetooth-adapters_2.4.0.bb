@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=732518afbb3ba92dbf606e49f9045cc9"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI = "git://github.com/bluetooth-devices/bluetooth-adapters;protocol=https;tag=v${PV};branch=main"
-SRCREV = "a672291983539244616a8f277ed3ebba7336753d"
+SRCREV = "cd018fa4aa94bed091610725b98cb66477d762b8"
 
 inherit python_poetry_core ptest-python-pytest
 
