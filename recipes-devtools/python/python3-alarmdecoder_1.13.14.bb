@@ -8,10 +8,9 @@ DEPENDS += "python3-setuptools-scm-native"
 
 SRC_URI += "\
     file://0001-Update-test-functions.patch \
-    file://0001-Make-PEP517-compliant.patch \
     file://run-ptest \
 "
-SRC_URI[sha256sum] = "393664a8bbe6e6a0fc809e64eddb0b30a9c9f757bbf6e4fe68fd7d91342d1187"
+SRC_URI[sha256sum] = "b0713c75f694650af5007bf78fad5e1fc4c344d60e842e6941b020db0b52933e"
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
