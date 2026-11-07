@@ -4,7 +4,7 @@ LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=8c1e10a26712c34121879d038786a67b"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI[sha256sum] = "3c8924caa2a50bd71aefc07aa812f2466ff489f1848c96e954a5362d17095d91"
+SRC_URI[sha256sum] = "242dcc6ce6b5b9bf621f5870c82a63997e8e82bc7c947f9ffe272b8f3dd5a780"
 
 inherit pypi setuptools3
 
