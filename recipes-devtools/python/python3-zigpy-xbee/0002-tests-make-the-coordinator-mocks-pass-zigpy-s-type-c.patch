@@ -9,7 +9,7 @@ the coordinator is a ZigbeeDevice. test_rx, test_rx_nwk_0000 and
 test_rx_device_annce return plain MagicMocks from get_device, so they
 fail with "Coordinator <MagicMock ...> is not a Zigbee device".
 
-Upstream-Status: Submitted [https://github.com/zigpy/zigpy-xbee/pull/182]
+Upstream-Status: Backport [https://github.com/zigpy/zigpy-xbee/commit/e58ebb80a0c349d00a1e2c801b9395775e9c3bd5]
 Signed-off-by: Thomas Roos <thomas@roosesweb.de>
 ---
  tests/test_application.py | 4 ++++

@@ -50,6 +50,7 @@ do_install:append() {
     # The wheel also ships the repository's development scripts as a
     # top-level "tools" package. zigpy and zha both do, so their files
     # collide in the rootfs; nothing imports it at runtime.
-    # Submitted upstream: https://github.com/zigpy/zigpy/pull/1954
+    # Fixed upstream in 64b51efe715b221db4edf05e8a0e176f1782a146 (after 2.4.1);
+    # drop this with the next release.
     rm -rf ${D}${PYTHON_SITEPACKAGES_DIR}/tools
 }
