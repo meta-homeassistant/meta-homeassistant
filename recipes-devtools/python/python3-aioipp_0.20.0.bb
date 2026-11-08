@@ -31,3 +31,8 @@ do_install_ptest:append() {
     # Coverage needs the covdefaults plugin and is not a test result.
     sed -i '/^addopts = "--cov"$/d' ${D}${PTEST_PATH}/pyproject.toml
 }
+
+# The release workflow sets the version; the tagged pyproject.toml says 0.0.0.
+do_configure:prepend() {
+    sed -i 's/^version = "0.0.0"/version = "${PV}"/' ${S}/pyproject.toml
+}

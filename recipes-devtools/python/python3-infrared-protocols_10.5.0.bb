@@ -16,3 +16,8 @@ inherit python_setuptools_build_meta ptest-python-pytest
 do_install_ptest:append() {
     install -m 0644 ${S}/pyproject.toml ${D}${PTEST_PATH}/
 }
+
+# The release workflow sets the version; the tagged pyproject.toml says 0.0.0.
+do_configure:prepend() {
+    sed -i 's/^version      = "0.0.0"/version      = "${PV}"/' ${S}/pyproject.toml
+}
