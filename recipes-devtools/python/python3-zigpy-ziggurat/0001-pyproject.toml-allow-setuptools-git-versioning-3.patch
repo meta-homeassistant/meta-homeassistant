@@ -1,0 +1,25 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Thomas Roos <thomas@roosesweb.de>
+Date: Fri, 6 Nov 2026 15:20:00 +0100
+Subject: [PATCH] pyproject.toml: allow setuptools-git-versioning 3
+
+zigpy-ziggurat pins setuptools-git-versioning < 3, but OE provides
+3.2.0. The sdist carries its version in PKG-INFO, so the plugin only
+has to load.
+
+Upstream-Status: Inappropriate [oe-specific]
+Signed-off-by: Thomas Roos <thomas@roosesweb.de>
+---
+ pyproject.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = ["setuptools>=61.0.0", "wheel", "setuptools-git-versioning<3"]
++requires = ["setuptools>=61.0.0", "wheel", "setuptools-git-versioning"]
+ build-backend = "setuptools.build_meta"
+ 
+ [project]

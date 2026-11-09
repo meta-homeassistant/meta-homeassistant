@@ -1,0 +1,39 @@
+SUMMARY = "CalDAV (RFC4791) client library"
+HOMEPAGE = "https://github.com/python-caldav/caldav"
+LICENSE = "GPL-3.0-or-later OR Apache-2.0"
+LIC_FILES_CHKSUM = "\
+    file://COPYING.APACHE;md5=3b83ef96387f14655fc854ddc3c6bd57 \
+    file://COPYING.GPL;md5=d32239bcb673463ab874e80d47fae504 \
+"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
+
+SRC_URI[sha256sum] = "adbc1a95a517db1c571d8486de38b07aa880445afd3816838fef420b824d9acc"
+
+DEPENDS += "python3-setuptools-scm-native python3-hatch-vcs-native"
+
+inherit pypi python_hatchling ptest-python-pytest
+
+RDEPENDS:${PN} = "\
+    python3-typing-extensions \
+    python3-lxml \
+    python3-niquests \
+    python3-recurring-ical-events (>=2.0.0) \
+    python3-icalendar (>=6.0.0) \
+    python3-icalendar-searcher (>=1.0.5) \
+    python3-dnspython \
+    python3-dateutil \
+    python3-pyyaml \
+"
+
+RDEPENDS:${PN}-ptest += "\
+    bash \
+    python3-vobject \
+    python3-pytest-asyncio \
+    python3-coverage \
+    python3-tzlocal \
+    python3-xandikos \
+    python3-radicale \
+    python3-pyfakefs \
+    python3-httpx \
+    python3-deptry \
+"

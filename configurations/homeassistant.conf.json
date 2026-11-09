@@ -22,16 +22,16 @@
         },
         "meta-openembedded": {
             "git-remote": {
-                "uri": "https://git.openembedded.org/meta-openembedded",
-                "branch": "master",
-                "rev": "533d0a63ac2a38e77746e32458e09461f12737b6"
+                "uri": "https://github.com/thomas-roos/meta-openembedded.git",
+                "branch": "ha-2026.11",
+                "rev": "c8480abb44aeab6e490849d460f38be3d37539d8"
             }
         },
         "meta-python-ai": {
             "git-remote": {
-                "uri": "https://github.com/Gerry546/meta-python-ai.git",
-                "branch": "blacksail",
-                "rev": "aa7f5ba73e1f802bcd31c008c9c95d73893c4252"
+                "uri": "https://github.com/thomas-roos/meta-python-ai.git",
+                "branch": "ha-2026.11",
+                "rev": "a3cb3eb9aeffe8733a7f1609ce0e1e38c70a0891"
             }
         },
         "meta-sca": {
@@ -45,7 +45,7 @@
             "git-remote": {
                 "uri": "https://git.yoctoproject.org/meta-virtualization",
                 "branch": "master",
-                "rev": "7b0154418de3350fd23a0bd868742f2b570b24d3"
+                "rev": "89b00d096a432000766729cd721ae647af500112"
             }
         },
         "meta-yocto": {
@@ -57,9 +57,9 @@
         },
         "openembedded-core": {
             "git-remote": {
-                "uri": "https://git.openembedded.org/openembedded-core",
-                "branch": "master",
-                "rev": "dd2ee1de4147f402ab25f8ad87137dd2004b494c"
+                "uri": "https://github.com/thomas-roos/openembedded-core.git",
+                "branch": "ha-2026.11",
+                "rev": "56d6b2c241ecca21b1b689a73d56d6cb97f49f02"
             }
         },
         "yocto-docs": {

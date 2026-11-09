@@ -1,0 +1,15 @@
+SUMMARY = "A python library for syncing Google Calendar to local storage"
+HOMEPAGE = "https://github.com/allenporter/gcal_sync"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
+
+SRC_URI[sha256sum] = "d2eb2cdbfe10d1f866eaa02ea592dcbf762b161601daf320ead39f830fe11e2a"
+
+inherit pypi python_setuptools_build_meta ptest-python-pytest
+
+RDEPENDS:${PN} += "\
+	python3-aiohttp (>=3.8.1) \
+	python3-ical (>=11.0.0) \
+	python3-pydantic (>=2.10.4) \
+"

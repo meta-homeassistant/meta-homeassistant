@@ -20,6 +20,7 @@ import shutil
 import signal
 import subprocess
 import sys
+import tempfile
 import tomllib
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -752,7 +753,8 @@ def _resolve_provider_srcrev(
     setup_dir: Path,
     runner: CommandRunner,
     log: RunLog,
-) -> tuple[str | None, str | None]:
+) -> tuple[str | None, str | None, str | None]:
+    """Return (revision, source branch, blocker) for a Git-sourced provider."""
     def get_variable(name: str) -> str | None:
         command = (
             f"bitbake-getvar {name} --value --ignore-undefined "
@@ -766,14 +768,14 @@ def _resolve_provider_srcrev(
 
     current_srcrev = get_variable("SRCREV")
     if current_srcrev is None:
-        return None, f"Could not inspect SRCREV for {recipe}"
+        return None, None, f"Could not inspect SRCREV for {recipe}"
     if not current_srcrev or current_srcrev == "INVALID":
-        return None, None
+        return None, None, None
 
     source_uris = get_variable("SRC_URI")
     current_version = get_variable("PV")
     if source_uris is None or current_version is None:
-        return None, f"Could not inspect Git source metadata for {recipe}"
+        return None, None, f"Could not inspect Git source metadata for {recipe}"
 
     git_sources = []
     for source_uri in shlex.split(source_uris):
@@ -789,20 +791,20 @@ def _resolve_provider_srcrev(
         git_sources.append((source, parameters))
 
     if len(git_sources) != 1:
-        return None, f"Cannot safely resolve a single Git source and tag for {recipe}"
+        return None, None, f"Cannot safely resolve a single Git source and tag for {recipe}"
     source, parameters = git_sources[0]
     if source.startswith("gitsm://"):
-        return None, f"Cannot safely resolve submodule source revision for {recipe}"
+        return None, None, f"Cannot safely resolve submodule source revision for {recipe}"
     parsed_source = urlsplit(source)
     protocol = parameters.get("protocol")
     if parsed_source.username or parsed_source.password or protocol != "https":
-        return None, f"Cannot safely query non-HTTPS Git source for {recipe}"
+        return None, None, f"Cannot safely query non-HTTPS Git source for {recipe}"
     tag = parameters.get("tag")
     if not tag or current_version not in tag:
-        return None, f"Cannot derive the requested Git tag for {recipe} from SRC_URI"
+        return None, None, f"Cannot derive the requested Git tag for {recipe} from SRC_URI"
     requested_tag = tag.replace(current_version, requested)
     if requested_tag == tag or any(character.isspace() for character in requested_tag):
-        return None, f"Cannot derive a safe requested Git tag for {recipe}"
+        return None, None, f"Cannot derive a safe requested Git tag for {recipe}"
 
     repository = f"https://{parsed_source.netloc}{parsed_source.path}"
     tag_ref = f"refs/tags/{requested_tag}"
@@ -817,7 +819,7 @@ def _resolve_provider_srcrev(
         result,
     )
     if result.returncode:
-        return None, f"Could not query upstream Git tag {requested_tag} for {recipe}"
+        return None, None, f"Could not query upstream Git tag {requested_tag} for {recipe}"
 
     revisions = {}
     for line in (result.stdout or "").splitlines():
@@ -826,12 +828,12 @@ def _resolve_provider_srcrev(
             revisions[fields[1]] = fields[0]
     revision = revisions.get(f"{tag_ref}^{{}}", revisions.get(tag_ref))
     if revision is None or not re.fullmatch(r"[0-9a-fA-F]{40,64}", revision):
-        return None, f"Upstream Git tag {requested_tag} did not resolve to a commit for {recipe}"
+        return None, None, f"Upstream Git tag {requested_tag} did not resolve to a commit for {recipe}"
 
     log.outcomes.append(
         f"Resolved {recipe} version {requested} to upstream tag {requested_tag} at {revision}."
     )
-    return revision, None
+    return revision, parameters.get("branch"), None
 
 
 def _discard_pristine_failed_upgrade(
@@ -1027,7 +1029,7 @@ def _stage_insufficient_providers(
             recipe_status.devtool_upgrade = "failed: owner unresolved"
             blockers.append(f"Could not determine owning layer for {recipe} at {recipe_file}")
             break
-        srcrev, srcrev_blocker = _resolve_provider_srcrev(
+        srcrev, srcbranch, srcrev_blocker = _resolve_provider_srcrev(
             recipe,
             requested,
             setup_dir,
@@ -1051,6 +1053,10 @@ def _stage_insufficient_providers(
         )
         if srcrev:
             upgrade_command += f" --srcrev {shlex.quote(srcrev)}"
+            # Without the branch devtool refuses a revision reachable from
+            # more than one branch of the source repository.
+            if srcbranch:
+                upgrade_command += f" --srcbranch {shlex.quote(srcbranch)}"
         upgrade = _run_logged(
             f"Stage dependency recipe {recipe}",
             upgrade_command,
@@ -1106,13 +1112,25 @@ def _add_new_regular_tests(
     if start < 0:
         raise RuntimeError("Could not locate regular COMPONENT_TEST_PACKAGES block")
     body_start = start + len(marker)
-    terminator = "${@bb.utils.contains('PACKAGECONFIG', 'integration-tests', '', '', d)}\""
-    body_end = text.find(terminator, body_start)
-    if body_end < 0:
+    # The list either precedes an empty PACKAGECONFIG conditional or sits
+    # inside it as the conditional's true value.
+    terminators = (
+        "${@bb.utils.contains('PACKAGECONFIG', 'integration-tests', '', '', d)}\"",
+        "', '', d)}\"",
+    )
+    ends = [index for index in (text.find(t, body_start) for t in terminators) if index >= 0]
+    if not ends:
         raise RuntimeError("Could not locate end of regular component test list")
-    lines = "".join(f"    ${{PN}}-{domain.replace('_', '-')} \\\n" for domain in additions)
-    text = text[:body_end] + lines + text[body_end:]
-    tests_path.write_text(text, encoding="utf-8")
+    body_end = min(ends)
+    package_line = re.compile(r"^    \$\{PN\}-[a-z0-9-]+ \\$")
+    body_lines = text[body_start:body_end].splitlines(keepends=True)
+    packages = [line for line in body_lines if package_line.match(line.rstrip("\n"))]
+    others = [line for line in body_lines if line not in packages]
+    packages += [f"    ${{PN}}-{domain.replace('_', '-')} \\\n" for domain in additions]
+    # Keep the list sorted; lines that are not package entries (the opening
+    # of the conditional) stay in front of it.
+    body = "".join(others) + "".join(sorted(set(packages)))
+    tests_path.write_text(text[:body_start] + body + text[body_end:], encoding="utf-8")
 
 
 def _run_dependency_ptests(
@@ -1294,7 +1312,11 @@ def _staged_source_matches_release(
     runner: CommandRunner,
 ) -> bool:
     # devtool HEAD includes applied recipe patches, not just the upstream tag.
-    # Reuse only a clean tree whose changes are covered by those declared patches.
+    # Reuse only a clean tree that equals the release once the declared
+    # patches are reversed. Reverse them together, last patch first, in a
+    # scratch worktree: checking each one alone against HEAD fails when two
+    # patches touch adjacent lines, because the other patch changes the
+    # first one's context.
     if not (source_dir / ".git").exists():
         return False
     try:
@@ -1304,31 +1326,28 @@ def _staged_source_matches_release(
         status = _git_output(["status", "--porcelain"], source_dir, runner)
         if status:
             return False
-        changed_files = set(
-            _git_output(["diff", "--name-only", revision, "HEAD"], source_dir, runner).splitlines()
-        )
         recipe_text = recipe_path.read_text(encoding="utf-8")
         patch_names = re.findall(r"file://([^\\\s\"]+\.patch)", recipe_text)
-        allowed_files: set[str] = set()
         patch_dir = layer_dir / "recipes-homeassistant/homeassistant/python3-homeassistant"
-        for patch_name in patch_names:
-            patch_path = patch_dir / Path(patch_name).name
-            if not patch_path.is_file():
-                return False
-            patch_text = patch_path.read_text(encoding="utf-8")
-            allowed_files.update(
-                path
-                for path in re.findall(r"^\+\+\+ b/(.+)$", patch_text, re.MULTILINE)
-                if path != "/dev/null"
+        patch_paths = [patch_dir / Path(patch_name).name for patch_name in patch_names]
+        if not all(patch_path.is_file() for patch_path in patch_paths):
+            return False
+        with tempfile.TemporaryDirectory(prefix="ha-stage-check-") as scratch:
+            worktree = Path(scratch) / "tree"
+            added = runner(
+                "git", ["worktree", "add", "--detach", "--quiet", str(worktree), "HEAD"], source_dir
             )
-            reverse_check = runner(
-                "git",
-                ["apply", "--reverse", "--check", str(patch_path)],
-                source_dir,
-            )
-            if reverse_check.returncode:
+            if added.returncode:
                 return False
-        return changed_files.issubset(allowed_files)
+            try:
+                for patch_path in reversed(patch_paths):
+                    if runner("git", ["apply", "--reverse", str(patch_path)], worktree).returncode:
+                        return False
+                return not runner(
+                    "git", ["diff", "--quiet", revision, "--"], worktree
+                ).returncode
+            finally:
+                runner("git", ["worktree", "remove", "--force", str(worktree)], source_dir)
     except RuntimeError:
         return False
 

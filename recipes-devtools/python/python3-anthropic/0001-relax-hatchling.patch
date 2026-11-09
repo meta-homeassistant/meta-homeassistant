@@ -1,24 +1,26 @@
-From 7719c1e91e5a57920dff912aec8d3af937083642 Mon Sep 17 00:00:00 2001
-From: Tom Geelen <t.f.g.geelen@gmail.com>
-Date: Tue, 13 May 2025 22:25:09 +0000
+From ba6c3be8bbd9ad4303786d6f8f60ba5d7af586aa Mon Sep 17 00:00:00 2001
+From: Thomas Roos <thomas@roosesweb.de>
+Date: Sat, 7 Nov 2026 09:25:35 +0100
 Subject: [PATCH] relax hatchling
 
-Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
-Upstream-Status: Pending
+Upstream pins hatchling==1.26.3; any later release builds it.
+
+Upstream-Status: Inappropriate [oe-specific]
+Signed-off-by: Thomas Roos <thomas@roosesweb.de>
 ---
  pyproject.toml | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index d120950..8f24a85 100644
+index 5b4a401..0a364fa 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
-@@ -92,7 +92,7 @@ pydantic-v2 = [
+@@ -100,7 +100,7 @@ pydantic-v2 = [
  ]
  
  [build-system]
--requires = ["hatchling==1.26.3", "hatch-fancy-pypi-readme"]
-+requires = ["hatchling>=1.26.3", "hatch-fancy-pypi-readme"]
+-requires = ["hatchling==1.26.3", "hatch-fancy-pypi-readme>=22.4, <26"]
++requires = ["hatchling>=1.26.3", "hatch-fancy-pypi-readme>=22.4, <26"]
  build-backend = "hatchling.build"
  
  [tool.hatch.build]

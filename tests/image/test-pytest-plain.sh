@@ -170,7 +170,7 @@ trap 'exit 143' TERM
 
 wait_for_ssh() {
     local attempt
-    for attempt in {1..60}; do
+    for ((attempt = 1; attempt <= ${SSH_WAIT_ATTEMPTS:-60}; attempt++)); do
         if ssh "${SSH_OPTS[@]}" "${SSH_USER}@localhost" 'echo ok' 2>/dev/null | grep -q ok; then
             return 0
         fi

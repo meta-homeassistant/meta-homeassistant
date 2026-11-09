@@ -1,0 +1,27 @@
+From b2e9a642f39bbd97eff0dd3529ecf55d49d3183d Mon Sep 17 00:00:00 2001
+From: Thomas Roos <thomas@roosesweb.de>
+Date: Fri, 6 Nov 2026 06:00:51 +0100
+Subject: [PATCH] pyproject.toml: accept setuptools 84.0
+
+aioesphomeapi 46.x requires setuptools >= 84.2.0 to build, but OE-Core
+provides 84.0.0. Nothing in the build relies on a 84.2 feature.
+
+Upstream-Status: Inappropriate [oe-specific]
+Signed-off-by: Thomas Roos <thomas@roosesweb.de>
+---
+ pyproject.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index b0e1abe..a3dd991 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -129,7 +129,7 @@ combine-as-imports = true
+ split-on-trailing-comma = false
+ 
+ [build-system]
+-requires = ['setuptools>=84.2.0', 'wheel', 'Cython>=3.3.0']
++requires = ['setuptools>=84.0.0', 'wheel', 'Cython>=3.3.0']
+ 
+ [tool.pytest.ini_options]
+ asyncio_mode = "auto"

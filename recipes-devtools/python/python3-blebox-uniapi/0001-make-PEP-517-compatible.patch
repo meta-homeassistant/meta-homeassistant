@@ -1,4 +1,4 @@
-From ead079d5605ccbf151ffb406047ac91f97e7dfc7 Mon Sep 17 00:00:00 2001
+From 2f8590422e3d528728f72cc9d41765c238734b83 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Thu, 24 Jul 2025 07:41:43 +0200
 Subject: [PATCH] make PEP 517 compatible
@@ -6,19 +6,19 @@ Subject: [PATCH] make PEP 517 compatible
 Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
 Upstream-Status: Pending
 ---
- pyproject.toml | 41 +++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 41 insertions(+)
+ pyproject.toml | 44 ++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 44 insertions(+)
  create mode 100644 pyproject.toml
 
 diff --git a/pyproject.toml b/pyproject.toml
 new file mode 100644
-index 0000000..d9502cf
+index 0000000..d20f1bb
 --- /dev/null
 +++ b/pyproject.toml
-@@ -0,0 +1,41 @@
+@@ -0,0 +1,44 @@
 +[project]
 +name = "blebox_uniapi"
-+version = "2.5.0"
++dynamic = ["version"]
 +description = "Python API for accessing BleBox smart home devices"
 +authors = [
 +    { name = "BleBox", email = "opensource@blebox.eu" }
@@ -57,3 +57,6 @@ index 0000000..d9502cf
 +[build-system]
 +requires = ["setuptools>=61", "wheel"]
 +build-backend = "setuptools.build_meta"
++
++[tool.setuptools.dynamic]
++version = { attr = "blebox_uniapi.__version__" }

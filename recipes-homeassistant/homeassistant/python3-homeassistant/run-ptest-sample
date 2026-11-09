@@ -1,3 +1,16 @@
 #!/bin/sh
 
+# The test helpers are shipped next to the tests instead of being installed,
+# so put this directory on the path and load the plugin explicitly for every
+# pytest run below: its bootstrap hook only runs for plugins that are
+# registered before the conftests are loaded.
+export PYTHONPATH="$PWD${PYTHONPATH:+:$PYTHONPATH}"
+export PYTEST_ADDOPTS="-p pytest_homeassistant.bootstrap${PYTEST_ADDOPTS:+ $PYTEST_ADDOPTS}"
+
+# Home Assistant only starts inside a virtual environment; run pytest with
+# the interpreter of the venv the service uses.
+pytest() {
+    @HOMEASSISTANT_VENV@/bin/python3 -m pytest "$@"
+}
+
 pytest -n auto --automake --ignore=tests/components/ -k "not test_set_scan_interval_via_platform"

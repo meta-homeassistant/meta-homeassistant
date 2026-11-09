@@ -1,0 +1,65 @@
+make.inc: fix Yocto cross-build and disable unsupported CET flags
+
+- Avoid uname-based host detection in cross builds
+- Disable runtime assembler feature probing
+- Prevent x86 asm on non-x86 targets
+- Remove -fcf-protection=full (not supported on RISC-V / ARM)
+
+Upstream-Status: Inappropriate [oe-specific]
+Signed-off-by: Thomas Roos <thomas@roosesweb.de>
+
+Index: isal-1.8.0/src/isal/isa-l/make.inc
+===================================================================
+--- isal-1.8.0.orig/src/isal/isa-l/make.inc
++++ isal-1.8.0/src/isal/isa-l/make.inc
+@@ -40,6 +40,13 @@
+ #	clean - remove object files
+ 
+ version ?= 2.31.1
++#
++# Cross-compilation / Yocto-friendly defaults
++#
++host_cpu ?= $(TARGET_ARCH)
++arch ?= $(TARGET_OS)
++
++# Fallback for native (non-Yocto) builds
+ host_cpu ?= $(shell uname -m | sed -e 's/amd/x86_/')
+ arch ?= $(shell uname | grep -v -e Linux -e BSD )
+ 
+@@ -80,7 +87,6 @@ ifneq ($(arch),mingw)
+ LDFLAGS_so = -Wl,-z,noexecstack -Wl,-z,relro -Wl,-z,now -Wl,-soname,$(soname)
+ ifeq ($(shell uname),Linux)
+ ifeq ($(host_cpu),x86_64)
+-  CFLAGS_ += -fcf-protection=full
+   ASFLAGS_ += -DINTEL_CET_ENABLED
+   LDFLAGS += -Wl,-z,ibt -Wl,-z,shstk -Wl,-z,cet-report=error
+ endif
+@@ -135,6 +141,13 @@ ifeq ($(filter aarch64 x86_%,$(host_cpu)
+   host_cpu=base_aliases
+ endif
+ 
++#
++# Do not build x86 intrinsic/asm sources on non-x86 targets
++#
++ifeq ($(filter x86_64 i386,$(host_cpu)),)
++lsrc_intrinsic+   :=
++endif
++
+ other_tests += $(other_tests_$(host_cpu))
+ 
+ lsrc += $(lsrc_$(host_cpu))
+@@ -192,8 +205,12 @@ as_feature_level := $(call test-as, 6,
+ as_feature_level := $(call test-as, 10, $(tmpf), $(as_10), $(as_feature_level))
+ tmpf := $(shell rm ${tmpf})
+ 
+-ifneq ($(findstring $(as_feature_level),6 10),)
+-  D_HAVE_AS_KNOWS_AVX512_y := -DHAVE_AS_KNOWS_AVX512
++ifndef YOCTO_BUILD
++  ifneq ($(findstring $(as_feature_level),6 10),)
++    D_HAVE_AS_KNOWS_AVX512_y := -DHAVE_AS_KNOWS_AVX512
++  endif
++else
++  as_feature_level := 0
+ endif
+ 
+ CFLAGS  += -DAS_FEATURE_LEVEL=$(as_feature_level) $(D_HAVE_AS_KNOWS_AVX512_y)

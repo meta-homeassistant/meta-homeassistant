@@ -1,4 +1,4 @@
-From 6f8817653fc1a0b47de910d5228f4527695fc170 Mon Sep 17 00:00:00 2001
+From 0ff50a7d59ed331e595646aa38a5fe5bf40a6e67 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Mon, 26 Oct 2026 21:31:17 +0100
 Subject: [PATCH] disable flaky test
@@ -10,10 +10,10 @@ Upstream-Status: Pending
  1 file changed, 1 insertion(+)
 
 diff --git a/tests/helpers/test_entity_component.py b/tests/helpers/test_entity_component.py
-index 0c5008697e3..51f50baa4cc 100644
+index 6e138e8650a..c84cbd4a5a9 100644
 --- a/tests/helpers/test_entity_component.py
 +++ b/tests/helpers/test_entity_component.py
-@@ -157,6 +157,7 @@ async def test_set_scan_interval_via_config(hass: HomeAssistant) -> None:
+@@ -170,6 +170,7 @@ async def test_set_scan_interval_via_config(hass: HomeAssistant) -> None:
      assert found, f"Platform with 30s scan_interval not registered: {component._platforms.keys()}"
  
  

@@ -1,0 +1,17 @@
+SUMMARY = "Python API for Ayla IoT products"
+HOMEPAGE = "https://github.com/rewardone/ayla-iot-unofficial"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=685dda0c92b16f886457366fc1c6a8b7"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
+
+SRC_URI[sha256sum] = "eab4447aa9cbbf6a4cfbba11154bb5dc3f69dea76cddbf8419979e774c76e8fb"
+
+DEPENDS = "python3-wheel-native"
+
+inherit pypi python_setuptools_build_meta
+
+RDEPENDS:${PN} = "\
+    python3-aiohttp (>=3.8.4) \
+    python3-requests (>=2.31.0) \
+    python3-ujson (>=5.8.0) \
+"

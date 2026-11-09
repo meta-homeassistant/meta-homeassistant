@@ -11,6 +11,7 @@ inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "\
     python3-typing-extensions (>=4.1.0) \
+    python3-zoneinfo \
 "
 
 RDEPENDS:${PN}-ptest += "\
