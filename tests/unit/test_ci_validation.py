@@ -506,6 +506,10 @@ class ValidationTests(unittest.TestCase):
         self.assertEqual(config["sources"]["meta-homeassistant"]["local"]["path"], str(self.repo))
         self.assertEqual(config["bitbake-setup"]["configurations"][0]["oe-fragments"],
                          ["machine/qemux86-64", *ci.TEST_FRAGMENTS])
+        self.assertEqual(ci.TEST_FRAGMENTS, (
+            "homeassistant/enable-testing-base",
+            "homeassistant/add-homeassistant-image-test-deps",
+        ))
         self.assertIn('INHERIT += "rm_work"', (setup.parent / "site.conf").read_text())
         self.assertIn('TEST_LOG_DIR = "${TOPDIR}/ci-test-logs/${PN}"',
                       (setup.parent / "site.conf").read_text())

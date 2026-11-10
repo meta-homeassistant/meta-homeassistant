@@ -209,8 +209,9 @@ and status-action tests before invoking `scripts/ci-validate.py`.
 
 The `homeassistant/enable-testing-base` build fragment enables Yocto's
 `testimage` class and this runtime test suite: date, disk-space, ping, ptest,
-SCP, and SSH checks. With the fragment enabled, building an image
-automatically boots it in QEMU and runs the configured checks.
+SCP, and SSH checks. It adds `ptest-runner` to tested images. With the
+fragment enabled, building an image automatically boots it in QEMU and runs
+the configured checks.
 
 From the layer checkout, enable the fragment, build an image, and then
 disable the fragment when the test run is complete:
@@ -277,9 +278,13 @@ image over SSH and runs the ptest files installed for `python3-homeassistant`.
 The image must already be built, include the Core ptest files, and provide
 SSH access.
 
-First, add the Core ptest files to the image by enabling the test-dependency
-fragment, then rebuild it. If the fragment is already active, leave it
-enabled and only rebuild the image:
+To run Core's ptest under testimage, enable the base testing fragment and the
+Core test-dependencies fragment, then rebuild the full image. The base
+fragment adds `ptest-runner`; the Core fragment adds the ptest package only
+to the full Home Assistant image. Check both fragments in
+`bitbake-builds/homeassistant-x86/build/conf/toolcfg.conf` first. The example
+assumes both were disabled; if one was already active, leave it enabled and
+omit its enable and cleanup commands.
 
 ```sh
 LAYER_DIR="$PWD"
@@ -287,15 +292,17 @@ SETUP_DIR="$LAYER_DIR/bitbake-builds/homeassistant-x86"
 (
     set -e
     source "$SETUP_DIR/build/init-build-env"
+    bitbake-config-build enable-fragment homeassistant/enable-testing-base
     bitbake-config-build enable-fragment homeassistant/add-homeassistant-image-test-deps
     bitbake core-image-homeassistant-full
     bitbake-config-build disable-fragment homeassistant/add-homeassistant-image-test-deps
+    bitbake-config-build disable-fragment homeassistant/enable-testing-base
 )
 ```
 
-If the build fails before the final command, disable the temporary fragment
-manually. Then run the ptest helper for the supplied x86 wrapper and full
-image:
+If the build fails before the final commands, disable only the fragments that
+this run enabled. Then run the ptest helper for the supplied x86 wrapper and
+full image:
 
 ```sh
 bash tests/image/test-pytest-plain.sh \
@@ -308,14 +315,13 @@ bash tests/image/test-pytest-plain.sh \
     --runqemu-arg nographic
 ```
 
-The `homeassistant/add-homeassistant-image-test-deps` fragment adds the Core
-ptest package to the image. If you enabled the fragment for this build,
-disable it after rebuilding; if a command fails before cleanup, disable it
-manually before continuing. The example uses the image's default filesystem
-rather than forcing a WIC disk image. The helper starts QEMU, waits for SSH,
-runs the tests, and writes logs under `test-logs/`. For another project or
-machine, use its correct boot arguments and ensure the image includes the
-ptest package and an SSH server.
+The `homeassistant/add-homeassistant-image-test-deps` fragment can also be
+used alone when you only need the Core ptest package and do not want to enable
+testimage. The example uses the image's default filesystem rather than forcing
+a WIC disk image. The helper starts QEMU, waits for SSH, runs the tests, and
+writes logs under `test-logs/`. For another project or machine, use its correct
+boot arguments and ensure the image includes the ptest package and an SSH
+server.
 
 ## Upgrade testing
 
