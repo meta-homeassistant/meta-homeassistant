@@ -45,7 +45,7 @@
             "git-remote": {
                 "uri": "https://git.yoctoproject.org/meta-virtualization",
                 "branch": "master",
-                "rev": "7b0154418de3350fd23a0bd868742f2b570b24d3"
+                "rev": "89b00d096a432000766729cd721ae647af500112"
             }
         },
         "meta-yocto": {
