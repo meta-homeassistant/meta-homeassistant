@@ -66,29 +66,36 @@ and firmware. A successful Core compile or image build does not by itself
 mean the Core ptest passed.
 
 The Core ptest needs the test files installed in the image. For the supplied
-image, enable the `homeassistant/add-homeassistant-image-test-deps` fragment
-before running the workflow. If it is already active, leave it enabled:
+image, enable both `homeassistant/enable-testing-base` and
+`homeassistant/add-homeassistant-image-test-deps` before running the workflow.
+The base fragment adds `ptest-runner`; the Core fragment adds the Core ptest
+package to the full image. Leave either fragment enabled if it was already
+active:
 
 ```sh
 LAYER_DIR="$PWD"
 SETUP_DIR="$LAYER_DIR/bitbake-builds/homeassistant-x86"
 (
     source "$SETUP_DIR/build/init-build-env"
+    bitbake-config-build enable-fragment homeassistant/enable-testing-base
     bitbake-config-build enable-fragment homeassistant/add-homeassistant-image-test-deps
 )
 ```
 
-Keep this fragment enabled until the workflow finishes, then disable it:
+Keep both fragments enabled until the workflow finishes, then disable only
+those that were not already active:
 
 ```sh
 (
     source "$SETUP_DIR/build/init-build-env"
     bitbake-config-build disable-fragment homeassistant/add-homeassistant-image-test-deps
+    bitbake-config-build disable-fragment homeassistant/enable-testing-base
 )
 ```
 
-If the workflow fails before cleanup, disable the temporary fragment yourself.
-Do not disable it if it was already enabled before you started.
+If the workflow fails before cleanup, disable only fragments that you enabled
+for this run. Do not disable either fragment if it was already enabled before
+you started.
 
 From the root of the layer checkout, run:
 
@@ -112,8 +119,7 @@ With no test-helper options, the script uses the layer's own
 needed. It restores that fragment if it enabled it. The selected image is
 built with plain BitBake using the build directory's current configuration.
 Afterward, the Core ptest helper boots the selected image and runs the
-installed Core tests over SSH. The fragment above adds
-`python3-homeassistant-ptest` and `ptest-runner` to the sample image.
+installed Core tests over SSH.
 
 ## Run from another Yocto project
 
