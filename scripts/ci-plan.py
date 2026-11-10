@@ -154,12 +154,23 @@ def plan(repo: Path, baseline: dict | None, revision: str) -> dict:
             repo, "diff", "--no-renames", "--name-only",
             baseline["revision"], revision,
         ).splitlines()
+    all_ptests = (
+        baseline is None
+        or "configurations/homeassistant.conf.json" in changed
+    )
+    reason = (
+        "No validated ancestor; test all enabled ptests"
+        if baseline is None
+        else "Home Assistant build configuration changed; test all enabled ptests"
+        if "configurations/homeassistant.conf.json" in changed
+        else "Changes since validated ancestor"
+    )
     return {
-        "reason": "Changes since validated ancestor" if baseline else "No validated ancestor; test all enabled ptests",
+        "reason": reason,
         "baseline_revision": baseline["revision"] if baseline else None,
         "baseline_ptests": baseline.get("enabled_ptests", []) if baseline else [],
         "ptest_results": baseline.get("ptest_results", {}) if baseline else {},
         "changed_files": changed,
         "recipes": recipe_changes(repo, revision, changed) if changed else [],
-        "all_ptests": baseline is None,
+        "all_ptests": all_ptests,
     }

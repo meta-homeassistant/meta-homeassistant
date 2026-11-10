@@ -233,7 +233,8 @@ def ptests(repo: Path, setup: Path, state: Path, report: dict) -> None:
     )
     selected = sorted(
         recipe for recipe in enabled
-        if recipe not in results
+        if report.get("all_ptests")
+        or recipe not in results
         or recipe in changed and results[recipe].get("fingerprint") != fingerprints[recipe]
         or recipe not in previous and results[recipe].get("status") not in ("failed", "pending")
     )

@@ -130,7 +130,9 @@ dependency images; disabled/failing/verification inventories do not.
 Recipe versions, appends, recipe-local patches/runners, and static shared
 `require`/`include` chains are considered. Deleted/renamed recipes are detected,
 but a deleted provider must still exist in the active configuration to build
-its enabled ptest image.
+its enabled ptest image. A change to
+`configurations/homeassistant.conf.json` selects all enabled dependency ptests,
+because it can alter the effective layer and build configuration.
 
 Unrelated documentation, shared distro/class changes, and unchanged recipes do
 not select all dependency ptests. The full-image stage still runs on every

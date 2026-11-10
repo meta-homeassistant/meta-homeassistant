@@ -108,6 +108,13 @@ class ValidationTests(unittest.TestCase):
         self.assertEqual(report["recipes"], [])
         self.assertFalse(report["all_ptests"])
 
+    def test_homeassistant_build_configuration_change_selects_all_ptests(self):
+        self.commit("configurations/homeassistant.conf.json", '{"version": "1"}')
+        report = planner.plan(self.repo, self.baseline(), self.git("rev-parse", "HEAD"))
+        self.assertEqual(report["recipes"], [])
+        self.assertTrue(report["all_ptests"])
+        self.assertIn("configuration changed", report["reason"])
+
     def test_recipe_local_files_and_shared_include_chains(self):
         self.commit("recipes-devtools/python/python3-one_1.bb", "require common.inc")
         self.commit("recipes-devtools/python/python3-two_1.bb", "require wrapper.inc")
@@ -250,6 +257,20 @@ class ValidationTests(unittest.TestCase):
             "meta-homeassistant-image-ptest-python3-two",
         ])
         build.assert_not_called()
+
+    def test_build_configuration_change_retests_all_saved_ptest_results(self):
+        report = self.report(
+            all_ptests=True,
+            baseline_ptests=["python3-one", "python3-two"],
+            ptest_results={
+                "python3-one": {"fingerprint": "previous", "status": "failed"},
+                "python3-two": {"fingerprint": "previous", "status": "passed"},
+            },
+        )
+        with patch.object(ci, "get_variable", return_value="python3-one python3-two"):
+            ci.ptests(self.repo, self.root, self.state, report)
+        self.assertEqual(report["selected_ptests"], ["python3-one", "python3-two"])
+        self.batch.assert_called_once()
 
     def test_ptest_failure_is_named_and_remaining_dependencies_still_run(self):
         report = self.report(all_ptests=True, baseline_ptests=[], ptest_results={})
