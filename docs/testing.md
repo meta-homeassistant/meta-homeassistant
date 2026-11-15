@@ -97,16 +97,17 @@ for review; it does not automatically edit the integration metadata.
 
 ### Gitea validation pipeline
 
-[The workflow](../.gitea/workflows/build-HA.yaml) has separate required steps:
+[The workflow](../.gitea/workflows/build-HA.yaml) has separate validation steps:
 
 1. Test the CI scripts.
 2. Acquire exclusive access to the shared build and detect changed recipes.
-3. Prepare the `homeassistant-x86` wrapper with both `TEST_FRAGMENTS` from
-   [the stage runner](../scripts/ci-validate.py).
+3. Initialize a fresh `homeassistant-x86` wrapper from the current configuration
+   with both `TEST_FRAGMENTS` from [the stage runner](../scripts/ci-validate.py).
 4. Build and test the selected `meta-homeassistant-image-ptest-<recipe>`
    targets together in one `bitbake -k` invocation. Failures are named
-   individually, independent dependencies still run, and failed or unfinished
-   results are not retried until relevant recipe inputs change.
+   individually and independent dependencies still run. This stage is advisory:
+   failed or unfinished tests retry on the next run without blocking the
+   full-image stage.
 5. Build `core-image-homeassistant-full` with automatic `testimage`, even if
    dependency ptests failed, provided preparation succeeded.
 6. Record the required results, advance the baseline only on success, and
@@ -117,29 +118,43 @@ branch's last image-successful ancestor, including changes preceding a failed
 image run. This full-image baseline advances when setup and full-image tests
 pass, even if dependency ptests fail.
 A new branch can reuse the nearest validated ancestor from another branch in
-the same repository/configuration. Dependency ptest outcomes are tracked
-separately per branch and recipe under `ptest-state/`, with each recipe's input
-fingerprint. Successful recipes are skipped on subsequent runs. Failed or
-interrupted (`pending`) recipes are not automatically rerun with the same
-inputs; they remain recorded until relevant recipe inputs change. Newly changed
-recipes are tested again. Newly enabled recipes without a failed or pending
-result are also tested. These ptest results are copied into
-successful image baselines/history so a new branch can reuse its validated
-ancestor's results. Only the effective fast/slow inventories generate
-dependency images; disabled/failing/verification inventories do not.
-Recipe versions, appends, recipe-local patches/runners, and static shared
-`require`/`include` chains are considered. Deleted/renamed recipes are detected,
-but a deleted provider must still exist in the active configuration to build
-its enabled ptest image. A change to
-`configurations/homeassistant.conf.json` selects all enabled dependency ptests,
-because it can alter the effective layer and build configuration.
+the same repository/configuration. Git ancestry is used for image-baseline
+planning, not as proof that dependency ptests ran against the current inputs.
+The full-image stage still runs on every push.
 
-Unrelated documentation, shared distro/class changes, and unchanged recipes do
-not select all dependency ptests. The full-image stage still runs on every
-push. Dynamic include expressions and
-transitive package dependency changes are not a complete dependency-impact
-analysis; this intentionally selects changed recipes rather than all consumers.
-BitBake decides which compilation tasks need rebuilding independently.
+Dependency ptest reuse has a separate, branch-independent provenance cache:
+
+- The environment fingerprint covers actual external layer HEADs and origins,
+  configured sources, resolved rolling revisions, the selected configuration,
+  generated build settings, and shared Home Assistant metadata. Shared metadata
+  includes configuration, classes, includes, image/packagegroup policy, OEQA
+  code, and image test helpers.
+- Each recipe fingerprint covers its recipe, appends, and recipe-local files,
+  including patches, test runners, and executable permissions. Unrelated
+  documentation commits do not invalidate successes. Changed external layers
+  or shared metadata conservatively invalidate all ptests for that environment;
+  changing one recipe's local inputs selects that recipe again.
+- Only matching successes are reused. Failed and pending tests retry on the
+  next run. Returning to a previously tested layer combination or recipe
+  content can reuse successes across branches, even without a validated Git
+  ancestor. Legacy results without provenance are revalidated.
+- CI checks the environment before and after execution and refuses to cache
+  results if it changed during the batch.
+
+Results live under
+`$CI_STATE_ROOT/ptest-cache/<repository-and-configuration-hash>/<environment-hash>/`.
+Each directory contains a readable `environment.json` manifest and a result
+JSON per recipe-input fingerprint, recording the recipe, status, environment,
+Home Assistant commit, branch, and originating workflow run. This is the only
+source of reusable ptest results. Current run reports and image-baseline history
+retain reporting snapshots; legacy `ptest-state/` files are no longer read or
+updated. Keep the provenance version in sync with changes to the fingerprinting
+policy.
+
+Only effective fast/slow inventories generate dependency images; disabled
+inventories do not. This is conservative metadata-based reuse, not complete
+dynamic-include or transitive dependency analysis. BitBake independently decides
+which compilation tasks need rebuilding.
 
 Selected dependency images are submitted together in one `bitbake -k`
 invocation, allowing BitBake to share the dependency graph and schedule
@@ -155,9 +170,11 @@ Disk policy:
   `/cache/builddir/homeassistant-ci/bitbake-builds/homeassistant-x86`.
   Downloads and sstate retain the existing shared cache paths.
 - CI enables `rm_work` to remove successful intermediate work.
-- Setup uses `init` until `build/init-build-env` exists, then `update`.
-  Incomplete wrappers are preserved with an `.incomplete-<timestamp>` suffix
-  before initialization is retried; inspect these before removing them manually.
+- Every preparation uses `bitbake-setup init`. Previous complete or incomplete
+  wrappers are preserved with a `.previous-<timestamp>` suffix. They may consume
+  significant disk space; inspect them and confirm no job needs them before
+  removing them manually. Validation history and the ptest cache live outside
+  the wrapper and survive its replacement.
 - Successful dependency images are cleaned with `bitbake -c clean <image>`
   after the batch finishes; package recipes and shared sstate are not cleaned.
   Failed images are retained for diagnosis. Test logs are kept outside image

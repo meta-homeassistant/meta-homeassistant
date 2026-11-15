@@ -20,6 +20,7 @@ ci = importlib.import_module("ci-validate")
 planner = importlib.import_module("ci-plan")
 CLEAN_IMAGE = ci.clean_image
 RUN_PTEST_BATCH = ci.run_ptest_batch
+PTEST_ENVIRONMENT = ci.ptest_environment
 REAL_RUN = subprocess.run
 
 
@@ -51,6 +52,10 @@ class ValidationTests(unittest.TestCase):
         batch = patch.object(ci, "run_ptest_batch", side_effect=self.run_ptest_batch)
         self.batch = batch.start()
         self.addCleanup(batch.stop)
+        self.environment_inputs = {"version": 1, "layers": {"dependency": {"revision": "a" * 40}}}
+        environment = patch.object(ci, "ptest_environment", side_effect=lambda *args: self.environment_inputs)
+        self.environment_query = environment.start()
+        self.addCleanup(environment.stop)
 
     def run_ptest_batch(self, repo, setup, targets, directory):
         for target in targets:
@@ -72,14 +77,22 @@ class ValidationTests(unittest.TestCase):
         return self.git("rev-parse", "HEAD")
 
     def baseline(self, revision=None, ref=None):
+        revision = revision or self.initial
+        recipes = ["python3-one", "python3-two"]
+        fingerprints = planner.recipe_fingerprints(self.repo, revision, recipes) if revision != "0" * 40 else {}
         return {
             "policy": planner.POLICY,
             "scope": {**ci.scope(), "ref": ref or os.environ["CI_REF"]},
-            "revision": revision or self.initial,
-            "enabled_ptests": ["python3-one", "python3-two"],
+            "revision": revision,
+            "enabled_ptests": recipes,
             "ptest_results": {
-                recipe: {"fingerprint": "previous", "status": "passed"}
-                for recipe in ("python3-one", "python3-two")
+                recipe: {
+                    "fingerprint": fingerprints.get(recipe, "unavailable"), "status": "passed",
+                    "environment": ci.hashlib.sha256(
+                        json.dumps(self.environment_inputs, sort_keys=True).encode()
+                    ).hexdigest(),
+                }
+                for recipe in recipes
             },
         }
 
@@ -91,7 +104,25 @@ class ValidationTests(unittest.TestCase):
     def report(self, **values):
         report = planner.plan(self.repo, self.baseline(), self.git("rev-parse", "HEAD"))
         report.update(scope=ci.scope(), revision=self.git("rev-parse", "HEAD"), results={})
+        report["ptest_results"] = self.baseline()["ptest_results"]
         report.update(values)
+        environment_key = ci.hashlib.sha256(
+            json.dumps(self.environment_inputs, sort_keys=True).encode()
+        ).hexdigest()
+        fingerprints = planner.recipe_fingerprints(
+            self.repo, report["revision"], list(report["ptest_results"]),
+        )
+        cache = ci.ptest_cache_path(self.state, report["scope"], environment_key)
+        for recipe, result in report["ptest_results"].items():
+            if (
+                result.get("environment") == environment_key
+                and result.get("fingerprint") == fingerprints[recipe]
+                and result.get("status") in ("passed", "failed")
+            ):
+                path = cache / f"{fingerprints[recipe]}.json"
+                if not path.exists():
+                    cache.mkdir(parents=True, exist_ok=True)
+                    ci.write_json(path, result)
         return report
 
     def test_accumulated_recipe_change_survives_documentation_commit(self):
@@ -99,20 +130,20 @@ class ValidationTests(unittest.TestCase):
         self.commit("README.md", "docs last")
         report = planner.plan(self.repo, self.baseline(), self.git("rev-parse", "HEAD"))
         self.assertEqual(report["recipes"], ["python3-one"])
-        self.assertFalse(report["all_ptests"])
+        self.assertIn("README.md", report["changed_files"])
 
-    def test_docs_and_shared_configuration_do_not_select_all_dependencies(self):
+    def test_docs_and_shared_configuration_are_reported_as_non_recipe_changes(self):
         self.commit("conf/distro/homeassistant.conf", 'DISTRO_FEATURES = ""')
         self.commit("README.md", "documentation")
         report = planner.plan(self.repo, self.baseline(), self.git("rev-parse", "HEAD"))
         self.assertEqual(report["recipes"], [])
-        self.assertFalse(report["all_ptests"])
+        self.assertEqual(report["changed_files"], ["README.md", "conf/distro/homeassistant.conf"])
 
-    def test_homeassistant_build_configuration_change_selects_all_ptests(self):
+    def test_homeassistant_build_configuration_change_is_reported(self):
         self.commit("configurations/homeassistant.conf.json", '{"version": "1"}')
         report = planner.plan(self.repo, self.baseline(), self.git("rev-parse", "HEAD"))
         self.assertEqual(report["recipes"], [])
-        self.assertTrue(report["all_ptests"])
+        self.assertEqual(report["changed_files"], ["configurations/homeassistant.conf.json"])
         self.assertIn("configuration changed", report["reason"])
 
     def test_recipe_local_files_and_shared_include_chains(self):
@@ -142,8 +173,10 @@ class ValidationTests(unittest.TestCase):
             self.repo, previous, self.git("rev-parse", "HEAD")
         )["recipes"], ["python3-one"])
 
-    def test_first_run_selects_all(self):
-        self.assertTrue(planner.plan(self.repo, None, self.initial)["all_ptests"])
+    def test_first_run_has_no_validated_ancestor(self):
+        report = planner.plan(self.repo, None, self.initial)
+        self.assertIsNone(report["baseline_revision"])
+        self.assertEqual(report["ptest_results"], {})
 
     def test_branch_uses_own_validated_ancestor(self):
         self.save_baseline(self.baseline())
@@ -220,6 +253,7 @@ class ValidationTests(unittest.TestCase):
         ci.release(self.state)
 
     def test_changed_and_newly_enabled_ptests_only(self):
+        self.commit("recipes-devtools/python/python3-one_1.bb", "changed recipe")
         report = self.report(recipes=["python3-one", "python3-disabled"])
         with (
             patch.object(ci, "get_variable", return_value="python3-two python3-one python3-new"),
@@ -244,8 +278,176 @@ class ValidationTests(unittest.TestCase):
         build.assert_not_called()
         self.batch.assert_not_called()
 
+    def test_legacy_results_without_provenance_are_revalidated(self):
+        report = self.report(ptest_results={
+            recipe: {"fingerprint": "previous", "status": "passed"}
+            for recipe in ("python3-one", "python3-two")
+        })
+        with patch.object(ci, "get_variable", return_value="python3-one python3-two"):
+            ci.ptests(self.repo, self.root, self.state, report)
+        self.assertEqual(report["selected_ptests"], ["python3-one", "python3-two"])
+        environments = list((self.state / "ptest-cache").glob("*/*/environment.json"))
+        self.assertEqual(len(environments), 1)
+        self.assertEqual(json.loads(environments[0].read_text()), self.environment_inputs)
+        saved = json.loads(next(environments[0].parent.glob(
+            report["ptest_results"]["python3-one"]["fingerprint"] + ".json"
+        )).read_text())
+        self.assertEqual(saved, report["ptest_results"]["python3-one"])
+        self.assertEqual(saved["run"], ["test/ha", "1", "1"])
+
+    def test_cache_provenance_mismatch_is_reported_instead_of_reused(self):
+        cache = self.state / "ptest-cache"
+        cache.mkdir()
+        ci.write_json(cache / "fingerprint.json", {
+            "status": "passed", "fingerprint": "fingerprint", "environment": "wrong",
+        })
+        with self.assertRaisesRegex(RuntimeError, "provenance does not match"):
+            ci.reusable_ptest_results(cache, "expected", {"python3-one": "fingerprint"})
+
+    def test_returning_layer_combination_reuses_history_across_branches(self):
+        first = self.report(ptest_results={})
+        with patch.object(ci, "get_variable", return_value="python3-one python3-two"):
+            ci.ptests(self.repo, self.root, self.state, first)
+            self.environment_inputs = {
+                **self.environment_inputs, "layers": {"dependency": {"revision": "b" * 40}},
+            }
+            second = self.report(ptest_results=first["ptest_results"])
+            ci.ptests(self.repo, self.root, self.state, second)
+            self.assertEqual(second["selected_ptests"], ["python3-one", "python3-two"])
+            self.assertNotEqual(first["ptest_environment"], second["ptest_environment"])
+            self.environment_inputs = {
+                **self.environment_inputs, "layers": {"dependency": {"revision": "a" * 40}},
+            }
+            self.commit("README.md", "unrelated documentation")
+            with patch.dict(os.environ, {"CI_REF": "refs/heads/returning", "CI_RUN_ID": "2"}):
+                returning = self.report(ptest_results={}, baseline_ptests=[])
+                self.batch.reset_mock()
+                ci.ptests(self.repo, self.root, self.state, returning)
+        self.assertEqual(returning["selected_ptests"], [])
+        self.batch.assert_not_called()
+        self.assertEqual(returning["ptest_results"], first["ptest_results"])
+        self.assertEqual(len(list((self.state / "ptest-cache").glob("*/*/environment.json"))), 2)
+
+    def test_recipe_content_change_retests_only_that_recipe_and_can_be_reverted(self):
+        recipe_path = "recipes-devtools/python/python3-one_1.bb"
+        self.commit(recipe_path, "initial recipe")
+        first = self.report(ptest_results={})
+        with patch.object(ci, "get_variable", return_value="python3-one python3-two"):
+            ci.ptests(self.repo, self.root, self.state, first)
+            self.commit(recipe_path, "changed recipe")
+            self.commit("README.md", "unrelated documentation")
+            changed = self.report(ptest_results=first["ptest_results"])
+            ci.ptests(self.repo, self.root, self.state, changed)
+            self.assertEqual(changed["selected_ptests"], ["python3-one"])
+            self.commit(recipe_path, "initial recipe")
+            reverted = self.report(ptest_results=changed["ptest_results"])
+            self.batch.reset_mock()
+            ci.ptests(self.repo, self.root, self.state, reverted)
+        self.batch.assert_not_called()
+        self.assertEqual(reverted["ptest_results"], first["ptest_results"])
+
+    def test_recipe_runner_permissions_and_content_are_fingerprinted(self):
+        self.git("config", "core.filemode", "true")
+        self.commit("recipes-devtools/python/python3-one_1.bb", "recipe")
+        runner = "recipes-devtools/python/python3-one/run-ptest"
+        self.commit(runner, "#!/bin/sh\n")
+        recipes = ["python3-one", "python3-two"]
+        before = planner.recipe_fingerprints(self.repo, self.git("rev-parse", "HEAD"), recipes)
+        docs = self.commit("README.md", "documentation only")
+        self.assertEqual(planner.recipe_fingerprints(self.repo, docs, recipes), before)
+        (self.repo / runner).chmod(0o755)
+        self.git("add", runner)
+        self.git("commit", "-qm", "make test runner executable")
+        permissions = planner.recipe_fingerprints(self.repo, self.git("rev-parse", "HEAD"), recipes)
+        self.assertNotEqual(permissions["python3-one"], before["python3-one"])
+        self.assertEqual(permissions["python3-two"], before["python3-two"])
+        content = self.commit(runner, "#!/bin/sh\nexit 1\n")
+        after = planner.recipe_fingerprints(self.repo, content, recipes)
+        self.assertNotEqual(after["python3-one"], permissions["python3-one"])
+        self.assertEqual(after["python3-two"], permissions["python3-two"])
+
+    def test_pending_result_is_retried_but_successful_sibling_is_reused(self):
+        first = self.report(ptest_results={})
+        self.ptest_statuses = {"python3-one": None}
+        with patch.object(ci, "get_variable", return_value="python3-one python3-two"):
+            with self.assertRaisesRegex(RuntimeError, "python3-one"):
+                ci.ptests(self.repo, self.root, self.state, first)
+            self.ptest_statuses = {}
+            following = self.report(ptest_results=first["ptest_results"])
+            ci.ptests(self.repo, self.root, self.state, following)
+        self.assertEqual(following["selected_ptests"], ["python3-one"])
+        self.assertEqual(following["ptest_results"]["python3-two"], first["ptest_results"]["python3-two"])
+
+    def test_environment_change_during_tests_does_not_archive_results(self):
+        def change_environment(*args):
+            self.environment_inputs = {**self.environment_inputs, "changed": True}
+            return self.run_ptest_batch(*args)
+
+        self.batch.side_effect = change_environment
+        with patch.object(ci, "get_variable", return_value="python3-one"):
+            with self.assertRaisesRegex(RuntimeError, "environment changed"):
+                ci.ptests(self.repo, self.root, self.state, self.report(ptest_results={}))
+        self.assertEqual(list((self.state / "ptest-cache").glob("*/*/*.json")),
+                         list((self.state / "ptest-cache").glob("*/*/environment.json")))
+
+    def test_environment_records_actual_layers_and_shared_metadata_not_documentation(self):
+        setup = self.state / "bitbake-builds" / ci.CONFIGURATION
+        (setup / "build/conf").mkdir(parents=True)
+        (setup / "config").mkdir()
+        layers = setup / "layers"
+        layers.mkdir()
+        (layers / "meta-homeassistant").symlink_to(self.repo, target_is_directory=True)
+        dependency = layers / "dependency"
+        REAL_RUN(["git", "clone", "--quiet", str(self.repo), str(dependency)], check=True)
+        config = {
+            "sources": {
+                "meta-homeassistant": {"local": {"path": str(self.repo)}},
+                "dependency": {"git-remote": {
+                    "uri": str(self.repo), "branch": "main", "rev": self.initial,
+                }},
+            },
+            "bitbake-setup": {"configurations": [{
+                "name": ci.CONFIGURATION, "oe-fragments": ["machine/qemux86-64"],
+            }]},
+        }
+        ci.write_json(self.state / "configuration.conf.json", config)
+        resolved = {"sources": config["sources"]}
+        ci.write_json(setup / "config/sources-fixed-revisions.json", resolved)
+        (setup / "build/conf/local.conf").write_text('MACHINE = "qemux86-64"\n')
+        (setup / "build/conf/bblayers.conf").write_text(f'BBLAYERS = "{layers}/dependency"\n')
+        (setup.parent / "site.conf").write_text('DL_DIR = "/cache/downloads"\n')
+        first = PTEST_ENVIRONMENT(self.repo, setup, self.state, self.initial)
+        self.assertEqual(first["layers"]["dependency"]["revision"], self.initial)
+        self.assertEqual(first["layers"]["dependency"]["origin"], str(self.repo))
+        self.assertNotIn("meta-homeassistant", first["layers"])
+        self.assertNotIn(str(setup), first["build_config"]["bblayers.conf"])
+        docs_revision = self.commit("README.md", "new documentation")
+        self.assertEqual(PTEST_ENVIRONMENT(self.repo, setup, self.state, docs_revision), first)
+        shared_revision = self.commit("conf/distro/homeassistant.conf", 'DISTRO_FEATURES = "changed"')
+        shared = PTEST_ENVIRONMENT(self.repo, setup, self.state, shared_revision)
+        self.assertNotEqual(shared, first)
+        (setup / "build/conf/local.conf").write_text('MACHINE = "qemuarm64"\n')
+        self.assertNotEqual(PTEST_ENVIRONMENT(self.repo, setup, self.state, shared_revision), shared)
+
+        REAL_RUN(["git", "-C", str(dependency), "fetch", "--quiet", "origin"], check=True)
+        REAL_RUN(["git", "-C", str(dependency), "checkout", "--quiet",
+                  "--detach", shared_revision], check=True)
+        with self.assertRaisesRegex(RuntimeError, "expected resolved revision"):
+            PTEST_ENVIRONMENT(self.repo, setup, self.state, shared_revision)
+        resolved["sources"]["dependency"]["git-remote"]["rev"] = shared_revision
+        ci.write_json(setup / "config/sources-fixed-revisions.json", resolved)
+        with self.assertRaisesRegex(RuntimeError, "expected configured pin"):
+            PTEST_ENVIRONMENT(self.repo, setup, self.state, shared_revision)
+        config["sources"]["dependency"]["git-remote"]["rev"] = "main"
+        ci.write_json(self.state / "configuration.conf.json", config)
+        rolling = PTEST_ENVIRONMENT(self.repo, setup, self.state, shared_revision)
+        self.assertEqual(rolling["layers"]["dependency"]["revision"], shared_revision)
+        (dependency / "README.md").write_text("uncommitted changes")
+        with self.assertRaisesRegex(RuntimeError, "tracked modifications"):
+            PTEST_ENVIRONMENT(self.repo, setup, self.state, shared_revision)
+
     def test_first_run_tests_every_enabled_dependency_in_one_batch(self):
-        report = self.report(all_ptests=True, baseline_ptests=[], ptest_results={})
+        report = self.report(baseline_ptests=[], ptest_results={})
         with (
             patch.object(ci, "get_variable", return_value="python3-one python3-two"),
             patch.object(ci, "validate") as build,
@@ -260,7 +462,6 @@ class ValidationTests(unittest.TestCase):
 
     def test_build_configuration_change_retests_all_saved_ptest_results(self):
         report = self.report(
-            all_ptests=True,
             baseline_ptests=["python3-one", "python3-two"],
             ptest_results={
                 "python3-one": {"fingerprint": "previous", "status": "failed"},
@@ -273,7 +474,7 @@ class ValidationTests(unittest.TestCase):
         self.batch.assert_called_once()
 
     def test_ptest_failure_is_named_and_remaining_dependencies_still_run(self):
-        report = self.report(all_ptests=True, baseline_ptests=[], ptest_results={})
+        report = self.report(baseline_ptests=[], ptest_results={})
         self.ptest_statuses = {"python3-one": "failed"}
         self.batch_status = 1
         with (
@@ -282,20 +483,18 @@ class ValidationTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "python3-one"):
                 ci.ptests(self.repo, self.root, self.state, report)
         self.batch.assert_called_once()
-        self.assertEqual(report["ptest_results"], {
-            "python3-one": {"fingerprint": report["ptest_results"]["python3-one"]["fingerprint"],
-                            "status": "failed"},
-            "python3-two": {"fingerprint": report["ptest_results"]["python3-two"]["fingerprint"],
-                            "status": "passed"},
-        })
-        saved = json.loads(ci.ptest_state_path(self.state).read_text())
+        self.assertEqual(report["ptest_results"]["python3-one"]["status"], "failed")
+        self.assertEqual(report["ptest_results"]["python3-two"]["status"], "passed")
+        self.assertEqual(report["ptest_results"]["python3-one"]["revision"], report["revision"])
+        self.assertEqual(report["ptest_results"]["python3-one"]["environment"], report["ptest_environment"])
+        saved = json.loads((self.state / "run.json").read_text())["ptest_results"]
         self.assertEqual(saved, report["ptest_results"])
         self.clean_image.assert_called_once_with(
             self.repo, self.root, "meta-homeassistant-image-ptest-python3-two",
         )
 
-    def test_followup_run_does_not_retry_unchanged_failed_dependencies(self):
-        first = self.report(all_ptests=True, baseline_ptests=[], ptest_results={})
+    def test_followup_run_retries_failures_but_reuses_successful_dependencies(self):
+        first = self.report(baseline_ptests=[], ptest_results={})
         self.ptest_statuses = {"python3-one": "failed"}
         self.batch_status = 1
         with (
@@ -306,24 +505,25 @@ class ValidationTests(unittest.TestCase):
 
         followup = self.report(
             baseline_ptests=["python3-one", "python3-two"],
-            ptest_results=json.loads(ci.ptest_state_path(self.state).read_text()),
+            ptest_results=first["ptest_results"],
         )
         self.ptest_statuses = {}
         self.batch_status = 0
         self.batch.reset_mock()
         with (
             patch.object(ci, "get_variable", return_value="python3-one python3-two"),
+            patch.dict(os.environ, {"CI_RUN_ID": "2"}),
         ):
-            with self.assertRaisesRegex(RuntimeError, "python3-one"):
-                ci.ptests(self.repo, self.root, self.state, followup)
+            ci.ptests(self.repo, self.root, self.state, followup)
 
-        self.assertEqual(followup["selected_ptests"], [])
-        self.batch.assert_not_called()
+        self.assertEqual(followup["selected_ptests"], ["python3-one"])
+        self.batch.assert_called_once()
         self.assertEqual(followup["ptest_results"]["python3-two"]["status"], "passed")
-        self.assertEqual(followup["ptest_results"]["python3-one"]["status"], "failed")
+        self.assertEqual(followup["ptest_results"]["python3-one"]["status"], "passed")
+        self.assertEqual(followup["ptest_results"]["python3-one"]["run"], ["test/ha", "2", "1"])
 
-    def test_failed_ptests_are_not_retried_after_image_baseline_advances(self):
-        first = self.report(all_ptests=True, baseline_ptests=[], ptest_results={})
+    def test_failed_ptests_are_retried_after_image_baseline_advances(self):
+        first = self.report(baseline_ptests=[], ptest_results={})
         self.ptest_statuses = {"python3-one": "failed"}
         self.batch_status = 1
         with (
@@ -340,27 +540,26 @@ class ValidationTests(unittest.TestCase):
         ci.make_plan(self.repo, self.state)
         followup = json.loads((self.state / "run.json").read_text())
         self.assertEqual(followup["baseline_revision"], self.initial)
-        self.assertEqual(followup["ptest_results"]["python3-one"]["status"], "failed")
+        self.assertEqual(followup["ptest_results"], {})
         self.batch.reset_mock()
         with (
             patch.object(ci, "get_variable", return_value="python3-one python3-two"),
         ):
             with self.assertRaisesRegex(RuntimeError, "python3-one"):
                 ci.ptests(self.repo, self.root, self.state, followup)
-        self.assertEqual(followup["selected_ptests"], [])
-        self.batch.assert_not_called()
+        self.assertEqual(followup["selected_ptests"], ["python3-one"])
+        self.batch.assert_called_once()
 
     def test_changed_recipe_inputs_reselect_a_failed_dependency(self):
         recipe_path = "recipes-devtools/python/python3-one_1.bb"
+        results = self.baseline()["ptest_results"]
+        results["python3-one"]["status"] = "failed"
         self.commit(recipe_path, "recipe v1")
         report = self.report(
             recipes=["python3-one"],
             changed_files=[recipe_path],
             baseline_ptests=["python3-one", "python3-two"],
-            ptest_results={
-                "python3-one": {"fingerprint": "previous", "status": "failed"},
-                "python3-two": {"fingerprint": "previous", "status": "passed"},
-            },
+            ptest_results=results,
         )
         with patch.object(ci, "get_variable", return_value="python3-one python3-two"):
             ci.ptests(self.repo, self.root, self.state, report)
@@ -384,7 +583,7 @@ class ValidationTests(unittest.TestCase):
         self.assertEqual(report["ptest_results"]["python3-one"]["status"], "pending")
         self.assertEqual(report["ptest_results"]["python3-two"]["status"], "passed")
         self.assertEqual(
-            json.loads(ci.ptest_state_path(self.state).read_text()), report["ptest_results"],
+            json.loads((self.state / "run.json").read_text())["ptest_results"], report["ptest_results"],
         )
         self.clean_image.assert_called_once_with(
             self.repo, self.root, "meta-homeassistant-image-ptest-python3-two",
@@ -435,6 +634,7 @@ class ValidationTests(unittest.TestCase):
         self.batch.side_effect = run_batch
         with patch.object(ci, "get_variable", return_value="python3-one python3-two"):
             for _ in range(2):
+                self.environment_inputs = {**self.environment_inputs, "batch": len(directories)}
                 ci.ptests(
                     self.repo, self.root, self.state,
                     self.report(baseline_ptests=[], ptest_results={}),
@@ -499,8 +699,17 @@ class ValidationTests(unittest.TestCase):
             ]},
         }))
         setup = self.state / "bitbake-builds" / ci.CONFIGURATION
+        baseline = self.baseline()
+        ci.baseline_path(self.state).parent.mkdir()
+        ci.write_json(ci.baseline_path(self.state), baseline)
+        ptest_results = baseline["ptest_results"]
+        (self.state / "ptest-cache").mkdir(exist_ok=True)
+        ci.write_json(self.state / "ptest-cache/preserved.json", ptest_results)
+        report = self.report()
+        ci.write_json(self.state / "run.json", report)
 
         def initialize(command, **kwargs):
+            self.assertFalse(setup.exists())
             (setup / "build").mkdir(parents=True, exist_ok=True)
             (setup / "build/init-build-env").touch()
             (setup / "layers").mkdir(exist_ok=True)
@@ -509,18 +718,21 @@ class ValidationTests(unittest.TestCase):
         with patch.object(ci.subprocess, "run", side_effect=initialize) as command:
             self.assertEqual(ci.prepare(self.repo, self.state, self.root / "bootstrap"), setup)
             self.assertIn("init", command.call_args.args[0])
+            self.assertNotIn("--rebase-conflicts-strategy", command.call_args.args[0])
             with patch.dict(os.environ, {"CI_REF": "refs/heads/another"}):
                 self.assertEqual(ci.prepare(self.repo, self.state, self.root / "bootstrap"), setup)
-            self.assertIn("update", command.call_args.args[0])
+            self.assertIn("init", command.call_args.args[0])
+            self.assertNotIn("update", command.call_args.args[0])
             (setup / "build/init-build-env").unlink()
             marker = setup / "layers/preserved-input"
             marker.write_text("keep incomplete setup")
             self.assertEqual(ci.prepare(self.repo, self.state, self.root / "bootstrap"), setup)
             self.assertIn("init", command.call_args.args[0])
-            preserved = list(setup.parent.glob(f"{ci.CONFIGURATION}.incomplete-*"))
-            self.assertEqual(len(preserved), 1)
+            self.assertNotIn("--rebase-conflicts-strategy", command.call_args.args[0])
+            preserved = sorted(setup.parent.glob(f"{ci.CONFIGURATION}.previous-*"))
+            self.assertEqual(len(preserved), 2)
             self.assertEqual(
-                (preserved[0] / "layers/preserved-input").read_text(),
+                (preserved[-1] / "layers/preserved-input").read_text(),
                 "keep incomplete setup",
             )
         config = json.loads((self.state / "configuration.conf.json").read_text())
@@ -534,6 +746,78 @@ class ValidationTests(unittest.TestCase):
         self.assertIn('INHERIT += "rm_work"', (setup.parent / "site.conf").read_text())
         self.assertIn('TEST_LOG_DIR = "${TOPDIR}/ci-test-logs/${PN}"',
                       (setup.parent / "site.conf").read_text())
+        self.assertEqual(json.loads(ci.baseline_path(self.state).read_text()), baseline)
+        self.assertEqual(json.loads((self.state / "ptest-cache/preserved.json").read_text()), ptest_results)
+        self.assertEqual(json.loads((self.state / "run.json").read_text()), report)
+
+    def test_prepare_restores_exact_pin_and_preserves_newer_checkout(self):
+        directory = self.repo / "configurations"
+        directory.mkdir()
+        (directory / "homeassistant.conf.json").write_text(json.dumps({
+            "sources": {"dependency": {"git-remote": {
+                "uri": str(self.repo), "branch": "main", "rev": self.initial,
+            }}},
+            "bitbake-setup": {"configurations": [
+                {"name": ci.CONFIGURATION, "oe-fragments": []},
+            ]},
+        }))
+        newer = self.commit("fork-file", "fork changes")
+        setup = self.state / "bitbake-builds" / ci.CONFIGURATION
+        (setup / "build").mkdir(parents=True)
+        (setup / "build/init-build-env").touch()
+        layer = setup / "layers/dependency"
+        layer.parent.mkdir()
+        REAL_RUN(["git", "clone", "--quiet", str(self.repo), str(layer)], check=True)
+        (layer / "untracked-work").write_text("preserve this")
+
+        def update(command, **kwargs):
+            if command[0] == "git":
+                return REAL_RUN(command, **kwargs)
+            self.assertFalse(layer.exists())
+            self.assertIn("init", command)
+            self.assertNotIn("update", command)
+            backups = list(setup.parent.glob(f"{ci.CONFIGURATION}.previous-*"))
+            self.assertEqual(len(backups), 1)
+            previous_layer = backups[0] / "layers/dependency"
+            self.assertEqual(planner.git(previous_layer, "rev-parse", "HEAD"), newer)
+            self.assertEqual((previous_layer / "untracked-work").read_text(), "preserve this")
+            (setup / "build").mkdir(parents=True)
+            (setup / "build/init-build-env").touch()
+            layer.parent.mkdir()
+            REAL_RUN(["git", "clone", "--quiet", str(self.repo), str(layer)], check=True)
+            REAL_RUN(["git", "-C", str(layer), "checkout", "--quiet",
+                      "--detach", self.initial], check=True)
+            return subprocess.CompletedProcess(command, 0)
+
+        with patch.object(ci.subprocess, "run", side_effect=update):
+            ci.prepare(self.repo, self.state, self.root / "bootstrap")
+        self.assertEqual(planner.git(layer, "rev-parse", "HEAD"), self.initial)
+        def unchanged(command, **kwargs):
+            if command[0] == "git":
+                return REAL_RUN(command, **kwargs)
+            self.assertFalse(setup.exists())
+            previous = sorted(setup.parent.glob(f"{ci.CONFIGURATION}.previous-*"))[-1]
+            REAL_RUN(["cp", "-a", str(previous), str(setup)], check=True)
+            return subprocess.CompletedProcess(command, 0)
+
+        with patch.object(ci.subprocess, "run", side_effect=unchanged):
+            ci.prepare(self.repo, self.state, self.root / "bootstrap")
+        self.assertEqual(len(list(setup.parent.glob(f"{ci.CONFIGURATION}.previous-*"))), 2)
+
+        REAL_RUN(["git", "-C", str(layer), "checkout", "--quiet", "--detach", newer], check=True)
+
+        def wrong_checkout(command, **kwargs):
+            if command[0] == "git":
+                return REAL_RUN(command, **kwargs)
+            (setup / "build").mkdir(parents=True)
+            (setup / "build/init-build-env").touch()
+            layer.parent.mkdir()
+            REAL_RUN(["git", "clone", "--quiet", str(self.repo), str(layer)], check=True)
+            return subprocess.CompletedProcess(command, 0)
+
+        with patch.object(ci.subprocess, "run", side_effect=wrong_checkout):
+            with self.assertRaisesRegex(RuntimeError, "expected configured pin"):
+                ci.prepare(self.repo, self.state, self.root / "bootstrap")
 
     def test_build_preserves_arguments_and_streams_output(self):
         setup = self.root / "wrapper with spaces"
@@ -560,6 +844,28 @@ class ValidationTests(unittest.TestCase):
             ci.get_variable(self.repo, setup, "meta-homeassistant-image-ptest", "PTESTS_META_HOMEASSISTANT"),
             "python3-one python3-two",
         )
+
+    def test_failed_variable_query_reports_captured_bitbake_error(self):
+        setup = self.root / "wrapper"
+        (setup / "build").mkdir(parents=True)
+        (setup / "build/init-build-env").write_text(
+            'bitbake-getvar() { echo "ERROR: Unable to parse recipe"; return 7; }\n'
+        )
+        stderr = io.StringIO()
+
+        def query(*args):
+            ci.get_variable(self.repo, setup, "meta-homeassistant-image-ptest",
+                            "PTESTS_META_HOMEASSISTANT")
+
+        with patch.object(ci, "execute", side_effect=query), \
+                patch.object(sys, "argv", ["ci-validate.py", "ptests",
+                                          "--state-root", str(self.state)]), \
+                contextlib.redirect_stderr(stderr):
+            with self.assertRaises(SystemExit) as error:
+                ci.main()
+        self.assertEqual(error.exception.code, 1)
+        self.assertIn("ERROR: Unable to parse recipe", stderr.getvalue())
+        self.assertIn("CI ptests failed:", stderr.getvalue())
 
     def test_pipeline_and_new_branch_reuse_the_same_build_without_retesting(self):
         setup = self.state / "bitbake-builds" / ci.CONFIGURATION
