@@ -122,26 +122,38 @@ def recipe_changes(repo: Path, revision: str, changed: list[str]) -> list[str]:
     return sorted(affected)
 
 
-def recipe_fingerprints(
-    repo: Path, revision: str, recipes: list[str], changed: list[str],
-) -> dict[str, str]:
-    if not recipes:
-        return {}
-    tree = subprocess.check_output(
-        ["git", "-C", str(repo), "ls-tree", "-r", revision], text=True,
-    )
-    objects = {
-        fields[3]: fields[2]
+def metadata_objects(repo: Path, revision: str) -> dict[str, str]:
+    tree = git(repo, "ls-tree", "-r", revision)
+    return {
+        fields[3]: f"{fields[0]}:{fields[2]}"
         for line in tree.splitlines()
         if len(fields := line.split(None, 3)) == 4
     }
-    changes = [
-        (name, objects.get(name, "deleted"))
-        for name in sorted(changed)
-    ]
+
+
+def recipe_fingerprints(repo: Path, revision: str, recipes: list[str]) -> dict[str, str]:
+    if not recipes:
+        return {}
+    objects = metadata_objects(repo, revision)
+    recipe_paths = [Path(name) for name in objects if name.endswith((".bb", ".bbappend"))]
+    inputs = {}
+    for recipe in recipes:
+        paths = [path for path in recipe_paths if recipe_name(str(path)) == recipe]
+        inputs[recipe] = {
+            name: blob for name, blob in objects.items()
+            if Path(name) in paths or any(
+                path.parent in Path(name).parents
+                and (
+                    Path(name).relative_to(path.parent).parts[0] in (recipe, "files")
+                    or Path(name).name == f"{recipe}.inc"
+                    or Path(name).name.startswith(f"{recipe}-") and Path(name).suffix == ".inc"
+                )
+                for path in paths
+            )
+        }
     return {
         recipe: hashlib.sha256(
-            json.dumps([recipe, revision if not changes else changes], sort_keys=True).encode()
+            json.dumps([recipe, inputs[recipe]], sort_keys=True).encode()
         ).hexdigest()
         for recipe in recipes
     }
@@ -154,14 +166,10 @@ def plan(repo: Path, baseline: dict | None, revision: str) -> dict:
             repo, "diff", "--no-renames", "--name-only",
             baseline["revision"], revision,
         ).splitlines()
-    all_ptests = (
-        baseline is None
-        or "configurations/homeassistant.conf.json" in changed
-    )
     reason = (
-        "No validated ancestor; test all enabled ptests"
+        "No validated ancestor; check all enabled ptest inputs"
         if baseline is None
-        else "Home Assistant build configuration changed; test all enabled ptests"
+        else "Home Assistant build configuration changed; check all enabled ptest inputs"
         if "configurations/homeassistant.conf.json" in changed
         else "Changes since validated ancestor"
     )
@@ -169,8 +177,7 @@ def plan(repo: Path, baseline: dict | None, revision: str) -> dict:
         "reason": reason,
         "baseline_revision": baseline["revision"] if baseline else None,
         "baseline_ptests": baseline.get("enabled_ptests", []) if baseline else [],
-        "ptest_results": baseline.get("ptest_results", {}) if baseline else {},
+        "ptest_results": {},
         "changed_files": changed,
         "recipes": recipe_changes(repo, revision, changed) if changed else [],
-        "all_ptests": all_ptests,
     }

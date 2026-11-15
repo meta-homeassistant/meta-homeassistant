@@ -7,6 +7,7 @@ import importlib
 import json
 import os
 from pathlib import Path
+import re
 import subprocess
 import sys
 import tempfile
@@ -87,18 +88,10 @@ def baseline_path(state: Path) -> Path:
     return state / "baselines" / f"{key}.json"
 
 
-def ptest_state_path(state: Path) -> Path:
-    key = hashlib.sha256(json.dumps(scope(), sort_keys=True).encode()).hexdigest()
-    return state / "ptest-state" / f"{key}.json"
-
-
 def make_plan(repo: Path, state: Path) -> None:
     revision = planner.checkout_revision(repo)
     baseline = planner.find_baseline(repo, state / "baselines", scope(), revision)
     report = planner.plan(repo, baseline, revision)
-    test_state = ptest_state_path(state)
-    if test_state.is_file():
-        report["ptest_results"] = json.loads(test_state.read_text())
     report.update(scope=scope(), revision=revision, results={})
     write_json(state / "run.json", report)
     print(f"Change detection: {report['reason']}", flush=True)
@@ -127,25 +120,33 @@ def prepare(repo: Path, state: Path, bootstrap: Path) -> Path:
         'TEST_LOG_DIR = "${TOPDIR}/ci-test-logs/${PN}"\n'
     )
     setup = top / CONFIGURATION
+    pinned_layers = {
+        setup / "layers" / source.get("path", name): source["git-remote"]["rev"]
+        for name, source in config["sources"].items()
+        if "git-remote" in source
+        and re.fullmatch(r"[0-9a-fA-F]{40}", source["git-remote"]["rev"])
+    }
+    if setup.exists():
+        preserved = setup.with_name(f"{setup.name}.previous-{time.time_ns()}")
+        setup.rename(preserved)
+        print(f"Preserved previous setup at {preserved}; initializing a fresh wrapper", flush=True)
     command = [
         str(bootstrap / "bin/bitbake-setup"),
         "--setting", "default", "top-dir-prefix", str(state),
         "--setting", "default", "dl-dir", "/cache/downloads/",
+        "init", "--non-interactive", "--setup-dir-name", CONFIGURATION,
+        str(config_path), CONFIGURATION,
     ]
-    if (setup / "build/init-build-env").is_file():
-        command += ["update", "--setup-dir", str(setup), "--update-bb-conf", "yes"]
-    else:
-        if setup.exists():
-            preserved = setup.with_name(f"{setup.name}.incomplete-{time.time_ns()}")
-            setup.rename(preserved)
-            print(f"Preserved incomplete setup at {preserved}; initializing a new wrapper", flush=True)
-        command += [
-            "init", "--non-interactive", "--setup-dir-name", CONFIGURATION,
-            str(config_path), CONFIGURATION,
-        ]
     subprocess.run(command, cwd=repo, check=True)
     if not (setup / "build/init-build-env").is_file():
         raise RuntimeError("Build configuration setup did not create an environment")
+    for layer, revision in pinned_layers.items():
+        actual = planner.git(layer, "rev-parse", "HEAD")
+        if actual.lower() != revision.lower():
+            raise RuntimeError(
+                f"Layer {layer.name} is at {actual}, expected configured pin {revision}"
+            )
+        print(f"Verified {layer.name} at configured pin {revision}", flush=True)
     return setup
 
 
@@ -210,10 +211,72 @@ python ha_ci_ptest_result() {
     ).returncode
 
 
-def save_ptest_state(state: Path, results: dict) -> None:
-    path = ptest_state_path(state)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    write_json(path, results)
+def ptest_environment(repo: Path, setup: Path, state: Path, revision: str) -> dict:
+    config = json.loads((state / "configuration.conf.json").read_text())
+    resolved = json.loads((setup / "config/sources-fixed-revisions.json").read_text())["sources"]
+    layers = {}
+    for name, source in config["sources"].items():
+        layer = setup / "layers" / source.get("path", name)
+        actual = planner.git(layer, "rev-parse", "HEAD")
+        if planner.git(layer, "status", "--porcelain", "--untracked-files=no"):
+            raise RuntimeError(f"Layer {name} has tracked modifications; cannot reuse ptest results")
+        if name == "meta-homeassistant":
+            if layer.resolve() != repo.resolve() or actual != revision:
+                raise RuntimeError("Home Assistant layer does not match the planned checkout")
+            continue
+        if "git-remote" in source:
+            expected = resolved[name]["git-remote"]["rev"]
+            pin = source["git-remote"]["rev"]
+            if re.fullmatch(r"[0-9a-fA-F]{40}", pin) and expected.lower() != pin.lower():
+                raise RuntimeError(f"Layer {name} resolved to {expected}, expected configured pin {pin}")
+            if actual.lower() != expected.lower():
+                raise RuntimeError(f"Layer {name} is at {actual}, expected resolved revision {expected}")
+            origin = planner.git(layer, "remote", "get-url", "origin")
+            layers[name] = {"configured": source, "origin": origin, "revision": actual}
+        else:
+            layers[name] = {"configured": source, "revision": actual}
+    objects = planner.metadata_objects(repo, revision)
+    shared = {
+        name: blob for name, blob in objects.items()
+        if name.startswith(("conf/", "classes/", "classes-recipe/", "lib/", "tests/image/"))
+        or name.endswith((".inc", ".bbclass")) or {"images", "packagegroups"} & set(Path(name).parts)
+    }
+    build_config = {}
+    for path in (setup / "build/conf/local.conf", setup / "build/conf/bblayers.conf",
+                 setup.parent / "site.conf"):
+        build_config[path.name] = path.read_text().replace(str(setup), "${SETUP}").replace(
+            str(repo), "${REPO}"
+        )
+    selected = next(
+        item for item in config["bitbake-setup"]["configurations"]
+        if item["name"] == CONFIGURATION
+    )
+    return {
+        "version": 1, "layers": layers, "configuration": selected,
+        "build_config": build_config, "shared_metadata": shared,
+    }
+
+
+def ptest_cache_path(state: Path, run_scope: dict, environment_key: str) -> Path:
+    cache_scope = {key: run_scope[key] for key in ("repository", "configuration")}
+    namespace = hashlib.sha256(json.dumps(cache_scope, sort_keys=True).encode()).hexdigest()
+    return state / "ptest-cache" / namespace / environment_key
+
+
+def reusable_ptest_results(cache: Path, environment_key: str, fingerprints: dict[str, str]) -> dict:
+    results = {}
+    for recipe, fingerprint in fingerprints.items():
+        path = cache / f"{fingerprint}.json"
+        if not path.is_file():
+            continue
+        result = json.loads(path.read_text())
+        if not isinstance(result, dict) or result.get("status") not in ("passed", "failed", "pending"):
+            raise RuntimeError(f"Invalid cached ptest result for {recipe}")
+        if result.get("environment") != environment_key or result.get("fingerprint") != fingerprint:
+            raise RuntimeError(f"Cached ptest provenance does not match its key for {recipe}")
+        if result["status"] == "passed":
+            results[recipe] = result
+    return results
 
 
 def ptests(repo: Path, setup: Path, state: Path, report: dict) -> None:
@@ -222,33 +285,28 @@ def ptests(repo: Path, setup: Path, state: Path, report: dict) -> None:
     ).split()))
     if not enabled:
         raise RuntimeError("No enabled dependency ptests found; check the build configuration")
-    previous = set(report["baseline_ptests"])
-    results = {
-        recipe: result for recipe, result in report.get("ptest_results", {}).items()
-        if recipe in enabled and isinstance(result, dict)
-    }
-    changed = set(report["recipes"]) & set(enabled)
-    fingerprints = planner.recipe_fingerprints(
-        repo, report["revision"], sorted(changed), report["changed_files"],
-    )
-    selected = sorted(
-        recipe for recipe in enabled
-        if report.get("all_ptests")
-        or recipe not in results
-        or recipe in changed and results[recipe].get("fingerprint") != fingerprints[recipe]
-        or recipe not in previous and results[recipe].get("status") not in ("failed", "pending")
+    environment = ptest_environment(repo, setup, state, report["revision"])
+    environment_key = hashlib.sha256(json.dumps(environment, sort_keys=True).encode()).hexdigest()
+    cache = ptest_cache_path(state, report["scope"], environment_key)
+    cache.mkdir(parents=True, exist_ok=True)
+    write_json(cache / "environment.json", environment)
+    report["ptest_environment"] = environment_key
+    fingerprints = planner.recipe_fingerprints(repo, report["revision"], enabled)
+    results = reusable_ptest_results(cache, environment_key, fingerprints)
+    selected = [recipe for recipe in enabled if recipe not in results]
+    print(
+        f"Ptest environment {environment_key}: reused {len(results)} of {len(enabled)} results",
+        flush=True,
     )
     report["enabled_ptests"] = enabled
     report["selected_ptests"] = selected
     report["ptest_results"] = results
     for recipe in selected:
-        fingerprint = fingerprints.get(recipe)
-        if not fingerprint:
-            fingerprint = planner.recipe_fingerprints(
-                repo, report["revision"], [recipe], [],
-            )[recipe]
-        results[recipe] = {"fingerprint": fingerprint, "status": "pending"}
-    save_ptest_state(state, results)
+        results[recipe] = {
+            "recipe": recipe, "fingerprint": fingerprints[recipe],
+            "environment": environment_key, "revision": report["revision"],
+            "run": json.loads(owner()), "ref": report["scope"]["ref"], "status": "pending",
+        }
     write_json(state / "run.json", report)
     print(f"Selected dependency ptests: {', '.join(selected) or '(none)'}", flush=True)
     batch_status = 0
@@ -257,13 +315,16 @@ def ptests(repo: Path, setup: Path, state: Path, report: dict) -> None:
         with tempfile.TemporaryDirectory(prefix="ptest-batch-", dir=state) as temporary:
             directory = Path(temporary)
             batch_status = run_ptest_batch(repo, setup, targets, directory)
+            if ptest_environment(repo, setup, state, report["revision"]) != environment:
+                raise RuntimeError("Build environment changed during ptests; results cannot be reused")
             for recipe, target in zip(selected, targets):
                 result = directory / target
                 status = result.read_text() if result.is_file() else "pending"
                 if status not in ("passed", "failed", "pending"):
                     raise RuntimeError(f"Invalid ptest task result for {target}: {status!r}")
                 results[recipe]["status"] = status
-            save_ptest_state(state, results)
+                if status in ("passed", "failed"):
+                    write_json(cache / f"{fingerprints[recipe]}.json", results[recipe])
             write_json(state / "run.json", report)
         if batch_status:
             print(f"Dependency ptest BitBake batch exited with status {batch_status}", flush=True)
@@ -314,6 +375,7 @@ def finish(repo: Path, state: Path, report: dict) -> None:
         "policy": planner.POLICY, "scope": scope(), "revision": report["revision"],
         "enabled_ptests": report.get("enabled_ptests", report.get("baseline_ptests", [])),
         "ptest_results": results,
+        "ptest_environment": report.get("ptest_environment"),
     }
     history = path.parent / "history"
     history.mkdir(exist_ok=True)
@@ -366,6 +428,11 @@ def main() -> None:
     try:
         execute(args.stage, Path(__file__).resolve().parent.parent, args.state_root.resolve())
     except (subprocess.CalledProcessError, RuntimeError, OSError) as error:
+        if isinstance(error, subprocess.CalledProcessError):
+            for output in (error.stdout, error.stderr):
+                if output:
+                    print(output.decode(errors="replace") if isinstance(output, bytes) else output,
+                          file=sys.stderr, flush=True)
         print(f"CI {args.stage} failed: {error}", file=sys.stderr, flush=True)
         raise SystemExit(1) from None
 
