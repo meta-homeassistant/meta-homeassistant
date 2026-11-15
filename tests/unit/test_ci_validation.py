@@ -669,7 +669,10 @@ class ValidationTests(unittest.TestCase):
             configuration = (directory / "results.conf").read_text()
             self.assertIn('INHERIT += "ha-ci-ptest-results"', configuration)
             self.assertIn(json.dumps(str(directory)), configuration)
-            self.assertTrue((directory / "classes/ha-ci-ptest-results.bbclass").is_file())
+            event_class = directory / "classes/ha-ci-ptest-results.bbclass"
+            self.assertTrue(event_class.is_file())
+            self.assertIn('e.pn + "." + status + ".json"', event_class.read_text())
+            self.assertIn('"logfile": e.logfile', event_class.read_text())
             self.run_ptest_batch(repo, setup, selected, directory)
             return status
 
@@ -683,6 +686,29 @@ class ValidationTests(unittest.TestCase):
                 )
         self.assertEqual(len(set(directories)), 2)
         self.assertTrue(all(not directory.exists() for directory in directories))
+
+    def test_batch_does_not_pass_testimage_failure_reported_as_task_success(self):
+        target = "meta-homeassistant-image-ptest-python3-one"
+
+        def finish_bitbake(*args, **kwargs):
+            logfile = self.root / "log.do_testimage"
+            logfile.write_text(
+                f"ERROR: {target}-1.0 do_testimage: {target} - FAILED - also check logs\n"
+                f"NOTE: recipe {target}-1.0: task do_testimage: Succeeded\n"
+            )
+            (directory / f"{target}.passed.json").write_text(json.dumps({
+                "status": "passed",
+                "logfile": str(logfile),
+            }))
+            return subprocess.CompletedProcess(args[0], 0)
+
+        directory = self.root / "ptest-batch"
+        directory.mkdir()
+        with patch.object(ci.subprocess, "run", side_effect=finish_bitbake):
+            status = RUN_PTEST_BATCH(self.repo, self.root, [target], directory)
+
+        self.assertEqual(status, 0)
+        self.assertEqual((directory / target).read_text(), "failed")
 
     def test_image_baseline_advances_independently_of_pending_ptests(self):
         report = self.report(enabled_ptests=["python3-one"], ptest_results={

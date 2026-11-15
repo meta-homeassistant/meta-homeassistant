@@ -200,6 +200,14 @@ def clean_image(repo: Path, setup: Path, target: str) -> None:
     )
 
 
+def testimage_status_from_log(target: str, logfile: str) -> str:
+    try:
+        output = Path(logfile).read_text(errors="replace")
+    except OSError as error:
+        raise RuntimeError(f"Cannot read testimage task log for {target}: {error}") from error
+    return "failed" if f"{target} - FAILED -" in output else "passed"
+
+
 def run_ptest_batch(repo: Path, setup: Path, targets: list[str], directory: Path) -> int:
     configuration = directory / "results.conf"
     configuration.write_text(
@@ -213,23 +221,45 @@ def run_ptest_batch(repo: Path, setup: Path, targets: list[str], directory: Path
 addhandler ha_ci_ptest_result
 ha_ci_ptest_result[eventmask] = "bb.build.TaskSucceeded bb.build.TaskFailed bb.build.TaskFailedSilent"
 python ha_ci_ptest_result() {
+    import json
     from pathlib import Path
 
     if e.task != "do_testimage":
         return
     status = "passed" if isinstance(e, bb.build.TaskSucceeded) else "failed"
-    path = Path(d.getVar("HA_CI_PTEST_RESULTS")) / e.pn
+    path = Path(d.getVar("HA_CI_PTEST_RESULTS")) / (e.pn + "." + status + ".json")
     temporary = path.with_suffix(".tmp")
-    temporary.write_text(status)
+    temporary.write_text(json.dumps({"status": status, "logfile": e.logfile}))
     temporary.replace(path)
 }
 """
     )
     print(f"Building and testing dependency images: {', '.join(targets)}", flush=True)
-    return subprocess.run(
+    result = subprocess.run(
         build_command(setup, ["bitbake", "-k", "-R", str(configuration), *targets]),
         cwd=repo, check=False,
-    ).returncode
+    )
+    for target in targets:
+        failed = directory / f"{target}.failed.json"
+        succeeded = directory / f"{target}.passed.json"
+        if failed.is_file():
+            status = "failed"
+        elif succeeded.is_file():
+            try:
+                event = json.loads(succeeded.read_text())
+            except (OSError, json.JSONDecodeError) as error:
+                raise RuntimeError(f"Cannot read testimage event result for {target}: {error}") from error
+            if (
+                not isinstance(event, dict)
+                or event.get("status") != "passed"
+                or not isinstance(event.get("logfile"), str)
+            ):
+                raise RuntimeError(f"Invalid testimage event result for {target}")
+            status = testimage_status_from_log(target, event["logfile"])
+        else:
+            continue
+        (directory / target).write_text(status)
+    return result.returncode
 
 
 def ptest_environment(repo: Path, setup: Path, state: Path, revision: str) -> dict:
@@ -445,9 +475,15 @@ def ptests(repo: Path, setup: Path, state: Path, report: dict) -> None:
     for recipe in selected:
         if results[recipe]["status"] == "passed":
             clean_image(repo, setup, f"meta-homeassistant-image-ptest-{recipe}")
-    failed = [name for name in enabled if results.get(name, {}).get("status") in ("failed", "pending")]
-    if failed:
-        raise RuntimeError(f"Dependency ptests pending: {', '.join(failed)}")
+    failed = [name for name in enabled if results.get(name, {}).get("status") == "failed"]
+    pending = [name for name in enabled if results.get(name, {}).get("status") == "pending"]
+    if failed or pending:
+        details = []
+        if failed:
+            details.append(f"failed: {', '.join(failed)}")
+        if pending:
+            details.append(f"pending: {', '.join(pending)}")
+        raise RuntimeError(f"Dependency ptests {'; '.join(details)}")
     if batch_status:
         raise RuntimeError(f"Dependency ptest BitBake batch failed with status {batch_status}")
 
@@ -476,13 +512,18 @@ def finish(repo: Path, state: Path, report: dict) -> None:
                     f"| `{recipe}` | {result.get('status', 'unknown')} |\n"
                 )
     results = report.get("ptest_results", {})
+    failed = [
+        recipe for recipe, result in results.items()
+        if result.get("status") == "failed"
+    ]
     pending = [
         recipe for recipe, result in results.items()
-        if result.get("status") in ("failed", "pending")
+        if result.get("status") == "pending"
     ]
     print(
-        f"Dependency ptests: {len(results) - len(pending)} passed, "
-        f"{len(pending)} pending" + (f" ({', '.join(sorted(pending))})" if pending else ""),
+        f"Dependency ptests: {len(results) - len(failed) - len(pending)} passed, "
+        f"{len(failed)} failed, {len(pending)} pending"
+        + (f" ({', '.join(sorted(failed + pending))})" if failed or pending else ""),
         flush=True,
     )
     if not passed:
