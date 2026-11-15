@@ -29,9 +29,9 @@
         },
         "meta-python-ai": {
             "git-remote": {
-                "uri": "https://github.com/Gerry546/meta-python-ai.git",
-                "branch": "blacksail",
-                "rev": "aa7f5ba73e1f802bcd31c008c9c95d73893c4252"
+                "uri": "https://github.com/zboszor/meta-python-ai.git",
+                "branch": "master",
+                "rev": "d8c9b71c3ee113f70303ce6467f62779d16575f3"
             }
         },
         "meta-sca": {
@@ -45,7 +45,7 @@
             "git-remote": {
                 "uri": "https://git.yoctoproject.org/meta-virtualization",
                 "branch": "master",
-                "rev": "7b0154418de3350fd23a0bd868742f2b570b24d3"
+                "rev": "89b00d096a432000766729cd721ae647af500112"
             }
         },
         "meta-yocto": {
@@ -59,7 +59,7 @@
             "git-remote": {
                 "uri": "https://git.openembedded.org/openembedded-core",
                 "branch": "master",
-                "rev": "dd2ee1de4147f402ab25f8ad87137dd2004b494c"
+                "rev": "5247d0d8862c3402ac061fede5844da4d5c4be4c"
             }
         },
         "yocto-docs": {

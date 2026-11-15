@@ -95,6 +95,100 @@ The scripts are not all independent command-line tools:
 The Core upgrade workflow reports dependency and integration metadata changes
 for review; it does not automatically edit the integration metadata.
 
+### Gitea validation pipeline
+
+[The workflow](../.gitea/workflows/build-HA.yaml) has separate required steps:
+
+1. Test the CI scripts.
+2. Acquire exclusive access to the shared build and detect changed recipes.
+3. Prepare the `homeassistant-x86` wrapper with both `TEST_FRAGMENTS` from
+   [the stage runner](../scripts/ci-validate.py).
+4. Build and test the selected `meta-homeassistant-image-ptest-<recipe>`
+   targets together in one `bitbake -k` invocation. Failures are named
+   individually, independent dependencies still run, and failed or unfinished
+   results are not retried until relevant recipe inputs change.
+5. Build `core-image-homeassistant-full` with automatic `testimage`, even if
+   dependency ptests failed, provided preparation succeeded.
+6. Record the required results, advance the baseline only on success, and
+   release exclusive access even on failure/cancellation.
+
+[The planner](../scripts/ci-plan.py) compares full-image inputs against the
+branch's last image-successful ancestor, including changes preceding a failed
+image run. This full-image baseline advances when setup and full-image tests
+pass, even if dependency ptests fail.
+A new branch can reuse the nearest validated ancestor from another branch in
+the same repository/configuration. Dependency ptest outcomes are tracked
+separately per branch and recipe under `ptest-state/`, with each recipe's input
+fingerprint. Successful recipes are skipped on subsequent runs. Failed or
+interrupted (`pending`) recipes are not automatically rerun with the same
+inputs; they remain recorded until relevant recipe inputs change. Newly changed
+recipes are tested again. Newly enabled recipes without a failed or pending
+result are also tested. These ptest results are copied into
+successful image baselines/history so a new branch can reuse its validated
+ancestor's results. Only the effective fast/slow inventories generate
+dependency images; disabled/failing/verification inventories do not.
+Recipe versions, appends, recipe-local patches/runners, and static shared
+`require`/`include` chains are considered. Deleted/renamed recipes are detected,
+but a deleted provider must still exist in the active configuration to build
+its enabled ptest image. A change to
+`configurations/homeassistant.conf.json` selects all enabled dependency ptests,
+because it can alter the effective layer and build configuration.
+
+Unrelated documentation, shared distro/class changes, and unchanged recipes do
+not select all dependency ptests. The full-image stage still runs on every
+push. Dynamic include expressions and
+transitive package dependency changes are not a complete dependency-impact
+analysis; this intentionally selects changed recipes rather than all consumers.
+BitBake decides which compilation tasks need rebuilding independently.
+
+Selected dependency images are submitted together in one `bitbake -k`
+invocation, allowing BitBake to share the dependency graph and schedule
+independent builds and QEMU tests concurrently. Per-image `do_testimage`
+completion events record passes and failures; images that never reach test
+completion remain pending. A fresh result directory for each batch prevents
+old test results from being reused. Independent images continue after a task
+failure, and successful results are saved even when another image fails.
+
+Disk policy:
+
+- All branches use one wrapper at
+  `/cache/builddir/homeassistant-ci/bitbake-builds/homeassistant-x86`.
+  Downloads and sstate retain the existing shared cache paths.
+- CI enables `rm_work` to remove successful intermediate work.
+- Setup uses `init` until `build/init-build-env` exists, then `update`.
+  Incomplete wrappers are preserved with an `.incomplete-<timestamp>` suffix
+  before initialization is retried; inspect these before removing them manually.
+- Successful dependency images are cleaned with `bitbake -c clean <image>`
+  after the batch finishes; package recipes and shared sstate are not cleaned.
+  Failed images are retained for diagnosis. Test logs are kept outside image
+  work directories in the wrapper's `build/ci-test-logs/<image>`.
+- Branch baselines are small JSON files under `baselines/`. Old per-branch
+  build trees from the previous pipeline are not automatically deleted.
+- Small per-commit records under `baselines/history/` preserve validated fork
+  points after the original branch advances.
+- Shared downloads/sstate and retained logs still need an operator-managed
+  retention policy; this workflow does not delete shared caches.
+
+The exclusive lock covers **all** stages, not just individual BitBake commands.
+An atomic owner file persists across workflow steps; contenders wait up to six
+hours. Normal failure/cancellation releases it in an `always()` step, and only
+its owning run may release it. If the runner/container is forcibly terminated
+before cleanup, confirm the owning run has stopped before manually removing
+`/cache/builddir/homeassistant-ci/build.lock`. Do not remove a live lock.
+Other workflows using this wrapper must use the same locking protocol.
+Drain old workflow runs before rollout: the previous pipeline used a different
+lock and its image-only baselines cannot establish dependency ptest coverage.
+The first new run without a compatible validated ancestor tests all enabled
+dependency ptests.
+
+Future layer lint and all-integration builds should be independent workflow
+steps. Initially use `continue-on-error: true` for advisory checks. The result
+stage promotes the full-image baseline based on successful `prepare` and
+`image` results only. It reports pending ptests, but they do not block
+baseline advancement. Optional checks must not modify these required results.
+Do not introduce a second concurrent build using the shared wrapper, and
+restore any temporary integration feature/fragment before subsequent stages.
+
 Offline Python tests do not boot QEMU. From the layer root, run the unit
 suite with:
 
@@ -117,8 +211,9 @@ and status-action tests before invoking `scripts/ci-validate.py`.
 
 The `homeassistant/enable-testing-base` build fragment enables Yocto's
 `testimage` class and this runtime test suite: date, disk-space, ping, ptest,
-SCP, and SSH checks. With the fragment enabled, building an image
-automatically boots it in QEMU and runs the configured checks.
+SCP, and SSH checks. It adds `ptest-runner` to tested images. With the
+fragment enabled, building an image automatically boots it in QEMU and runs
+the configured checks.
 
 From the layer checkout, enable the fragment, build an image, and then
 disable the fragment when the test run is complete:
@@ -185,9 +280,13 @@ image over SSH and runs the ptest files installed for `python3-homeassistant`.
 The image must already be built, include the Core ptest files, and provide
 SSH access.
 
-First, add the Core ptest files to the image by enabling the test-dependency
-fragment, then rebuild it. If the fragment is already active, leave it
-enabled and only rebuild the image:
+To run Core's ptest under testimage, enable the base testing fragment and the
+Core test-dependencies fragment, then rebuild the full image. The base
+fragment adds `ptest-runner`; the Core fragment adds the ptest package only
+to the full Home Assistant image. Check both fragments in
+`bitbake-builds/homeassistant-x86/build/conf/toolcfg.conf` first. The example
+assumes both were disabled; if one was already active, leave it enabled and
+omit its enable and cleanup commands.
 
 ```sh
 LAYER_DIR="$PWD"
@@ -195,15 +294,17 @@ SETUP_DIR="$LAYER_DIR/bitbake-builds/homeassistant-x86"
 (
     set -e
     source "$SETUP_DIR/build/init-build-env"
+    bitbake-config-build enable-fragment homeassistant/enable-testing-base
     bitbake-config-build enable-fragment homeassistant/add-homeassistant-image-test-deps
     bitbake core-image-homeassistant-full
     bitbake-config-build disable-fragment homeassistant/add-homeassistant-image-test-deps
+    bitbake-config-build disable-fragment homeassistant/enable-testing-base
 )
 ```
 
-If the build fails before the final command, disable the temporary fragment
-manually. Then run the ptest helper for the supplied x86 wrapper and full
-image:
+If the build fails before the final commands, disable only the fragments that
+this run enabled. Then run the ptest helper for the supplied x86 wrapper and
+full image:
 
 ```sh
 bash tests/image/test-pytest-plain.sh \
@@ -216,14 +317,13 @@ bash tests/image/test-pytest-plain.sh \
     --runqemu-arg nographic
 ```
 
-The `homeassistant/add-homeassistant-image-test-deps` fragment adds the Core
-ptest package to the image. If you enabled the fragment for this build,
-disable it after rebuilding; if a command fails before cleanup, disable it
-manually before continuing. The example uses the image's default filesystem
-rather than forcing a WIC disk image. The helper starts QEMU, waits for SSH,
-runs the tests, and writes logs under `test-logs/`. For another project or
-machine, use its correct boot arguments and ensure the image includes the
-ptest package and an SSH server.
+The `homeassistant/add-homeassistant-image-test-deps` fragment can also be
+used alone when you only need the Core ptest package and do not want to enable
+testimage. The example uses the image's default filesystem rather than forcing
+a WIC disk image. The helper starts QEMU, waits for SSH, runs the tests, and
+writes logs under `test-logs/`. For another project or machine, use its correct
+boot arguments and ensure the image includes the ptest package and an SSH
+server.
 
 ## Upgrade testing
 

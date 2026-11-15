@@ -2,9 +2,6 @@ name: Gitea HomeAssistant Validation
 run-name: ${{ gitea.actor }} is validating HomeAssistant
 on:
   push:
-  workflow_dispatch:
-  schedule:
-    - cron: "0 3 * * 0"
 
 jobs:
   Validate:
@@ -16,9 +13,8 @@ jobs:
       CI_REPOSITORY: ${{ gitea.repository }}
       CI_REF: ${{ gitea.ref }}
       CI_RUN_ID: ${{ gitea.run_id }}
-      CI_EVENT: ${{ gitea.event_name }}
-      # Bump when the runner image/toolchain changes.
-      CI_BUILDER_ID: yocto-builder-v1
+      CI_RUN_ATTEMPT: ${{ gitea.run_attempt }}
+      CI_STATE_ROOT: /cache/builddir/homeassistant-ci
     container:
       volumes:
         - /cache/:/cache/
@@ -44,9 +40,44 @@ jobs:
             tests.unit.test_ci_validation \
             tests.unit.test_github_status
 
-      - name: Plan and validate image
+      - name: Acquire shared build
+        id: acquire
         shell: bash
-        run: python3 scripts/ci-validate.py --state-root /cache/builddir/homeassistant-ci
+        run: python3 scripts/ci-validate.py acquire --state-root "$CI_STATE_ROOT"
+
+      - name: Detect changed recipes
+        id: plan
+        shell: bash
+        run: python3 scripts/ci-validate.py plan --state-root "$CI_STATE_ROOT"
+
+      - name: Prepare build environment
+        id: prepare
+        shell: bash
+        run: python3 scripts/ci-validate.py prepare --state-root "$CI_STATE_ROOT"
+
+      - name: Build and test changed dependency ptest images
+        id: ptests
+        continue-on-error: true
+        shell: bash
+        run: python3 scripts/ci-validate.py ptests --state-root "$CI_STATE_ROOT"
+
+      - name: Build and test full Home Assistant image
+        id: image
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
+        shell: bash
+        run: python3 scripts/ci-validate.py image --state-root "$CI_STATE_ROOT"
+
+      # Future advisory lint/integration stages belong here as separate steps
+      # with continue-on-error: true. They must not gate baseline promotion.
+      - name: Record required validation result
+        if: ${{ always() && steps.plan.outcome == 'success' }}
+        shell: bash
+        run: python3 scripts/ci-validate.py finish --state-root "$CI_STATE_ROOT"
+
+      - name: Release shared build
+        if: always()
+        shell: bash
+        run: python3 scripts/ci-validate.py release --state-root "$CI_STATE_ROOT"
 
       - name: Validation succeeded
         if: success()
