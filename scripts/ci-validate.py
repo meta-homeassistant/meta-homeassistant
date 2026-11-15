@@ -321,7 +321,7 @@ def image_validation_fingerprint(
         if not directory.exists():
             continue
         for path in sorted(directory.rglob("*")):
-            if path.is_file():
+            if path.is_file() and ".git" not in path.relative_to(directory).parts:
                 generated_config[str(path.relative_to(setup))] = path.read_text().replace(
                     str(setup), "${SETUP}"
                 ).replace(str(repo), "${REPO}")
