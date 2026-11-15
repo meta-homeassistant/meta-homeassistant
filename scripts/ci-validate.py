@@ -6,6 +6,7 @@ import hashlib
 import importlib
 import json
 import os
+import platform
 from pathlib import Path
 import re
 import shutil
@@ -18,6 +19,7 @@ import time
 planner = importlib.import_module("ci-plan")
 CONFIGURATION = "homeassistant-x86"
 TARGET = "core-image-homeassistant-full"
+IMAGE_VALIDATION_CACHE_VERSION = 1
 TEST_FRAGMENTS = (
     "homeassistant/enable-testing-base",
     "homeassistant/add-homeassistant-image-test-deps",
@@ -282,6 +284,99 @@ def ptest_cache_path(state: Path, run_scope: dict, environment_key: str) -> Path
     return state / "ptest-cache" / namespace / environment_key
 
 
+def image_validation_fingerprint(
+    repo: Path, setup: Path, state: Path, revision: str,
+) -> str:
+    environment = ptest_environment(repo, setup, state, revision)
+    objects = planner.metadata_objects(repo, revision)
+    image_inputs = {
+        name: blob for name, blob in objects.items()
+        if name != "README.md" and not name.startswith("docs/")
+    }
+    generated_config = {}
+    for directory in (setup / "build/conf", setup / "config"):
+        if not directory.exists():
+            continue
+        for path in sorted(directory.rglob("*")):
+            if path.is_file():
+                generated_config[str(path.relative_to(setup))] = path.read_text().replace(
+                    str(setup), "${SETUP}"
+                ).replace(str(repo), "${REPO}")
+    inputs = {
+        "version": IMAGE_VALIDATION_CACHE_VERSION,
+        "target": TARGET,
+        "environment": environment,
+        "homeassistant_inputs": image_inputs,
+        "generated_config": generated_config,
+        "host": {
+            "system": platform.system(),
+            "release": platform.release(),
+            "machine": platform.machine(),
+        },
+    }
+    return hashlib.sha256(json.dumps(inputs, sort_keys=True).encode()).hexdigest()
+
+
+def image_validation_cache_path(state: Path, run_scope: dict, fingerprint: str) -> Path:
+    cache_scope = {key: run_scope[key] for key in ("repository", "configuration")}
+    namespace = hashlib.sha256(json.dumps(cache_scope, sort_keys=True).encode()).hexdigest()
+    return state / "image-validation-cache" / namespace / f"{fingerprint}.json"
+
+
+def reusable_image_validation(path: Path, fingerprint: str) -> dict | None:
+    if not path.exists():
+        return None
+    if not path.is_file():
+        raise RuntimeError(f"Invalid full-image validation cache entry: {path}")
+    try:
+        result = json.loads(path.read_text())
+    except (OSError, json.JSONDecodeError) as error:
+        raise RuntimeError(f"Cannot read full-image validation cache entry {path}: {error}") from error
+    if (
+        not isinstance(result, dict)
+        or result.get("version") != IMAGE_VALIDATION_CACHE_VERSION
+        or result.get("target") != TARGET
+        or result.get("fingerprint") != fingerprint
+        or result.get("status") != "passed"
+    ):
+        raise RuntimeError(f"Invalid full-image validation cache entry: {path}")
+    return result
+
+
+def validate_image(repo: Path, setup: Path, state: Path, report: dict) -> None:
+    fingerprint = image_validation_fingerprint(repo, setup, state, report["revision"])
+    cache = image_validation_cache_path(state, report["scope"], fingerprint)
+    cached = reusable_image_validation(cache, fingerprint)
+    if cached:
+        report["image_validation"] = {
+            "fingerprint": fingerprint,
+            "status": "reused",
+            "validated_revision": cached["revision"],
+        }
+        print(
+            f"Reusing successful full-image validation from {cached['revision']}",
+            flush=True,
+        )
+        return
+
+    report["image_validation"] = {"fingerprint": fingerprint, "status": "running"}
+    write_json(state / "run.json", report)
+    validate(repo, setup, TARGET)
+    if image_validation_fingerprint(repo, setup, state, report["revision"]) != fingerprint:
+        raise RuntimeError("Build environment changed during image validation; result not cached")
+    cache.parent.mkdir(parents=True, exist_ok=True)
+    write_json(cache, {
+        "version": IMAGE_VALIDATION_CACHE_VERSION,
+        "target": TARGET,
+        "fingerprint": fingerprint,
+        "status": "passed",
+        "revision": report["revision"],
+        "run": json.loads(owner()),
+        "ref": report["scope"]["ref"],
+    })
+    report["image_validation"] = {"fingerprint": fingerprint, "status": "built"}
+
+
 def reusable_ptest_results(cache: Path, environment_key: str, fingerprints: dict[str, str]) -> dict:
     results = {}
     for recipe, fingerprint in fingerprints.items():
@@ -369,6 +464,12 @@ def finish(repo: Path, state: Path, report: dict) -> None:
             stream.write("## Home Assistant validation\n\n| Stage | Result |\n|---|---|\n")
             for stage in required:
                 stream.write(f"| {stage} | {report['results'].get(stage, 'not run')} |\n")
+            image_validation_status = report.get("image_validation", {}).get("status", "not run")
+            if report["results"].get("image") != "passed":
+                image_validation_status = report["results"].get("image", "not run")
+            stream.write(
+                f"| full-image validation | {image_validation_status} |\n"
+            )
             stream.write(f"| dependency ptests | {report['results'].get('ptests', 'not run')} |\n")
             for recipe, result in report.get("ptest_results", {}).items():
                 stream.write(
@@ -395,6 +496,7 @@ def finish(repo: Path, state: Path, report: dict) -> None:
         "enabled_ptests": report.get("enabled_ptests", report.get("baseline_ptests", [])),
         "ptest_results": results,
         "ptest_environment": report.get("ptest_environment"),
+        "image_validation": report.get("image_validation"),
     }
     history = path.parent / "history"
     history.mkdir(exist_ok=True)
@@ -437,7 +539,7 @@ def execute(stage: str, repo: Path, state: Path) -> None:
     elif stage == "ptests":
         ptests(repo, setup, state, report)
     elif stage == "image":
-        validate(repo, setup, TARGET)
+        validate_image(repo, setup, state, report)
     report["results"][stage] = "passed"
     write_json(state / "run.json", report)
 

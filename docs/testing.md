@@ -98,7 +98,8 @@ Automated CI validation:
    fresh wrapper from the current configuration.
 3. Builds selected dependency ptest images. Matching passed results may be
    reused; dependency ptests are advisory.
-4. Builds and tests `core-image-homeassistant-full` on each push.
+4. Builds and tests `core-image-homeassistant-full`, reusing a successful
+   validation when the image inputs match.
 5. Advances the image baseline when preparation and full-image validation pass.
 
 The wrapper cleanup preserves shared build caches and validation records.

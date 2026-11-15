@@ -68,7 +68,7 @@ provides the comparison used by the workflow.
 
 Automated validation initializes a fresh wrapper from the current
 configuration, runs selected dependency ptests, and builds and tests the full
-image. Dependency ptests are advisory; matching successful results may be
+image. Matching successful dependency ptests and full-image validations may be
 reused. See the [testing guide](docs/testing.md#automated-validation) for an
 overview.
 

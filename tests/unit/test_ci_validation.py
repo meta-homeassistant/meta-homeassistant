@@ -446,6 +446,48 @@ class ValidationTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "tracked modifications"):
             PTEST_ENVIRONMENT(self.repo, setup, self.state, shared_revision)
 
+    def test_image_validation_fingerprint_ignores_docs_and_tracks_build_inputs(self):
+        setup = self.root / "setup"
+        (setup / "build/conf").mkdir(parents=True)
+        (setup / "config").mkdir()
+        (setup / "build/conf/local.conf").write_text('MACHINE = "qemux86-64"\n')
+        (setup / "config/sources-fixed-revisions.json").write_text('{"sources": {}}\n')
+        environment = {"layers": {"dependency": {"revision": "a" * 40}}}
+        with patch.object(ci, "ptest_environment", return_value=environment):
+            initial = ci.image_validation_fingerprint(
+                self.repo, setup, self.state, self.initial,
+            )
+            documentation = self.commit("docs/testing.md", "updated guide")
+            self.assertEqual(
+                ci.image_validation_fingerprint(self.repo, setup, self.state, documentation),
+                initial,
+            )
+            (setup / "build/conf/local.conf").write_text('MACHINE = "qemuarm64"\n')
+            self.assertNotEqual(
+                ci.image_validation_fingerprint(self.repo, setup, self.state, documentation),
+                initial,
+            )
+            (setup / "build/conf/local.conf").write_text('MACHINE = "qemux86-64"\n')
+            changed = self.commit(
+                "recipes-homeassistant/images/core-image-homeassistant-full.bb",
+                "changed image input",
+            )
+            self.assertNotEqual(
+                ci.image_validation_fingerprint(self.repo, setup, self.state, changed),
+                initial,
+            )
+        with patch.object(ci, "ptest_environment", return_value=environment):
+            unchanged_environment = ci.image_validation_fingerprint(
+                self.repo, setup, self.state, changed,
+            )
+        with patch.object(ci, "ptest_environment", return_value={
+            "layers": {"dependency": {"revision": "b" * 40}},
+        }):
+            self.assertNotEqual(
+                ci.image_validation_fingerprint(self.repo, setup, self.state, changed),
+                unchanged_environment,
+            )
+
     def test_first_run_tests_every_enabled_dependency_in_one_batch(self):
         report = self.report(baseline_ptests=[], ptest_results={})
         with (
@@ -673,7 +715,10 @@ class ValidationTests(unittest.TestCase):
         ci.acquire(self.state, timeout=0)
         report = self.report(results={"prepare": "passed", "ptests": "failed"})
         ci.write_json(self.state / "run.json", report)
-        with patch.object(ci, "validate") as build:
+        with (
+            patch.object(ci, "image_validation_fingerprint", return_value="a" * 64),
+            patch.object(ci, "validate") as build,
+        ):
             ci.execute("image", self.repo, self.state)
         self.assertEqual(build.call_args.args[2], ci.TARGET)
         saved = json.loads((self.state / "run.json").read_text())
@@ -683,10 +728,50 @@ class ValidationTests(unittest.TestCase):
     def test_failed_build_is_recorded_before_execution(self):
         ci.acquire(self.state, timeout=0)
         ci.write_json(self.state / "run.json", self.report())
-        with patch.object(ci, "validate", side_effect=subprocess.CalledProcessError(7, "bitbake")):
+        with (
+            patch.object(ci, "image_validation_fingerprint", return_value="a" * 64),
+            patch.object(ci, "validate", side_effect=subprocess.CalledProcessError(7, "bitbake")),
+        ):
             with self.assertRaises(subprocess.CalledProcessError):
                 ci.execute("image", self.repo, self.state)
         self.assertEqual(json.loads((self.state / "run.json").read_text())["results"]["image"], "failed")
+        self.assertFalse((self.state / "image-validation-cache").exists())
+        ci.release(self.state)
+
+    def test_successful_full_image_validation_is_reused_for_matching_inputs(self):
+        ci.acquire(self.state, timeout=0)
+        fingerprint = "a" * 64
+        report = self.report(results={"prepare": "passed"})
+        ci.write_json(self.state / "run.json", report)
+        with (
+            patch.object(ci, "image_validation_fingerprint", return_value=fingerprint),
+            patch.object(ci, "validate") as build,
+        ):
+            ci.execute("image", self.repo, self.state)
+            build.assert_called_once_with(
+                self.repo, self.state / "bitbake-builds" / ci.CONFIGURATION, ci.TARGET,
+            )
+            cache = ci.image_validation_cache_path(self.state, report["scope"], fingerprint)
+            self.assertEqual(json.loads(cache.read_text())["status"], "passed")
+
+            next_report = self.report(results={"prepare": "passed"})
+            ci.write_json(self.state / "run.json", next_report)
+            build.reset_mock()
+            ci.execute("image", self.repo, self.state)
+            build.assert_not_called()
+            reused = json.loads((self.state / "run.json").read_text())
+            self.assertEqual(reused["image_validation"]["status"], "reused")
+            self.assertEqual(reused["image_validation"]["validated_revision"], self.initial)
+
+            changed_report = self.report(results={"prepare": "passed"})
+            ci.write_json(self.state / "run.json", changed_report)
+            build.reset_mock()
+            with patch.object(ci, "image_validation_fingerprint", return_value="b" * 64):
+                ci.execute("image", self.repo, self.state)
+            build.assert_called_once()
+        saved = json.loads((self.state / "run.json").read_text())
+        self.assertEqual(saved["results"]["image"], "passed")
+        self.assertEqual(saved["image_validation"]["status"], "built")
         ci.release(self.state)
 
     def test_cleanup_removes_historical_wrappers_but_preserves_caches_and_sources(self):
@@ -979,7 +1064,7 @@ class ValidationTests(unittest.TestCase):
                     ci.execute("release", self.repo, self.state)
                 self.assertTrue(ci.baseline_path(self.state).is_file())
         self.assertEqual(commands.read_text().splitlines(), [
-            ci.TARGET, ci.TARGET,
+            ci.TARGET,
         ])
         self.batch.assert_called_once()
         self.assertEqual(self.clean_image.call_count, 2)
