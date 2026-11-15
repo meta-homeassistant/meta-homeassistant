@@ -84,145 +84,35 @@ OVMF arguments, while the sample layer image uses ext4.
 
 ## Maintenance scripts and offline tests
 
-The scripts are not all independent command-line tools:
-
 | Path | Role and invocation |
 |---|---|
 | `scripts/upgrade_homeassistant.py` | Main release-upgrade workflow. See [Core upgrade workflow](core-upgrade.md) for standalone and integrating-project commands. |
-| `scripts/integration_inventory.py` | Upgrade-workflow module that compares upstream integration requirements and tests with this layer's metadata; not a separate metadata-editing command. |
-| `scripts/ci-validate.py` and `.gitea/actions/github-status/status.py` | CI-only entry points called by `.gitea/workflows/build-HA.yaml`. The validator requires the workflow's CI environment and shared state root; use the workflow rather than invoking it as a local image test. |
+| `scripts/integration_inventory.py` | Compares integration requirements and tests for the upgrade report. |
 
-The Core upgrade workflow reports dependency and integration metadata changes
-for review; it does not automatically edit the integration metadata.
+### Automated validation
 
-### Gitea validation pipeline
+Automated CI validation:
 
-[The workflow](../.gitea/workflows/build-HA.yaml) has separate validation steps:
+1. Runs the offline CI unit tests and plans dependency ptests.
+2. Cleans the existing build wrapper under a shared lock, then initializes a
+   fresh wrapper from the current configuration.
+3. Builds selected dependency ptest images. Matching passed results may be
+   reused; dependency ptests are advisory.
+4. Builds and tests `core-image-homeassistant-full` on each push.
+5. Advances the image baseline when preparation and full-image validation pass.
 
-1. Test the CI scripts.
-2. Acquire exclusive access to the shared build and detect changed recipes.
-3. Initialize a fresh `homeassistant-x86` wrapper from the current configuration
-   with both `TEST_FRAGMENTS` from [the stage runner](../scripts/ci-validate.py).
-4. Build and test the selected `meta-homeassistant-image-ptest-<recipe>`
-   targets together in one `bitbake -k` invocation. Failures are named
-   individually and independent dependencies still run. This stage is advisory:
-   failed or unfinished tests retry on the next run without blocking the
-   full-image stage.
-5. Build `core-image-homeassistant-full` with automatic `testimage`, even if
-   dependency ptests failed, provided preparation succeeded.
-6. Record the required results, advance the baseline only on success, and
-   release exclusive access even on failure/cancellation.
+The wrapper cleanup preserves shared build caches and validation records.
+For failures, use the CI job logs.
 
-[The planner](../scripts/ci-plan.py) compares full-image inputs against the
-branch's last image-successful ancestor, including changes preceding a failed
-image run. This full-image baseline advances when setup and full-image tests
-pass, even if dependency ptests fail.
-A new branch can reuse the nearest validated ancestor from another branch in
-the same repository/configuration. Git ancestry is used for image-baseline
-planning, not as proof that dependency ptests ran against the current inputs.
-The full-image stage still runs on every push.
-
-Dependency ptest reuse has a separate, branch-independent provenance cache:
-
-- The environment fingerprint covers actual external layer HEADs and origins,
-  configured sources, resolved rolling revisions, the selected configuration,
-  generated build settings, and shared Home Assistant metadata. Shared metadata
-  includes configuration, classes, includes, image/packagegroup policy, OEQA
-  code, and image test helpers.
-- Each recipe fingerprint covers its recipe, appends, and recipe-local files,
-  including patches, test runners, and executable permissions. Unrelated
-  documentation commits do not invalidate successes. Changed external layers
-  or shared metadata conservatively invalidate all ptests for that environment;
-  changing one recipe's local inputs selects that recipe again.
-- Only matching successes are reused. Failed and pending tests retry on the
-  next run. Returning to a previously tested layer combination or recipe
-  content can reuse successes across branches, even without a validated Git
-  ancestor. Legacy results without provenance are revalidated.
-- CI checks the environment before and after execution and refuses to cache
-  results if it changed during the batch.
-
-Results live under
-`$CI_STATE_ROOT/ptest-cache/<repository-and-configuration-hash>/<environment-hash>/`.
-Each directory contains a readable `environment.json` manifest and a result
-JSON per recipe-input fingerprint, recording the recipe, status, environment,
-Home Assistant commit, branch, and originating workflow run. This is the only
-source of reusable ptest results. Current run reports and image-baseline history
-retain reporting snapshots; legacy `ptest-state/` files are no longer read or
-updated. Keep the provenance version in sync with changes to the fingerprinting
-policy.
-
-Only effective fast/slow inventories generate dependency images; disabled
-inventories do not. This is conservative metadata-based reuse, not complete
-dynamic-include or transitive dependency analysis. BitBake independently decides
-which compilation tasks need rebuilding.
-
-Selected dependency images are submitted together in one `bitbake -k`
-invocation, allowing BitBake to share the dependency graph and schedule
-independent builds and QEMU tests concurrently. Per-image `do_testimage`
-completion events record passes and failures; images that never reach test
-completion remain pending. A fresh result directory for each batch prevents
-old test results from being reused. Independent images continue after a task
-failure, and successful results are saved even when another image fails.
-
-Disk policy:
-
-- All branches use one wrapper at
-  `/cache/builddir/homeassistant-ci/bitbake-builds/homeassistant-x86`.
-  Downloads and sstate retain the existing shared cache paths.
-- CI enables `rm_work` to remove successful intermediate work.
-- Every preparation uses `bitbake-setup init`. Previous complete or incomplete
-  wrappers are preserved with a `.previous-<timestamp>` suffix. They may consume
-  significant disk space; inspect them and confirm no job needs them before
-  removing them manually. Validation history and the ptest cache live outside
-  the wrapper and survive its replacement.
-- Successful dependency images are cleaned with `bitbake -c clean <image>`
-  after the batch finishes; package recipes and shared sstate are not cleaned.
-  Failed images are retained for diagnosis. Test logs are kept outside image
-  work directories in the wrapper's `build/ci-test-logs/<image>`.
-- Branch baselines are small JSON files under `baselines/`. Old per-branch
-  build trees from the previous pipeline are not automatically deleted.
-- Small per-commit records under `baselines/history/` preserve validated fork
-  points after the original branch advances.
-- Shared downloads/sstate and retained logs still need an operator-managed
-  retention policy; this workflow does not delete shared caches.
-
-The exclusive lock covers **all** stages, not just individual BitBake commands.
-An atomic owner file persists across workflow steps; contenders wait up to six
-hours. Normal failure/cancellation releases it in an `always()` step, and only
-its owning run may release it. If the runner/container is forcibly terminated
-before cleanup, confirm the owning run has stopped before manually removing
-`/cache/builddir/homeassistant-ci/build.lock`. Do not remove a live lock.
-Other workflows using this wrapper must use the same locking protocol.
-Drain old workflow runs before rollout: the previous pipeline used a different
-lock and its image-only baselines cannot establish dependency ptest coverage.
-The first new run without a compatible validated ancestor tests all enabled
-dependency ptests.
-
-Future layer lint and all-integration builds should be independent workflow
-steps. Initially use `continue-on-error: true` for advisory checks. The result
-stage promotes the full-image baseline based on successful `prepare` and
-`image` results only. It reports pending ptests, but they do not block
-baseline advancement. Optional checks must not modify these required results.
-Do not introduce a second concurrent build using the shared wrapper, and
-restore any temporary integration feature/fragment before subsequent stages.
-
-Offline Python tests do not boot QEMU. From the layer root, run the unit
-suite with:
+Run the offline Python unit suite from the layer root with:
 
 ```sh
 .venv/bin/python -m unittest discover -s tests/unit -t .
 ```
 
-The Gitea workflow runs the CI-planner and status-action tests from the same
-directory:
-
-```sh
-python3 -m unittest tests.unit.test_ci_validation tests.unit.test_github_status
-```
-
 All offline Python tests are under `tests/unit/`. `tests/image/` contains
-scripts that build or boot test images. The Gitea workflow runs its CI-planner
-and status-action tests before invoking `scripts/ci-validate.py`.
+scripts that build or boot test images. CI runs focused unit tests before
+validation.
 
 ## Run image runtime tests
 

@@ -63,33 +63,14 @@ the invocation.
 
 [`scripts/upgrade_homeassistant.py`](docs/core-upgrade.md) is the supported
 release-upgrade workflow. It compares a selected Core release with layer
-metadata and writes a report for review; it does not automatically edit
-integration metadata. `scripts/integration_inventory.py` provides the
-comparison used by the workflow. The CI validator and status action run in
-the repository's Gitea workflow, not as general local build commands.
+metadata and writes a report for review. `scripts/integration_inventory.py`
+provides the comparison used by the workflow.
 
-Each CI preparation initializes a fresh build wrapper with `bitbake-setup init`
-from the current checkout's configuration. Any previous wrapper, including an
-incomplete one, is preserved at `homeassistant-x86.previous-<timestamp>`.
-Layers, source URLs, branches, revisions, and build configuration are set up
-afresh rather than rebasing an earlier branch's checkouts. CI additionally
-verifies full commit pins against actual layer HEADs before building.
-Download and sstate caches remain shared; previous wrappers are not automatically
-deleted and may consume significant disk space. Clean them up separately after
-confirming no job needs them.
-Validation baselines, ptest results, and the current run report live outside the
-wrapper and remain available for change detection and test-result reuse.
-
-Dependency ptest successes are reused only for matching verified layer,
-configuration, and recipe inputs. Failed or unfinished tests retry on the next
-run. The persistent `ptest-cache/` is shared across branches; legacy results
-without provenance are revalidated. Dependency failures remain advisory:
-preparation and the full Home Assistant image must pass for overall success.
-See [Gitea validation pipeline](docs/testing.md#gitea-validation-pipeline) for
-the provenance format, invalidation rules, and reporting policy.
-
-Failed subprocess commands also report captured output in the CI stage log,
-including BitBake errors from the dependency-ptest variable query.
+Automated validation initializes a fresh wrapper from the current
+configuration, runs selected dependency ptests, and builds and tests the full
+image. Dependency ptests are advisory; matching successful results may be
+reused. See the [testing guide](docs/testing.md#automated-validation) for an
+overview.
 
 `scripts/` contains maintenance and CI tools, `tests/image/` contains
 image/QEMU test helpers, and `tests/unit/` contains all offline Python unit

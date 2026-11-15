@@ -689,7 +689,91 @@ class ValidationTests(unittest.TestCase):
         self.assertEqual(json.loads((self.state / "run.json").read_text())["results"]["image"], "failed")
         ci.release(self.state)
 
+    def test_cleanup_removes_historical_wrappers_but_preserves_caches_and_sources(self):
+        ci.acquire(self.state, timeout=0)
+        top = self.state / "bitbake-builds"
+        top.mkdir()
+        names = [
+            ci.CONFIGURATION,
+            f"{ci.CONFIGURATION}.previous-1794766073973581010",
+            f"{ci.CONFIGURATION}.previous-1794768032252540482",
+            f"{ci.CONFIGURATION}.previous-1794769730865733254",
+            f"{ci.CONFIGURATION}.incomplete-1794766073973581010",
+        ]
+        for name in names:
+            (top / name / "build").mkdir(parents=True)
+            (top / name / "build/old-log").write_text("obsolete")
+        shared = self.root / "downloads"
+        shared.mkdir()
+        (shared / "source.tar").write_text("shared download")
+        (top / ci.CONFIGURATION / "source").symlink_to(self.repo, target_is_directory=True)
+        (top / ci.CONFIGURATION / "downloads").symlink_to(shared, target_is_directory=True)
+        preserved = [
+            top / ".bitbake-setup-cache/setting",
+            top / "site.conf",
+            top / "other-wrapper/build/file",
+            top / f"{ci.CONFIGURATION}.previous-not-a-timestamp/file",
+            self.state / "ptest-cache/result.json",
+            self.state / "baselines/history/result.json",
+            self.root / "sstate-cache/object",
+        ]
+        for path in preserved:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text("keep")
+        ci.cleanup_wrappers(self.state)
+        self.assertTrue(all(not (top / name).exists() for name in names))
+        for path in preserved:
+            self.assertEqual(path.read_text(), "keep")
+        self.assertEqual((shared / "source.tar").read_text(), "shared download")
+        self.assertEqual(self.git("rev-parse", "HEAD"), self.initial)
+
+    def test_cleanup_requires_own_lock(self):
+        wrapper = self.state / "bitbake-builds" / ci.CONFIGURATION
+        wrapper.mkdir(parents=True)
+        with self.assertRaises(FileNotFoundError):
+            ci.cleanup_wrappers(self.state)
+        ci.acquire(self.state, timeout=0)
+        with patch.dict(os.environ, {"CI_RUN_ID": "another-run"}):
+            with self.assertRaisesRegex(RuntimeError, "does not own"):
+                ci.cleanup_wrappers(self.state)
+        self.assertTrue(wrapper.is_dir())
+
+    def test_cleanup_rejects_symlinked_build_root_or_wrapper(self):
+        ci.acquire(self.state, timeout=0)
+        top = self.state / "bitbake-builds"
+        top.symlink_to(self.repo, target_is_directory=True)
+        with self.assertRaisesRegex(RuntimeError, "symlinked build directory"):
+            ci.cleanup_wrappers(self.state)
+        top.unlink()
+        top.mkdir()
+        (top / ci.CONFIGURATION).mkdir()
+        (top / f"{ci.CONFIGURATION}.previous-123").symlink_to(self.repo, target_is_directory=True)
+        with self.assertRaisesRegex(RuntimeError, "symlink wrapper"):
+            ci.cleanup_wrappers(self.state)
+        self.assertTrue((top / ci.CONFIGURATION).is_dir())
+        (top / f"{ci.CONFIGURATION}.previous-123").unlink()
+        (top / f"{ci.CONFIGURATION}.previous-123").write_text("not a directory")
+        with self.assertRaisesRegex(RuntimeError, "non-directory or symlink wrapper"):
+            ci.cleanup_wrappers(self.state)
+        self.assertTrue((top / ci.CONFIGURATION).is_dir())
+        self.assertEqual(self.git("rev-parse", "HEAD"), self.initial)
+
+    def test_cleanup_stage_routes_without_a_plan_and_reports_failure(self):
+        ci.acquire(self.state, timeout=0)
+        stderr = io.StringIO()
+        with patch.object(ci, "cleanup_wrappers", side_effect=RuntimeError("cleanup blocked")) as cleanup, \
+                patch.object(sys, "argv", ["ci-validate.py", "cleanup",
+                                          "--state-root", str(self.state)]), \
+                contextlib.redirect_stderr(stderr):
+            with self.assertRaises(SystemExit) as error:
+                ci.main()
+        self.assertEqual(error.exception.code, 1)
+        cleanup.assert_called_once_with(self.state)
+        self.assertIn("CI cleanup failed: cleanup blocked", stderr.getvalue())
+        self.assertFalse((self.state / "run.json").exists())
+
     def test_prepare_uses_shared_wrapper_fragments_and_rm_work(self):
+        ci.acquire(self.state, timeout=0)
         directory = self.repo / "configurations"
         directory.mkdir()
         (directory / "homeassistant.conf.json").write_text(json.dumps({
@@ -719,22 +803,20 @@ class ValidationTests(unittest.TestCase):
             self.assertEqual(ci.prepare(self.repo, self.state, self.root / "bootstrap"), setup)
             self.assertIn("init", command.call_args.args[0])
             self.assertNotIn("--rebase-conflicts-strategy", command.call_args.args[0])
+            ci.cleanup_wrappers(self.state)
             with patch.dict(os.environ, {"CI_REF": "refs/heads/another"}):
                 self.assertEqual(ci.prepare(self.repo, self.state, self.root / "bootstrap"), setup)
             self.assertIn("init", command.call_args.args[0])
             self.assertNotIn("update", command.call_args.args[0])
             (setup / "build/init-build-env").unlink()
-            marker = setup / "layers/preserved-input"
-            marker.write_text("keep incomplete setup")
+            marker = setup / "layers/obsolete-input"
+            marker.write_text("discard incomplete setup")
+            ci.cleanup_wrappers(self.state)
             self.assertEqual(ci.prepare(self.repo, self.state, self.root / "bootstrap"), setup)
             self.assertIn("init", command.call_args.args[0])
             self.assertNotIn("--rebase-conflicts-strategy", command.call_args.args[0])
-            preserved = sorted(setup.parent.glob(f"{ci.CONFIGURATION}.previous-*"))
-            self.assertEqual(len(preserved), 2)
-            self.assertEqual(
-                (preserved[-1] / "layers/preserved-input").read_text(),
-                "keep incomplete setup",
-            )
+            self.assertEqual(list(setup.parent.glob(f"{ci.CONFIGURATION}.previous-*")), [])
+            self.assertFalse(marker.exists())
         config = json.loads((self.state / "configuration.conf.json").read_text())
         self.assertEqual(config["sources"]["meta-homeassistant"]["local"]["path"], str(self.repo))
         self.assertEqual(config["bitbake-setup"]["configurations"][0]["oe-fragments"],
@@ -750,7 +832,8 @@ class ValidationTests(unittest.TestCase):
         self.assertEqual(json.loads((self.state / "ptest-cache/preserved.json").read_text()), ptest_results)
         self.assertEqual(json.loads((self.state / "run.json").read_text()), report)
 
-    def test_prepare_restores_exact_pin_and_preserves_newer_checkout(self):
+    def test_prepare_restores_exact_pin_and_discards_obsolete_checkout(self):
+        ci.acquire(self.state, timeout=0)
         directory = self.repo / "configurations"
         directory.mkdir()
         (directory / "homeassistant.conf.json").write_text(json.dumps({
@@ -768,19 +851,18 @@ class ValidationTests(unittest.TestCase):
         layer = setup / "layers/dependency"
         layer.parent.mkdir()
         REAL_RUN(["git", "clone", "--quiet", str(self.repo), str(layer)], check=True)
-        (layer / "untracked-work").write_text("preserve this")
+        (layer / "untracked-work").write_text("obsolete work")
 
-        def update(command, **kwargs):
+        ci.cleanup_wrappers(self.state)
+
+        def initialize(command, **kwargs):
             if command[0] == "git":
                 return REAL_RUN(command, **kwargs)
             self.assertFalse(layer.exists())
             self.assertIn("init", command)
             self.assertNotIn("update", command)
-            backups = list(setup.parent.glob(f"{ci.CONFIGURATION}.previous-*"))
-            self.assertEqual(len(backups), 1)
-            previous_layer = backups[0] / "layers/dependency"
-            self.assertEqual(planner.git(previous_layer, "rev-parse", "HEAD"), newer)
-            self.assertEqual((previous_layer / "untracked-work").read_text(), "preserve this")
+            self.assertFalse(setup.exists())
+            self.assertEqual(list(setup.parent.glob(f"{ci.CONFIGURATION}.previous-*")), [])
             (setup / "build").mkdir(parents=True)
             (setup / "build/init-build-env").touch()
             layer.parent.mkdir()
@@ -789,22 +871,16 @@ class ValidationTests(unittest.TestCase):
                       "--detach", self.initial], check=True)
             return subprocess.CompletedProcess(command, 0)
 
-        with patch.object(ci.subprocess, "run", side_effect=update):
+        with patch.object(ci.subprocess, "run", side_effect=initialize):
             ci.prepare(self.repo, self.state, self.root / "bootstrap")
         self.assertEqual(planner.git(layer, "rev-parse", "HEAD"), self.initial)
-        def unchanged(command, **kwargs):
-            if command[0] == "git":
-                return REAL_RUN(command, **kwargs)
-            self.assertFalse(setup.exists())
-            previous = sorted(setup.parent.glob(f"{ci.CONFIGURATION}.previous-*"))[-1]
-            REAL_RUN(["cp", "-a", str(previous), str(setup)], check=True)
-            return subprocess.CompletedProcess(command, 0)
-
-        with patch.object(ci.subprocess, "run", side_effect=unchanged):
+        ci.cleanup_wrappers(self.state)
+        with patch.object(ci.subprocess, "run", side_effect=initialize):
             ci.prepare(self.repo, self.state, self.root / "bootstrap")
-        self.assertEqual(len(list(setup.parent.glob(f"{ci.CONFIGURATION}.previous-*"))), 2)
+        self.assertEqual(list(setup.parent.glob(f"{ci.CONFIGURATION}.previous-*")), [])
 
         REAL_RUN(["git", "-C", str(layer), "checkout", "--quiet", "--detach", newer], check=True)
+        ci.cleanup_wrappers(self.state)
 
         def wrong_checkout(command, **kwargs):
             if command[0] == "git":
@@ -871,11 +947,14 @@ class ValidationTests(unittest.TestCase):
         setup = self.state / "bitbake-builds" / ci.CONFIGURATION
         (setup / "build").mkdir(parents=True)
         commands = self.root / "build-commands"
-        (setup / "build/init-build-env").write_text(
-            'set -- changed-by-wrapper\n'
-            'bitbake-getvar() { printf "python3-one python3-two\\n"; }\n'
-            'bitbake() { printf "%s\\n" "$*" >> ' + shlex.quote(str(commands)) + '; }\n'
-        )
+        def initialize_wrapper(repo, state, bootstrap):
+            (setup / "build").mkdir(parents=True)
+            (setup / "build/init-build-env").write_text(
+                'set -- changed-by-wrapper\n'
+                'bitbake-getvar() { printf "python3-one python3-two\\n"; }\n'
+                'bitbake() { printf "%s\\n" "$*" >> ' + shlex.quote(str(commands)) + '; }\n'
+            )
+            return setup
 
         def clone_only(command, **kwargs):
             if command[:2] == ["git", "clone"]:
@@ -887,8 +966,9 @@ class ValidationTests(unittest.TestCase):
                 ci.execute("acquire", self.repo, self.state)
                 try:
                     ci.execute("plan", self.repo, self.state)
+                    ci.execute("cleanup", self.repo, self.state)
                     with (
-                        patch.object(ci, "prepare", return_value=setup),
+                        patch.object(ci, "prepare", side_effect=initialize_wrapper),
                         patch.object(ci.subprocess, "run", side_effect=clone_only),
                     ):
                         ci.execute("prepare", self.repo, self.state)
@@ -918,8 +998,17 @@ class ValidationTests(unittest.TestCase):
 
     def test_workflow_independent_required_steps_and_unconditional_release(self):
         workflow = (Path(__file__).resolve().parents[2] / ".gitea/workflows/build-HA.yaml").read_text()
-        for stage in ("acquire", "plan", "prepare", "ptests", "image", "finish", "release"):
+        for stage in ("acquire", "plan", "cleanup", "prepare", "ptests", "image", "finish", "release"):
             self.assertIn(f"ci-validate.py {stage} ", workflow)
+        self.assertIn(
+            "- name: Clean obsolete build wrappers\n"
+            "        id: cleanup\n"
+            "        shell: bash\n"
+            "        run: python3 scripts/ci-validate.py cleanup --state-root \"$CI_STATE_ROOT\"",
+            workflow,
+        )
+        self.assertLess(workflow.index("ci-validate.py plan "), workflow.index("ci-validate.py cleanup "))
+        self.assertLess(workflow.index("ci-validate.py cleanup "), workflow.index("ci-validate.py prepare "))
         self.assertIn("!cancelled() && steps.prepare.outcome == 'success'", workflow)
         self.assertIn("- name: Release shared build\n        if: always()", workflow)
 

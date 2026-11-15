@@ -8,6 +8,7 @@ import json
 import os
 from pathlib import Path
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -98,7 +99,29 @@ def make_plan(repo: Path, state: Path) -> None:
     print(f"Changed recipes: {', '.join(report['recipes']) or '(none)'}", flush=True)
 
 
+def cleanup_wrappers(state: Path) -> None:
+    assert_owner(state)
+    top = state / "bitbake-builds"
+    if top.is_symlink():
+        raise RuntimeError(f"Refusing cleanup through symlinked build directory {top}")
+    if not top.exists():
+        return
+    obsolete = re.compile(rf"{re.escape(CONFIGURATION)}\.(?:previous|incomplete)-[0-9]+")
+    wrappers = sorted(
+        path for path in top.iterdir()
+        if path.name == CONFIGURATION or obsolete.fullmatch(path.name)
+    )
+    for path in wrappers:
+        if path.is_symlink() or not path.is_dir():
+            raise RuntimeError(f"Refusing cleanup of non-directory or symlink wrapper {path}")
+    for path in wrappers:
+        assert_owner(state)
+        print(f"Removing obsolete CI wrapper {path}", flush=True)
+        shutil.rmtree(path)
+
+
 def prepare(repo: Path, state: Path, bootstrap: Path) -> Path:
+    assert_owner(state)
     config = json.loads((repo / "configurations/homeassistant.conf.json").read_text())
     config["sources"]["meta-homeassistant"] = {"local": {"path": str(repo)}}
     selected = next(
@@ -126,10 +149,6 @@ def prepare(repo: Path, state: Path, bootstrap: Path) -> Path:
         if "git-remote" in source
         and re.fullmatch(r"[0-9a-fA-F]{40}", source["git-remote"]["rev"])
     }
-    if setup.exists():
-        preserved = setup.with_name(f"{setup.name}.previous-{time.time_ns()}")
-        setup.rename(preserved)
-        print(f"Preserved previous setup at {preserved}; initializing a fresh wrapper", flush=True)
     command = [
         str(bootstrap / "bin/bitbake-setup"),
         "--setting", "default", "top-dir-prefix", str(state),
@@ -391,6 +410,9 @@ def execute(stage: str, repo: Path, state: Path) -> None:
     if stage == "release":
         release(state)
         return
+    if stage == "cleanup":
+        cleanup_wrappers(state)
+        return
     assert_owner(state)
     if stage == "plan":
         make_plan(repo, state)
@@ -422,7 +444,10 @@ def execute(stage: str, repo: Path, state: Path) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("stage", choices=("acquire", "plan", "prepare", "ptests", "image", "finish", "release"))
+    parser.add_argument(
+        "stage",
+        choices=("acquire", "plan", "cleanup", "prepare", "ptests", "image", "finish", "release"),
+    )
     parser.add_argument("--state-root", type=Path, required=True)
     args = parser.parse_args()
     try:
