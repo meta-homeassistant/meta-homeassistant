@@ -50,11 +50,6 @@ jobs:
         shell: bash
         run: python3 scripts/ci-validate.py plan --state-root "$CI_STATE_ROOT"
 
-      - name: Clean obsolete build wrappers
-        id: cleanup
-        shell: bash
-        run: python3 scripts/ci-validate.py cleanup --state-root "$CI_STATE_ROOT"
-
       - name: Prepare build environment
         id: prepare
         shell: bash

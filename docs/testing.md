@@ -94,16 +94,16 @@ OVMF arguments, while the sample layer image uses ext4.
 Automated CI validation:
 
 1. Runs the offline CI unit tests and plans dependency ptests.
-2. Cleans the existing build wrapper under a shared lock, then initializes a
-   fresh wrapper from the current configuration.
-3. Builds selected dependency ptest images. Matching passed results may be
-   reused; dependency ptests are advisory.
+2. Updates the persistent wrapper from the current configuration (initializing
+   it on the first run).
+3. Builds selected dependency ptest images and cleans their outputs after they
+   pass. Matching passed results may be reused; dependency ptests are advisory.
 4. Builds and tests `core-image-homeassistant-full`, reusing a successful
    validation when the image inputs match.
 5. Advances the image baseline when preparation and full-image validation pass.
 
-The wrapper cleanup preserves shared build caches and validation records.
-For failures, use the CI job logs.
+The active wrapper, shared build caches, and validation records persist between
+runs. For failures, use the CI job logs.
 
 Run the offline Python unit suite from the layer root with:
 

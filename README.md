@@ -66,11 +66,11 @@ release-upgrade workflow. It compares a selected Core release with layer
 metadata and writes a report for review. `scripts/integration_inventory.py`
 provides the comparison used by the workflow.
 
-Automated validation initializes a fresh wrapper from the current
-configuration, runs selected dependency ptests, and builds and tests the full
-image. Matching successful dependency ptests and full-image validations may be
-reused. See the [testing guide](docs/testing.md#automated-validation) for an
-overview.
+Automated validation reuses and updates its persistent wrapper from the current
+configuration (creating it on the first run), runs selected dependency ptests,
+and builds and tests the full image. Matching successful dependency ptests and
+full-image validations may be reused. See the
+[testing guide](docs/testing.md#automated-validation) for an overview.
 
 `scripts/` contains maintenance and CI tools, `tests/image/` contains
 image/QEMU test helpers, and `tests/unit/` contains all offline Python unit

@@ -9,7 +9,6 @@ import os
 import platform
 from pathlib import Path
 import re
-import shutil
 import subprocess
 import sys
 import tempfile
@@ -101,27 +100,6 @@ def make_plan(repo: Path, state: Path) -> None:
     print(f"Changed recipes: {', '.join(report['recipes']) or '(none)'}", flush=True)
 
 
-def cleanup_wrappers(state: Path) -> None:
-    assert_owner(state)
-    top = state / "bitbake-builds"
-    if top.is_symlink():
-        raise RuntimeError(f"Refusing cleanup through symlinked build directory {top}")
-    if not top.exists():
-        return
-    obsolete = re.compile(rf"{re.escape(CONFIGURATION)}\.(?:previous|incomplete)-[0-9]+")
-    wrappers = sorted(
-        path for path in top.iterdir()
-        if path.name == CONFIGURATION or obsolete.fullmatch(path.name)
-    )
-    for path in wrappers:
-        if path.is_symlink() or not path.is_dir():
-            raise RuntimeError(f"Refusing cleanup of non-directory or symlink wrapper {path}")
-    for path in wrappers:
-        assert_owner(state)
-        print(f"Removing obsolete CI wrapper {path}", flush=True)
-        shutil.rmtree(path)
-
-
 def prepare(repo: Path, state: Path, bootstrap: Path) -> Path:
     assert_owner(state)
     config = json.loads((repo / "configurations/homeassistant.conf.json").read_text())
@@ -155,9 +133,24 @@ def prepare(repo: Path, state: Path, bootstrap: Path) -> Path:
         str(bootstrap / "bin/bitbake-setup"),
         "--setting", "default", "top-dir-prefix", str(state),
         "--setting", "default", "dl-dir", "/cache/downloads/",
-        "init", "--non-interactive", "--setup-dir-name", CONFIGURATION,
-        str(config_path), CONFIGURATION,
     ]
+    if setup.is_symlink():
+        raise RuntimeError(f"Refusing to update symlink wrapper {setup}")
+    if setup.exists():
+        if not setup.is_dir():
+            raise RuntimeError(f"Refusing to update non-directory wrapper {setup}")
+        if not (setup / "build/init-build-env").is_file() or not (
+            setup / "config/config-upstream.json"
+        ).is_file():
+            raise RuntimeError(f"Existing build wrapper is incomplete: {setup}")
+        command.extend([
+            "update", "--setup-dir", str(setup), "--update-bb-conf", "yes",
+        ])
+    else:
+        command.extend([
+            "init", "--non-interactive", "--setup-dir-name", CONFIGURATION,
+            str(config_path), CONFIGURATION,
+        ])
     subprocess.run(command, cwd=repo, check=True)
     if not (setup / "build/init-build-env").is_file():
         raise RuntimeError("Build configuration setup did not create an environment")
@@ -553,9 +546,6 @@ def execute(stage: str, repo: Path, state: Path) -> None:
     if stage == "release":
         release(state)
         return
-    if stage == "cleanup":
-        cleanup_wrappers(state)
-        return
     assert_owner(state)
     if stage == "plan":
         make_plan(repo, state)
@@ -589,7 +579,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "stage",
-        choices=("acquire", "plan", "cleanup", "prepare", "ptests", "image", "finish", "release"),
+        choices=("acquire", "plan", "prepare", "ptests", "image", "finish", "release"),
     )
     parser.add_argument("--state-root", type=Path, required=True)
     args = parser.parse_args()
