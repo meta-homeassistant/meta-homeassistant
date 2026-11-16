@@ -186,13 +186,6 @@ def validate(repo: Path, setup: Path, target: str) -> None:
     subprocess.run(build_command(setup, ["bitbake", target]), cwd=repo, check=True)
 
 
-def clean_image(repo: Path, setup: Path, target: str) -> None:
-    print(f"Removing successful dependency image output: {target}", flush=True)
-    subprocess.run(
-        build_command(setup, ["bitbake", "-c", "clean", target]), cwd=repo, check=True,
-    )
-
-
 def testimage_status_from_log(target: str, logfile: str) -> str:
     try:
         output = Path(logfile).read_text(errors="replace")
@@ -465,9 +458,6 @@ def ptests(repo: Path, setup: Path, state: Path, report: dict) -> None:
             write_json(state / "run.json", report)
         if batch_status:
             print(f"Dependency ptest BitBake batch exited with status {batch_status}", flush=True)
-    for recipe in selected:
-        if results[recipe]["status"] == "passed":
-            clean_image(repo, setup, f"meta-homeassistant-image-ptest-{recipe}")
     failed = [name for name in enabled if results.get(name, {}).get("status") == "failed"]
     pending = [name for name in enabled if results.get(name, {}).get("status") == "pending"]
     if failed or pending:

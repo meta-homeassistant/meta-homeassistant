@@ -18,7 +18,6 @@ from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 ci = importlib.import_module("ci-validate")
 planner = importlib.import_module("ci-plan")
-CLEAN_IMAGE = ci.clean_image
 RUN_PTEST_BATCH = ci.run_ptest_batch
 PTEST_ENVIRONMENT = ci.ptest_environment
 REAL_RUN = subprocess.run
@@ -45,7 +44,6 @@ class ValidationTests(unittest.TestCase):
         self.environment.start()
         self.addCleanup(self.environment.stop)
         cleanup = patch.object(ci, "clean_image")
-        self.clean_image = cleanup.start()
         self.addCleanup(cleanup.stop)
         self.ptest_statuses = {}
         self.batch_status = 0
@@ -267,7 +265,6 @@ class ValidationTests(unittest.TestCase):
         ])
         self.batch.assert_called_once()
         build.assert_not_called()
-        self.assertEqual(self.clean_image.call_count, 2)
 
     def test_no_changes_does_not_retest_dependencies(self):
         with (
@@ -539,9 +536,6 @@ class ValidationTests(unittest.TestCase):
         self.assertEqual(report["ptest_results"]["python3-one"]["environment"], report["ptest_environment"])
         saved = json.loads((self.state / "run.json").read_text())["ptest_results"]
         self.assertEqual(saved, report["ptest_results"])
-        self.clean_image.assert_called_once_with(
-            self.repo, self.root, "meta-homeassistant-image-ptest-python3-two",
-        )
 
     def test_followup_run_retries_failures_but_reuses_successful_dependencies(self):
         first = self.report(baseline_ptests=[], ptest_results={})
@@ -635,9 +629,6 @@ class ValidationTests(unittest.TestCase):
         self.assertEqual(
             json.loads((self.state / "run.json").read_text())["ptest_results"], report["ptest_results"],
         )
-        self.clean_image.assert_called_once_with(
-            self.repo, self.root, "meta-homeassistant-image-ptest-python3-two",
-        )
 
     def test_non_test_task_failure_is_not_hidden_by_passing_tests(self):
         report = self.report(baseline_ptests=[], ptest_results={})
@@ -655,7 +646,6 @@ class ValidationTests(unittest.TestCase):
                     self.repo, self.root, self.state,
                     self.report(baseline_ptests=[], ptest_results={}),
                 )
-        self.clean_image.assert_not_called()
 
     def test_batch_uses_one_keep_going_command_and_isolates_results(self):
         targets = [
@@ -1007,19 +997,9 @@ class ValidationTests(unittest.TestCase):
             ci.TARGET,
         ])
         self.batch.assert_called_once()
-        self.assertEqual(self.clean_image.call_count, 2)
         self.assertEqual(len(list((self.state / "baselines").glob("*.json"))), 2)
         self.assertFalse((self.state / "build.lock").exists())
 
-    def test_successful_image_cleanup_uses_clean_not_cleansstate(self):
-        setup = self.root / "wrapper"
-        with patch.object(ci.subprocess, "run") as run:
-            CLEAN_IMAGE(self.repo, setup, "meta-homeassistant-image-ptest-python3-one")
-        self.assertEqual(
-            run.call_args.args[0][-4:],
-            ["bitbake", "-c", "clean", "meta-homeassistant-image-ptest-python3-one"],
-        )
-        self.assertTrue(run.call_args.kwargs["check"])
 
     def test_workflow_independent_required_steps_and_unconditional_release(self):
         workflow = (Path(__file__).resolve().parents[2] / ".gitea/workflows/build-HA.yaml").read_text()
