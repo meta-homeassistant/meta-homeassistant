@@ -74,6 +74,19 @@ class ValidationTests(unittest.TestCase):
         self.git("commit", "-qm", text)
         return self.git("rev-parse", "HEAD")
 
+    def bitbake_testimage_stub(self, commands):
+        return (
+            'bitbake() {\n'
+            '    test "$#" -eq 3 && test "$1" = -R && '
+            'test "$3" = core-image-homeassistant-full || return 1\n'
+            '    local directory="${2%/*}"\n'
+            '    printf "%s\\n" "$3" >> ' + shlex.quote(str(commands)) + '\n'
+            '    printf "%s - OK - All required tests passed\\n" "$3" > "$directory/testimage.log"\n'
+            '    printf \'{"status":"passed","logfile":"%s/testimage.log"}\\n\' '
+            '"$directory" > "$directory/$3.passed.json"\n'
+            '}\n'
+        )
+
     def baseline(self, revision=None, ref=None):
         revision = revision or self.initial
         recipes = ["python3-one", "python3-two"]
@@ -387,6 +400,114 @@ class ValidationTests(unittest.TestCase):
         self.assertEqual(list((self.state / "ptest-cache").glob("*/*/*.json")),
                          list((self.state / "ptest-cache").glob("*/*/environment.json")))
 
+    def environment_setup(self):
+        setup = self.state / "bitbake-builds" / ci.CONFIGURATION
+        (setup / "build/conf").mkdir(parents=True)
+        (setup / "config").mkdir()
+        (setup / "layers").mkdir()
+        (setup / "layers/meta-homeassistant").symlink_to(self.repo)
+        ci.write_json(self.state / "configuration.conf.json", {
+            "sources": {"meta-homeassistant": {"local": {"path": str(self.repo)}}},
+            "bitbake-setup": {"configurations": [{
+                "name": ci.CONFIGURATION, "oe-fragments": [],
+            }]},
+        })
+        ci.write_json(setup / "config/sources-fixed-revisions.json", {"sources": {}})
+        (setup / "build/conf/local.conf").write_text("require conf/toolcfg.conf\n")
+        (setup / "build/conf/bblayers.conf").write_text(f'BBLAYERS = "{setup}/layers"\n')
+        (setup.parent / "site.conf").write_text('DL_DIR = "/cache/downloads"\n')
+        return setup
+
+    def test_layer_dependencies_and_validation_policy_invalidate_cached_ptests(self):
+        setup = self.environment_setup()
+        self.commit("recipes-devtools/python/python3-consumer_1.bb",
+                    'RDEPENDS:${PN} = "python3-helper"\n')
+        inputs = {
+            "recipes-devtools/python/python3-helper_1.bb": 'PV = "1"\n',
+            "scripts/ci-validate.py": "# validation policy\n",
+            "scripts/ci-plan.py": "# recipe fingerprint policy\n",
+        }
+        for path, content in inputs.items():
+            revision = self.commit(path, content)
+
+        legacy = PTEST_ENVIRONMENT(self.repo, setup, self.state, revision)
+        legacy["version"] = 1
+        legacy_key = ci.hashlib.sha256(json.dumps(legacy, sort_keys=True).encode()).hexdigest()
+        legacy_cache = ci.ptest_cache_path(self.state, ci.scope(), legacy_key)
+        legacy_cache.mkdir(parents=True)
+        fingerprint = planner.recipe_fingerprints(
+            self.repo, revision, ["python3-consumer"],
+        )["python3-consumer"]
+        ci.write_json(legacy_cache / f"{fingerprint}.json", {
+            "status": "passed", "environment": legacy_key, "fingerprint": fingerprint,
+        })
+
+        with (
+            patch.object(ci, "ptest_environment", side_effect=PTEST_ENVIRONMENT),
+            patch.object(ci, "get_variable", return_value="python3-consumer"),
+        ):
+            initial = self.report(ptest_results={})
+            ci.ptests(self.repo, setup, self.state, initial)
+            self.assertEqual(initial["selected_ptests"], ["python3-consumer"])
+            for path, content in inputs.items():
+                with self.subTest(path=path):
+                    changed_content = (
+                        'PV = "2"\n' if path.endswith(".bb") else content + "# changed\n"
+                    )
+                    self.commit(path, changed_content)
+                    changed = self.report(ptest_results={})
+                    ci.ptests(self.repo, setup, self.state, changed)
+                    self.assertEqual(changed["selected_ptests"], ["python3-consumer"])
+                    self.assertNotEqual(changed["ptest_environment"], initial["ptest_environment"])
+                    self.commit(path, content)
+                    restored = self.report(ptest_results={})
+                    ci.ptests(self.repo, setup, self.state, restored)
+                    self.assertEqual(restored["selected_ptests"], [])
+                    self.assertEqual(restored["ptest_environment"], initial["ptest_environment"])
+            self.commit("docs/testing.md", "documentation only")
+            documentation = self.report(ptest_results={})
+            ci.ptests(self.repo, setup, self.state, documentation)
+            self.assertEqual(documentation["selected_ptests"], [])
+        self.assertEqual(self.batch.call_count, 4)
+
+    def test_environment_tracks_nested_and_automatic_build_configuration(self):
+        setup = self.environment_setup()
+        files = {
+            "toolcfg.conf": 'require conf/nested/runtime.inc\nTEST_SUITES = "ptest ssh"\n',
+            "nested/runtime.inc": 'PACKAGECONFIG = "original"\n',
+            "auto.conf": 'DISTRO_FEATURES:append = " ptest"\n',
+        }
+        for name, content in files.items():
+            path = setup / "build/conf" / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(content)
+        git_index = setup / "build/conf/.git/index"
+        git_index.parent.mkdir()
+        git_index.write_bytes(b"\xff\x00")
+        original = PTEST_ENVIRONMENT(self.repo, setup, self.state, self.initial)
+        for name, content in files.items():
+            with self.subTest(name=name):
+                path = setup / "build/conf" / name
+                path.write_text(content + 'EXTRA_IMAGE_FEATURES = "changed"\n')
+                self.assertNotEqual(
+                    PTEST_ENVIRONMENT(self.repo, setup, self.state, self.initial), original,
+                )
+                path.write_text(content)
+                self.assertEqual(
+                    PTEST_ENVIRONMENT(self.repo, setup, self.state, self.initial), original,
+                )
+
+    def test_environment_rejects_missing_required_build_configuration(self):
+        setup = self.environment_setup()
+        for name in ("local.conf", "bblayers.conf"):
+            with self.subTest(name=name):
+                path = setup / "build/conf" / name
+                content = path.read_text()
+                path.unlink()
+                with self.assertRaisesRegex(RuntimeError, "Missing required build configuration"):
+                    PTEST_ENVIRONMENT(self.repo, setup, self.state, self.initial)
+                path.write_text(content)
+
     def test_environment_records_actual_layers_and_shared_metadata_not_documentation(self):
         setup = self.state / "bitbake-builds" / ci.CONFIGURATION
         (setup / "build/conf").mkdir(parents=True)
@@ -417,7 +538,7 @@ class ValidationTests(unittest.TestCase):
         self.assertEqual(first["layers"]["dependency"]["revision"], self.initial)
         self.assertEqual(first["layers"]["dependency"]["origin"], str(self.repo))
         self.assertNotIn("meta-homeassistant", first["layers"])
-        self.assertNotIn(str(setup), first["build_config"]["bblayers.conf"])
+        self.assertNotIn(str(setup), first["build_config"]["build/conf/bblayers.conf"])
         docs_revision = self.commit("README.md", "new documentation")
         self.assertEqual(PTEST_ENVIRONMENT(self.repo, setup, self.state, docs_revision), first)
         shared_revision = self.commit("conf/distro/homeassistant.conf", 'DISTRO_FEATURES = "changed"')
@@ -685,6 +806,24 @@ class ValidationTests(unittest.TestCase):
         self.assertEqual(len(set(directories)), 2)
         self.assertTrue(all(not directory.exists() for directory in directories))
 
+    def test_testimage_result_requires_a_completed_summary(self):
+        target = "meta-homeassistant-image-ptest-python3-one"
+        logfile = self.root / "log.do_testimage"
+        for output in ("", "Starting QEMU\n", f"{target} - OK - All required tests"):
+            with self.subTest(output=output):
+                logfile.write_text(output)
+                with self.assertRaisesRegex(RuntimeError, "No successful testimage summary"):
+                    ci.testimage_status_from_log(target, str(logfile))
+        logfile.write_text(
+            f"{target} - OK - All required tests passed "
+            "(successes=8, skipped=0, failures=0, errors=0)\n"
+        )
+        self.assertEqual(ci.testimage_status_from_log(target, str(logfile)), "passed")
+        for status in ("FAIL", "FAILED"):
+            with self.subTest(status=status):
+                logfile.write_text(f"{target} - {status} - Required tests failed\n")
+                self.assertEqual(ci.testimage_status_from_log(target, str(logfile)), "failed")
+
     def test_batch_does_not_pass_testimage_failure_reported_as_task_success(self):
         target = "meta-homeassistant-image-ptest-python3-one"
 
@@ -760,6 +899,45 @@ class ValidationTests(unittest.TestCase):
                 ci.execute("image", self.repo, self.state)
         self.assertEqual(json.loads((self.state / "run.json").read_text())["results"]["image"], "failed")
         self.assertFalse((self.state / "image-validation-cache").exists())
+        ci.release(self.state)
+
+    def test_full_image_requires_completed_runtime_tests_before_caching(self):
+        ci.acquire(self.state, timeout=0)
+
+        def finish_bitbake(command, **kwargs):
+            if command[0] == "git":
+                return REAL_RUN(command, **kwargs)
+            if "-R" in command and outcome != "missing":
+                directory = Path(command[command.index("-R") + 1]).parent
+                logfile = directory / "log.do_testimage"
+                summary = (
+                    "OK - All required tests passed" if outcome == "passed"
+                    else "FAIL - Required tests failed"
+                )
+                logfile.write_text(f"{ci.TARGET} - {summary}\n")
+                ci.write_json(directory / f"{ci.TARGET}.passed.json", {
+                    "status": "passed", "logfile": str(logfile),
+                })
+            return subprocess.CompletedProcess(command, 0)
+
+        for index, outcome in enumerate(("missing", "failed", "passed")):
+            with self.subTest(outcome=outcome):
+                fingerprint = f"{index:064x}"
+                report = self.report(results={"prepare": "passed"})
+                ci.write_json(self.state / "run.json", report)
+                with (
+                    patch.object(ci, "image_validation_fingerprint", return_value=fingerprint),
+                    patch.object(ci.subprocess, "run", side_effect=finish_bitbake),
+                ):
+                    if outcome == "passed":
+                        ci.execute("image", self.repo, self.state)
+                    else:
+                        with self.assertRaisesRegex(RuntimeError, "Full-image testimage did not pass"):
+                            ci.execute("image", self.repo, self.state)
+                cached = ci.image_validation_cache_path(self.state, report["scope"], fingerprint)
+                self.assertEqual(cached.exists(), outcome == "passed")
+                saved = json.loads((self.state / "run.json").read_text())
+                self.assertEqual(saved["results"]["image"], "passed" if outcome == "passed" else "failed")
         ci.release(self.state)
 
     def test_successful_full_image_validation_is_reused_for_matching_inputs(self):
@@ -967,6 +1145,75 @@ class ValidationTests(unittest.TestCase):
         self.assertEqual(planner.git(layer, "rev-parse", "HEAD"), newer)
         self.assertEqual((layer / "fork-file").read_text(), "local edits")
 
+    def test_branch_round_trip_restores_origins_and_reuses_ptests(self):
+        ci.acquire(self.state, timeout=0)
+        directory = self.repo / "configurations"
+        directory.mkdir()
+        config = {
+            "sources": {
+                name: {"git-remote": {
+                    "uri": str(self.repo), "branch": "main", "rev": revision,
+                }}
+                for name, revision in (("dependency", self.initial), ("rolling", "main"))
+            },
+            "bitbake-setup": {"configurations": [
+                {"name": ci.CONFIGURATION, "oe-fragments": []},
+            ]},
+        }
+        setup = self.state / "bitbake-builds" / ci.CONFIGURATION
+        (setup / "build/conf").mkdir(parents=True)
+        (setup / "build/init-build-env").touch()
+        (setup / "build/conf/local.conf").write_text('MACHINE = "qemux86-64"\n')
+        (setup / "build/conf/bblayers.conf").write_text(f'BBLAYERS = "{setup}/layers"\n')
+        (setup / "config").mkdir()
+        (setup / "config/config-upstream.json").write_text("{}")
+        ci.write_json(setup / "config/sources-fixed-revisions.json", {
+            "sources": {
+                name: {"git-remote": {"rev": self.initial}}
+                for name in config["sources"]
+            },
+        })
+        (setup / "layers").mkdir()
+        for name in config["sources"]:
+            REAL_RUN(["git", "clone", "--quiet", str(self.repo), str(setup / "layers" / name)],
+                     check=True)
+        (setup / "layers/meta-homeassistant").symlink_to(self.repo)
+        fork = self.root / "fork"
+        REAL_RUN(["git", "clone", "--quiet", str(self.repo), str(fork)], check=True)
+
+        def update(command, **kwargs):
+            if command[0] == "git":
+                return REAL_RUN(command, **kwargs)
+            self.assertIn("update", command)
+            return subprocess.CompletedProcess(command, 0)
+
+        environments = []
+        with (
+            patch.object(ci.subprocess, "run", side_effect=update),
+            patch.object(ci, "ptest_environment", side_effect=PTEST_ENVIRONMENT),
+            patch.object(ci, "get_variable", return_value="python3-one"),
+        ):
+            for index, remote in enumerate((self.repo, fork, self.repo)):
+                for name, source in config["sources"].items():
+                    source["git-remote"]["uri"] = str(remote)
+                    if index == 1:
+                        planner.git(setup / "layers" / name, "remote", "set-url", "origin", str(fork))
+                ci.write_json(directory / "homeassistant.conf.json", config)
+                ci.prepare(self.repo, self.state, self.root / "bootstrap")
+                report = self.report(ptest_results={})
+                ci.ptests(self.repo, setup, self.state, report)
+                environments.append(report["ptest_environment"])
+                if index == 2:
+                    self.assertEqual(report["selected_ptests"], [])
+        self.assertNotEqual(environments[0], environments[1])
+        self.assertEqual(environments[0], environments[2])
+        self.assertEqual(self.batch.call_count, 2)
+        for name in config["sources"]:
+            self.assertEqual(
+                planner.git(setup / "layers" / name, "remote", "get-url", "origin"),
+                str(self.repo),
+            )
+
     def test_prepare_does_not_hide_failed_wrapper_recovery(self):
         ci.acquire(self.state, timeout=0)
         directory = self.repo / "configurations"
@@ -996,13 +1243,14 @@ class ValidationTests(unittest.TestCase):
         (setup / "build").mkdir(parents=True)
         (setup / "build/init-build-env").write_text(
             'set -- replaced ignored\n'
-            'bitbake() { test "$#" -eq 1 && test "$1" = core-image-homeassistant-full; }\n'
+            + self.bitbake_testimage_stub(self.root / "build-commands")
         )
         ci.validate(self.repo, setup, ci.TARGET)
-        with patch.object(ci.subprocess, "run") as run:
+        with patch.object(ci.subprocess, "run", wraps=REAL_RUN) as run:
             ci.validate(self.repo, setup, ci.TARGET)
         self.assertTrue(run.call_args.kwargs["check"])
         self.assertNotIn("stdout", run.call_args.kwargs)
+        self.assertNotIn("-k", run.call_args.args[0])
 
     def test_variable_query_excludes_environment_banner(self):
         setup = self.root / "wrapper"
@@ -1048,7 +1296,7 @@ class ValidationTests(unittest.TestCase):
             (setup / "build/init-build-env").write_text(
                 'set -- changed-by-wrapper\n'
                 'bitbake-getvar() { printf "python3-one python3-two\\n"; }\n'
-                'bitbake() { printf "%s\\n" "$*" >> ' + shlex.quote(str(commands)) + '; }\n'
+                + self.bitbake_testimage_stub(commands)
             )
             return setup
 

@@ -18,7 +18,8 @@ import time
 planner = importlib.import_module("ci-plan")
 CONFIGURATION = "homeassistant-x86"
 TARGET = "core-image-homeassistant-full"
-IMAGE_VALIDATION_CACHE_VERSION = 1
+PTEST_VALIDATION_CACHE_VERSION = 2
+IMAGE_VALIDATION_CACHE_VERSION = 2
 TEST_FRAGMENTS = (
     "homeassistant/enable-testing-base",
     "homeassistant/add-homeassistant-image-test-deps",
@@ -182,6 +183,17 @@ def prepare(repo: Path, state: Path, bootstrap: Path) -> Path:
             recorded["rev"] = actual
             resolved_changed = True
         print(f"Verified {layer.name} at configured pin {revision}", flush=True)
+    for name, source in config["sources"].items():
+        if "git-remote" not in source:
+            continue
+        layer = setup / "layers" / source.get("path", name)
+        uri = source["git-remote"]["uri"]
+        if planner.git(layer, "remote", "get-url", "origin") != uri:
+            print(f"Restoring configured origin for {name}: {uri}", flush=True)
+            subprocess.run(
+                ["git", "-C", str(layer), "remote", "set-url", "origin", uri],
+                cwd=repo, check=True,
+            )
     if resolved_changed:
         write_json(resolved_path, resolved)
         print("Updated resolved source revisions to match verified layer pins", flush=True)
@@ -206,8 +218,13 @@ def get_variable(repo: Path, setup: Path, recipe: str, name: str) -> str:
 
 
 def validate(repo: Path, setup: Path, target: str) -> None:
-    print(f"Building and testing {target}", flush=True)
-    subprocess.run(build_command(setup, ["bitbake", target]), cwd=repo, check=True)
+    with tempfile.TemporaryDirectory(prefix="ha-ci-image-") as temporary:
+        directory = Path(temporary)
+        run_testimage_batch(repo, setup, [target], directory)
+        result = directory / target
+        status = result.read_text() if result.is_file() else "pending"
+        if status != "passed":
+            raise RuntimeError(f"Full-image testimage did not pass for {target}: {status}")
 
 
 def testimage_status_from_log(target: str, logfile: str) -> str:
@@ -215,10 +232,16 @@ def testimage_status_from_log(target: str, logfile: str) -> str:
         output = Path(logfile).read_text(errors="replace")
     except OSError as error:
         raise RuntimeError(f"Cannot read testimage task log for {target}: {error}") from error
-    return "failed" if f"{target} - FAILED -" in output else "passed"
+    if any(f"{target} - {status} -" in output for status in ("FAIL", "FAILED")):
+        return "failed"
+    if f"{target} - OK - All required tests passed" not in output:
+        raise RuntimeError(f"No successful testimage summary for {target} in {logfile}")
+    return "passed"
 
 
-def run_ptest_batch(repo: Path, setup: Path, targets: list[str], directory: Path) -> int:
+def run_testimage_batch(
+    repo: Path, setup: Path, targets: list[str], directory: Path, *, keep_going: bool = False,
+) -> int:
     configuration = directory / "results.conf"
     configuration.write_text(
         f'HA_CI_PTEST_RESULTS = {json.dumps(str(directory))}\n'
@@ -244,10 +267,13 @@ python ha_ci_ptest_result() {
 }
 """
     )
-    print(f"Building and testing dependency images: {', '.join(targets)}", flush=True)
+    print(f"Building and testing images: {', '.join(targets)}", flush=True)
+    arguments = ["bitbake"]
+    if keep_going:
+        arguments.append("-k")
+    arguments.extend(["-R", str(configuration), *targets])
     result = subprocess.run(
-        build_command(setup, ["bitbake", "-k", "-R", str(configuration), *targets]),
-        cwd=repo, check=False,
+        build_command(setup, arguments), cwd=repo, check=not keep_going,
     )
     for target in targets:
         failed = directory / f"{target}.failed.json"
@@ -270,6 +296,21 @@ python ha_ci_ptest_result() {
             continue
         (directory / target).write_text(status)
     return result.returncode
+
+
+def run_ptest_batch(repo: Path, setup: Path, targets: list[str], directory: Path) -> int:
+    return run_testimage_batch(repo, setup, targets, directory, keep_going=True)
+
+
+def configuration_inputs(repo: Path, setup: Path, directories: tuple[Path, ...]) -> dict:
+    inputs = {}
+    for directory in directories:
+        for path in sorted(directory.rglob("*")):
+            if path.is_file() and ".git" not in path.relative_to(directory).parts:
+                inputs[str(path.relative_to(setup))] = path.read_text().replace(
+                    str(setup), "${SETUP}"
+                ).replace(str(repo), "${REPO}")
+    return inputs
 
 
 def ptest_environment(repo: Path, setup: Path, state: Path, revision: str) -> dict:
@@ -299,21 +340,27 @@ def ptest_environment(repo: Path, setup: Path, state: Path, revision: str) -> di
     objects = planner.metadata_objects(repo, revision)
     shared = {
         name: blob for name, blob in objects.items()
-        if name.startswith(("conf/", "classes/", "classes-recipe/", "lib/", "tests/image/"))
+        if name.startswith((
+            "conf/", "classes/", "classes-recipe/", "classes-global/", "lib/",
+            "tests/image/", "dynamic-layers/", "recipes-",
+        ))
+        or name in ("scripts/ci-validate.py", "scripts/ci-plan.py")
         or name.endswith((".inc", ".bbclass")) or {"images", "packagegroups"} & set(Path(name).parts)
     }
-    build_config = {}
-    for path in (setup / "build/conf/local.conf", setup / "build/conf/bblayers.conf",
-                 setup.parent / "site.conf"):
-        build_config[path.name] = path.read_text().replace(str(setup), "${SETUP}").replace(
-            str(repo), "${REPO}"
-        )
+    for name in ("local.conf", "bblayers.conf"):
+        path = setup / "build/conf" / name
+        if not path.is_file():
+            raise RuntimeError(f"Missing required build configuration: {path}")
+    build_config = configuration_inputs(repo, setup, (setup / "build/conf",))
+    build_config["site.conf"] = (setup.parent / "site.conf").read_text().replace(
+        str(setup), "${SETUP}"
+    ).replace(str(repo), "${REPO}")
     selected = next(
         item for item in config["bitbake-setup"]["configurations"]
         if item["name"] == CONFIGURATION
     )
     return {
-        "version": 1, "layers": layers, "configuration": selected,
+        "version": PTEST_VALIDATION_CACHE_VERSION, "layers": layers, "configuration": selected,
         "build_config": build_config, "shared_metadata": shared,
     }
 
@@ -333,15 +380,9 @@ def image_validation_fingerprint(
         name: blob for name, blob in objects.items()
         if name != "README.md" and not name.startswith("docs/")
     }
-    generated_config = {}
-    for directory in (setup / "build/conf", setup / "config"):
-        if not directory.exists():
-            continue
-        for path in sorted(directory.rglob("*")):
-            if path.is_file() and ".git" not in path.relative_to(directory).parts:
-                generated_config[str(path.relative_to(setup))] = path.read_text().replace(
-                    str(setup), "${SETUP}"
-                ).replace(str(repo), "${REPO}")
+    generated_config = configuration_inputs(
+        repo, setup, (setup / "build/conf", setup / "config"),
+    )
     inputs = {
         "version": IMAGE_VALIDATION_CACHE_VERSION,
         "target": TARGET,

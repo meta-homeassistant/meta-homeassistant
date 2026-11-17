@@ -106,15 +106,37 @@ Automated CI validation:
    verified revisions into `config/sources-fixed-revisions.json`, including
    stale entries from previous runs. This keeps the ptest and full-image
    fingerprints consistent with the checkouts. Rolling source revisions are
-   left unchanged. Update or checkout failures still fail the stage.
-3. Builds selected dependency ptest images and cleans their outputs after they
-   pass. Matching passed results may be reused; dependency ptests are advisory.
+   left unchanged. Preparation also restores each Git source's configured
+   origin URL, even when its revision already matches, so a branch switch
+   cannot leave a previous branch's fork in the environment fingerprint.
+   Update, checkout, or origin-repair failures still fail the stage. Missing
+   required `local.conf` or `bblayers.conf` files are errors during fingerprinting.
+3. Builds the dependency ptest images without matching passed results.
+   Dependency ptests are advisory. Cache keys conservatively include all
+   layer recipe metadata and recipe-local files, shared classes and runtime
+   helpers, and the CI validation/planning scripts. A change to this metadata
+   invalidates all dependency ptests, including consumers of changed recipes.
+   The keys also include the complete generated `build/conf` tree (excluding
+   Git internals), the shared `site.conf`, and actual dependency-layer revisions.
+   Documentation-only changes under `docs/` or to the root `README.md` do not
+   invalidate ptests. Returning to identical inputs reuses their previous passes.
+   A passed testimage task must also have an explicit successful OEQA summary;
+   missing or incomplete logs are errors, not cached passes.
 4. Builds and tests `core-image-homeassistant-full`, reusing a successful
-   validation when the image inputs match.
+   validation when the image inputs match. A new validation requires a completed
+   `do_testimage` event and an explicit successful OEQA summary before recording
+   a pass. A zero-exit build without runtime-test evidence does not advance the
+   baseline or populate the image-validation cache. Unlike advisory dependency
+   batches, the full-image build does not use keep-going mode.
 5. Advances the image baseline when preparation and full-image validation pass.
 
 The active wrapper, shared build caches, and validation records persist between
-runs. For failures, use the CI job logs.
+runs. Ptest and image cache policy version 2 exclude passes recorded under the
+older result-validation policies; the first run after this change reruns ptests and
+full-image validation once. Later validation/planning script changes also
+invalidate passes automatically. Changes to rolling source revisions still
+invalidate results even when returning to the same branch. For failures, use
+the CI job logs.
 
 Run the offline Python unit suite from the layer root with:
 
