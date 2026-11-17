@@ -851,17 +851,55 @@ class ValidationTests(unittest.TestCase):
         report = self.report(enabled_ptests=["python3-one"], ptest_results={
             "python3-one": {"fingerprint": "current", "status": "failed"},
         })
+        summary_path = self.root / "step-summary.md"
+        report_path = self.root / "ci-validation-report.md"
         for results in ({}, {"prepare": "passed", "image": "failed"}):
             report["results"] = results
-            with self.assertRaisesRegex(RuntimeError, "image baseline unchanged"):
-                ci.finish(self.repo, self.state, report)
+            summary_path.write_text("")
+            with patch.dict(os.environ, {
+                "GITHUB_STEP_SUMMARY": str(summary_path),
+                "CI_REPORT_PATH": str(report_path),
+            }):
+                with self.assertRaisesRegex(RuntimeError, "image baseline unchanged"):
+                    ci.finish(self.repo, self.state, report)
+            self.assertEqual(report_path.read_text(), summary_path.read_text())
+            self.assertIn("| `python3-one` | **FAILED** |", report_path.read_text())
             self.assertFalse(ci.baseline_path(self.state).exists())
         report["results"] = {"prepare": "passed", "ptests": "failed", "image": "passed"}
         report["results"]["integrations"] = "failed"
-        ci.finish(self.repo, self.state, report)
+        with patch.dict(os.environ, {
+            "GITHUB_STEP_SUMMARY": str(summary_path),
+            "CI_REPORT_PATH": str(report_path),
+        }):
+            ci.finish(self.repo, self.state, report)
         saved = json.loads(ci.baseline_path(self.state).read_text())
         self.assertEqual(saved["revision"], self.initial)
         self.assertEqual(saved["ptest_results"]["python3-one"]["status"], "failed")
+
+    def test_summary_highlights_failed_dependency_and_full_image_ptests(self):
+        report = self.report(results={
+            "prepare": "passed", "ptests": "failed", "image": "failed",
+        })
+        report["image_validation"] = {"status": "running"}
+        report["ptest_results"] = {
+            "python3-one": {"status": "passed"},
+            "python3-two": {"status": "failed"},
+            "python3-three": {"status": "pending"},
+        }
+
+        summary = ci.validation_summary(report)
+
+        self.assertIn(
+            "| `core-image-homeassistant-full` image and runtime tests "
+            "(includes `python3-homeassistant` ptest) | **FAILED** |",
+            summary,
+        )
+        self.assertIn("| Dependency ptests (`meta-homeassistant-image-ptest-*`) | **FAILED** (1 failed, 1 pending) |", summary)
+        self.assertIn("> **Failed dependency ptests (1):** `python3-two`", summary)
+        self.assertIn("> **Dependency ptests without a result (1):** `python3-three`", summary)
+        self.assertIn("| `python3-two` | **FAILED** |", summary)
+        self.assertIn("| `python3-three` | **PENDING** |", summary)
+        self.assertIn("| `python3-one` | PASSED |", summary)
 
     def test_changed_checkout_cannot_promote_image_baseline(self):
         report = self.report(
@@ -1336,6 +1374,9 @@ class ValidationTests(unittest.TestCase):
         self.assertNotIn("ci-validate.py cleanup ", workflow)
         self.assertIn("!cancelled() && steps.prepare.outcome == 'success'", workflow)
         self.assertIn("- name: Release shared build\n        if: always()", workflow)
+        self.assertIn("uses: actions/upload-artifact@v4", workflow)
+        self.assertIn("path: ${{ env.CI_REPORT_PATH }}", workflow)
+        self.assertIn("steps.plan.outcome == 'success'", workflow)
 
 
 if __name__ == "__main__":

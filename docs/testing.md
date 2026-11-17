@@ -91,52 +91,20 @@ OVMF arguments, while the sample layer image uses ext4.
 
 ### Automated validation
 
-Automated CI validation:
+Automated CI validation has these outcomes:
 
-1. Runs the offline CI unit tests and plans dependency ptests.
-2. Updates the persistent wrapper from the current configuration (initializing
-   it on the first run). Updates use `--rebase-conflicts-strategy=backup`:
-   if a layer cannot be updated in place, BitBake preserves its checkout in a
-   timestamped backup and re-clones it. This also handles branch switches that
-   change a repository URL and leave the checkout pointing at an old download
-   cache. If setup's rebase leaves a fixed-revision layer at a different commit
-   (for example when switching back to an older pin), preparation selects the
-   pin with a non-forced detached checkout, retaining existing branch history.
-   It then verifies every fixed-revision layer's HEAD and synchronizes those
-   verified revisions into `config/sources-fixed-revisions.json`, including
-   stale entries from previous runs. This keeps the ptest and full-image
-   fingerprints consistent with the checkouts. Rolling source revisions are
-   left unchanged. Preparation also restores each Git source's configured
-   origin URL, even when its revision already matches, so a branch switch
-   cannot leave a previous branch's fork in the environment fingerprint.
-   Update, checkout, or origin-repair failures still fail the stage. Missing
-   required `local.conf` or `bblayers.conf` files are errors during fingerprinting.
-3. Builds the dependency ptest images without matching passed results.
-   Dependency ptests are advisory. Cache keys conservatively include all
-   layer recipe metadata and recipe-local files, shared classes and runtime
-   helpers, and the CI validation/planning scripts. A change to this metadata
-   invalidates all dependency ptests, including consumers of changed recipes.
-   The keys also include the complete generated `build/conf` tree (excluding
-   Git internals), the shared `site.conf`, and actual dependency-layer revisions.
-   Documentation-only changes under `docs/` or to the root `README.md` do not
-   invalidate ptests. Returning to identical inputs reuses their previous passes.
-   A passed testimage task must also have an explicit successful OEQA summary;
-   missing or incomplete logs are errors, not cached passes.
-4. Builds and tests `core-image-homeassistant-full`, reusing a successful
-   validation when the image inputs match. A new validation requires a completed
-   `do_testimage` event and an explicit successful OEQA summary before recording
-   a pass. A zero-exit build without runtime-test evidence does not advance the
-   baseline or populate the image-validation cache. Unlike advisory dependency
-   batches, the full-image build does not use keep-going mode.
-5. Advances the image baseline when preparation and full-image validation pass.
+1. Offline unit tests run and dependency ptests are planned.
+2. Dependency ptest images are built and tested. These checks are advisory:
+   dependency failures do not block a pull request by themselves.
+3. `core-image-homeassistant-full` is built and boot-tested in QEMU. This
+   image validation is required. A successful build alone is not enough; CI
+   requires the runtime-test task and a successful OEQA summary.
+4. A validation report and CI job logs are available for pull-request review.
+   Inspect them for the affected package or image and the exact failure.
 
-The active wrapper, shared build caches, and validation records persist between
-runs. Ptest and image cache policy version 2 exclude passes recorded under the
-older result-validation policies; the first run after this change reruns ptests and
-full-image validation once. Later validation/planning script changes also
-invalidate passes automatically. Changes to rolling source revisions still
-invalidate results even when returning to the same branch. For failures, use
-the CI job logs.
+CI uses the project wrapper and host-specific build configuration. The wrapper
+and host setup are maintained by the project; use the local or integrating-
+project commands above rather than relying on CI host details.
 
 Run the offline Python unit suite from the layer root with:
 

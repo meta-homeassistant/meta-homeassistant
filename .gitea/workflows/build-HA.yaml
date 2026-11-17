@@ -15,6 +15,7 @@ jobs:
       CI_RUN_ID: ${{ gitea.run_id }}
       CI_RUN_ATTEMPT: ${{ gitea.run_attempt }}
       CI_STATE_ROOT: /cache/builddir/homeassistant-ci
+      CI_REPORT_PATH: ci-validation-report.md
     container:
       volumes:
         - /cache/:/cache/
@@ -73,6 +74,15 @@ jobs:
         if: ${{ always() && steps.plan.outcome == 'success' }}
         shell: bash
         run: python3 scripts/ci-validate.py finish --state-root "$CI_STATE_ROOT"
+
+      - name: Upload validation report
+        if: ${{ always() && steps.plan.outcome == 'success' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: homeassistant-validation-report
+          path: ${{ env.CI_REPORT_PATH }}
+          if-no-files-found: error
+          retention-days: 2
 
       - name: Release shared build
         if: always()

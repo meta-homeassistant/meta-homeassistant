@@ -536,29 +536,118 @@ def ptests(repo: Path, setup: Path, state: Path, report: dict) -> None:
         raise RuntimeError(f"Dependency ptest BitBake batch failed with status {batch_status}")
 
 
+def validation_summary(report: dict) -> str:
+    results = report.get("results", {})
+    image = report.get("image_validation", {})
+    image_result = results.get("image", "not run")
+    if image_result == "passed":
+        image_status = "**PASSED**"
+        image_status += f" ({image.get('status', 'validated')})"
+    elif image_result == "failed":
+        image_status = "**FAILED**"
+    else:
+        image_status = "**NOT RUN**"
+    ptest_results = report.get("ptest_results", {})
+    failed_ptests = sorted(
+        name for name, result in ptest_results.items()
+        if result.get("status") == "failed"
+    )
+    pending_ptests = sorted(
+        name for name, result in ptest_results.items()
+        if result.get("status") == "pending"
+    )
+    passed_count = sum(
+        result.get("status") == "passed" for result in ptest_results.values()
+    )
+    ptest_status = results.get("ptests", "not run").upper()
+    if failed_ptests:
+        ptest_status = f"**FAILED** ({len(failed_ptests)} failed"
+        if pending_ptests:
+            ptest_status += f", {len(pending_ptests)} pending"
+        ptest_status += ")"
+    elif pending_ptests:
+        ptest_status = f"**INCOMPLETE** ({len(pending_ptests)} pending)"
+    elif ptest_status == "PASSED":
+        ptest_status = f"**PASSED** ({passed_count} passed)"
+    elif ptest_status == "FAILED":
+        ptest_status = "**FAILED**"
+    else:
+        ptest_status = "**NOT RUN**"
+    lines = [
+        "# Home Assistant validation",
+        "",
+        f"- **Revision:** `{report['revision']}`",
+        f"- **Ref:** `{report['scope']['ref']}`",
+        "",
+        "## Required validation",
+        "",
+        "| Validation | Result |",
+        "|---|---|",
+        f"| Preparation | {results.get('prepare', 'not run').upper()} |",
+        (
+            "| `core-image-homeassistant-full` image and runtime tests "
+            "(includes `python3-homeassistant` ptest) | "
+            f"{image_status} |"
+        ),
+        (
+            "| Dependency ptests "
+            "(`meta-homeassistant-image-ptest-*`) | "
+            f"{ptest_status} |"
+        ),
+    ]
+    lines.append("")
+    if failed_ptests:
+        lines.extend([
+            f"> **Failed dependency ptests ({len(failed_ptests)}):** "
+            + ", ".join(f"`{name}`" for name in failed_ptests),
+            "",
+        ])
+    if pending_ptests:
+        lines.extend([
+            f"> **Dependency ptests without a result ({len(pending_ptests)}):** "
+            + ", ".join(f"`{name}`" for name in pending_ptests),
+            "",
+        ])
+    if image.get("validated_revision"):
+        lines.extend([
+            f"Full-image validation reused from `{image['validated_revision']}`.",
+            "",
+        ])
+    if ptest_results:
+        lines.extend([
+            "## Dependency ptest results",
+            "",
+            "| Dependency | Result |",
+            "|---|---|",
+        ])
+        for recipe, result in sorted(ptest_results.items()):
+            status = result.get("status", "unknown").upper()
+            if status == "FAILED":
+                status = f"**{status}**"
+            elif status == "PENDING":
+                status = f"**{status}**"
+            lines.append(f"| `{recipe}` | {status} |")
+    else:
+        lines.extend(["No dependency ptest results were recorded.", ""])
+    return "\n".join(lines).rstrip() + "\n"
+
+
 def finish(repo: Path, state: Path, report: dict) -> None:
     required = ("prepare", "image")
     passed = all(report["results"].get(stage) == "passed" for stage in required)
     print("Required validation stages:", flush=True)
     for stage in required:
         print(f"  {stage}: {report['results'].get(stage, 'not run')}", flush=True)
+    summary_content = validation_summary(report)
+    report_path = Path(os.environ.get("CI_REPORT_PATH", str(repo / "ci-validation-report.md")))
+    if not report_path.is_absolute():
+        report_path = repo / report_path
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    report_path.write_text(summary_content)
     summary = os.environ.get("GITHUB_STEP_SUMMARY")
     if summary:
         with open(summary, "a") as stream:
-            stream.write("## Home Assistant validation\n\n| Stage | Result |\n|---|---|\n")
-            for stage in required:
-                stream.write(f"| {stage} | {report['results'].get(stage, 'not run')} |\n")
-            image_validation_status = report.get("image_validation", {}).get("status", "not run")
-            if report["results"].get("image") != "passed":
-                image_validation_status = report["results"].get("image", "not run")
-            stream.write(
-                f"| full-image validation | {image_validation_status} |\n"
-            )
-            stream.write(f"| dependency ptests | {report['results'].get('ptests', 'not run')} |\n")
-            for recipe, result in report.get("ptest_results", {}).items():
-                stream.write(
-                    f"| `{recipe}` | {result.get('status', 'unknown')} |\n"
-                )
+            stream.write(summary_content)
     results = report.get("ptest_results", {})
     failed = [
         recipe for recipe, result in results.items()
