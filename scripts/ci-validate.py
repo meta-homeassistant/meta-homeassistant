@@ -124,7 +124,7 @@ def prepare(repo: Path, state: Path, bootstrap: Path) -> Path:
     )
     setup = top / CONFIGURATION
     pinned_layers = {
-        setup / "layers" / source.get("path", name): source["git-remote"]["rev"]
+        name: source
         for name, source in config["sources"].items()
         if "git-remote" in source
         and re.fullmatch(r"[0-9a-fA-F]{40}", source["git-remote"]["rev"])
@@ -145,6 +145,7 @@ def prepare(repo: Path, state: Path, bootstrap: Path) -> Path:
             raise RuntimeError(f"Existing build wrapper is incomplete: {setup}")
         command.extend([
             "update", "--setup-dir", str(setup), "--update-bb-conf", "yes",
+            "--rebase-conflicts-strategy=backup",
         ])
     else:
         command.extend([
@@ -154,13 +155,36 @@ def prepare(repo: Path, state: Path, bootstrap: Path) -> Path:
     subprocess.run(command, cwd=repo, check=True)
     if not (setup / "build/init-build-env").is_file():
         raise RuntimeError("Build configuration setup did not create an environment")
-    for layer, revision in pinned_layers.items():
+    resolved_path = setup / "config/sources-fixed-revisions.json"
+    resolved = json.loads(resolved_path.read_text())
+    resolved_changed = False
+    for name, source in pinned_layers.items():
+        layer = setup / "layers" / source.get("path", name)
+        revision = source["git-remote"]["rev"]
         actual = planner.git(layer, "rev-parse", "HEAD")
+        if actual.lower() != revision.lower():
+            print(
+                f"Selecting configured pin {revision} for {layer.name}; "
+                f"setup left HEAD at {actual}",
+                flush=True,
+            )
+            subprocess.run(
+                ["git", "-C", str(layer), "checkout", "--detach", revision],
+                cwd=repo, check=True,
+            )
+            actual = planner.git(layer, "rev-parse", "HEAD")
         if actual.lower() != revision.lower():
             raise RuntimeError(
                 f"Layer {layer.name} is at {actual}, expected configured pin {revision}"
             )
+        recorded = resolved["sources"][name]["git-remote"]
+        if recorded["rev"] != actual:
+            recorded["rev"] = actual
+            resolved_changed = True
         print(f"Verified {layer.name} at configured pin {revision}", flush=True)
+    if resolved_changed:
+        write_json(resolved_path, resolved)
+        print("Updated resolved source revisions to match verified layer pins", flush=True)
     return setup
 
 

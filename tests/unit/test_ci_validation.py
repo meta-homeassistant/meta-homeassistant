@@ -825,6 +825,7 @@ class ValidationTests(unittest.TestCase):
                 (setup / "build/init-build-env").touch()
                 (setup / "config").mkdir()
                 (setup / "config/config-upstream.json").write_text("{}")
+                ci.write_json(setup / "config/sources-fixed-revisions.json", {"sources": {}})
                 (setup / "layers").mkdir(exist_ok=True)
             else:
                 self.assertIn("update", command)
@@ -839,8 +840,9 @@ class ValidationTests(unittest.TestCase):
                 self.assertEqual(ci.prepare(self.repo, self.state, self.root / "bootstrap"), setup)
             self.assertIn("update", command.call_args.args[0])
             self.assertEqual(
-                command.call_args.args[0][-4:],
-                ["--setup-dir", str(setup), "--update-bb-conf", "yes"],
+                command.call_args.args[0][-5:],
+                ["--setup-dir", str(setup), "--update-bb-conf", "yes",
+                 "--rebase-conflicts-strategy=backup"],
             )
             (setup / "build/init-build-env").unlink()
             with self.assertRaisesRegex(RuntimeError, "wrapper is incomplete"):
@@ -882,6 +884,18 @@ class ValidationTests(unittest.TestCase):
         layer.parent.mkdir()
         REAL_RUN(["git", "clone", "--quiet", str(self.repo), str(layer)], check=True)
         (layer / "untracked-work").write_text("obsolete work")
+        (setup / "layers/meta-homeassistant").symlink_to(self.repo)
+        (setup / "build/conf").mkdir()
+        (setup / "build/conf/local.conf").write_text('MACHINE = "qemux86-64"\n')
+        (setup / "build/conf/bblayers.conf").write_text(f'BBLAYERS = "{layer}"\n')
+        resolved_path = setup / "config/sources-fixed-revisions.json"
+        resolved = {"sources": {
+            "dependency": {"git-remote": {
+                "uri": str(self.repo), "branch": "main", "rev": newer,
+            }},
+            "rolling-dependency": {"git-remote": {"rev": newer}},
+        }}
+        ci.write_json(resolved_path, resolved)
 
         def update(command, **kwargs):
             if command[0] == "git":
@@ -896,8 +910,27 @@ class ValidationTests(unittest.TestCase):
             ci.prepare(self.repo, self.state, self.root / "bootstrap")
         self.assertEqual(planner.git(layer, "rev-parse", "HEAD"), self.initial)
         self.assertTrue((layer / "untracked-work").is_file())
+        self.assertEqual(
+            json.loads(resolved_path.read_text())["sources"]["dependency"]["git-remote"]["rev"],
+            self.initial,
+        )
+        self.assertEqual(
+            PTEST_ENVIRONMENT(self.repo, setup, self.state, newer)["layers"]["dependency"]["revision"],
+            self.initial,
+        )
+        with patch.object(ci, "ptest_environment", side_effect=PTEST_ENVIRONMENT):
+            ci.image_validation_fingerprint(self.repo, setup, self.state, newer)
+        ci.write_json(resolved_path, resolved)
         with patch.object(ci.subprocess, "run", side_effect=update):
             ci.prepare(self.repo, self.state, self.root / "bootstrap")
+        self.assertEqual(
+            json.loads(resolved_path.read_text())["sources"]["dependency"]["git-remote"]["rev"],
+            self.initial,
+        )
+        self.assertEqual(
+            json.loads(resolved_path.read_text())["sources"]["rolling-dependency"],
+            resolved["sources"]["rolling-dependency"],
+        )
 
         REAL_RUN(["git", "-C", str(layer), "checkout", "--quiet", "--detach", newer], check=True)
 
@@ -908,8 +941,55 @@ class ValidationTests(unittest.TestCase):
             return subprocess.CompletedProcess(command, 0)
 
         with patch.object(ci.subprocess, "run", side_effect=wrong_checkout):
-            with self.assertRaisesRegex(RuntimeError, "expected configured pin"):
+            ci.prepare(self.repo, self.state, self.root / "bootstrap")
+        self.assertEqual(planner.git(layer, "rev-parse", "HEAD"), self.initial)
+        self.assertEqual(planner.git(layer, "rev-parse", "main"), newer)
+        self.assertTrue((layer / "untracked-work").is_file())
+
+        config_path = directory / "homeassistant.conf.json"
+        config = json.loads(config_path.read_text())
+        config["sources"]["dependency"]["git-remote"]["rev"] = "f" * 40
+        ci.write_json(config_path, config)
+        verified_manifest = resolved_path.read_text()
+        with patch.object(ci.subprocess, "run", side_effect=wrong_checkout):
+            with self.assertRaises(subprocess.CalledProcessError):
                 ci.prepare(self.repo, self.state, self.root / "bootstrap")
+        self.assertEqual(planner.git(layer, "rev-parse", "HEAD"), self.initial)
+        self.assertEqual(resolved_path.read_text(), verified_manifest)
+
+        config["sources"]["dependency"]["git-remote"]["rev"] = self.initial
+        ci.write_json(config_path, config)
+        planner.git(layer, "checkout", "--detach", newer)
+        (layer / "fork-file").write_text("local edits")
+        with patch.object(ci.subprocess, "run", side_effect=wrong_checkout):
+            with self.assertRaises(subprocess.CalledProcessError):
+                ci.prepare(self.repo, self.state, self.root / "bootstrap")
+        self.assertEqual(planner.git(layer, "rev-parse", "HEAD"), newer)
+        self.assertEqual((layer / "fork-file").read_text(), "local edits")
+
+    def test_prepare_does_not_hide_failed_wrapper_recovery(self):
+        ci.acquire(self.state, timeout=0)
+        directory = self.repo / "configurations"
+        directory.mkdir()
+        ci.write_json(directory / "homeassistant.conf.json", {
+            "sources": {},
+            "bitbake-setup": {"configurations": [
+                {"name": ci.CONFIGURATION, "oe-fragments": []},
+            ]},
+        })
+        setup = self.state / "bitbake-builds" / ci.CONFIGURATION
+        (setup / "build").mkdir(parents=True)
+        (setup / "build/init-build-env").touch()
+        (setup / "config").mkdir()
+        (setup / "config/config-upstream.json").write_text("{}")
+        failure = subprocess.CalledProcessError(1, "bitbake-setup")
+        with patch.object(ci.subprocess, "run", side_effect=failure) as command:
+            with self.assertRaises(subprocess.CalledProcessError) as raised:
+                ci.prepare(self.repo, self.state, self.root / "bootstrap")
+        self.assertIs(raised.exception, failure)
+        command.assert_called_once()
+        self.assertIn("--rebase-conflicts-strategy=backup", command.call_args.args[0])
+        self.assertTrue(command.call_args.kwargs["check"])
 
     def test_build_preserves_arguments_and_streams_output(self):
         setup = self.root / "wrapper with spaces"

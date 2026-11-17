@@ -95,7 +95,18 @@ Automated CI validation:
 
 1. Runs the offline CI unit tests and plans dependency ptests.
 2. Updates the persistent wrapper from the current configuration (initializing
-   it on the first run).
+   it on the first run). Updates use `--rebase-conflicts-strategy=backup`:
+   if a layer cannot be updated in place, BitBake preserves its checkout in a
+   timestamped backup and re-clones it. This also handles branch switches that
+   change a repository URL and leave the checkout pointing at an old download
+   cache. If setup's rebase leaves a fixed-revision layer at a different commit
+   (for example when switching back to an older pin), preparation selects the
+   pin with a non-forced detached checkout, retaining existing branch history.
+   It then verifies every fixed-revision layer's HEAD and synchronizes those
+   verified revisions into `config/sources-fixed-revisions.json`, including
+   stale entries from previous runs. This keeps the ptest and full-image
+   fingerprints consistent with the checkouts. Rolling source revisions are
+   left unchanged. Update or checkout failures still fail the stage.
 3. Builds selected dependency ptest images and cleans their outputs after they
    pass. Matching passed results may be reused; dependency ptests are advisory.
 4. Builds and tests `core-image-homeassistant-full`, reusing a successful
