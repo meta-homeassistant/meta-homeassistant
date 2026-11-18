@@ -374,7 +374,7 @@ def ptest_environment(repo: Path, setup: Path, state: Path, revision: str) -> di
 
 
 def image_signatures(repo: Path, setup: Path, targets: list[str]) -> dict[str, str]:
-ou    started = time.monotonic()
+    started = time.monotonic()
     with tempfile.TemporaryDirectory(prefix="ha-ci-signatures-") as temporary:
         directory = Path(temporary)
         output = directory / "signatures.json"
