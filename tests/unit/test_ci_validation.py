@@ -11,6 +11,7 @@ import shlex
 import subprocess
 import sys
 import tempfile
+import textwrap
 import unittest
 from unittest.mock import patch
 
@@ -20,6 +21,7 @@ ci = importlib.import_module("ci-validate")
 planner = importlib.import_module("ci-plan")
 RUN_PTEST_BATCH = ci.run_ptest_batch
 PTEST_ENVIRONMENT = ci.ptest_environment
+IMAGE_SIGNATURES = ci.image_signatures
 REAL_RUN = subprocess.run
 
 
@@ -54,6 +56,26 @@ class ValidationTests(unittest.TestCase):
         environment = patch.object(ci, "ptest_environment", side_effect=lambda *args: self.environment_inputs)
         self.environment_query = environment.start()
         self.addCleanup(environment.stop)
+        self.signature_inputs = {}
+        signatures = patch.object(
+            ci, "image_signatures",
+            side_effect=lambda repo, setup, targets: {
+                target: self.signature_inputs.get(target, "signature") for target in targets
+            },
+        )
+        self.signatures = signatures.start()
+        self.addCleanup(signatures.stop)
+
+    def fingerprints(self, revision, recipes):
+        return {
+            recipe: ci.hashlib.sha256(json.dumps([
+                fingerprint,
+                self.signature_inputs.get(f"meta-homeassistant-image-ptest-{recipe}", "signature"),
+            ]).encode()).hexdigest()
+            for recipe, fingerprint in planner.recipe_fingerprints(
+                self.repo, revision, recipes,
+            ).items()
+        }
 
     def run_ptest_batch(self, repo, setup, targets, directory):
         for target in targets:
@@ -90,7 +112,7 @@ class ValidationTests(unittest.TestCase):
     def baseline(self, revision=None, ref=None):
         revision = revision or self.initial
         recipes = ["python3-one", "python3-two"]
-        fingerprints = planner.recipe_fingerprints(self.repo, revision, recipes) if revision != "0" * 40 else {}
+        fingerprints = self.fingerprints(revision, recipes) if revision != "0" * 40 else {}
         return {
             "policy": planner.POLICY,
             "scope": {**ci.scope(), "ref": ref or os.environ["CI_REF"]},
@@ -120,8 +142,8 @@ class ValidationTests(unittest.TestCase):
         environment_key = ci.hashlib.sha256(
             json.dumps(self.environment_inputs, sort_keys=True).encode()
         ).hexdigest()
-        fingerprints = planner.recipe_fingerprints(
-            self.repo, report["revision"], list(report["ptest_results"]),
+        fingerprints = self.fingerprints(
+            report["revision"], list(report["ptest_results"]),
         )
         cache = ci.ptest_cache_path(self.state, report["scope"], environment_key)
         for recipe, result in report["ptest_results"].items():
@@ -418,12 +440,11 @@ class ValidationTests(unittest.TestCase):
         (setup.parent / "site.conf").write_text('DL_DIR = "/cache/downloads"\n')
         return setup
 
-    def test_layer_dependencies_and_validation_policy_invalidate_cached_ptests(self):
+    def test_validation_policy_invalidates_cached_ptests(self):
         setup = self.environment_setup()
         self.commit("recipes-devtools/python/python3-consumer_1.bb",
                     'RDEPENDS:${PN} = "python3-helper"\n')
         inputs = {
-            "recipes-devtools/python/python3-helper_1.bb": 'PV = "1"\n',
             "scripts/ci-validate.py": "# validation policy\n",
             "scripts/ci-plan.py": "# recipe fingerprint policy\n",
         }
@@ -468,7 +489,93 @@ class ValidationTests(unittest.TestCase):
             documentation = self.report(ptest_results={})
             ci.ptests(self.repo, setup, self.state, documentation)
             self.assertEqual(documentation["selected_ptests"], [])
-        self.assertEqual(self.batch.call_count, 4)
+        self.assertEqual(self.batch.call_count, 3)
+
+    def test_dependency_signature_change_retests_consumer_not_unrelated_image(self):
+        first = self.report(ptest_results={})
+        with patch.object(ci, "get_variable", return_value="python3-one python3-two"):
+            ci.ptests(self.repo, self.root, self.state, first)
+            self.commit("recipes-devtools/python/python3-helper_1.bb", 'PV = "2"\n')
+            self.signature_inputs["meta-homeassistant-image-ptest-python3-one"] = "new dependency"
+            following = self.report(ptest_results=first["ptest_results"])
+            ci.ptests(self.repo, self.root, self.state, following)
+        self.assertEqual(following["selected_ptests"], ["python3-one"])
+        self.assertEqual(first["ptest_environment"], following["ptest_environment"])
+        self.assertEqual(
+            following["ptest_results"]["python3-two"], first["ptest_results"]["python3-two"],
+        )
+        self.assertEqual(self.signatures.call_args.args[2], [
+            "meta-homeassistant-image-ptest-python3-one",
+            "meta-homeassistant-image-ptest-python3-two",
+            ci.TARGET,
+        ])
+        self.assertIn("Reused 1 of 2 results; selected 1 images", ci.validation_summary(following))
+
+    def test_recipe_inputs_are_not_part_of_global_environment(self):
+        setup = self.environment_setup()
+        initial = PTEST_ENVIRONMENT(self.repo, setup, self.state, self.initial)
+        for path in (
+            "recipes-devtools/python/python3-one_1.bb",
+            "recipes-devtools/python/python3-one/run-ptest",
+            "recipes-devtools/python/python3-one.inc",
+            "recipes-devtools/python/common.inc",
+            "recipes-homeassistant/images/meta-homeassistant-image-ptest.bb",
+            "dynamic-layers/test/recipes-python/python3-one_%.bbappend",
+        ):
+            with self.subTest(path=path):
+                revision = self.commit(path, "# changed recipe input\n")
+                self.assertEqual(
+                    PTEST_ENVIRONMENT(self.repo, setup, self.state, revision), initial,
+                )
+
+    def test_signature_export_uses_one_signature_only_invocation(self):
+        targets = ["meta-homeassistant-image-ptest-python3-one", ci.TARGET]
+        inputs = {
+            target: {
+                "basehash": "base",
+                "file_checksums": [],
+                "dependencies": {f"{target}.do_image_complete": "image hash"},
+            }
+            for target in targets
+        }
+
+        def export(command, **kwargs):
+            arguments = command[5:]
+            self.assertEqual(arguments[0], "bitbake")
+            self.assertEqual(arguments[3:], ["-S", "none", "-c", "testimage", *targets])
+            configuration = Path(arguments[2]).read_text()
+            output = json.loads(next(
+                line.split(" = ", 1)[1] for line in configuration.splitlines()
+                if line.startswith("HA_CI_SIGNATURE_OUTPUT = ")
+            ))
+            ci.write_json(Path(output), inputs)
+
+        with patch.object(ci.subprocess, "run", side_effect=export) as run:
+            first = IMAGE_SIGNATURES(self.repo, self.root, targets)
+            self.assertEqual(first, IMAGE_SIGNATURES(self.repo, self.root, targets))
+            inputs[targets[0]]["dependencies"][f"{targets[0]}.do_image_complete"] = "changed"
+            changed = IMAGE_SIGNATURES(self.repo, self.root, targets)
+        self.assertNotEqual(first[targets[0]], changed[targets[0]])
+        self.assertEqual(first[ci.TARGET], changed[ci.TARGET])
+        self.assertEqual(run.call_count, 3)
+
+    def test_signature_export_rejects_missing_or_incomplete_output(self):
+        targets = [ci.TARGET]
+        with patch.object(ci.subprocess, "run"):
+            with self.assertRaisesRegex(RuntimeError, "did not export"):
+                IMAGE_SIGNATURES(self.repo, self.root, targets)
+
+        def export(command, **kwargs):
+            configuration = Path(command[7]).read_text()
+            output = json.loads(next(
+                line.split(" = ", 1)[1] for line in configuration.splitlines()
+                if line.startswith("HA_CI_SIGNATURE_OUTPUT = ")
+            ))
+            ci.write_json(Path(output), {ci.TARGET: {"basehash": "incomplete"}})
+
+        with patch.object(ci.subprocess, "run", side_effect=export):
+            with self.assertRaisesRegex(RuntimeError, "Invalid BitBake CI signature"):
+                IMAGE_SIGNATURES(self.repo, self.root, targets)
 
     def test_environment_tracks_nested_and_automatic_build_configuration(self):
         setup = self.environment_setup()
@@ -1377,6 +1484,93 @@ class ValidationTests(unittest.TestCase):
         self.assertIn("uses: actions/upload-artifact@v4", workflow)
         self.assertIn("path: ${{ env.CI_REPORT_PATH }}", workflow)
         self.assertIn("steps.plan.outcome == 'success'", workflow)
+
+
+@unittest.skipUnless(os.environ.get("HA_CI_BITBAKE"), "Set HA_CI_BITBAKE to test real signatures")
+class BitBakeSignatureTests(unittest.TestCase):
+    def test_dependency_changes_propagate_without_executing_tasks(self):
+        repo = Path(__file__).resolve().parents[2]
+        bitbake = Path(os.environ["HA_CI_BITBAKE"]).resolve()
+        with tempfile.TemporaryDirectory(prefix="ha-ci-bitbake-test-") as temporary:
+            setup = Path(temporary)
+            build = setup / "build"
+            (build / "conf").mkdir(parents=True)
+            (build / "classes").mkdir()
+            recipes = build / "recipes"
+            recipes.mkdir()
+            (build / "init-build-env").write_text(
+                f'export BBPATH={shlex.quote(str(build) + ":" + str(repo))}\n'
+                f'export PATH={shlex.quote(str(bitbake.parent))}:"$PATH"\n'
+                f'cd {shlex.quote(str(build))}\n'
+            )
+            (build / "conf/bitbake.conf").write_text(textwrap.dedent("""\
+                BBFILES = "${TOPDIR}/recipes/*.bb"
+                CACHE = "${TOPDIR}/cache"
+                TMPDIR = "${TOPDIR}/tmp"
+                STAMP = "${TMPDIR}/stamps/${PN}"
+                T = "${TMPDIR}/work/${PN}/temp"
+                PN = "${@bb.parse.vars_from_file(d.getVar('FILE', False), d)[0]}"
+                PF = "${PN}"
+                PROVIDES = "${PN}"
+                PACKAGES = "${PN}"
+                THISDIR = "${@os.path.dirname(d.getVar('FILE'))}"
+                BB_SIGNATURE_HANDLER = "basichash"
+                BB_NUMBER_THREADS = "1"
+                BB_NUMBER_PARSE_THREADS = "1"
+                BB_BASEHASH_IGNORE_VARS = "TOPDIR TMPDIR FILE BB_CURRENTTASK"
+                export PATH
+                """))
+            (build / "classes/base.bbclass").write_text(textwrap.dedent("""\
+                python do_package() {
+                    bb.fatal("Signature scans must not execute tasks: " + d.getVar("VALUE"))
+                }
+                do_package[deptask] = "do_package"
+                do_package[rdeptask] = "do_package"
+                addtask package
+                python do_image_complete() {
+                    bb.fatal("Signature scans must not build images")
+                }
+                do_image_complete[rdeptask] = "do_package"
+                addtask image_complete
+                python do_testimage() {
+                    bb.fatal("Signature scans must not run tests: " + d.getVar("TEST_POLICY"))
+                }
+                do_testimage[nostamp] = "1"
+                addtask testimage after do_image_complete
+                """))
+            (recipes / "a.inc").write_text('VALUE = "original"\n')
+            (recipes / "source.patch").write_text("original patch\n")
+            (recipes / "a.bb").write_text(
+                'require a.inc\ndo_package[file-checksums] = "${THISDIR}/source.patch:True"\n'
+            )
+            (recipes / "b.bb").write_text('RDEPENDS:${PN} = "a"\n')
+            (recipes / "c.bb").write_text('VALUE = "unrelated"\n')
+            (recipes / "image-b.bb").write_text('RDEPENDS:${PN} = "b"\n')
+            (recipes / "image-c.bb").write_text('RDEPENDS:${PN} = "c"\n')
+            (recipes / f"{ci.TARGET}.bb").write_text('RDEPENDS:${PN} = "b c"\n')
+            targets = ["image-b", "image-c", ci.TARGET]
+
+            first = IMAGE_SIGNATURES(repo, setup, targets)
+            self.assertEqual(IMAGE_SIGNATURES(repo, setup, targets), first)
+            for path, content in (
+                ("a.inc", 'VALUE = "changed"\n'),
+                ("source.patch", "changed patch\n"),
+                ("b.bb", 'RDEPENDS:${PN} = "c"\n'),
+                ("b.bb", 'DEPENDS = "a"\nRDEPENDS:${PN} = "c"\n'),
+            ):
+                with self.subTest(path=path):
+                    (recipes / path).write_text(content)
+                    changed = IMAGE_SIGNATURES(repo, setup, targets)
+                    self.assertNotEqual(changed["image-b"], first["image-b"])
+                    self.assertNotEqual(changed[ci.TARGET], first[ci.TARGET])
+                    self.assertEqual(changed["image-c"], first["image-c"])
+                    first = changed
+            (recipes / "image-c.bb").write_text(
+                'RDEPENDS:${PN} = "c"\nTEST_POLICY = "new runtime checks"\n'
+            )
+            changed = IMAGE_SIGNATURES(repo, setup, targets)
+            self.assertNotEqual(changed["image-c"], first["image-c"])
+            self.assertEqual(changed["image-b"], first["image-b"])
 
 
 if __name__ == "__main__":

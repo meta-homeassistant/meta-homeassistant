@@ -18,7 +18,7 @@ import time
 planner = importlib.import_module("ci-plan")
 CONFIGURATION = "homeassistant-x86"
 TARGET = "core-image-homeassistant-full"
-PTEST_VALIDATION_CACHE_VERSION = 2
+PTEST_VALIDATION_CACHE_VERSION = 3
 IMAGE_VALIDATION_CACHE_VERSION = 2
 TEST_FRAGMENTS = (
     "homeassistant/enable-testing-base",
@@ -342,10 +342,13 @@ def ptest_environment(repo: Path, setup: Path, state: Path, revision: str) -> di
         name: blob for name, blob in objects.items()
         if name.startswith((
             "conf/", "classes/", "classes-recipe/", "classes-global/", "lib/",
-            "tests/image/", "dynamic-layers/", "recipes-",
+            "tests/image/",
         ))
         or name in ("scripts/ci-validate.py", "scripts/ci-plan.py")
-        or name.endswith((".inc", ".bbclass")) or {"images", "packagegroups"} & set(Path(name).parts)
+        or (
+            not any(part.startswith("recipes-") for part in Path(name).parts)
+            and (name.startswith("dynamic-layers/") or name.endswith((".inc", ".bbclass")))
+        )
     }
     for name in ("local.conf", "bblayers.conf"):
         path = setup / "build/conf" / name
@@ -362,7 +365,56 @@ def ptest_environment(repo: Path, setup: Path, state: Path, revision: str) -> di
     return {
         "version": PTEST_VALIDATION_CACHE_VERSION, "layers": layers, "configuration": selected,
         "build_config": build_config, "shared_metadata": shared,
+        "host": {
+            "system": platform.system(),
+            "release": platform.release(),
+            "machine": platform.machine(),
+        },
     }
+
+
+def image_signatures(repo: Path, setup: Path, targets: list[str]) -> dict[str, str]:
+ou    started = time.monotonic()
+    with tempfile.TemporaryDirectory(prefix="ha-ci-signatures-") as temporary:
+        directory = Path(temporary)
+        output = directory / "signatures.json"
+        configuration = directory / "signatures.conf"
+        configuration.write_text(
+            'INHERIT += "ha_ci_signatures"\n'
+            f'HA_CI_SIGNATURE_TARGETS = {json.dumps(" ".join(targets))}\n'
+            f'HA_CI_SIGNATURE_OUTPUT = {json.dumps(str(output))}\n'
+        )
+        subprocess.run(
+            build_command(setup, [
+                "bitbake", "-R", str(configuration), "-S", "none", "-c", "testimage", *targets,
+            ]),
+            cwd=repo, check=True,
+        )
+        if not output.is_file():
+            raise RuntimeError("BitBake did not export CI image signatures")
+        signatures = json.loads(output.read_text())
+        if not isinstance(signatures, dict) or set(signatures) != set(targets):
+            raise RuntimeError("BitBake CI signatures do not match the requested images")
+        for target, inputs in signatures.items():
+            if (
+                not isinstance(inputs, dict)
+                or not isinstance(inputs.get("basehash"), str)
+                or not isinstance(inputs.get("file_checksums"), list)
+                or not isinstance(inputs.get("dependencies"), dict)
+                or f"{target}.do_image_complete" not in inputs["dependencies"]
+                or any(not isinstance(value, str) for value in inputs["dependencies"].values())
+            ):
+                raise RuntimeError(f"Invalid BitBake CI signature for {target}")
+        fingerprints = {
+            target: hashlib.sha256(json.dumps(inputs, sort_keys=True).encode()).hexdigest()
+            for target, inputs in signatures.items()
+        }
+    print(
+        f"Calculated BitBake signatures for {len(targets)} images "
+        f"in {time.monotonic() - started:.1f}s (no build tasks executed)",
+        flush=True,
+    )
+    return fingerprints
 
 
 def ptest_cache_path(state: Path, run_scope: dict, environment_key: str) -> Path:
@@ -486,9 +538,23 @@ def ptests(repo: Path, setup: Path, state: Path, report: dict) -> None:
     cache.mkdir(parents=True, exist_ok=True)
     write_json(cache / "environment.json", environment)
     report["ptest_environment"] = environment_key
-    fingerprints = planner.recipe_fingerprints(repo, report["revision"], enabled)
+    targets = [f"meta-homeassistant-image-ptest-{recipe}" for recipe in enabled]
+    started = time.monotonic()
+    signatures = image_signatures(repo, setup, [*targets, TARGET])
+    report["signature_scan_seconds"] = round(time.monotonic() - started, 1)
+    report["image_signatures"] = signatures
+    if ptest_environment(repo, setup, state, report["revision"]) != environment:
+        raise RuntimeError("Build environment changed during signature calculation")
+    recipe_inputs = planner.recipe_fingerprints(repo, report["revision"], enabled)
+    fingerprints = {
+        recipe: hashlib.sha256(
+            json.dumps([recipe_inputs[recipe], signatures[target]]).encode()
+        ).hexdigest()
+        for recipe, target in zip(enabled, targets)
+    }
     results = reusable_ptest_results(cache, environment_key, fingerprints)
     selected = [recipe for recipe in enabled if recipe not in results]
+    report["reused_ptests"] = sorted(results)
     print(
         f"Ptest environment {environment_key}: reused {len(results)} of {len(enabled)} results",
         flush=True,
@@ -617,6 +683,15 @@ def validation_summary(report: dict) -> str:
         lines.extend([
             "## Dependency ptest results",
             "",
+        ])
+        if "reused_ptests" in report:
+            lines.extend([
+                f"Reused {len(report['reused_ptests'])} of {len(ptest_results)} results; "
+                f"selected {len(report['selected_ptests'])} images for validation.",
+                f"BitBake signature scan: {report['signature_scan_seconds']:.1f}s.",
+                "",
+            ])
+        lines.extend([
             "| Dependency | Result |",
             "|---|---|",
         ])

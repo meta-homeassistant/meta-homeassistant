@@ -68,7 +68,9 @@ provides the comparison used by the workflow.
 
 Automated validation reuses and updates its persistent wrapper from the current
 configuration (creating it on the first run), runs selected dependency ptests,
-and builds and tests the full image. Matching successful dependency ptests and
+and builds and tests the full image. BitBake signatures select dependency ptests
+affected by recipe changes, including transitive dependencies; external layer
+updates invalidate all results. Matching successful dependency ptests and
 full-image validations may be reused. See the
 [testing guide](docs/testing.md#automated-validation) for an overview.
 

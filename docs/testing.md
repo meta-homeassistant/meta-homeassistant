@@ -106,6 +106,42 @@ CI uses the project wrapper and host-specific build configuration. The wrapper
 and host setup are maintained by the project; use the local or integrating-
 project commands above rather than relying on CI host details.
 
+#### Reusing validation results
+
+CI checks all enabled dependency ptest images and `core-image-homeassistant-full`
+in one signature-only BitBake invocation (`-S none -c testimage`). This resolves
+their dependency graphs without compiling packages or booting QEMU. The log and
+validation report include the signature-scan duration and reused/selected counts.
+
+- Any external layer revision change, including BitBake, invalidates all results.
+  Floating revisions such as `master` can therefore invalidate results even
+  when the Home Assistant commit only changes a recipe.
+- Shared Home Assistant configuration, classes, test infrastructure, CI policy,
+  generated build configuration, or runner OS/kernel/architecture changes also
+  invalidate dependency results.
+- Recipe edits, appends, patches, and includes are handled by BitBake's resolved
+  dependency signatures. A changed dependency invalidates consuming ptest
+  images, not unrelated images. Recipe-local Git fingerprints additionally
+  track the tested recipe's checked-in files and permissions.
+- Full-image validation retains a fingerprint of all non-documentation layer
+  inputs, so recipe changes invalidate `core-image-homeassistant-full` even if
+  no dependency ptest image uses that recipe.
+- Only successful, matching results are reused. Failed or missing results are
+  retried. Dependencies must be declared correctly in BitBake metadata.
+
+The test fingerprint combines `do_testimage`'s input/base hash and file checksums
+with its direct dependencies' task hashes, including `do_image_complete`.
+Dependency task hashes carry transitive build and package dependencies.
+`do_testimage`'s own task hash is deliberately excluded: it contains a fresh
+`nostamp` execution nonce and would otherwise prevent reuse on identical runs.
+The normal build/test invocation still runs `do_testimage` for selected images.
+The signature-export class is only inherited for the signature scan.
+
+The signature scan is performed on cold caches too, to seed dependency-aware
+results for subsequent runs. The cache policy version changes once when this
+scheme is introduced; older result entries are retained but are not reused.
+This result cache does not delete or disable BitBake's downloads or sstate cache.
+
 Run the offline Python unit suite from the layer root with:
 
 ```sh
@@ -115,6 +151,17 @@ Run the offline Python unit suite from the layer root with:
 All offline Python tests are under `tests/unit/`. `tests/image/` contains
 scripts that build or boot test images. CI runs focused unit tests before
 validation.
+
+An optional regression test runs real BitBake against a temporary miniature
+metadata fixture. It checks stable repeat scans, transitive runtime dependencies,
+includes, local patch checksums, and test-policy changes without executing tasks.
+It never uses the shared CI build directory. Enable it with an existing BitBake
+executable:
+
+```sh
+HA_CI_BITBAKE=/path/to/bitbake/bin/bitbake \
+    python3 -m unittest tests.unit.test_ci_validation tests.unit.test_github_status
+```
 
 ## Run image runtime tests
 
