@@ -10,9 +10,9 @@ SRCREV = "aa4eec3403cb942b3acf1c87c41be1359bf02877"
 inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} = "\
-    python3-aiohttp (>=3.3.0) \
-    python3-mashumaro (>=3.11) \
-    python3-orjson (>=3.6.1) \
+    python3-aiohttp (>=3.14.5) \
+    python3-mashumaro (>=3.23) \
+    python3-orjson (>=3.13.0) \
 "
 
 RDEPENDS:${PN}-ptest += "\
