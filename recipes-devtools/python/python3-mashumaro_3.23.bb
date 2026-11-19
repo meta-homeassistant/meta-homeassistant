@@ -5,12 +5,12 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e7bdee652937974f23d94be386c358bd"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI = "git://github.com/Fatal1ty/mashumaro.git;protocol=https;branch=master"
-SRCREV = "822dfec5f158adcc3415ad735f0af2be273e5699"
+SRCREV = "005ee9054c416d34916066d77c06337bbf17c203"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "\
-    python3-typing-extensions (>=4.1.0) \
+    python3-typing-extensions (>=4.14.0) \
     python3-zoneinfo \
 "
 
