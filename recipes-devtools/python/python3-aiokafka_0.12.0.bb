@@ -11,9 +11,9 @@ DEPENDS = "python3-wheel-native"
 inherit pypi python_setuptools_build_meta cython
 
 #PACKAGECONFIG ?= "all gssapi lz4 snappy zstd"
-PACKAGECONFIG[all] = ",,,python3-cramjam python3-gssapi"
+PACKAGECONFIG[all] = ",,,python3-cramjam (>=2.8.0) python3-gssapi"
 PACKAGECONFIG[gssapi] = ",,,python3-gssapi"
-PACKAGECONFIG[lz4] = ",,,python3-cramjam"
+PACKAGECONFIG[lz4] = ",,,python3-cramjam (>=2.8.0)"
 PACKAGECONFIG[snappy] = ",,,python3-cramjam"
 PACKAGECONFIG[zstd] = ",,,python3-cramjam"
 
