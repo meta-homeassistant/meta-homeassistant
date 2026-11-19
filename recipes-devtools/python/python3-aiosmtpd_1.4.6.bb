@@ -4,6 +4,9 @@ DESCRIPTION = "aiosmtpd provides an asyncio based implementation of an SMTP \
 HOMEPAGE = "https://github.com/aio-libs/aiosmtpd"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=bc741cc0ff820d7ffcfd7cc66d8ac370"
+RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
+
+DEPENDS += "python3-wheel-native"
 
 SRC_URI += "\
     file://0001-migrate-config_test-from-pkg_resources-to-importlib_.patch \
@@ -12,14 +15,12 @@ SRC_URI += "\
 "
 SRC_URI[sha256sum] = "5a811826e1a5a06c25ebc3e6c4a704613eb9a1bcf6b78428fbe865f4f6c9a4b8"
 
-DEPENDS += "python3-wheel-native"
-
 inherit pypi python_setuptools_build_meta ptest
 
 RDEPENDS:${PN} += "\
     python3-asyncio \
-    python3-atpublic \
-    python3-attrs \
+    python3-atpublic (>=5.0) \
+    python3-attrs (>=26.1.0) \
     python3-email \
     python3-mailbox \
 "
