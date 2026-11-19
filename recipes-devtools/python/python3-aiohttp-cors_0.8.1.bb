@@ -9,13 +9,13 @@ inherit pypi setuptools3 ptest-python-pytest
 SRC_URI[sha256sum] = "ccacf9cb84b64939ea15f859a146af1f662a6b1d68175754a07315e305fb1403"
 
 RDEPENDS:${PN} = "\
-    python3-aiohttp (>=1.1) \
+    python3-aiohttp (>=3.9) \
 "
 
 RDEPENDS:${PN}-ptest += "\
+    python3-pytest-aiohttp-client \
     python3-pytest-asyncio \
     python3-pytest-cov \
     python3-pytest-pylint \
     python3-selenium \
-    python3-pytest-aiohttp-client \
 "
