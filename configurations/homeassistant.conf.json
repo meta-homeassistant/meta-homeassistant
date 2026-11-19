@@ -5,7 +5,7 @@
             "git-remote": {
                 "uri": "https://git.openembedded.org/bitbake",
                 "branch": "master",
-                "rev": "master"
+                "rev": "c9f37a2d467df53a82ca15f79e915b18291cd6fb"
             }
         },
         "meta-clang-revival": {
@@ -66,7 +66,7 @@
             "git-remote": {
                 "uri": "https://git.yoctoproject.org/yocto-docs",
                 "branch": "blacksail",
-                "rev": "blacksail"
+                "rev": "28a708ecb3c2ce1669094f9f4c1bdcbc28438bcc"
             }
         }
     },
