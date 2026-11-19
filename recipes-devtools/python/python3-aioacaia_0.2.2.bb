@@ -712,8 +712,7 @@ SRC_URI[sha256sum] = "61093b41ac3d42bbc8d87f744a886df98905d5d1fe8ab95c052cddc24a
 
 inherit pypi python_setuptools_build_meta
 
-RDEPENDS:${PN} = "python3-bleak (>=0.20.2)"
-
 RDEPENDS:${PN} += "\
-    python3-bleak-retry-connector \
+    python3-bleak (>=0.20.2) \
+    python3-bleak-retry-connector (>=4.0.0) \
 "
