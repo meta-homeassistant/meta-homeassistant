@@ -10,5 +10,5 @@ inherit pypi python_poetry_core
 
 RDEPENDS:${PN} = "\
     python3-core (>=3.10) \
-    python3-scapy (>=2.5.0) \
+    python3-scapy (>=2.7.0) \
 "
