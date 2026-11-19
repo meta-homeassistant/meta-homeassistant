@@ -11,5 +11,5 @@ inherit python_poetry_core ptest-python-pytest
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.9.0) \
-    python3-isal \
+    python3-isal (>=1.6.1) \
 "
