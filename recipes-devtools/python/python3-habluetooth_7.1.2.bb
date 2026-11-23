@@ -11,12 +11,14 @@ inherit python_poetry_core cython ptest-python-pytest
 
 RDEPENDS:${PN} = "\
     python3-core (>=3.11) \
-    python3-bleak (>=0.21.1) \
-    python3-bleak-retry-connector (>=3.3.0) \
-    python3-bluetooth-data-tools (>=1.16.0) \
-    python3-bluetooth-adapters (>=0.16.1) \
-    python3-bluetooth-auto-recovery (>=1.2.3) \
+    python3-bleak (>=3.0.2) \
+    python3-bleak-retry-connector (>=4.7.1) \
+    python3-bluetooth-data-tools (>=1.29.24) \
+    python3-bluetooth-adapters (>=2.4.0) \
+    python3-bluetooth-auto-recovery (>=1.6.4) \
     python3-async-interrupt (>=1.1.1) \
+    python3-btsocket (>=0.3.0) \
+    python3-dbus-fast (>=5.0.22) \
 "
 
 RDEPENDS:${PN}-ptest += "\

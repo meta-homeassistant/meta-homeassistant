@@ -9,10 +9,12 @@ SRCREV = "43595daab7bb01bd8153727a25b37bab218f5828"
 
 inherit setuptools3 ptest-python-pytest
 
-RDEPENDS:${PN} += "python3-netifaces python3-pycryptodome"
+RDEPENDS:${PN} += "\
+    python3-ifaddr (>=0.2.0) \
+    python3-pycryptodome (>=3.24) \
+"
 
 RDEPENDS:${PN}-ptest:append = " \
-    python3-ifaddr \
     python3-pytest-asyncio \
 "
 

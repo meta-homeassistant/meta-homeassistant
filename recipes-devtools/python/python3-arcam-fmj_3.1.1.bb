@@ -10,14 +10,14 @@ SRC_URI[sha256sum] = "d13c85b50832907a2cf2bdd51339008d3871b5f0140bb56f742aa16f12
 inherit pypi python_hatchling ptest-python-pytest
 
 RDEPENDS:${PN} = "\
-	python3-attrs \
-    python3-serialx \
+    python3-aiohttp (>=3.13.2) \
+    python3-attrs (>18.1) \
+    python3-defusedxml (>=0.7.1) \
+    python3-serialx (>=1.7.0) \
 "
 
 RDEPENDS:${PN}-ptest = "\
 	${PN} \
-	python3-aiohttp \
-	python3-defusedxml \
 	python3-pytest-aiohttp \
 	python3-pytest-asyncio \
 	python3-pytest-cov \

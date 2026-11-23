@@ -11,10 +11,11 @@ inherit python_poetry_core ptest-python-pytest
 
 RDEPENDS:${PN} = "\
     python3-aiooui (>=0.1.1) \
-    python3-bleak (>=0.21.1) \
+    python3-bleak (>=3.0.2) \
     python3-core (>3.9) \
+    python3-dbus-fast (>=5.0.14) \
     python3-uart-devices (>=0.1.0) \
-    python3-usb-devices \
+    python3-usb-devices (>=0.4.5) \
 "
 
 RDEPENDS:${PN}-ptest:append = "\

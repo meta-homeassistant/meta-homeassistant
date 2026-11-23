@@ -9,6 +9,13 @@ inherit python_poetry_core ptest-python-pytest
 SRC_URI = "git://github.com/Airthings/airthings-ble;protocol=https;branch=release/1.3;tag=${PV}"
 SRCREV = "88464cfb86b46925746e3e3288d77c553c673468"
 
+RDEPENDS:${PN} = "\
+    python3-async-interrupt (>=1.2.2) \
+    python3-bleak (>=3.0.2) \
+    python3-bleak-retry-connector (>=4.7.1) \
+    python3-cbor2 (>=5.9.0) \
+"
+
 RDEPENDS:${PN}-ptest = "\
     python3-pytest-asyncio \
     python3-pytest-cov \
