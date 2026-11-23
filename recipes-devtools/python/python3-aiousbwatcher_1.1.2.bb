@@ -8,7 +8,7 @@ SRC_URI[sha256sum] = "908919fed3b5d6b5b0a26f7aea82a5f45c6a6205789dcb39348abc34a4
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-RDEPENDS:${PN} = "python3-asyncinotify (>=4.2.0)"
+RDEPENDS:${PN} = "python3-asyncinotify (>=4.2.2)"
 
 RDEPENDS:${PN}-ptest += "\
     python3-pytest-asyncio \

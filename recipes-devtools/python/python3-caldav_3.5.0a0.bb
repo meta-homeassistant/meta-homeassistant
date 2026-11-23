@@ -19,7 +19,7 @@ RDEPENDS:${PN} = "\
     python3-niquests \
     python3-recurring-ical-events (>=2.0.0) \
     python3-icalendar (>=6.0.0) \
-    python3-icalendar-searcher (>=1.0.5) \
+    python3-icalendar-searcher (>=1.1.0) \
     python3-dnspython \
     python3-dateutil \
     python3-pyyaml \

@@ -12,13 +12,13 @@ PACKAGECONFIG ?= "libcst"
 PACKAGECONFIG[libcst] = ",,,python3-libcst"
 
 RDEPENDS:${PN} += "\
-    python3-google-api-core \
-    python3-google-auth \
-    python3-grpc-google-iam-v1 \
-    python3-grpcio \
-    python3-grpcio-status \
-    python3-opentelemetry-api \
-    python3-opentelemetry-sdk \
-    python3-proto-plus \
-    python3-protobuf \
+    python3-google-api-core (>=2.25.0) \
+    python3-google-auth (>=2.14.1) \
+    python3-grpc-google-iam-v1 (>=0.14.2) \
+    python3-grpcio (>=1.75.1) \
+    python3-grpcio-status (>=1.75.1) \
+    python3-opentelemetry-api (>=1.27.0) \
+    python3-opentelemetry-sdk (>=1.27.0) \
+    python3-proto-plus (>=1.26.1) \
+    python3-protobuf (>=6.33.5) \
 "

@@ -10,8 +10,8 @@ inherit pypi python_poetry_core
 
 RDEPENDS:${PN} = "\
     python3-async-interrupt (>=1.1.1) \
-    python3-bleak (>=0.19.0) \
-    python3-bleak-retry-connector (>=4.6.0) \
-    python3-cryptography (>=38.0.0) \
+    python3-bleak (>=3.0.2) \
+    python3-bleak-retry-connector (>=4.7.1) \
+    python3-cryptography (>=48.0.1) \
     python3-lru-dict (>=1.1.4) \
 "

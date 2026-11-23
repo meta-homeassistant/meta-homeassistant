@@ -13,10 +13,10 @@ SRCREV = "23048456513886726a2c816c561fda9c8dc2d6a6"
 inherit python_poetry_core ptest-python-pytest
 
 RDEPENDS:${PN} += "\
-    python3-aiohttp \
-    python3-awesomeversion \
-    python3-deepmerge \
-    python3-yarl \
+    python3-aiohttp (>=3.0.0) \
+    python3-awesomeversion (>=21.10.1) \
+    python3-deepmerge (>=1.1.0) \
+    python3-yarl (>=1.6.0) \
 "
 
 RDEPENDS:${PN}-ptest += "\

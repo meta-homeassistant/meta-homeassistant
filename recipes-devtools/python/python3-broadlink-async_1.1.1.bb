@@ -10,7 +10,7 @@ SRC_URI[sha256sum] = "31d2809ed35b98cad1b332e3b0375458fb369081594c46ea85c9969e48
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "\
-    python3-cryptography \
+    python3-cryptography (>=43) \
 "
 
 # The pytest configuration lives in pyproject.toml.

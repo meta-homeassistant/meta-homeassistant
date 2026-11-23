@@ -10,5 +10,5 @@ SRC_URI[sha256sum] = "dad08f2525ad0246cfd6cc072e2c3015f1b15f918ac49a7b8e9dd07bd6
 
 RDEPENDS:${PN} = "\
     python3-pyyaml (>=6.0) \
-    python3-unicode-rbnf (>=2.2) \
+    python3-unicode-rbnf (>=2.3) \
 "

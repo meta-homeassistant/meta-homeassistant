@@ -16,7 +16,7 @@ SRC_URI[sha256sum] = "267648c49e5945cfbadd884e1d255cb87498f55a534bbb8f66ac457fea
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-RDEPENDS:${PN} += "python3-zigpy (>=0.70.0)"
+RDEPENDS:${PN} += "python3-zigpy (>=2.0.0)"
 
 RDEPENDS:${PN}-ptest:append = " \
     python3-pytest-asyncio \

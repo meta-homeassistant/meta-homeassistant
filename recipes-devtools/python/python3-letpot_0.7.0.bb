@@ -10,6 +10,6 @@ inherit pypi python_poetry_core
 
 
 RDEPENDS:${PN} = "\
-    python3-aiohttp \
-    python3-aiomqtt \
+    python3-aiohttp (>=3.11) \
+    python3-aiomqtt (>=2.0) \
 "

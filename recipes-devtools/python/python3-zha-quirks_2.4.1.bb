@@ -18,8 +18,8 @@ SRCREV = "e5040e816186df0e0408c8d41d928d385069f666"
 inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "\
-    python3-zha \
-    python3-zigpy (>=1.2.1) \
+    python3-zha (>=2.4.0) \
+    python3-zigpy (>=2.4.0) \
 "
 
 RDEPENDS:${PN}-ptest += "\

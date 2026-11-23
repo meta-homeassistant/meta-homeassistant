@@ -16,7 +16,7 @@ inherit python_hatchling ptest-python-pytest
 DEPENDS += "python3-hatch-vcs-native"
 
 RDEPENDS:${PN} += "\
-    python3-aiohttp \
+    python3-aiohttp (>=3.9) \
 "
 
 RDEPENDS:${PN}-ptest += "\

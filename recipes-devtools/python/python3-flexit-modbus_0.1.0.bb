@@ -11,7 +11,7 @@ SRC_URI[sha256sum] = "d86fb6584f671e1adb219c282e7a01939408b594761db39479cd6f0bf1
 inherit pypi python_hatchling ptest-python-pytest
 
 RDEPENDS:${PN} += "\
-    python3-modbus-connection \
+    python3-modbus-connection (>=4.10.0) \
 "
 
 RDEPENDS:${PN}-ptest += "\

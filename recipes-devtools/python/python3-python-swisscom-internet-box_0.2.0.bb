@@ -12,5 +12,5 @@ SRC_URI += "file://run-ptest"
 inherit pypi python_setuptools_build_meta ptest
 
 RDEPENDS:${PN} += "\
-    python3-aiohttp \
+    python3-aiohttp (>=3.9.0) \
 "

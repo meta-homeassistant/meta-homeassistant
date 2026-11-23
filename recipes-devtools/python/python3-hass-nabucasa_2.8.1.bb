@@ -10,7 +10,7 @@ SRC_URI = "git://github.com/NabuCasa/hass-nabucasa.git;protocol=https;branch=mai
 SRCREV = "6243a1771258c4a53d6e16c235f5586dfd970394"
 
 RDEPENDS:${PN} = "\
-    python3-acme (>=5.3.1) \
+    python3-acme (>=5.7.0) \
     python3-aiohttp (>=3.6.1) \
     python3-atomicwrites-homeassistant (=1.4.1) \
     python3-attrs (>=19.3) \
@@ -22,7 +22,7 @@ RDEPENDS:${PN} = "\
     python3-pycognito (=2024.5.1) \
     python3-pyjwt (>=2.8.0) \
     python3-requests (>=2.0) \
-    python3-snitun (>=0.45.1) \
+    python3-snitun (>=0.47.0) \
     python3-voluptuous (>=0.15) \
     python3-webrtc-models (<1.0.0) \
     python3-yarl (>=1.20) \

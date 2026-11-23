@@ -11,7 +11,7 @@ SRC_URI[sha256sum] = "01be82cd373288e2a413f31b97bc8f6fe619ea2b2e23cfd6aa259804ef
 inherit pypi python_hatchling ptest-python-pytest
 
 RDEPENDS:${PN} += "\
-    python3-aiohttp \
+    python3-aiohttp (>=3.9) \
     python3-zoneinfo \
     tzdata \
 "

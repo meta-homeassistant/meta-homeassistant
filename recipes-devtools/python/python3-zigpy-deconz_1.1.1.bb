@@ -19,7 +19,7 @@ inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} = "\
     python3-voluptuous \
-    python3-zigpy (>=0.80.0) \
+    python3-zigpy (>=2.4.0) \
 "
 
 RDEPENDS:${PN}-ptest:append = " \

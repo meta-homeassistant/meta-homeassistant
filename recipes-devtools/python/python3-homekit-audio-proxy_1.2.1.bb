@@ -13,7 +13,7 @@ SRCREV = "cbfb5312038db6bba0ac6ff8721ffc0c74fc33a4"
 inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "\
-    python3-cryptography \
+    python3-cryptography (>=43) \
 "
 
 RDEPENDS:${PN}-ptest += "\

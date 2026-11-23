@@ -10,5 +10,5 @@ SRC_URI[sha256sum] = "3febd16b194812b156024d9bc8ce8ec7622cdd8d159047cac504cc77ca
 
 RDEPENDS:${PN} = "\
     python3-core (>=3.11) \
-    python3-habluetooth (>=3.0) \
+    python3-habluetooth (>=4.0) \
 "

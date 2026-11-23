@@ -12,7 +12,7 @@ SRCREV = "f4697ce6aceb1b47c44124f6021dc90b192289ed"
 inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} = "\
-	python3-aiohttp (>=3.9.4) \
+	python3-aiohttp (>=3.14.1) \
 	python3-dacite (>=1.7.0) \
 	python3-yarl \
 "

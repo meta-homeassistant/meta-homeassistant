@@ -10,7 +10,7 @@ inherit pypi python_poetry_core
 
 
 RDEPENDS:${PN} = "\
-    python3-bleak (>=0.21.0) \
-    python3-dbus-fast (>=1.14.0) \
-    python3-bluetooth-adapters (>=0.15.2) \
+    python3-bleak (>=3.0.2) \
+    python3-dbus-fast (>=5.0.22) \
+    python3-bluetooth-adapters (>=2.3.0) \
 "

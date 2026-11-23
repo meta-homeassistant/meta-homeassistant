@@ -9,4 +9,4 @@ SRC_URI[sha256sum] = "4064c590e59ce2e8d82a2f66d35f3120d765828b4df5e3dbfb07b4a8c2
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-RDEPENDS:${PN} = "python3-cryptography python3-typing-extensions"
+RDEPENDS:${PN} = "python3-cryptography (>=48.0.1) python3-typing-extensions (>=4.0.0)"

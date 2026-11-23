@@ -10,10 +10,10 @@ inherit pypi python_poetry_core cython
 
 
 RDEPENDS:${PN} += " \
-    python3-aioesphomeapi (>=44.3.1) \
-    python3-bleak (>=1) \
+    python3-aioesphomeapi (>=45.12.0) \
+    python3-bleak (>=3.0.2) \
     python3-bluetooth-data-tools (>=1.18.0) \
-    python3-habluetooth (>=5.7.0) \
+    python3-habluetooth (>=6.26.5) \
     python3-lru-dict (>=1.2.0) \
-    python3-bleak-retry-connector (>=3.8.0) \
+    python3-bleak-retry-connector (>=4.6.3) \
 "

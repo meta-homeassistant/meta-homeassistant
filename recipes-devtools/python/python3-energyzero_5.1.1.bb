@@ -9,6 +9,6 @@ SRC_URI[sha256sum] = "bbb755bd60763690a6aad4cc691eb18693a4c5bbe2e3cc873b9795b242
 inherit pypi python_uv_build
 
 RDEPENDS:${PN} = "\
-    python3-aiohttp (>=3.0.0) \
-    python3-yarl (>=1.6.0) \
+    python3-aiohttp (>=3.13.5) \
+    python3-yarl (>=1.23.0) \
 "

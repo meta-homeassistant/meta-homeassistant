@@ -17,9 +17,9 @@ inherit pypi python_setuptools_build_meta ptest-python-pytest
 DEPENDS += "python3-wheel-native"
 
 RDEPENDS:${PN} += "\
-    python3-home-assistant-intents \
-    python3-pyyaml \
-    python3-unicode-rbnf \
+    python3-home-assistant-intents (>=2026.8.24) \
+    python3-pyyaml (>=6.0) \
+    python3-unicode-rbnf (>=2.4.0) \
 "
 
 RDEPENDS:${PN}-ptest += "\

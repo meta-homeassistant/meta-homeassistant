@@ -15,7 +15,7 @@ inherit python_hatchling ptest-python-pytest
 DEPENDS += "python3-hatch-vcs-native"
 
 RDEPENDS:${PN} += "\
-    python3-modbus-connection \
+    python3-modbus-connection (>=4.6.1) \
 "
 
 RDEPENDS:${PN}-ptest += "\

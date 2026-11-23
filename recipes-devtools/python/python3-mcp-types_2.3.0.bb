@@ -17,8 +17,8 @@ inherit pypi python_hatchling ptest-python-pytest
 DEPENDS += "python3-uv-dynamic-versioning-native"
 
 RDEPENDS:${PN} += "\
-    python3-pydantic \
-    python3-typing-extensions \
+    python3-pydantic (>=2.12.0) \
+    python3-typing-extensions (>=4.13.0) \
 "
 
 RDEPENDS:${PN}-ptest += "\

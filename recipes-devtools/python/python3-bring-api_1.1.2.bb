@@ -12,9 +12,9 @@ DEPENDS += "python3-wheel-native"
 inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} = "\
-    python3-aiohttp \
-    python3-orjson \
-    python3-mashumaro \
+    python3-aiohttp (>=3.10) \
+    python3-orjson (>=3.10) \
+    python3-mashumaro (>=3.13) \
 "
 
 RDEPENDS:${PN}-ptest = "\

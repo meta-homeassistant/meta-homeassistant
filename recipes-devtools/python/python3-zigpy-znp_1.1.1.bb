@@ -18,7 +18,7 @@ inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 
 RDEPENDS:${PN} = "\
-    python3-zigpy (>=0.91.2) \
+    python3-zigpy (>=1.5.0) \
     python3-voluptuous \
     python3-coloredlogs \
     python3-jsonschema \

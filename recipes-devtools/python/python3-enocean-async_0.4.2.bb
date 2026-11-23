@@ -14,7 +14,7 @@ SRCREV = "b86127607222bc07036f45dc8c515174d653a6f2"
 inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "\
-    python3-pyserial-asyncio-fast \
+    python3-pyserial-asyncio-fast (>=0.16) \
 "
 
 RDEPENDS:${PN}-ptest += "\

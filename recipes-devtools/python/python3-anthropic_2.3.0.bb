@@ -21,7 +21,7 @@ RDEPENDS:${PN} = "\
     python3-jiter (>=0.4.0) \
     python3-opentelemetry-api (>=1.1.0) \
     python3-pydantic (>=1.10.0) \
-    python3-sniffio \
+    python3-sniffio (>=1) \
     python3-typing-extensions (>=4.14) \
 "
 

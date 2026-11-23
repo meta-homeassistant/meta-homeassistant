@@ -13,8 +13,8 @@ inherit pypi python_setuptools_build_meta ptest-python-pytest
 DEPENDS += "python3-wheel-native"
 
 RDEPENDS:${PN} += "\
-    python3-click \
-    python3-paho-mqtt \
+    python3-click (>=8.0) \
+    python3-paho-mqtt (>=2.0) \
 "
 
 RDEPENDS:${PN}-ptest += "\

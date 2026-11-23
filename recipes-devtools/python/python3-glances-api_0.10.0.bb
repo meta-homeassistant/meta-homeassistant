@@ -9,5 +9,5 @@ SRC_URI[sha256sum] = "1781cee2a76a8476e9313e2e176d0212a1c0477f75ef2c88e748e8ceab
 inherit pypi python_poetry_core
 
 RDEPENDS:${PN} = "\
-    python3-httpx (>=0.23) \
+    python3-httpx (>=0.28) \
 "

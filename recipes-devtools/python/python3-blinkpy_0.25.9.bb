@@ -14,7 +14,7 @@ inherit pypi python_setuptools_build_meta ptest-python-pytest
 RDEPENDS:${PN} = " \
     python3-aiofiles (>=23.1.0) \
     python3-aiohttp (>=3.14.1) \
-    python3-dateutil (>=2.9.0) \
+    python3-dateutil (>=2.9.0.post0) \
     python3-python-slugify (>=8.0.4) \
     python3-requests (>=2.34.2) \
     python3-sortedcontainers (>=2.4.0) \

@@ -12,7 +12,7 @@ inherit pypi python_hatchling ptest-python-pytest
 DEPENDS += "python3-hatch-vcs-native"
 
 RDEPENDS:${PN} += "\
-    python3-tenacity \
+    python3-tenacity (>=8.2.0) \
 "
 
 RDEPENDS:${PN}-ptest += "\

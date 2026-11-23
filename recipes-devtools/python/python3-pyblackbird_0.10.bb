@@ -9,5 +9,5 @@ SRC_URI[sha256sum] = "26a7006dba114ae51a4024f9e83df197e75e581d474c67964c0181af9e
 inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} = "\
-    python3-serialx \
+    python3-serialx (>=1.10.0) \
 "

@@ -10,5 +10,5 @@ SRC_URI[sha256sum] = "264975472011b7a211e44880c614d5534f6fe953c125e0cec365bae3a1
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.9.3) \
-    python3-cryptography (>=2.5) \
+    python3-cryptography (>=38.0.0) \
 "

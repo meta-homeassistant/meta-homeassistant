@@ -14,10 +14,10 @@ inherit  python_poetry_core ptest-python-pytest
 RDEPENDS:${PN} = "\
     python3-async-timeout (>=4.0.1) \
     python3-netifaces (>=0.11.0) \
-    python3-aiodns (>=3.1.1) \
+    python3-aiodns (>=4.0.4) \
     python3-ifaddr \
-    python3-pyroute2 (>=0.7.3) \
-    python3-cached-ipaddress (>=0.2.0) \
+    python3-pyroute2 (>=0.9.6) \
+    python3-cached-ipaddress (>=1.1.2) \
 "
 
 RDEPENDS:${PN}-ptest:append = " \

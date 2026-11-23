@@ -8,4 +8,4 @@ SRC_URI[sha256sum] = "3a40e68a6ff38f4026928d05193a0fbdfcf5d5eb51a4533c2430cbd126
 
 inherit pypi setuptools3
 
-RDEPENDS:${PN} += "python3-bleak python3-bleak-retry-connector"
+RDEPENDS:${PN} += "python3-bleak (>=1.0.0) python3-bleak-retry-connector (>=4.0.0)"

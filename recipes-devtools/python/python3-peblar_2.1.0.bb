@@ -11,9 +11,9 @@ inherit pypi python_poetry_core ptest-python-pytest
 RDEPENDS:${PN} += "\
     python3-aiohttp (>=3.0.0) \
     python3-awesomeversion (>=22.8.0) \
-    python3-mashumaro (>-3.10) \
+    python3-mashumaro (>=3.10) \
     python3-orjson (>=3.9.8) \
-    python3-tenacity \
+    python3-tenacity (>=8.0.0) \
     python3-yarl (>=1.6.0) \
 "
 

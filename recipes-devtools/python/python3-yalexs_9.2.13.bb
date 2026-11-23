@@ -18,6 +18,6 @@ RDEPENDS:${PN} = "\
     python3-aiofiles (>=23) \
     python3-freenub (>=0.1.0) \
     python3-typing-extensions (>=4.5.0) \
-    python3-socketio (>=5.0.0) \
-    python3-propcache \
+    python3-socketio (>=5.11.3) \
+    python3-propcache (>=0.0.0) \
 "

@@ -14,19 +14,19 @@ SRC_URI += " file://run-ptest"
 inherit pypi python_hatchling ptest-python-pytest
 
 RDEPENDS:${PN} = "\
-    python3-mcp-types \
-    python3-httpx2 \
-    python3-opentelemetry-api \
-    python3-anyio (>=4.5) \
-    python3-pydantic (>=2.11.0) \
-    python3-starlette (>=0.27) \
+    python3-mcp-types (>=2.3.0) \
+    python3-httpx2 (>=2.10.0) \
+    python3-opentelemetry-api (>=1.28.0) \
+    python3-anyio (>=4.10) \
+    python3-pydantic (>=2.12.0) \
+    python3-starlette (>=0.48.0) \
     python3-python-multipart (>=0.0.9) \
-    python3-sse-starlette (>=1.6.1) \
+    python3-sse-starlette (>=3.0.0) \
     python3-pydantic-settings (>=2.5.2) \
     python3-uvicorn (>=0.31.1) \
     python3-jsonschema (>=4.20.0) \
     python3-pyjwt (>=2.10.1) \
-    python3-typing-extensions (>=4.9.0) \
+    python3-typing-extensions (>=4.13.0) \
     python3-typing-inspection (>=0.4.1) \
 "
 

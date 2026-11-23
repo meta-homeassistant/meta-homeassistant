@@ -10,7 +10,7 @@ inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.12.7) \
-    python3-orjson \
+    python3-orjson (>=3.10) \
     python3-pint \
 "
 

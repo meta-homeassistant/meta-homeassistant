@@ -10,6 +10,6 @@ inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "\
     python3-dacite (>=1.7.0) \
-    python3-pyasn1 \
-    python3-pysnmp (>=7.1.6) \
+    python3-pyasn1 (>=0.6.4) \
+    python3-pysnmp (>=7.1.27) \
 "

@@ -21,7 +21,7 @@ RDEPENDS:${PN} = "\
     python3-gpiozero \
     python3-pyusb (>=1.1.0) \
     python3-voluptuous \
-    python3-zigpy (>=0.70.0) \
+    python3-zigpy (>=1.3.0) \
 "
 
 RDEPENDS:${PN}-ptest:append = " \

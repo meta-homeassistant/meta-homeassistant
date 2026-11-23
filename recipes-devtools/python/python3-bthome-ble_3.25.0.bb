@@ -12,7 +12,7 @@ inherit pypi python_poetry_core
 RDEPENDS:${PN} += " \
     python3-bluetooth-sensor-state-data (>=1.6.1) \
     python3-sensor-state-data (>=2.19.0) \
-    python3-bluetooth-data-tools (>=0.1.2) \
-    python3-cryptography (>=40.0.0) \
-    python3-habluetooth (>=3.0) \
+    python3-bluetooth-data-tools (>=1.29.24) \
+    python3-cryptography (>=50.0.2) \
+    python3-habluetooth (>=7.1.2) \
 "

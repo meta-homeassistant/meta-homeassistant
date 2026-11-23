@@ -18,11 +18,11 @@ DEPENDS += "python3-setuptools-scm-native"
 
 RDEPENDS:${PN} += "\
     python3-cryptography \
-    python3-pyjwt \
-    python3-pynacl \
-    python3-requests \
-    python3-typing-extensions \
-    python3-urllib3 \
+    python3-pyjwt (>=2.4.0) \
+    python3-pynacl (>=1.4.0) \
+    python3-requests (>=2.14.0) \
+    python3-typing-extensions (>=4.5.0) \
+    python3-urllib3 (>=1.26.0) \
 "
 
 RDEPENDS:${PN}-ptest += "\

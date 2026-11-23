@@ -18,5 +18,5 @@ RDEPENDS:${PN} += "\
     python3-orjson \
     python3-requests \
     python3-websocket-client \
-    python3-websockets \
+    python3-websockets (>=14.0) \
 "

@@ -19,9 +19,9 @@ DEPENDS += "python3-setuptools-git-versioning-native python3-wheel-native"
 
 RDEPENDS:${PN} += "\
     python3-aiohttp \
-    python3-aiospinel \
+    python3-aiospinel (>=1.2.0) \
     python3-statistics \
-    python3-zigpy \
+    python3-zigpy (>=2.4.0) \
 "
 
 RDEPENDS:${PN}-ptest += "\

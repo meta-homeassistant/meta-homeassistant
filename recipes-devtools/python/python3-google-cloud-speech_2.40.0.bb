@@ -9,9 +9,9 @@ SRC_URI[sha256sum] = "e89e688e4ce0b926754038bf992d0d0f065c5f1c3503bb20e6c46d08b6
 inherit pypi setuptools3 ptest-python-pytest
 
 RDEPENDS:${PN} += "\
-    python3-google-api-core (>=1.34.1) \
+    python3-google-api-core (>=2.17.1) \
     python3-google-auth (>=2.14.1 ) \
-    python3-grpcio (>=1.32.2) \
+    python3-grpcio (>=1.75.1) \
     python3-proto-plus (>=1.25.0) \
-    python3-protobuf (>=3.20.2) \
+    python3-protobuf (>=4.25.8) \
 "
