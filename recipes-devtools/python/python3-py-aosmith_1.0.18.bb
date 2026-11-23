@@ -1,7 +1,7 @@
 SUMMARY = "A Python client library for A. O. Smith water heaters"
 HOMEPAGE = "https://github.com/bdr99/py-aosmith"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=8;endline=8;md5=8afcf31bd10bbe304f13798fbb1feb3b"
+LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=5;endline=5;md5=8227180126797a0148f94f483f3e1489"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "96f1a533af802db42761a37771dcb84ee16979c42ba88629dbe431801ab20be9"
