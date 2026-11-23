@@ -14,7 +14,7 @@ SRC_URI[sha256sum] = "5a811826e1a5a06c25ebc3e6c4a704613eb9a1bcf6b78428fbe865f4f6
 
 DEPENDS += "python3-wheel-native"
 
-inherit pypi python_setuptools_build_meta ptest
+inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "\
     python3-asyncio \
@@ -25,12 +25,10 @@ RDEPENDS:${PN} += "\
 "
 
 RDEPENDS:${PN}-ptest += "\
-    python3-pytest \
     python3-pytest-asyncio \
     python3-pytest-mock \
     python3-setuptools \
     python3-typing-extensions \
-    python3-unittest-automake-output \
 "
 
 do_install_ptest() {
