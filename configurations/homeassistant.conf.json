@@ -22,16 +22,16 @@
         },
         "meta-openembedded": {
             "git-remote": {
-                "uri": "https://github.com/thomas-roos/meta-openembedded.git",
-                "branch": "ha-2026.11",
-                "rev": "c8480abb44aeab6e490849d460f38be3d37539d8"
+                "uri": "https://git.openembedded.org/meta-openembedded",
+                "branch": "master",
+                "rev": "2b551b71ca6154f4c60c7c59105cf11fe74e0b41"
             }
         },
         "meta-python-ai": {
             "git-remote": {
-                "uri": "https://github.com/zboszor/meta-python-ai.git",
-                "branch": "master",
-                "rev": "ea25ab13a54df961fe3b33494047d9a664828582"
+                "uri": "https://github.com/thomas-roos/meta-python-ai.git",
+                "branch": "hdf5-bbappend",
+                "rev": "1e5f62f0d1b40405d6e288e6c18b3a64cc316a99"
             }
         },
         "meta-sca": {
