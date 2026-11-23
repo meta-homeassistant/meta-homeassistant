@@ -1,7 +1,5 @@
 SUMMARY = "The official Python library for the anthropic API"
 HOMEPAGE = "https://github.com/anthropics/anthropic-sdk-python"
-# Relicensed from MIT to Apache-2.0 in 2.0.0; MIT still covers contributions
-# merged before the change (LICENSE-MIT).
 LICENSE = "Apache-2.0 AND MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5ea28c6cfd9ed9e632d125bfddb35ea6 \
                     file://LICENSE-MIT;md5=a1b0d196fbb9429c07b4b73611a766a4"
