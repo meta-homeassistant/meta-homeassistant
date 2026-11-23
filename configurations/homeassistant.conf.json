@@ -29,9 +29,9 @@
         },
         "meta-python-ai": {
             "git-remote": {
-                "uri": "https://github.com/thomas-roos/meta-python-ai.git",
-                "branch": "hdf5-bbappend",
-                "rev": "1e5f62f0d1b40405d6e288e6c18b3a64cc316a99"
+                "uri": "https://github.com/zboszor/meta-python-ai.git",
+                "branch": "master",
+                "rev": "f8016d036ee460aa2c0fb3a3f5e4552e65b3a401"
             }
         },
         "meta-sca": {
