@@ -1,7 +1,7 @@
 SUMMARY = "Asyncio implementation of the Spinel protocol for OpenThread RCPs"
 DESCRIPTION = "An asyncio implementation of the Spinel protocol used to \
     communicate with OpenThread RCPs over a serial connection."
-HOMEPAGE = "https://pypi.org/project/aiospinel"
+HOMEPAGE = "https://github.com/home-assistant-libs/aiospinel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"

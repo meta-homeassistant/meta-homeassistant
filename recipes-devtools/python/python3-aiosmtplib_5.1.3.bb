@@ -1,6 +1,6 @@
 SUMMARY = "asyncio SMTP client"
 DESCRIPTION = "aiosmtplib is an asynchronous SMTP client for use with asyncio."
-HOMEPAGE = "https://pypi.org/project/aiosmtplib"
+HOMEPAGE = "https://github.com/cole/aiosmtplib"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=2b9776f33ed0a7fe8823d389e2d7c539"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"

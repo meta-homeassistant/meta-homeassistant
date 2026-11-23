@@ -5,7 +5,7 @@ DESCRIPTION = "An English-language, constraint-driven intent recognizer for Home
     compound requests, and explicit conversation references while \
     rejecting interpretations that do not fit the upstream intent \
     schema."
-HOMEPAGE = "https://pypi.org/project/gazetteer-matcher"
+HOMEPAGE = "https://github.com/OHF-Voice/gazetteer-matcher"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"

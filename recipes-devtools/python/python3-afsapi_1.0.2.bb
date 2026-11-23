@@ -1,5 +1,5 @@
 SUMMARY = "Asynchronous Implementation of the Frontier Silicon API"
-HOMEPAGE = "https://github.com/zhelev/python-afsapi.git"
+HOMEPAGE = "https://github.com/wlcrs/python-afsapi"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
