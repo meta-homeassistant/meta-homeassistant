@@ -1,0 +1,57 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Joostlek <joostlek@outlook.com>
+Date: Thu, 22 Oct 2026 12:21:17 +0200
+Subject: [PATCH] Fix verify_event_loop_thread when HomeAssistant is patched
+
+verify_event_loop_thread resolves where to find hass on the first call
+of each decorated function. It checks isinstance(obj, HomeAssistant)
+and reads HomeAssistant from the module globals at call time.
+
+The stop_hass test fixture and tests/test_bootstrap.py patch
+homeassistant.core.HomeAssistant with a function or a mock. If the first
+call happens while the patch is active, isinstance raises TypeError.
+The failure depends on test order.
+
+Keep an unpatched module-level reference to the class and use it in the
+isinstance check. This keeps the current resolution order and behavior
+for mocks. It also fixes the problem for every test that patches the
+class, not only the two known sites.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+Without this, tests/test_bootstrap.py fails with 20 errors when it is
+run alone (also with an unpatched 2026.11.0 and on dev), and in about
+half of the ptest runs, depending on which tests run first on a worker.
+
+Upstream-Status: Submitted [https://github.com/home-assistant/core/pull/188003]
+The PR was approved, then closed by its author without being merged.
+
+---
+ homeassistant/core.py | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/homeassistant/core.py b/homeassistant/core.py
+index c420406a..4f946e71 100644
+--- a/homeassistant/core.py
++++ b/homeassistant/core.py
+@@ -246,7 +246,7 @@ def verify_event_loop_thread[**_P, _R](
+ 
+         def resolve_get_hass(obj: Any) -> HomeAssistant:
+             nonlocal get_hass
+-            if isinstance(obj, HomeAssistant):
++            if isinstance(obj, _HomeAssistant):
+                 get_hass = _get_hass_identity
+             elif hasattr(obj, "hass"):
+                 get_hass = _get_hass_public
+@@ -1341,6 +1341,11 @@ class HomeAssistant:
+             _LOGGER.warning("Shutdown stage '%s': still running: %s", stage, task)
+ 
+ 
++# Tests patch homeassistant.core.HomeAssistant with a function.
++# verify_event_loop_thread uses this reference so isinstance keeps working.
++_HomeAssistant = HomeAssistant
++
++
+ class Context:
+     """The context that triggered something."""
+ 

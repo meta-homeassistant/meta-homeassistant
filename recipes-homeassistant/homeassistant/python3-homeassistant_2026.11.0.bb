@@ -18,6 +18,7 @@ SRC_URI = "git://github.com/home-assistant/core.git;protocol=https;branch=master
            file://0001-Relax-setuptools.patch \
            file://0002-skip-unsupported-installation-method-test.patch \
            file://0003-repair-test_set_scan_interval_via_config.patch \
+           file://0004-Fix-verify_event_loop_thread-when-HomeAssistant-is-p.patch \
            file://0005-Stabilize-corrupt-storage-JSON-assertion.patch \
            file://0001-disable-flaky-test.patch \
            "
@@ -138,6 +139,7 @@ RDEPENDS:${PN}-ptest = "\
     python3-go2rtc-client \
     python3-license-expression (>=30.4.4) \
     python3-mock-open (>=1.4.0) \
+    python3-mypy \
     python3-pydantic (>=2.14.1) \
     python3-pygithub (>=2.10.0) \
     python3-pylint (>=4.1.3) \
@@ -156,9 +158,11 @@ RDEPENDS:${PN}-ptest = "\
     python3-requests (>=2.34.2) \
     python3-requests-mock (>=1.12.1) \
     python3-respx (>=0.23.1) \
+    python3-ruff \
     python3-syrupy (>=6.1.1) \
     python3-tqdm (>=4.70.1) \
     python3-unidiff (>=1.0.1) \
+    python3-wakeonlan (>=3.3.0) \
     ${PN} \
     bash \
     tzdata \
@@ -172,6 +176,8 @@ do_install_ptest() {
     install ${S}/pyproject.toml ${D}${PTEST_PATH}/
     cp -rf ${S}/script/* ${D}${PTEST_PATH}/script/
     cp -rf ${S}/tests/* ${D}${PTEST_PATH}/tests/
+    # tests/mypy_plugins loads the plugin from the source root
+    cp -rf ${S}/mypy_plugins ${D}${PTEST_PATH}/
     # pyproject.toml puts packages/pylint-home-assistant on pythonpath
     cp -rf ${S}/packages/pylint-home-assistant ${D}${PTEST_PATH}/packages/
     # Upstream installs the test helpers and hassfest as editable packages.
