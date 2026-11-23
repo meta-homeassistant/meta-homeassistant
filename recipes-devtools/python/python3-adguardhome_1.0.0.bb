@@ -1,24 +1,3 @@
-# FIXME: the LIC_FILES_CHKSUM values have been updated by 'devtool upgrade'.
-# The following is the difference between the old and the new license text.
-# Please update the LICENSE value if needed, and summarize the changes in
-# the commit message via 'License-Update:' tag.
-# (example: 'License-Update: copyright years updated.')
-#
-# The changes:
-#
-# --- LICENSE.md
-# +++ LICENSE.md
-# @@ -1,6 +1,6 @@
-#  # MIT License
-#
-# -Copyright (c) 2019-2025 Franck Nijhof
-# +Copyright (c) 2019-2026 Franck Nijhof
-#
-#  Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#
-#
-
 SUMMARY = "Asynchronous Python client for the AdGuard Home API."
 HOMEPAGE = "https://github.com/frenck/python-adguardhome"
 LICENSE = "MIT"
