@@ -5,7 +5,7 @@
             "git-remote": {
                 "uri": "https://git.openembedded.org/bitbake",
                 "branch": "master",
-                "rev": "master"
+                "rev": "c9f37a2d467df53a82ca15f79e915b18291cd6fb"
             }
         },
         "meta-clang-revival": {
@@ -29,9 +29,9 @@
         },
         "meta-python-ai": {
             "git-remote": {
-                "uri": "https://github.com/thomas-roos/meta-python-ai.git",
-                "branch": "ha-2026.11",
-                "rev": "a3cb3eb9aeffe8733a7f1609ce0e1e38c70a0891"
+                "uri": "https://github.com/zboszor/meta-python-ai.git",
+                "branch": "master",
+                "rev": "ea25ab13a54df961fe3b33494047d9a664828582"
             }
         },
         "meta-sca": {
@@ -59,14 +59,14 @@
             "git-remote": {
                 "uri": "https://github.com/thomas-roos/openembedded-core.git",
                 "branch": "ha-2026.11",
-                "rev": "56d6b2c241ecca21b1b689a73d56d6cb97f49f02"
+                "rev": "27824fe9eda4be4ca737d47e0011cf3ccc8b4fae"
             }
         },
         "yocto-docs": {
             "git-remote": {
                 "uri": "https://git.yoctoproject.org/yocto-docs",
                 "branch": "blacksail",
-                "rev": "blacksail"
+                "rev": "28a708ecb3c2ce1669094f9f4c1bdcbc28438bcc"
             }
         }
     },
