@@ -3,6 +3,7 @@ build*/
 *.csv
 HA/
 upgrade-logs/
+test-logs/
 
 # kas
 .kas_shell_history

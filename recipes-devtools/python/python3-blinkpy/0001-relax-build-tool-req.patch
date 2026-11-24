@@ -1,22 +1,25 @@
-From d2eb90147be48e86d73bd52e1d3187fba2223c45 Mon Sep 17 00:00:00 2001
-From: Tom Geelen <t.f.g.geelen@gmail.com>
-Date: Thu, 24 Jul 2025 19:05:53 +0200
+From 30edafc6aa4d313af38ac9885c4c6c3785315e8f Mon Sep 17 00:00:00 2001
+From: Thomas Roos <thomas@roosesweb.de>
+Date: Sat, 7 Nov 2026 09:25:51 +0100
 Subject: [PATCH] relax build tool req
 
-Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
-Upstream-Status: Pending
+Upstream caps setuptools < 84 and wheel < 0.48; OE-Core ships
+setuptools 84.0.0 and wheel 0.48.0, which build the package fine.
+
+Upstream-Status: Inappropriate [oe-specific]
+Signed-off-by: Thomas Roos <thomas@roosesweb.de>
 ---
  pyproject.toml | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index cadfb35..d6687be 100644
+index b70d529..3ff9d0a 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@
  [build-system]
--requires = ["setuptools>=68,<81", "wheel~=0.40.0"]
-+requires = ["setuptools>=68", "wheel>=0.40.0"]
+-requires = ["setuptools>=68,<84", "wheel>=0.40,<0.48"]
++requires = ["setuptools>=68", "wheel>=0.40"]
  build-backend = "setuptools.build_meta"
  
  [project]

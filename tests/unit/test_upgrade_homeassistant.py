@@ -126,7 +126,7 @@ class ProviderCatalogTests(unittest.TestCase):
                 "0123456789abcdef0123456789abcdef01234567\trefs/tags/0.46.2\n",
             ),
         ) as run_git:
-            revision, blocker = _resolve_provider_srcrev(
+            revision, branch, blocker = _resolve_provider_srcrev(
                 "python3-provider",
                 "0.46.2",
                 Path("/setup"),
@@ -136,6 +136,7 @@ class ProviderCatalogTests(unittest.TestCase):
 
         self.assertEqual(revision, "0123456789abcdef0123456789abcdef01234567")
         self.assertIsNone(blocker)
+        self.assertEqual(branch, "main")
         self.assertEqual(run_git.call_args.args[0], "git")
         self.assertEqual(run_git.call_args.args[1][0], "ls-remote")
 
@@ -152,7 +153,7 @@ class ProviderCatalogTests(unittest.TestCase):
                 subprocess.CompletedProcess([], 0, "0.46.0\n"),
             ],
         ):
-            revision, blocker = _resolve_provider_srcrev(
+            revision, branch, blocker = _resolve_provider_srcrev(
                 "python3-provider",
                 "0.46.2",
                 Path("/setup"),
@@ -439,7 +440,7 @@ class UpgradeStateTests(unittest.TestCase):
             with (
                 patch(
                     "scripts.upgrade_homeassistant._resolve_provider_srcrev",
-                    return_value=(None, None),
+                    return_value=(None, None, None),
                 ),
                 patch(
                     "scripts.upgrade_homeassistant._run_logged",
@@ -567,7 +568,7 @@ class UpgradeStateTests(unittest.TestCase):
                 ) as run_setup,
                 patch(
                     "scripts.upgrade_homeassistant._resolve_provider_srcrev",
-                    return_value=("0123456789abcdef0123456789abcdef01234567", None),
+                    return_value=("0123456789abcdef0123456789abcdef01234567", "main", None),
                 ),
                 patch(
                     "scripts.upgrade_homeassistant._run_logged",
@@ -590,6 +591,7 @@ class UpgradeStateTests(unittest.TestCase):
         self.assertEqual(run_setup.call_count, 1)
         self.assertEqual(run_logged.call_count, 1)
         self.assertIn("--srcrev 0123456789abcdef0123456789abcdef01234567", run_logged.call_args.args[1])
+        self.assertIn("--srcbranch main", run_logged.call_args.args[1])
 
     def test_run_log_lists_attention_tasks_and_completed_steps(self):
         log = RunLog("2026.3.1")
@@ -635,7 +637,7 @@ class StagedSourceRevisionTests(unittest.TestCase):
             git("config", "user.name", "Test")
             (source_dir / "pyproject.toml").write_text(
                 '[build-system]\n'
-                'requires = ["setuptools==78.1.1"]\n'
+                'requires = ["setuptools==84.0.0"]\n'
                 'build-backend = "setuptools.build_meta"\n\n'
                 '[project]\ndependencies = []\n',
                 encoding="utf-8",
@@ -667,7 +669,7 @@ class StagedSourceRevisionTests(unittest.TestCase):
             )
             (source_dir / "pyproject.toml").write_text(
                 '[build-system]\n'
-                'requires = ["setuptools>=78.1.0"]\n'
+                'requires = ["setuptools>=84.0.0"]\n'
                 'build-backend = "setuptools.build_meta"\n\n'
                 '[project]\ndependencies = []\n',
                 encoding="utf-8",
@@ -714,6 +716,89 @@ class StagedSourceRevisionTests(unittest.TestCase):
                         check=False,
                     ),
                 )
+            )
+
+
+    def test_accepts_declared_patches_that_touch_adjacent_lines(self):
+        # Each patch alone does not reverse-apply against HEAD here, because
+        # the other one changed its context; together they restore the release.
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            source_dir = root / "source"
+            source_dir.mkdir()
+
+            def git(*args: str) -> subprocess.CompletedProcess[str]:
+                return subprocess.run(
+                    ["git", *args],
+                    cwd=source_dir,
+                    text=True,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.STDOUT,
+                    check=False,
+                )
+
+            def runner(command, args, cwd):
+                return subprocess.run(
+                    [command, *args],
+                    cwd=cwd,
+                    text=True,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.STDOUT,
+                    check=False,
+                )
+
+            git("init", "-q")
+            git("config", "user.email", "test@example.invalid")
+            git("config", "user.name", "Test")
+            test_file = source_dir / "test_example.py"
+            test_file.write_text(
+                "def test_one():\n    assert old\n\n\ndef test_two():\n    pass\n",
+                encoding="utf-8",
+            )
+            self.assertEqual(git("add", ".").returncode, 0)
+            self.assertEqual(git("commit", "-qm", "release").returncode, 0)
+            revision = git("rev-parse", "HEAD").stdout.strip()
+
+            layer_dir = root / "layer"
+            patch_dir = layer_dir / "recipes-homeassistant/homeassistant/python3-homeassistant"
+            patch_dir.mkdir(parents=True)
+            test_file.write_text(
+                "def test_one():\n    assert new\n\n\ndef test_two():\n    pass\n",
+                encoding="utf-8",
+            )
+            self.assertEqual(git("commit", "-qam", "repair test_one").returncode, 0)
+            test_file.write_text(
+                "def test_one():\n    assert new\n\n\n@skip\ndef test_two():\n    pass\n",
+                encoding="utf-8",
+            )
+            self.assertEqual(git("commit", "-qam", "skip test_two").returncode, 0)
+            formatted = git("format-patch", "-q", "-o", str(patch_dir), f"{revision}..HEAD")
+            self.assertEqual(formatted.returncode, 0, formatted.stdout)
+            patch_names = sorted(path.name for path in patch_dir.iterdir())
+            self.assertNotEqual(
+                git("apply", "--reverse", "--check", str(patch_dir / patch_names[0])).returncode,
+                0,
+            )
+            recipe_path = root / "python3-homeassistant_2026.11.0.bb"
+            recipe_path.write_text(
+                f'SRCREV = "{revision}"\nSRC_URI = "'
+                + " ".join(f"file://{name}" for name in patch_names)
+                + '"\n',
+                encoding="utf-8",
+            )
+
+            self.assertTrue(
+                _staged_source_matches_release(source_dir, revision, recipe_path, layer_dir, runner)
+            )
+            self.assertEqual(git("worktree", "list", "--porcelain").stdout.count("worktree "), 1)
+
+            # Declaring only one of the two patches must not match.
+            recipe_path.write_text(
+                f'SRCREV = "{revision}"\nSRC_URI = "file://{patch_names[1]}"\n',
+                encoding="utf-8",
+            )
+            self.assertFalse(
+                _staged_source_matches_release(source_dir, revision, recipe_path, layer_dir, runner)
             )
 
 
@@ -1005,6 +1090,42 @@ COMPONENT_TEST_PACKAGES:append = "\\
         self.assertIn("${PN}-new-domain", updated)
         self.assertEqual(updated.count("${PN}-new-domain"), 1)
         self.assertEqual(updated.count("${PN}-flaky"), 1)
+
+
+    def test_adds_tests_inside_the_packageconfig_conditional_in_order(self):
+        # The current integrations-tests.inc keeps the list inside the
+        # PACKAGECONFIG conditional instead of before an empty one.
+        with tempfile.TemporaryDirectory() as temp_dir:
+            tests_path = Path(temp_dir) / "integrations-tests.inc"
+            tests_path.write_text(
+                'COMPONENT_TEST_PACKAGES_FLAKY:append = "\\\n'
+                "    ${@bb.utils.contains('PACKAGECONFIG', 'integration-tests', '\\\n"
+                "    ${PN}-flaky \\\n"
+                "', '', d)}\"\n\n"
+                'COMPONENT_TEST_PACKAGES:append = "\\\n'
+                "    ${@bb.utils.contains('PACKAGECONFIG', 'integration-tests', '\\\n"
+                "    ${PN}-alpha \\\n"
+                "    ${PN}-zulu \\\n"
+                "', '', d)}\"\n",
+                encoding="utf-8",
+            )
+
+            _add_new_regular_tests(tests_path, {"alpha", "new_domain"}, {"alpha", "zulu"})
+            text = tests_path.read_text(encoding="utf-8")
+
+        self.assertEqual(
+            text,
+            'COMPONENT_TEST_PACKAGES_FLAKY:append = "\\\n'
+            "    ${@bb.utils.contains('PACKAGECONFIG', 'integration-tests', '\\\n"
+            "    ${PN}-flaky \\\n"
+            "', '', d)}\"\n\n"
+            'COMPONENT_TEST_PACKAGES:append = "\\\n'
+            "    ${@bb.utils.contains('PACKAGECONFIG', 'integration-tests', '\\\n"
+            "    ${PN}-alpha \\\n"
+            "    ${PN}-new-domain \\\n"
+            "    ${PN}-zulu \\\n"
+            "', '', d)}\"\n",
+        )
 
 
 class CoreRecipeReconciliationTests(unittest.TestCase):

@@ -10,7 +10,7 @@ inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} = "python3-wsproto"
 
-RDEPENDS:${PN}-ptest = "\
+RDEPENDS:${PN}-ptest += "\
     python3-pytest-cov \
     python3-wsproto \
 "

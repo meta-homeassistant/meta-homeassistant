@@ -1,0 +1,25 @@
+From 5135fc7e67626587759a5ba8e8aee77ee7824793 Mon Sep 17 00:00:00 2001
+From: Thomas Roos <thomas@roosesweb.de>
+Date: Fri, 6 Nov 2026 06:00:51 +0100
+Subject: [PATCH] pyproject.toml: allow uv_build 0.13
+
+govee-local-api pins uv_build < 0.12, but OE-Core provides uv-build
+0.13.7, which builds the package unchanged.
+
+Upstream-Status: Inappropriate [oe-specific]
+Signed-off-by: Thomas Roos <thomas@roosesweb.de>
+---
+ pyproject.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index 518b729..5e92450 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -49,5 +49,5 @@ addopts = [
+ ]
+ 
+ [build-system]
+-requires = ["uv_build>=0.11.30,<0.12"]
++requires = ["uv_build>=0.11.30,<0.14"]
+ build-backend = "uv_build"

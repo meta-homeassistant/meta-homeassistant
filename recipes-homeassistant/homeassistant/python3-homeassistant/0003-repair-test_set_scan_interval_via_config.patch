@@ -1,4 +1,4 @@
-From b24a1ac0ea3f1bb0c7d7413d59e0f98e370cf97f Mon Sep 17 00:00:00 2001
+From 5c5040f455dc4671e26f8fc707ac6b2f57f68338 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Sun, 7 Jun 2026 22:18:33 +0200
 Subject: [PATCH] repair test_set_scan_interval_via_config
@@ -15,10 +15,10 @@ Upstream-Status: Inappropriate [OE specific]
  1 file changed, 11 insertions(+), 3 deletions(-)
 
 diff --git a/tests/helpers/test_entity_component.py b/tests/helpers/test_entity_component.py
-index 6cdbcc8bb60..0c5008697e3 100644
+index dae3a6d091d..6e138e8650a 100644
 --- a/tests/helpers/test_entity_component.py
 +++ b/tests/helpers/test_entity_component.py
-@@ -139,14 +139,22 @@ async def test_set_scan_interval_via_config(hass: HomeAssistant) -> None:
+@@ -152,14 +152,22 @@ async def test_set_scan_interval_via_config(hass: HomeAssistant) -> None:
  
      component = EntityComponent(_LOGGER, DOMAIN, hass)
  
@@ -26,7 +26,7 @@ index 6cdbcc8bb60..0c5008697e3 100644
 +    with patch.object(hass.loop, "call_later") as mock_track, patch.object(
 +        hass.loop, "call_at"
 +    ) as mock_at:
-         component.setup(
+         await component.async_setup(
              {DOMAIN: {"platform": "platform", "scan_interval": timedelta(seconds=30)}}
          )
  

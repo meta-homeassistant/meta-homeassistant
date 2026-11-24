@@ -1,3 +1,34 @@
 #!/bin/sh
 
-pytest -n auto --automake --ignore=tests/components/ -k "not test_set_scan_interval_via_platform"
+# The test helpers are shipped next to the tests instead of being installed,
+# so put this directory on the path and load the plugin explicitly for every
+# pytest run below: its bootstrap hook only runs for plugins that are
+# registered before the conftests are loaded.
+export PYTHONPATH="$PWD${PYTHONPATH:+:$PYTHONPATH}"
+export PYTEST_ADDOPTS="-p pytest_homeassistant.bootstrap${PYTEST_ADDOPTS:+ $PYTEST_ADDOPTS}"
+
+# Home Assistant only starts inside a virtual environment; run pytest with
+# the interpreter of the venv the service uses.
+pytest() {
+    @HOMEASSISTANT_VENV@/bin/python3 -m pytest "$@"
+}
+
+# --dist=loadfile as in upstream's CI: tests in one file share
+# tests/testing_config and must not run in parallel.
+#
+# Deselected:
+# - test_gen_recorder_db_versions.py and test_core_plugin_selection check
+#   files of the source tree (homeassistant/generated, requirements_all.txt),
+#   which is not installed.
+# - test_httpx2_ssl.py: Home Assistant 2026.11 pins httpx2 2.14; with the
+#   newer httpx2 in meta-python, httpcore2 uses the system CA store on Linux
+#   instead of truststore, so Home Assistant's certifi replacement is not
+#   used. https://github.com/home-assistant/core/pull/188837
+pytest -n auto --dist=loadfile --automake --ignore=tests/components/ \
+    -k "not test_set_scan_interval_via_platform" \
+    --deselect tests/script/test_gen_recorder_db_versions.py \
+    --deselect tests/script/hassfest/test_cli.py::test_core_plugin_selection \
+    --deselect tests/util/test_httpx2_ssl.py::test_default_ssl_context_uses_certifi \
+    --deselect tests/util/test_httpx2_ssl.py::test_default_ssl_context_honors_sslkeylogfile \
+    --deselect tests/util/test_httpx2_ssl.py::test_default_ssl_context_does_not_read_ca_bundle \
+    --deselect tests/util/test_httpx2_ssl.py::test_create_ssl_context_without_trust_env

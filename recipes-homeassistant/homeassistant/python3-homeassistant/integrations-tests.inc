@@ -65,9 +65,11 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-aprilaire \
     ${PN}-aprs \
     ${PN}-apsystems \
+    ${PN}-aqualogic \
     ${PN}-aranet \
     ${PN}-arcam-fmj \
     ${PN}-arve \
+    ${PN}-arwn \
     ${PN}-aseko-pool-live \
     ${PN}-assist-satellite \
     ${PN}-asuswrt \
@@ -79,6 +81,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-autarco \
     ${PN}-auth \
     ${PN}-automation \
+    ${PN}-avea \
     ${PN}-awair \
     ${PN}-aws \
     ${PN}-aws-s3 \
@@ -91,6 +94,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-balboa \
     ${PN}-bayesian \
     ${PN}-binary-sensor \
+    ${PN}-bitcoin \
     ${PN}-blackbird \
     ${PN}-blebox \
     ${PN}-blink \
@@ -156,6 +160,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-deako \
     ${PN}-debugpy \
     ${PN}-deconz \
+    ${PN}-decora-wifi \
     ${PN}-default-config \
     ${PN}-deluge \
     ${PN}-demo \
@@ -171,6 +176,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-diagnostics \
     ${PN}-dialogflow \
     ${PN}-directv \
+    ${PN}-discogs \
     ${PN}-discord \
     ${PN}-discovergy \
     ${PN}-dlink \
@@ -184,7 +190,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-drop-connect \
     ${PN}-dsmr-reader \
     ${PN}-duckdns \
-    ${PN}-duke-energy \
     ${PN}-dunehd \
     ${PN}-duotecno \
     ${PN}-dwd-weather-warnings \
@@ -219,6 +224,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-enocean \
     ${PN}-enphase-envoy \
     ${PN}-environment-canada \
+    ${PN}-envisalink \
     ${PN}-epic-games-store \
     ${PN}-epion \
     ${PN}-epson \
@@ -250,6 +256,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-fitbit \
     ${PN}-fivem \
     ${PN}-fjaraskupan \
+    ${PN}-flexit \
     ${PN}-flexit-bacnet \
     ${PN}-flic \
     ${PN}-flipr \
@@ -319,6 +326,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-greeneye-monitor \
     ${PN}-group \
     ${PN}-growatt-server \
+    ${PN}-gtfs \
     ${PN}-guardian \
     ${PN}-hardkernel \
     ${PN}-hardware \
@@ -354,11 +362,13 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-ipp \
     ${PN}-isal \
     ${PN}-juicenet \
+    ${PN}-keyboard-remote \
     ${PN}-kitchen-sink \
     ${PN}-labs \
     ${PN}-lawn-mower \
     ${PN}-letpot \
     ${PN}-life360 \
+    ${PN}-lifx-cloud \
     ${PN}-light \
     ${PN}-local-calendar \
     ${PN}-local-file \
@@ -367,7 +377,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-locative \
     ${PN}-lock \
     ${PN}-logbook \
-    ${PN}-logentries \
     ${PN}-logger \
     ${PN}-london-air \
     ${PN}-lovelace \
@@ -382,9 +391,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-media-source \
     ${PN}-meraki \
     ${PN}-met \
-    ${PN}-microsoft-face \
-    ${PN}-microsoft-face-detect \
-    ${PN}-microsoft-face-identify \
     ${PN}-min-max \
     ${PN}-mjpeg \
     ${PN}-mobile-app \
@@ -417,12 +423,15 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-peco \
     ${PN}-persistent-notification \
     ${PN}-person \
+    ${PN}-picotts \
     ${PN}-ping \
     ${PN}-plant \
     ${PN}-plum-lightpad \
     ${PN}-private-ble-device \
     ${PN}-proximity \
+    ${PN}-proxy \
     ${PN}-push \
+    ${PN}-pushsafer \
     ${PN}-qwikswitch \
     ${PN}-radio-browser \
     ${PN}-random \
@@ -450,7 +459,6 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-shell-command \
     ${PN}-shelly \
     ${PN}-shopping-list \
-    ${PN}-sigfox \
     ${PN}-simplisafe \
     ${PN}-siren \
     ${PN}-sleep-as-android \
@@ -470,6 +478,7 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-stt \
     ${PN}-sun \
     ${PN}-sunweg \
+    ${PN}-swisscom \
     ${PN}-switch \
     ${PN}-switch-as-x \
     ${PN}-switchbot \
@@ -507,14 +516,15 @@ COMPONENT_TEST_PACKAGES:append = "\
     ${PN}-vacuum \
     ${PN}-valve \
     ${PN}-voicerss \
-    ${PN}-volvooncall \
     ${PN}-wake-word \
     ${PN}-water-heater \
     ${PN}-weather \
     ${PN}-web-rtc \
     ${PN}-webhook \
     ${PN}-websocket-api \
+    ${PN}-wirelesstag \
     ${PN}-worldclock \
+    ${PN}-worldtidesinfo \
     ${PN}-xiaomi \
     ${PN}-yale \
     ${PN}-yalexs-ble \

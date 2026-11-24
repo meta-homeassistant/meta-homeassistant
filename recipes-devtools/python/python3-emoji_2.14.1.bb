@@ -1,11 +1,11 @@
 SUMMARY = "Emoji for Python"
 HOMEPAGE = "https://github.com/carpedm20/emoji/"
 LICENSE = "BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=4799dd49db977b572103afc6d8df904e"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=f1ce6ea8cc2d4e84e717e050278ca26b"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI = "git://github.com/carpedm20/emoji.git;protocol=https;branch=master"
-SRCREV = "257c6ae1a6414c84b37339d6ef88a6dda41ecdbd"
+SRCREV = "08c5cc4789d924ad4215e2fb2ee8f0b19a0d421f"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 

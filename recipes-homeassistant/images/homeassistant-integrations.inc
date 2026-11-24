@@ -4,7 +4,6 @@ IMAGE_INSTALL:append = "\
     python3-homeassistant-3-day-blinds \
     python3-homeassistant-acaia \
     python3-homeassistant-accuweather \
-    python3-homeassistant-acer-projector \
     python3-homeassistant-acmeda \
     python3-homeassistant-acomax \
     python3-homeassistant-actiontec \
@@ -42,7 +41,6 @@ IMAGE_INSTALL:append = "\
     python3-homeassistant-ambient-station \
     python3-homeassistant-amcrest \
     python3-homeassistant-amp-motorization \
-    python3-homeassistant-ampio \
     python3-homeassistant-analytics \
     python3-homeassistant-analytics-insights \
     python3-homeassistant-android-ip-webcam \
@@ -79,7 +77,6 @@ IMAGE_INSTALL:append = "\
     python3-homeassistant-assist-satellite \
     python3-homeassistant-asuswrt \
     python3-homeassistant-atag \
-    python3-homeassistant-aten-pe \
     python3-homeassistant-atlanticcityelectric \
     python3-homeassistant-atome \
     python3-homeassistant-august \
@@ -90,7 +87,6 @@ IMAGE_INSTALL:append = "\
     python3-homeassistant-auth \
     python3-homeassistant-automation \
     python3-homeassistant-avea \
-    python3-homeassistant-avion \
     python3-homeassistant-awair \
     python3-homeassistant-aws \
     python3-homeassistant-aws-s3 \
@@ -109,7 +105,6 @@ IMAGE_INSTALL:append = "\
     python3-homeassistant-bauknecht \
     python3-homeassistant-bayesian \
     python3-homeassistant-bbox \
-    python3-homeassistant-beewi-smartclim \
     python3-homeassistant-bge \
     python3-homeassistant-binary-sensor \
     python3-homeassistant-bitcoin \
@@ -117,7 +112,6 @@ IMAGE_INSTALL:append = "\
     python3-homeassistant-blackbird \
     python3-homeassistant-blebox \
     python3-homeassistant-blink \
-    python3-homeassistant-blinksticklight \
     python3-homeassistant-bliss-automation \
     python3-homeassistant-bloc-blinds \
     python3-homeassistant-blockchain \
@@ -165,7 +159,6 @@ IMAGE_INSTALL:append = "\
     python3-homeassistant-cisco-ios \
     python3-homeassistant-cisco-mobility-express \
     python3-homeassistant-cisco-webex-teams \
-    python3-homeassistant-clementine \
     python3-homeassistant-clickatell \
     python3-homeassistant-clicksend \
     python3-homeassistant-clicksend-tts \
@@ -247,15 +240,12 @@ IMAGE_INSTALL:append = "\
     python3-homeassistant-doorbird \
     python3-homeassistant-dooya \
     python3-homeassistant-dormakaba-dkey \
-    python3-homeassistant-dovado \
     python3-homeassistant-downloader \
     python3-homeassistant-dremel-3d-printer \
     python3-homeassistant-drop-connect \
     python3-homeassistant-dsmr \
     python3-homeassistant-dsmr-reader \
-    python3-homeassistant-dublin-bus-transport \
     python3-homeassistant-duckdns \
-    python3-homeassistant-duke-energy \
     python3-homeassistant-dunehd \
     python3-homeassistant-duotecno \
     python3-homeassistant-duquesne-light \
@@ -282,7 +272,6 @@ IMAGE_INSTALL:append = "\
     python3-homeassistant-electric-kiwi \
     python3-homeassistant-elevenlabs \
     python3-homeassistant-elgato \
-    python3-homeassistant-eliqonline \
     python3-homeassistant-elkm1 \
     python3-homeassistant-elmax \
     python3-homeassistant-elv \
@@ -312,7 +301,6 @@ IMAGE_INSTALL:append = "\
     python3-homeassistant-escea \
     python3-homeassistant-esera-onewire \
     python3-homeassistant-esphome \
-    python3-homeassistant-etherscan \
     python3-homeassistant-eufy \
     python3-homeassistant-eufylife-ble \
     python3-homeassistant-event \
@@ -429,7 +417,6 @@ IMAGE_INSTALL:append = "\
     python3-homeassistant-graphite \
     python3-homeassistant-gree \
     python3-homeassistant-greeneye-monitor \
-    python3-homeassistant-greenwave \
     python3-homeassistant-group \
     python3-homeassistant-growatt-server \
     python3-homeassistant-gtfs \
@@ -510,7 +497,6 @@ IMAGE_INSTALL:append = "\
     python3-homeassistant-locative \
     python3-homeassistant-lock \
     python3-homeassistant-logbook \
-    python3-homeassistant-logentries \
     python3-homeassistant-logger \
     python3-homeassistant-london-air \
     python3-homeassistant-lovelace \
@@ -530,12 +516,8 @@ IMAGE_INSTALL:append = "\
     python3-homeassistant-media-source \
     python3-homeassistant-meraki \
     python3-homeassistant-met \
-    python3-homeassistant-microsoft-face \
-    python3-homeassistant-microsoft-face-detect \
-    python3-homeassistant-microsoft-face-identify \
     python3-homeassistant-mijndomein-energie \
     python3-homeassistant-min-max \
-    python3-homeassistant-mini-connected \
     python3-homeassistant-mjpeg \
     python3-homeassistant-mobile-app \
     python3-homeassistant-modbus \
@@ -550,7 +532,6 @@ IMAGE_INSTALL:append = "\
     python3-homeassistant-my \
     python3-homeassistant-myq \
     python3-homeassistant-namecheapdns \
-    python3-homeassistant-national-grid-us \
     python3-homeassistant-neff \
     python3-homeassistant-neo \
     python3-homeassistant-network \
@@ -589,7 +570,6 @@ IMAGE_INSTALL:append = "\
     python3-homeassistant-pitsos \
     python3-homeassistant-plant \
     python3-homeassistant-plum-lightpad \
-    python3-homeassistant-portlandgeneral \
     python3-homeassistant-private-ble-device \
     python3-homeassistant-profilo \
     python3-homeassistant-proximity \
@@ -638,7 +618,6 @@ IMAGE_INSTALL:append = "\
     python3-homeassistant-shelly \
     python3-homeassistant-shopping-list \
     python3-homeassistant-siemens \
-    python3-homeassistant-sigfox \
     python3-homeassistant-simplisafe \
     python3-homeassistant-simply-automated \
     python3-homeassistant-simu \
@@ -724,7 +703,6 @@ IMAGE_INSTALL:append = "\
     python3-homeassistant-vagner-pool \
     python3-homeassistant-valve \
     python3-homeassistant-vermont-castings \
-    python3-homeassistant-vlc \
     python3-homeassistant-w800rf32 \
     python3-homeassistant-wake-word \
     python3-homeassistant-water-heater \
@@ -746,7 +724,6 @@ IMAGE_INSTALL:append = "\
     python3-homeassistant-zbox-hub \
     python3-homeassistant-zengge \
     python3-homeassistant-zeroconf \
-    python3-homeassistant-zestimate \
     python3-homeassistant-zha \
     python3-homeassistant-zodiac \
     python3-homeassistant-zondergas \

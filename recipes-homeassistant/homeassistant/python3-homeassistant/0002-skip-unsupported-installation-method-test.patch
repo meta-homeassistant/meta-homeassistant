@@ -1,4 +1,4 @@
-From 1d1b4459c55dde8b48ccd96f66767779f657df6f Mon Sep 17 00:00:00 2001
+From 4b419746e0131df9c79ebec2f9b3787353ba5f51 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Sun, 7 Jun 2026 14:48:39 +0200
 Subject: [PATCH] skip unsupported installation method test
@@ -10,10 +10,10 @@ Upstream-Status: Inappropriate [OE specific]
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/tests/helpers/test_system_info.py b/tests/helpers/test_system_info.py
-index a3363c8d60c..cc762f95210 100644
+index fd18471870d..9669d0d2eeb 100644
 --- a/tests/helpers/test_system_info.py
 +++ b/tests/helpers/test_system_info.py
-@@ -42,7 +42,7 @@ async def test_get_system_info_supervisor_not_available(
+@@ -44,7 +44,7 @@ async def test_get_system_info_supervisor_not_available(
          assert info["installation_type"] == "Home Assistant Supervised"
          assert "No Home Assistant Supervisor info available" in caplog.text
  
@@ -21,4 +21,4 @@ index a3363c8d60c..cc762f95210 100644
 +@pytest.mark.skip
  async def test_get_system_info_supervisor_not_loaded(hass: HomeAssistant) -> None:
      """Test the get system info when supervisor is not loaded."""
-     with (
+     assert is_hassio(hass) is False

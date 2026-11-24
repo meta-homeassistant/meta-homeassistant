@@ -1,4 +1,4 @@
-From 3687e70ba7d6b1bba7f3c063476c7626291a0cc2 Mon Sep 17 00:00:00 2001
+From 39ef150cdfe7adad6a613cf6ba523e2f8d9c5439 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Sun, 11 May 2025 20:35:35 +0000
 Subject: [PATCH] Relax setuptools
@@ -10,13 +10,13 @@ Upstream-Status: Pending
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index 17927596b12..adedffd1d00 100644
+index 12ca1e6bb1f..6c293f61778 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -1,5 +1,5 @@
  [build-system]
--requires = ["setuptools==78.1.1"]
-+requires = ["setuptools>=78.1.0"]
+-requires = ["setuptools==84.0.0"]
++requires = ["setuptools>=84.0.0"]
  build-backend = "setuptools.build_meta"
  
  [project]

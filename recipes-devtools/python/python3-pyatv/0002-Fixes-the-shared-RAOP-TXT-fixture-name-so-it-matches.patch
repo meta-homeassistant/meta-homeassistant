@@ -1,4 +1,4 @@
-From 9e9100a1aa26a9ca722ce1d532b588239e6c797d Mon Sep 17 00:00:00 2001
+From 403ef4bfd688b1b8d071aa5d7edda31ff2310333 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Sat, 24 Oct 2026 23:46:12 +0200
 Subject: [PATCH] Fixes the shared RAOP TXT fixture name so it matches the RAOP

@@ -17,7 +17,6 @@ PACKAGECONFIG[async] = ",,,python3-aiofiles python3-async-timeout"
 PACKAGECONFIG[usb] = ",,,python3-adb-shell"
 
 RDEPENDS:${PN} += "\
-    python3-adb-shell \
-    python3-pure-python-adb \
-    git \
+    python3-adb-shell (>=0.4.0) \
+    python3-pure-python-adb (>=0.3.0.dev0) \
 "

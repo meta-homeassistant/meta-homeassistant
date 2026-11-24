@@ -1,4 +1,4 @@
-From 1652140ad07cd29b4c9b9ec6d803fcb76e6b5e27 Mon Sep 17 00:00:00 2001
+From 3866d39f414347e63f056eef3994d91bd70894f6 Mon Sep 17 00:00:00 2001
 From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Mon, 29 Dec 2025 00:22:40 +0100
 Subject: [PATCH] add compatibility for pytest-asyncio
