@@ -14,8 +14,7 @@ RDEPENDS:${PN} += "\
     python3-tenacity (>=9) \
 "
 
-RDEPENDS:${PN}-ptest = "\
-    ${PN} \
+RDEPENDS:${PN}-ptest += "\
     python3-pytest-asyncio \
     python3-aioresponses \
 "

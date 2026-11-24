@@ -13,7 +13,7 @@ RDEPENDS:${PN} = "\
     python3-requests (>=2.6.0) \
 "
 
-RDEPENDS:${PN}-ptest = "\
+RDEPENDS:${PN}-ptest += "\
     python3-click \
     python3-freezegun \
     python3-mock \

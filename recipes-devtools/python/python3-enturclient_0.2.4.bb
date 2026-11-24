@@ -13,6 +13,6 @@ RDEPENDS:${PN} = "\
     python3-async-timeout (>=3.0.1) \
 "
 
-RDEPENDS:${PN}-ptest = "\
+RDEPENDS:${PN}-ptest += "\
     python3-asynctest \
 "

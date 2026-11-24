@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "708487c8a8cdd99c9d90eb3ed4c3ed961246ff78ac82f03418f5183ab7
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-RDEPENDS:${PN}-ptest = "\
-    ${PN} \
+RDEPENDS:${PN}-ptest += "\
     python3-pytest-cov \
 "
