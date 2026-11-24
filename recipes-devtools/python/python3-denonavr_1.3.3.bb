@@ -17,8 +17,7 @@ RDEPENDS:${PN} = "\
     python3-netifaces (>=0.11.0) \
 "
 
-RDEPENDS:${PN}-ptest = "\
-    ${PN} \
+RDEPENDS:${PN}-ptest += "\
     python3-pylint \
     python3-pytest-cov \
     python3-pytest-timeout \

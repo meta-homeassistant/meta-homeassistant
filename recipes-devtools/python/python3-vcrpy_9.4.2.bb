@@ -13,7 +13,7 @@ RDEPENDS:${PN} = "\
     python3-wrapt \
 "
 
-RDEPENDS:${PN}-ptest = "\
+RDEPENDS:${PN}-ptest += "\
     python3-aiohttp \
     python3-boto3 \
     python3-cryptography \
@@ -29,5 +29,4 @@ RDEPENDS:${PN}-ptest = "\
     python3-tornado \
     python3-urllib3 \
     python3-werkzeug \
-    ${PN} \
 "

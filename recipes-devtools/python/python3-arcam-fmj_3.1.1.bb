@@ -16,8 +16,7 @@ RDEPENDS:${PN} = "\
     python3-serialx (>=1.7.0) \
 "
 
-RDEPENDS:${PN}-ptest = "\
-	${PN} \
+RDEPENDS:${PN}-ptest += "\
 	python3-pytest-aiohttp \
 	python3-pytest-asyncio \
 	python3-pytest-cov \

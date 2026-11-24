@@ -17,8 +17,7 @@ RDEPENDS:${PN} = "\
     python3-mashumaro (>=3.13) \
 "
 
-RDEPENDS:${PN}-ptest = "\
-    ${PN} \
+RDEPENDS:${PN}-ptest += "\
     python3-aioresponses \
     python3-pytest-asyncio \
     python3-pytest-cov \

@@ -16,7 +16,7 @@ RDEPENDS:${PN} = "\
     python3-cbor2 (>=5.9.0) \
 "
 
-RDEPENDS:${PN}-ptest = "\
+RDEPENDS:${PN}-ptest += "\
     python3-pytest-asyncio \
     python3-pytest-cov \
     python3-pylint \
