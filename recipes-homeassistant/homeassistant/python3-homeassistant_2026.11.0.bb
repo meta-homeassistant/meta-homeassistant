@@ -34,7 +34,6 @@ USERADD_PARAM:${PN} = "\
     --groups homeassistant,dialout --gid homeassistant ${HOMEASSISTANT_USER} \
 "
 
-SYSTEMD_AUTO_ENABLE = "enable"
 SYSTEMD_SERVICE:${PN} = "homeassistant.service"
 
 FILES:${PN} += "${HOMEASSISTANT_VENV}"
@@ -131,7 +130,7 @@ RDEPENDS:${PN} += "\
     python3-zeroconf (>=0.152.0) \
 "
 
-RDEPENDS:${PN}-ptest = "\
+RDEPENDS:${PN}-ptest += "\
     python3-ast-serialize (>=0.12.1) \
     python3-astroid (>=4.3.4) \
     python3-coverage (>=7.16.2) \
@@ -163,7 +162,6 @@ RDEPENDS:${PN}-ptest = "\
     python3-tqdm (>=4.70.1) \
     python3-unidiff (>=1.0.1) \
     python3-wakeonlan (>=3.3.0) \
-    ${PN} \
     bash \
     tzdata \
     ${@bb.utils.contains('PACKAGECONFIG', 'integration-tests', 'python3-pytest-rerunfailures', '', d)} \
