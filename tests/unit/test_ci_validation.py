@@ -1179,6 +1179,7 @@ class ValidationTests(unittest.TestCase):
             "homeassistant/add-homeassistant-image-test-deps",
         ))
         self.assertIn('INHERIT += "rm_work"', (setup.parent / "site.conf").read_text())
+        self.assertIn('INHERIT:remove = "create-spdx"', (setup.parent / "site.conf").read_text())
         self.assertIn('TEST_LOG_DIR = "${TOPDIR}/ci-test-logs/${PN}"',
                       (setup.parent / "site.conf").read_text())
         self.assertEqual(json.loads(ci.baseline_path(self.state).read_text()), baseline)

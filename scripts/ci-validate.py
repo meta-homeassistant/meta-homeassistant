@@ -121,6 +121,7 @@ def prepare(repo: Path, state: Path, bootstrap: Path) -> Path:
         'SSTATE_DIR ?= "/cache/sstate-cache"\n'
         'BB_HASHSERVE_DB_DIR ?= "${SSTATE_DIR}"\n'
         'INHERIT += "rm_work"\n'
+        'INHERIT:remove = "create-spdx"\n'
         'TEST_LOG_DIR = "${TOPDIR}/ci-test-logs/${PN}"\n'
     )
     setup = top / CONFIGURATION
