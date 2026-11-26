@@ -9,11 +9,11 @@ SRC_URI[sha256sum] = "975026707c69bcf5d23a97cebd4e0941024c2f94cda5b07cc829e36d30
 inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} += "\
-	python3-aiohttp (>=3.9.0) \
-	python3-geopy (>=2.3.0) \
-	python3-lxml (>=5.3.0) \
-	python3-pandas (>=2.2.3) \
-	python3-pillow (>=10.0.1) \
-	python3-dateutil (>=2.9) \
-	python3-voluptuous (>=0.15.2) \
+    python3-aiohttp (>=3.9.0) \
+    python3-dateutil (>=2.9) \
+    python3-geopy (>=2.3.0) \
+    python3-lxml (>=5.3.0) \
+    python3-pandas (>=2.2.3) \
+    python3-pillow (>=10.0.1) \
+    python3-voluptuous (>=0.15.2) \
 "

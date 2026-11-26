@@ -1,4 +1,5 @@
 SUMMARY = "Microsoft Authentication Library extensions (MSAL EX) provides a persistence API that can save your data on disk, encrypted on Windows, macOS and Linux. Concurrent data access will be coordinated by a file lock mechanism."
+HOMEPAGE = "https://github.com/AzureAD/microsoft-authentication-extensions-for-python"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=27e94c0280987ab296b0b8dd02ab9fe5"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"

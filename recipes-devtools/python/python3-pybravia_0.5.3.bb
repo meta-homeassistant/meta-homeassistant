@@ -1,4 +1,5 @@
 SUMMARY = "Python async library for remote control of Sony Bravia TVs 2013 and newer."
+HOMEPAGE = "https://github.com/Drafteed/pybravia"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=75c276b219eb963094e3605b275e3116"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"

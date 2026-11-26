@@ -18,7 +18,8 @@ WHL_PKG_URI ?= "-"
 WHL_PYTHON_TAG ?= "py3"
 WHL_ABI_TAG ?= "none"
 WHL_PLATFORM_TAG ?= "any"
-SRC_URI = "https://files.pythonhosted.org/packages/${WHL_PKG_URI}/${WHL_BP}-${WHL_PYTHON_TAG}-${WHL_ABI_TAG}-${WHL_PLATFORM_TAG}.whl;downloadfilename=${BP}.zip;subdir=${BP};name=${SDK_ARCH}"
+SRC_URI = "https://files.pythonhosted.org/packages/${WHL_PKG_URI}/${WHL_BP}-${WHL_PYTHON_TAG}-${WHL_ABI_TAG}-${WHL_PLATFORM_TAG}.whl;downloadfilename=${BP}.zip;subdir=${BP};name=whl"
+SRC_URI[whl.sha256sum] = "${WHL_SHA256SUM}"
 
 do_install() {
     install -d ${D}${libdir}/${PYTHON_DIR}/site-packages/${WHL_BPN}

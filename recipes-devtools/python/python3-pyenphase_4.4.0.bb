@@ -1,4 +1,5 @@
 SUMMARY = "Library to control enphase envoy"
+HOMEPAGE = "https://github.com/pyenphase/pyenphase"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1f7f6fd04439f6b7575b1f1fc4185b76"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"

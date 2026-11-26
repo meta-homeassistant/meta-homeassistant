@@ -7,4 +7,4 @@ export OELINT_SKIP_CONFIG=""
 
 git ls-files -z --cached --others --exclude-standard -- \
     '*.bb' '*.bbappend' '*.bbclass' '*.inc' '*.conf' ':!:sources/**' |
-    xargs -0 -r oelint-adv --quiet --relpaths --jobs 4
+    xargs -0 -r oelint-adv --quiet --relpaths --color

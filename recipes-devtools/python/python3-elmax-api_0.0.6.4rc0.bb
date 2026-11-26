@@ -8,11 +8,11 @@ SRC_URI[sha256sum] = "454c872386c59d1ed8f2e898765eb5acbf8625c43534ac58ea68778d64
 
 inherit pypi setuptools3 ptest-python-pytest
 
+FILES:${PN}-dbg += "/usr/requirements.txt"
+
 RDEPENDS:${PN} += "\
     python3-httpx (>=0.18.0) \
     python3-pyjwt (>=1.7.1) \
     python3-websockets (>=13.0) \
     python3-yarl (>=1.6.3) \
 "
-
-FILES:${PN}-dbg += "/usr/requirements.txt"

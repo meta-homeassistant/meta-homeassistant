@@ -1,6 +1,6 @@
 SUMMARY = "Asynchronous Python client for Internet Printing Protocol (IPP)"
 DESCRIPTION = "Asynchronous Python client for the Internet Printing Protocol (IPP), \
-    a maintained fork of pyipp."
+               a maintained fork of pyipp."
 HOMEPAGE = "https://github.com/brianegge/aioipp"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=4a8a03ceb18c4f191643ef270d79452c"

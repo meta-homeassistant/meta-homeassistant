@@ -4,17 +4,17 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a904c7a61349b66aabdf1e0870cfa3f4"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
+DEPENDS += "python3-wheel-native"
+
 SRC_URI = "git://github.com/miaucl/bring-api;protocol=https;tag=${PV};branch=main"
 SRCREV = "b91429d766ae3c6a165af819250671ad6ea07b7f"
-
-DEPENDS += "python3-wheel-native"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.10) \
-    python3-orjson (>=3.10) \
     python3-mashumaro (>=3.13) \
+    python3-orjson (>=3.10) \
 "
 
 RDEPENDS:${PN}-ptest += "\

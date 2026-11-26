@@ -10,11 +10,11 @@ DEPENDS += "python3-wheel-native"
 
 inherit pypi python_setuptools_build_meta
 
-RDEPENDS:${PN} += " \
+RDEPENDS:${PN} += "\
     python3-aiohttp (>= 3.7.4) \
+    python3-dateutil (>= 2.9.0) \
     python3-haversine (>= 2.8.1) \
     python3-xmltodict (>= 0.14.1) \
-    python3-dateutil (>= 2.9.0) \
 "
 
 BBCLASSEXTEND = "native nativesdk"

@@ -19,14 +19,13 @@ PACKAGECONFIG[requests] = ",,,python3-requests python3-urllib3"
 PACKAGECONFIG[timezone] = ",,,python3-pytz"
 
 RDEPENDS:${PN} += "\
+    python3-geographiclib (>=1.52) \
     python3-requests (>=2.16.2) \
     python3-urllib3 (>=1.24.2) \
-    python3-geographiclib (>=1.52) \
 "
 
 RDEPENDS:${PN}-ptest += "\
     python3-pytest-asyncio \
 "
-
 
 PTEST_PYTEST_DIR = "test"

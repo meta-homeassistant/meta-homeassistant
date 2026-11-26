@@ -16,17 +16,17 @@ RDEPENDS:${PN} += "\
 "
 
 RDEPENDS:${PN}-ptest += "\
-    python3-pytest-aiohttp \
-    python3-pytest-asyncio \
     python3-aiohttp \
     python3-emoji \
     python3-freezegun \
+    python3-misc \
+    python3-pytest-aiohttp \
+    python3-pytest-asyncio \
+    python3-pytest-benchmark \
     python3-pytest-cov \
     python3-pyyaml \
-    python3-syrupy \
-    python3-pytest-benchmark \
-    python3-misc \
     python3-statistics \
+    python3-syrupy \
 "
 
 do_install_ptest:append() {

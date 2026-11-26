@@ -13,8 +13,8 @@ DEPENDS = "\
 inherit pypi python_hatchling
 
 RDEPENDS:${PN} += "\
-	python3-icalendar (>=6.1.0) \
     python3-dateutil (>=2.8.1) \
-    python3-x-wr-timezone (>=1.0.0) \
+    python3-icalendar (>=6.1.0) \
     python3-tzdata \
+    python3-x-wr-timezone (>=1.0.0) \
 "

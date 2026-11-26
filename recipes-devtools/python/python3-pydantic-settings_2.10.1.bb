@@ -9,7 +9,7 @@ SRC_URI[sha256sum] = "06f0062169818d0f5524420a360d632d5857b83cffd4d42fe29597807a
 inherit pypi python_hatchling ptest-python-pytest
 
 RDEPENDS:${PN} = "\
-	python3-pydantic (>=2.7.0) \
-	python3-python-dotenv (>=0.21.0) \
-	python3-typing-extensions (>=0.4.0) \
+    python3-pydantic (>=2.7.0) \
+    python3-python-dotenv (>=0.21.0) \
+    python3-typing-extensions (>=0.4.0) \
 "

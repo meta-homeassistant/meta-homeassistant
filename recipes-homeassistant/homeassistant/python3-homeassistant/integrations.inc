@@ -741,7 +741,6 @@ INTEGRATIONS = "\
 "
 
 PACKAGES += "${INTEGRATIONS}"
-RRECOMMENDS:${PN} += "${INTEGRATIONS}"
 
 ALLOW_EMPTY:${PN}-3-day-blinds = "1"
 
@@ -754,7 +753,6 @@ ALLOW_EMPTY:${PN}-accuweather = "1"
 RDEPENDS:${PN}-accuweather = "\
     python3-accuweather (>=5.1.0) \
 "
-
 
 ALLOW_EMPTY:${PN}-acmeda = "1"
 RDEPENDS:${PN}-acmeda = "\
@@ -922,7 +920,6 @@ RDEPENDS:${PN}-amcrest = "\
 
 ALLOW_EMPTY:${PN}-amp-motorization = "1"
 
-
 ALLOW_EMPTY:${PN}-analytics = "1"
 
 ALLOW_EMPTY:${PN}-analytics-insights = "1"
@@ -1083,7 +1080,6 @@ RDEPENDS:${PN}-atag = "\
     python3-pyatag (>=0.3.7.1) \
 "
 
-
 ALLOW_EMPTY:${PN}-atlanticcityelectric = "1"
 
 ALLOW_EMPTY:${PN}-atome = "1"
@@ -1127,7 +1123,6 @@ ALLOW_EMPTY:${PN}-avea = "1"
 RDEPENDS:${PN}-avea = "\
     python3-avea (>=1.8.0) \
 "
-
 
 ALLOW_EMPTY:${PN}-awair = "1"
 RDEPENDS:${PN}-awair = "\
@@ -1212,7 +1207,6 @@ RDEPENDS:${PN}-bbox = "\
     python3-pybbox (>=0.0.5-alpha) \
 "
 
-
 ALLOW_EMPTY:${PN}-bge = "1"
 
 ALLOW_EMPTY:${PN}-binary-sensor = "1"
@@ -1241,7 +1235,6 @@ ALLOW_EMPTY:${PN}-blink = "1"
 RDEPENDS:${PN}-blink = "\
     python3-blinkpy (>=0.25.9) \
 "
-
 
 ALLOW_EMPTY:${PN}-bliss-automation = "1"
 
@@ -1322,6 +1315,8 @@ RDEPENDS:${PN}-bring = "\
 
 ALLOW_EMPTY:${PN}-broadlink = "1"
 RDEPENDS:${PN}-broadlink = "\
+    ${PN}-infrared \
+    ${PN}-radio-frequency \
     python3-broadlink-async (>=1.1.1) \
 "
 
@@ -1443,7 +1438,6 @@ ALLOW_EMPTY:${PN}-cisco-webex-teams = "1"
 RDEPENDS:${PN}-cisco-webex-teams = "\
     python3-webexpythonsdk (>=2.0.6) \
 "
-
 
 ALLOW_EMPTY:${PN}-clickatell = "1"
 
@@ -1754,7 +1748,6 @@ RDEPENDS:${PN}-dormakaba-dkey = "\
     python3-py-dormakaba-dkey (>=1.0.6) \
 "
 
-
 ALLOW_EMPTY:${PN}-downloader = "1"
 
 ALLOW_EMPTY:${PN}-dremel-3d-printer = "1"
@@ -1774,9 +1767,7 @@ RDEPENDS:${PN}-dsmr = "\
 
 ALLOW_EMPTY:${PN}-dsmr-reader = "1"
 
-
 ALLOW_EMPTY:${PN}-duckdns = "1"
-
 
 ALLOW_EMPTY:${PN}-dunehd = "1"
 RDEPENDS:${PN}-dunehd = "\
@@ -1901,7 +1892,6 @@ ALLOW_EMPTY:${PN}-elgato = "1"
 RDEPENDS:${PN}-elgato = "\
     python3-elgato (>=6.1.1) \
 "
-
 
 ALLOW_EMPTY:${PN}-elkm1 = "1"
 RDEPENDS:${PN}-elkm1 = "\
@@ -2033,11 +2023,12 @@ ALLOW_EMPTY:${PN}-esera-onewire = "1"
 
 ALLOW_EMPTY:${PN}-esphome = "1"
 RDEPENDS:${PN}-esphome = "\
+    ${PN}-infrared \
+    ${PN}-radio-frequency \
     python3-aioesphomeapi (>=46.25.0) \
     python3-bleak-esphome (>=4.0.0) \
     python3-esphome-dashboard-api (>=1.4.0) \
 "
-
 
 ALLOW_EMPTY:${PN}-eufy = "1"
 RDEPENDS:${PN}-eufy = "\
@@ -2538,7 +2529,6 @@ RDEPENDS:${PN}-greeneye-monitor = "\
     python3-greeneye-monitor (>=3.0.3) \
 "
 
-
 ALLOW_EMPTY:${PN}-group = "1"
 
 ALLOW_EMPTY:${PN}-growatt-server = "1"
@@ -2770,7 +2760,6 @@ ALLOW_EMPTY:${PN}-lock = "1"
 
 ALLOW_EMPTY:${PN}-logbook = "1"
 
-
 ALLOW_EMPTY:${PN}-logger = "1"
 
 ALLOW_EMPTY:${PN}-london-air = "1"
@@ -2830,13 +2819,9 @@ RDEPENDS:${PN}-met = "\
     python3-pymetno (>=0.13.0) \
 "
 
-
-
-
 ALLOW_EMPTY:${PN}-mijndomein-energie = "1"
 
 ALLOW_EMPTY:${PN}-min-max = "1"
-
 
 ALLOW_EMPTY:${PN}-mjpeg = "1"
 
@@ -2860,6 +2845,7 @@ ALLOW_EMPTY:${PN}-moon = "1"
 
 ALLOW_EMPTY:${PN}-mqtt = "1"
 RDEPENDS:${PN}-mqtt = "\
+    ${PN}-infrared \
     python3-paho-mqtt (>=2.1.0) \
 "
 
@@ -2878,7 +2864,6 @@ ALLOW_EMPTY:${PN}-myq = "1"
 ALLOW_EMPTY:${PN}-namecheapdns = "1"
 RDEPENDS:${PN}-namecheapdns = "\
 "
-
 
 ALLOW_EMPTY:${PN}-neff = "1"
 
@@ -2990,7 +2975,6 @@ ALLOW_EMPTY:${PN}-pitsos = "1"
 ALLOW_EMPTY:${PN}-plant = "1"
 
 ALLOW_EMPTY:${PN}-plum-lightpad = "1"
-
 
 ALLOW_EMPTY:${PN}-private-ble-device = "1"
 RDEPENDS:${PN}-private-ble-device = "\
@@ -3141,13 +3125,13 @@ ALLOW_EMPTY:${PN}-shell-command = "1"
 
 ALLOW_EMPTY:${PN}-shelly = "1"
 RDEPENDS:${PN}-shelly = "\
+    ${PN}-infrared \
     python3-aioshelly (>=14.0.1) \
 "
 
 ALLOW_EMPTY:${PN}-shopping-list = "1"
 
 ALLOW_EMPTY:${PN}-siemens = "1"
-
 
 ALLOW_EMPTY:${PN}-simplisafe = "1"
 RDEPENDS:${PN}-simplisafe = "\
@@ -3403,9 +3387,7 @@ ALLOW_EMPTY:${PN}-valve = "1"
 
 ALLOW_EMPTY:${PN}-vermont-castings = "1"
 
-
 ALLOW_EMPTY:${PN}-voicerss = "1"
-
 
 ALLOW_EMPTY:${PN}-w800rf32 = "1"
 RDEPENDS:${PN}-w800rf32 = "\
@@ -3413,7 +3395,6 @@ RDEPENDS:${PN}-w800rf32 = "\
 "
 
 ALLOW_EMPTY:${PN}-wake-word = "1"
-
 
 ALLOW_EMPTY:${PN}-water-heater = "1"
 
@@ -3468,9 +3449,10 @@ RDEPENDS:${PN}-zeroconf = "\
     python3-zeroconf (>=0.152.0) \
 "
 
-
 ALLOW_EMPTY:${PN}-zha = "1"
 RDEPENDS:${PN}-zha = "\
+    ${PN}-homeassistant-hardware \
+    ${PN}-infrared \
     python3-zha (>=2.4.2) \
     python3-zha-quirks (>=2.4.1) \
 "
@@ -3505,9 +3487,6 @@ RDEPENDS:${PN}-homeassistant-green += "${PN}-homeassistant-hardware"
 RDEPENDS:${PN}-homeassistant-sky-connect += "${PN}-homeassistant-hardware"
 RDEPENDS:${PN}-homeassistant-yellow += "${PN}-homeassistant-hardware"
 RDEPENDS:${PN}-raspberry-pi += "${PN}-homeassistant-hardware"
-RDEPENDS:${PN}-zha += "${PN}-homeassistant-hardware ${PN}-infrared"
-RDEPENDS:${PN}-broadlink += "${PN}-infrared ${PN}-radio-frequency"
-RDEPENDS:${PN}-esphome += "${PN}-infrared ${PN}-radio-frequency"
 RDEPENDS:${PN}-kitchen-sink += "${PN}-infrared ${PN}-radio-frequency"
-RDEPENDS:${PN}-mqtt += "${PN}-infrared"
-RDEPENDS:${PN}-shelly += "${PN}-infrared"
+
+RRECOMMENDS:${PN} += "${INTEGRATIONS}"

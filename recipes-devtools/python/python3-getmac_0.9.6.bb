@@ -9,6 +9,6 @@ SRC_URI[sha256sum] = "1539673e819e5856ea9707434f939355c9a9a043d3566224addf52976d
 inherit pypi setuptools3 ptest-python-pytest
 
 RDEPENDS:${PN}-ptest += "\
-    python3-pytest-mock \
     python3-pytest-benchmark \
+    python3-pytest-mock \
 "

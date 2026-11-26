@@ -1,6 +1,6 @@
 SUMMARY = "Python client library for parsing ARWN weather station MQTT messages"
 DESCRIPTION = "Python client library for parsing ARWN weather station MQTT \
-    messages."
+               messages."
 HOMEPAGE = "https://github.com/sdague/arwn-client"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b9df07e6a45e6b3099ca66710c5b494a"

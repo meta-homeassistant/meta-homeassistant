@@ -1,5 +1,5 @@
 SUMMARY = "Strict, simple, lightweight RFC3339 functions"
-HOMEPAGE = "http://www.danielrichman.co.uk/libraries/strict-rfc3339.html"
+HOMEPAGE = "https://pypi.org/project/strict-rfc3339/"
 LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=8f0e2cd40e05189ec81232da84bd6e1a"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"

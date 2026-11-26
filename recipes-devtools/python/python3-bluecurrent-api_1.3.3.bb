@@ -8,12 +8,11 @@ SRC_URI[sha256sum] = "d96396f25b0d12513af45d1191c3310d54b68b939b23b712ae6cf7d536
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-
 RDEPENDS:${PN} = "\
     python3-websockets (>=15.0) \
 "
 
-RDEPENDS:${PN}-ptest:append = "\
+RDEPENDS:${PN}-ptest:append = " \
     ${PN} \
     python3-pytest-asyncio \
     python3-pytest-cov \
@@ -25,7 +24,8 @@ RDEPENDS:${PN}-ptest:append = "\
 
 # This package tests directly against the source so make it available
 do_install_ptest:append() {
-    cp -rf ${S}/src ${D}${PTEST_PATH}/
+    install -d ${D}${PTEST_PATH}/src
+    find ${S}/src -type f -exec sh -c 'for file do install -D -m 0644 "$file" "${D}${PTEST_PATH}/src/${file#${S}/src/}"; done' sh {} +
 }
 
 # Ensure pytest can import the 'src' top-level package by adding

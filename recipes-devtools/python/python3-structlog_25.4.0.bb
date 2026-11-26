@@ -8,15 +8,15 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 SRC_URI[sha256sum] = "186cd1b0a8ae762e29417095664adf1d6a31702160a46dacb7796ea82f7409e4"
 
 DEPENDS += "\
-	python3-hatch-vcs-native \
-	python3-hatch-fancy-pypi-readme-native \
+    python3-hatch-fancy-pypi-readme-native \
+    python3-hatch-vcs-native \
 "
 
 inherit pypi python_hatchling ptest-python-pytest
 
 RDEPENDS:${PN}-ptest += "\
-	python3-freezegun \
-	python3-pretend \
-	python3-pytest-asyncio \
-	python3-simplejson \
-" 
+    python3-freezegun \
+    python3-pretend \
+    python3-pytest-asyncio \
+    python3-simplejson \
+"

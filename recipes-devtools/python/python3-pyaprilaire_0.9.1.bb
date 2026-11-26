@@ -1,4 +1,5 @@
 SUMMARY = "pyaprilaire is a library to interact with Aprilaire thermostats."
+HOMEPAGE = "https://github.com/chamberlain2007/pyaprilaire"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=4b880a0c262aeacbae1722b00b7de60f"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"

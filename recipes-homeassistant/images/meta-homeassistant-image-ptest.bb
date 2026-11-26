@@ -1,4 +1,5 @@
 SUMMARY = "meta-homeassistant ptest test image"
+LICENSE = "MIT"
 
 require conf/include/ptest-packagelists-meta-homeassistant.inc
 
@@ -17,8 +18,6 @@ PTESTS_META_HOMEASSISTANT = "${PTESTS_SLOW_META_HOMEASSISTANT} ${PTESTS_FAST_MET
 BBCLASSEXTEND = "${@' '.join(['mcextend:'+x for x in d.getVar('PTESTS_META_HOMEASSISTANT').split()])}"
 
 IMAGE_LINGUAS = ""
-
-LICENSE = "MIT"
 
 # 100 MiB of additional storage for config and runtime data
 IMAGE_ROOTFS_EXTRA_SPACE = "102400"

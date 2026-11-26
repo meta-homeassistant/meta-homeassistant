@@ -8,7 +8,6 @@ SRC_URI[sha256sum] = "243160a2bfd4fce45458e73e26ad171a179e67b311b812fca303322eca
 
 inherit pypi python_setuptools_build_meta
 
-
 RDEPENDS:${PN} = "\
     python3-aiohttp (>3) \
     python3-pydantic (>=2.0.0) \

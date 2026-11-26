@@ -14,7 +14,7 @@ PACKAGECONFIG[optimize] = ",,,python3-orjson"
 
 RDEPENDS:${PN} += "python3-ordered-set python3-statistics"
 
-RDEPENDS:${PN}-ptest += " \
+RDEPENDS:${PN}-ptest += "\
     python3-click \
     python3-dateutil \
     python3-jsonpickle \

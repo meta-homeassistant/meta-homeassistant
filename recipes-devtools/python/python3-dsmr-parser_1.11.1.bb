@@ -10,12 +10,12 @@ SRCREV = "4ad6ff1cbe177c8e2e81b40fb404ea63a9479c46"
 inherit setuptools3 ptest-python-pytest
 
 RDEPENDS:${PN} += "\
+    python3-dlms-cosem (>=21.3.2) \
     python3-serialx (>=1.8) \
     python3-tailer (>=0.4.1) \
-    python3-dlms-cosem (>=21.3.2) \
 "
 
-RDEPENDS:${PN}-ptest:append = "\
+RDEPENDS:${PN}-ptest:append = " \
     python3-zoneinfo \
     python3-tzdata \
     python3-misc \

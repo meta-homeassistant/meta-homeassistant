@@ -1,6 +1,6 @@
 SUMMARY = "A modern Python data validation library"
 DESCRIPTION = "Python data validation library, used by Home Assistant to validate \
-    configuration and data."
+               configuration and data."
 HOMEPAGE = "https://github.com/frenck/probatio"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fa33439907f7896804914a8c730a68f1"

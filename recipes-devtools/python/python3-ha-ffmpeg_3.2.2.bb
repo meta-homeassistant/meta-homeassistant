@@ -9,6 +9,6 @@ SRC_URI[sha256sum] = "80e4a77b3eda73df456ec9cc3295a898ed7cbb8cd2d59798f10e8c10a8
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "\
-    python3-async-timeout \
     ffmpeg \
+    python3-async-timeout \
 "

@@ -10,11 +10,11 @@ DEPENDS += "python3-setuptools-scm-native"
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-RDEPENDS:${PN} += " \
-	python3-ifaddr (>=0.1.7) \
-	python3-httpx (>=0.21.0) \
-	python3-protobuf (>=4.22.0) \
-	python3-segno (>=1.5.2) \
-	python3-tenacity (>=8.3.0) \
-	python3-zeroconf (>=0.70.0) \
+RDEPENDS:${PN} += "\
+    python3-httpx (>=0.21.0) \
+    python3-ifaddr (>=0.1.7) \
+    python3-protobuf (>=4.22.0) \
+    python3-segno (>=1.5.2) \
+    python3-tenacity (>=8.3.0) \
+    python3-zeroconf (>=0.70.0) \
 "

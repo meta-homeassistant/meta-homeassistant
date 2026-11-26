@@ -1,7 +1,8 @@
 SUMMARY = "Find the vendor for a given MAC address"
 HOMEPAGE = "https://github.com/bauerj/mac_vendor_lookup"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${WHL_BP}.dist-info/METADATA;md5=428346cfc1f73cfbbde445c29c123ef1"
+# nooelint: oelint.var.licenseremotefile - False positive, the license file is in the wheel package
+LIC_FILES_CHKSUM = "file://${WHL_BP}.dist-info/LICENCE;md5=d229da563da18fe5d58cd95a6467d584"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit pypi_wheel
@@ -11,5 +12,4 @@ WHL_BP = "mac_vendor_lookup-${PV}"
 WHL_PN = "mac_vendor_lookup"
 WHL_BPN = ""
 
-SRC_URI[x86_64.sha256sum] = "6c2b5ac4b27dab71ed43f7ac6402c6fde1463bcd730b8d58417f0004b3aafd40"
-SRC_URI[aarch64.sha256sum] = "6c2b5ac4b27dab71ed43f7ac6402c6fde1463bcd730b8d58417f0004b3aafd40"
+WHL_SHA256SUM = "6c2b5ac4b27dab71ed43f7ac6402c6fde1463bcd730b8d58417f0004b3aafd40"

@@ -1,7 +1,7 @@
 SUMMARY = "Use the full Github API v3"
 DESCRIPTION = "PyGitHub is a Python library to access the GitHub REST API. It \
-    manages GitHub resources such as repositories, user profiles and \
-    organizations from Python."
+               manages GitHub resources such as repositories, user profiles and \
+               organizations from Python."
 HOMEPAGE = "https://github.com/PyGithub/PyGithub"
 LICENSE = "LGPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504 \

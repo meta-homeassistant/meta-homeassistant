@@ -6,14 +6,13 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 # The PyPI sdist omits test/conftest.py and test/__init__.py, which the
 # tests import from; build from the release tag so the ptest is complete.
-SRC_URI = "git://github.com/Danielhiversen/pyTibber.git;protocol=https;branch=master;tag=${PV}"
+SRC_URI = "\
+    git://github.com/Danielhiversen/pyTibber.git;protocol=https;branch=master;tag=${PV} \
+    file://run-ptest \
+"
 SRCREV = "34bb1557175b666fe3eba6b38805a92f32ffd01d"
 
 inherit python_setuptools_build_meta ptest-python-pytest
-
-SRC_URI:append = " \
-    file://run-ptest \
-"
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.0.6) \

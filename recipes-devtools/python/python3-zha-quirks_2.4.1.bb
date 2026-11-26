@@ -23,15 +23,15 @@ RDEPENDS:${PN} += "\
 "
 
 RDEPENDS:${PN}-ptest += "\
-    python3-pytest-xdist \
     python3-codecov \
     python3-pytest-asyncio \
     python3-pytest-cov \
     python3-pytest-sugar \
     python3-pytest-timeout \
+    python3-pytest-xdist \
     python3-time-machine \
-    python3-zoneinfo \
     python3-tzdata \
+    python3-zoneinfo \
 "
 
 do_install:append() {

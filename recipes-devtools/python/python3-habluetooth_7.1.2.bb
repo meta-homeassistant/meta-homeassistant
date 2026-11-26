@@ -10,14 +10,14 @@ SRCREV = "efc10fb2f55df617780db255667e1af96f6b8277"
 inherit python_poetry_core cython ptest-python-pytest
 
 RDEPENDS:${PN} = "\
-    python3-core (>=3.11) \
+    python3-async-interrupt (>=1.1.1) \
     python3-bleak (>=3.0.2) \
     python3-bleak-retry-connector (>=4.7.1) \
-    python3-bluetooth-data-tools (>=1.29.24) \
     python3-bluetooth-adapters (>=2.4.0) \
     python3-bluetooth-auto-recovery (>=1.6.4) \
-    python3-async-interrupt (>=1.1.1) \
+    python3-bluetooth-data-tools (>=1.29.24) \
     python3-btsocket (>=0.3.0) \
+    python3-core (>=3.11) \
     python3-dbus-fast (>=5.0.22) \
 "
 

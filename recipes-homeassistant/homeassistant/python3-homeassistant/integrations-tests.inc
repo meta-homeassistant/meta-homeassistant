@@ -543,11 +543,8 @@ COMPONENT_TEST_PACKAGES:append:raspberrypi4 = "\
     ${PN}-raspberry-pi \
 "
 
-python __anonymous() {
-    if 'ptest' not in d.getVar('DISTRO_FEATURES'):
-        return
-    bb.build.addtask('do_addptest', 'do_compile', 'do_configure', d)
-}
+addtask addptest after do_configure before do_compile
+do_addptest[noexec] = "${@bb.utils.contains('DISTRO_FEATURES', 'ptest', '0', '1', d)}"
 
 python do_addptest () {
     import shutil

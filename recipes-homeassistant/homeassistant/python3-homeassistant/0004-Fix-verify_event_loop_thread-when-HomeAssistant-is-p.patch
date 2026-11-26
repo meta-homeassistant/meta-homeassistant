@@ -26,6 +26,8 @@ half of the ptest runs, depending on which tests run first on a worker.
 Upstream-Status: Submitted [https://github.com/home-assistant/core/pull/188003]
 The PR was approved, then closed by its author without being merged.
 
+Signed-off-by: xxx <xxx@example.com>
+
 ---
  homeassistant/core.py | 7 ++++++-
  1 file changed, 6 insertions(+), 1 deletion(-)

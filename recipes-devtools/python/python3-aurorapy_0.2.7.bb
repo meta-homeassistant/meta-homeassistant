@@ -10,7 +10,7 @@ inherit pypi setuptools3 ptest-python-pytest
 
 RDEPENDS:${PN} += "python3-future python3-pyserial"
 
-RDEPENDS:${PN}-ptest:append = "\
+RDEPENDS:${PN}-ptest:append = " \
     python3-six \
 "
 

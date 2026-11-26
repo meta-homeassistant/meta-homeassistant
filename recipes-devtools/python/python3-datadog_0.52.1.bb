@@ -15,9 +15,9 @@ RDEPENDS:${PN} = "\
 
 RDEPENDS:${PN}-ptest += "\
     python3-click \
+    python3-dateutil \
     python3-freezegun \
     python3-mock \
-    python3-dateutil \
 "
 #python3-pytest-vcr
 # python3-vcrpy

@@ -10,68 +10,67 @@ require ${BPN}-crates.inc
 
 inherit pypi python_maturin cargo-update-recipe-crates
 
-
 # The 1.2.0 sdist ships an empty hf_xet/python/ tree, so maturin fails when
 # python-source points there. Drop this key to build the extension module.
 do_configure:append() {
-	sed -i '/^python-source\s*=\s*"hf_xet\/python"\s*$/d' ${S}/pyproject.toml
+    sed -i '/^python-source\s*=\s*"hf_xet\/python"\s*$/d' ${S}/pyproject.toml
 }
 
 # Consolidated remap prefixes to avoid embedding absolute build/source paths.
 # Keep a small set of high-yield prefixes rather than many overlapping ones.
-RUST_DEBUG_REMAP = " --remap-path-prefix=${S}=${TARGET_DBGSRC_DIR} --remap-path-prefix=${TMPDIR}=${TARGET_DBGSRC_DIR} --remap-path-prefix=/usr/src/debug=${TARGET_DBGSRC_DIR} --remap-path-prefix=/cache/builddir=${TARGET_DBGSRC_DIR} --remap-path-prefix=${CARGO_HOME}=${TARGET_DBGSRC_DIR}"
+RUST_DEBUG_REMAP = "--remap-path-prefix=${S}=${TARGET_DBGSRC_DIR} --remap-path-prefix=${TMPDIR}=${TARGET_DBGSRC_DIR} --remap-path-prefix=/usr/src/debug=${TARGET_DBGSRC_DIR} --remap-path-prefix=/cache/builddir=${TARGET_DBGSRC_DIR} --remap-path-prefix=${CARGO_HOME}=${TARGET_DBGSRC_DIR}"
 
 # Disable generation of Rust debug info to avoid embedding build paths.
-RUSTFLAGS += " -C debuginfo=0 ${RUST_DEBUG_REMAP}"
+RUSTFLAGS += "-C debuginfo=0 ${RUST_DEBUG_REMAP}"
 export RUSTFLAGS
 
 # Ensure any remaining debug symbols in the compiled .so are stripped
 do_install:append() {
-	# remove debug sections that may contain absolute build paths
-	find ${D} -type f -name "*.so" -print0 | xargs -0 -r ${OBJCOPY} --remove-section .debug_info --remove-section .debug_line --remove-section .debug_str --remove-section .debug_loc --remove-section .debug_abbrev --remove-section .gnu_debuglink || true
-	# fallback strip of any remaining symbols
-	find ${D} -type f -name "*.so" -exec ${STRIP} --strip-debug {} \; || true
+    # remove debug sections that may contain absolute build paths
+    find ${D} -type f -name "*.so" -print0 | xargs -0 -r ${OBJCOPY} --remove-section .debug_info --remove-section .debug_line --remove-section .debug_str --remove-section .debug_loc --remove-section .debug_abbrev --remove-section .gnu_debuglink || true
+    # fallback strip of any remaining symbols
+    find ${D} -type f -name "*.so" -exec ${STRIP} --strip-debug {} \; || true
 
-	# Post-install: scan installed shared objects and scrub embedded absolute
-	# build/source paths by replacing them with ${TARGET_DBGSRC_DIR} (padded
-	# with NULs to keep binary size unchanged). This is a last-resort
-	# remediation for buildpath strings that weren't removed by remap flags.
-	python3 - <<"PY"
+    # Post-install: scan installed shared objects and scrub embedded absolute
+    # build/source paths by replacing them with ${TARGET_DBGSRC_DIR} (padded
+    # with NULs to keep binary size unchanged). This is a last-resort
+    # remediation for buildpath strings that weren't removed by remap flags.
+    python3 - <<"PY"
 from pathlib import Path
 patterns = [
-	"${S}",
-	"${WORKDIR}",
-	"${TMPDIR}",
-	"${B}",
-	"${TOPDIR}",
-	"/usr/src/debug",
-	"/cache/builddir",
-	"${CARGO_HOME}",
+    "${S}",
+    "${WORKDIR}",
+    "${TMPDIR}",
+    "${B}",
+    "${TOPDIR}",
+    "/usr/src/debug",
+    "/cache/builddir",
+    "${CARGO_HOME}",
 ]
 target = "${TARGET_DBGSRC_DIR}"
 dst = Path("${D}")
 for so in dst.rglob('*.so'):
-	try:
-		data = so.read_bytes()
-	except Exception:
-		continue
-	orig = data
-	repl = target.encode()
-	for p in patterns:
-		if not p:
-			continue
-		pb = p.encode()
-		if len(pb) == 0:
-			continue
-		# Truncate or pad the replacement to match the pattern length so
-		# replacements are done in-place without changing binary layout.
-		if len(repl) >= len(pb):
-			repl_padded = repl[: len(pb)]
-		else:
-			repl_padded = repl + b"\x00" * (len(pb) - len(repl))
-		data = data.replace(pb, repl_padded)
-	if data != orig:
-		so.write_bytes(data)
-		print("patched:", so)
+    try:
+        data = so.read_bytes()
+    except Exception:
+        continue
+    orig = data
+    repl = target.encode()
+    for p in patterns:
+        if not p:
+            continue
+        pb = p.encode()
+        if len(pb) == 0:
+            continue
+        # Truncate or pad the replacement to match the pattern length so
+        # replacements are done in-place without changing binary layout.
+        if len(repl) >= len(pb):
+            repl_padded = repl[: len(pb)]
+        else:
+            repl_padded = repl + b"\x00" * (len(pb) - len(repl))
+        data = data.replace(pb, repl_padded)
+    if data != orig:
+        so.write_bytes(data)
+        print("patched:", so)
 PY
 }

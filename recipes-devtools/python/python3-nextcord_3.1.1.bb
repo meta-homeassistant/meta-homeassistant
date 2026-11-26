@@ -13,7 +13,7 @@ DEPENDS = "\
 inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} += "\
-	python3-aiohttp (>=3.8.0) \
-	python3-typing-extensions (>=4.2.0) \
-	python3-audioop-lts (>=0.2.1) \
+    python3-aiohttp (>=3.8.0) \
+    python3-audioop-lts (>=0.2.1) \
+    python3-typing-extensions (>=4.2.0) \
 "

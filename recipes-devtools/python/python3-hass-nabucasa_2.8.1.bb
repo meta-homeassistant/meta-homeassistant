@@ -1,4 +1,4 @@
-DESCRIPTION = "Issues related to the cloud integration in Nabu Casa"
+SUMMARY = "Issues related to the cloud integration in Nabu Casa"
 HOMEPAGE = "https://github.com/NabuCasa/hass-nabucasa"
 LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
@@ -22,11 +22,11 @@ RDEPENDS:${PN} = "\
     python3-pycognito (=2024.5.1) \
     python3-pyjwt (>=2.8.0) \
     python3-requests (>=2.0) \
+    python3-sentence-stream (>=1.2.0) \
     python3-snitun (>=0.47.0) \
     python3-voluptuous (>=0.15) \
     python3-webrtc-models (<1.0.0) \
     python3-yarl (>=1.20) \
-    python3-sentence-stream (>=1.2.0) \
 "
 
 RDEPENDS:${PN}-ptest += "\

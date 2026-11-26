@@ -12,21 +12,23 @@ SRCREV = "bbaa50c4f0faa7421fc6891d96f84931551a664e"
 inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "\
-	python3-aiohttp (>=3.13.3) \
-	python3-mashumaro (>=3.20) \
+    python3-aiohttp (>=3.13.3) \
+    python3-mashumaro (>=3.20) \
 "
 
-RDEPENDS:${PN}-ptest:append = "\
-	python3-pytest-asyncio \
-	python3-pytest-cov \
-	python3-coverage \
-	python3-aioresponses \
-	python3-aiofiles \
-	python3-pydantic \
+RDEPENDS:${PN}-ptest:append = " \
+    python3-pytest-asyncio \
+    python3-pytest-cov \
+    python3-coverage \
+    python3-aioresponses \
+    python3-aiofiles \
+    python3-pydantic \
 "
 
 do_install_ptest:append() {
-	install ${S}/pyproject.toml ${D}${PTEST_PATH}/
+    install ${S}/pyproject.toml ${D}${PTEST_PATH}/
     install -d ${D}${PTEST_PATH}/fixtures/userdata/
-    cp -rf ${S}/fixtures/* ${D}${PTEST_PATH}/fixtures/
+    find ${S}/fixtures -type f | while read file; do
+        install -D -m 0644 "$file" "${D}${PTEST_PATH}/fixtures/${file#${S}/fixtures/}"
+    done
 }

@@ -8,7 +8,7 @@ DEPENDS += "\
     python3-setuptools-git-versioning-native \
 "
 
-SRC_URI:append = "\
+SRC_URI:append = " \
     file://0001-Allow-setuptools-git-versioning-3.patch \
     file://run-ptest \
 "
@@ -16,19 +16,18 @@ SRC_URI[sha256sum] = "95edd2eed8432f27d59177d292f8ef56d897c722885b757510ca2cdc1e
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-
 RDEPENDS:${PN} = "\
-    python3-zigpy (>=1.5.0) \
-    python3-voluptuous \
     python3-coloredlogs \
     python3-jsonschema \
+    python3-voluptuous \
+    python3-zigpy (>=1.5.0) \
 "
 
 RDEPENDS:${PN}-ptest += "\
     python3-pytest-asyncio \
-    python3-pytest-timeout \
-    python3-pytest-mock \
     python3-pytest-cov \
+    python3-pytest-mock \
+    python3-pytest-timeout \
 "
 
 do_install:append() {

@@ -9,5 +9,5 @@ SRC_URI[sha256sum] = "a0db5452d7bc3c94530309195586e6c72e1f928df9e743dde6041ebbef
 inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} += "\
-	python3-zeroconf \
+    python3-zeroconf \
 "

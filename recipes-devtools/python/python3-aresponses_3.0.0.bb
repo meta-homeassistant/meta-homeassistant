@@ -16,7 +16,7 @@ RDEPENDS:${PN} += "\
 "
 
 RDEPENDS:${PN}-ptest += "\
-    python3-pytest-asyncio \
     python3-pytest-aiohttp \
+    python3-pytest-asyncio \
     python3-pytest-cov \
 "

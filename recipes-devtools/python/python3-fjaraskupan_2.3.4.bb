@@ -11,10 +11,10 @@ DEPENDS += "python3-wheel-native"
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN}-ptest += "\
-	python3-mock \	
+    python3-mock \
 "
 
 RDEPENDS:${PN} += "\
-	python3-bleak (>=0.19) \
-	python3-bleak-retry-connector (>=4.4.3) \
+    python3-bleak (>=0.19) \
+    python3-bleak-retry-connector (>=4.4.3) \
 "

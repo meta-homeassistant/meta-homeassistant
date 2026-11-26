@@ -1,6 +1,6 @@
 SUMMARY = "Parser for Silicon Labs GBL and EBL firmware images"
 DESCRIPTION = "A parser for the EBL and GBL (v3 and v4) firmware image formats \
-    used by the Silicon Labs Gecko bootloader."
+               used by the Silicon Labs Gecko bootloader."
 HOMEPAGE = "https://github.com/zigpy/pygbl"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
@@ -17,6 +17,7 @@ RDEPENDS:${PN} += "python3-pyelftools"
 # The package itself is pure Python, so there is nothing to strip.
 INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
+# nooelint: oelint.vars.insaneskip - see the reason above.
 INSANE_SKIP:${PN}-ptest += "arch"
 
 RDEPENDS:${PN}-ptest += "\

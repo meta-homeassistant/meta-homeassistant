@@ -1,4 +1,4 @@
-DESCRIPTION = "ACME protocol implementation in Python."
+SUMMARY = "ACME protocol implementation in Python."
 HOMEPAGE = "https://github.com/certbot/certbot/tree/master/acme"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=d2c2a5517cd7fd190a1aa6dfa23abb7a"

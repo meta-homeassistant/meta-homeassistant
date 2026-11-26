@@ -13,7 +13,6 @@ SRC_URI[sha256sum] = "3153ce3096829fe231b73045ac834830d20a64fbf406609ecbac384f88
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-
 RDEPENDS:${PN} = "\
     python3-aiohttp \
     python3-aiospinel (>=1.3.0) \

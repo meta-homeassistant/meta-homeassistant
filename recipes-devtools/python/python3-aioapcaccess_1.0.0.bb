@@ -11,7 +11,7 @@ SRCREV = "a3f053ea68d05206a792dbc0f367c273dc9ddc38"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
-RDEPENDS:${PN}-ptest:append = "\
+RDEPENDS:${PN}-ptest:append = " \
     python3-pytest-asyncio \
     python3-pytest-cov \
 "

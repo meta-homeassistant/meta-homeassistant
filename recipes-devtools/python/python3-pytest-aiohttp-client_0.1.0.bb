@@ -1,5 +1,5 @@
 SUMMARY = "Pytest `client` fixture for the Aiohttp"
-HOMEPAGE = "https://github.com/sivakov512/pytest-aiohttp-client"
+HOMEPAGE = "https://pypi.org/project/pytest-aiohttp-client/"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=9875e3f5320de104d30536a92248a823"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"

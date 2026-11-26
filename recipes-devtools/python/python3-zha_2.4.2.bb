@@ -17,19 +17,19 @@ SRCREV = "c048c4a82cd0b227778d553fe570aabf1e0fc10e"
 inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "\
-    python3-zigpy-ziggurat (>=1.2.0) \
     python3-attrs \
-    python3-frozendict \
-    python3-zigpy (>=2.4.1) \
     python3-bellows (>=1.2.1) \
-    python3-zigpy-znp (>=1.1.1) \
+    python3-frozendict \
+    python3-statistics \
+    python3-tzdata \
+    python3-zha-quirks (>=2.4.0) \
+    python3-zigpy (>=2.4.1) \
     python3-zigpy-deconz (>=1.1.1) \
     python3-zigpy-xbee (>=0.22.0) \
     python3-zigpy-zigate (>=0.14.0) \
-    python3-zha-quirks (>=2.4.0) \
-    python3-statistics \
+    python3-zigpy-ziggurat (>=1.2.0) \
+    python3-zigpy-znp (>=1.1.1) \
     python3-zoneinfo \
-    python3-tzdata \
 "
 
 # Test-only dependencies (upstream "testing" dependency group)

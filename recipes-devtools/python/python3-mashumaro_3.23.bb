@@ -15,11 +15,11 @@ RDEPENDS:${PN} += "\
 "
 
 RDEPENDS:${PN}-ptest += "\
+    python3-ciso8601 \
     python3-msgpack \
     python3-orjson \
+    python3-pendulum \
     python3-pyyaml \
     python3-tomli-w \
-    python3-ciso8601 \
     python3-tzdata \
-    python3-pendulum \
 "

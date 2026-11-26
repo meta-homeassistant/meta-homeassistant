@@ -9,4 +9,4 @@ SRC_URI[sha256sum] = "22882a0e418c284e1f718a822b3b022944d53d2d908e1690b319a9d3eb
 inherit pypi setuptools3
 
 # Provide build-time packages so setuptools won't try to fetch them with pip
-DEPENDS += "python3-six-native python3-traceback2-native python3-argparse-native"
+DEPENDS += "python3-argparse-native python3-six-native python3-traceback2-native"

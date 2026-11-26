@@ -1,4 +1,5 @@
 SUMMARY = "Send SMSes with Free Mobile"
+HOMEPAGE = "https://github.com/bfontaine/freesms"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5dfbb677c46ce5c9f6b5cbf579d3fc8d"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"

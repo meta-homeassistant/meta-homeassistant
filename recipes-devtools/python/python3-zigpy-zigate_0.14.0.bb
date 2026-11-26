@@ -16,7 +16,6 @@ SRC_URI[sha256sum] = "517a1b615763db0e943586d089b9f9ff51ce49a46564dc8fe76d979093
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-
 RDEPENDS:${PN} = "\
     python3-gpiozero \
     python3-pyusb (>=1.1.0) \
