@@ -47,6 +47,7 @@ Choose the task set for the checkout that owns the build:
 
 | Goal | Command |
 |---|---|
+| Lint layer metadata | Install `oelint-adv` and run `bash scripts/lint-oelint.sh` or VS Code task `Lint: Meta HomeAssistant` |
 | Initialize the supplied build | VS Code task `Bitbake Setup - Init HomeAssistant` |
 | Build the full image | VS Code task `Build HomeAssistant Target` |
 | Run the full image in QEMU | VS Code task `Run HomeAssistant QEMU Image` |

@@ -39,7 +39,18 @@ jobs:
         run: |
           python3 -m unittest \
             tests.unit.test_ci_validation \
-            tests.unit.test_github_status
+            tests.unit.test_github_status \
+            tests.unit.test_lint_oelint
+
+      - name: Lint layer metadata
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -e
+          python3 -m pip install --target .venv/oelint-adv oelint-adv==9.11.2
+          PATH="$PWD/.venv/oelint-adv/bin:$PATH" \
+            PYTHONPATH="$PWD/.venv/oelint-adv" \
+            bash scripts/lint-oelint.sh
 
       - name: Acquire shared build
         id: acquire
@@ -67,7 +78,7 @@ jobs:
         shell: bash
         run: python3 scripts/ci-validate.py image --state-root "$CI_STATE_ROOT"
 
-      # Future advisory lint/integration stages belong here as separate steps
+      # Future advisory integration stages belong here as separate steps
       # with continue-on-error: true. They must not gate baseline promotion.
       - name: Record required validation result
         if: ${{ always() && steps.plan.outcome == 'success' }}

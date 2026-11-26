@@ -1,0 +1,10 @@
+{
+  "replacements": {
+    "machines": [
+      "qemux86-64"
+    ],
+    "distros": [
+      "homeassistant"
+    ]
+  }
+}
