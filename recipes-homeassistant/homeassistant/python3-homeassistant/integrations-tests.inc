@@ -544,9 +544,11 @@ COMPONENT_TEST_PACKAGES:append:raspberrypi4 = "\
 "
 
 addtask addptest after do_configure before do_compile
-do_addptest[noexec] = "${@bb.utils.contains('DISTRO_FEATURES', 'ptest', '0', '1', d)}"
 
 python do_addptest () {
+    if not bb.utils.contains('DISTRO_FEATURES', 'ptest', True, False, d):
+        return
+
     import shutil
 
     source_file = os.path.join(d.getVar('UNPACKDIR'), 'run-ptest-sample')
