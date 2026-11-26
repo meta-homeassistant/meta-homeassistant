@@ -101,8 +101,10 @@ another project.
 
 Please submit patches as pull requests on GitHub.
 
+To maintain consistency, recipes are linted with [oelint-adv](https://github.com/priv-kweihmann/oelint-adv) using the rules configured in the layer's `.oelint.cfg`.
+
 ## Maintainers
 
-- Pascal Bach <pascal.bach@nextrem.ch>
 - Tom Geelen <t.f.g.geelen@gmail.com>
+- Pascal Bach <pascal.bach@nextrem.ch>
 - Tim "moto-timo" Orling <ticotimo@gmail.com>

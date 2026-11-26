@@ -43,7 +43,6 @@ jobs:
             tests.unit.test_lint_oelint
 
       - name: Lint layer metadata
-        continue-on-error: true
         shell: bash
         run: |
           set -e
