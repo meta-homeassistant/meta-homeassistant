@@ -171,9 +171,13 @@ do_install_ptest() {
     install_ptest_tree() {
         src="$1"
         dst="$2"
-        find "$src" -type f | while read file; do
+        find "$src" -type f | while IFS= read -r file; do
             rel=${file#"$src"/}
-            install -D -m 0644 "$file" "$dst/$rel"
+            mode=0644
+            if [ -x "$file" ]; then
+                mode=0755
+            fi
+            install -D -m "$mode" "$file" "$dst/$rel"
         done
     }
 
