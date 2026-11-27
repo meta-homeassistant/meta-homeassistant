@@ -1,4 +1,5 @@
 SUMMARY = "An asyncio wrapper for the UK Environment Agency Flood Monitoring API"
+HOMEPAGE = "https://github.com/Jc2k/aioeafm"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a844d70ecade3a2538ffaf80d0e480b9"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"

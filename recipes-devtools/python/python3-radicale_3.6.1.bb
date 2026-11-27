@@ -10,9 +10,9 @@ inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} = "\
     python3-defusedxml \
+    python3-libpass (>=1.9.3) \
     python3-packaging \
+    python3-pika (>=1.1.0) \
     python3-requests \
     python3-vobject (>=0.9.6) \
-    python3-pika (>=1.1.0) \
-    python3-libpass (>=1.9.3) \
 "

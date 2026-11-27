@@ -46,6 +46,13 @@ INTEGRATION_METADATA_FILES = ("integrations.inc", "integrations-tests.inc")
 # Preserve layer-specific dependencies that upstream Python requirements omit.
 CORE_LOCAL_RUNTIME = {"python3-statistics"}
 CORE_LOCAL_PTEST = {"python3-go2rtc-client"}
+INTEGRATION_LOCAL_DEPENDENCIES = {
+    "broadlink": {"${PN}-infrared", "${PN}-radio-frequency"},
+    "esphome": {"${PN}-infrared", "${PN}-radio-frequency"},
+    "mqtt": {"${PN}-infrared"},
+    "shelly": {"${PN}-infrared"},
+    "zha": {"${PN}-homeassistant-hardware", "${PN}-infrared"},
+}
 # The ptest class supplies pytest; development tooling is not test runtime.
 # Astroid/Pylint remain eligible because Core's tests/pylint uses them.
 PTEST_FRAMEWORK_PACKAGES = {"python3-pytest"}
@@ -496,11 +503,18 @@ def _reconcile_core_recipe(
     ptest_lines = [
         (package, floor) for package, floor in test.items()
     ]
-    ptest_body = "".join(
-        f"    {package}{f' (>={floor})' if floor else ''} \\\n"
-        for package, floor in sorted(ptest_lines)
-    )
-    ptest_body += "".join(f"    {line} \\\n" for line in preserved_ptest_lines)
+    ordered_ptest_lines = [
+        (
+            package,
+            f"    {package}{f' (>={floor})' if floor else ''} \\\n",
+        )
+        for package, floor in ptest_lines
+    ]
+    for line in preserved_ptest_lines:
+        conditional_package = re.search(r"'(python3-[^']+)'", line)
+        package = conditional_package.group(1) if conditional_package else line.split()[0]
+        ordered_ptest_lines.append((package, f"    {line} \\\n"))
+    ptest_body = "".join(line for _, line in sorted(ordered_ptest_lines))
     recipe_text = recipe_text[: ptest_match.start(1)] + ptest_body + recipe_text[ptest_match.end(1) :]
     recipe_path.write_text(recipe_text, encoding="utf-8")
     return sorted(set(blockers))
@@ -635,10 +649,14 @@ def _replace_integration_dependencies(
                     blockers.append(f"Cannot compare {recipe} constraint {current_spec!r}")
                     continue
             dependencies[recipe] = f">={required_version}"
+        dependencies.update(
+            (recipe, "")
+            for recipe in INTEGRATION_LOCAL_DEPENDENCIES.get(domain, set())
+        )
 
         body_lines = []
         for recipe, spec in sorted(dependencies.items()):
-            body_lines.append(f"    {recipe} ({spec}) \\")
+            body_lines.append(f"    {recipe}{f' ({spec})' if spec else ''} \\")
         replacement = "\n".join(body_lines) + ("\n" if body_lines else "")
         replacements.append((match.start(2), match.end(2), replacement))
 

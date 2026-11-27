@@ -543,13 +543,12 @@ COMPONENT_TEST_PACKAGES:append:raspberrypi4 = "\
     ${PN}-raspberry-pi \
 "
 
-python __anonymous() {
-    if 'ptest' not in d.getVar('DISTRO_FEATURES'):
-        return
-    bb.build.addtask('do_addptest', 'do_compile', 'do_configure', d)
-}
+addtask addptest after do_configure before do_compile
 
 python do_addptest () {
+    if not bb.utils.contains('DISTRO_FEATURES', 'ptest', True, False, d):
+        return
+
     import shutil
 
     source_file = os.path.join(d.getVar('UNPACKDIR'), 'run-ptest-sample')

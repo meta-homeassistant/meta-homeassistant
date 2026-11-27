@@ -1,4 +1,4 @@
-DESCRIPTION = "Intent parsing for Home Assistant"
+SUMMARY = "Intent parsing for Home Assistant"
 HOMEPAGE = "https://github.com/home-assistant/intents"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=86d3f3a95c324c9479bd8986968f4327"

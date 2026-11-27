@@ -11,7 +11,7 @@ DEPENDS += "python3-cffi-native"
 inherit pypi setuptools3 ptest-python-pytest
 
 RDEPENDS:${PN} += "\
+    libsndfile1 \
     python3-cffi \
     python3-numpy \
-    libsndfile1 \
 "

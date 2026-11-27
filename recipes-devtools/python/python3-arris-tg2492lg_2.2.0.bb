@@ -4,12 +4,12 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=db62027dcbc0a065e4305804637848c7"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-SRC_URI = "git://github.com/vanbalken/arris-tg2492lg;protocol=https;tag=${PV};branch=master"
-SRCREV = "ffff1e06d36afbffd893eb110bb40b2494b51478"
-
 DEPENDS:append = " \
     python3-aiohttp-native \
 "
+
+SRC_URI = "git://github.com/vanbalken/arris-tg2492lg;protocol=https;tag=${PV};branch=master"
+SRCREV = "ffff1e06d36afbffd893eb110bb40b2494b51478"
 
 inherit setuptools3 ptest-python-pytest
 
@@ -17,7 +17,7 @@ RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.11.18) \
 "
 
-RDEPENDS:${PN}-ptest:append = "\
+RDEPENDS:${PN}-ptest:append = " \
     python3-pytest-aiohttp \
     python3-pytest-asyncio \
 "

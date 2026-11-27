@@ -1,6 +1,6 @@
 SUMMARY = "Library to decode and encode radio frequency signals"
 DESCRIPTION = "Python package to decode and encode radio frequency signals for \
-    use in Home Assistant."
+               use in Home Assistant."
 HOMEPAGE = "https://github.com/home-assistant-libs/rf-protocols"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a07b308b0a0080746c4fff7e2a8b6e57"

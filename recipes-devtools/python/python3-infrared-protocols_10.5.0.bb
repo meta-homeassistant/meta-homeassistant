@@ -1,6 +1,6 @@
 SUMMARY = "Library to decode and encode infrared signals"
 DESCRIPTION = "Python package to decode and encode infrared signals for use in \
-    Home Assistant."
+               Home Assistant."
 HOMEPAGE = "https://github.com/home-assistant-libs/infrared-protocols"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a07b308b0a0080746c4fff7e2a8b6e57"

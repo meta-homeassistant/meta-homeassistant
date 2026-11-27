@@ -7,13 +7,13 @@ SRC_URI[sha256sum] = "7771fe856d189f00a9e7de9614dffb74649cdf0b25d3422826b47eba07
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-DEPENDS += " \
-        python3-pdm-native \
-        python3-pdm-backend-native \
+DEPENDS += "\
+    python3-pdm-backend-native \
+    python3-pdm-native \
 "
 
-RDePENDS:${PN} = "\
-	python3-requests \
-	python3-aiohttp \
-	python3-pydantic \
+RDEPENDS:${PN} = "\
+    python3-aiohttp \
+    python3-pydantic \
+    python3-requests \
 "

@@ -3,6 +3,8 @@ From: Tom Geelen <t.f.g.geelen@gmail.com>
 Date: Fri, 2 Jan 2026 19:05:22 +0100
 Subject: [PATCH] Remove setup requires, unneeded for OE build
 
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+
 Upstream-Status: Inappropriate [oe-specific]
 ---
  setup.py | 1 -

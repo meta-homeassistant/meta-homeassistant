@@ -28,6 +28,7 @@ In VS Code, run **Tasks: Run Task** and choose one of these tasks from
 
 | Task | What it does |
 |---|---|
+| `Lint: Meta HomeAssistant` | Runs `oelint-adv` on layer metadata using the checked-in configuration. |
 | `Bitbake Setup - Init HomeAssistant` | Creates the `homeassistant-x86` BitBake setup. |
 | `Build HomeAssistant Target` | Builds `core-image-homeassistant-full`. |
 | `Run HomeAssistant QEMU Image` | Boots that image with `runqemu`. |
@@ -52,6 +53,11 @@ The first three helpers enable the layer's `homeassistant/enable-testing-base`
 fragment. Check the fragment state before running, because a pre-existing
 enabled fragment should not be disabled afterward. If a command fails, inspect
 and restore temporary fragment state before using the wrapper again.
+
+The lint task requires `oelint-adv` on `PATH`. It also runs from the command
+line with `bash scripts/lint-oelint.sh`, using the layer's `.oelint.cfg`.
+It checks tracked and non-ignored untracked metadata, excluding `sources/`
+and Git-ignored build artifacts.
 
 The layer's VS Code tasks are conveniences for this standalone setup; they
 are not the integration project's tasks.
@@ -93,7 +99,8 @@ OVMF arguments, while the sample layer image uses ext4.
 
 Automated CI validation has these outcomes:
 
-1. Offline unit tests run and dependency ptests are planned.
+1. Offline unit tests run, layer metadata is linted, and dependency ptests are
+   planned. Lint findings are advisory and do not block image validation.
 2. Dependency ptest images are built and tested. These checks are advisory:
    dependency failures do not block a pull request by themselves.
 3. `core-image-homeassistant-full` is built and boot-tested in QEMU. This

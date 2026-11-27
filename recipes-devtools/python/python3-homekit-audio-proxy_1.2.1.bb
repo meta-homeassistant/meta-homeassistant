@@ -1,6 +1,6 @@
 SUMMARY = "SRTP audio proxy for HomeKit camera streaming"
 DESCRIPTION = "SRTP audio proxy that relays camera audio between FFmpeg and \
-    HomeKit clients for HomeKit camera streaming."
+               HomeKit clients for HomeKit camera streaming."
 HOMEPAGE = "https://github.com/bdraco/homekit-audio-proxy"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3cbbe5fe7af54187f1080e658697103f"

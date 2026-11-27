@@ -1,0 +1,25 @@
+{
+  "variables": {
+    "known": [
+      "do_swuimage",
+      "HAIMAGE",
+      "PTEST_CURRENTLY_FAILS_META_HOMEASSISTANT",
+      "PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT",
+      "PTESTS_META_HOMEASSISTANT",
+      "PTESTS_NEEDS_ETHERNET_META_HOMEASSISTANT",
+      "SWUPDATE_IMAGES_FSTYPES",
+      "SWUPDATE_IMAGES",
+      "WHL_PN",
+      "WHL_SHA256SUM"
+    ]
+  },
+  "replacements": {
+    "machines": [
+      "qemux86-64",
+      "raspberrypi4"
+    ],
+    "distros": [
+      "homeassistant"
+    ]
+  }
+}

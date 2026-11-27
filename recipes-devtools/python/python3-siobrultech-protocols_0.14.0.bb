@@ -13,7 +13,7 @@ inherit pypi python_setuptools_build_meta ptest-python-pytest
 # Upstream wheel/sdist installs a top-level "tests" package, which collides
 # with other Python recipes that also ship /site-packages/tests/__init__.py.
 do_install:append() {
-	rm -rf ${D}${libdir}/${PYTHON_DIR}/site-packages/tests
+    rm -rf ${D}${libdir}/${PYTHON_DIR}/site-packages/tests
 }
 
 PYPI_PACKAGE_SDIST = "siobrultech-protocols"

@@ -9,7 +9,7 @@ SRC_URI[sha256sum] = "19b30a17e7302a32f3f5900a721e060c1990f67bbe2d344e6c6ad0806f
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "\
-	python3-bleak \
-	python3-bleak-retry-connector \
-	python3-construct-typing \
+    python3-bleak \
+    python3-bleak-retry-connector \
+    python3-construct-typing \
 "

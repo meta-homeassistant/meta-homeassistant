@@ -1,5 +1,5 @@
 SUMMARY = "The ssl.match_hostname() function from Python 3.5"
-HOMEPAGE = "http://bitbucket.org/brandon/backports.ssl_match_hostname"
+HOMEPAGE = "https://pypi.org/project/backports.ssl_match_hostname/"
 LICENSE = "PSF-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=27a27d83b5b4a5fdb34a152fc19c6166"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"

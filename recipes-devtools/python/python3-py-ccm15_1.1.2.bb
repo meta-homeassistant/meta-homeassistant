@@ -9,6 +9,6 @@ SRC_URI[sha256sum] = "39fffd4a73857647d368137d3d86961a1cfd34b54c5cd56a1c7f629202
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "\
-	python3-httpx (>=0.24.1) \
-	python3-xmltodict (>=0.13.0) \
+    python3-httpx (>=0.24.1) \
+    python3-xmltodict (>=0.13.0) \
 "

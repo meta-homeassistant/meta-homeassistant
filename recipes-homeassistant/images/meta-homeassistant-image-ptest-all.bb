@@ -1,4 +1,8 @@
-DESCRIPTION = "Recipe to trigger execution of all meta-homeassistant ptest images."
+# nooelint: oelint.var.mandatoryvar.SRC_URI oelint.var.mandatoryvar.HOMEPAGE oelint.file.underscores
+# This recipe does not fetch any sources, it only triggers the execution of all meta-homeassistant ptest images.
+# This recipe does not have a homepage, it only triggers the execution of all meta-homeassistant ptest images.
+# This recipe has no version, it only triggers the execution of all meta-homeassistant ptest images.
+SUMMARY = "Recipe to trigger execution of all meta-homeassistant ptest images."
 LICENSE = "MIT"
 
 inherit features_check nopackages

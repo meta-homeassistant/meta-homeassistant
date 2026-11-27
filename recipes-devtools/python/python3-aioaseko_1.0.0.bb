@@ -12,6 +12,6 @@ inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} = "\
     python3-aiohttp \
-    python3-gql \
     python3-apischema \
+    python3-gql \
 "

@@ -29,5 +29,4 @@ RDEPENDS:${PN}-ptest += "\
     python3-pytest-console-scripts \
     python3-pytest-cov \
     python3-vcrpy \
-    python3-aiofiles \
 "

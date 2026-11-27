@@ -4,6 +4,8 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=12c1e6e336a5212a73dec68fd52e971e"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
+DEPENDS += "python3-wheel-native"
+
 SRC_URI = "git://github.com/esphome/aioesphomeapi;protocol=https;tag=v${PV};branch=main \
            file://0001-pyproject.toml-accept-setuptools-84.0.patch \
            "
@@ -23,16 +25,14 @@ RDEPENDS:${PN} += "\
     python3-zeroconf (>=0.150.0) \
 "
 
-RDEPENDS:${PN}-ptest:append = "\
+RDEPENDS:${PN}-ptest:append = " \
     python3-image \
-	python3-pytest-asyncio \
+    python3-pytest-asyncio \
     python3-pytest-codspeed \
     python3-pytest-cov \
     python3-pytest-timeout \
 "
 
 do_install_ptest:append() {
-	install ${S}/pyproject.toml ${D}${PTEST_PATH}/
+    install ${S}/pyproject.toml ${D}${PTEST_PATH}/
 }
-
-DEPENDS += "python3-wheel-native"

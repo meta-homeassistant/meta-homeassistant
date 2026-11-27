@@ -4,12 +4,12 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=78a6a0bb7d76993abedec7510368fb0e"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
+DEPENDS += "python3-wheel-native"
+
 SRC_URI = "git://github.com/Kane610/axis;protocol=https;tag=v${PV};branch=master \
            file://0001-relax-build-reqs.patch \
            "
 SRCREV = "92678a37d79de6da9a94358f61e3d86f991ed139"
-
-DEPENDS += "python3-wheel-native"
 
 inherit python_setuptools_build_meta ptest-python-pytest
 
@@ -24,7 +24,7 @@ RDEPENDS:${PN} = "\
     python3-zeroconf (>=0.150.0) \
 "
 
-RDEPENDS:${PN}-ptest:append = "\
+RDEPENDS:${PN}-ptest:append = " \
     python3-pytest-aiohttp \
     python3-pytest-asyncio \
     python3-pytest-cov \

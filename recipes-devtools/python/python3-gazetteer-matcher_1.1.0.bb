@@ -1,10 +1,10 @@
 SUMMARY = "Constraint-driven gazetteer matcher for Home Assistant intents"
 DESCRIPTION = "An English-language, constraint-driven intent recognizer for Home \
-    Assistant voice commands. It complements Home Assistant's built-in \
-    sentence grammars by handling home-specific names, fuzzy wording, \
-    compound requests, and explicit conversation references while \
-    rejecting interpretations that do not fit the upstream intent \
-    schema."
+               Assistant voice commands. It complements Home Assistant's built-in \
+               sentence grammars by handling home-specific names, fuzzy wording, \
+               compound requests, and explicit conversation references while \
+               rejecting interpretations that do not fit the upstream intent \
+               schema."
 HOMEPAGE = "https://github.com/OHF-Voice/gazetteer-matcher"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"

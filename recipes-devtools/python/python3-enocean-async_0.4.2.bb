@@ -1,6 +1,6 @@
 SUMMARY = "An async implementation of the EnOcean Serial Protocol Version 3."
 DESCRIPTION = "Asynchronous implementation of the EnOcean Serial Protocol version \
-    3 (ESP3) for EnOcean USB and serial gateways."
+               3 (ESP3) for EnOcean USB and serial gateways."
 HOMEPAGE = "https://github.com/henningkerstan/enocean-async"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"

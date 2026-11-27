@@ -11,7 +11,7 @@ DEPENDS += "python3-setuptools-scm-native"
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} += "\
-	python3-dateutil (>=2.8.0) \
+    python3-dateutil (>=2.8.0) \
     python3-requests (>=2.4.0) \
     python3-websocket-client (>=0.58.0) \
     python3-zeroconf (>=0.38.0) \

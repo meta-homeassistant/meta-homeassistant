@@ -909,6 +909,34 @@ RDEPENDS:${PN}-blockchain = "\\
         self.assertIn("python3-python-blockchain-api (>=0.0.2)", updated)
         self.assertNotIn("python3-bluecurrent-api (>=1.3.1)", updated)
 
+    def test_preserves_sorted_local_integration_dependencies(self):
+        metadata = '''INTEGRATIONS = "\\
+    ${PN}-zha \\
+"
+RDEPENDS:${PN}-zha = "\\
+    python3-zha (>=2.4.2) \\
+"
+'''
+        with tempfile.TemporaryDirectory() as temp_dir:
+            integrations_path = Path(temp_dir) / "integrations.inc"
+            integrations_path.write_text(metadata, encoding="utf-8")
+            blockers = _replace_integration_dependencies(
+                integrations_path,
+                {"zha": {"python3-zha": "2.4.2"}},
+                {"zha"},
+                {"python3-zha": "2.4.2"},
+            )
+            updated = integrations_path.read_text(encoding="utf-8")
+
+        self.assertEqual(blockers, [])
+        self.assertIn(
+            'RDEPENDS:${PN}-zha = "\\\n'
+            '    ${PN}-homeassistant-hardware \\\n'
+            '    ${PN}-infrared \\\n'
+            '    python3-zha (>=2.4.2) \\\n',
+            updated,
+        )
+
     def test_removes_manifest_obsolete_packages_from_existing_integration(self):
         metadata = '''INTEGRATIONS = "\\
     ${PN}-matter \\
@@ -1218,6 +1246,13 @@ class CoreRecipeReconciliationTests(unittest.TestCase):
         self.assertNotIn("python3-types-example", updated)
         self.assertNotIn("python3-ruff", updated)
         self.assertIn("python3-pytest-rerunfailures", updated)
+        ptest = updated.split("RDEPENDS:${PN}-ptest", 1)[1]
+        self.assertLess(ptest.index("    bash"), ptest.index("python3-go2rtc-client"))
+        self.assertLess(
+            ptest.index("python3-pytest-cov"),
+            ptest.index("python3-pytest-rerunfailures"),
+        )
+        self.assertLess(ptest.index("python3-pytest-rerunfailures"), ptest.index("    tzdata"))
 
 
 class UpgradeWorkflowTests(unittest.TestCase):

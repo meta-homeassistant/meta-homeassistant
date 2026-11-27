@@ -12,12 +12,12 @@ SRCREV = "f01a702dce17a1b0ce5deb8d9ea2d6398516a816"
 inherit  python_poetry_core ptest-python-pytest
 
 RDEPENDS:${PN} = "\
-    python3-async-timeout (>=4.0.1) \
-    python3-netifaces (>=0.11.0) \
     python3-aiodns (>=4.0.4) \
-    python3-ifaddr \
-    python3-pyroute2 (>=0.9.6) \
+    python3-async-timeout (>=4.0.1) \
     python3-cached-ipaddress (>=1.1.2) \
+    python3-ifaddr \
+    python3-netifaces (>=0.11.0) \
+    python3-pyroute2 (>=0.9.6) \
 "
 
 RDEPENDS:${PN}-ptest:append = " \

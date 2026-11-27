@@ -263,7 +263,7 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-python-gitlab \
     python3-python-google-drive-api \
     python3-python-jose-cryptography \
-    python3-python-memcached \    
+    python3-python-memcached \
     python3-pyyaml-ft \
     python3-securesystemslib \
     python3-segno \

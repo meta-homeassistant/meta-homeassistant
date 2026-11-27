@@ -11,6 +11,6 @@ DEPENDS = "python3-hatch-vcs-native"
 inherit pypi python_hatchling
 
 RDEPENDS:${PN} += "\
-	python3-dateutil \
-	python3-tzdata \
+    python3-dateutil \
+    python3-tzdata \
 "

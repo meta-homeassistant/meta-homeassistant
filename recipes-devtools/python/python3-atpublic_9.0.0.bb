@@ -1,7 +1,7 @@
 SUMMARY = "Keep all y'all's __all__'s in sync"
 DESCRIPTION = "Provides the @public and @private decorators, which document \
-    the public visibility of the names in a module and keep its __all__ in \
-    sync."
+               the public visibility of the names in a module and keep its __all__ in \
+               sync."
 HOMEPAGE = "https://gitlab.com/flufl/public"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=352079383495020c27baf96dae1cf7db"

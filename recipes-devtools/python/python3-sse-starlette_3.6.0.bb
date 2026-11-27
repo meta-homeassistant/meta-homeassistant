@@ -9,6 +9,6 @@ SRC_URI[sha256sum] = "623151d6c20dc0eebf1b3379c27faae91fff883bac7ab6665f16f46440
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} = "\
-	python3-anyio (>=4.7.0) \
+    python3-anyio (>=4.7.0) \
     python3-starlette (>=0.49.1) \
 "

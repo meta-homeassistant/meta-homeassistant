@@ -47,6 +47,7 @@ Choose the task set for the checkout that owns the build:
 
 | Goal | Command |
 |---|---|
+| Lint layer metadata | Install `oelint-adv` and run `bash scripts/lint-oelint.sh` or VS Code task `Lint: Meta HomeAssistant` |
 | Initialize the supplied build | VS Code task `Bitbake Setup - Init HomeAssistant` |
 | Build the full image | VS Code task `Build HomeAssistant Target` |
 | Run the full image in QEMU | VS Code task `Run HomeAssistant QEMU Image` |
@@ -100,8 +101,10 @@ another project.
 
 Please submit patches as pull requests on GitHub.
 
+To maintain consistency, recipes are linted with [oelint-adv](https://github.com/priv-kweihmann/oelint-adv) using the rules configured in the layer's `.oelint.cfg`.
+
 ## Maintainers
 
-- Pascal Bach <pascal.bach@nextrem.ch>
 - Tom Geelen <t.f.g.geelen@gmail.com>
+- Pascal Bach <pascal.bach@nextrem.ch>
 - Tim "moto-timo" Orling <ticotimo@gmail.com>

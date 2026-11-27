@@ -11,7 +11,7 @@ inherit setuptools3 ptest-python-pytest
 
 RDEPENDS:${PN} += "python3-docopt python3-pytz python3-requests python3-vincenty python3-xmltodict"
 
-RDEPENDS:${PN}-ptest:append = "\
+RDEPENDS:${PN}-ptest:append = " \
     python3-requests-mock \
     python3-pytest-xdist \
     python3-pytest-cov \

@@ -17,7 +17,7 @@ RDEPENDS:${PN} += "\
     python3-pyopenssl (>=23.0.0) \
 "
 
-RDEPENDS:${PN}-ptest:append = "\
+RDEPENDS:${PN}-ptest:append = " \
     python3-pytest-asyncio \
     python3-pytest-cov \
 "

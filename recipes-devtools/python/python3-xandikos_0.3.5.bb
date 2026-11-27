@@ -8,12 +8,11 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 inherit pypi python_setuptools_build_meta ptest-python-pytest
 
-
 RDEPENDS:${PN} = "\
     python3-aiohttp \
-    python3-icalendar (>=5.0.4) \
-    python3-dulwich (>=0.25.0) \
     python3-defusedxml \
+    python3-dulwich (>=0.25.0) \
+    python3-icalendar (>=5.0.4) \
     python3-jinja2 \
     python3-multidict \
     python3-vobject \

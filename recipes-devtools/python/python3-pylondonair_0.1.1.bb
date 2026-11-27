@@ -1,6 +1,6 @@
 SUMMARY = "Async Python client for the London Air (Imperial College London) air-quality API"
 DESCRIPTION = "Async Python client for the London Air hourly air-quality \
-    monitoring index, published by Imperial College London."
+               monitoring index, published by Imperial College London."
 HOMEPAGE = "https://github.com/MichaelMKKelly/pylondonair"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=c036dbf0b39dcde265cda2bc5b66dede"

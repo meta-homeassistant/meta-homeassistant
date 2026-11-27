@@ -14,7 +14,7 @@ RDEPENDS:${PN} = "\
     python3-aiohttp \
 "
 
-RDEPENDS:${PN}-ptest:append = "\
+RDEPENDS:${PN}-ptest:append = " \
     python3-pytest-asyncio \
     python3-requests \
 "

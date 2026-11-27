@@ -30,4 +30,5 @@ SRC_URI[sha256sum] = "d762215478854f6cf20c3faed8f1eb30c8101d568e7bc32a3abafc0639
 
 inherit pypi python_maturin cargo-update-recipe-crates pkgconfig
 
+# nooelint: oelint.vars.insaneskip - see the reason above.
 INSANE_SKIP:${PN} = "already-stripped"

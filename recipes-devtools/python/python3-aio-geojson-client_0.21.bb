@@ -10,7 +10,7 @@ DEPENDS += "python3-wheel-native"
 
 inherit pypi python_setuptools_build_meta
 
-RDEPENDS:${PN} += " \
+RDEPENDS:${PN} += "\
     python3-aiohttp (>=3.7.4) \
     python3-geojson (>=3.1.0) \
     python3-haversine (>=2.8.1) \

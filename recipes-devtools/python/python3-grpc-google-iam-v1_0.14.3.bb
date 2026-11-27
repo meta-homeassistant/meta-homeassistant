@@ -9,7 +9,7 @@ SRC_URI[sha256sum] = "879ac4ef33136c5491a6300e27575a9ec760f6cdf9a2518798c1b8977a
 inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} += "\
-    python3-grpcio (>=1.44.0) \
     python3-googleapis-common-protos (>=1.56.0) \
+    python3-grpcio (>=1.44.0) \
     python3-protobuf (>=3.20.2) \
 "

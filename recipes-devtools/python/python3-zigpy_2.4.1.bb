@@ -17,16 +17,16 @@ SRCREV = "10b68377bcbd9a8b15cbbfb506cebdc450704614"
 inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} = "\
-    python3-serialx (>=1.4.0) \
-    python3-attrs \
     python3-aiohttp \
     python3-aiosqlite (>=0.22.1) \
+    python3-attrs \
     python3-crccheck \
     python3-cryptography \
-    python3-voluptuous \
-    python3-jsonschema \
-    python3-typing-extensions \
     python3-frozendict \
+    python3-jsonschema \
+    python3-serialx (>=1.4.0) \
+    python3-typing-extensions \
+    python3-voluptuous \
 "
 
 RDEPENDS:${PN}-ptest:append = " \

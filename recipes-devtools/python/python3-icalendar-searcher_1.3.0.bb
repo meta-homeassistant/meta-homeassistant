@@ -16,8 +16,8 @@ RDEPENDS:${PN} = "\
 "
 
 RDEPENDS:${PN}-ptest += "\
-    python3-icu \
-    python3-deptry \
-    python3-zoneinfo \
     python3-dateutil-zoneinfo \
+    python3-deptry \
+    python3-icu \
+    python3-zoneinfo \
 "

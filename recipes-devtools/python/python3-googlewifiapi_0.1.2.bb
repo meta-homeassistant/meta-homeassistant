@@ -1,8 +1,8 @@
 SUMMARY = "Asynchronous Python wrapper for the local Google Wifi JSON API"
 DESCRIPTION = "An asynchronous Python client for reading status from the local \
-    JSON API exposed by Google Wifi routers. The package is designed \
-    for integrations such as Home Assistant, but can be used by any \
-    Python application that needs router status data."
+               JSON API exposed by Google Wifi routers. The package is designed \
+               for integrations such as Home Assistant, but can be used by any \
+               Python application that needs router status data."
 HOMEPAGE = "https://github.com/EReaso/GoogleWifiApi"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=a0bdafec73074322ab764f1817909cdb"

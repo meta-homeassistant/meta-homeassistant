@@ -9,9 +9,9 @@ SRC_URI[sha256sum] = "647514f60eec9b93eed9577a7a11f807457d6da635b185e792a2d7d9dc
 inherit pypi python_setuptools_build_meta
 
 RDEPENDS:${PN} += "\
-    python3-requests \
-    python3-stevedore \
+    python3-flask \
     python3-prettytable \
     python3-pyserial \
-    python3-flask \
+    python3-requests \
+    python3-stevedore \
 "

@@ -19,7 +19,6 @@ PACKAGES += "\
 #PACKAGECONFIG ?= "python-version-smaller-3-dot-11"
 PACKAGECONFIG[python-version-smaller-3-dot-11] = ",,,python3-typing_extensions"
 
-
 RDEPENDS:${PN}-ptest += "\
     python3-pytest-asyncio \
     python3-pytest-cov \

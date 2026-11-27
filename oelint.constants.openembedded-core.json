@@ -1,0 +1,7 @@
+{
+  "variables": {
+    "known": [
+      "PYPI_PACKAGE_SDIST"
+    ]
+  }
+}

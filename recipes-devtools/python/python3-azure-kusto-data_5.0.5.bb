@@ -15,9 +15,9 @@ PACKAGECONFIG[pandas] = ",,,python3-pandas"
 RDEPENDS:${PN} += "\
     python3-azure-core (>=1.33.0) \
     python3-azure-identity (>=1.21.0) \
+    python3-dateutil (>=2.8.0) \
     python3-ijson (>=3.1) \
     python3-msal (>=1.9.0) \
-    python3-dateutil (>=2.8.0) \
     python3-requests (>=2.32.3) \
 "
 

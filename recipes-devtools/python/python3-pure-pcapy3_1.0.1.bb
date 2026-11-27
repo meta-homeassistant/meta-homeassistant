@@ -1,5 +1,5 @@
 SUMMARY = "Pure Python reimplementation of pcapy. This package is API compatible and a drop-in replacement."
-HOMEPAGE = "http://bitbucket.org/viraptor/pure-pcapy/overview"
+HOMEPAGE = "https://pypi.org/project/pure-pcapy/"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=8;endline=8;md5=1051ab694c722be4ac182fc37d0020fb"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"

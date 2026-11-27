@@ -1,4 +1,5 @@
 SUMMARY = "The APsystems EZ1 Python library offers a streamlined interface for interacting with the local API of APsystems EZ1 Microinverters."
+HOMEPAGE = "https://pypi.org/project/apsystems-ez1/"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=705eda28b40f65a9325c00bd169c2c0d"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"

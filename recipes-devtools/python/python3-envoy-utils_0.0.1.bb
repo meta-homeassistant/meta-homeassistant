@@ -1,4 +1,5 @@
 SUMMARY = "Python utilities for the Enphase Envoy"
+HOMEPAGE = "https://pypi.org/project/envoy-utils/"
 LICENSE = "GPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=db95b6e40dc7d26d8308b6b7375637b6"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"

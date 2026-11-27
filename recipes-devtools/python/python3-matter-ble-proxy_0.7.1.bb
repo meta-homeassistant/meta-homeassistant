@@ -1,6 +1,6 @@
 SUMMARY = "Python client library for the OHF Matter Server BLE proxy protocol"
 DESCRIPTION = "Python client library for the OHF Matter Server BLE proxy \
-    WebSocket protocol."
+               WebSocket protocol."
 HOMEPAGE = "https://github.com/matter-js/matterjs-server"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://pyproject.toml;beginline=23;endline=23;md5=2507bd5f0713f05419cd2f22fa06fe62"

@@ -10,9 +10,9 @@ SRC_URI[sha256sum] = "91d4550354886a05b169c6f6a44e177096d16412cb6e74f7c10ee8ff76
 inherit pypi setuptools3 ptest-python-pytest
 
 RDEPENDS:${PN} += "\
-    python3-pyjwt (>=2.8.0) \
     python3-backoff (>=2.2.1) \
     python3-cryptography (>=42.0.4) \
+    python3-pyjwt (>=2.8.0) \
     python3-requests (>=2.31.0) \
     python3-websockets (>=12.0) \
 "
@@ -25,8 +25,8 @@ do_install:append() {
 }
 
 RDEPENDS:${PN}-ptest += "\
-    python3-requests-mock (>=1.11.0) \
     python3-asynctest (>=0.13.0) \
+    python3-requests-mock (>=1.11.0) \
 "
 
 PYPI_PACKAGE_SDIST = "coinbase-advanced-py"

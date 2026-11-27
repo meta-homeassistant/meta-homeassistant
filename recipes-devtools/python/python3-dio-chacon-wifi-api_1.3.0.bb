@@ -9,6 +9,6 @@ SRCREV = "1fdd5ee9e30e5b56408f2869e2a2220ff8faca81"
 
 inherit python_poetry_core ptest-python-pytest
 
-RDEPENDS:${PN} += " \
+RDEPENDS:${PN} += "\
     python3-aiohttp (>=3.9.3) \
 "

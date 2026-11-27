@@ -1,5 +1,5 @@
 SUMMARY = "Py3k port of sgmllib."
-HOMEPAGE = "http://hg.hardcoded.net/sgmllib"
+HOMEPAGE = "https://pypi.org/project/sgmllib3k/"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=8;endline=8;md5=88df8e78b9edfd744953862179f2d14e"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"

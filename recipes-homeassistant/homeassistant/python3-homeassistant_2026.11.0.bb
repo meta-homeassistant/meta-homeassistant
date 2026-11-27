@@ -12,6 +12,9 @@ HOMEASSISTANT_USER[doc] = "User the home-assistent service runs as."
 HOMEASSISTANT_VENV ?= "${libdir}/homeassistant/venv"
 HOMEASSISTANT_VENV[doc] = "Virtual environment, on top of the system packages, that the home-assistant service runs in."
 
+# script.translations (run below) imports orjson since 2026.11
+DEPENDS += "python3-orjson-native"
+
 SRC_URI = "git://github.com/home-assistant/core.git;protocol=https;branch=master \
            file://homeassistant.service \
            file://run-ptest-sample \
@@ -37,9 +40,6 @@ USERADD_PARAM:${PN} = "\
 SYSTEMD_SERVICE:${PN} = "homeassistant.service"
 
 FILES:${PN} += "${HOMEASSISTANT_VENV}"
-
-# script.translations (run below) imports orjson since 2026.11
-DEPENDS += "python3-orjson-native"
 
 do_configure:append() {
     # On startup the first boot will always fail and an error is thrown that translations are not found.
@@ -131,6 +131,7 @@ RDEPENDS:${PN} += "\
 "
 
 RDEPENDS:${PN}-ptest += "\
+    bash \
     python3-ast-serialize (>=0.12.1) \
     python3-astroid (>=4.3.4) \
     python3-coverage (>=7.16.2) \
@@ -149,6 +150,7 @@ RDEPENDS:${PN}-ptest += "\
     python3-pytest-cov (>=7.1.0) \
     python3-pytest-freezer (>=0.4.9) \
     python3-pytest-picked (>=0.5.1) \
+    ${@bb.utils.contains('PACKAGECONFIG', 'integration-tests', 'python3-pytest-rerunfailures', '', d)} \
     python3-pytest-socket (>=0.8.1) \
     python3-pytest-sugar (>=1.1.1) \
     python3-pytest-timeout (>=2.4.0) \
@@ -162,28 +164,39 @@ RDEPENDS:${PN}-ptest += "\
     python3-tqdm (>=4.70.1) \
     python3-unidiff (>=1.0.1) \
     python3-wakeonlan (>=3.3.0) \
-    bash \
     tzdata \
-    ${@bb.utils.contains('PACKAGECONFIG', 'integration-tests', 'python3-pytest-rerunfailures', '', d)} \
 "
 
 do_install_ptest() {
+    install_ptest_tree() {
+        src="$1"
+        dst="$2"
+        find "$src" -type f | while IFS= read -r file; do
+            rel=${file#"$src"/}
+            mode=0644
+            if [ -x "$file" ]; then
+                mode=0755
+            fi
+            install -D -m "$mode" "$file" "$dst/$rel"
+        done
+    }
+
     install -d ${D}${PTEST_PATH}/tests
     install -d ${D}${PTEST_PATH}/script
     install -d ${D}${PTEST_PATH}/packages
     install ${S}/pyproject.toml ${D}${PTEST_PATH}/
-    cp -rf ${S}/script/* ${D}${PTEST_PATH}/script/
-    cp -rf ${S}/tests/* ${D}${PTEST_PATH}/tests/
+    install_ptest_tree ${S}/script ${D}${PTEST_PATH}/script
+    install_ptest_tree ${S}/tests ${D}${PTEST_PATH}/tests
     # tests/mypy_plugins loads the plugin from the source root
-    cp -rf ${S}/mypy_plugins ${D}${PTEST_PATH}/
+    install_ptest_tree ${S}/mypy_plugins ${D}${PTEST_PATH}/mypy_plugins
     # pyproject.toml puts packages/pylint-home-assistant on pythonpath
-    cp -rf ${S}/packages/pylint-home-assistant ${D}${PTEST_PATH}/packages/
+    install_ptest_tree ${S}/packages/pylint-home-assistant ${D}${PTEST_PATH}/packages/pylint-home-assistant
     # Upstream installs the test helpers and hassfest as editable packages.
     # Ship them next to the tests instead; run-ptest loads the pytest plugin
     # with -p, as its pytest11 entry point only exists for an installed
     # distribution.
-    cp -rf ${S}/packages/pytest-homeassistant/pytest_homeassistant ${D}${PTEST_PATH}/
-    cp -rf ${S}/packages/hassfest/hassfest ${D}${PTEST_PATH}/
+    install_ptest_tree ${S}/packages/pytest-homeassistant/pytest_homeassistant ${D}${PTEST_PATH}/pytest_homeassistant
+    install_ptest_tree ${S}/packages/hassfest/hassfest ${D}${PTEST_PATH}/hassfest
     # Core pins pytest 9.0; pytest >= 9.1 shortens long string parameter
     # IDs, which then no longer match the names in the snapshot files.
     sed -i '/^\[tool\.pytest\.ini_options\]/a parametrize_long_str_id_strategy = "legacy"' \

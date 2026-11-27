@@ -18,7 +18,7 @@ RDEPENDS:${PN} = "\
     python3-usb-devices (>=0.4.5) \
 "
 
-RDEPENDS:${PN}-ptest:append = "\
+RDEPENDS:${PN}-ptest:append = " \
     python3-pytest-asyncio \
     python3-pytest-cov \
 "

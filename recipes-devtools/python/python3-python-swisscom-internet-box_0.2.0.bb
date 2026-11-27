@@ -1,6 +1,6 @@
 SUMMARY = "Python client for the Swisscom Internet-Box"
 DESCRIPTION = "Async Python client for the Swisscom Internet-Box local API (/ws \
-    endpoint)."
+               endpoint)."
 HOMEPAGE = "https://github.com/anatosun/python-swisscom-internet-box"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=c45776f9a9d01241daa92ba4b171ed18"

@@ -9,9 +9,9 @@ SRC_URI[sha256sum] = "cc979fcbb5283f74d388c7111c8ed6bef920b01614a014d6b1c5d6fbb5
 inherit pypi setuptools3
 
 RDEPENDS:${PN} += "\
+    python3-oauthlib \
     python3-requests \
     python3-six \
-    python3-oauthlib \
 "
 
 PYPI_PACKAGE_SDIST = "discogs-client"

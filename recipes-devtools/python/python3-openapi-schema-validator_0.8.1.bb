@@ -10,13 +10,13 @@ inherit pypi python_poetry_core ptest-python-pytest
 
 RDEPENDS:${PN} = "\
     python3-jsonschema (>=4.19.1) \
-    python3-rfc3339-validator \
-    python3-referencing \
     python3-pydantic (>=2.0.0) \
     python3-pydantic-settings (>=2.0.0) \
+    python3-referencing \
+    python3-rfc3339-validator \
 "
 
 RDEPENDS:${PN}-ptest += "\
-    python3-pytest-cov \
     python3-deptry \
+    python3-pytest-cov \
 "

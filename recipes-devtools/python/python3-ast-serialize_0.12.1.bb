@@ -1,6 +1,6 @@
 SUMMARY = "Python bindings for mypy AST serialization"
 DESCRIPTION = "Parser for Python source code that serializes the abstract syntax \
-    tree in the binary format mypy reads, implemented in Rust."
+               tree in the binary format mypy reads, implemented in Rust."
 HOMEPAGE = "https://github.com/mypyc/ast_serialize"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=dc12afd29b3bf645cc59f9ae0d9c6700"

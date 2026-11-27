@@ -14,9 +14,9 @@ RDEPENDS:${PN} = "python3-pylint"
 
 RDEPENDS:${PN}-ptest += "\
     python3-pytest-cov \
-    python3-pytest-randomly \
     python3-pytest-datadir \
     python3-pytest-fixture-classes \
+    python3-pytest-randomly \
 "
 
 PTEST_PYTEST_DIR = "test"

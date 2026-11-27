@@ -21,18 +21,18 @@ RDEPENDS:${PN} += "\
     python3-typing-extensions \
 "
 
-RDEPENDS:${PN}-ptest += " \
-    python3-pytest-cov \
-    python3-pytest-env \
-    python3-pytest-xdist \
-    python3-pytest-vcr \
-    python3-pytest-asyncio \
-    python3-pytest-rerunfailures \
-    python3-pytest-mock \
-    python3-urllib3 \
-    python3-soundfile \
-    python3-pillow \
-    python3-numpy \
+RDEPENDS:${PN}-ptest += "\
     python3-fastapi \
     python3-jedi \
+    python3-numpy \
+    python3-pillow \
+    python3-pytest-asyncio \
+    python3-pytest-cov \
+    python3-pytest-env \
+    python3-pytest-mock \
+    python3-pytest-rerunfailures \
+    python3-pytest-vcr \
+    python3-pytest-xdist \
+    python3-soundfile \
+    python3-urllib3 \
 "

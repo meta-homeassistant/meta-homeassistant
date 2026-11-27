@@ -9,7 +9,7 @@ SRC_URI[sha256sum] = "ac44e5d7e2079d84c1d52c50a615b9bec4b1ba958608c4c7fe40cbf332
 inherit pypi setuptools3 dos2unix
 
 RDEPENDS:${PN} += "\
+    python3-dateutil (>=2.7.0) \
     python3-pytz \
     python3-six \
-    python3-dateutil (>=2.7.0) \
 "

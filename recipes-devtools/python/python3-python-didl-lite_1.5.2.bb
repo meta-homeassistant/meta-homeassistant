@@ -10,5 +10,5 @@ inherit pypi python_setuptools_build_meta
 SRC_URI[sha256sum] = "1ec2b09309701745befca09b15427724d60e333c882e6504ab8b0d835e32524b"
 
 RDEPENDS:${PN} = "\
-	python3-defusedxml (>=0.6.0) \
+    python3-defusedxml (>=0.6.0) \
 "

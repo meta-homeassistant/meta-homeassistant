@@ -5,6 +5,8 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7ae711d8a91d3871696f50e34ad3c2d7"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
+DEPENDS += "python3-uv-dynamic-versioning-native"
+
 SRC_URI[sha256sum] = "d1e46549edb35ee19a94940fcee6d1addd7e589ab7ea92dda83f5d84781fc362"
 
 # The mcp_types sdist ships no tests. Its tests live in the mcp sdist of the
@@ -13,8 +15,6 @@ SRC_URI += "https://files.pythonhosted.org/packages/source/m/mcp/mcp-${PV}.tar.g
 SRC_URI[mcp.sha256sum] = "8b147a50441cf059dc88c684e0aeed3687f0aa0f39c6cde7b90330effd2b34d8"
 
 inherit pypi python_hatchling ptest-python-pytest
-
-DEPENDS += "python3-uv-dynamic-versioning-native"
 
 RDEPENDS:${PN} += "\
     python3-pydantic (>=2.12.0) \

@@ -9,9 +9,9 @@ SRC_URI[sha256sum] = "2339480d3665398a56eb335e317b2471b2680ad1311d14a739e956338f
 inherit pypi python_hatchling
 
 RDEPENDS:${PN} = "\
-    python3-dateutil \
-    python3-urllib3 \
     python3-aiohttp \
-    python3-pydantic \
     python3-aiohttp-retry \
+    python3-dateutil \
+    python3-pydantic \
+    python3-urllib3 \
 "

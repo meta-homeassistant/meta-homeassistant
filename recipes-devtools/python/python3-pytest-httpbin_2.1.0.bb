@@ -12,6 +12,6 @@ RDEPENDS:${PN} = "\
 "
 
 RDEPENDS:${PN}-ptest += "\
-    python3-requests \
     python3-httpbin \
+    python3-requests \
 "

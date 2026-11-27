@@ -13,8 +13,8 @@ RDEPENDS:${PN} += "\
     python3-asn1crypto (>=1.4.0) \
     python3-attrs (>=22.2.0) \
     python3-cryptography (>=35.0.0) \
-    python3-pyserial (>=3.5) \
     python3-dateutil (>=2.8.1) \
+    python3-pyserial (>=3.5) \
     python3-structlog (>=22.1.0) \
     python3-typing-extensions (>=3.10) \
 "

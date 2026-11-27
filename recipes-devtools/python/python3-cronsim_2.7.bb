@@ -10,6 +10,6 @@ SRCREV = "fd2e617787e94b15beee27fee6ebe6cbe79a72a2"
 inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN}-ptest += "\
-    python3-zoneinfo \
     python3-tzdata \
+    python3-zoneinfo \
 "

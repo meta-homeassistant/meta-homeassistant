@@ -1,1 +1,1 @@
-PACKAGECONFIG:append = "extras"
+PACKAGECONFIG:append = " extras"

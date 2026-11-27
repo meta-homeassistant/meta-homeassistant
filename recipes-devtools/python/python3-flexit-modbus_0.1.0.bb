@@ -1,6 +1,6 @@
 SUMMARY = "Read and control a Flexit air handling unit with a CI66 Modbus adapter."
 DESCRIPTION = "Python library to read and control Flexit air handling units \
-    through the CI66 Modbus adapter."
+               through the CI66 Modbus adapter."
 HOMEPAGE = "https://github.com/troelde/flexit-modbus"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=4cd44ad932f9954df0a7c5b9b468f432"

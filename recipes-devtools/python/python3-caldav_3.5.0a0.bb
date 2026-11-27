@@ -9,31 +9,31 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 SRC_URI[sha256sum] = "adbc1a95a517db1c571d8486de38b07aa880445afd3816838fef420b824d9acc"
 
-DEPENDS += "python3-setuptools-scm-native python3-hatch-vcs-native"
+DEPENDS += "python3-hatch-vcs-native python3-setuptools-scm-native"
 
 inherit pypi python_hatchling ptest-python-pytest
 
 RDEPENDS:${PN} = "\
-    python3-typing-extensions \
-    python3-lxml \
-    python3-niquests \
-    python3-recurring-ical-events (>=2.0.0) \
+    python3-dateutil \
+    python3-dnspython \
     python3-icalendar (>=6.0.0) \
     python3-icalendar-searcher (>=1.1.0) \
-    python3-dnspython \
-    python3-dateutil \
+    python3-lxml \
+    python3-niquests \
     python3-pyyaml \
+    python3-recurring-ical-events (>=2.0.0) \
+    python3-typing-extensions \
 "
 
 RDEPENDS:${PN}-ptest += "\
     bash \
-    python3-vobject \
-    python3-pytest-asyncio \
     python3-coverage \
-    python3-tzlocal \
-    python3-xandikos \
-    python3-radicale \
-    python3-pyfakefs \
-    python3-httpx \
     python3-deptry \
+    python3-httpx \
+    python3-pyfakefs \
+    python3-pytest-asyncio \
+    python3-radicale \
+    python3-tzlocal \
+    python3-vobject \
+    python3-xandikos \
 "

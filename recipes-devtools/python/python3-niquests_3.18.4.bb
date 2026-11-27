@@ -8,21 +8,19 @@ SRC_URI[sha256sum] = "d2f672163c58ce9bc1922ac71c88c0f6b999878b7c642fe3ba8ded275d
 
 inherit pypi python_hatchling ptest-python-pytest
 
-
 RDEPENDS:${PN} += "\
-	python3-charset-normalizer \
-	python3-urllib3 \
-	python3-wassima \
+    python3-charset-normalizer \
+    python3-urllib3 \
+    python3-wassima \
 "
-	
 
 RDEPENDS:${PN}-ptest += "\
-	python3-coverage \
-	python3-pytest-httpbin \
-	python3-pytest-asyncio \
-	python3-httpbin \
-	python3-cryptography \
-	python3-werkzeug \
-	python3-fastapi \
-	python3-aiofiles \
+    python3-aiofiles \
+    python3-coverage \
+    python3-cryptography \
+    python3-fastapi \
+    python3-httpbin \
+    python3-pytest-asyncio \
+    python3-pytest-httpbin \
+    python3-werkzeug \
 "

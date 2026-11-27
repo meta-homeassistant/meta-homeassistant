@@ -9,28 +9,28 @@ DEPENDS += "\
     python3-uv-dynamic-versioning-native \
 "
 SRC_URI[sha256sum] = "8b147a50441cf059dc88c684e0aeed3687f0aa0f39c6cde7b90330effd2b34d8"
-SRC_URI += " file://run-ptest"
+SRC_URI += "file://run-ptest"
 
 inherit pypi python_hatchling ptest-python-pytest
 
 RDEPENDS:${PN} = "\
-    python3-mcp-types (>=2.3.0) \
-    python3-httpx2 (>=2.10.0) \
-    python3-opentelemetry-api (>=1.28.0) \
     python3-anyio (>=4.10) \
+    python3-httpx2 (>=2.10.0) \
+    python3-jsonschema (>=4.20.0) \
+    python3-mcp-types (>=2.3.0) \
+    python3-opentelemetry-api (>=1.28.0) \
     python3-pydantic (>=2.12.0) \
-    python3-starlette (>=0.48.0) \
+    python3-pydantic-settings (>=2.5.2) \
+    python3-pyjwt (>=2.10.1) \
     python3-python-multipart (>=0.0.9) \
     python3-sse-starlette (>=3.0.0) \
-    python3-pydantic-settings (>=2.5.2) \
-    python3-uvicorn (>=0.31.1) \
-    python3-jsonschema (>=4.20.0) \
-    python3-pyjwt (>=2.10.1) \
+    python3-starlette (>=0.48.0) \
     python3-typing-extensions (>=4.13.0) \
     python3-typing-inspection (>=0.4.1) \
+    python3-uvicorn (>=0.31.1) \
 "
 
-RDEPENDS:${PN}-ptest:append = "\
+RDEPENDS:${PN}-ptest:append = " \
     python3-annotated-doc \
     python3-dirty-equals \
     python3-inline-snapshot \
@@ -44,7 +44,7 @@ RDEPENDS:${PN}-ptest:append = "\
 
 do_install_ptest:append() {
     install -d ${D}${PTEST_PATH}/examples
-    cp -rf ${S}/examples/* ${D}${PTEST_PATH}/examples/
+    cd ${S}/examples && find . -type f -exec install -D -m 0644 {} ${D}${PTEST_PATH}/examples/{} \;
     # Ensure local examples are imported instead of the unrelated python3-examples package.
     install -d ${D}${PTEST_PATH}/examples/snippets
     touch ${D}${PTEST_PATH}/examples/__init__.py

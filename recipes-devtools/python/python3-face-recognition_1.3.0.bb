@@ -10,8 +10,8 @@ inherit pypi setuptools3 ptest-python-pytest
 
 RDEPENDS:${PN} += "\
     python3-click (>=6.0) \
-    python3-pillow \
     python3-dlib (>=19.7) \
     python3-face-recognition-models (>=0.3.0) \
     python3-numpy \
+    python3-pillow \
 "
