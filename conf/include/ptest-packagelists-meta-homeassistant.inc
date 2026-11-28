@@ -18,6 +18,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-aiohttp-retry \
     python3-aiointercept \
     python3-aioipp \
+    python3-aiopcaccess \
     python3-aiorun \
     python3-aioruuvigateway \
     python3-aioshelly \
