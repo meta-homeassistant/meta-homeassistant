@@ -55,6 +55,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-ciso8601 \
     python3-cookidoo-api \
     python3-crccheck \
+    python3-dacite \
     python3-ddt \
     python3-deepdiff \
     python3-denonavr \
@@ -194,7 +195,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-cronsim \
     python3-crownstone-cloud \
     python3-crownstone-sse \
-    python3-dacite \
     python3-datadog \
     python3-deptry \
     python3-devolo-home-control-api \
