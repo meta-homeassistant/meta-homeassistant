@@ -39,6 +39,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-ast-serialize \
     python3-asusrouter \
     python3-async-upnp-client \
+    python3-asyncio-dgram \
     python3-atpublic \
     python3-audioop-lts \
     python3-aurorapy \
@@ -169,7 +170,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-aiomcache \
     python3-aiomqtt \
     python3-airthings-ble \
-    python3-asyncio-dgram \
     python3-asyncssh \
     python3-asynctest \
     python3-atomicwrites-homeassistant \

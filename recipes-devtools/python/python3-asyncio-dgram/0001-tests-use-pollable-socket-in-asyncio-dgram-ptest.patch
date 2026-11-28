@@ -1,0 +1,95 @@
+From 24f6dda780d79d3774fad430aa21edb6b9196baa Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Sat, 28 Nov 2026 18:52:47 +0100
+Subject: [PATCH] tests: use pollable socket in asyncio-dgram ptest
+
+Use a UDP socket descriptor in the pause/resume test; Linux epoll rejects
+regular-file descriptors with EPERM.
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+Upstream-Status: Inappropriate [oe specific]
+---
+ test/test_aio.py | 56 +++++++++++++++++++++---------------------------
+ 1 file changed, 24 insertions(+), 32 deletions(-)
+
+diff --git a/test/test_aio.py b/test/test_aio.py
+index ccad1c3..2615270 100644
+--- a/test/test_aio.py
++++ b/test/test_aio.py
+@@ -406,10 +406,7 @@ async def test_unconnected_sender(addr: _Address) -> None:
+ 
+ 
+ @pytest.mark.asyncio
+-async def test_protocol_pause_resume(
+-    monkeypatch: pytest.MonkeyPatch,
+-    tmp_path: pathlib.Path,
+-) -> None:
++async def test_protocol_pause_resume(monkeypatch: pytest.MonkeyPatch) -> None:
+     # This is a little involved, but necessary to make sure that the Protocol
+     # is correctly noticing when writing as been paused and resumed.  In
+     # summary:
+@@ -457,41 +454,36 @@ async def test_protocol_pause_resume(
+     mock_socket.family = socket.AF_INET
+     mock_socket.type = socket.SOCK_DGRAM
+ 
+-    with monkeypatch.context() as ctx:
+-        ctx.setattr(asyncio_dgram.aio, "Protocol", TestableProtocol)
++    with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as pollable_socket:
++        mock_socket.fileno.return_value = pollable_socket.fileno()
+ 
+-        client = await asyncio_dgram.from_socket(mock_socket)
+-        assert isinstance(client, asyncio_dgram.aio.DatagramClient)
+-        assert TestableProtocol.instance is not None
++        with monkeypatch.context() as ctx:
++            ctx.setattr(asyncio_dgram.aio, "Protocol", TestableProtocol)
+ 
+-        mock_socket.send.side_effect = BlockingIOError
+-        mock_socket.fileno.return_value = os.open(
+-            tmp_path / "socket", os.O_RDONLY | os.O_CREAT
+-        )
++            client = await asyncio_dgram.from_socket(mock_socket)
++            assert isinstance(client, asyncio_dgram.aio.DatagramClient)
++            assert TestableProtocol.instance is not None
+ 
+-        with monkeypatch.context() as ctx2:
+-            ctx2.setattr(client._drained, "wait", passthrough)
+-            await client.send(b"foo")
++            mock_socket.send.side_effect = BlockingIOError
++            with monkeypatch.context() as ctx2:
++                ctx2.setattr(client._drained, "wait", passthrough)
++                await client.send(b"foo")
+ 
+-        assert TestableProtocol.instance.pause_writing_called == 1
+-        assert TestableProtocol.instance.resume_writing_called == 0
+-        assert not TestableProtocol.instance._drained.is_set()
++            assert TestableProtocol.instance.pause_writing_called == 1
++            assert TestableProtocol.instance.resume_writing_called == 0
++            assert not TestableProtocol.instance._drained.is_set()
+ 
+-        mock_socket.send.side_effect = None
+-        fd = os.open(tmp_path / "socket", os.O_WRONLY)
+-        os.write(fd, b"\n")
+-        os.close(fd)
+-
+-        with monkeypatch.context() as ctx2:
+-            ctx2.setattr(client._drained, "wait", passthrough)
+-            await client.send(b"foo")
+-        await asyncio.sleep(0.1)
++            mock_socket.send.side_effect = None
++            with monkeypatch.context() as ctx2:
++                ctx2.setattr(client._drained, "wait", passthrough)
++                await client.send(b"foo")
++            await asyncio.sleep(0.1)
+ 
+-        assert TestableProtocol.instance.pause_writing_called == 1
+-        assert TestableProtocol.instance.resume_writing_called == 1
+-        assert TestableProtocol.instance._drained.is_set()
++            assert TestableProtocol.instance.pause_writing_called == 1
++            assert TestableProtocol.instance.resume_writing_called == 1
++            assert TestableProtocol.instance._drained.is_set()
+ 
+-        os.close(mock_socket.fileno.return_value)
++            client.close()
+ 
+ 
+ @pytest.mark.asyncio
