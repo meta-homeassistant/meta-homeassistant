@@ -13,6 +13,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-aioecowitt \
     python3-aioesphomeapi \
     python3-aiohasupervisor \
+    python3-aiohttp-asyncmdnsresolver \
     python3-aiohttp-retry \
     python3-aiointercept \
     python3-aioipp \
@@ -48,11 +49,13 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-bluetooth-auto-recovery \
     python3-broadlink-async \
     python3-btsocket \
+    python3-ciso8601 \
     python3-cookidoo-api \
     python3-crccheck \
     python3-ddt \
     python3-deepdiff \
     python3-denonavr \
+    python3-docstring-parser \
     python3-doorbirdpy \
     python3-dsmr-parser \
     python3-eheimdigital \
@@ -60,12 +63,18 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-emoji \
     python3-enocean-async \
     python3-evohome-async \
+    python3-evolutionhttp \
     python3-fastuuid \
+    python3-fints \
     python3-fjaraskupan \
     python3-flexit-modbus \
+    python3-flux-led \
+    python3-foobot-async \
     python3-fronius-modbus \
     python3-fronius-solarapi \
+    python3-frozendict \
     python3-gazetteer-matcher \
+    python3-getmac \
     python3-gios \
     python3-googlewifiapi \
     python3-gql \
@@ -85,10 +94,14 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-mistune \
     python3-modbus-connection \
     python3-openapi-schema-validator \
+    python3-openwebifpy \
+    python3-pizzapi \
     python3-probatio \
     python3-pyatv \
+    python3-pydeconz \
     python3-pydexcom \
     python3-pyegps \
+    python3-pyemoncms \
     python3-pyfritzhome \
     python3-pygbl \
     python3-pygithub \
@@ -99,6 +112,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-pytest-fixture-classes \
     python3-pytest-httpbin \
     python3-python-bsblan \
+    python3-python-didl-lite \
     python3-python-google-maps-routing-api \
     python3-python-swisscom-internet-box \
     python3-pytibber \
@@ -106,6 +120,7 @@ PTESTS_FAST_META_HOMEASSISTANT = "\
     python3-rf-protocols \
     python3-securetar \
     python3-serialx \
+    python3-soundfile \
     python3-tmodbus \
     python3-uart-devices \
     python3-uuid7 \
@@ -133,7 +148,6 @@ PTESTS_NEEDS_ETHERNET_META_HOMEASSISTANT = "\
 # which are packaged.
 PTEST_CURRENTLY_FAILS_META_HOMEASSISTANT = "\
     python3-aioconsole \
-    python3-aiohttp-asyncmdnsresolver \
     python3-asyncstdlib \
     python3-bimmer-connected \
     python3-bring-api \
@@ -171,7 +185,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-buienradar \
     python3-caldav \
     python3-ciscomobilityexpress \
-    python3-ciso8601 \
     python3-click-log \
     python3-coinbase \
     python3-coinbase-advanced-py \
@@ -193,24 +206,19 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-elvia \
     python3-enturclient \
     python3-eq3btsmart \
-    python3-evolutionhttp \
     python3-face-recognition \
     python3-fake-useragent \
     python3-feedparser \
     python3-file-read-backwards \
-    python3-fints \
     python3-fixerio \
     python3-flasgger \
-    python3-flux-led \
     python3-fortiosapi \
-    python3-frozendict \
     python3-ftfy \
     python3-fyta-cli \
     python3-gassist-text \
     python3-gcal-sync \
     python3-geocachingapi \
     python3-geopy \
-    python3-getmac \
     python3-goodwe \
     python3-google-auth-httplib2 \
     python3-google-cloud-pubsub \
@@ -241,9 +249,7 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-mutagen \
     python3-niquests \
     python3-oauth2client \
-    python3-openwebifpy \
     python3-peblar \
-    python3-pizzapi \
     python3-psutil-home-assistant \
     python3-pure-pcapy3 \
     python3-pure-python-adb \
@@ -252,8 +258,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-pyaes \
     python3-pyaussiebb \
     python3-pydantic-settings \
-    python3-pydeconz \
-    python3-pyemoncms \
     python3-pyfibaro \
     python3-pyflume \
     python3-pyfronius \
@@ -271,7 +275,6 @@ PTEST_NEEDS_TO_BE_VERIFIED_META_HOMEASSISTANT = "\
     python3-simple-websocket \
     python3-siobrultech-protocols \
     python3-sleekxmppfs \
-    python3-soundfile \
     python3-sse-starlette \
     python3-standard-aifc \
     python3-standard-telnetlib \

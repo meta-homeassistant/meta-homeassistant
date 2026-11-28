@@ -6,12 +6,25 @@ RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
 DEPENDS += "python3-wheel-native"
 
-SRC_URI += "file://0001-relax-build-req.patch"
+SRC_URI += "\
+    git://github.com/Kane610/deconz.git;branch=master;protocol=https;tag=v${PV} \
+    file://0001-relax-build-req.patch"
 SRC_URI[sha256sum] = "bb6cdcb1c92a5b30b809b7a2b538986ea81e70e3828918c4bcf0bb50e2ecb0e6"
 
-inherit pypi python_setuptools_build_meta ptest-python-pytest
+inherit python_setuptools_build_meta ptest-python-pytest
 
 RDEPENDS:${PN} = "\
     python3-aiohttp (>=3.11.14) \
     python3-orjson (>=3.10.15) \
 "
+
+RDEPENDS:${PN}-ptest += "\
+    python3-aioresponses \
+    python3-pytest-aiohttp \
+    python3-pytest-asyncio \
+    python3-pytest-cov \
+"
+
+do_install_ptest:append() {
+    install ${S}/pyproject.toml ${D}${PTEST_PATH}/
+}

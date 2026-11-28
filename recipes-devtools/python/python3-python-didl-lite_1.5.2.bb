@@ -5,7 +5,7 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://pyproject.toml;beginline=7;endline=7;md5=2507bd5f0713f05419cd2f22fa06fe62"
 RECIPE_MAINTAINER = "Tom Geelen <t.f.g.geelen@gmail.com>"
 
-inherit pypi python_setuptools_build_meta
+inherit pypi python_setuptools_build_meta ptest-python-pytest
 
 SRC_URI[sha256sum] = "1ec2b09309701745befca09b15427724d60e333c882e6504ab8b0d835e32524b"
 

@@ -268,7 +268,6 @@ python ha_ci_ptest_result() {
 }
 """
     )
-    print(f"Building and testing images: {', '.join(targets)}", flush=True)
     arguments = ["bitbake"]
     if keep_going:
         arguments.append("-k")
